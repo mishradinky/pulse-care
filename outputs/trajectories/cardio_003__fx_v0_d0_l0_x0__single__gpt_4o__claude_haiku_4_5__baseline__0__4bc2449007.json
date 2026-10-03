@@ -1,0 +1,200 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "fx_v0_d0_l0_x0",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 62,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's been racing for three days. Won't slow down."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or dizziness along with the racing heart?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. A little short of breath when I move around. Some dizziness too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced anything like this before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "First time. Never had this before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any triggers or activities that make your heart race more, or does it happen at rest as well?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Happens at rest mostly. Got worse after heavy drinking last weekend."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medications or substances to try to slow your heart rate, or are you on any regular medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I take lisinopril for blood pressure. Nothing else regular. Didn't take anything for the heart."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe your alcohol consumption habits and any recent changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Had a lot to drink last weekend. Otherwise don't drink much."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Advise reduction in alcohol consumption",
+          "Consider starting a beta-blocker if indicated after ECG results"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening arrhythmia or complications if untreated"
+        ],
+        "communication_note": "Your heart racing could be due to an irregular heartbeat, possibly triggered by alcohol. We'll do some tests and follow up urgently to manage this."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Palpitations are still going on. Now I have chest tightness too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest tightness? Is it constant or does it come and go?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Comes and goes. Worse when I move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you experience any shortness of breath or dizziness with the chest tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, some shortness of breath when I exert myself. And lightheadedness occasionally."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "angina",
+          "arrhythmia",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "stress test"
+        ],
+        "management_plan": [
+          "advise rest and avoid exertion",
+          "prescribe nitroglycerin for chest pain",
+          "schedule follow-up with cardiology"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for worsening cardiac event"
+        ],
+        "communication_note": "Your symptoms suggest a heart-related issue, so we'll do some tests and have you see a cardiologist soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Much worse palpitations. Had a fainting spell this morning."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "arrhythmia",
+          "vasovagal syncope"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "advise patient to avoid triggers for fainting",
+          "consider starting beta-blocker if arrhythmia confirmed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of injury from fainting",
+          "potential for serious underlying cardiac condition"
+        ],
+        "communication_note": "Your symptoms are concerning for a heart rhythm issue, so I recommend going to the emergency department for further evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790546603.6146483
+}

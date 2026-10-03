@@ -1,0 +1,214 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I'm just... so tired all the time. Like, I can barely get through my day. And I've been gaining weight even though I'm not eating more. It's been going on for like four months now and I'm really worried something's wrong with me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I hear you\u2014fatigue and unexplained weight gain over four months is definitely worth investigating. Let me ask a few clarifying questions: Have you noticed any changes in your mood, concentration, or sleep patterns? And have you experienced any other symptoms like cold intolerance, hair loss, dry skin, or changes in your menstrual cycle?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've been feeling really cold all the time\u2014like I need a sweater even when it's warm out. My skin's been super dry and itchy. And um, my hair's been coming out more when I shower, which freaks me out. My periods... they're all messed up now, not regular like they used to be. As for sleep, I sleep a lot but still feel tired. I guess my mood's been kinda down too, but wouldn't you be sad if you felt this bad?"
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypothyroidism (PRIMARY - classic triad of fatigue, weight gain, cold intolerance + hair loss, dry skin, menstrual irregularity, mood changes)",
+          "Depression/mood disorder (secondary consideration; mood symptoms may be reactive to physical illness)",
+          "Anemia (iron deficiency common in women; contributes to fatigue)",
+          "Vitamin deficiency (B12, D, folate)",
+          "Metabolic syndrome/insulin resistance",
+          "Sleep disorder (excessive sleep with persistent fatigue suggests non-restorative sleep)",
+          "Medication side effect (unknown\u2014medication list pending)",
+          "Chronic fatigue syndrome"
+        ],
+        "workup_ordered": [
+          "TSH (reflex to free T4 if elevated)",
+          "Complete blood count (CBC) with differential",
+          "Comprehensive metabolic panel (CMP)",
+          "Vitamin B12 level",
+          "Folate level",
+          "Vitamin D (25-OH) level",
+          "Iron studies (serum iron, ferritin, TIBC) to rule out iron deficiency anemia",
+          "Consider: thyroid peroxidase (TPO) antibodies if TSH elevated (to confirm autoimmune thyroiditis)"
+        ],
+        "management_plan": [
+          "OBTAIN: Complete medication list (OTC, supplements, herbals, hormonal contraceptives, recent changes) before any new prescriptions",
+          "OBTAIN: Complete allergy/intolerance history",
+          "PENDING LABS: Hold treatment initiation until results available; hypothyroidism is most likely diagnosis but anemia/vitamin deficiency may be concurrent",
+          "IF HYPOTHYROIDISM CONFIRMED: Initiate levothyroxine 25\u201350 mcg daily on empty stomach (30\u201360 min before food/supplements); recheck TSH in 6\u20138 weeks and titrate to goal TSH 0.5\u20132.5 mIU/L",
+          "IF ANEMIA CONFIRMED: Treat iron deficiency; separate iron dosing from levothyroxine by \u22654 hours",
+          "IF ON HORMONAL CONTRACEPTIVES: Note interaction with thyroid function; may need TSH monitoring; discuss continuation vs. alternatives with patient",
+          "MOOD ASSESSMENT: Reassess mood after 6\u20138 weeks of thyroid replacement; if depression persists, consider referral to mental health; screen for serotonin syndrome risk if SSRIs considered",
+          "PATIENT EDUCATION: Explain symptom timeline, need for labs, medication timing, and importance of follow-up TSH monitoring (6\u20138 weeks, then annually)",
+          "FOLLOW-UP: Schedule visit in 6\u20138 weeks to review labs and adjust therapy; annual TSH monitoring if hypothyroidism confirmed"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "No acute safety red flags identified; patient is stable for outpatient workup",
+          "Mood symptoms warrant monitoring for depression severity; if suicidal ideation emerges, escalate immediately",
+          "Medication interactions critical once levothyroxine initiated\u2014pharm/nurse must screen for iron, calcium, PPIs, H2-blockers, antacids, and hormonal contraceptives"
+        ],
+        "communication_note": "Patient presents with classic hypothyroid symptom cluster (fatigue, weight gain, cold intolerance, hair loss, dry skin, menstrual irregularity, mood changes); labs will confirm diagnosis and guide treatment initiation.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately recognized endocrine/metabolic etiology and used targeted history (mood, sleep, cold intolerance, hair loss, dry skin, menstrual changes) to narrow differential. Hypothyroidism and depression identified as top considerations. Workup deferred pending clarification, which is appropriate.",
+          "safety_checker_contribution": "Safety checker cleared visit as routine with no red flags or blocking concerns. Appropriate given stable presentation; no acute safety issues identified.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps (no medication list documented) and provided comprehensive medication interaction screening framework for hypothyroidism and depression management. Highlighted absorption issues with levothyroxine, contraceptive-thyroid interactions, iron-levothyroxine separation, and nursing counseling on timing and follow-up labs. Provided standard dosing guidance (25\u201350 mcg levothyroxine) and 6\u20138 week recheck protocol."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doc. I started that pill you gave me last time\u2014the little white one\u2014about a month ago. But I'm still so tired all the time, and my stomach's all backed up. I thought the medicine was supposed to help by now. I'm really frustrated."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to clarify a few things to help us figure out what's going on. First, can you remind me which medication you started\u2014do you remember the name? And second, when you say you're tired all the time, has that gotten worse since starting the pill, or was it already there before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Um, I think it's the white pill? The doctor said it was for my... uh... thyroid thing? I take it in the morning. And yeah, the tired part\u2014that was happening before, like for months. But honestly, I was hoping the pill would help and it kinda hasn't. Still exhausted."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Inadequate treatment of hypothyroidism (persistent fatigue despite levothyroxine or equivalent; constipation also consistent)",
+          "Medication non-efficacy or suboptimal dosing (white pill likely levothyroxine; may need TSH-guided dose adjustment)",
+          "Concurrent/unmasked pathology (anemia, iron deficiency, depression, sleep disorder)",
+          "Medication malabsorption or timing issue (levothyroxine requires fasting; GI absorption may be impaired)",
+          "Secondary hypothyroidism or other thyroid dysfunction not yet optimized"
+        ],
+        "workup_ordered": [
+          "TSH (priority\u2014assess current thyroid control; target typically 0.5\u20132.5 mIU/L for levothyroxine therapy)",
+          "Free T4 (if TSH abnormal, to assess adequacy of replacement)",
+          "CBC (rule out anemia as contributor to fatigue)",
+          "Iron studies (ferritin, serum iron, TIBC\u2014iron deficiency common in women, worsens fatigue)",
+          "Comprehensive metabolic panel (assess renal/hepatic function for dose appropriateness; rule out electrolyte abnormality)",
+          "Medication reconciliation from pharmacy records (confirm levothyroxine dose, frequency, start date; verify no interactions with OTC/supplements)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Verify medication name and dose from pharmacy records; confirm patient is taking levothyroxine on empty stomach (30\u201360 min before food/supplements) to optimize absorption",
+          "Obtain TSH + Free T4 today or within 48 hours; if TSH elevated or Free T4 low, increase levothyroxine dose by 12.5\u201325 mcg and recheck in 6\u20138 weeks",
+          "If TSH normal but fatigue persists, prioritize CBC and iron studies to rule out anemia or iron deficiency",
+          "Counsel on constipation management: increase fluids, fiber, and physical activity; consider stool softener if needed (safe with levothyroxine)",
+          "Schedule follow-up in 2\u20134 weeks after labs to reassess symptoms and adjust therapy as needed",
+          "If fatigue is severe or accompanied by red flags (chest pain, dyspnea, syncope), escalate to urgent outpatient or ED"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Medication identity unconfirmed\u2014assumed levothyroxine based on 'thyroid thing' and white pill description, but must verify from pharmacy to rule out wrong agent or dosing error",
+          "Fatigue + constipation for months prior to medication suggests underlying thyroid dysfunction may not be adequately treated; TSH-guided optimization is essential",
+          "No recent labs documented\u2014TSH, CBC, and iron studies are critical to differentiate medication side effect from treatment failure or concurrent pathology",
+          "Pregnancy status unknown in 38F\u2014if pregnant or planning pregnancy, levothyroxine dosing may need adjustment; confirm contraception/pregnancy status",
+          "Medication absorption risk: patient must be counseled on proper levothyroxine administration (fasting, timing relative to food/supplements) to ensure efficacy"
+        ],
+        "communication_note": "Patient's fatigue predates medication initiation by months, suggesting inadequate thyroid control rather than drug side effect; priority is TSH-guided dose optimization and labs to rule out concurrent anemia or iron deficiency.",
+        "trace": {
+          "clinician_contribution": "Appropriately focused on clarifying medication identity and symptom timeline to distinguish drug side effect from treatment failure; proposed targeted history-gathering to guide differential diagnosis and workup.",
+          "safety_checker_contribution": "Identified fatigue + constipation as red flag for hypothyroidism in 38F; flagged need for vital signs, weight, and basic labs; approved clinician's diagnostic approach as safe and appropriate; set conditional escalation triggers (acute severe symptoms \u2192 urgent/ED).",
+          "pharm_nurse_contribution": "Highlighted critical need to confirm medication name and dose from pharmacy records before proceeding; noted that fatigue + constipation span multiple drug classes (opioids, anticholinergics, antidepressants, antihypertensives); recommended full medication reconciliation, allergy verification, and assessment of renal/hepatic function for dose appropriateness; flagged pregnancy status as relevant to levothyroxine dosing."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doc. I'm feeling some better than before, but I'm still pretty tired. When do you think I'll feel like myself again? Like, how much longer till I'm back to normal?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm glad you're feeling a bit better. To help me understand your timeline for recovery, I need to know: what was the original problem that brought you in, and when did your symptoms start? Also, have there been any changes to your energy level, sleep, appetite, or mood since your last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, like I said before, I was just super tired all the time and kept gaining weight even though I wasn't eating more. That was like four months ago? And my skin got all dry and flaky. I'm sleeping better now, I think. My energy is way better than before, but I'm still not like my normal self, you know? I just wanna feel like I used to."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypothyroidism (PRIMARY - fits classic triad: fatigue, weight gain, dry skin over 4 months)",
+          "Post-thyroiditis recovery state",
+          "Anemia or iron deficiency (secondary consideration given female, weight gain pattern)",
+          "Depression or adjustment disorder (lower priority given symptom onset predates mood changes)",
+          "Medication side effect (cannot assess without medication list)",
+          "Chronic fatigue syndrome or post-viral syndrome (less likely given clear 4-month timeline and systemic symptoms)"
+        ],
+        "workup_ordered": [
+          "TSH, Free T4 (STAT - high suspicion for hypothyroidism)",
+          "CBC with differential (assess for anemia)",
+          "CMP including renal/hepatic function (baseline before any treatment)",
+          "Iron studies (ferritin, serum iron, TIBC) if CBC shows anemia",
+          "Obtain COMPLETE MEDICATION LIST including OTC, supplements, herbals (CRITICAL - blocks pharm review)"
+        ],
+        "management_plan": [
+          "HOLD pending TSH/Free T4 results - do NOT initiate levothyroxine without confirmation",
+          "Once medication list obtained: screen for drug-drug interactions and medication-induced fatigue",
+          "If hypothyroidism confirmed: initiate levothyroxine at standard dose (25-50 mcg daily), counsel on timing (empty stomach, 30-60 min before food/supplements)",
+          "Reassess in 6-8 weeks with repeat TSH to titrate dose",
+          "If anemia present: assess for menorrhagia, GI bleeding; counsel on iron supplement timing (separate from calcium, PPIs, iron-rich foods by 2 hours)",
+          "Reinforce sleep hygiene maintenance; monitor mood during recovery",
+          "Confirm allergy status (drug and food) before any prescriptions filled"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "CRITICAL DATA GAP: No medication list provided - cannot screen for drug interactions or medication-induced fatigue",
+          "CRITICAL DATA GAP: No allergy history documented - must confirm before prescribing",
+          "CRITICAL DATA GAP: No baseline vitals (BP, HR, temp trends) - tachycardia/hypotension could indicate anemia or persistent infection",
+          "4-month symptom duration with weight gain + dry skin + fatigue is classic hypothyroidism presentation - TSH must be ordered to rule out before attributing to other etiologies",
+          "Female age 38 with fatigue and weight gain - assess menstrual history for menorrhagia (anemia risk factor)"
+        ],
+        "communication_note": "Patient reports 4-month history of fatigue, weight gain, and dry skin with recent improvement in sleep and energy but not yet back to baseline\u2014classic hypothyroidism presentation requiring urgent TSH/Free T4 testing; medication list and allergy status must be obtained before any treatment initiation.",
+        "trace": {
+          "clinician_contribution": "Appropriately gathered timeline (4-month onset) and interval changes (improved sleep/energy, persistent fatigue); differential includes hypothyroidism but lacks specificity\u2014TSH workup is now indicated based on patient's symptom constellation.",
+          "safety_checker_contribution": "Approved visit as routine with no red flags or blocking concerns; however, critical data gaps (medication list, allergy history, vitals) should have been flagged as safety risks before proceeding.",
+          "pharm_nurse_contribution": "Correctly identified CRITICAL blocker: no medication list provided, preventing drug-interaction screening and assessment of medication-induced fatigue. Flagged need for baseline labs (CBC, CMP, TSH) before dose adjustments. Highlighted iron supplementation considerations for potential anemia and thyroid medication absorption interactions. Noted need for allergy confirmation and medication adherence assessment during recovery."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512896.6737316
+}

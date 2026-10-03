@@ -1,0 +1,213 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "primary_care",
+    "demographics": {
+      "age": 45,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I noticed a sore on the bottom of my right foot about two weeks ago. It's not painful, which is strange, but it just won't heal and the area around it looks red."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore in more detail? For example, is it raised, flat, or ulcerated? Have you noticed any drainage, odor, or changes in size?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's kind of flat and sunken in, not raised. There's no drainage or bad smell that I've noticed. It hasn't really gotten bigger since I first saw it two weeks ago, but it's also not healing. The skin around it is a bit red and warm to the touch."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer (even without pain)",
+          "Pressure ulcer or callus with secondary infection",
+          "Venous or arterial insufficiency ulcer",
+          "Pyoderma gangrenosum (less likely but possible)",
+          "Skin cancer (e.g., squamous cell carcinoma)"
+        ],
+        "workup_ordered": [
+          "Inspect and measure the lesion",
+          "Assess pedal pulses and capillary refill",
+          "Check for signs of infection (e.g., warmth, purulence)",
+          "Consider HbA1c if diabetes risk factors present",
+          "Possible wound culture if signs of infection",
+          "Referral to podiatry if ulcer suspected"
+        ],
+        "management_plan": [
+          "Monitor the lesion for changes in size, drainage, or odor",
+          "Educate patient on proper wound care (e.g., keeping the area clean and dry, avoiding pressure)",
+          "Consider referral to podiatry for diabetic foot ulcer screening if HbA1c is elevated",
+          "Assess for contraindications to NSAIDs if pain management is required (e.g., avoid in CKD, GI bleeding risk)",
+          "Follow up in 1-2 weeks to reassess healing progress"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Monitor for signs of infection (e.g., increased redness, purulence, odor) if wound culture is performed",
+          "Monitor for systemic symptoms (e.g., fever, chills) if infection is suspected"
+        ],
+        "communication_note": "Patient should be advised to seek urgent outpatient care if the lesion worsens or signs of infection develop.",
+        "trace": {
+          "clinician_contribution": "Clinician identified key differentials (e.g., diabetic foot ulcer, pressure ulcer) and outlined workup steps (e.g., lesion inspection, HbA1c, podiatry referral) based on patient's description of a painless, non-healing, red, warm sore on the foot.",
+          "safety_checker_contribution": "Safety checker approved the plan with no red flags or blocking concerns, recommending routine escalation but noting no immediate safety issues.",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted monitoring for infection, wound care education, and contraindications for NSAIDs, emphasizing the need for podiatry referral if diabetes is suspected."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. The wound on my foot\u2014it looks bigger now, and there's a bad smell coming from it. I'm worried it's getting worse instead of better."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had this wound, and when did you first notice the smell? Also, have you had any fever, chills, or pain in the area?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I noticed the wound about two weeks ago, but the bad smell started just recently\u2014maybe in the last few days. I haven't had a fever that I know of, and no chills. The wound itself doesn't really hurt, which is strange, but the area around it feels warm and red."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cellulitis or soft tissue infection",
+          "Osteomyelitis (bone infection)",
+          "Gangrene or necrotic tissue",
+          "Chronic wound with secondary infection",
+          "Sepsis (if systemic symptoms develop)"
+        ],
+        "workup_ordered": [
+          "Inspect and measure the wound for size, depth, and signs of infection (erythema, warmth, purulence)",
+          "Assess systemic symptoms (fever, tachycardia, hypotension) and obtain vital signs",
+          "Obtain wound culture if infection is suspected",
+          "Consider imaging (X-ray or MRI) if osteomyelitis or deep infection is suspected",
+          "Screen for diabetes (HbA1c or fasting glucose) given poor wound healing risk",
+          "Check penicillin allergy status before any antibiotic prescription"
+        ],
+        "management_plan": [
+          "Hold ibuprofen due to potential masking of fever, impaired wound healing, and renal risks; use acetaminophen for pain/fever as needed",
+          "If cellulitis is suspected, prescribe amoxicillin 500mg PO every 8 hours only after confirming no penicillin allergy and adjusting dose for renal function if necessary",
+          "Educate patient on avoiding NSAIDs and signs of worsening infection (spreading erythema, fever, chills)",
+          "Initiate proper wound care (cleansing, dressing changes) and schedule follow-up for culture results",
+          "Arrange urgent outpatient follow-up within 24-48 hours for re-evaluation and possible debridement or surgical consult if infection progresses",
+          "Monitor for signs of sepsis (fever, tachycardia, hypotension) and escalate to ED if systemic symptoms develop"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of necrotic progression or gangrene without timely debridement",
+          "Potential for masked systemic infection due to NSAID use (ibuprofen)",
+          "Risk of sepsis if infection spreads without appropriate antibiotics or monitoring",
+          "Lack of documented systemic symptom assessment (fever, tachycardia) in initial evaluation",
+          "No diabetes screening despite risk factors for poor wound healing"
+        ],
+        "communication_note": "Patient should be seen urgently (within 24-48 hours) for wound re-evaluation, systemic symptom assessment, and possible imaging or debridement.",
+        "trace": {
+          "clinician_contribution": "Clinician identified key differentials (cellulitis, osteomyelitis, gangrene) and proposed appropriate workup (wound inspection, systemic symptom assessment, imaging, culture). Rationale emphasized urgency due to worsening wound appearance and malodor.",
+          "safety_checker_contribution": "Safety checker approved the plan but flagged critical red flags: malodor/worsening wound suggesting necrotic tissue or deep infection, lack of systemic symptom assessment (vitals, sepsis screen), and no diabetes screening. Recommended urgent outpatient escalation and highlighted blocking concerns (e.g., NSAID use masking fever).",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (ibuprofen, amoxicillin, acetaminophen) and identified risks: NSAID use may impair healing and mask fever; amoxicillin requires allergy/dose adjustments; acetaminophen is safe but monitor total daily dose. Provided dose adjustments for renal impairment and nursing concerns (monitoring for worsening infection, wound care education, avoiding NSAIDs)."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My foot is very red and swollen, and I have a fever now. It started just in the last 12 hours or so. I'm really worried because the wound I've had for a couple weeks seems much worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the wound on your foot in more detail? When did it first appear, and have you noticed any pus, foul odor, or changes in its appearance over the past few weeks?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The wound showed up about two weeks ago on the bottom of my right foot. I didn't feel it at first because of the numbness in my feet. It's gotten bigger and redder, and now there's some drainage. The area around it is swollen and warm. I haven't really noticed a bad smell, but I'm worried because it's not getting better."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cellulitis with possible abscess formation",
+          "Necrotizing soft tissue infection",
+          "Worsening chronic wound with secondary infection",
+          "Deep vein thrombosis with secondary cellulitis"
+        ],
+        "workup_ordered": [
+          "Vital signs including temperature",
+          "Examine the wound for signs of purulence, necrosis, or fluctuance",
+          "Assess for systemic signs of infection (e.g., tachycardia, hypotension)",
+          "CBC with differential and CRP if systemic infection is suspected",
+          "Consider imaging (e.g., ultrasound or MRI) if necrotizing infection is a concern",
+          "Tetanus vaccination status review"
+        ],
+        "management_plan": [
+          "Empiric antibiotics (e.g., cephalexin) if cellulitis confirmed; adjust if MRSA risk",
+          "Pain management with acetaminophen (avoid NSAIDs if CKD present)",
+          "Close glucose monitoring and insulin dose adjustment if hyperglycemia develops",
+          "Wound care with debridement if purulence/necrosis identified",
+          "Monitor for signs of worsening infection (fever, tachycardia, hypotension)",
+          "Hold metformin if imaging with contrast is required (risk of lactic acidosis)"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Acute onset of fever and rapidly worsening wound suggests potential necrotizing infection requiring urgent evaluation",
+          "Risk of lactic acidosis if metformin is continued with potential sepsis or contrast imaging",
+          "Possible nephrotoxicity with ibuprofen + lisinopril if CKD is present",
+          "Need for tetanus vaccination update if wound is deep/necrotic"
+        ],
+        "communication_note": "Patient should be referred to the ED for urgent evaluation due to high risk of severe infection.",
+        "trace": {
+          "clinician_contribution": "Identified key differentials including necrotizing soft tissue infection and cellulitis, proposed vital signs, wound examination, systemic infection assessment, and imaging if needed. Rationale emphasized ruling out necrotizing infection due to severity of symptoms.",
+          "safety_checker_contribution": "Approved clinician's plan with no blocking concerns. Identified red flags including systemic infection risk addressed by vital signs and imaging consideration. Recommended routine escalation initially, but coordinator escalated to ED referral due to acute worsening.",
+          "pharm_nurse_contribution": "Reviewed medications (metformin, lisinopril, ibuprofen, insulin) for interactions and dose adjustments. Highlighted risks including lactic acidosis with metformin, nephrotoxicity with ibuprofen + lisinopril, and need for glucose monitoring. Advised avoiding NSAIDs in CKD and ensuring tetanus vaccination."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790535991.0361185
+}

@@ -1,0 +1,221 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath. Especially when I walk around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had this shortness of breath, and do you have any fever, cough, chest pain, leg swelling, or recent travel or sick contacts?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three weeks. Got fever, cough. No chest pain, no swelling. Didn't travel."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) \u2014 most likely given 3-week fever + cough + dyspnea on exertion",
+          "Acute exacerbation of asthma/COPD",
+          "Pulmonary embolism \u2014 cannot exclude without vital signs and D-dimer",
+          "Acute heart failure",
+          "COVID-19 or other viral respiratory infection",
+          "Acute bronchitis (less likely given 3-week duration)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (SpO2, RR, HR, BP, temperature) \u2014 BLOCKING GATE before proceeding",
+          "12-lead ECG (within minutes) \u2014 rule out ACS/arrhythmia",
+          "Chest X-ray \u2014 assess for infiltrate, pneumothorax, pulmonary edema",
+          "CBC, CMP, LFTs \u2014 baseline labs for infection severity and medication safety",
+          "Troponin (high-sensitivity if available) \u2014 rule out myocarditis/ACS",
+          "D-dimer \u2014 if vital signs stable and PE remains in differential",
+          "Respiratory viral panel \u00b1 COVID-19 PCR \u2014 if CXR not diagnostic",
+          "Blood cultures if febrile and CXR shows infiltrate"
+        ],
+        "management_plan": [
+          "DO NOT initiate empiric antibiotics until vital signs obtained and infection confirmed (CXR or labs)",
+          "Once vital signs confirm stability (SpO2 \u226594%, RR \u226420, HR <100, no syncope/chest pain): proceed with outpatient workup",
+          "Obtain complete medication history (Rx, OTC, supplements), allergy history (penicillin, macrolides, fluoroquinolones, sulfonamides), and pregnancy status before any treatment",
+          "If CXR shows infiltrate consistent with CAP: empiric antibiotic selection based on allergy history and local resistance patterns (e.g., amoxicillin-clavulanate or respiratory fluoroquinolone)",
+          "Verify Medicaid formulary coverage before dispensing",
+          "Reassess in 48\u201372 hours; escalate if worsening or no improvement"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "VITAL SIGNS ARE MANDATORY GATE \u2014 if SpO2 <94%, RR >20, HR >100, or any chest pain/syncope: escalate to ED/911 immediately",
+          "3-week dyspnea + fever + cough raises concern for severe CAP, myocarditis, or PE \u2014 objective data (ECG, troponin, imaging) required before outpatient management",
+          "No current medications documented \u2014 cannot assess drug interactions or contraindications until full history obtained",
+          "Pregnancy status unknown \u2014 impacts antibiotic/antiviral selection",
+          "Allergy history not yet obtained \u2014 risk of anaphylaxis if empiric antibiotics given without confirmation"
+        ],
+        "communication_note": "Patient has 3-week fever + cough + dyspnea on exertion; vital signs and ECG must be obtained immediately to rule out life-threatening etiologies (PE, myocarditis, ACS) before proceeding with outpatient workup.",
+        "trace": {
+          "clinician_contribution": "Appropriate differential diagnosis (CAP, PE, ACS, viral infection) and focused history-taking; however, clinician proposed history-first approach without concurrent vital signs or point-of-care testing.",
+          "safety_checker_contribution": "Critical escalation: identified that vital signs, ECG, and objective testing (troponin, D-dimer) must precede history-gathering alone; blocking concerns prevent outpatient-only approach until hemodynamic/oxygenation stability confirmed.",
+          "pharm_nurse_contribution": "Identified missing medication history, allergy history, pregnancy status, and baseline labs (CBC, CMP, LFTs, troponin, D-dimer) as prerequisites for safe treatment initiation; flagged Medicaid formulary verification and drug interaction risks (macrolides, fluoroquinolones, NSAIDs)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing's worse. Even sitting down now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the breathing difficulty start, and have you had any fever, cough, chest pain, leg swelling, or recent travel or sick contacts? Also, any past medical history or current medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Breathing got bad three weeks ago. Cough, fever on and off. No chest pain, leg swelling, or travel. No past stuff. Not on meds."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) \u2014 most likely given 3-week progressive cough, fever, dyspnea",
+          "Acute exacerbation of asthma/COPD",
+          "Pulmonary embolism \u2014 lower probability but cannot exclude without imaging",
+          "COVID-19 or other viral respiratory infection",
+          "Myocarditis/pericarditis \u2014 lower probability without chest pain, but dyspnea at rest warrants ECG",
+          "Acute bronchitis \u2014 less likely given 3-week duration and progressive nature"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: RR, HR, BP, temperature, SpO\u2082 (pulse oximetry)",
+          "Bedside assessment: work of breathing, accessory muscle use, lung auscultation, cardiac exam",
+          "Chest X-ray (CXR) \u2014 same-day or ED",
+          "ECG \u2014 to rule out myocarditis/pericarditis and assess for QT prolongation before antimicrobial selection",
+          "Labs: CBC (WBC, differential), BMP (Cr, eGFR for dosing), LFTs, troponin, D-dimer (if PE suspected after imaging)",
+          "COVID-19 PCR or antigen test (given respiratory symptoms and fever)",
+          "Sputum culture if productive cough (defer pending CXR findings)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain vital signs and SpO\u2082; if SpO\u2082 <94%, RR >25, or hemodynamic instability \u2192 activate 911/ED referral",
+          "If stable (SpO\u2082 \u226594%, RR <25, no distress): ED referral for CXR, ECG, labs, and same-day imaging to rule out PE/myocarditis",
+          "Antimicrobial selection pending CXR and labs; likely CAP empiric therapy (e.g., amoxicillin-clavulanate or respiratory fluoroquinolone) with allergy screening and QT risk assessment",
+          "Obtain complete medication, allergy (drug, food, environmental), and supplement history before prescribing",
+          "Establish IV access if hypoxic or signs of severe infection",
+          "Isolation precautions if COVID-19 suspected; counsel on transmission prevention",
+          "Medication counseling: adherence, timing (e.g., fluoroquinolone 2 hrs from antacids), red-flag symptoms (worsening dyspnea, chest pain, syncope)",
+          "Follow-up: repeat vitals q4h if admitted; q24h if outpatient; reassess in 48\u201372 hrs for clinical response"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Dyspnea at rest in 32M with 3-week progressive course and fever suggests acute decompensation; differential includes life-threatening conditions (PE, myocarditis, severe CAP)",
+          "Vital signs and SpO\u2082 NOT yet documented; must obtain BEFORE further workup to triage acuity and determine if 911 activation needed",
+          "Progressive dyspnea + fever + cough for 3 weeks raises concern for severe CAP, sepsis, or atypical infection (TB, fungal); CXR and labs essential",
+          "Patient denies past medical history and current medications; confirm no immunosuppression, asthma, COPD, or cardiac disease that would alter risk stratification",
+          "Primary care setting cannot safely rule out PE or myocarditis with history and exam alone; imaging and troponin/D-dimer required",
+          "No documented allergy history; must obtain before antimicrobial selection to avoid adverse drug events"
+        ],
+        "communication_note": "32M with 3-week progressive dyspnea, cough, and intermittent fever requires urgent ED evaluation for CXR, ECG, and labs to rule out CAP, PE, and myocarditis; vital signs and SpO\u2082 must be obtained immediately to determine if emergency transport is needed.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk presentation and generated broad, evidence-based differential (CAP, PE, myocarditis, asthma/COPD exacerbation, viral infection). Obtained key historical elements (timeline: 3 weeks, symptoms: cough + fever, negatives: no chest pain/leg swelling/travel/sick contacts, no PMHx/meds). Workup array was empty, indicating information-gathering phase only.",
+          "safety_checker_contribution": "Safety checker identified CRITICAL gaps: (1) no vital signs or SpO\u2082 documented despite dyspnea at rest; (2) empty workup plan despite high-risk differential; (3) risk of delayed recognition of decompensation if history-taking precedes objective assessment. Recommended ED referral and blocking concerns: must assess oxygenation/perfusion NOW, obtain CXR/ECG/labs urgently, and rule out PE/myocarditis before primary care management.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged: (1) no current medications documented\u2014obtain complete list (Rx, OTC, supplements) for interaction screening; (2) pending allergy history (drug, food, environmental) before antimicrobial selection; (3) if fluoroquinolone or macrolide considered, screen for QT prolongation, myasthenia gravis, CYP3A4 interactions; (4) renal/hepatic function unknown\u2014obtain baseline Cr, eGFR, LFTs for dosing (likely standard in 32M, but confirm); (5) nursing actions: assess RR, O\u2082 sat, work of breathing NOW; establish IV access if hypoxic; isolate if COVID-19 suspected; counsel on adherence and red-flag symptoms; monitor q4h if admitted or q24h if outpatient."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't... breathe. Need... air."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_number": 3,
+        "acuity_level": "CRITICAL",
+        "differential_diagnosis": [
+          "Acute respiratory distress (hypoxemia) \u2014 etiology unknown",
+          "Pneumonia (bacterial/viral/opportunistic)",
+          "Pulmonary embolism",
+          "Pneumothorax",
+          "Acute coronary syndrome",
+          "Sepsis/severe infection"
+        ],
+        "workup_ordered": [
+          "STAT oxygen saturation & continuous pulse oximetry",
+          "STAT vital signs (RR, HR, BP, temperature)",
+          "STAT chest X-ray (portable if patient cannot be moved safely)",
+          "STAT ABG or VBG",
+          "STAT ECG",
+          "STAT labs: CBC, CMP, lactate, procalcitonin, blood cultures (if febrile)",
+          "Baseline creatinine/eGFR (renal function for antibiotic dosing)",
+          "Baseline LFTs (hepatic function assessment)",
+          "Consider CT PE protocol if hemodynamically stable post-initial workup"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Supplemental oxygen (target SpO\u2082 >94%); prepare non-rebreather and BVM on standby",
+          "IMMEDIATE: Establish IV access (18G or larger) for fluid resuscitation and medication administration",
+          "IMMEDIATE: Obtain blood cultures BEFORE initiating empiric antibiotics",
+          "CONFIRM allergy status: penicillin, macrolides, fluoroquinolones, sulfonamides \u2014 CRITICAL before empiric therapy",
+          "OBTAIN current medication list from patient/chart STAT \u2014 no active medications documented; essential for drug-drug interaction screening",
+          "EMPIRIC antibiotics: pending allergy confirmation and culture results; monitor QT interval if fluoroquinolones/macrolides used",
+          "Antibiotic dosing: adjust based on renal/hepatic function once labs available",
+          "VERIFY medication compliance and prior antibiotic exposure (visit 3 pattern suggests possible treatment failure or recurrence)",
+          "Continuous cardiac monitoring (ACS in differential)",
+          "Frequent reassessment of respiratory status; prepare for ICU escalation if deterioration"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Acute dyspnea at rest in 32-year-old \u2014 immediately life-threatening presentation",
+          "Hypoxemia status unknown \u2014 oxygenation must be quantified immediately; supplemental O\u2082 is temporizing only",
+          "Differential includes PE, pneumothorax, ACS, sepsis \u2014 all require ED-level infrastructure, imaging, and continuous monitoring",
+          "Visit 3 pattern indicates acute decompensation, not new complaint \u2014 suggests possible treatment failure, non-adherence, or secondary infection",
+          "Febrile status not documented \u2014 sepsis risk unclear; if present, requires IV access, blood cultures, and potential ICU care",
+          "No medication list available \u2014 cannot assess drug interactions or contraindications; must obtain immediately",
+          "Renal and hepatic function unknown \u2014 critical for safe antibiotic dosing",
+          "Patient cannot remain in outpatient clinic setting without real-time continuous monitoring and immediate resuscitation capability"
+        ],
+        "disposition_rationale": "Patient presents with acute respiratory distress at rest (dyspnea, inability to speak in full sentences). This is a safety-critical, immediately life-threatening presentation. While the clinician correctly identified the need for rapid workup and the safety checker appropriately flagged the acuity, **outpatient clinic infrastructure is insufficient**. Stat imaging (CXR, possible CT), ABG, and continuous hemodynamic/respiratory monitoring require ED-level resources. Differential includes PE, pneumothorax, sepsis, and ACS \u2014 all demand emergent evaluation with concurrent clinical oversight. Patient requires **emergency transport (911) to ED now** for stabilization, imaging, and definitive diagnosis before any outpatient workup.",
+        "communication_note": "Patient is in acute respiratory distress and requires immediate emergency transport; do not delay for outpatient workup \u2014 call 911 now and provide supplemental oxygen while awaiting EMS arrival.",
+        "trace": {
+          "clinician_contribution": "Correctly identified acute respiratory distress as safety-critical, yielded to safety protocol, and proposed comprehensive differential (PE, pneumonia, pneumothorax, ACS, sepsis) with appropriate stat workup (O\u2082 sat, CXR, ABG, ECG, labs, blood cultures, CT PE protocol). Recognized visit 3 pattern as possible acute decompensation.",
+          "safety_checker_contribution": "Approved clinician reasoning but **overrode disposition**: escalated from 'yield to safety' (in-clinic management) to **emergency_911 referral**. Identified blocking concerns: acute dyspnea at rest requires ED-level continuous monitoring and resuscitation capability; outpatient imaging and labs are temporizing and unsafe without real-time clinical oversight. Emphasized that differential (PE, pneumothorax, sepsis, ACS) demands emergent ED evaluation, not clinic-based workup.",
+          "pharm_nurse_contribution": "Flagged CRITICAL gaps: no active medication list provided (blocks interaction screening), renal/hepatic function unknown (essential for antibiotic dosing), allergy status not documented (penicillin, macrolides, fluoroquinolones, sulfonamides must be confirmed before empiric therapy). Provided nursing priorities: O\u2082 delivery system ready, IV access (18G+), blood cultures before antibiotics, continuous monitoring (pulse ox, cardiac), and ICU escalation readiness. Noted visit 3 pattern suggests possible treatment failure or non-adherence."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508397.612684
+}

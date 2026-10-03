@@ -1,0 +1,201 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My back hurts real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and nature of your back pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right side. Real bad. Aching."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this back pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms, such as fever, chills, or changes in urination?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. Fever, chills. Haven't peed in hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any blood in your urine or any pain when trying to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood. Hurts some when I go."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any nausea or vomiting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. Threw up twice."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urinary tract infection",
+          "nephrolithiasis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "renal ultrasound"
+        ],
+        "management_plan": [
+          "initiate empiric antibiotics",
+          "ensure adequate hydration",
+          "pain management"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for sepsis",
+          "risk of kidney damage"
+        ],
+        "communication_note": "You have symptoms that suggest a kidney infection, so I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still real sick. More confused now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as fever, cough, or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Hot. Really hot."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine, such as frequency, color, or pain when urinating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't peed in a long time."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "sepsis",
+          "acute kidney injury"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum antibiotics",
+          "administer intravenous fluids",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for septic shock",
+          "risk of acute kidney injury due to dehydration"
+        ],
+        "communication_note": "You need immediate medical attention due to your confusion and inability to urinate, which could indicate a serious infection."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe right."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure exacerbation",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "basic metabolic panel",
+          "BNP",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start diuretics if CHF suspected",
+          "consider antibiotics if pneumonia suspected"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for respiratory failure",
+          "risk of hypoxia"
+        ],
+        "communication_note": "Given your difficulty breathing, we need to conduct some tests and possibly start treatment in the emergency department to ensure you get the care you need."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779638622.0241354
+}

@@ -1,0 +1,120 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease with cardiac and neurologic manifestations",
+          "Rheumatoid arthritis",
+          "Systemic lupus erythematosus"
+        ],
+        "workup_ordered": [
+          "Lyme ELISA and Western blot",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Start IV ceftriaxone for Lyme carditis and neurologic involvement",
+          "Cardiology consultation for AV block management",
+          "Neurology consultation for facial palsy management",
+          "Monitor cardiac rhythm closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High-degree AV block which may progress to complete heart block",
+          "Potential for further neurologic complications"
+        ],
+        "communication_note": "You have a serious infection that requires immediate treatment, and we are admitting you to the hospital for IV antibiotics and cardiac monitoring."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme carditis with complete heart block",
+          "Neurosyphilis with facial palsy",
+          "Rheumatic fever with migratory polyarthritis"
+        ],
+        "workup_ordered": [
+          "Lyme CSF",
+          "CSF VDRL",
+          "ASO titer",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Admit to hospital for cardiac monitoring and IV ceftriaxone",
+          "Consult cardiology for pacemaker evaluation",
+          "Consult infectious disease for Lyme and syphilis management",
+          "Physical therapy for joint pain"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High risk of syncope and sudden cardiac death due to complete heart block"
+        ],
+        "communication_note": "You have a serious heart rhythm problem likely caused by Lyme disease, and we need to admit you to the hospital for treatment and monitoring."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme carditis with complete AV block",
+          "Syncope secondary to bradycardia",
+          "Myocarditis"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin"
+        ],
+        "management_plan": [
+          "Administer IV fluids for hypotension",
+          "Prepare for transcutaneous pacing",
+          "Consult cardiology for urgent evaluation and possible pacemaker insertion",
+          "Start IV ceftriaxone for Lyme carditis"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Hypotension and bradycardia may lead to cardiac arrest",
+          "Complete AV block is a medical emergency"
+        ],
+        "communication_note": "You are very ill and need to be admitted to the hospital immediately for treatment of a serious heart condition."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505413.723576
+}

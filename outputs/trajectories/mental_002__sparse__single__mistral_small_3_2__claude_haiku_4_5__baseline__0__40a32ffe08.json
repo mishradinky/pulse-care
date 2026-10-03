@@ -1,0 +1,199 @@
+{
+  "case_id": "mental_002",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Police brought me. Haven't slept much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about why the police brought you here?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They said I was acting crazy. I dunno why."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what you were doing or feeling before the police arrived?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I wasn't doing anything wrong. Felt fine."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been feeling stressed or anxious lately?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not stressed. Haven't slept much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How many hours of sleep have you been getting each night recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two hours. Maybe less."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been experiencing any unusual thoughts or perceptions lately?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I got a mission. From God. It's important."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Psychotic disorder",
+          "Bipolar disorder",
+          "Substance-induced psychosis",
+          "Severe insomnia"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CMP",
+          "TSH",
+          "UDS",
+          "CT head"
+        ],
+        "management_plan": [
+          "Psychiatric consultation",
+          "Sleep hygiene education",
+          "Monitor for safety"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of harm to self or others",
+          "Impaired judgment due to lack of sleep"
+        ],
+        "communication_note": "We need to run some tests and consult with a psychiatrist to better understand what's going on."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I need to leave. Now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is making you feel like you need to leave right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Need to go. Got things to do."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Are you feeling anxious or restless right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just want to leave."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Agitation or restlessness",
+          "Anxiety disorder",
+          "Psychotic disorder",
+          "Substance use disorder"
+        ],
+        "workup_ordered": [
+          "Mental status examination",
+          "Substance use screening"
+        ],
+        "management_plan": [
+          "Assess for safety concerns and ensure the patient is not a harm to themselves or others",
+          "Provide a calm and supportive environment",
+          "Consider brief intervention for substance use if indicated",
+          "Schedule follow-up appointment within 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of harm to self or others if the patient is not cooperative or has underlying mental health conditions"
+        ],
+        "communication_note": "We will discuss your concerns further and ensure your safety."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Tired. Really tired now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "depression",
+          "anemia",
+          "hypothyroidism",
+          "sleep apnea"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "TSH",
+          "vitamin B12 and folate levels"
+        ],
+        "management_plan": [
+          "referral to mental health specialist",
+          "lifestyle modifications (exercise, sleep hygiene)",
+          "follow-up in 2 weeks"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of self-harm if depression is present"
+        ],
+        "communication_note": "We will run some tests and refer you to a specialist to better understand and address your fatigue."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "bipolar I disorder manic episode with psychosis",
+      "substance-induced mania",
+      "schizoaffective disorder",
+      "secondary mania"
+    ],
+    "required_workup": [
+      "lithium level",
+      "TSH",
+      "BMP CBC",
+      "urine drug screen",
+      "ECG before antipsychotics",
+      "head imaging if first episode"
+    ],
+    "correct_management": [
+      "involuntary psychiatric hold",
+      "IM benzodiazepine for acute agitation",
+      "antipsychotic (haloperidol risperidone)",
+      "restart lithium targeting 0.8-1.2 mEq/L",
+      "inpatient psychiatric admission",
+      "family education"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511088.6847472
+}

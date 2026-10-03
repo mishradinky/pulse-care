@@ -1,0 +1,250 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "claude-haiku-4-5-20251001",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doc. I've had this bad cough for about 4 days now\u2014I'm coughing up yellow stuff. I've got a fever and my chest hurts when I breathe, especially on the right side. I'm also feeling pretty tired."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. Do you have any shortness of breath or difficulty breathing? And have you had any recent sick contacts, travel, or underlying lung or heart conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I'm having trouble breathing\u2014my oxygen is low they said. I smoke and have COPD, so my lungs aren't great. I haven't traveled recently, and I'm not sure about sick contacts. I live alone, so I don't see many people."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with COPD exacerbation \u2014 HIGH PROBABILITY",
+          "Acute bronchitis with pleurisy",
+          "Influenza with secondary bacterial infection",
+          "Pulmonary embolism (pleuritic pain + dyspnea + smoking history warrants consideration)",
+          "Spontaneous pneumothorax (less likely but right-sided pleuritic pain noted)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: oxygen saturation (at rest and ambulating), respiratory rate, heart rate, blood pressure, temperature",
+          "Supplemental oxygen if SpO\u2082 <92%; target SpO\u2082 \u226594%",
+          "Chest X-ray (URGENT \u2014 same-day, assess for infiltrate, consolidation, pneumothorax, effusion)",
+          "CBC with differential",
+          "BMP and lactate (assess renal function, electrolytes, tissue perfusion)",
+          "Blood cultures if febrile (before antibiotics if possible)",
+          "Sputum culture if productive cough continues",
+          "Respiratory viral panel or influenza testing (seasonality-dependent)",
+          "Consider D-dimer or CT pulmonary angiography if PE risk remains high after imaging"
+        ],
+        "management_plan": [
+          "ESCALATION TO ED REFERRAL \u2014 Do not manage as routine outpatient given: age 65, COPD, documented hypoxia, 4-day fever, pleuritic chest pain, and dyspnea.",
+          "ED will obtain same-day imaging, labs, and risk-stratify for admission vs. observation vs. discharge with close follow-up.",
+          "Antibiotic selection PENDING allergy history and imaging results; likely respiratory fluoroquinolone (levofloxacin 750 mg daily) or amoxicillin-clavulanate if outpatient-suitable; IV ceftriaxone \u00b1 azithromycin if hospitalized.",
+          "Renal dosing adjustments required once BMP available (age + dehydration risk).",
+          "Oxygen supplementation and monitoring per ED protocol; assess fluid status and consider IV hydration if dehydrated.",
+          "Avoid NSAIDs for pleuritic pain until renal function confirmed; acetaminophen preferred.",
+          "Avoid anticough suppressants; encourage secretion clearance.",
+          "Complete medication reconciliation (OTC, supplements, anticoagulants, cardiac/pulmonary meds) before discharge planning.",
+          "Patient education: full antibiotic course adherence, return precautions (worsening dyspnea, chest pain, altered mental status, SpO\u2082 drop), fall precautions at home."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Documented hypoxia + COPD + pleuritic chest pain + fever = HIGH risk for severe CAP, PE, or acute COPD exacerbation requiring urgent imaging and monitoring.",
+          "Vital signs partially known (hypoxia reported) but full set (RR, HR, BP) not yet documented; cannot assess hemodynamic stability or respiratory distress severity.",
+          "Pleuritic chest pain warrants PE consideration despite 'less likely' framing; smoking + COPD + immobility risk factors present; imaging must rule out PE.",
+          "4-day symptom duration with fever and hypoxia suggests possible disease progression; outpatient-only workup is unsafe.",
+          "COPD comorbidity increases risk for severe CAP, respiratory failure, and need for ICU-level care; baseline lung function unknown.",
+          "Age 65 + smoking history + COPD = high mortality risk if CAP; requires hospital-level assessment and monitoring.",
+          "Medication reconciliation incomplete; cannot safely prescribe antibiotics without allergy history and drug interaction screening.",
+          "Dehydration risk from fever + productive cough; renal function unknown; NSAIDs and certain antibiotics contraindicated until BMP reviewed."
+        ],
+        "communication_note": "This 65-year-old with COPD, documented hypoxia, 4-day productive cough, fever, and pleuritic chest pain requires ED referral for same-day imaging, labs, and risk stratification; outpatient management is unsafe given age, comorbidity, and symptom severity.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high pretest probability for CAP and ordered comprehensive workup (CXR, labs, cultures, viral testing); differential includes PE consideration. However, clinician's framing suggested outpatient sequencing; escalation decision deferred to coordinator given new information (documented hypoxia, COPD, pleuritic pain).",
+          "safety_checker_contribution": "Safety checker correctly flagged CRITICAL gaps: vital signs incomplete, hypoxia + pleuritic pain = PE risk, no hemodynamic stability documentation, and recommended ED referral. Coordinator adopts this escalation recommendation given patient's new disclosure of hypoxia and COPD diagnosis.",
+          "pharm_nurse_contribution": "Pharm/nurse identified essential medication reconciliation gaps (allergy history, OTC/supplements, anticoagulants, renal dosing), drug interaction screening (fluoroquinolone QT risk, macrolide CYP3A4, NSAID renal contraindication), and nursing safety concerns (oxygen monitoring, hydration, fall risk, drug fever monitoring, adherence). Coordinator incorporates allergy screening and renal dosing contingencies into ED referral plan."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not getting better. I took that azithromycin you prescribed yesterday, but I'm actually feeling worse. I'm more confused now, and I'm having trouble keeping my thoughts straight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the confusion start\u2014was it before or after you took the azithromycin yesterday? And are you experiencing any fever, headache, neck stiffness, or difficulty breathing right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The confusion started a couple days ago, but it got worse after I took that azithromycin yesterday\u2014I'm more mixed up now than before. Yes, I still have fever. I don't have a stiff neck or headache, but I'm having trouble breathing. My chest hurts when I breathe too."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Azithromycin CNS toxicity / drug-induced delirium (temporal relationship: confusion worsened post-dose)",
+          "Progression of underlying infection with respiratory involvement (fever + dyspnea + chest pain on breathing = possible pneumonia, atypical infection, or early sepsis)",
+          "Meningitis or encephalitis (acute confusion + fever; neck stiffness currently absent but cannot exclude)",
+          "Acute hypoxia secondary to respiratory compromise (dyspnea + chest pain \u2192 hypoxemia can cause confusion)",
+          "Acute metabolic derangement (electrolyte abnormality, renal dysfunction, hepatic impairment exacerbating azithromycin accumulation)",
+          "Cardiac arrhythmia (azithromycin QT prolongation \u2192 syncope, hypoperfusion, confusion)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs including oxygen saturation and respiratory rate",
+          "STAT mental status examination (baseline cognition, orientation, attention, language)",
+          "STAT labs: CBC, comprehensive metabolic panel (electrolytes, glucose, renal function, LFTs), blood cultures (febrile patient)",
+          "STAT chest imaging (CXR) given dyspnea, fever, and pleuritic chest pain",
+          "STAT ECG to assess QT interval (azithromycin toxicity risk)",
+          "Neuroimaging (CT head \u00b1 LP) if meningeal signs develop or confusion does not improve with supportive care",
+          "Complete medication reconciliation (all Rx, OTC, supplements) to assess drug-drug interactions"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate emergency response (911 or direct to ED) \u2014 do NOT manage as outpatient",
+          "Establish IV access and continuous cardiac/pulse oximetry monitoring",
+          "Supplemental oxygen if O2 sat <94% on room air",
+          "Obtain blood cultures before antibiotics if sepsis suspected",
+          "HOLD azithromycin pending evaluation; do not re-dose",
+          "Initiate empiric broad-spectrum antibiotics (e.g., ceftriaxone + vancomycin) if meningitis/sepsis cannot be excluded and LP is planned",
+          "Aggressive fluid resuscitation if hypotensive or signs of sepsis",
+          "Reassess for meningeal signs (neck stiffness, Kernig, Brudzinski, photophobia) and respiratory status q15min",
+          "Fall precautions and 1:1 monitoring given acute confusion and age 65",
+          "Neurology consultation if confusion persists after metabolic/infectious workup or if focal neurological signs emerge"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Acute confusion + fever + dyspnea + chest pain = potential sepsis or CNS infection (meningitis/encephalitis) requiring emergent ED evaluation and imaging/LP",
+          "CRITICAL: No documented vital signs or O2 saturation; respiratory compromise is reported but not objectively measured \u2014 hypoxia is a medical emergency",
+          "CRITICAL: Temporal worsening of confusion after azithromycin dose suggests drug toxicity, but fever + dyspnea + pleuritic chest pain suggest progression of underlying infection (pneumonia, atypical pathogen, or systemic infection)",
+          "CRITICAL: Azithromycin QT prolongation risk in elderly patient; confusion may reflect cardiac arrhythmia or hemodynamic instability, not just CNS effect",
+          "HIGH: Acute confusion in 65-year-old = delirium until proven otherwise; imminent fall risk if patient is unsupervised",
+          "HIGH: Baseline mental status not documented; cannot quantify acuity of confusion or track trajectory",
+          "HIGH: Current location/supervision unknown; if patient is alone at home with acute confusion and dyspnea, there is risk of aspiration, falls, and inability to call for help",
+          "MODERATE: Complete medication list not provided; cannot fully assess drug-drug interactions or cumulative CNS effects",
+          "MODERATE: Baseline renal and hepatic function unknown; azithromycin accumulation in renal/hepatic impairment increases CNS toxicity risk"
+        ],
+        "communication_note": "This 65-year-old male with acute confusion worsening after azithromycin initiation, now presenting with fever, dyspnea, and pleuritic chest pain, requires EMERGENCY DEPARTMENT EVALUATION immediately (call 911) to rule out life-threatening infection (meningitis, sepsis, pneumonia) and assess for azithromycin toxicity; vital signs, mental status exam, and stat labs/imaging are non-negotiable.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified red flags (acute confusion in elderly on new antibiotics) and asked targeted screening questions (temporal relationship to azithromycin, meningeal signs, respiratory status). However, clinician's proposal lacked urgency and did not include vital signs or mental status documentation; the question-and-wait approach is unsafe given patient's reported dyspnea and fever.",
+          "safety_checker_contribution": "Safety checker correctly escalated to emergency_911, identifying meningitis/encephalitis as life-threatening differential requiring emergent imaging/LP, and flagged critical missing data (vital signs, O2 sat, baseline mental status, current location). Safety checker's blocking concerns are appropriate and override outpatient management.",
+          "pharm_nurse_contribution": "Pharm/nurse identified azithromycin as CNS penetrator with confusion/hallucination risk in elderly, QT prolongation hazard, and need for complete medication list and renal/hepatic function assessment. Nurse also emphasized temporal relationship assessment (appropriate) and recommended fall precautions, continuous monitoring, and stat labs (Cr, eGFR, LFTs, electrolytes). Nurse correctly noted that azithromycin discontinuation may be warranted if toxicity confirmed."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I can't breathe properly. They put a tube down my throat in the emergency room because my oxygen was too low. I don't remember much after that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand you were intubated in the ER for low oxygen. Can you tell me: (1) When did this breathing problem start\u2014was it sudden or gradual? (2) Did you have fever, cough, chest pain, or leg swelling before coming to the hospital? (3) Do you remember what the doctors said was causing the low oxygen?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The breathing got worse over a few days\u2014started with a cough four days ago, then got bad fast. I had fever, was coughing up yellow-green stuff, and had sharp chest pain when I breathed. My chest just felt tight. They put the tube in because my oxygen wouldn't come up. I don't remember exactly what they said caused it, but they were worried."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "65M presenting with acute hypoxia requiring intubation in ER; 4-day prodrome of cough, fever, purulent sputum, and pleuritic chest pain progressing to respiratory failure. Clinical picture highly suggestive of community-acquired pneumonia (CAP) with possible complications (ARDS, sepsis). Patient currently intubated with limited recall of ER workup; requires urgent clarification of current ventilator status, completion/verification of diagnostic workup, and optimization of empiric therapy before extended interview.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with respiratory failure \u2014 PRIMARY",
+          "Acute respiratory distress syndrome (ARDS) secondary to infection",
+          "Sepsis (bacterial pneumonia source)",
+          "Aspiration pneumonia",
+          "Pulmonary embolism",
+          "Acute decompensated heart failure",
+          "COVID-19 or other viral respiratory infection"
+        ],
+        "workup_ordered": [
+          "URGENT: Verify ER/ICU workup completion \u2014 CXR, CT chest, labs (CBC, CMP, lactate, D-dimer, troponin, procalcitonin, blood cultures, respiratory pathogen PCR)",
+          "Confirm current intubation status, ventilator settings (FiO2, PEEP, mode), oxygen saturation trajectory",
+          "Repeat labs if >24 hrs: BUN/Cr, lactate, CBC, blood cultures if fever persists",
+          "Physical exam: lung auscultation, JVD, peripheral edema, leg exam for DVT signs",
+          "ECG if not done",
+          "Infection control screening: confirm isolation precautions if transmissible pathogen suspected",
+          "Complete medication reconciliation: home meds, allergies, ADRs, recent antibiotics"
+        ],
+        "management_plan": [
+          "Verify empiric antibiotic therapy initiated (CAP coverage: ceftriaxone 1g IV Q12H + azithromycin 500mg IV Q24H); adjust for renal function",
+          "Confirm sepsis protocol if indicated: antibiotics within 1 hour, lactate monitoring, vasopressor assessment",
+          "Implement VAP bundle: HOB elevation, oral care, sedation vacation, DVT prophylaxis",
+          "Strict fluid management: I&Os, daily weights, monitor for acute kidney injury",
+          "Review D-dimer/imaging; initiate anticoagulation only if PE suspected and no contraindications",
+          "Dose all renally-cleared drugs for age 65 and AKI risk; screen for drug-drug interactions",
+          "Assess sedation adequacy; avoid over-sedation to facilitate weaning",
+          "Stress ulcer prophylaxis (PPI); NPO status; assess aspiration risk",
+          "Defer extended interview until patient alert and current status clarified"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL: Intubation status unclear \u2014 patient cannot reliably communicate; defer interview until sedation/ventilator status clarified",
+          "CRITICAL: Sepsis risk \u2014 empiric antibiotic coverage and lactate clearance monitoring NOT confirmed; must initiate within 1 hour if sepsis suspected",
+          "CRITICAL: Medication reconciliation missing \u2014 no home meds, allergies, or ADRs documented; MUST obtain before empiric therapy",
+          "CRITICAL: Renal function unknown \u2014 age 65 + acute hypoxia = AKI risk; baseline Cr/eGFR required for drug dosing",
+          "Incomplete workup verification \u2014 must confirm ER/ICU labs/imaging completed, not pending",
+          "Communication barrier \u2014 patient sedated/fatigued; corroborate history with ER records and family",
+          "Infection control unaddressed \u2014 confirm isolation precautions if transmissible pathogen suspected",
+          "VAP risk \u2014 confirm VAP bundle implementation",
+          "Anticoagulation decision pending \u2014 D-dimer/imaging results and contraindications NOT reviewed"
+        ],
+        "communication_note": "Patient currently intubated with limited recall; defer extended interview pending clarification of ventilator status, verification of ER/ICU workup completion, and ICU team coordination on stabilization.",
+        "trace": {
+          "clinician_contribution": "Appropriately identified broad differential and proposed targeted history and workup (imaging, labs, blood cultures, respiratory pathogen PCR, physical exam, ECG). However, assumes patient is interview-capable despite active intubation; does not address current stabilization status or workup verification.",
+          "safety_checker_contribution": "Identified critical gaps: intubation status unclear, workup completion unverified, sepsis protocol not confirmed, medication reconciliation missing, renal function unknown, communication barrier, infection control unaddressed. Recommended urgent escalation and ICU team coordination before patient interview.",
+          "pharm_nurse_contribution": "Flagged critical medication issues: no home med list obtained, empiric antibiotic dosing requires renal function verification, sedative/paralytic dosing for age 65 and AKI risk, anticoagulation contraindications unassessed, VAP bundle and DVT prophylaxis implementation unconfirmed, drug-drug interactions with empiric therapy unscreened, acute kidney injury monitoring required."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539119.9962895
+}

@@ -1,0 +1,184 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I came in because I got back from a long flight to Tokyo five days ago, and since then I've had this sudden sharp pain on the right side of my chest. It really hurts when I breathe, and I'm also short of breath. It came on pretty suddenly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs, or noticed any redness or warmth in your calves?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg is swollen and tender, especially in the calf area. The left one looks normal. I haven't noticed any redness or warmth though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumothorax",
+          "pleuritis"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "CT pulmonary angiography",
+          "chest X-ray",
+          "ECG"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor INR levels if the patient is on Warfarin.",
+          "Educate the patient on signs of deep vein thrombosis and pulmonary embolism."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential pulmonary embolism, which is life-threatening and requires immediate attention.",
+          "Recent long flight increases risk for deep vein thrombosis."
+        ],
+        "communication_note": "Patient requires immediate referral to the emergency department due to high suspicion of pulmonary embolism.",
+        "trace": {
+          "clinician_contribution": "Identified the need for specific diagnostic tests and highlighted the risk of pulmonary embolism.",
+          "safety_checker_contribution": "Flagged the case for emergency department referral due to life-threatening potential of pulmonary embolism.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized monitoring for anticoagulation therapy."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a really hard time breathing, even when I'm just sitting here. And my right leg is hurting more than it was before. I'm getting worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started and if anything makes them better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The chest pain and shortness of breath started suddenly about 5 days ago, right after I got off that long flight from Tokyo. Nothing really makes it better\u2014it's actually worse when I breathe in deeply or when I lie flat. I've been feeling more short of breath even just sitting around, and my right leg is starting to hurt more too."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "congestive heart failure",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "D-dimer test",
+          "lower extremity ultrasound",
+          "ECG",
+          "BNP test"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure INR is monitored regularly due to Warfarin use.",
+          "Avoid NSAIDs due to potential interactions and renal concerns."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Difficulty breathing and leg pain could indicate a life-threatening condition such as a pulmonary embolism.",
+          "Potential interactions between Warfarin and NSAIDs increasing bleeding risk."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential life-threatening condition.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious conditions and recommended diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended ED referral.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and advised on monitoring and alternative pain management."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really struggling to breathe right now. I almost passed out a few minutes ago, and my chest is getting worse. I'm very short of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started and if anything seems to make them better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The chest pain and shortness of breath started suddenly about 5 days ago, right after I got back from a long flight from Tokyo. Nothing really makes it better. The pain gets worse when I breathe in deeply\u2014it's sharp and on the right side. I've been getting more short of breath since it started."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "pneumothorax",
+          "heart failure exacerbation",
+          "anxiety attack"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "chest X-ray",
+          "troponin levels",
+          "D-dimer test",
+          "BNP test"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management.",
+          "Ensure patient is monitored for any deterioration in symptoms during transfer.",
+          "Communicate with ED team about potential need for anticoagulation if PE is confirmed."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for life-threatening conditions such as pulmonary embolism or acute coronary syndrome.",
+          "Patient's symptoms are worsening, indicating a need for immediate medical intervention."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified concerning symptoms and proposed a differential diagnosis with appropriate initial workup.",
+          "safety_checker_contribution": "Highlighted the urgency of symptoms and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and potential issues, ensuring safe management during escalation."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634796.1036782
+}

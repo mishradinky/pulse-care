@@ -1,0 +1,227 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I thought I was dying. Heart racing, chest tight, can't breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this episode start, and is the chest tightness, racing heart, and shortness of breath happening right now or has it passed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started at the grocery store. It stopped maybe twenty minutes later. I'm okay now but still scared."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) - MUST RULE OUT despite symptom resolution",
+          "Pulmonary embolism - MUST RULE OUT despite symptom resolution",
+          "Thyroid storm/hyperthyroidism",
+          "Acute anxiety/panic disorder - diagnosis of exclusion only",
+          "Hyperventilation syndrome - likely secondary to primary organic or anxiety etiology"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (cardiac ischemia assessment)",
+          "STAT troponin (serial if initial negative, given ACS risk)",
+          "STAT vital signs: HR, BP, RR, O2 saturation, temperature",
+          "STAT TSH and free T4 (thyroid storm/hyperthyroidism rule-out)",
+          "Complete medication/supplement/OTC/herbal/illicit substance history",
+          "Assessment for hyperthyroidism signs: tremor, diaphoresis, heat intolerance, weight loss, eye changes",
+          "Assess hyperventilation pattern and current symptom status",
+          "Allergy documentation"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL - Do not manage in outpatient setting",
+          "Establish IV access upon ED arrival",
+          "Obtain objective cardiac and pulmonary workup (EKG, troponin, chest imaging if PE suspected)",
+          "Complete medication reconciliation to identify sympathomimetics, stimulants, or beta-blocker/benzodiazepine discontinuation",
+          "Hold all new medications until organic etiologies excluded",
+          "If ACS/PE/thyroid storm ruled out AND anxiety confirmed as primary diagnosis: initiate anxiety management post-stabilization with appropriate dosing",
+          "Provide reassurance that symptom resolution does NOT exclude serious pathology; objective testing required"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Acute chest tightness + palpitations + dyspnea = classic ACS presentation until proven otherwise, regardless of symptom resolution",
+          "Symptom resolution does NOT exclude ACS or PE; both can present with transient episodes",
+          "No vital signs, EKG, or troponin documented\u2014objective testing mandatory before any reassurance",
+          "Medication history absent; sympathomimetics or sudden beta-blocker/benzodiazepine discontinuation could precipitate presentation",
+          "Risk of anchoring bias toward 'panic disorder' given case categorization; premature reassurance is dangerous",
+          "Patient reports fear/distress; do not minimize with mental health diagnosis alone"
+        ],
+        "communication_note": "This patient requires immediate ED evaluation for objective cardiac and pulmonary workup; symptom resolution does not exclude ACS or PE, and mental health diagnosis is exclusionary only.",
+        "trace": {
+          "clinician_contribution": "Appropriately asked clarifying questions about symptom timeline and current status; differential includes life-threatening etiologies (ACS, PE, thyroid storm) alongside anxiety. However, action (ask) is insufficient as standalone intervention\u2014escalation required.",
+          "safety_checker_contribution": "Correctly identified that asking questions should NOT delay ED referral. Flagged critical gaps: no vitals, no EKG despite cardiac red flags, empty workup array. Emphasized that symptom resolution does not reduce acuity and that panic disorder is diagnosis of exclusion, not assumption.",
+          "pharm_nurse_contribution": "Identified critical medication history gap; flagged sympathomimetics, stimulants, and beta-blocker/benzodiazepine discontinuation as potential precipitants. Recommended STAT labs (TSH, free T4) for thyroid storm rule-out and emphasized no new medications until organic causes excluded. Provided comprehensive nursing triage priorities including ECG, vitals, troponin, and hyperthyroidism assessment."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Had another attack at work. Now I'm scared to go places."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what happened during the attack at work? What did you feel in your body, and what thoughts were going through your mind?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart was racing. Couldn't breathe. Thought I was dying."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Panic disorder with agoraphobia (emerging)",
+          "Generalized anxiety disorder",
+          "Social anxiety disorder",
+          "Specific phobia (workplace-related)",
+          "Adjustment disorder with anxiety",
+          "Hyperthyroidism or thyroid dysfunction",
+          "Cardiac arrhythmia or other cardiac condition",
+          "Metabolic disorder (hypoglycemia, electrolyte imbalance)"
+        ],
+        "workup_ordered": [
+          "Detailed panic attack phenomenology: onset, duration, triggers, symptom sequence",
+          "Timeline of symptom onset, frequency, and progression to avoidance",
+          "Functional impact assessment (work attendance, social withdrawal, daily activities)",
+          "Complete psychiatric history (prior anxiety, depression, trauma) and family psychiatric history",
+          "Recent stressors and life changes",
+          "Complete medication history (Rx, OTC, supplements, herbal) and allergy history\u2014CRITICAL before any prescribing",
+          "Substance use screening: caffeine intake, alcohol, illicit drugs",
+          "Medical rule-outs: TSH, metabolic panel, ECG (given cardiac symptoms: tachycardia, dyspnea, death fear)",
+          "Renal and hepatic function labs (baseline before psychotropic dosing)"
+        ],
+        "management_plan": [
+          "Obtain complete medication and allergy history before any pharmacologic intervention",
+          "Complete medical workup (TSH, metabolic panel, ECG) to rule out organic causes",
+          "Pending results and full history: consider SSRI (first-line for panic disorder) with patient counseling on 1\u20132 week activation period",
+          "Avoid benzodiazepines as monotherapy given age, female sex, and abuse risk; reserve for acute crisis only if medical causes ruled out",
+          "Psychoeducation on panic physiology and avoidance cycle",
+          "Referral to cognitive-behavioral therapy (CBT) or exposure therapy (gold standard for panic with agoraphobia)",
+          "Establish baseline vital signs (BP, HR) and weight; monitor for SIADH, serotonin syndrome, sexual dysfunction if SSRI initiated",
+          "Safety plan: provide crisis resources and clear escalation pathway"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "No acute suicidality, homicidality, or psychosis disclosed; however, remain alert during follow-up for ideation if functional impairment worsens",
+          "Cardiac symptoms (tachycardia, dyspnea, chest discomfort implied by 'dying' thought) require medical rule-out before attributing to panic\u2014do not delay ECG/TSH",
+          "Emerging avoidance behavior (fear of going places) suggests risk of agoraphobic progression; early intervention critical",
+          "Medication-drug interaction risk HIGH: no current med list available; obtain before prescribing psychotropics"
+        ],
+        "communication_note": "Patient presents with classic panic attack symptoms (tachycardia, dyspnea, catastrophic cognition) and emerging avoidance; medical causes must be ruled out urgently, complete medication/allergy history obtained, and early CBT referral initiated to prevent agoraphobic entrenchment.",
+        "trace": {
+          "clinician_contribution": "Formulated open-ended, trauma-informed question targeting panic phenomenology; provided well-reasoned differential (including medical rule-outs) and comprehensive workup plan focused on attack characterization, timeline, avoidance, and psychiatric/medical history.",
+          "safety_checker_contribution": "Approved clinician approach as trauma-informed and proportionate; identified no acute blocking concerns; flagged need for vigilance during patient response for acute distress, suicidality, severe functional impairment, or cardiac/respiratory red flags requiring ED referral.",
+          "pharm_nurse_contribution": "Identified critical gaps: no medication/allergy history documented (MUST obtain before prescribing); flagged cardiac/metabolic workup (TSH, ECG, metabolic panel) as essential before attributing symptoms to panic; outlined SSRI vs. benzodiazepine considerations with age/sex-specific abuse risk; specified monitoring parameters (baseline vitals, SIADH, serotonin syndrome) and counseling needs."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Haven't left home in two weeks. Husband had to stop working."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this start, and what triggered you to stop leaving home? Have you been feeling anxious, depressed, or afraid of something specific?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started two months ago at grocery store. Now I'm scared to go out. Feel trapped."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Agoraphobia with or without panic disorder (onset 2 months ago at grocery store, progressive avoidance, acute decompensation to complete home confinement)",
+          "Major depressive disorder with severe functional impairment and anxiety features",
+          "Generalized anxiety disorder with situational triggers",
+          "Specific phobia (public/open spaces)",
+          "Post-traumatic stress disorder (if triggering event at grocery store)",
+          "Medical condition mimicking anxiety (thyroid disorder, cardiac arrhythmia, vestibular dysfunction, medication side effect, substance use)"
+        ],
+        "workup_ordered": [
+          "URGENT SAFETY ASSESSMENT: Suicidal ideation, homicidal ideation, self-harm intent, and current safety plan (MUST occur before or concurrent with differential refinement)",
+          "Complete medication list (Rx, OTC, supplements, herbals) and recent medication changes",
+          "Substance use screening (alcohol, illicit drugs, caffeine overuse)",
+          "Baseline labs: CBC, CMP, TSH, lipid panel (rule out medical mimics; establish baseline for psychotropic monitoring)",
+          "Vital signs and cardiac screening if panic/chest symptoms present",
+          "Detailed timeline: What happened at grocery store 2 months ago? Panic attack, medical event, trauma, or gradual onset?",
+          "Pregnancy status and menstrual/hormonal history (relevant for medication safety and differential)",
+          "Past psychiatric history: prior episodes, medication trials, therapy, response/side effects",
+          "Allergy history (drug and food allergies)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Complete safety assessment and document risk level; establish safety plan and crisis contact information",
+          "Psychoeducation: Explain agoraphobia/anxiety spectrum and rationale for treatment (normalize condition, reduce shame)",
+          "Pharmacotherapy: Pending safety clearance and labs\u2014consider SSRI/SNRI as first-line (e.g., sertraline, escitalopram) with baseline renal/hepatic function and drug-drug interaction review",
+          "Psychotherapy referral: Cognitive-behavioral therapy (CBT) or exposure therapy (gold standard for agoraphobia); consider telehealth if patient unable to leave home",
+          "Family support: Psychoeducation for husband; assess caregiver burden and need for respite/support resources",
+          "Close follow-up: Schedule 1\u20132 week post-initiation visit to monitor medication tolerability, efficacy, and adherence; escalate to psychiatry if inadequate response or safety concerns",
+          "Graded exposure plan: Once stabilized, develop structured, supported re-entry to community (with therapist/spouse support)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL: No documented suicide/homicide/self-harm risk assessment despite 2-week severe isolation + anxiety/mood symptoms = elevated risk. Must assess immediately.",
+          "CRITICAL: No substance use or medication review documented; organic causes (thyroid, cardiac, medication side effect, substance withdrawal) must be ruled out before anchoring on psychiatric diagnosis.",
+          "CRITICAL: Complete home confinement \u00d7 2 weeks with family functioning disrupted suggests acute decompensation and caregiver crisis; assess living situation, supervision, and support availability.",
+          "CAUTION: Acute 2-month onset (not chronic) warrants medical clearance (vitals, labs, cardiac screening if indicated) concurrent with psychiatric assessment.",
+          "CAUTION: Pregnancy status unknown\u2014critical for any psychotropic prescribing (teratogenicity risk)."
+        ],
+        "communication_note": "Patient presents with acute-onset agoraphobia (2-month progressive course, 2-week complete home confinement) with significant functional and family impact; urgent safety assessment and medical rule-out required before psychotropic initiation; refer to psychiatry and CBT/exposure therapy for definitive management.",
+        "trace": {
+          "clinician_contribution": "Established onset (2 months ago at grocery store), current severity (complete home confinement \u00d7 2 weeks), and functional impact (husband stopped working). Proposed appropriate differential (agoraphobia, depression, anxiety, phobia, PTSD, medical mimics) and rationale for detailed history-taking to narrow diagnosis.",
+          "safety_checker_contribution": "Identified CRITICAL gaps: (1) No documented suicide/homicide/self-harm risk assessment despite high-risk presentation (isolation + mood/anxiety disorder); (2) No substance use or medication review to rule out organic/iatrogenic causes; (3) Caregiver burden and living situation not clarified. Recommended urgent outpatient escalation with conditional approval contingent on concurrent safety assessment and medical screening.",
+          "pharm_nurse_contribution": "Flagged missing baseline data: no current medications documented, pregnancy status unknown, renal/hepatic function unknown, allergy history absent. Recommended baseline labs (CBC, CMP, TSH, LFTs) before psychotropic initiation; noted need for close follow-up (1\u20132 weeks) post-initiation; emphasized substance use screening and caregiver support assessment."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511482.5468347
+}

@@ -1,0 +1,200 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure. Comes and goes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure? Is it sharp, dull, or like a tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Like something heavy sitting on my chest."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Does this chest pressure come on with exertion or at rest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Mostly when I walk or climb stairs."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long does the chest pressure typically last when it occurs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Maybe ten, fifteen minutes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or sweating along with the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sweating once, yeah. No breath trouble."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any similar episodes in the past, or is this a new symptom for you?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Never had this before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "stable angina",
+          "gastroesophageal reflux disease (GERD)",
+          "musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "lipid panel",
+          "troponin"
+        ],
+        "management_plan": [
+          "referral to cardiology",
+          "lifestyle modifications (diet, exercise)",
+          "follow-up in 1 week if symptoms persist or worsen"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "possible cardiac etiology of chest pain",
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "Given your symptoms, we need to rule out any heart-related issues, so I've ordered some tests and would like you to see a cardiologist soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure again. And some shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure? Is it sharp, dull, or squeezing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Squeezing. Like something heavy sitting there."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of the chest pressure and shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Chest pressure maybe a 6. Breathing, a 4."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "gastroesophageal reflux disease (GERD)",
+          "anxiety or panic disorder"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "troponin levels"
+        ],
+        "management_plan": [
+          "administer aspirin if no contraindications",
+          "nitroglycerin if chest pain persists",
+          "oxygen therapy if hypoxia is present",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential cardiac event",
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "Given your symptoms, we need to rule out any serious cardiac issues, so we will perform some tests and monitor you closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest is killing me. Been going on half an hour."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "aortic dissection",
+          "pulmonary embolism",
+          "gastroesophageal reflux disease",
+          "musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin",
+          "D-dimer",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer nitroglycerin if angina suspected",
+          "administer antacid if GERD suspected",
+          "administer pain medication as needed",
+          "referral to cardiology for further evaluation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential cardiac or pulmonary cause of chest pain"
+        ],
+        "communication_note": "Given the severity and duration of your chest pain, we need to rule out serious conditions and will send you to the emergency department for further evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634709.0386608
+}

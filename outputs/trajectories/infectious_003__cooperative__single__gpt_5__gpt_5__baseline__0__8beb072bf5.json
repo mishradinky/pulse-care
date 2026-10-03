@@ -1,0 +1,196 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't catch my breath, especially when I'm walking. It's been getting worse for about 3 weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, cough, or fever along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had a dry cough and a low-grade fever along with the shortness of breath. It's been going on for about 3 weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't noticed any weight loss or night sweats, but I do feel more tired than usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you traveled recently or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't traveled recently, and I don't think I've been in contact with anyone who is sick."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of lung or heart conditions, or any other chronic illnesses?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have HIV, but I stopped my medications about 6 months ago. No other lung or heart conditions that I know of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swollen lymph nodes or skin rashes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't noticed any swollen lymph nodes or skin rashes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis jirovecii pneumonia",
+          "Tuberculosis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CD4 count",
+          "HIV viral load",
+          "sputum culture",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "Restart antiretroviral therapy",
+          "Initiate prophylaxis for opportunistic infections",
+          "Consider empirical treatment for Pneumocystis jirovecii pneumonia"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Progression of respiratory distress",
+          "Risk of opportunistic infections due to untreated HIV"
+        ],
+        "communication_note": "Given your symptoms and history of untreated HIV, we need to conduct some tests and restart your HIV treatment to address the breathing issues and prevent further complications."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm having trouble breathing, and it's gotten worse even when I'm just resting now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did your breathing problems start, and have you experienced any other symptoms like fever, cough, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My breathing problems started about three weeks ago. I've also had a dry cough and some low-grade fever, but no chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent travel, exposure to sick individuals, or changes in your environment?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't traveled recently or been around anyone who's sick, as far as I know. My environment hasn't changed either. I've just been working as usual."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "COVID-19",
+          "pneumonia",
+          "asthma exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "COVID-19 test",
+          "CBC",
+          "spirometry"
+        ],
+        "management_plan": [
+          "prescribe bronchodilator",
+          "advise rest and hydration",
+          "follow-up in 3 days"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "hypoxia"
+        ],
+        "communication_note": "Based on your symptoms, we need to conduct some tests to determine the cause of your breathing difficulties and manage it appropriately."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't catch my breath, even with this oxygen mask on. It's hard to talk."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "pneumonia",
+          "acute respiratory distress syndrome (ARDS)"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CT pulmonary angiogram",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start empirical antibiotics",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "severe respiratory distress",
+          "potential for rapid deterioration"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636820.6120403
+}

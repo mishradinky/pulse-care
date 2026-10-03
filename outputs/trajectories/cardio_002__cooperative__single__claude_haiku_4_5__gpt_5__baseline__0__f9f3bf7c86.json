@@ -1,0 +1,226 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having worsening shortness of breath for the past three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any chest pain, chest pressure, or discomfort associated with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or pressure, just the shortness of breath that's been getting worse over the last few days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Are you experiencing any leg swelling, orthopnea (shortness of breath when lying flat), or paroxysmal nocturnal dyspnea (waking up at night gasping for breath)?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've noticed some swelling in my legs and I do have trouble breathing when I lie flat, so I've been sleeping with extra pillows. I haven't woken up gasping for air, though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart disease, high blood pressure, or kidney problems, and are you currently taking any medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have known systolic heart failure with an ejection fraction of 30%, and I have atrial fibrillation. I'm taking furosemide, carvedilol, lisinopril, and apixaban. I don't have any kidney problems that I'm aware of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent infections, fever, or illness, and have you been compliant with taking all your medications as prescribed, including the furosemide?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had any recent infections, fever, or illness. As for the furosemide, I've been taking it irregularly, unfortunately. I've been a bit forgetful with it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any weight gain over the past few days, and what are your current vital signs including blood pressure, heart rate, respiratory rate, and oxygen saturation?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've gained about 4 kilograms over the past few days. As for my vital signs, I'm not sure of the exact numbers, but I do know my blood pressure tends to run high, and I feel a bit more short of breath than usual."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure (most likely)",
+          "Atrial fibrillation with rapid ventricular response",
+          "Medication non-compliance leading to volume overload",
+          "Acute coronary syndrome (lower probability given no chest pain)"
+        ],
+        "workup_ordered": [
+          "BNP or NT-proBNP",
+          "Troponin",
+          "Complete metabolic panel (electrolytes, creatinine, BUN)",
+          "Complete blood count",
+          "ECG",
+          "Chest X-ray",
+          "Echocardiogram (if not recent)",
+          "Vital signs: BP, HR, RR, O2 saturation"
+        ],
+        "management_plan": [
+          "Admit to hospital for acute decompensated heart failure management",
+          "IV diuretics (furosemide) for volume overload",
+          "Optimize beta-blocker and ACE inhibitor dosing",
+          "Monitor electrolytes and renal function closely",
+          "Assess for rate control in atrial fibrillation",
+          "Medication adherence counseling and support",
+          "Consider cardiology consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Significant dyspnea with orthopnea and leg edema indicating acute decompensation",
+          "4 kg weight gain over 3 days suggesting rapid fluid accumulation",
+          "Medication non-compliance with diuretics in patient with known systolic HF",
+          "Risk of respiratory compromise and cardiogenic shock"
+        ],
+        "communication_note": "You are experiencing acute worsening of your heart failure due to fluid buildup, likely from missing doses of your water pill; you need to go to the emergency department today for IV medications and monitoring to help you breathe better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still very short of breath and I've gained more weight since I last saw you."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much weight have you gained since your last visit, and over what time period? Also, have you noticed any swelling in your legs or ankles, or any changes in how much you're urinating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Since my last visit, I've gained about 1.5 kilograms. I've also noticed my ankles are more swollen than usual, and I think I'm urinating less often. It's been a little concerning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any chest pain, palpitations, or orthopnea (difficulty breathing when lying flat)? And are you taking your medications as prescribed, including any diuretics or heart medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't have chest pain, but I do feel palpitations sometimes. I need to use three pillows to breathe comfortably at night. I'm afraid I've been a bit irregular with my furosemide lately."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Chronic heart failure exacerbation",
+          "Renal dysfunction secondary to cardiorenal syndrome",
+          "Medication non-adherence with diuretic"
+        ],
+        "workup_ordered": [
+          "BNP or NT-proBNP",
+          "Comprehensive metabolic panel (electrolytes, creatinine, BUN)",
+          "Complete blood count",
+          "Echocardiogram (if not done recently)",
+          "Chest X-ray",
+          "ECG",
+          "Urinalysis"
+        ],
+        "management_plan": [
+          "Reinitiate furosemide at appropriate dose; consider uptitration given weight gain and reduced urine output",
+          "Strict fluid restriction (1-1.5L daily) and sodium restriction",
+          "Daily weights with patient education to report gains >2-3 lbs",
+          "Assess medication adherence and barriers; simplify regimen if needed",
+          "Cardiology referral if not recently seen",
+          "Electrolyte monitoring given diuretic use and reduced renal function",
+          "Consider ACE inhibitor/ARB and beta-blocker optimization"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Signs of acute decompensated heart failure (orthopnea, peripheral edema, weight gain, reduced urine output)",
+          "Palpitations warrant rhythm assessment",
+          "Medication non-adherence increasing decompensation risk",
+          "Possible renal impairment from cardiorenal syndrome"
+        ],
+        "communication_note": "You are showing signs of heart failure worsening, likely from missing your water pill doses; we need urgent labs and imaging to guide treatment adjustments and prevent hospitalization."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe properly when lying down. I've been using five pillows and still feel panicked sometimes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Pulmonary edema",
+          "Acute coronary syndrome",
+          "Severe aortic stenosis",
+          "Pneumonia with sepsis"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "BNP or NT-proBNP",
+          "Troponin",
+          "ECG",
+          "Echocardiogram",
+          "Complete metabolic panel",
+          "Complete blood count"
+        ],
+        "management_plan": [
+          "Immediate ED referral for acute dyspnea evaluation",
+          "Oxygen supplementation if SpO2 <90%",
+          "IV diuretics if heart failure confirmed",
+          "Cardiac monitoring",
+          "Establish IV access",
+          "Cardiology consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Severe orthopnea with panic suggests acute decompensation",
+          "Risk of acute pulmonary edema or cardiogenic shock",
+          "Potential acute coronary event in elderly patient"
+        ],
+        "communication_note": "Your severe difficulty breathing when lying down requires urgent evaluation in the emergency department to rule out heart failure or other serious cardiac conditions."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779634672.6107461
+}

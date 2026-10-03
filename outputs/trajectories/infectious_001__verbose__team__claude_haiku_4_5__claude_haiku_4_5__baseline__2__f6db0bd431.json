@@ -1,0 +1,249 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "claude-haiku-4-5-20251001",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh doc, thank goodness you're here. You know, I was just telling my neighbor yesterday\u2014nice fellow, lives two doors down\u2014I said, 'I haven't felt right in days.' Anyway, this cough started about four days ago, maybe five, I lose track. It's been driving me absolutely crazy. I'm coughing up this yellow-green stuff, really nasty, and my chest hurts something awful, especially when I breathe in deep. And I've had this fever, been sweating through my shirts. My head's been a bit foggy too, hard to concentrate. I smoke, you know, so I figured maybe it was just my lungs acting up again like they do, but this feels different. Worse. I had something similar last year and they gave me some antibiotics and it cleared up. But this time it's not getting better on its own. I'm worried, doc. Really worried."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your symptoms better. A few quick questions: (1) Do you have any shortness of breath or difficulty breathing, or just the chest pain with deep breaths? (2) Have you measured your temperature, and if so, how high has it been? (3) Any nausea, vomiting, or abdominal pain? (4) Are you currently on any medications, and do you have any chronic conditions like COPD or heart disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, you know, my daughter was just visiting last weekend and she kept saying I sounded like a seal barking\u2014real annoying, that cough. But yeah, I'm definitely short of breath, doc. Can't climb the stairs without huffing and puffing like I used to. The chest pain gets worse when I take a deep breath, especially on this right side here. As for temperature, my daughter took it yesterday morning and it was like 103 or something\u2014pretty high. Today I checked and it's still up there, maybe 101 or 102. No throwing up or stomach issues, thank God. And yeah, I've got that lung thing\u2014COPD they call it\u2014been dealing with that for years. I take that inhaler, the Tiotropium one, and use my rescue inhaler when I need it. Also take metformin for my sugar. I've had this kind of thing before, actually, last year they gave me some antibiotics and it cleared up eventually."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "65-year-old male smoker with COPD presenting with 4\u20135 days of productive cough (yellow-green sputum), fever (101\u2013103\u00b0F), dyspnea on exertion, right-sided pleuritic chest pain, and constitutional symptoms (diaphoresis, altered cognition). High-risk presentation for community-acquired pneumonia with potential for rapid decompensation.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (bacterial, likely S. pneumoniae or H. influenzae given smoking + COPD)",
+          "COPD exacerbation with superimposed bacterial infection",
+          "Acute bronchitis with secondary bacterial infection",
+          "Influenza with bacterial superinfection",
+          "Aspiration pneumonia (lower risk but noted given age + potential swallowing concerns)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs including oxygen saturation (SpO2), respiratory rate, heart rate, blood pressure, temperature",
+          "Chest X-ray (same-day, to assess for infiltrate/consolidation and rule out complications)",
+          "CBC with differential, comprehensive metabolic panel (Cr, eGFR, K+, glucose), LFTs",
+          "Procalcitonin or CRP (to guide antibiotic necessity and severity)",
+          "Sputum culture and Gram stain (obtain BEFORE antibiotics)",
+          "Blood cultures if febrile (obtain BEFORE antibiotics)",
+          "Baseline ECG (given age, COPD, and planned fluoroquinolone consideration for QT monitoring)",
+          "Respiratory viral panel or influenza testing (if seasonally appropriate)"
+        ],
+        "management_plan": [
+          "CONDITIONAL ESCALATION PATHWAY: Do NOT initiate outpatient workup until vital signs confirm stability (SpO2 \u226590%, RR <30, no acute respiratory distress).",
+          "If SpO2 <90%, RR \u226530, altered mental status, or hemodynamic instability \u2192 REFER TO ED IMMEDIATELY (do not delay).",
+          "If stable for outpatient pathway: Ensure same-day CXR and labs can be obtained; patient must have reliable access to ED if deteriorates.",
+          "Empiric antibiotic selection PENDING: (1) renal function results, (2) allergy history confirmation, (3) drug interaction review with metformin + COPD medications.",
+          "Likely empiric regimens (pending labs/allergies):",
+          "  \u2022 First-line: Amoxicillin-clavulanate 875/125 mg PO BID \u00d7 7 days (if eGFR >30, no PCN allergy)",
+          "  \u2022 Alternative: Levofloxacin 750 mg PO daily \u00d7 5 days (if eGFR \u226550, no QT prolongation risk, baseline ECG normal)",
+          "  \u2022 Avoid macrolides as monotherapy given smoking history (resistance risk); consider as adjunct only.",
+          "Supportive care: Ensure adequate hydration, oxygen supplementation if SpO2 <90%, fever management (acetaminophen preferred over NSAIDs given ACE-I/ARB/renal risk).",
+          "Smoking cessation counseling and resources (reinforce during visit).",
+          "Follow-up: Clinical reassessment in 48\u201372 hours; if no improvement or worsening \u2192 ED referral.",
+          "Patient safety: Advise to seek immediate care (911) if develops severe dyspnea, chest pain, confusion, or SpO2 drops."
+        ],
+        "escalation_level": "ed_referral",
+        "escalation_rationale": "Patient meets criteria for urgent evaluation with conditional escalation pathway. Vital signs assessment is MANDATORY before determining outpatient vs. ED care. If SpO2 <90%, RR >30, altered mental status, or inability to access same-day imaging/labs \u2192 ED referral. If vital signs stable and same-day workup feasible \u2192 urgent outpatient with close follow-up and low threshold for ED escalation.",
+        "safety_concerns": [
+          "CRITICAL: Vital signs not yet obtained in-person. Hypoxia (SpO2 <90%) or tachypnea (RR >30) is a medical emergency requiring immediate ED referral.",
+          "CRITICAL: Altered cognition ('head's been a bit foggy') + fever + dyspnea may indicate early sepsis or hypoxia; mental status must be formally assessed.",
+          "HIGH: 65-year-old with COPD + smoking history at high risk for rapid decompensation; cannot safely defer imaging/labs to next day.",
+          "HIGH: Pleuritic chest pain on right side\u2014must rule out pleural effusion, empyema, or pneumothorax on CXR.",
+          "MODERATE: Metformin use + potential renal compromise (age, smoking, COPD) requires baseline Cr/eGFR before antibiotic dosing and to assess lactic acidosis risk.",
+          "MODERATE: COPD baseline medications (Tiotropium + rescue inhaler) must be continued; ensure bronchodilators available during treatment.",
+          "MODERATE: Allergy history not yet confirmed\u2014must obtain before antibiotic initiation to avoid adverse events.",
+          "MODERATE: Prior antibiotic use last year\u2014need to clarify which agent and duration to guide current empiric choice and assess for resistance patterns."
+        ],
+        "communication_note": "Patient is symptomatic and worried; acknowledge concern, explain that we need urgent vital signs and imaging today to determine if outpatient vs. ED care is appropriate, and reassure that treatment will begin promptly once safety is confirmed.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk CAP presentation and generated comprehensive differential diagnosis with targeted history questions (dyspnea, fever, GI symptoms, medications, chronic conditions). Workup plan is evidence-based and includes microbiology sampling. However, clinician did NOT obtain vital signs first\u2014a critical gap that safety checker flagged.",
+          "safety_checker_contribution": "Safety checker identified CRITICAL gaps: (1) no vital signs obtained despite high-risk presentation, (2) no acuity triage before proceeding with history, (3) unclear if encounter is in-person or telehealth (affects feasibility of outpatient pathway). Recommended CONDITIONAL APPROVAL with mandatory vital signs assessment and escalation pathway. Blocked outpatient workup until SpO2/RR confirmed safe.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication review gaps (no current med list obtained yet) and flagged high-risk interactions: fluoroquinolone + warfarin/DOAC, macrolide + statin, beta-lactam + metformin (lactic acidosis), NSAID + ACE-I/ARB. Emphasized need for baseline renal function before antibiotic dosing (age 65 + smoking = CKD risk). Provided age-appropriate dosing guidance and nursing actions (allergy history, sputum/blood culture before antibiotics, IV access if admitted, mental status monitoring). Highlighted COPD-specific concerns (bronchospasm risk, bronchodilator availability) and smoking-related resistance risk."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh doc, I'm so glad you're here. You know, my wife keeps telling me I need to stop worrying so much, but honestly, I haven't been sleeping well\u2014been up all night coughing, and now I'm just... I'm confused about things. Like this morning I couldn't remember if I'd taken my pills or not, and that scared me. The medicine you gave me yesterday, that pink stuff, it's not helping like it did last time. Actually, my neighbor had something similar back in March and he was fine in a week, but me? I'm getting worse. I'm not even eating\u2014my wife made my favorite soup and I just couldn't touch it. And I'm so tired, doc. Really tired. My chest still hurts when I breathe, and I'm coughing up all this... well, nasty stuff. Yellow-green. I'm worried something's really wrong this time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I hear you're quite concerned, and rightfully so given what you're describing. Let me ask a few clarifying questions: When did this cough start, and have you measured your temperature at home? Also, do you have any chronic lung conditions, and are you up to date on your pneumococcal and flu vaccines?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, yeah, I'm pretty worried, doc. You know, my wife keeps saying I worry too much\u2014she's always on me about that\u2014but this just feels different from my usual chest stuff. Let me think... the cough started about four days ago now, maybe five? I've been keeping track on the calendar. My daughter came over yesterday with a thermometer, one of those fancy ear ones, and it read 38.9, almost 39. That scared me half to death, I'll tell you. As for my lungs, yeah, I've got that COPD thing\u2014been dealing with it for years, you know, from smoking back in the day. I quit... well, mostly quit. And the vaccines? Honestly, I'm not sure about all that. I know I get a flu shot most years at the pharmacy, but the pneumonia one? I'd have to check my records. My memory's not what it used to be, especially with how foggy I've been feeling these last couple days."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with possible early sepsis \u2013 productive cough (yellow-green sputum), pleuritic chest pain, dyspnea, fever 38.9\u00b0C, systemic toxicity (anorexia, fatigue), and COPD history",
+          "Acute exacerbation of COPD with secondary bacterial infection \u2013 known COPD, productive cough, dyspnea, prior similar episodes",
+          "Influenza with secondary bacterial superinfection \u2013 acute onset 4\u20135 days, constitutional symptoms, fever, poor response to prior treatment",
+          "Delirium/acute confusion secondary to hypoxia, fever, or systemic infection \u2013 altered mental status (medication confusion, fogginess), fever, respiratory infection in 65M"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: temperature (core), oxygen saturation (continuous pulse oximetry), blood pressure, heart rate, respiratory rate, work of breathing assessment",
+          "STAT chest X-ray (rule out infiltrate, pneumonia, pleural effusion)",
+          "STAT labs: CBC with differential, BMP (renal function for antibiotic dosing), lactate (sepsis marker), blood cultures (if febrile/septic appearance)",
+          "Sputum Gram stain and culture (if productive)",
+          "Rapid influenza and RSV testing",
+          "ECG (chest pain + dyspnea + age 65)",
+          "Baseline cognitive assessment (document mental status for comparison)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain complete medication reconciliation (prescription, OTC, supplements, herbal) and allergy history (penicillin, sulfa, macrolides, fluoroquinolones) BEFORE empiric therapy",
+          "IMMEDIATE: Assess hydration status; establish IV access; prepare for supplemental oxygen if SpO\u2082 <92%",
+          "IMMEDIATE: Initiate sepsis protocol if fever >38.5\u00b0C with tachycardia, hypotension, or altered mental status (lactate, blood cultures, fluid resuscitation readiness)",
+          "PENDING LABS/IMAGING: Hold empiric antimicrobial dosing until renal function (BMP/creatinine) and hepatic function known; adjust doses for age-related CKD if present",
+          "Empiric CAP therapy (once labs/imaging available): Consider respiratory fluoroquinolone (levofloxacin/moxifloxacin) or amoxicillin-clavulanate for outpatient; ceftriaxone \u00b1 azithromycin if hospitalized (pending allergy/interaction screening)",
+          "Pain management: Acetaminophen preferred for pleuritic pain (avoid NSAIDs if CKD present); opioids if needed",
+          "Nutritional support: Encourage oral intake; consider IV fluids if anorexia/dehydration persists",
+          "Vaccination documentation: Confirm pneumococcal and flu vaccine status; plan post-recovery vaccination if unvaccinated",
+          "Monitor mental status q1h until etiology clarified; reassess for hypoxia, fever, sepsis"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "ACUTE MENTAL STATUS CHANGES (confusion, fogginess, medication recall failure) in elderly patient with fever and respiratory infection \u2013 RED FLAG for sepsis, hypoxic delirium, or CNS involvement; requires immediate objective assessment and monitoring",
+          "UNDOCUMENTED OXYGEN SATURATION \u2013 Mental status changes + respiratory symptoms + productive cough without known SpO\u2082 is a critical gap; hypoxia may be driving delirium",
+          "FEVER 38.9\u00b0C + COPD + productive cough + pleuritic chest pain + dyspnea + systemic toxicity = HIGH pre-test probability for pneumonia \u00b1 sepsis; meets SIRS criteria",
+          "DELAYED OBJECTIVE ASSESSMENT \u2013 Clinician still in question phase; vital signs, imaging, and labs have NOT yet been obtained. Patient cannot be safely managed in outpatient setting without immediate data",
+          "SEPSIS RISK: Age 65, acute infection, altered mental status, dyspnea, fever, and anorexia meet sepsis criteria until proven otherwise; patient may decompensate rapidly",
+          "MEDICATION RECONCILIATION INCOMPLETE \u2013 No current medication list provided; cannot assess drug-drug interactions or renal/hepatic dosing until full list obtained",
+          "ALLERGY HISTORY INCOMPLETE \u2013 Must obtain detailed allergy screening before empiric antimicrobial therapy to avoid adverse events"
+        ],
+        "communication_note": "This 65-year-old with COPD presents with a 4\u20135 day progressive respiratory infection (fever 38.9\u00b0C, productive cough, pleuritic chest pain, dyspnea), systemic toxicity (anorexia, fatigue, sleep disruption), and acute mental status changes (confusion, fogginess)\u2014a constellation highly concerning for community-acquired pneumonia with possible early sepsis or hypoxic delirium; ED referral is required for immediate vital signs, imaging, labs, and sepsis protocol initiation.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (CAP, COPD exacerbation, influenza with secondary infection, delirium) and ordered comprehensive workup (vitals, CXR, CBC, BMP, lactate, cultures, ECG). Clinician asked clarifying questions about cough onset, temperature, chronic lung disease, and vaccination status\u2014all appropriate. However, clinician is still in question phase and has not yet obtained objective data (SpO\u2082, core temperature, imaging, labs), which is a critical delay given acute mental status changes.",
+          "safety_checker_contribution": "Safety checker correctly identified BLOCKING CONCERNS: (1) acute mental status changes in elderly patient with fever/infection = classic sepsis/hypoxic delirium red flag requiring IMMEDIATE objective assessment, not further questioning; (2) TRIAD OF CONCERN (productive cough + pleuritic chest pain + dyspnea in 65M) = high pre-test probability for pneumonia/sepsis; (3) NO DOCUMENTED SpO\u2082 despite respiratory symptoms and confusion = critical gap; (4) DELAYED ASSESSMENT\u2014vital signs and imaging cannot wait for outpatient scheduling. Safety checker appropriately recommended ED referral and flagged sepsis risk (age, acute infection, altered mentation, dyspnea meet SIRS criteria). Blocking concerns override outpatient management.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL medication reconciliation gap (no current medication list available) and flagged need for allergy screening BEFORE empiric therapy. Nurse outlined drug-specific interaction alerts (fluoroquinolones: QT-prolonging agents, NSAIDs, theophylline; macrolides: CYP3A4 interactions; beta-lactams: penicillin/cephalosporin allergy). Nurse emphasized RENAL FUNCTION UNKNOWN\u201465M may have age-related CKD requiring dose adjustment for fluoroquinolones, beta-lactams, aminoglycosides. Nursing concerns included acute mental status assessment (hypoxia, fever, sepsis), respiratory compromise (continuous pulse oximetry, supplemental O\u2082 readiness), sepsis protocol initiation (core temperature, lactate, blood cultures, IV access, fluid resuscitation), hydration assessment, and pain management (acetaminophen preferred over NSAIDs if CKD). Nurse correctly held antimicrobial dosing recommendations pending labs."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here, Doctor. I... I can't breathe right. They had to put this tube down my throat in the emergency room\u2014I don't even remember when that happened, everything's kind of fuzzy. My wife says it was this morning but I swear it feels like yesterday. You know, I was just fine yesterday, well, not *fine* fine, I've had this cough for days now with all that nasty yellow stuff, but then suddenly I just couldn't catch my breath. Reminds me of when my brother had pneumonia back in '98, scared us half to death. Anyway, I'm on this machine now breathing for me, and I'm terrified, Doctor. What's happening to me? Why can't I breathe on my own?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand this is frightening. Let me gather some critical information: When did the cough start exactly, and have you had fever, chills, or chest pain? Also, do you have any chronic lung disease, heart problems, or recent infections? And are you currently on any medications, particularly for blood pressure or heart conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh boy, yes, it's been scary\u2014my daughter kept calling me yesterday worried sick. Let me think... the cough started, gosh, must've been four days ago now? Maybe five? Time's been a blur, honestly. And my boss was on my case all week about the quarterly reports, so I wasn't paying attention at first. But yeah, I've had the chills something awful\u2014kept piling blankets on even though my wife said the house was plenty warm. And this pain in my chest, right side here, really hurts when I breathe in deep. As for the lungs, well, I've had trouble with my breathing for years now\u2014my doctor calls it something with those letters, COPD I think? I smoke, been doing it for decades, can't seem to quit. Also got the diabetes, you know, the blood sugar thing. And no heart problems that I know of. For meds, I take some pills for the blood pressure and my sugar\u2014honestly got a whole handful, can't remember all the names off the top of my head. Had something similar happen last year, they gave me antibiotics and it cleared up."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "65M with COPD, diabetes, tobacco use presenting with 4-5 day productive cough (yellow sputum), fever, chills, pleuritic chest pain (right side), and acute hypoxic respiratory failure requiring intubation this morning. Patient is currently sedated on mechanical ventilation with altered mental status. High-risk presentation for community-acquired pneumonia with sepsis.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with sepsis and acute respiratory failure \u2014 PRIMARY",
+          "Acute exacerbation of COPD with secondary bacterial pneumonia",
+          "Aspiration pneumonia",
+          "Acute decompensated heart failure (cardiogenic pulmonary edema)",
+          "Sepsis from respiratory source"
+        ],
+        "workup_ordered": [
+          "STAT Chest X-ray",
+          "STAT Labs: CBC, CMP, lactate, procalcitonin, troponin",
+          "Blood cultures \u00d7 2 (BEFORE antibiotics if not already obtained)",
+          "Sputum culture and Gram stain from endotracheal tube",
+          "12-lead ECG",
+          "ABG/VBG on current ventilator settings",
+          "Respiratory viral panel \u00b1 COVID-19 PCR",
+          "Urinalysis and urine culture"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Document current ventilator settings, FiO\u2082, PEEP, baseline oxygenation (SpO\u2082, PaO\u2082), and hemodynamic stability",
+          "SEPSIS PROTOCOL: Initiate empiric broad-spectrum antibiotics WITHIN 1 HOUR if not already given \u2014 ceftriaxone 2g IV q12h + azithromycin 500mg IV q24h + clindamycin 600mg IV q6-8h (anaerobic coverage)",
+          "OBTAIN COMPLETE MEDICATION LIST STAT from wife, pharmacy records, or prior ED documentation",
+          "RENAL DOSING: Once baseline creatinine/eGFR available, adjust all renally-cleared antibiotics per renal function",
+          "CARDIAC ASSESSMENT: ECG + troponin results will guide antibiotic choice and rule out MI/heart failure",
+          "ASPIRATION PRECAUTIONS: Maintain endotracheal cuff pressure 25-30 cm H\u2082O, head-of-bed \u226530\u00b0, oral care q2-4h, NPO status",
+          "FLUID MANAGEMENT: Assess volume status; sepsis typically requires fluid resuscitation but monitor for cardiogenic pulmonary edema",
+          "CONTACT/RESPIRATORY ISOLATION: Implement until COVID-19, influenza, TB ruled out",
+          "GOALS OF CARE: Discuss code status and prognosis with wife once patient stabilized"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Patient is already intubated in acute respiratory failure \u2014 this is ICU-level emergency. Time-sensitive interventions (antibiotics, cultures, labs) must proceed STAT in parallel with history-gathering.",
+          "CRITICAL: Sepsis protocol \u2014 blood cultures BEFORE antibiotics; empiric broad-spectrum coverage within 1 hour of recognition.",
+          "CRITICAL: Baseline renal function unknown; acute kidney injury risk HIGH. All renally-cleared drugs require dose adjustment once Cr/eGFR available.",
+          "CRITICAL: Medication list incomplete; cannot finalize antibiotic selection or assess drug interactions without full history. Patient is sedated \u2014 obtain from wife or pharmacy records STAT.",
+          "HIGH: Differential includes acute heart failure; ECG + troponin essential to differentiate from pneumonia.",
+          "HIGH: Aspiration pneumonia in differential but no documented aspiration precautions or swallow evaluation plan.",
+          "HIGH: No documented contact/respiratory isolation precautions despite unknown etiology.",
+          "MODERATE: Patient reports altered mental status regarding timeline; may indicate sepsis-related encephalopathy or hypoxia.",
+          "MODERATE: COPD + tobacco use + pleuritic chest pain = risk for spontaneous pneumothorax; ensure CXR reviewed for complications.",
+          "MODERATE: Diabetes + sepsis = hyperglycemia risk; monitor glucose closely."
+        ],
+        "communication_note": "Patient intubated and sedated in ICU-level acute respiratory failure; clinician appropriately gathered critical history; safety checker flagged that time-sensitive interventions must proceed in parallel with history; pharm/nurse identified critical gaps in medication list and renal function that must be filled STAT before finalizing antimicrobial therapy.",
+        "trace": {
+          "clinician_contribution": "Appropriately recognized severe pneumonia/respiratory failure and asked targeted questions eliciting cough duration, fever, chills, chest pain, COPD history, and medications. Differential diagnosis is sound. Workup is comprehensive for ICU-level acute respiratory failure. Did not explicitly acknowledge that patient is already intubated and that history-gathering must occur in parallel with urgent interventions.",
+          "safety_checker_contribution": "Correctly identified this is ICU-level emergency, not routine assessment. Flagged CRITICAL gaps: no documentation of current ventilator settings, oxygenation, or hemodynamic stability; no evidence blood cultures/labs/imaging already in motion; no documented sepsis protocol initiation or antimicrobial stewardship decision; no code status discussion. Appropriately escalated to emergency_911.",
+          "pharm_nurse_contribution": "Identified CRITICAL need for complete medication list STAT (ACE-I/ARB, beta-blockers, diuretics, anticoagulants, NSAIDs, corticosteroids, immunosuppressants). Flagged renal function as CRITICAL for dose adjustments of all antibiotics. Outlined sepsis protocol, ventilator management, aspiration precautions, cardiac monitoring, drug allergy verification, fluid balance, and medication interactions. Provided specific antibiotic recommendations with anaerobic coverage for aspiration risk."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539721.1142828
+}

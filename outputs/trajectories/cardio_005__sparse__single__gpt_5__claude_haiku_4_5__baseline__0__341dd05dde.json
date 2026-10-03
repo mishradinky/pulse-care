@@ -1,0 +1,199 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Sharp pain in my right chest. Can't breathe right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this chest pain and difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started yesterday. Sharp pain on right side. Hard to breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like fever, cough, or recent injury?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. No cough. No injury."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had any history of heart or lung conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Never had anything like that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling or pain in your legs, or have you been on a long flight or car ride recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right leg's swollen. Yeah, flew from Tokyo. Twelve hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any redness or warmth in your swollen leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No redness. Maybe a little warm, I guess."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CT pulmonary angiography",
+          "D-dimer",
+          "ultrasound of the leg"
+        ],
+        "management_plan": [
+          "Administer oxygen if needed",
+          "Anticoagulation therapy if PE confirmed",
+          "Pain management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for respiratory distress",
+          "Risk of clot migration"
+        ],
+        "communication_note": "You may have a serious condition like a blood clot in your lung, so we need to get you to the emergency room immediately for further tests and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing worse. Leg hurts more now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the leg pain? Is it swelling, redness, or warmth?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Swollen. Red. Warm. Hurts more now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Chest hurts. Worse when I breathe. Heart's racing."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "chest CT angiography",
+          "lower extremity ultrasound",
+          "ECG",
+          "troponin levels"
+        ],
+        "management_plan": [
+          "initiate anticoagulation therapy if PE or DVT confirmed",
+          "provide supplemental oxygen if needed",
+          "monitor cardiac status"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of pulmonary embolism",
+          "potential for cardiac complications"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition that requires immediate attention, so we need to get you to the emergency room right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Almost passed out."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "acute coronary syndrome",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "ECG",
+          "D-dimer",
+          "troponin"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "monitor vital signs",
+          "prepare for possible advanced cardiac life support"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for respiratory failure",
+          "risk of cardiac arrest"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulty and almost fainted, which requires immediate emergency care. We are calling 911 to get you to the hospital quickly."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507364.6687884
+}

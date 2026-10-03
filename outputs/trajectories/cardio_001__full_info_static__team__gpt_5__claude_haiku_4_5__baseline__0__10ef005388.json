@@ -1,0 +1,155 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Stable angina",
+          "Unstable angina",
+          "Non-ST elevation myocardial infarction (NSTEMI)",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "Repeat ECG",
+          "Serial troponin measurements",
+          "Stress test (if stable)",
+          "Coronary angiography (if indicated)",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Initiate aspirin 81 mg daily",
+          "Start beta-blocker (e.g., metoprolol)",
+          "Consider statin therapy for primary prevention",
+          "Smoking cessation counseling",
+          "Lifestyle modification advice (diet, exercise)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for progression to myocardial infarction",
+          "Risk of arrhythmias",
+          "Hypertension management"
+        ],
+        "communication_note": "The patient presents with symptoms suggestive of coronary artery disease, possibly unstable angina. Given the family history of early myocardial infarction and current risk factors, urgent outpatient cardiology follow-up is recommended. The patient should be advised on recognizing symptoms of worsening chest pain and instructed to seek immediate medical attention if symptoms escalate.",
+        "trace": {
+          "clinician_contribution": "The clinician identified the need for further cardiac evaluation and potential intervention.",
+          "safety_checker_contribution": "The safety checker highlighted the importance of monitoring for progression to myocardial infarction.",
+          "pharm_nurse_contribution": "The pharmacy and nursing team emphasized the initiation of aspirin and beta-blocker therapy, along with smoking cessation support."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute Coronary Syndrome (ACS)",
+          "Stable Angina",
+          "Unstable Angina",
+          "Non-ST Elevation Myocardial Infarction (NSTEMI)",
+          "Gastroesophageal Reflux Disease (GERD)",
+          "Musculoskeletal Pain"
+        ],
+        "workup_ordered": [
+          "Repeat ECG",
+          "Serial Troponin Levels",
+          "Chest X-ray",
+          "Complete Blood Count (CBC)",
+          "Basic Metabolic Panel (BMP)",
+          "Lipid Profile"
+        ],
+        "management_plan": [
+          "Initiate Aspirin 325 mg",
+          "Start Nitroglycerin as needed for chest pain",
+          "Consider Beta-blocker for heart rate control",
+          "Consult Cardiology for further evaluation",
+          "Educate patient on lifestyle modifications (smoking cessation, diet, exercise)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential progression to myocardial infarction",
+          "Risk of arrhythmias",
+          "Patient's anxiety impacting symptom perception"
+        ],
+        "communication_note": "Patient presents with recurrent chest pain and new ECG changes suggestive of ischemia. Troponin elevation indicates myocardial injury. Immediate cardiology consultation is advised for potential ACS management. Patient education on recognizing symptoms and when to seek emergency care is crucial.",
+        "trace": {
+          "clinician_contribution": "Identified potential ACS and ordered appropriate diagnostic tests.",
+          "safety_checker_contribution": "Highlighted the need for urgent cardiology consultation and patient education on emergency symptoms.",
+          "pharm_nurse_contribution": "Recommended initiation of aspirin and nitroglycerin, and advised on lifestyle modifications."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute Myocardial Infarction (STEMI)",
+          "Unstable Angina",
+          "Aortic Dissection",
+          "Pulmonary Embolism",
+          "Gastroesophageal Reflux Disease"
+        ],
+        "workup_ordered": [
+          "Immediate ECG",
+          "Serial Troponins",
+          "Chest X-ray",
+          "Echocardiogram",
+          "Coronary Angiography"
+        ],
+        "management_plan": [
+          "Administer aspirin 325 mg chewed",
+          "Administer nitroglycerin sublingually",
+          "Start IV access and administer morphine for pain",
+          "Administer oxygen to maintain SpO2 > 94%",
+          "Prepare for possible percutaneous coronary intervention (PCI)",
+          "Consult cardiology immediately"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of cardiac arrest",
+          "Potential for cardiogenic shock",
+          "Risk of arrhythmias"
+        ],
+        "communication_note": "Patient presents with signs and symptoms highly suggestive of an acute ST-Elevation Myocardial Infarction (STEMI). Immediate intervention is critical. Cardiology team has been notified, and preparations for emergency PCI are underway. Continuous monitoring and supportive care are being provided.",
+        "trace": {
+          "clinician_contribution": "Identified STEMI based on ECG findings and elevated troponin levels.",
+          "safety_checker_contribution": "Highlighted the need for immediate intervention to prevent cardiac arrest.",
+          "pharm_nurse_contribution": "Ensured timely administration of aspirin and nitroglycerin."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597763.6092653
+}

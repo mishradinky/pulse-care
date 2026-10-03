@@ -1,0 +1,201 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been feeling really hot and shivery, and my back hurts so bad. I haven't been able to pee, and I'm feeling all mixed up in my head, and I've been throwing up too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been feeling like this for about two days. It started with feeling really cold and shaky, and then my back started hurting a lot."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever or chills?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've been feeling really hot and shivery for a couple of days now. It's been hard to get comfortable."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in the color or smell of your urine?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't peed at all since yesterday, so I dunno about the color or smell now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent urinary tract infections or kidney problems in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've had those pee infections a few times before. They gave me some pills for it. I dunno about kidney stuff, though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any pain or burning sensation when trying to urinate before you stopped being able to pee?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My pee didn't feel right before. It was kinda stingy and hurt a bit when I tried to go."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urinary tract infection",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate intravenous fluids",
+          "start broad-spectrum antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis due to possible urinary tract infection",
+          "acute kidney injury due to inability to urinate"
+        ],
+        "communication_note": "You need immediate medical attention to address your symptoms and prevent any serious complications."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been feelin' real sick, doc. Still got the fever, and my head's all mixed up more than before. It's been a rough day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your symptoms, like when they started and if anything makes them better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, a couple of days ago, I started feeling really hot and shivery. My back hurts a lot, and I feel all mixed up in my head. I threw up, too. Nothing really seems to help it get better."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine, such as pain, frequency, or color?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't been able to pee much at all, not since yesterday. It's like my bladder doesn't wanna work."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "pyelonephritis",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum antibiotics",
+          "ensure adequate hydration",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for sepsis due to confusion and fever",
+          "risk of acute kidney injury due to decreased urine output"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment, as your symptoms suggest a serious infection that requires immediate attention."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I just feel so awful, everything hurts, and I'm all confused. My body's been shaking a lot and I'm cold, and I haven't peed in a long time."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "sepsis",
+          "urinary tract infection",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "urinalysis",
+          "chest X-ray",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum antibiotics",
+          "administer intravenous fluids",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of septic shock",
+          "acute kidney injury due to dehydration"
+        ],
+        "communication_note": "You are showing signs of a serious infection, and we need to get you to the hospital immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779636708.8802075
+}

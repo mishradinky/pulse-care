@@ -1,0 +1,142 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypertensive urgency",
+          "Medication non-compliance",
+          "Secondary causes of hypertension (less likely)"
+        ],
+        "workup_ordered": [
+          "Fundoscopic examination to assess for hypertensive retinopathy",
+          "Repeat blood pressure measurement after rest",
+          "Consideration of additional labs if symptoms persist or worsen"
+        ],
+        "management_plan": [
+          "Re-initiate amlodipine 10mg daily",
+          "Add HCTZ 25mg daily to regimen",
+          "Educate patient on importance of medication adherence",
+          "Schedule follow-up appointment within 1 week to reassess blood pressure and symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for hypertensive emergency if blood pressure remains uncontrolled",
+          "Risk of end-organ damage if hypertension persists"
+        ],
+        "communication_note": "Patient educated on the importance of medication adherence and potential risks of uncontrolled hypertension. Follow-up scheduled to ensure blood pressure control and symptom resolution.",
+        "trace": {
+          "clinician_contribution": "Reviewed patient's history and current presentation. Determined likely hypertensive urgency due to medication non-compliance.",
+          "safety_checker_contribution": "Assessed for immediate safety concerns, ensuring no signs of hypertensive emergency or end-organ damage.",
+          "pharm_nurse_contribution": "Provided input on medication regimen and patient education regarding adherence."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypertensive urgency",
+          "Medication non-compliance",
+          "Rebound hypertension",
+          "Secondary hypertension (e.g., renal artery stenosis, pheochromocytoma)"
+        ],
+        "workup_ordered": [
+          "Repeat blood pressure monitoring",
+          "Serum electrolytes and renal function tests",
+          "Consider ambulatory blood pressure monitoring",
+          "Evaluate for secondary causes of hypertension if persistent"
+        ],
+        "management_plan": [
+          "Reinstate amlodipine 10mg daily",
+          "Add a thiazide diuretic (e.g., hydrochlorothiazide)",
+          "Educate on medication adherence",
+          "Schedule follow-up in 1 week to reassess blood pressure",
+          "Consider lifestyle modifications: low-sodium diet, regular exercise"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for hypertensive emergency if not managed",
+          "Risk of end-organ damage due to prolonged high blood pressure"
+        ],
+        "communication_note": "Patient has shown partial response to oral medications. Reinforce the importance of medication adherence and lifestyle changes. Schedule a follow-up appointment to monitor blood pressure and adjust treatment as necessary.",
+        "trace": {
+          "clinician_contribution": "Evaluated the need for medication adjustment and follow-up.",
+          "safety_checker_contribution": "Assessed the risk of hypertensive emergency and ensured safety measures are in place.",
+          "pharm_nurse_contribution": "Provided education on medication adherence and lifestyle modifications."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypertensive emergency with end-organ damage",
+          "Intracranial hypertension",
+          "Acute kidney injury secondary to hypertensive crisis",
+          "Retinal vein occlusion"
+        ],
+        "workup_ordered": [
+          "CT or MRI of the brain to rule out intracranial hemorrhage or mass effect",
+          "Ophthalmology consult for detailed eye examination",
+          "Renal ultrasound to assess for renal artery stenosis or other renal pathology",
+          "Repeat BMP to monitor renal function",
+          "Urinalysis with microscopy to further evaluate proteinuria and hematuria"
+        ],
+        "management_plan": [
+          "Immediate blood pressure control with intravenous antihypertensives (e.g., labetalol or nicardipine)",
+          "Admission to the hospital for close monitoring and further management",
+          "Consult nephrology for evaluation of acute kidney injury",
+          "Consult neurology for evaluation of visual field defect and papilledema",
+          "Start oral antihypertensive regimen once BP is stabilized"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of stroke or intracranial hemorrhage due to severely elevated blood pressure",
+          "Potential for permanent vision loss if not addressed promptly",
+          "Progression of acute kidney injury"
+        ],
+        "communication_note": "Patient presents with signs of hypertensive emergency, including visual changes and papilledema, indicating end-organ damage. Immediate intervention is necessary to prevent further complications. Coordination with ophthalmology, neurology, and nephrology is essential for comprehensive management.",
+        "trace": {
+          "clinician_contribution": "Identified hypertensive emergency and need for immediate BP control.",
+          "safety_checker_contribution": "Highlighted risks of stroke and vision loss due to elevated BP.",
+          "pharm_nurse_contribution": "Recommended IV antihypertensives and monitoring plan."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779597782.8167436
+}

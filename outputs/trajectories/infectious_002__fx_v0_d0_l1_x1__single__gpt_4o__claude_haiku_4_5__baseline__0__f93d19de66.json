@@ -1,0 +1,214 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "fx_v0_d0_l1_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 78,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I have fever, chills, bad back pain. Haven't peed in hours. Feeling confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days. Fever and chills started yesterday morning. My granddaughter visited last week, had a cold."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any changes in your urine color or any pain when trying to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't peed in like twelve hours. It hurts down there when I try."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or abdominal pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, throwing up. Bad pain in my back. Haven't eaten since yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of kidney stones or urinary tract infections?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, lots of infections. Last one three months ago. My grandson had kidney stones though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any blood in your urine or any unusual discharge?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood. Haven't peed in like twelve hours. My granddaughter visited yesterday, she's got a cold."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urinary tract infection",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate intravenous fluids",
+          "start broad-spectrum antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis due to fever, confusion, and urinary retention",
+          "dehydration from vomiting and not eating"
+        ],
+        "communication_note": "You have symptoms that suggest a serious infection, possibly involving your kidneys, and need immediate hospital care."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still got fever. More confused now. Worse since yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like cough, shortness of breath, or urinary issues?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No cough. Can't breathe right. Haven't peed since yesterday morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. My legs look normal. But I'm so confused right now."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "sepsis",
+          "dehydration"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate IV fluids",
+          "administer broad-spectrum antibiotics"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "altered mental status",
+          "anuria",
+          "potential sepsis"
+        ],
+        "communication_note": "You need immediate medical attention due to confusion and not urinating, which could indicate a serious infection."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe right. Everything hurts. Where am I?"
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism",
+          "acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "electrolyte panel",
+          "ECG",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "Administer supplemental oxygen",
+          "Start empirical antibiotics",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe respiratory distress",
+          "Altered mental status"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties and pain, so we need to get you to the hospital immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790548098.6936405
+}

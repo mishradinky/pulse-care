@@ -1,0 +1,209 @@
+{
+  "case_id": "primary_005",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I came in because of severe back pain that's gotten worse over the past few weeks. Now I have weakness in both my legs and I haven't been able to urinate for about a day. I'm really concerned about what's happening."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cauda equina syndrome (MOST LIKELY - classic triad present)",
+          "Spinal cord compression from malignancy/metastases",
+          "Disc herniation with central canal involvement",
+          "Spinal epidural abscess",
+          "Acute myelitis"
+        ],
+        "workup_ordered": [
+          "STAT MRI lumbar spine with and without contrast (emergency department)",
+          "STAT post-void residual assessment (ED/hospital setting)",
+          "Renal function panel (eGFR, creatinine) STAT for contrast safety",
+          "Complete medication reconciliation including OTC/supplements",
+          "Baseline neurological exam: motor/sensory level, anal tone, perianal sensation",
+          "Neurosurgery consultation (post-imaging)"
+        ],
+        "management_plan": [
+          "EMERGENCY ACTIVATION: Patient requires immediate transfer to ED via 911",
+          "NPO status in anticipation of possible surgical intervention",
+          "Establish IV access upon ED arrival",
+          "Defer routine medications pending emergency evaluation",
+          "Hold NSAIDs and opioids until post-MRI baseline neuro exam completed",
+          "Obtain allergy history (contrast, antibiotics, anesthesia agents)",
+          "Document baseline cognitive/functional status for post-operative planning",
+          "Prepare for possible urgent catheterization if PVR >500 mL",
+          "Communicate full differential and time-sensitive nature to receiving ED team"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Cauda equina syndrome is a neurosurgical emergency with 48-hour decompression window; delays beyond this period associated with permanent neurological deficit (paralysis, bowel/bladder dysfunction)",
+          "Acute bilateral leg weakness + urinary retention + progressive back pain = classic high-specificity triad requiring immediate imaging",
+          "Age 65 with back pain raises malignancy concern (spinal metastases differential)",
+          "Post-void residual assessment cannot be safely performed in primary care; requires ED/hospital urodynamic capability",
+          "STAT MRI cannot be arranged from primary care with appropriate urgency",
+          "Neurosurgery consultation requires hospital-based imaging first; cannot be arranged outpatient",
+          "Medication history incomplete\u2014NSAIDs/opioids may mask neuro exam findings; must obtain before ED transfer",
+          "Renal function unknown\u2014critical for contrast MRI safety and post-operative medication dosing"
+        ],
+        "communication_note": "Patient requires immediate emergency department evaluation via 911 for suspected cauda equina syndrome; do NOT delay for routine imaging or outpatient referrals.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified medical emergency presentation (acute bilateral leg weakness + urinary retention + progressive back pain) and appropriately yielded to safety protocol rather than attempting outpatient management. Differential diagnosis appropriately focused on time-sensitive surgical emergencies. Safety alert for STAT MRI and neurosurgery consultation was correct.",
+          "safety_checker_contribution": "Safety checker validated emergency escalation and identified critical 48-hour surgical window for cauda equina decompression. Confirmed that post-void residual assessment, STAT MRI, and neurosurgery consultation cannot be safely arranged in primary care setting. Emphasized blocking concerns around permanent neurological deficit risk and provided clear recommendation for 911 activation. Approved clinician's yield-to-safety decision.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication reconciliation gap and provided specific safety guidance: hold NSAIDs pending renal assessment (age 65 + acute presentation), defer opioids/muscle relaxants until post-MRI to avoid masking neuro exam, obtain STAT renal function for contrast safety, establish baseline PVR before medications given, verify allergy history (contrast/antibiotics/anesthesia), and document baseline cognitive status for post-operative planning. Emphasized that catheterization may be needed if PVR >500 mL."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My legs are much weaker now. I'm having to hold onto the walls to walk around, and I still can't urinate. It's been three days of this and I'm really worried."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cauda equina syndrome (CES) \u2014 PRIMARY CONCERN",
+          "Acute spinal cord compression",
+          "Guillain-Barr\u00e9 syndrome",
+          "Acute transverse myelitis",
+          "Severe urinary retention with secondary weakness"
+        ],
+        "workup_ordered": [
+          "EMERGENT MRI lumbar spine (or CT spine if MRI unavailable)",
+          "Post-void residual/bladder scan (point-of-care, do NOT delay transport)",
+          "Baseline labs: CBC, CMP, creatinine/eGFR (renal function assessment given 3-day retention)",
+          "Neurosurgery consultation (expedited at receiving ED)",
+          "Urology consultation (expedited at receiving ED)",
+          "Complete medication reconciliation (deferred until post-stabilization)"
+        ],
+        "management_plan": [
+          "ACTIVATE 911 or arrange immediate ED transport \u2014 do NOT allow patient self-driving",
+          "Establish IV access en route if EMS available",
+          "NPO status (likely candidate for urgent imaging \u00b1 surgical decompression)",
+          "Continuous neurological monitoring: motor strength, sensory level, reflexes, rectal tone, post-void residual",
+          "Document exact time of symptom onset (critical for surgical decision-making; patient at 72-hour mark, approaching irreversibility threshold)",
+          "Do NOT empirically catheterize without imaging/neurosurgery input \u2014 may obscure diagnosis",
+          "Notify receiving ED of suspected CES for expedited triage and neurosurgery pre-alert",
+          "Hold all non-essential medications pending emergency evaluation",
+          "Obtain complete medication history (especially NSAIDs, opioids, muscle relaxants) that may have masked symptom severity"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\ud83d\udea8 CRITICAL: Cauda equina syndrome is a neurosurgical emergency with time-sensitive decompression window; outcomes worsen significantly after 48 hours. Patient is already at 72-hour mark.",
+          "Bilateral leg weakness + urinary retention \u00d7 3 days = classic CES presentation requiring emergent MRI and neurosurgery evaluation TODAY",
+          "High risk of permanent paralysis, bowel/bladder dysfunction, and sexual dysfunction if decompression delayed",
+          "Renal function likely compromised by 3-day urinary retention; baseline creatinine needed before medication dosing",
+          "This presentation CANNOT be safely managed in primary care or routine urgent outpatient setting"
+        ],
+        "communication_note": "This 65-year-old male with acute bilateral leg weakness and 3-day urinary retention meets criteria for cauda equina syndrome\u2014a neurosurgical emergency requiring immediate 911 activation, emergent MRI spine, and neurosurgery consultation at ED.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified classic CES red-flag combination (bilateral weakness + urinary retention) and yielded to safety with differential diagnosis anchored on spinal cord compression emergencies. Rationale clearly articulated time-sensitive nature and need for emergent imaging/neurosurgery.",
+          "safety_checker_contribution": "Safety checker validated clinician's yield-to-safety decision as APPROPRIATE and NECESSARY, escalated to emergency_911, and provided critical blocking concerns: (1) 72-hour symptom duration approaching irreversibility threshold, (2) risk of permanent paralysis/dysfunction, (3) requirement for emergent MRI and neurosurgery evaluation TODAY, (4) recommendation for 911 activation rather than self-transport. Advised ED pre-notification.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged missing medication list and renal function assessment (critical given 3-day retention); recommended post-void residual/bladder scan, IV access, NPO status, and continuous neuro checks. Appropriately deferred medication reconciliation until post-stabilization and advised against empiric catheterization without imaging. Emphasized alignment with neurosurgical emergency protocol."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I can't move my legs at all this morning. I woke up and they just won't work. I also haven't been able to urinate for a few days now, and I'm really worried about what's happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When exactly did you first notice you couldn't move your legs\u2014was it sudden this morning when you woke up, or did it develop gradually over hours? And regarding the urinary retention, have you felt any pain, pressure, or numbness in your lower back, buttocks, or around your genital area?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It was sudden this morning when I woke up\u2014I couldn't move them at all. As for the other symptoms, yes, I've had numbness in my inner thighs and around the genital area for a few days now. There's pressure in my lower back too, and I haven't been able to urinate since yesterday."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "emergency_911",
+        "differential_diagnosis": [
+          "Cauda equina syndrome (CES) \u2014 MOST LIKELY given acute bilateral leg paralysis + urinary retention + saddle anesthesia + lower back pressure",
+          "Acute spinal cord compression (non-CES)",
+          "Epidural abscess or hematoma",
+          "Transverse myelitis",
+          "Guillain-Barr\u00e9 syndrome (GBS)",
+          "Acute metabolic derangement (severe hypokalemia, etc.)"
+        ],
+        "workup_ordered": [
+          "STAT MRI lumbar and sacral spine (with and without contrast) \u2014 EMERGENCY DEPARTMENT",
+          "STAT neurosurgery consultation \u2014 EMERGENCY DEPARTMENT",
+          "Baseline labs: CBC, CMP (creatinine/eGFR, electrolytes), coagulation studies (PT/INR, PTT) \u2014 EMERGENCY DEPARTMENT",
+          "Urinalysis and urine culture (rule out infection/abscess) \u2014 EMERGENCY DEPARTMENT",
+          "Post-void residual assessment or straight catheterization \u2014 EMERGENCY DEPARTMENT",
+          "Rectal tone and perianal sensation exam (CES confirmation) \u2014 EMERGENCY DEPARTMENT"
+        ],
+        "management_plan": [
+          "ACTIVATE 911 IMMEDIATELY \u2014 patient requires emergency department evaluation for suspected cauda equina syndrome, a neurosurgical emergency with narrow treatment window (<48 hrs for optimal surgical outcomes)",
+          "Notify ED in advance: suspected CES with acute bilateral leg paralysis, urinary retention, saddle anesthesia, and lower back pressure; onset this morning",
+          "Do NOT delay for extended history-taking in primary care; transfer to ED now",
+          "Obtain complete medication list and allergy history BEFORE transport (or relay to ED paramedics/ED team); critical for imaging contrast, antibiotics, and perioperative planning",
+          "Establish exact time of symptom onset (critical for surgical decision-making)",
+          "Implement bed rest and fall precautions immediately",
+          "Place straight catheter or Foley if post-void residual >500 mL or patient unable to void (prevent bladder rupture; obtain specimen for UA/culture)",
+          "Assess and document anal sphincter tone and perianal sensation (key CES sign)",
+          "Monitor vital signs, respiratory effort, and autonomic function (GBS risk if differential includes ascending paralysis)",
+          "Hold all anticoagulants pending imaging (rule out epidural hematoma)",
+          "Avoid NSAIDs; use acetaminophen or opioids for pain management",
+          "DVT prophylaxis with sequential compression devices (pharmacologic prophylaxis after imaging if no hematoma)",
+          "Renal function assessment (age 65, acute emergency) for dose adjustments if antibiotics, plasmapheresis, or IVIG needed"
+        ],
+        "safety_concerns": [
+          "CRITICAL: Acute bilateral leg paralysis + urinary retention + saddle anesthesia = CAUDA EQUINA SYNDROME UNTIL PROVEN OTHERWISE \u2014 this is a neurosurgical emergency with time-sensitive treatment window",
+          "Clinician's differential is appropriate, but ACTION is mismatched to acuity: asking detailed history in primary care delays definitive imaging and specialist evaluation",
+          "No emergency department referral or 911 activation documented \u2014 patient remains in primary care setting inappropriate for acute spinal cord emergency",
+          "No stat imaging (MRI lumbar spine) or neurosurgery notification documented",
+          "Medication list and allergy history UNKNOWN \u2014 critical gaps before potential urgent MRI contrast, antibiotics (if infection), or perioperative medications",
+          "Renal function unknown \u2014 baseline creatinine/eGFR needed for dose adjustments in acute kidney injury or chronic kidney disease",
+          "Urinary retention present with no documented post-void residual assessment or catheterization plan \u2014 risk of bladder rupture",
+          "Anticoagulation status unknown \u2014 if patient on warfarin/DOACs/antiplatelet agents, bleeding risk with epidural hematoma or abscess; imaging critical before intervention",
+          "Rectal tone and perianal sensation not yet assessed \u2014 key CES diagnostic signs"
+        ],
+        "communication_note": "This 65-year-old male with acute-onset bilateral leg paralysis, urinary retention, saddle anesthesia, and lower back pressure requires IMMEDIATE emergency department evaluation via 911 for suspected cauda equina syndrome\u2014a neurosurgical emergency requiring stat MRI and neurosurgery consultation within hours; primary care is not the appropriate setting for this acuity level.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified cauda equina syndrome as top differential and asked appropriate localizing questions (acuity, back/genital symptoms). However, action (continued questioning) is mismatched to acuity; should have immediately escalated to 911 and ED referral upon hearing 'acute bilateral leg paralysis + urinary retention.' Workup array is empty\u2014no imaging, labs, or specialist consultation documented as ordered.",
+          "safety_checker_contribution": "Safety checker appropriately flagged this as a CRITICAL neurosurgical emergency requiring immediate ED/911 escalation, not primary care questioning. Correctly identified narrow treatment window (<48 hrs for CES surgery), absence of emergency referral/imaging orders, and mismatch between appropriate differential and inappropriate action level. Blocking concern is valid: primary care is not the setting for acute spinal cord emergency evaluation.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no medication list (anticoagulants, corticosteroids, immunosuppressants, antibiotics all relevant to differential and imaging/intervention planning), no allergy history (essential before MRI contrast and potential antibiotics), and unknown renal function (age 65 with acute emergency). Nursing concerns appropriately emphasized bladder management (post-void residual, catheterization), rectal tone/perianal sensation assessment, lower extremity neuro exam with exact time of onset, fall/immobility precautions, DVT prophylaxis, and vital sign/autonomic monitoring. Medication hold recommended pending allergy/interaction review and imaging."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "cauda equina syndrome",
+      "conus medullaris syndrome",
+      "central disc herniation",
+      "epidural abscess"
+    ],
+    "required_workup": [
+      "urgent MRI lumbar spine with and without contrast",
+      "bladder scan post-void residual",
+      "BMP CBC"
+    ],
+    "correct_management": [
+      "emergency neurosurgery consult",
+      "Foley catheter immediately",
+      "urgent decompressive surgery within 48h",
+      "steroids controversial but consider"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779513284.840817
+}

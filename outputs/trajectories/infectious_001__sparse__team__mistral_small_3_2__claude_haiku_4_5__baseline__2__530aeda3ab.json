@@ -1,0 +1,224 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough for four days. Yellow stuff. Fever. Chest hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any shortness of breath, wheezing, or difficulty breathing with this cough? Also, have you taken any medications for the fever or cough so far?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe. No meds yet. Just been coughing."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "Acute bronchitis",
+          "Influenza",
+          "COVID-19",
+          "COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "Vital signs (including SpO2)",
+          "Chest X-ray (if respiratory distress or hypoxia suspected)",
+          "Rapid influenza/COVID-19 testing (if available)",
+          "CBC with differential (if pneumonia suspected)",
+          "Basic metabolic panel (if CKD or electrolyte concerns)",
+          "Sputum culture (if productive cough with purulent sputum)"
+        ],
+        "management_plan": [
+          "Initiate supportive care: hydration, rest, and fever control with acetaminophen (avoid NSAIDs if CKD risk factors present)",
+          "Consider empiric antiviral therapy (e.g., oseltamivir for influenza) if high clinical suspicion and within 48-hour window",
+          "Prescribe short-acting bronchodilator (e.g., albuterol inhaler) if wheezing or bronchospasm present",
+          "Educate patient on red flags requiring urgent care: worsening shortness of breath, SpO2 <90%, confusion, or inability to tolerate fluids",
+          "Follow-up in 24-48 hours to reassess symptoms and treatment response"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Age 65+ with respiratory distress and productive cough raises concern for pneumonia or COPD exacerbation",
+          "Risk of dehydration and mucous plugging in elderly patients with productive cough",
+          "Potential contraindications to OTC cough/cold medications (e.g., antihistamines, decongestants) in elderly",
+          "Need to monitor for drug interactions (e.g., NSAIDs with antihypertensives) and renal/hepatic impairment"
+        ],
+        "communication_note": "Patient is elderly with concerning respiratory symptoms; prioritize close follow-up and education on red flags.",
+        "trace": {
+          "clinician_contribution": "Clarified respiratory symptoms (dyspnea, wheezing) and prior medication use to refine differential diagnosis (pneumonia, bronchitis, influenza, COVID-19, COPD exacerbation).",
+          "safety_checker_contribution": "Identified age 65+ as a risk factor for severe respiratory infections and recommended routine escalation with no blocking concerns.",
+          "pharm_nurse_contribution": "Reviewed medication safety, highlighted contraindications (NSAIDs in CKD, antihistamines/decongestants in elderly), and emphasized monitoring for respiratory distress and hydration status."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still coughing. Worse today. Head's fuzzy."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been coughing? Any fever, shortness of breath, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Yeah, fever. Can't breathe. Chest hurts when I breathe."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "Influenza",
+          "COVID-19",
+          "ACE inhibitor-induced cough",
+          "Acute bronchitis",
+          "Sinusitis with postnasal drip",
+          "Pulmonary embolism (given chest pain and hypoxia risk)",
+          "Myocardial infarction (given chest pain in elderly male)"
+        ],
+        "workup_ordered": [
+          "Vital signs (temperature, blood pressure, heart rate, oxygen saturation)",
+          "Chest X-ray",
+          "Rapid flu/COVID-19 testing",
+          "CBC with differential",
+          "Basic metabolic panel (to assess renal function and electrolytes)",
+          "Troponin level (to rule out MI)",
+          "D-dimer (if PE suspected after initial workup)",
+          "Electrocardiogram (if chest pain persists)"
+        ],
+        "management_plan": [
+          "Hold ACE inhibitor (Lisinopril) temporarily and consider alternative antihypertensive if cough persists",
+          "Avoid NSAIDs (e.g., ibuprofen) due to risk of acute kidney injury; use acetaminophen for fever if needed",
+          "Increase fluid intake to prevent dehydration from cough and diuretics (HCTZ)",
+          "Monitor for signs of systemic infection (fever, hypoxia, altered mental status) and escalate care if deterioration occurs",
+          "Consider empiric oseltamivir if influenza is suspected and patient is high-risk",
+          "Schedule urgent outpatient follow-up with primary care or pulmonology within 24-48 hours if symptoms do not improve"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Elderly patient (65M) with altered mental status and systemic symptoms (fever, cough, chest pain) at high risk for rapid deterioration",
+          "Chest pain and shortness of breath are red flags for serious conditions (PE, MI, pneumonia complications)",
+          "Medication interactions (Lisinopril + Aspirin, HCTZ + Aspirin) increase risk of nephrotoxicity and reduced antihypertensive efficacy",
+          "Contraindicated NSAID use if fever develops (risk of AKI in CKD)",
+          "Dehydration risk due to poor fluid intake from cough and diuretic use"
+        ],
+        "communication_note": "Urgent ED referral is warranted given red flags for serious conditions (chest pain, hypoxia risk, altered mental status) and need for immediate evaluation.",
+        "trace": {
+          "clinician_contribution": "Identified key symptoms (cough, fever, chest pain, altered mental status) and proposed initial workup (vitals, CXR, flu/COVID testing, CBC) to rule out pneumonia and influenza. Rationale emphasized lower respiratory tract infection concern.",
+          "safety_checker_contribution": "Highlighted critical red flags (age 65, altered mental status, chest pain, hypoxia risk) and recommended ED referral due to potential for rapid deterioration. Blocked clinician's routine approach, emphasizing need for immediate assessment.",
+          "pharm_nurse_contribution": "Identified medication-related risks (ACE inhibitor cough, NSAID contraindication, dehydration from HCTZ) and recommended adjustments (hold lisinopril, avoid NSAIDs, monitor renal function). Also flagged need for hydration assessment and empiric treatment considerations."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I see. When did they place the tube, and have you noticed any improvement in your breathing since then?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They put it in... maybe an hour ago? Hard to breathe still."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Urgent imaging and medication review are required to address acute dyspnea in a post-intubation patient with high-risk complications.",
+        "differential_diagnosis": [
+          "Post-procedural respiratory distress or pneumothorax",
+          "Hospital-acquired pneumonia",
+          "Fluid overload or pulmonary edema",
+          "Worsening of underlying chronic condition (e.g., COPD)",
+          "Medication-induced respiratory depression (e.g., morphine)"
+        ],
+        "escalation_level": "emergency_911",
+        "management_plan": [
+          "STAT chest X-ray to assess for pneumothorax, fluid status, or infection",
+          "Immediate ABG (arterial blood gas) to evaluate oxygenation and ventilation",
+          "Review recent procedural notes and ICU course for procedural complications",
+          "Hold morphine due to respiratory depression risk; consider fentanyl or non-opioid alternatives for pain/dyspnea",
+          "Monitor respiratory rate and oxygen saturation continuously; consider capnography if available",
+          "Adjust furosemide dose based on renal function (e.g., reduce if eGFR <30 mL/min/1.73m\u00b2)",
+          "Assess bleeding risk before continuing heparin; monitor INR/aPTT if dose adjusted or bleeding signs present",
+          "Avoid NSAIDs due to AKI risk in CKD; ensure enteral medications are safe for tube administration"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Acute dyspnea in a post-intubation patient is a high-risk scenario requiring immediate evaluation",
+          "Morphine use poses significant respiratory depression risk in acute dyspnea; alternative analgesia/sedation is needed",
+          "No documented vital signs or oxygen requirements, which are critical for triage decisions",
+          "Delay in diagnostic workup (e.g., STAT imaging not explicitly ordered) could worsen outcomes",
+          "Fluid overload or electrolyte imbalances (e.g., K+, Mg2+) may exacerbate respiratory distress"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk differential (pneumothorax, pneumonia, fluid overload) and ordered workup (CXR, ABG, procedural review) to guide next steps, but did not address immediate medication risks or escalation urgency.",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted critical medication issues (morphine respiratory depression, furosemide renal dosing, heparin bleeding risk) and nursing concerns (monitoring, interactions), emphasizing the need for dose adjustments and avoidance of NSAIDs.",
+          "safety_checker_contribution": "Safety checker flagged life-threatening risks (pneumothorax, pulmonary edema), recommended emergency escalation, and identified blocking concerns (delayed workup, lack of vital signs documentation, STAT imaging not specified)."
+        },
+        "workup_ordered": [
+          "STAT chest X-ray (prioritize pneumothorax, fluid status, infection)",
+          "Immediate arterial blood gas (ABG) for oxygenation/ventilation assessment",
+          "Review of recent procedural notes and ICU course",
+          "Continuous monitoring of respiratory rate, oxygen saturation, and capnography (if available)",
+          "Electrolyte panel (K+, Mg2+) and renal function (BUN, creatinine) for furosemide adjustment"
+        ]
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539429.5863836
+}

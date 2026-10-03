@@ -1,0 +1,197 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My back hurts real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain in more detail? For example, is it sharp, dull, or burning?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dull. My back. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this back pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of your back pain, with 10 being the worst pain imaginable?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Eight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any fever, chills, or other symptoms besides the back pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. Fever and chills. Feel real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any difficulty urinating or changes in bowel movements along with the back pain and fever?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't peed in a long time."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urinary tract infection",
+          "spinal infection"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "complete blood count",
+          "blood cultures",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "administer IV fluids",
+          "start empiric antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "sepsis risk due to fever, chills, and urinary retention"
+        ],
+        "communication_note": "Your symptoms suggest a possible kidney infection, and we need to run some tests and start treatment right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still real sick. Getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what symptoms you're experiencing and how they've worsened since the last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "More confused. Worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever, chills, or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still hot. Shaky. Hard to breathe some."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection",
+          "Pneumonia",
+          "Sepsis"
+        ],
+        "workup_ordered": [
+          "Complete blood count",
+          "Comprehensive metabolic panel",
+          "Urinalysis",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics",
+          "Administer IV fluids",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Sepsis",
+          "Respiratory distress"
+        ],
+        "communication_note": "Your symptoms have worsened, and we need to run some tests and start treatment immediately."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe right."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COPD exacerbation",
+          "heart failure"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "basic metabolic panel",
+          "electrocardiogram"
+        ],
+        "management_plan": [
+          "supplemental oxygen",
+          "bronchodilators",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "respiratory failure",
+          "hypoxemia"
+        ],
+        "communication_note": "We need to run some tests to understand your breathing difficulties better and will start some treatments to help you breathe easier."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779638650.1306996
+}

@@ -1,0 +1,180 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've had this severe throbbing headache for about 4 hours now, and when they checked my blood pressure in the waiting room it was very high. I'm really concerned about that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've experienced any other symptoms, such as chest pain, shortness of breath, or vision changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain or shortness of breath. My vision is fine too. It's mainly just this really bad throbbing headache that started a few hours ago, and my blood pressure is apparently very high."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine",
+          "intracranial hemorrhage"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "complete blood count",
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency services for further evaluation and management.",
+          "Ensure patient is taking antihypertensive medications as prescribed.",
+          "Monitor for any new symptoms or changes in condition."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe headache with high blood pressure could indicate a hypertensive crisis or intracranial hemorrhage.",
+          "Potential for life-threatening conditions if not addressed promptly."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to severe headache and high blood pressure.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious conditions and recommended diagnostic workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication adherence and potential side effects, emphasizing the need for close monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. My headache is still there and my blood pressure hasn't come down much even with the medications you gave me last time. I'm frustrated because I thought those pills would help more."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your headache? When did it start, and have you noticed any changes in its intensity or pattern? Also, have you experienced any other symptoms like dizziness, vision changes, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The headache started about 4 hours ago\u2014it's a throbbing pain that's been pretty steady since then. I haven't noticed it getting worse or better. I don't have dizziness, chest pain, or any vision problems. Just the headache."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "hypertensive headache",
+          "medication-resistant hypertension",
+          "secondary hypertension",
+          "hypertensive crisis"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel",
+          "renal ultrasound",
+          "review current medications",
+          "immediate blood pressure assessment"
+        ],
+        "management_plan": [
+          "Immediate blood pressure assessment to rule out hypertensive crisis",
+          "Adjust antihypertensive medication doses if necessary",
+          "Monitor for side effects such as angioedema and peripheral edema",
+          "Educate patient on lifestyle modifications for blood pressure control",
+          "Schedule urgent outpatient follow-up to evaluate secondary causes of hypertension"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential hypertensive crisis due to persistent headache and uncontrolled blood pressure",
+          "Need for urgent evaluation of secondary hypertension causes"
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up to address potential hypertensive crisis and evaluate secondary hypertension causes.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes for headache and hypertension, suggesting further workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medication regimen, identified potential side effects, and suggested dose adjustments."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Thank you for seeing me. My headache got better, but now I'm having some blurring in my right eye. It started a few hours ago and I'm worried about what's causing it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you have any other symptoms, such as chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain or shortness of breath. I'm not dizzy either. But I do notice my right eye has gotten blurry since I came in\u2014that's new and it's bothering me."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "transient ischemic attack (TIA)",
+          "retinal detachment",
+          "migraine with aura",
+          "glaucoma"
+        ],
+        "workup_ordered": [
+          "neurological examination",
+          "ophthalmologic examination",
+          "MRI of the brain",
+          "carotid ultrasound"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure the patient is aware of the signs and symptoms of retinal detachment and TIA.",
+          "Monitor for any new symptoms or changes in vision."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Sudden onset of blurred vision in one eye could indicate a serious condition.",
+          "Potential symptoms of TIA or retinal detachment require immediate attention."
+        ],
+        "communication_note": "Patient requires immediate evaluation at the emergency department due to potential serious conditions.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious conditions and recommended a comprehensive workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency department referral.",
+          "pharm_nurse_contribution": "Reviewed medication risks and emphasized monitoring for signs of stroke or retinal detachment."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779634459.66502
+}

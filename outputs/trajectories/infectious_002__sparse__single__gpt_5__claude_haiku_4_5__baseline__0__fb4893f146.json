@@ -1,0 +1,202 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever. Chills. Bad back pain. Haven't peed all day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days. Started yesterday morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or changes in appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, been throwing up. Can't eat."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine color or any blood in your urine when you were able to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't seen any blood. Urine looks normal to me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent infections or been on any antibiotics?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Had a bladder infection three months ago. They gave me cipro."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your back?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just hurts bad."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urinary tract obstruction",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "renal function tests",
+          "abdominal ultrasound"
+        ],
+        "management_plan": [
+          "start empirical IV antibiotics",
+          "administer IV fluids",
+          "pain management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for sepsis",
+          "acute kidney injury due to urinary retention"
+        ],
+        "communication_note": "You need immediate medical attention to address your fever, back pain, and inability to urinate, which could indicate a serious infection or blockage."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still got fever. More confused now. Been on antibiotics since yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific symptoms or changes have you noticed since starting the antibiotics?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still have fever. More confused now. Feeling worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What antibiotics are you currently taking and for what condition were they prescribed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got a shot yesterday. For the fever and chills."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "pneumonia",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "blood cultures",
+          "urinalysis",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "continue antibiotics as prescribed",
+          "monitor vital signs closely",
+          "ensure adequate hydration"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis",
+          "potential for worsening confusion"
+        ],
+        "communication_note": "Given your persistent fever and increased confusion, it's important to go to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Real bad."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute heart failure",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "ECG",
+          "BNP",
+          "D-dimer",
+          "CBC",
+          "CMP"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start IV access",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for respiratory failure",
+          "risk of cardiac arrest"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507972.114812
+}

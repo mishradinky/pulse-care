@@ -1,0 +1,160 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Pulmonary edema",
+          "Atrial fibrillation with rapid ventricular response",
+          "Pneumonia",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Brain natriuretic peptide (BNP)",
+          "Chest X-ray (CXR)",
+          "Electrocardiogram (ECG)",
+          "Echocardiogram (if not recently done)"
+        ],
+        "management_plan": [
+          "Oxygen therapy to maintain SpO2 > 90%",
+          "Intravenous furosemide 40mg IV push",
+          "Consider adding metolazone 2.5mg PO for diuresis",
+          "Monitor fluid intake and output",
+          "Daily weights",
+          "Strict fluid restriction (<2L/day)",
+          "Low-sodium diet",
+          "Monitor electrolytes and renal function",
+          "Consider anticoagulation management with apixaban",
+          "Cardiology consultation for further management"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of worsening renal function with diuretics",
+          "Risk of electrolyte imbalances (hypokalemia, hyponatremia)",
+          "Risk of thromboembolic events due to atrial fibrillation",
+          "Risk of hypotension with aggressive diuresis"
+        ],
+        "communication_note": "Patient is a 70-year-old female with known systolic heart failure and atrial fibrillation presenting with symptoms of acute decompensated heart failure. She has poor adherence to furosemide and recent high salt intake. Initial management includes diuresis, oxygen therapy, and close monitoring of electrolytes and renal function. Cardiology consultation is recommended for further management.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and started management plan.",
+          "safety_checker_contribution": "Reviewed safety concerns and recommended monitoring parameters.",
+          "pharm_nurse_contribution": "Prepared medications, educated patient on diet and fluid restrictions, and monitored for adverse effects."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Volume overload due to dietary indiscretion and non-adherence to diuretics",
+          "Possible pulmonary edema"
+        ],
+        "workup_ordered": [
+          "Chest X-ray to assess for pulmonary congestion",
+          "Electrolyte panel to monitor for imbalances due to diuretic use",
+          "Monitoring of oxygen saturation and respiratory status"
+        ],
+        "management_plan": [
+          "Increase furosemide dose and consider adding a second diuretic if needed",
+          "Strict fluid and salt restriction",
+          "Monitor weight daily and report any further weight gain",
+          "Consider short-term oxygen therapy if hypoxia persists",
+          "Follow-up in 2-3 days or sooner if symptoms worsen"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of further decompensation if not properly managed",
+          "Potential for electrolyte imbalances with increased diuretic use",
+          "Risk of respiratory failure if hypoxia worsens"
+        ],
+        "communication_note": "Patient should be closely monitored and educated on the importance of adhering to her medication regimen and dietary restrictions. She should return to the ED if she develops severe shortness of breath at rest, chest pain, or becomes increasingly confused.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms and ordered initial workup.",
+          "safety_checker_contribution": "Identified risks associated with increased diuretic use and potential for respiratory failure.",
+          "pharm_nurse_contribution": "Provided education on medication adherence and dietary restrictions."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Pulmonary edema",
+          "Atrial fibrillation with rapid ventricular response",
+          "Acute respiratory failure"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Cardiac enzymes (troponin)",
+          "Arterial blood gas (ABG)"
+        ],
+        "management_plan": [
+          "Oxygen therapy to maintain SpO2 > 90%",
+          "Intravenous furosemide for diuresis",
+          "Consider intravenous nitroglycerin for afterload reduction",
+          "Monitor vital signs closely",
+          "Continuous cardiac monitoring",
+          "Consider non-invasive positive pressure ventilation (NIPPV) if respiratory distress worsens",
+          "Address electrolyte imbalances if present"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "High risk of respiratory failure",
+          "Potential for cardiac arrhythmias",
+          "Risk of acute kidney injury due to pre-existing renal impairment"
+        ],
+        "communication_note": "Patient is in acute decompensated heart failure with significant respiratory distress. Immediate intervention is required. Coordinate with ED for urgent transfer.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's acute decompensated heart failure and respiratory distress.",
+          "safety_checker_contribution": "Identified high-risk safety concerns and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication adherence and potential drug interactions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597775.3439155
+}

@@ -1,0 +1,129 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "alcohol withdrawal syndrome",
+          "essential tremor",
+          "anxiety disorder"
+        ],
+        "workup_ordered": [
+          "electrolyte panel",
+          "magnesium level",
+          "liver function tests",
+          "complete blood count",
+          "CIWA-Ar assessment"
+        ],
+        "management_plan": [
+          "administer benzodiazepines for withdrawal symptoms",
+          "thiamine supplementation",
+          "monitor vital signs closely",
+          "consider admission for detoxification"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of withdrawal seizures",
+          "hypertension due to withdrawal",
+          "electrolyte imbalances"
+        ],
+        "communication_note": "You are experiencing severe alcohol withdrawal, and we need to manage this in the emergency department to prevent complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "alcohol withdrawal seizure",
+          "delirium tremens",
+          "hypertensive urgency"
+        ],
+        "workup_ordered": [
+          "repeat BMP",
+          "magnesium level",
+          "continuous cardiac monitoring"
+        ],
+        "management_plan": [
+          "administer IV benzodiazepines",
+          "correct electrolyte imbalances",
+          "initiate IV fluids with thiamine and magnesium supplementation",
+          "monitor in ICU setting"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of recurrent seizures",
+          "risk of progression to severe delirium tremens",
+          "electrolyte imbalances"
+        ],
+        "communication_note": "You experienced a seizure due to alcohol withdrawal, and we need to treat you in the ICU to manage your symptoms and prevent further complications."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "delirium tremens",
+          "alcohol withdrawal syndrome",
+          "electrolyte imbalance"
+        ],
+        "workup_ordered": [
+          "IV fluids with electrolyte replacement",
+          "continuous cardiac monitoring",
+          "repeat BMP in 4 hours"
+        ],
+        "management_plan": [
+          "admit to ICU for close monitoring",
+          "administer benzodiazepines for withdrawal symptoms",
+          "correct electrolyte imbalances",
+          "provide supportive care for hallucinations"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of seizures due to alcohol withdrawal",
+          "severe hypertension",
+          "severe electrolyte imbalances"
+        ],
+        "communication_note": "You are experiencing severe alcohol withdrawal symptoms, including confusion and hallucinations, and need immediate treatment in the ICU."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505734.909223
+}

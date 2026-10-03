@@ -1,0 +1,192 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's been racing for three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Some shortness of breath when I move around. Little dizzy sometimes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any palpitations or irregular heartbeats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Heart's been racing and jumping around for three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any episodes of fainting or loss of consciousness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart disease or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No heart disease. I take blood pressure medicine."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What blood pressure medication are you currently taking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Lisinopril. Five milligrams."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "complete blood count",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Start beta-blocker or calcium channel blocker if ECG confirms arrhythmia",
+          "Advise on lifestyle modifications to reduce stress and caffeine intake"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening arrhythmia leading to more severe symptoms"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart rhythm issue. We'll do some tests and may start medication to help manage it. Please avoid strenuous activity until we have more information."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's still racing. Chest feels tight now too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start, and have they changed in intensity or frequency?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started three days ago. Getting worse, more chest tightness now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, dizziness, or fainting spells?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Shortness of breath when I move around. Little dizzy sometimes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "Start on beta-blocker",
+          "Consider anticoagulation if atrial fibrillation confirmed",
+          "Advise rest and avoid exertion"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential for myocardial infarction",
+          "Risk of stroke if atrial fibrillation"
+        ],
+        "communication_note": "Your symptoms suggest a heart rhythm issue or possible heart strain, so we need to get you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's racing bad. Passed out this morning."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "ventricular tachycardia",
+          "syncope due to arrhythmia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "electrolyte panel",
+          "cardiac enzymes",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "initiate rate control medication",
+          "consider anticoagulation if atrial fibrillation is confirmed",
+          "monitor cardiac rhythm"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of recurrent syncope",
+          "potential for serious arrhythmia"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious heart rhythm problem, and you need immediate evaluation in the emergency department."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779506752.458639
+}

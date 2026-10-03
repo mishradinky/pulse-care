@@ -1,0 +1,157 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI)",
+          "Antibiotic-associated diarrhea",
+          "Inflammatory bowel disease flare",
+          "Ischemic colitis"
+        ],
+        "workup_ordered": [
+          "Stool culture and sensitivity",
+          "Stool ova and parasites",
+          "Abdominal CT scan",
+          "Electrolyte panel"
+        ],
+        "management_plan": [
+          "Start oral vancomycin 125mg QID",
+          "Discontinue omeprazole",
+          "IV fluids for hydration",
+          "Monitor electrolytes and renal function",
+          "Initiate bowel rest and rehydration"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe dehydration and electrolyte imbalances",
+          "Potential toxic megacolon",
+          "Sepsis risk due to high WBC and fever"
+        ],
+        "communication_note": "Patient has severe CDI with colonic dilatation. Urgent outpatient management with close monitoring is required. Patient should be educated about signs of worsening condition and when to seek emergency care.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms and ordered initial workup.",
+          "safety_checker_contribution": "Identified high risk for dehydration, electrolyte imbalances, and toxic megacolon.",
+          "pharm_nurse_contribution": "Recommended discontinuation of PPI and initiation of oral vancomycin."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) with severe colitis and toxic megacolon",
+          "Severe inflammatory bowel disease flare (e.g., ulcerative colitis)",
+          "Severe infectious colitis (e.g., bacterial, viral, or parasitic)",
+          "Ischemic colitis"
+        ],
+        "workup_ordered": [
+          "Stool studies for C. difficile toxin (PCR and EIA)",
+          "Stool culture and sensitivity",
+          "Blood cultures",
+          "Inflammatory markers (CRP, ESR)",
+          "CT abdomen/pelvis with contrast (if not already done)",
+          "Electrolyte panel and renal function tests"
+        ],
+        "management_plan": [
+          "Immediate IV fluids for resuscitation and electrolyte correction",
+          "IV vancomycin and IV metronidazole for severe C. difficile infection",
+          "Broad-spectrum IV antibiotics for possible bacterial infection (e.g., piperacillin-tazobactam or meropenem)",
+          "NPO (nothing by mouth) and NG tube placement for decompression if toxic megacolon is confirmed",
+          "Surgical consultation for possible colectomy if toxic megacolon worsens or perforates",
+          "Monitor vital signs closely and consider ICU admission for hemodynamic instability"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis and septic shock",
+          "Toxic megacolon and potential perforation",
+          "Electrolyte imbalances and renal failure",
+          "Hypovolemic shock due to severe diarrhea"
+        ],
+        "communication_note": "Patient has severe colitis with toxic megacolon and signs of sepsis. Immediate hospitalization and surgical consultation are required. IV antibiotics and fluids should be started promptly.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's history, symptoms, and exam findings. Ordered initial labs and imaging.",
+          "safety_checker_contribution": "Identified severe sepsis and toxic megacolon as critical safety concerns.",
+          "pharm_nurse_contribution": "Recommended IV antibiotics and fluids for severe infection and sepsis management."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (C. diff) colitis",
+          "Toxic megacolon",
+          "Colonic perforation",
+          "Sepsis"
+        ],
+        "workup_ordered": [
+          "Stool sample for C. diff toxin assay",
+          "Abdominal X-ray (AXR)",
+          "Blood lactate level",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)"
+        ],
+        "management_plan": [
+          "Immediate IV fluids and vasopressors for septic shock",
+          "Broad-spectrum antibiotics covering C. diff and other potential pathogens",
+          "Surgical consultation for suspected colonic perforation and toxic megacolon",
+          "Oxygen therapy for hypoxia",
+          "Close monitoring in ICU"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Septic shock",
+          "Colonic perforation",
+          "Toxic megacolon",
+          "Respiratory failure"
+        ],
+        "communication_note": "Patient is critically ill with signs of septic shock, colonic perforation, and toxic megacolon. Immediate surgical and ICU consultation is required. Family should be informed of the critical nature of the patient's condition.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial labs and imaging, initiated IV fluids and antibiotics.",
+          "safety_checker_contribution": "Identified safety concerns and recommended escalation to emergency level.",
+          "pharm_nurse_contribution": "Prepared and administered IV fluids and antibiotics, monitored vital signs."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597834.0537667
+}

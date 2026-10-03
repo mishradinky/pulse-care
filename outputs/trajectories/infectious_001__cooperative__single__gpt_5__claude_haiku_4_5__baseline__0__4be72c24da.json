@@ -1,0 +1,201 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a bad cough for 4 days now with yellow stuff coming up, and I've got a fever and chest pain. It really hurts when I breathe. I'm also feeling pretty confused at times, which is worrying me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been having trouble breathing. My oxygen level is low at 88%, and I'm breathing faster than normal. The cough makes it worse, especially when I try to move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent travel, or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't traveled anywhere recently. As for being around sick people, I'm not sure\u2014I live alone, so I don't have much contact with others. No one at home is sick, anyway."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your medications or started any new ones?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing new. I've been taking my tiotropium inhaler every day, using my albuterol inhaler when I need it, and my metformin for my diabetes. Same stuff I've been on for a while."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had chills on and off with the fever, yeah. As for night sweats or weight loss, I'm not sure\u2014I haven't really noticed anything like that. The main thing bothering me is this cough and the chest pain when I breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent chest X-rays or other imaging done?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any imaging done yet. The doctor here said they wanted to take some pictures of my chest to see what's going on, but we haven't done that yet."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute exacerbation of COPD",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture",
+          "blood cultures",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start empirical antibiotics",
+          "consider bronchodilators"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "hypoxemia",
+          "confusion indicating possible severe infection or hypoxia"
+        ],
+        "communication_note": "You have symptoms that suggest a serious lung infection or other urgent condition, so we need to get you to the emergency room for immediate evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not getting any better. In fact, I'm more confused now than yesterday, even though I took that antibiotic you prescribed. I'm having trouble thinking clearly, and my cough is still bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or night sweats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had a fever. My temperature was pretty high yesterday. I haven't really noticed chills or night sweats, but I've been feeling quite warm."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your breathing or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I'm having trouble breathing. It's gotten worse since yesterday. I'm also more confused than before, and I'm not eating much. I feel pretty weak."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "sepsis",
+          "acute exacerbation of chronic obstructive pulmonary disease (COPD)"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "blood cultures",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start intravenous antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for septic shock"
+        ],
+        "communication_note": "You need immediate medical attention due to worsening symptoms and confusion; I'm calling emergency services to get you to the hospital right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having trouble breathing. They put a tube down my throat in the emergency room because my oxygen levels dropped too low. I've been on this breathing machine since then."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory distress syndrome",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for sepsis"
+        ],
+        "communication_note": "You are currently on a breathing machine due to severe breathing difficulties, and we are conducting tests to determine the cause and best treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779507600.0162659
+}

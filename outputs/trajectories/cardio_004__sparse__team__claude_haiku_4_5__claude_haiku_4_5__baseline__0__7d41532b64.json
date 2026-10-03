@@ -1,0 +1,233 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache. Four hours. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry you're having such severe pain. To help me understand what's going on, can you tell me: Is this the worst headache you've ever had in your life, or have you had headaches like this before? And do you have any chest pain, shortness of breath, vision changes, weakness, or numbness right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Bad headache. Never this bad before. No chest pain, no trouble breathing, no vision problems, no weakness."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "emergency_911",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage (SAH)",
+          "Acute ischemic stroke/TIA",
+          "Hypertensive emergency/urgency",
+          "Acute coronary syndrome (atypical presentation)",
+          "Migraine (lower priority given red flags)",
+          "Tension headache (lower priority given red flags)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (BP, HR, O\u2082 sat, temp, RR)",
+          "STAT 12-lead ECG (rule out ACS given cardiology history)",
+          "ED evaluation with neuroimaging (CT head \u00b1 LP if indicated)",
+          "Complete medication reconciliation (Rx, OTC, supplements)",
+          "Allergy history confirmation",
+          "Renal/hepatic function labs (if not recent)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate EMS/911 for ED transport",
+          "DO NOT delay with office-based workup or analgesic administration",
+          "Obtain vitals and ECG en route or upon ED arrival",
+          "Perform focused neuro exam (meningeal signs, focal deficits, pupil reactivity)",
+          "Hold all analgesics pending red-flag exclusion and medication safety review",
+          "Communicate cardiology history and 'worst headache of life' presentation to ED team",
+          "Once SAH/stroke/ACS excluded and medication list obtained, reassess analgesic safety"
+        ],
+        "safety_concerns": [
+          "CRITICAL: 'Worst headache of life' in 55-year-old with cardiology history = SAH/stroke until proven otherwise",
+          "CRITICAL: Vital signs and ECG not yet obtained\u2014cannot safely proceed with office-based assessment",
+          "CRITICAL: No medication list available\u2014cannot assess contraindications for triptans, NSAIDs, ergotamines",
+          "PROCESS ERROR: Clinician appropriately screened for red flags but assessment must occur in ED with monitoring capability",
+          "RISK: Prolonged questioning in non-monitored setting delays appropriate emergency evaluation and increases liability",
+          "FLAG: If on antiplatelet/anticoagulation therapy (common in cardiology), NSAIDs contraindicated",
+          "FLAG: Triptans/ergotamines contraindicated if uncontrolled HTN or ACS suspected"
+        ],
+        "communication_note": "55-year-old cardiology patient with acute severe 'worst headache of life' requires immediate ED evaluation via EMS; do not delay with office-based workup or analgesics pending red-flag exclusion.",
+        "trace": {
+          "clinician_contribution": "Appropriately identified life-threatening differential (SAH, stroke, ACS, hypertensive emergency) and performed targeted red-flag screening (chest pain, dyspnea, vision changes, weakness, numbness all negative). However, assessment must escalate to ED given severity and cardiology context.",
+          "safety_checker_contribution": "Correctly identified critical process error: vitals/ECG must precede differential refinement. Flagged that 'worst headache of life' + cardiology = SAH/stroke until proven otherwise, requiring ED evaluation with imaging capability. Blocked office-based management and recommended emergency_911 escalation.",
+          "pharm_nurse_contribution": "Identified blocking concern: no medication list available, preventing safety assessment for triptans, NSAIDs, ergotamines, and drug-drug interactions. Flagged contraindications in cardiology patients (antiplatelet/anticoagulation, uncontrolled HTN, CAD history). Recommended holding all analgesics pending medication reconciliation and red-flag exclusion."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache's still here. Blood pressure's still up."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the headache start relative to when you first noticed your blood pressure was elevated? And have you been taking any blood pressure medications as prescribed since our last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Headache started this morning. Been taking the pills you gave me yesterday."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "55F with acute-onset headache this morning and persistently elevated BP despite reported medication adherence (started yesterday). Timeline suggests possible acute hypertensive response or secondary cause. Safety assessment identifies critical gaps in acuity stratification and requires immediate vital sign documentation and end-organ symptom screening before proceeding with standard workup.",
+        "differential_diagnosis": [
+          "Uncontrolled hypertension with hypertensive headache (acute exacerbation)",
+          "Hypertensive urgency/emergency (cannot exclude without current BP severity and end-organ assessment)",
+          "Secondary hypertension (renal artery stenosis, glomerulonephritis, endocrine, or vascular cause)",
+          "Medication non-adherence or inadequate regimen (despite patient report of compliance)",
+          "Primary headache disorder (migraine, tension) coinciding with HTN elevation"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: BP in both arms, orthostatics (supine, sitting, standing), HR, RR, temp",
+          "Focused neurologic exam: fundoscopy (papilledema?), visual fields, focal deficits, mental status, reflexes",
+          "Acute end-organ symptom screen: vision changes, chest pain, dyspnea, altered mental status, seizure activity, severe focal neuro signs",
+          "Basic metabolic panel (creatinine, eGFR, electrolytes, glucose)",
+          "Urinalysis (proteinuria, hematuria, casts\u2014suggests glomerulonephritis or renal artery stenosis)",
+          "ECG (LVH, acute ischemia)",
+          "Headache characterization: onset (this morning), location, quality, associated symptoms, prior similar episodes",
+          "Complete medication reconciliation: current antihypertensive agents, doses, timing, OTC/herbal/supplements",
+          "Renal artery duplex or CT angiography if secondary HTN suspected (pending UA/labs)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain and document current vital signs and BP severity BEFORE or CONCURRENT with further history\u2014do not delay",
+          "IMMEDIATE: Screen for hypertensive emergency red flags (vision changes, chest pain, dyspnea, neuro deficits, altered mental status); if present, escalate to ED",
+          "Perform focused neuro exam including fundoscopy during this visit (not deferred)",
+          "Order labs and ECG same visit; do not wait for history completion",
+          "Clarify medication regimen: obtain complete list of current antihypertensives (ACE-I/ARB, beta-blocker, CCB, diuretic, alpha-blocker, other) and confirm actual adherence",
+          "Assess for medication barriers: cost (HMO coverage), side effects, complexity, understanding; consider simplification (once-daily formulations, combination pills) if non-adherent",
+          "Headache management: avoid NSAIDs pending renal function results; use acetaminophen; avoid decongestants (pseudoephedrine, phenylephrine)",
+          "Screen for secondary HTN risk factors: family history, symptoms of renal disease, endocrine disorder, sleep apnea, substance use",
+          "Patient education: salt restriction, weight loss, stress management, medication adherence, expected BP control timeline (4\u201312 weeks per agent)",
+          "If SBP \u2265180 mmHg OR end-organ symptoms present \u2192 escalate to ED for hypertensive emergency evaluation",
+          "If secondary HTN suspected on workup \u2192 refer to nephrology or cardiology for specialist evaluation and imaging"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL: Current BP severity unknown\u2014cannot rule out hypertensive emergency/urgency without documented vital signs. Headache + elevated BP in 55F requires immediate acuity assessment.",
+          "CRITICAL: End-organ symptom screening not yet performed. Must assess NOW for vision changes, chest pain, dyspnea, altered mental status, focal neuro deficits, or seizure activity.",
+          "CRITICAL: Medication regimen unknown. Cannot assess adherence, efficacy, or drug interactions without complete list of current antihypertensives and OTC/herbal use.",
+          "Clinician's differential is appropriate, but workup sequencing is unsafe: vital signs, neuro exam, and labs must be CONCURRENT with history, not sequential.",
+          "Medication non-adherence question assumes stable HTN; if this is acute severe elevation, priority is acute risk stratification first, adherence counseling second.",
+          "NSAID use for headache is contraindicated pending renal function assessment; risk of hyperkalemia and AKI if on ACE-I/ARB + NSAID.",
+          "Decongestants (pseudoephedrine, phenylephrine) will antagonize BP control and must be avoided.",
+          "Herbal supplements (licorice, ephedra, ginseng) may elevate BP\u2014screen patient.",
+          "If renal artery stenosis is confirmed, ACE-I/ARB may worsen renal function\u2014requires specialist input before continuation."
+        ],
+        "communication_note": "Acute-onset headache with persistent elevated BP requires immediate vital sign documentation and end-organ symptom screening to rule out hypertensive emergency; if SBP \u2265180 mmHg or red-flag symptoms present, escalate to ED; otherwise proceed with urgent outpatient workup (labs, ECG, neuro exam, medication reconciliation) same visit.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified differential diagnoses (uncontrolled HTN, secondary causes, medication non-adherence, hypertensive urgency/emergency, primary headache) and proposed comprehensive workup (vitals, neuro exam, labs, imaging). However, sequencing is unsafe: history-taking should not precede vital sign documentation and acute risk stratification.",
+          "safety_checker_contribution": "Safety checker identified critical gaps: (1) no documented current BP severity\u2014cannot exclude hypertensive emergency without vital signs; (2) end-organ symptom screening not performed; (3) neurologic red flags not yet assessed; (4) workup sequencing unsafe (labs/neuro exam should be concurrent with history, not deferred); (5) medication non-adherence question premature if acute severe elevation. Recommended urgent_outpatient escalation with blocking concerns for immediate vital signs, neuro exam, and ED escalation if SBP \u2265180 or end-organ symptoms present.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication gaps: (1) current antihypertensive regimen unknown\u2014cannot assess adherence, efficacy, or interactions; (2) NSAID contraindicated pending renal function (risk of hyperkalemia, AKI with ACE-I/ARB); (3) decongestants contraindicated (antagonize BP control); (4) herbal supplements may elevate BP; (5) orthostatic vitals needed to assess volume status; (6) renal function critical before prescribing/continuing ACE-I, ARB, diuretics; (7) medication adherence barriers (cost, side effects, complexity) must be explored; (8) headache characterization needed (new-onset vs. chronic); (9) contrast allergy screening if CT angiography planned; (10) patient education on salt restriction, weight loss, stress management, expected timeline."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My headache's gone. But now my right eye is blurry."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the blurry vision in your right eye start, and is it constant or does it come and go? Also, do you have any pain with eye movement, flashing lights, or floaters?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started couple hours ago. Blurry the whole time. No pain. No flashing lights or floaters."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Amaurosis fugax (transient monocular vision loss - TIA equivalent) \u2014 HIGH PRIORITY",
+          "Central retinal artery occlusion (CRAO) \u2014 TIME-CRITICAL",
+          "Acute angle-closure glaucoma \u2014 MEDICAL EMERGENCY",
+          "Retrobulbar optic neuritis",
+          "Migraine with aura (resolved headache, painless vision loss less typical)",
+          "Posterior circulation TIA"
+        ],
+        "workup_ordered": [
+          "STAT emergency department evaluation (do not delay for outpatient workup)",
+          "STAT visual acuity and intraocular pressure measurement",
+          "STAT fundoscopic examination (rule out CRAO, angle-closure glaucoma)",
+          "STAT ECG (assess for cardioembolic source)",
+          "STAT labs: CBC, CMP, coagulation studies, troponin",
+          "STAT MRI/MRA brain and neck (rule out posterior circulation TIA/stroke)",
+          "STAT carotid ultrasound or CTA (assess for atherosclerotic disease)",
+          "Urgent ophthalmology consultation (may require OCT, visual fields)",
+          "Urgent neurology consultation"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate emergency transport (911) \u2014 do not allow patient to drive",
+          "ED triage: Establish exact time of vision loss onset (critical for thrombolysis window and CRAO intervention eligibility)",
+          "Obtain complete medication list (OCPs/HRT, anticoagulants, vasoconstrictors, supplements) \u2014 critical for stroke risk and drug interaction assessment",
+          "Obtain full cardiovascular and stroke risk factor history (HTN, DM, AFib, smoking, prior TIA/stroke, hyperlipidemia)",
+          "Assess for posterior circulation symptoms (ataxia, vertigo, diplopia, dysarthria) during ED evaluation",
+          "Hold NSAIDs pending renal function and GI history assessment",
+          "Defer aspirin/antiplatelet initiation until bleeding/thrombocytopenia ruled out and ophthalmology clears retrobulbar hemorrhage",
+          "If CRAO confirmed and within intervention window: urgent ophthalmology for anterior chamber paracentesis, ocular massage, or thrombolysis consideration",
+          "If amaurosis fugax confirmed: initiate stroke prevention protocol (antiplatelet therapy, risk factor modification, cardiology evaluation for embolic source)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Monocular vision loss onset 2 hours ago is a TIA equivalent (amaurosis fugax) until proven otherwise \u2014 carries high acute stroke risk",
+          "CRITICAL: CRAO is time-sensitive; vision loss >90 minutes risks permanent blindness \u2014 patient is at 120+ minutes; urgent ophthalmology intervention may still be indicated",
+          "CRITICAL: Acute angle-closure glaucoma can cause permanent vision loss within hours and requires immediate IOP measurement and possible emergency anterior chamber paracentesis",
+          "HIGH: Recent headache + monocular vision loss suggests possible posterior circulation TIA \u2014 requires urgent neuroimaging",
+          "HIGH: No documented vital signs, BP, or cardiovascular exam \u2014 essential for stroke risk stratification in ED",
+          "HIGH: No documented medication list \u2014 OCPs/HRT increase thrombotic risk; anticoagulants affect bleeding risk assessment",
+          "PROCESS: Clinician's question-first approach delays critical imaging and vascular workup \u2014 this patient requires ED-level evaluation, not outpatient history-taking",
+          "PROCESS: Empty workup array in clinician output does not reflect emergency-level imaging and lab needs"
+        ],
+        "communication_note": "55-year-old female with 2-hour history of painless monocular vision loss (right eye, constant) following resolved headache \u2014 this is a stroke-equivalent emergency requiring immediate ED evaluation and neuroimaging to rule out amaurosis fugax, CRAO, or posterior circulation TIA; do not delay for outpatient workup.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified vascular and inflammatory differentials and asked targeted questions about timing, character, and associated symptoms (pain, photopsia, floaters). However, clinician did not escalate to emergency level or order workup despite high-risk differentials. Patient's response (onset 2 hours ago, constant, painless) is consistent with amaurosis fugax or CRAO \u2014 both time-critical emergencies.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL red flags: (1) monocular vision loss is a TIA equivalent with high stroke risk, (2) CRAO is time-sensitive for vision preservation, (3) angle-closure glaucoma is a medical emergency, (4) recent headache + vision loss suggests posterior circulation involvement. Safety checker appropriately blocked outpatient approach and recommended emergency_911 escalation. Identified process gaps: no vital signs, no documented onset time (now clarified as 2 hours), empty workup array, and missing stroke risk factor assessment.",
+          "pharm_nurse_contribution": "Pharm/nurse correctly flagged critical need for complete medication list (OCPs/HRT, anticoagulants, vasoconstrictors) to assess thrombotic and bleeding risk. Identified urgent nursing actions: STAT visual acuity, IOP, fundoscopic exam, and assessment for posterior circulation symptoms. Noted need for renal function assessment before contrast imaging. Appropriately deferred medication dosing decisions pending full reconciliation and ED evaluation."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779507186.3320465
+}

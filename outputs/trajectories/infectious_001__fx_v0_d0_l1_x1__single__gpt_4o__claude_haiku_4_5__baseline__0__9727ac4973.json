@@ -1,0 +1,207 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "fx_v0_d0_l1_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough for four days. Yellow stuff coming up. Fever too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, can't breathe right. Chest hurts when I cough. Bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, chills yesterday. Real bad. Also my sister's been sick too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or been in contact with anyone who has traveled recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Live alone here. My sister visited last month though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your medications or started any new ones?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No new ones. Still take the white inhaler, the breathing one, and the blood pill for sugar."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of lung disease, such as COPD or asthma?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my lungs ain't great. Doctor said COPD. I use that pump thing every day."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "acute exacerbation of COPD"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start antibiotics such as azithromycin or amoxicillin-clavulanate",
+          "increase use of bronchodilator inhaler",
+          "consider oral corticosteroids if wheezing is present"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of respiratory failure due to COPD exacerbation"
+        ],
+        "communication_note": "You likely have a lung infection and need urgent treatment; we'll start antibiotics and adjust your inhaler use."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "The white pill didn't help. I'm more confused now. Real confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when the confusion started and if there are any other symptoms you're experiencing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started this morning, real bad. Can't think straight. Also my chest hurts when I breathe. Not eating much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever, chills, or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Fever, bad cough. Yellow stuff coming up. My brother had the flu last month."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "influenza",
+          "acute bronchitis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "increase fluid intake",
+          "rest and monitor symptoms"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress",
+          "potential for sepsis"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment due to your confusion and chest pain."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube down my throat."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory distress syndrome",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory failure",
+          "need for intensive care"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties and are currently on a ventilator. We are conducting tests to determine the cause and will continue to provide intensive care."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790547720.6698751
+}

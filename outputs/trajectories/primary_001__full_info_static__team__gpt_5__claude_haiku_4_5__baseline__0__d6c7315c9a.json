@@ -1,0 +1,152 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer",
+          "Infection (cellulitis)",
+          "Peripheral vascular disease",
+          "Charcot foot"
+        ],
+        "workup_ordered": [
+          "Wound culture and sensitivity",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Ankle-brachial index (ABI)",
+          "Consultation with a podiatrist"
+        ],
+        "management_plan": [
+          "Initiate wound care with saline irrigation and sterile dressing",
+          "Prescribe oral antibiotics (e.g., amoxicillin-clavulanate) for suspected cellulitis",
+          "Optimize glycemic control with potential adjustment of diabetes medications",
+          "Educate patient on daily foot care and monitoring for signs of infection",
+          "Schedule follow-up in 1 week to reassess wound healing and glycemic control"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of wound infection progressing to deeper tissues",
+          "Potential for osteomyelitis if not managed promptly",
+          "Risk of further complications due to poor glycemic control"
+        ],
+        "communication_note": "Discussed with the patient the importance of strict glycemic control and daily foot care to prevent complications. Emphasized the need for follow-up and adherence to the management plan.",
+        "trace": {
+          "clinician_contribution": "Identified the need for wound culture and sensitivity to guide antibiotic therapy.",
+          "safety_checker_contribution": "Highlighted the risk of progression to osteomyelitis and the importance of urgent follow-up.",
+          "pharm_nurse_contribution": "Suggested potential adjustment of diabetes medications to improve glycemic control."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with secondary infection",
+          "Cellulitis",
+          "Osteomyelitis (less likely given MRI findings)"
+        ],
+        "workup_ordered": [
+          "Wound culture and sensitivity (pending)",
+          "Complete blood count (CBC) - already showing leukocytosis",
+          "C-reactive protein (CRP) - elevated",
+          "Blood glucose monitoring",
+          "Consider vascular assessment if healing is poor"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum antibiotics targeting common skin flora and anaerobes (e.g., amoxicillin-clavulanate or clindamycin)",
+          "Optimize glycemic control with potential adjustment of diabetes medications",
+          "Regular wound care with debridement as needed",
+          "Consider referral to a wound care specialist",
+          "Patient education on foot care and monitoring for signs of worsening infection"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of progression to deeper infection or osteomyelitis",
+          "Potential for systemic infection if not managed promptly",
+          "Need for close monitoring of blood glucose levels to prevent hyperglycemia-related complications"
+        ],
+        "communication_note": "The patient should be informed about the importance of adhering to the antibiotic regimen and maintaining optimal blood glucose levels. Emphasize the need for regular follow-up to monitor the wound's healing progress and adjust treatment as necessary.",
+        "trace": {
+          "clinician_contribution": "Identified the need for antibiotic therapy and wound care.",
+          "safety_checker_contribution": "Highlighted the importance of monitoring for systemic infection and glycemic control.",
+          "pharm_nurse_contribution": "Suggested potential antibiotic options and emphasized patient education on medication adherence."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with secondary infection",
+          "Osteomyelitis of the 1st metatarsal",
+          "Cellulitis",
+          "Sepsis secondary to foot infection"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Wound culture and sensitivity",
+          "Complete blood count",
+          "C-reactive protein",
+          "Erythrocyte sedimentation rate",
+          "MRI of the foot",
+          "Consultation with infectious disease specialist"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum intravenous antibiotics (e.g., vancomycin and piperacillin-tazobactam)",
+          "Consider surgical debridement of necrotic tissue",
+          "Optimize glycemic control with endocrinology consultation",
+          "Pain management with appropriate analgesics",
+          "Elevate the affected foot to reduce swelling",
+          "Monitor vital signs and clinical status closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of systemic infection and sepsis",
+          "Potential for rapid progression of osteomyelitis",
+          "Risk of amputation if infection is not controlled"
+        ],
+        "communication_note": "Patient presents with signs of systemic infection and osteomyelitis. Immediate intervention is required to prevent further complications. Coordination with surgical and infectious disease teams is essential.",
+        "trace": {
+          "clinician_contribution": "Identified the need for urgent intervention due to systemic signs and potential osteomyelitis.",
+          "safety_checker_contribution": "Highlighted the risk of sepsis and the need for immediate escalation of care.",
+          "pharm_nurse_contribution": "Recommended initiation of broad-spectrum antibiotics and pain management strategies."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779597908.7037325
+}

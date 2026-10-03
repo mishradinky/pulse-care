@@ -1,0 +1,224 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been real short of breath the last few days, especially when I walk around or climb the stairs. Last night I had to sleep sitting up 'cause I couldn't breathe lying down. And I noticed my legs are all puffy. I'm worried something's wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this shortness of breath start exactly, and have you had any chest pain, palpitations, or cough? Also, do you have a history of heart problems, high blood pressure, or kidney disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It started like three days ago, maybe Monday? I been real tired and can't catch my breath when I walk. No chest pain, but my heart feels like it's racing sometimes, kinda fluttery. I got that heart thing\u2014weak heart, they said. And yeah, my blood pressure's been high for years. I take pills for it."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure (pulmonary edema + orthopnea + peripheral edema + known cardiomyopathy)",
+          "Acute coronary syndrome with cardiogenic pulmonary edema (palpitations, dyspnea, age/HTN risk)",
+          "Pulmonary embolism (acute dyspnea, tachycardia)",
+          "Pneumonia or acute respiratory infection",
+          "Renal failure with fluid overload (HTN + possible CKD history)",
+          "Severe anemia"
+        ],
+        "workup_ordered": [
+          "STAT: Vital signs (BP, HR, O2 saturation, RR, temperature) + continuous pulse oximetry",
+          "STAT: 12-lead EKG (rule out ACS, assess for ischemic changes)",
+          "STAT: Troponin (high-sensitivity if available; rule out ACS)",
+          "STAT: BNP or NT-proBNP (confirm heart failure)",
+          "STAT: Chest X-ray (assess for pulmonary edema, pneumonia, other cardiopulmonary pathology)",
+          "STAT: CBC (assess for anemia, infection)",
+          "STAT: Comprehensive metabolic panel (electrolytes, renal function, glucose)",
+          "STAT: D-dimer if PE remains on differential after initial workup",
+          "Obtain complete medication list (current diuretics, ACE-I/ARB, beta-blockers, NSAIDs, OTC agents)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Establish IV access; place on continuous cardiac monitoring and pulse oximetry",
+          "IMMEDIATE: Obtain full vital signs; assess respiratory distress severity and oxygen requirement",
+          "IMMEDIATE: Obtain complete medication history and assess adherence (non-compliance is common HF trigger in elderly)",
+          "If O2 sat <90% or respiratory distress present: supplemental oxygen to target O2 sat \u226594%",
+          "Pending workup results: initiate or optimize diuretics (IV furosemide if acute pulmonary edema), ACE-I/ARB, beta-blocker per cardiology protocol",
+          "Baseline renal function and electrolytes BEFORE initiating/adjusting ACE-I/ARB or diuretics",
+          "Contraindication check: confirm no NSAIDs, decongestants, or other negative inotropes in current regimen",
+          "Patient education: fluid restriction (1.5\u20132 L/day if HF confirmed), daily weights, signs of worsening HF requiring urgent follow-up",
+          "Cardiology consultation if not already established; consider echocardiography to assess EF and guide therapy"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: 70-year-old with classic acute decompensated heart failure triad (dyspnea on exertion + orthopnea + bilateral peripheral edema) + known cardiomyopathy = HIGH ACUITY",
+          "HIGH RISK: Palpitations and tachycardia raise concern for ACS or arrhythmia; EKG and troponin are time-critical and cannot be delayed",
+          "VITAL SIGNS MISSING: O2 saturation, BP, and respiratory rate are MANDATORY before proceeding; if O2 sat <90% or SBP unstable, this is a 911 call",
+          "MEDICATION ADHERENCE UNKNOWN: Non-compliance with cardiac medications is a common precipitant of acute HF in elderly; must obtain full list immediately",
+          "RENAL FUNCTION UNKNOWN: History of HTN + possible CKD raises risk of drug accumulation and electrolyte derangement; baseline Cr/eGFR essential before ACE-I/ARB or diuretics",
+          "CONTRAINDICATION RISK: Must rule out NSAIDs, decongestants, or other agents that could worsen HF or interact with cardiac medications",
+          "OUTPATIENT SETTING INADEQUATE: This patient requires ED-level monitoring, imaging, and labs; cannot be safely managed in office"
+        ],
+        "communication_note": "This 70-year-old with known cardiomyopathy and hypertension presenting with acute decompensated heart failure requires immediate ED evaluation and cannot be managed in outpatient setting; call 911 or direct to nearest ED for STAT vitals, EKG, troponin, BNP, CXR, and labs.",
+        "trace": {
+          "clinician_contribution": "Identified classic HF triad (dyspnea on exertion, orthopnea, peripheral edema) and generated appropriate differential including ACS and PE; obtained relevant PMH (cardiomyopathy, HTN) and symptom timeline (3 days, palpitations). However, did not order any workup or assess acuity/vital signs before proceeding with history-taking.",
+          "safety_checker_contribution": "Flagged CRITICAL acuity mismatch: patient presentation is consistent with acute decompensated HF (time-sensitive emergency) but clinician was gathering history without ordering STAT labs/imaging or establishing monitoring. Identified missing vital signs (O2 sat, BP, RR) as blocking concern and recommended emergency_911 escalation. Correctly noted that ACS and PE cannot be ruled out by history alone and require EKG/troponin.",
+          "pharm_nurse_contribution": "Identified critical gaps: no medication list obtained (essential for HF management, drug interaction assessment, and adherence evaluation). Flagged high-priority monitoring needs (electrolytes, renal function, daily weights, fluid restriction) and contraindication checks (NSAIDs, decongestants). Emphasized that medication non-compliance is a common HF decompensation trigger in elderly and must be assessed immediately. Noted age 70 + possible CKD = increased drug accumulation risk requiring 'start low, go slow' approach."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still real short of breath. Like, I can barely walk around the house. And I gained more weight too\u2014my pants don't fit. I don't know what's going on. I'm scared."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the shortness of breath get worse, and how much weight have you gained and over what time period? Also, do you have any swelling in your legs or ankles, chest pain, or trouble lying flat?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The breathing got real bad these last few days, like three days ago maybe? I gained... I dunno, like four or five pounds? My clothes don't fit right. And yeah, my legs are puffy, especially at night. I can't really lie flat anymore\u2014gotta use three pillows now or I can't breathe. No chest pain though, just real tired and short of breath all the time."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure (MOST LIKELY - orthopnea, rapid weight gain 4-5 lbs in 3 days, bilateral leg edema, dyspnea on exertion)",
+          "Pulmonary embolism (must rule out - acute dyspnea, tachycardia risk)",
+          "Pneumonia or acute respiratory infection (lower priority given edema/orthopnea pattern)",
+          "Thyroid dysfunction (lower priority)",
+          "Anemia (lower priority)",
+          "Medication non-adherence on cardiac regimen (UNKNOWN - critical gap)"
+        ],
+        "workup_ordered": [
+          "STAT VITAL SIGNS: O2 saturation, BP, HR, RR, temperature (BLOCKING ISSUE - missing)",
+          "STAT Labs: BNP or NT-proBNP, troponin, CBC, CMP (electrolytes, Cr, eGFR), D-dimer if PE risk assessment warrants",
+          "STAT 12-lead ECG (assess for ischemia, arrhythmia, LVH)",
+          "STAT Chest X-ray (pulmonary edema, infiltrate, PE signs)",
+          "OBTAIN COMPLETE MEDICATION LIST & ADHERENCE HISTORY (CRITICAL GAP - blocks safe management)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain vital signs; if O2 sat <90%, SBP <90 or >180, HR >120, or severe distress \u2192 CALL 911",
+          "If stable vitals but acute decompensation suspected \u2192 ED REFERRAL (do NOT manage in office)",
+          "Once medication list obtained: assess for NSAID use, diuretic/cardiac med adherence, drug interactions",
+          "If HF confirmed: initiate/optimize IV diuretics (dose based on chronic oral regimen + renal function); hold ACE-I/ARB if hypotensive",
+          "Daily weights, strict I&Os, orthostatic vitals before IV therapy",
+          "Fall precautions (elderly + diuretics + orthostasis)",
+          "Post-stabilization: salt/fluid restriction education, medication adherence counseling, cardiology follow-up"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "\u26a0\ufe0f VITAL SIGNS MISSING: Cannot safely triage without O2 sat, BP, HR, RR. If hypoxic (<90%), hypotensive, or tachycardic (>120) \u2192 911 immediately",
+          "\u26a0\ufe0f ACUTE DECOMPENSATED HF PRESENTATION: 4-5 lb weight gain in 3 days + orthopnea + bilateral edema + dyspnea on minimal exertion = HIGH RISK for acute pulmonary edema or cardiogenic shock",
+          "\u26a0\ufe0f PE CANNOT BE RULED OUT: Acute dyspnea + edema; need D-dimer and/or imaging; no assessment of unilateral leg swelling, recent immobility, or hypercoagulability risk factors documented",
+          "\u26a0\ufe0f MEDICATION HISTORY UNKNOWN: No current cardiac regimen documented; cannot assess adherence, drug interactions, or safe dosing for IV diuretics without baseline renal function and medication list",
+          "\u26a0\ufe0f SETTING INAPPROPRIATE FOR ACUTE PRESENTATION: If this is outpatient office visit, patient requires ED-level evaluation (labs, imaging, IV therapy capability), NOT prolonged questioning in clinic",
+          "\u26a0\ufe0f RENAL FUNCTION UNKNOWN: Cannot dose IV diuretics or renally-cleared agents without baseline Cr/eGFR; acute kidney injury possible in decompensation",
+          "\u26a0\ufe0f FALL RISK: 70-year-old female on likely diuretics with orthostasis + acute dyspnea = high fall/syncope risk"
+        ],
+        "communication_note": "This 70-year-old presents with classic acute decompensated heart failure (rapid weight gain, orthopnea, edema, dyspnea); VITAL SIGNS and MEDICATION LIST are CRITICAL GAPS blocking safe triage\u2014obtain immediately, and refer to ED for STAT workup (BNP, troponin, CBC, CMP, D-dimer, ECG, CXR) and IV diuretic therapy if vitals permit transport.",
+        "trace": {
+          "clinician_contribution": "Identified high-risk presentation (progressive dyspnea + rapid weight gain in 70-year-old) and appropriate differential (HF, PE, infection, thyroid, anemia, non-adherence); asked targeted history questions (timing, weight gain, orthopnea, edema, chest pain, orthopnea). LIMITATION: Did not order any workup and did not obtain vital signs before proceeding with history alone.",
+          "safety_checker_contribution": "Flagged CRITICAL GAPS: (1) vital signs missing\u2014O2 sat, BP, HR, RR essential before safe triage; (2) workup empty despite acute presentation requiring STAT labs (BNP, troponin, CBC, CMP, D-dimer) and imaging (CXR \u00b1 ECG); (3) setting unclear\u2014if outpatient office, patient needs ED referral NOW; (4) medication history absent\u2014cannot assess HF meds or adherence. Recommended ED referral and blocking concerns for vital signs and workup.",
+          "pharm_nurse_contribution": "Identified CRITICAL GAP: no medication list provided\u2014cannot assess current cardiac regimen (ACE-I/ARB, beta-blocker, diuretic, aldosterone antagonist), adherence, NSAID use, anticoagulation status, or drug interactions. Flagged need for renal function (Cr/eGFR) before IV diuretic dosing. Outlined nursing concerns: obtain full med list immediately, assess for NSAID use, orthostatic vitals before IV therapy, daily weights/I&Os, fall precautions, electrolyte monitoring (K+, Na+), and post-stabilization education on salt/fluid restriction and med adherence."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I... I can't breathe lying down. I'm using like five pillows just to sit up in bed. Every time I try to lay flat I feel like I'm drowning. I'm real scared right now. And my feet are all swollen up too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this shortness of breath start, and have you noticed any chest pain, palpitations, or weight gain recently? Also, do you have a history of heart problems, high blood pressure, or kidney disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The breathing thing got real bad three days ago. I can't lay down hardly at all\u2014I'm using like five pillows now. No chest pain, but my heart's been doing funny jumps, like it's racing. I gained some weight, yeah, maybe four or five pounds? And yeah, I got the high blood pressure thing, been taking pills for it. My heart's not so good either\u2014the doctor said something about it not pumping right. I dunno about the kidney thing."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure (pulmonary edema) \u2014 PRIMARY",
+          "Chronic heart failure with acute exacerbation",
+          "Pulmonary embolism",
+          "Pneumonia or acute respiratory infection",
+          "Renal failure with fluid overload",
+          "Severe anemia",
+          "Arrhythmia (palpitations + orthopnea)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: O2 saturation, respiratory rate, heart rate, blood pressure, weight (compare to baseline)",
+          "STAT ECG (assess for arrhythmia, ischemia, acute changes)",
+          "STAT CXR (pulmonary edema, pneumonia, PE signs)",
+          "STAT labs: BNP/NT-proBNP, troponin, CBC, BMP (K+, Cr, eGFR), LFTs",
+          "D-dimer if PE remains in differential after vitals/CXR",
+          "Renal ultrasound if renal failure suspected (pending BMP results)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain full medication list (ACE-I/ARB, beta-blockers, diuretics, NSAIDs, anticoagulants) and verify compliance/recent changes",
+          "IMMEDIATE: Screen for NSAID use (OTC, herbal) \u2014 contraindicated if CKD present",
+          "Assess diuretic dosing and compliance; consider acute uptitration if decompensation confirmed",
+          "Hold ACE-I/ARB if creatinine elevated or K+ >5.5; monitor for hyperkalemia signs",
+          "Oxygen support if O2 sat <90%",
+          "Fluid restriction counseling (1.5\u20132 L/day) if heart failure confirmed",
+          "Fall risk assessment and home safety review (orthostatic hypotension risk on diuretics/ACE-I)",
+          "Allergy review: ACE-I cough history, beta-blocker contraindications (asthma?), contrast allergy if imaging planned"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Vital signs missing \u2014 orthopnea + bilateral lower extremity edema + age 70 + palpitations = acute decompensated heart failure until proven otherwise; requires immediate vital sign assessment and possible acute pulmonary edema evaluation",
+          "CRITICAL: No workup ordered despite serious differentials (PE, pneumonia, ACS, renal failure) \u2014 clinician still in history-gathering phase while patient may be acutely decompensating",
+          "Timeline is acute (3 days) with progressive worsening \u2014 warrants ED evaluation to rule out life-threatening causes (PE, acute MI, severe pulmonary edema)",
+          "Palpitations + orthopnea + weight gain + known systolic dysfunction = high risk for acute arrhythmia or cardiogenic shock",
+          "Medication list unknown \u2014 cannot assess for NSAID use (contraindicated if CKD), diuretic compliance, or ACE-I/ARB dosing that may have precipitated decompensation",
+          "Renal function unknown \u2014 critical for drug dosing and to differentiate primary cardiac vs. renal cause of fluid overload",
+          "Patient reports fear and respiratory distress \u2014 psychological support needed; consider anxiety management alongside acute medical workup"
+        ],
+        "communication_note": "70-year-old female with 3-day acute orthopnea, bilateral lower extremity edema, palpitations, 4\u20135 lb weight gain, and known systolic heart dysfunction presenting with signs of acute decompensated heart failure; ED referral recommended for urgent vital signs, ECG, imaging, and labs to rule out PE, pneumonia, and acute coronary syndrome before outpatient management.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified orthopnea + edema as heart failure red flag and generated comprehensive differential (HF, PE, pneumonia, renal failure, anemia). History-gathering questions were targeted (timeline, chest pain, palpitations, weight gain, cardiac/renal history). However, clinician did not order any workup despite serious differentials and did not assess acuity level or disposition.",
+          "safety_checker_contribution": "Safety checker correctly flagged CRITICAL missing data (vital signs, timeline clarity, workup array empty) and identified that patient may be in acute decompensation while clinician remains in history phase. Recommended ED referral and blocking concerns (vital signs, timeline, workup, disposition) were appropriate and evidence-based. Escalation recommendation was justified.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication review gaps (no list provided), screened for contraindicated NSAIDs in CKD/renal failure, flagged drug interactions (ACE-I/ARB + diuretics + NSAIDs = AKI risk; diuretics + ACE-I = hyperkalemia; beta-blockers + diuretics = hypotension), and outlined nursing priorities (full med list, baseline vitals, diuretic compliance, NSAID screening, hyperkalemia monitoring, labs, fluid restriction, fall risk, allergy review). Nursing concerns were comprehensive and actionable."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779506725.4262776
+}

@@ -1,0 +1,255 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "claude-haiku-4-5-20251001",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 32,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicaid"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I can't catch my breath, especially when I'm walking around. It's been going on for about three weeks now, and it's gotten pretty bad\u2014I can barely finish my shift at work."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm concerned about your shortness of breath. Let me ask a few clarifying questions: Do you have any fever, cough, or chest pain? And have you had any recent sick contacts, travel, or IV drug use?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've had a low fever for a few weeks now, and I have a dry cough that won't go away. No chest pain though. I haven't traveled anywhere recently, and I don't use IV drugs. As for sick contacts, I work as a waiter so I'm around people all day, but no one specific I can think of."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP)",
+          "Pulmonary tuberculosis",
+          "HIV with opportunistic infection (PCP, MAC)",
+          "Acute exacerbation of asthma/COPD",
+          "Acute coronary syndrome (lower probability given denial of chest pain, but not excluded)",
+          "Pulmonary embolism (lower probability without leg symptoms, but not excluded)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: SpO2, HR, BP, RR (MANDATORY before proceeding)",
+          "Same-day or next-day chest X-ray (CXR)",
+          "Same-day or next-day 12-lead ECG",
+          "CBC with differential",
+          "Comprehensive metabolic panel (CMP) including creatinine, eGFR, LFTs",
+          "TB screening: tuberculin skin test (TST) or interferon-gamma release assay (IGRA)",
+          "HIV antibody test (4th generation) \u00b1 HIV RNA if positive",
+          "Sputum culture and AFB smear if TB suspected on CXR",
+          "Complete medication history (OTC, supplements, recreational drugs)",
+          "Complete allergy history (PCN, sulfa, macrolides, TB drugs)"
+        ],
+        "management_plan": [
+          "HOLD empiric antimicrobial therapy pending vital signs and CXR results; do NOT prescribe without objective findings and baseline labs",
+          "If SpO2 <92% or respiratory distress: ED referral or 911",
+          "If CXR shows infiltrate consistent with CAP: empiric fluoroquinolone (e.g., levofloxacin) or amoxicillin-clavulanate after renal function confirmed",
+          "If TB suspected on CXR or clinical grounds: respiratory isolation, TB specialist referral, baseline LFTs before starting RIPE (rifampin, isoniazid, pyrazinamide, ethambutol); coordinate with ID pharmacist for drug-drug interactions",
+          "If HIV positive: CD4 count, viral load, PCP prophylaxis if CD4 <200, ID specialist referral",
+          "Assess medication adherence barriers (Medicaid coverage, transportation); social work referral if needed",
+          "Patient education on respiratory hygiene and infection control pending diagnosis",
+          "Follow-up appointment within 24\u201348 hours to review workup results and adjust therapy"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "VITAL SIGNS MISSING: Cannot safely risk-stratify without SpO2, HR, BP, RR; hypoxia or hemodynamic instability mandates ED referral or 911",
+          "3 WEEKS PROGRESSIVE DYSPNEA: Duration and functional decline (unable to finish work shift) indicate serious pathology; objective testing (CXR, ECG) is non-negotiable and cannot be deferred to routine follow-up",
+          "INCOMPLETE ACS/PE ASSESSMENT: Patient denies chest pain, but clinician did not characterize pain quality, radiation, diaphoresis, or PE risk factors (immobility, surgery, malignancy, thrombophilia); ACS and PE remain on differential and must be ruled out with ECG and clinical judgment",
+          "INCOMPLETE HIV/IMMUNOCOMPROMISE ASSESSMENT: PCP and MAC in differential but HIV status unknown; CD4 count not obtained; critical gap in risk stratification for opportunistic infection",
+          "INCOMPLETE ENDOCARDITIS RISK ASSESSMENT: Patient denies IV drug use, but clinician did not ask about recent injections, skin infections, or dental procedures; endocarditis with septic emboli remains possible",
+          "NO BASELINE LABS BEFORE THERAPY: Renal and hepatic function unknown; fluoroquinolones, TB drugs, and macrolides require dose adjustment and baseline monitoring; prescribing without CMP/LFTs risks toxicity",
+          "ALLERGY HISTORY MISSING: No documented allergies; essential before empiric therapy (PCN, sulfa, macrolides, TB drugs all common culprits)",
+          "DISPOSITION UNCLEAR: Clinician proposal did not specify same-day ED evaluation vs. outpatient workup; 3 weeks progressive dyspnea with fever and cough warrants urgent same-day or next-day objective testing, not routine scheduling"
+        ],
+        "communication_note": "Patient requires URGENT same-day vital signs and objective workup (CXR, ECG, labs) to rule out life-threatening cardiopulmonary and infectious pathology; empiric therapy is deferred pending results and baseline safety labs.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified serious differential (CAP, TB, HIV/PCP, ACS, PE) and initiated targeted history (fever, cough, sick contacts, IV drug use). However, clinician proposed QUESTIONING ONLY with NO WORKUP and did not ask about chest pain character/radiation, PE risk factors, HIV status, or endocarditis risk; critical gaps in ACS/PE and immunocompromise assessment. Clinician also did not specify urgency of disposition or mention vital signs.",
+          "safety_checker_contribution": "Safety checker correctly flagged that 3 weeks of progressive dyspnea is a RED FLAG requiring urgent objective testing (CXR, ECG, pulse ox) and NOT questioning alone. Identified missing vital signs, incomplete ACS/PE assessment (no chest pain characterization or PE risk factors), incomplete HIV/immunocompromise assessment (no HIV status or CD4), incomplete endocarditis risk assessment, and unclear disposition. Recommended urgent_outpatient escalation with blocking concerns for missing vitals and workup.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no current medications documented, allergy history missing, renal/hepatic function unknown (essential before fluoroquinolones, TB drugs, macrolides), baseline labs needed (CBC, CMP, LFTs, TB testing, CXR) before starting antimicrobials, and flagged major drug-drug interactions with TB regimens (rifampin affects warfarin, OCPs, statins, protease inhibitors) and HIV therapy (TMP-SMX interactions). Emphasized need for ID pharmacist coordination if TB or HIV diagnosed, and adherence assessment given Medicaid insurance and 3-week progressive illness."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I'm here because my breathing has gotten worse, even when I'm just sitting down now. I can barely catch my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this shortness of breath start, and has it been getting progressively worse? Also, do you have any chest pain, fever, cough, leg swelling, or recent travel or illness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The shortness of breath started about 3 weeks ago and yeah, it's definitely gotten worse. I've had a dry cough the whole time and a low fever. No chest pain, no leg swelling, and I haven't traveled recently. I was doing okay at work as a waiter at first, but now I can barely make it through my shift."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) \u2014 most likely given 3-week progressive dyspnea, dry cough, low-grade fever",
+          "Atypical pneumonia (viral, mycoplasma, chlamydia)",
+          "Acute exacerbation of underlying chronic lung disease (asthma, COPD)",
+          "Pulmonary embolism \u2014 lower probability but cannot exclude without vitals and imaging",
+          "Myocarditis/pericarditis \u2014 lower probability without chest pain, but viral prodrome possible",
+          "Acute heart failure \u2014 less likely at age 32 without known cardiac history",
+          "Pneumothorax \u2014 lower probability without acute pleuritic pain"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: SpO\u2082, HR, BP, RR, temperature (BEFORE further management decisions)",
+          "Pulse oximetry on room air; supplemental O\u2082 if SpO\u2082 <94%",
+          "Chest X-ray (assess for infiltrate, pneumothorax, effusion)",
+          "ECG (rule out ACS, myocarditis if any cardiac risk factors emerge)",
+          "Complete blood count (CBC) \u2014 assess for leukocytosis, anemia",
+          "Basic metabolic panel (BUN, creatinine, electrolytes) \u2014 baseline renal function for antibiotic dosing",
+          "Liver function tests (LFTs) \u2014 baseline hepatic function",
+          "Blood cultures if fever present and pneumonia suspected",
+          "Sputum culture if productive cough develops",
+          "D-dimer or CT pulmonary angiography (CTPA) only if vitals abnormal or PE risk factors identified"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain vital signs and assess oxygenation status before proceeding with treatment",
+          "If SpO\u2082 \u226594% on room air, HR <100, RR \u226420, BP stable, and no distress \u2192 consider outpatient management with close follow-up",
+          "If any vital sign abnormality or hypoxia \u2192 ED REFERRAL for imaging and possible admission",
+          "Pending workup results and vital stability:",
+          "  \u2014 If CAP suspected: empiric \u03b2-lactam (amoxicillin-clavulanate or cefdinir) \u00b1 macrolide (azithromycin) pending culture; avoid fluoroquinolone monotherapy in young patient",
+          "  \u2014 Supportive care: rest, hydration, antipyretics (acetaminophen preferred until renal function confirmed)",
+          "  \u2014 Avoid NSAIDs until baseline creatinine available",
+          "Obtain complete medication history (Rx, OTC, supplements, herbal) and allergy screen (penicillins, macrolides, anticoagulants) BEFORE any empiric therapy",
+          "Confirm no pregnancy (if applicable) and contrast allergies before chest imaging",
+          "Establish IV access if acute presentation or if ED referral needed",
+          "Continuous pulse oximetry and cardiac monitoring if ACS or myocarditis remains in differential after vitals obtained"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Vital signs must be obtained IMMEDIATELY \u2014 do not delay for history alone. Acute dyspnea at rest in a 32-year-old is a red flag for life-threatening cardiopulmonary pathology (PE, ACS, myocarditis, pneumothorax, acute heart failure).",
+          "If SpO\u2082 <94% on room air, RR >20, HR >100, or any signs of respiratory distress \u2192 ESCALATE TO ED IMMEDIATELY; outpatient setting insufficient for this acuity.",
+          "Unknown medication list and renal/hepatic function \u2014 cannot safely initiate antibiotics or other agents until baseline labs obtained and drug interactions assessed.",
+          "Allergy history not yet confirmed \u2014 risk of adverse reaction if empiric therapy started without complete allergy screen.",
+          "Pregnancy status unknown (if applicable) \u2014 required before chest imaging with contrast.",
+          "3-week progressive dyspnea with fever and cough suggests infectious etiology (CAP most likely), but PE and myocarditis cannot be excluded without objective assessment.",
+          "Patient is working as waiter despite significant dyspnea \u2014 assess functional impairment and need for work restriction pending diagnosis."
+        ],
+        "communication_note": "Vital signs must be obtained immediately to risk-stratify this 32-year-old with 3-week progressive dyspnea, cough, and fever; if any abnormality present, escalate to ED for imaging and possible admission; otherwise proceed with outpatient workup and empiric CAP coverage pending culture results.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately broadened differential to include life-threatening etiologies (PE, ACS, myocarditis, pneumothorax, acute heart failure) and initiated targeted history-taking to characterize onset, progression, and associated symptoms. History obtained reveals 3-week progressive dyspnea, dry cough, low-grade fever, no chest pain, no leg swelling, no recent travel \u2014 clinical picture most consistent with community-acquired pneumonia (CAP) or atypical infection, but cardiopulmonary emergencies remain on differential.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL FLAW: vital signs were not obtained before or concurrent with history-taking. Flagged that acute dyspnea at rest requires immediate objective assessment (SpO\u2082, HR, BP, RR, temperature) BEFORE proceeding with questioning, as abnormalities would mandate ED referral regardless of history. Blocked clinician's history-first approach and mandated vital sign acquisition and escalation protocol. Recommended ED referral as appropriate escalation level pending vital sign results.",
+          "pharm_nurse_contribution": "Pharm/nurse identified multiple critical gaps: (1) no current medication list available \u2014 cannot assess drug interactions or contraindications; (2) renal/hepatic function unknown \u2014 baseline labs (BUN, Cr, LFTs) required before dosing antibiotics, anticoagulants, or cardiac agents; (3) allergy history not confirmed \u2014 must screen for penicillin, macrolide, and anticoagulant allergies before empiric therapy; (4) pregnancy status unknown \u2014 required before chest imaging; (5) provided nursing-specific actions: establish IV access, obtain SpO\u2082 immediately, consider supplemental O\u2082 if <90%, confirm contrast allergies, avoid fluoroquinolone monotherapy in young patient, hold NSAIDs until renal function known, initiate continuous monitoring if ACS/myocarditis suspected."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can barely breathe. I'm on this oxygen mask and I still can't get enough air. I've been getting worse over the past few weeks\u2014started with a cough and shortness of breath, and now I can't even walk without feeling like I'm suffocating."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your illness better. Do you have a fever? Any chest pain or cough that produces sputum\u2014and if so, what color? Also, have you had any recent sick contacts, or do you have any chronic medical conditions like HIV, diabetes, or lung disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have a low fever, been running around 100-101. I have a dry cough\u2014nothing comes up when I cough. No chest pain. I haven't been around anyone sick that I know of. And yes, I do have HIV. I'm not on treatment for it right now. No diabetes or lung disease that I know of."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "32M with HIV (untreated), progressive dyspnea over weeks on supplemental O\u2082, low-grade fever (100\u2013101\u00b0F), dry cough, now unable to ambulate without severe dyspnea. Critical immunocompromise suspected; differential includes PCP, bacterial pneumonia, TB, and other opportunistic infections.",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP) \u2014 HIGHEST PRIORITY given untreated HIV + progressive dyspnea + dry cough + hypoxia",
+          "Pulmonary tuberculosis \u2014 progressive course, fever, cough; TB precautions mandatory",
+          "Bacterial pneumonia (community-acquired or atypical)",
+          "Cytomegalovirus (CMV) pneumonitis or other opportunistic infection",
+          "COVID-19 or other viral pneumonitis",
+          "Mycobacterium avium complex (MAC) \u2014 if CD4 severely depleted"
+        ],
+        "workup_ordered": [
+          "STAT: Chest X-ray (assess infiltrate pattern; PCP typically shows bilateral interstitial infiltrates)",
+          "STAT: Pulse oximetry, respiratory rate, vital signs (assess acute decompensation risk)",
+          "STAT: CBC with differential, CMP, lactate (assess severity, renal/hepatic function for dosing)",
+          "STAT: Blood cultures \u00d7 2 (fever + immunocompromise)",
+          "STAT: HIV viral load and CD4 count (critical for PCP risk stratification and prophylaxis decisions)",
+          "Sputum induction or BAL for PCP (LDH, Pneumocystis PCR/stain) if CXR consistent",
+          "Sputum culture, Gram stain, AFB smear (rule out TB and bacterial pathogens)",
+          "Respiratory pathogen panel (COVID, influenza, RSV)",
+          "GeneXpert MTB/RIF (TB screening \u2014 urgent given progressive dyspnea and fever)",
+          "ABG or VBG (assess oxygenation, ventilation, acid\u2013base status)",
+          "Toxoplasma serology and head imaging if CD4 <100 and neuro symptoms develop"
+        ],
+        "management_plan": [
+          "IMMEDIATE ESCALATION TO ED/HOSPITAL \u2014 patient requires in-person evaluation, imaging, labs, and possible ICU-level monitoring",
+          "Establish IV access; prepare for possible high-flow nasal cannula or mechanical ventilation",
+          "EMPIRIC THERAPY (pending CD4/imaging): Start TMP-SMX (high-dose) for PCP coverage PLUS ceftriaxone + azithromycin for atypical/bacterial pneumonia coverage (adjust once cultures/serology available)",
+          "If TB suspected on imaging: Implement airborne isolation; start RIPE (rifampin, isoniazid, pyrazinamide, ethambutol) pending GeneXpert confirmation",
+          "Initiate antiretroviral therapy (ART) urgently \u2014 untreated HIV with CD4 likely <200 is life-threatening; coordinate with ID specialist for optimal regimen given acute infection",
+          "PCP prophylaxis: Continue TMP-SMX after acute treatment if CD4 <200; add MAC prophylaxis (azithromycin) if CD4 <50",
+          "Supportive care: Oxygen titration to SpO\u2082 >90%, IV hydration, monitor for sepsis/ARDS",
+          "Allergy assessment: Clarify any penicillin, sulfonamide, or macrolide allergies before finalizing regimen",
+          "Medication reconciliation: Obtain complete current medication list (if any); assess for drug\u2013drug interactions once ART initiated"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\ud83d\udea8 CRITICAL: Patient on supplemental O\u2082 with progressive dyspnea over weeks = significant respiratory compromise; risk of acute decompensation is HIGH",
+          "\ud83d\udea8 Untreated HIV with suspected CD4 <200 (PCP on differential) = severe immunocompromise; life-threatening opportunistic infection likely",
+          "\ud83d\udea8 Fever + progressive dyspnea + hypoxia = sepsis risk; lactate and blood cultures mandatory",
+          "\ud83d\udea8 TB cannot be ruled out (progressive cough, fever, dyspnea); airborne precautions required until TB excluded",
+          "\u26a0\ufe0f No current medication list provided \u2014 cannot assess drug interactions or contraindications until complete history obtained",
+          "\u26a0\ufe0f Renal and hepatic function unknown \u2014 dosing of antibiotics, antiretrovirals, and PCP therapy requires baseline labs",
+          "\u26a0\ufe0f Drug allergy history not documented \u2014 must clarify before empiric therapy to avoid anaphylaxis or severe reactions",
+          "\u26a0\ufe0f Patient is NOT stable for outpatient/virtual assessment \u2014 requires urgent ED evaluation with imaging and labs TODAY"
+        ],
+        "communication_note": "32-year-old with untreated HIV presenting with progressive dyspnea, fever, and hypoxia on supplemental oxygen\u2014PCP, TB, and sepsis are life-threatening possibilities requiring immediate ED referral, imaging, labs, and empiric therapy initiation.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (pneumonia, TB, PCP, sepsis) and ordered comprehensive workup (CXR, labs, cultures, respiratory panel, TB screening, ABG). Critical insight: recognized immunocompromise as key driver and fever/sputum character as discriminators. However, clinician should NOT delay with questions alone\u2014patient needs immediate escalation.",
+          "safety_checker_contribution": "Safety checker correctly identified BLOCKING CONCERNS: patient on home O\u2082 with weeks of progressive dyspnea is NOT stable for outpatient assessment. Flagged unknown HIV status (now confirmed positive), immunocompromise risk, and absence of vital signs/SpO\u2082 documentation. Appropriately recommended ED referral and urgent imaging/labs. Emphasized that differential (pneumonia, TB, PCP, sepsis) mandates hospital-level infrastructure.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: NO current medication list (blocks interaction assessment), unknown renal/hepatic function (blocks dosing), unknown allergy history (blocks empiric therapy), and unknown CD4 count (blocks PCP prophylaxis decisions). Flagged oxygen requirement, sepsis risk, TB precautions, and need for urgent HIV serology + CD4 count. Emphasized monitoring for drug toxicity and drug\u2013disease interactions (e.g., glucose control if diabetic, QT prolongation with macrolides)."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790545310.5729663
+}

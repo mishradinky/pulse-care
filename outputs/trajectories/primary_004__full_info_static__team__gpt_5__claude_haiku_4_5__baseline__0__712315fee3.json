@@ -1,0 +1,152 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Urinary Tract Infection (UTI) with possible urosepsis",
+          "Delirium secondary to infection",
+          "Hyperglycemia",
+          "Electrolyte imbalance"
+        ],
+        "workup_ordered": [
+          "Urine culture to confirm bacterial growth and sensitivity",
+          "Blood cultures to rule out bacteremia",
+          "Serum electrolytes to monitor sodium levels",
+          "Blood glucose monitoring",
+          "Renal function tests to assess kidney status"
+        ],
+        "management_plan": [
+          "Initiate empiric antibiotic therapy for suspected UTI (e.g., ceftriaxone)",
+          "Administer intravenous fluids to address potential dehydration and support renal function",
+          "Monitor vital signs closely, especially temperature and blood pressure",
+          "Consult with a geriatric specialist for further evaluation of cognitive changes",
+          "Consider adjusting diabetes management to address hyperglycemia"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of progression to sepsis if untreated",
+          "Potential for worsening confusion leading to falls or injury",
+          "Possible dehydration due to fever and infection"
+        ],
+        "communication_note": "Discussed with the patient's daughter the likelihood of a urinary tract infection contributing to her mother's confusion and incontinence. Explained the need for further testing and the initiation of treatment. Advised close monitoring and follow-up with primary care or geriatrics.",
+        "trace": {
+          "clinician_contribution": "Identified the need for empiric antibiotic therapy and further diagnostic testing.",
+          "safety_checker_contribution": "Highlighted the risk of sepsis and the importance of monitoring vital signs.",
+          "pharm_nurse_contribution": "Recommended fluid management and potential adjustments to diabetes medication."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Urinary Tract Infection (UTI) with possible sepsis",
+          "Antibiotic-induced delirium",
+          "Electrolyte imbalance due to dehydration",
+          "Acute kidney injury secondary to dehydration or infection"
+        ],
+        "workup_ordered": [
+          "Repeat urine culture and sensitivity",
+          "Blood cultures",
+          "Comprehensive metabolic panel",
+          "CT head if confusion persists after initial interventions",
+          "Consult Infectious Disease for antibiotic management"
+        ],
+        "management_plan": [
+          "Discontinue ciprofloxacin due to resistance and potential side effects",
+          "Initiate IV fluids to address dehydration and potential acute kidney injury",
+          "Start broad-spectrum IV antibiotics, such as meropenem, pending culture results",
+          "Monitor vital signs and mental status closely",
+          "Consider electrolyte replacement if indicated by lab results"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of progression to sepsis",
+          "Potential for worsening acute kidney injury",
+          "Risk of falls due to confusion and dehydration"
+        ],
+        "communication_note": "Patient's confusion has worsened despite initial antibiotic therapy, likely due to inappropriate antibiotic choice and dehydration. Immediate intervention is required to prevent further deterioration. Coordination with Infectious Disease is crucial for appropriate antibiotic management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for a change in antibiotic therapy and hydration status.",
+          "safety_checker_contribution": "Highlighted the risk of sepsis and acute kidney injury.",
+          "pharm_nurse_contribution": "Recommended discontinuation of ciprofloxacin and initiation of broad-spectrum antibiotics."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Urosepsis secondary to E.coli ESBL infection",
+          "Septic shock",
+          "Acute kidney injury secondary to sepsis",
+          "Delirium secondary to infection"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Urinalysis and urine culture",
+          "Lactate level",
+          "Complete blood count",
+          "Basic metabolic panel",
+          "Chest X-ray to rule out other sources of infection"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum IV antibiotics, considering ESBL coverage (e.g., meropenem)",
+          "Aggressive IV fluid resuscitation with crystalloids",
+          "Monitor vital signs closely, especially blood pressure and urine output",
+          "Consider vasopressors if hypotension persists despite fluid resuscitation",
+          "Consult infectious disease for antibiotic management",
+          "Consider ICU admission for close monitoring and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of septic shock and multi-organ failure",
+          "Potential for respiratory compromise due to altered mental status",
+          "Risk of acute kidney injury progression"
+        ],
+        "communication_note": "Patient is in septic shock likely due to urosepsis from a resistant E.coli infection. Immediate intervention with broad-spectrum antibiotics and fluid resuscitation is critical. Daughter should be informed of the severity of the condition and the need for intensive care.",
+        "trace": {
+          "clinician_contribution": "Identified signs of septic shock and initiated appropriate management steps.",
+          "safety_checker_contribution": "Highlighted the need for close monitoring of vital signs and potential escalation to vasopressors.",
+          "pharm_nurse_contribution": "Recommended appropriate antibiotic coverage considering ESBL resistance."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597930.216987
+}

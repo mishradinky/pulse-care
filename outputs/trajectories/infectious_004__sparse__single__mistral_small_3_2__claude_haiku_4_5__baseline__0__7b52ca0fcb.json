@@ -1,0 +1,199 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My face is drooping and my joints hurt everywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About three weeks with the joint pain. Face started drooping recently."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, rash, or weight changes recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. Had a rash on my leg weeks ago. No weight change."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any weakness or numbness in your limbs or face?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My face droops on the left side. Arms and legs feel okay."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent infections or tick bites?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not sure about ticks. Was camping in Connecticut five weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent headaches or neck stiffness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No headaches. Neck's fine."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease",
+          "Bell's palsy",
+          "Rheumatoid arthritis"
+        ],
+        "workup_ordered": [
+          "Lyme serology",
+          "CBC",
+          "ESR",
+          "CRP"
+        ],
+        "management_plan": [
+          "Symptomatic relief for joint pain",
+          "Monitor for Lyme disease symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Possible Lyme disease due to recent camping in Connecticut"
+        ],
+        "communication_note": "We need to monitor your symptoms closely and run some tests to rule out Lyme disease."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Almost fainted twice. Heart going slow."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort along with these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. Just feel like my heart's skipping, going slow."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or dizziness during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dizzy, yeah. Felt like I might pass out twice."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Bradycardia",
+          "Syncope",
+          "Vasovagal episode",
+          "Orthostatic hypotension"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete Blood Count (CBC)",
+          "Basic Metabolic Panel (BMP)",
+          "Thyroid Stimulating Hormone (TSH)"
+        ],
+        "management_plan": [
+          "Monitor vital signs, including heart rate and blood pressure",
+          "Avoid sudden changes in posture",
+          "Increase fluid intake",
+          "Follow up with primary care physician within a week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of falls or injury due to syncope",
+          "Potential underlying cardiac or neurological condition"
+        ],
+        "communication_note": "We need to run some tests to understand why you're feeling dizzy and your heart is skipping beats."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I passed out in the waiting room."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "syncope",
+          "vasovagal episode",
+          "orthostatic hypotension",
+          "cardiac arrhythmia"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "comprehensive metabolic panel",
+          "electrocardiogram",
+          "orthostatic vital signs"
+        ],
+        "management_plan": [
+          "monitor vital signs",
+          "assess for signs of dehydration",
+          "evaluate for any signs of cardiac or neurological issues",
+          "refer to specialist if necessary"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of recurrent syncope",
+          "underlying cardiac or neurological conditions"
+        ],
+        "communication_note": "We need to run some tests to understand why you passed out and will monitor you closely."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508598.6649966
+}

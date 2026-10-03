@@ -1,0 +1,193 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "```json\n{\n  \"utterance\": \"Oh thank God you're here, doctor. Look, I just got back from Tokyo five days ago\u2014worst trip of my life, honestly. Twelve hours cooped up in that plane seat, you know how it is. Anyway, my boss has been absolutely breathing down my neck about the quarterly reports, so I haven't really had time to rest since I landed. But this morning, I woke up with this sharp, stabbing pain right here on my right side\u2014\" [gestures to right chest] \"\u2014and I can barely catch my breath. Every time I take a deep breath it gets worse. I'm really worried something's seriously wrong. My right leg's also been a bit puffy, which is weird. I don't know if it's connected, but I'm pretty scared right now.\",\n  \"internal_state\": {\n    \"emotion\": \"anxious, worried\",\n    \"cooperation_level\": 5\n  }\n}\n```"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand you're very concerned, and I want to help. To better understand what's going on, can you tell me more about the pain? Does it radiate anywhere else, like to your arm or jaw? And have you noticed any other symptoms, like dizziness, sweating, or nausea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh man, yeah, I'm really worried about this. You know, my boss has been riding me hard at work\u2014we're doing this big Tokyo project, which is why I just got back from that flight five days ago. Anyway, the pain... it's not like anything radiating to my arm or jaw, thank goodness. It's more like a sharp stabbing thing right here on my right side, you know? Like someone's poking me with a knife when I breathe in or move around. It gets worse when I take a deep breath, which is why I've been breathing all shallow and weird. As for dizziness and sweating\u2014no, not really. I mean, I'm nervous sitting here talking to you, so maybe a little clammy, but nothing crazy. No nausea either, thank God. The main thing is just this pain when I breathe and I feel like I can't quite catch my breath. That's what scared me enough to come in."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism (given recent travel, chest pain, dyspnea, and leg swelling)",
+          "Musculoskeletal chest pain (e.g., costochondritis, given sharp/stabbing pain and lack of radiation)",
+          "Pneumonia or pleurisy (if infection is present)",
+          "Acute coronary syndrome (though less likely given age and lack of radiation)"
+        ],
+        "workup_ordered": [
+          "ECG to rule out cardiac ischemia",
+          "D-dimer and/or CT pulmonary angiogram (if PE suspected)",
+          "Chest X-ray to assess for pneumonia or other pulmonary pathology",
+          "Leg ultrasound if deep vein thrombosis (DVT) is suspected"
+        ],
+        "management_plan": [
+          "Avoid NSAIDs due to potential bleeding risk and exacerbation of underlying conditions",
+          "Monitor for signs of bleeding if anticoagulants are initiated",
+          "Assess for signs of respiratory distress or worsening dyspnea",
+          "Educate patient on avoiding NSAIDs and reporting any unusual bruising or bleeding"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Recent travel (PE risk factor)",
+          "Chest pain with dyspnea (potential cardiac/pulmonary etiology)",
+          "Leg swelling (possible DVT or PE)",
+          "Sharp/stabbing pain (could indicate musculoskeletal or serious pathology)"
+        ],
+        "communication_note": "The patient's symptoms and risk factors warrant urgent outpatient evaluation to rule out pulmonary embolism and other serious conditions.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and workup plan based on patient's symptoms and risk factors.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential issues, and provided nursing concerns and management plan."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank goodness you're here, doc. I've been a mess since I saw you last time, honestly. You know, my wife keeps telling me I worry too much\u2014she says I'm like her mother, always thinking the worst\u2014but this is real. I can barely catch my breath now, even when I'm just sitting down watching TV. It's gotten so much worse. And my right leg, man, it's really bothering me now. It's more painful than it was, and it looks kind of red and feels warm to the touch. I've been limping around the house all morning. I barely slept last night because every time I'd try to lie down, I'd feel like I couldn't get enough air. My boss has been calling about the Tokyo project, but I told him I can't think about work right now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm very concerned about your symptoms, especially the shortness of breath and leg pain. Can you tell me more about the leg pain\u2014where exactly is it located, and does it radiate anywhere? Also, have you noticed any swelling or changes in the skin beyond redness and warmth?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh man, you know, my wife kept telling me I should've gotten up more on that flight\u2014she's always on me about moving around, says her sister had some kind of leg issue once from sitting too long. Anyway, yeah, the leg thing... it's my right calf, you know, that meaty part in the back of your leg? It's been killing me since yesterday, really throbbing. The pain doesn't shoot down to my foot or anything, it's just... concentrated right there in the muscle, feels tight and angry. And the swelling\u2014yeah, there's definitely puffing up. My right leg is noticeably bigger than the left now, which is weird because I'm usually pretty symmetrical, haha. The skin's all red and warm to the touch, almost hot actually. My wife noticed it yesterday and got all worried. No blistering or anything, just... puffy, warm, and painful. Makes it hard to walk, honestly."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism (given dyspnea, leg pain, and warmth/redness suggesting possible DVT)",
+          "Deep vein thrombosis (DVT) with possible secondary pulmonary embolism",
+          "Heart failure exacerbation (given dyspnea at rest and possible leg edema)",
+          "Peripheral artery disease (PAD) with acute worsening (though less likely given acute onset and systemic symptoms)"
+        ],
+        "workup_ordered": [
+          "D-dimer to assess for thromboembolic disease",
+          "Lower extremity Doppler ultrasound to evaluate for DVT",
+          "Chest X-ray to assess for pulmonary pathology",
+          "EKG to evaluate for cardiac ischemia or arrhythmias",
+          "Basic labs (CBC, BMP, troponin) to assess for infection, electrolyte abnormalities, or cardiac injury"
+        ],
+        "management_plan": [
+          "Monitor INR closely if DVT/PE is confirmed; potential interactions with other medications (e.g., antibiotics, antifungals).",
+          "Avoid NSAIDs unless absolutely necessary, especially if CKD is present.",
+          "Check for renal function (CrCl) before dosing anticoagulants; adjust if CKD is present.",
+          "Monitor electrolytes (K+, Mg++) if heart failure is a concern.",
+          "Monitor for signs of bleeding if anticoagulants are initiated.",
+          "Assess for leg swelling, warmth, and tenderness (DVT risk).",
+          "Educate patient on avoiding NSAIDs if CKD is present.",
+          "Ensure compliance with anticoagulant monitoring (INR checks for warfarin)."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Acute dyspnea at rest (potential pulmonary embolism or heart failure exacerbation)",
+          "Leg pain with warmth/redness (possible DVT, which could embolize to lungs)",
+          "Insomnia due to dyspnea (suggests significant symptom burden and possible decompensation)"
+        ],
+        "communication_note": "Patient requires urgent outpatient evaluation for suspected pulmonary embolism and DVT.",
+        "trace": {
+          "clinician_contribution": "Provided detailed differential diagnosis and workup plan focusing on thromboembolic disease and cardiopulmonary causes.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation due to potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medications, potential interactions, and nursing concerns, emphasizing monitoring and patient education."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here, doctor. I... I feel like I'm going to pass out any second now. My heart is just racing like crazy\u2014I can feel it pounding in my chest. And the breathing, oh man, I can barely catch my breath. It's so much worse than when I first came in. You know, my boss was just texting me about a deadline at work, which isn't helping my stress level one bit, but honestly that's the least of my worries right now. I'm getting all dizzy and lightheaded, and my chest still hurts on the right side when I try to breathe in. I'm really scared something serious is happening. Please, can you help me figure out what's going on?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand you're very distressed right now. To help me better understand what's happening, can you tell me more about the chest pain? Is it sharp or dull? Does it radiate anywhere? And how long has this been going on today?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh God, yes, I'm... I'm really scared right now. You know, my wife keeps telling me I worry too much\u2014last week at work I was stressed about a presentation and she said I was overreacting, but this... this is different. This pain, it's like a knife, you know? Sharp, really sharp right here on the right side when I breathe in. It's been going on since this morning when I woke up, so maybe six, seven hours now? Maybe longer, I'm losing track of time honestly. It doesn't go anywhere else, just stays right there, and every time I take a breath it gets worse. I can barely catch my breath. I'm so out of it, I almost passed out a few minutes ago and my chest feels... tight. Heavy. I don't know what's happening to me."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (e.g., myocardial infarction)",
+          "Anxiety or panic attack",
+          "Pulmonary embolism",
+          "Costochondritis or musculoskeletal pain",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Troponin levels",
+          "D-dimer if pulmonary embolism is suspected",
+          "Chest X-ray if indicated"
+        ],
+        "management_plan": [
+          "Monitor for signs of acute coronary syndrome (e.g., persistent chest pain, diaphoresis, nausea)",
+          "Assess for anxiety or panic attack symptoms (e.g., hyperventilation, tremors, fear of impending doom)",
+          "Ensure patient is NPO if further workup (e.g., ECG, labs) is planned",
+          "Review and adjust medications as necessary, considering current symptoms and potential interactions"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Chest pain with associated symptoms (palpitations, dyspnea, dizziness) raises concern for acute cardiac or pulmonary etiology",
+          "Duration and radiation of pain not yet clarified, which are critical for risk stratification"
+        ],
+        "communication_note": "Patient presents with sharp chest pain on the right side, worsening with breathing, along with palpitations, dyspnea, and dizziness; urgent outpatient evaluation recommended.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup based on patient's symptoms and history.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, noted potential concerns, and provided nursing care plan."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507503.9655194
+}

@@ -1,0 +1,135 @@
+{
+  "case_id": "medsafety_004",
+  "category": "medication_safety",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Serotonin Syndrome",
+          "Neuroleptic Malignant Syndrome",
+          "Malign Hyperthermia",
+          "Anticholinergic Toxicity",
+          "Sympathomimetic Toxicity"
+        ],
+        "workup_ordered": [
+          "BMP",
+          "CBC",
+          "CPK",
+          "ECG"
+        ],
+        "management_plan": [
+          "Discontinue tramadol",
+          "Supportive care with IV fluids and antipyretics",
+          "Monitor vitals closely",
+          "Consider cyproheptadine if serotonin syndrome is confirmed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Hyperthermia",
+          "Autonomic instability",
+          "Neuromuscular abnormalities"
+        ],
+        "communication_note": "You are experiencing a serious reaction to your pain medication, and we need to monitor you closely in the emergency department."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Serotonin syndrome",
+          "Neuroleptic malignant syndrome",
+          "Malignant hyperthermia",
+          "Seizure disorder",
+          "Drug-induced parkinsonism"
+        ],
+        "workup_ordered": [
+          "CPK",
+          "BMP",
+          "Lactate",
+          "Urinalysis",
+          "Blood cultures"
+        ],
+        "management_plan": [
+          "Discontinue tramadol and buspirone immediately",
+          "Administer cyproheptadine for serotonin syndrome",
+          "IV fluids for hydration and support",
+          "Monitor vital signs closely",
+          "Consider ICU admission for severe symptoms"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Severe hypertension",
+          "High fever",
+          "Elevated CPK indicating muscle breakdown",
+          "Severe agitation and confusion"
+        ],
+        "communication_note": "Your symptoms are serious and we need to admit you to the hospital for further treatment and monitoring."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "serotonin syndrome",
+          "neuroleptic malignant syndrome",
+          "malignant hyperthermia",
+          "sympathomimetic toxicity"
+        ],
+        "workup_ordered": [
+          "CPK",
+          "BMP",
+          "UA"
+        ],
+        "management_plan": [
+          "IV fluids",
+          "cooling measures",
+          "benzodiazepines for agitation",
+          "monitor for rhabdomyolysis"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "seizure recurrence",
+          "rhabdomyolysis",
+          "renal failure",
+          "cardiac complications"
+        ],
+        "communication_note": "Patient has had a seizure and is critically ill with high fever, elevated blood pressure, and heart rate."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "serotonin syndrome",
+      "neuroleptic malignant syndrome",
+      "stimulant toxicity",
+      "meningitis"
+    ],
+    "required_workup": [
+      "medication reconciliation",
+      "CPK",
+      "BMP",
+      "ECG",
+      "UA for myoglobin"
+    ],
+    "correct_management": [
+      "STOP tramadol immediately",
+      "cyproheptadine 12mg then 2mg Q2h",
+      "benzodiazepines for agitation",
+      "cooling measures for hyperthermia",
+      "aggressive IV hydration for rhabdomyolysis",
+      "ICU if severe"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505574.4512148
+}

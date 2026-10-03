@@ -1,0 +1,201 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath walking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms such as cough, fever, or chest pain along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dry cough, low fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to sick contacts?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel, no sick contacts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your medications or medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Stopped meds months ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications did you stop taking, and were you taking them for a specific condition?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Stopped HIV meds months ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "Tuberculosis",
+          "HIV-related opportunistic infection",
+          "COPD exacerbation",
+          "Interstitial lung disease"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "HIV viral load and CD4 count",
+          "Sputum culture and sensitivity",
+          "Tuberculosis (TB) testing (either a TB skin test or a blood test)"
+        ],
+        "management_plan": [
+          "Start on empiric antibiotics for community-acquired pneumonia",
+          "Initiate antiretroviral therapy (ART) for HIV",
+          "Provide supportive care including oxygen therapy if needed",
+          "Monitor symptoms closely and follow up in 48 hours"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential respiratory failure",
+          "Severe HIV-related immunosuppression"
+        ],
+        "communication_note": "We need to run some tests to understand your symptoms better, and I've started you on some medications to help with your breathing."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Worse breathing, even at rest now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any fever, cough, or chest pain along with the worsening breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever, dry cough."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three weeks."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COVID-19",
+          "bronchitis",
+          "asthma exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count (CBC)",
+          "C-reactive protein (CRP)",
+          "COVID-19 PCR test"
+        ],
+        "management_plan": [
+          "start empiric antibiotics for possible bacterial pneumonia",
+          "prescribe bronchodilators if wheezing is present",
+          "recommend isolation if COVID-19 is suspected"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential respiratory infection with fever and worsening dyspnea"
+        ],
+        "communication_note": "Your symptoms suggest a possible respiratory infection, and we will run some tests to determine the cause and best treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe well."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "asthma exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "administer bronchodilators",
+          "start antibiotics if pneumonia suspected",
+          "consider anticoagulation if pulmonary embolism suspected"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "respiratory failure",
+          "potential cardiac complications"
+        ],
+        "communication_note": "Based on your symptoms and initial findings, we need to run some tests and may need to refer you to the emergency department for further evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779634323.6606197
+}

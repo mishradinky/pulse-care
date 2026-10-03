@@ -1,0 +1,197 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I can't catch my breath, especially when I'm walking around. It's been going on for about three weeks now, and it's gotten pretty bad\u2014I can't even finish my shifts at work anymore."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, cough, or fever along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I have a cough\u2014it's been dry, no mucus. And I've had a low fever on and off for these three weeks too. No chest pain though, just the breathing problem that gets worse when I walk around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been pretty tired, yeah. Not sure about weight loss\u2014haven't checked. And I do wake up sometimes drenched in sweat at night, especially the last week or so. But mostly I'm just exhausted and can't catch my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you traveled recently or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't traveled recently. I work as a waiter here in town, so I'm around a lot of people at the restaurant, but I don't know of anyone specific who's been sick. This just came on gradually over the past few weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of lung conditions or other chronic illnesses?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I don't have any history of lung problems. I've been pretty healthy before this started. Well, I was diagnosed with HIV a while back, but I stopped taking my medications about six months ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swollen lymph nodes or skin rashes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No swollen lymph nodes that I've noticed. No rashes either. Just been dealing with this cough and shortness of breath, especially when I'm moving around."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia",
+          "Tuberculosis",
+          "Bacterial pneumonia",
+          "HIV-related opportunistic infection"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "CBC with differential",
+          "HIV viral load",
+          "CD4 count",
+          "Sputum culture",
+          "Pulse oximetry"
+        ],
+        "management_plan": [
+          "Reinitiate antiretroviral therapy",
+          "Consider prophylaxis for opportunistic infections",
+          "Symptomatic treatment for cough and fever"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Progressive respiratory distress",
+          "Potential for severe opportunistic infection"
+        ],
+        "communication_note": "We need to do some tests to understand the cause of your breathing issues, and it's important to restart your HIV medications. We'll arrange for urgent follow-up care."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I'm really struggling to breathe now, even when I'm just sitting down. It's gotten much worse since I was here last time. I can barely catch my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, fever, or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have a dry cough that's been going on for a few weeks now. I've had a low fever on and off, nothing too high. No chest pain though, just trouble breathing, especially when I try to move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't noticed any swelling in my legs or ankles. My main problem right now is the breathing\u2014it's gotten worse even when I'm just sitting down now."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "Administer supplemental oxygen",
+          "Start empirical antibiotics"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Worsening respiratory distress"
+        ],
+        "communication_note": "Your breathing difficulties have worsened, and we need to conduct further tests and possibly start treatment in the emergency department."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can barely breathe. I'm on this oxygen mask and I still can't catch my breath. I've been getting worse over the past few weeks\u2014started with a cough and shortness of breath, and now I can't even talk without struggling."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CT pulmonary angiogram",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start empirical antibiotics",
+          "consider anticoagulation if PE is confirmed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "severe respiratory distress",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508219.640691
+}

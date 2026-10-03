@@ -1,0 +1,193 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a fever and chills for two days now, and my back really hurts. I've also been feeling confused, and I haven't been able to urinate since yesterday. I've been vomiting too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any burning sensation or pain when you try to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I haven't actually been able to urinate at all for the past 12 hours, which is really worrying me. Before that, I don't remember noticing any burning\u2014I've just been feeling so sick with the fever and chills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not that I know of. I've been living in an assisted living facility, so there are people around, but I haven't noticed anyone sick nearby. This fever and chills just started two days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent surgeries or procedures that might have increased your risk of infection?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any surgeries or procedures recently. But I have had a lot of bladder infections over the years, and I took an antibiotic called Cipro for one about three months ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the character of your back pain? Is it sharp, dull, or radiating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's a dull ache, mostly on my right side in the back. It's been hurting since yesterday morning. It's not sharp, just a constant soreness."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI)",
+          "Acute pyelonephritis",
+          "Sepsis",
+          "Obstructive uropathy with hydronephrosis",
+          "Spontaneous bacterial peritonitis"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis and urine culture",
+          "Blood cultures",
+          "Renal ultrasound"
+        ],
+        "management_plan": [
+          "Administer intravenous fluids for hydration",
+          "Start broad-spectrum antibiotics",
+          "Monitor vital signs closely",
+          "Pain management for back pain"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Sepsis risk due to fever, chills, and confusion",
+          "Acute kidney injury due to urinary retention",
+          "Dehydration due to vomiting and inability to urinate"
+        ],
+        "communication_note": "Given your symptoms, we need to rule out a serious infection and check your kidneys, so we will do some tests and start treatment right away."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still running a fever even though I started antibiotics yesterday. And I'm having trouble thinking clearly\u2014everything feels foggy. I'm worried something isn't getting better."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you're experiencing, such as headache, stiff neck, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't have a stiff neck or headache. I'm having trouble breathing a bit\u2014my chest feels tight. But mostly I'm just confused and very tired. Everything feels foggy."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "sepsis",
+          "meningitis",
+          "urinary tract infection"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "comprehensive metabolic panel",
+          "blood cultures",
+          "chest X-ray",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "administer IV fluids",
+          "continue antibiotics",
+          "monitor vital signs closely",
+          "consult infectious disease specialist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "patient's confusion and fever may indicate a serious infection",
+          "chest tightness may indicate a respiratory complication"
+        ],
+        "communication_note": "We need to run some tests to understand why you're still feeling unwell and to adjust your treatment plan."
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm very sick. I'm having trouble breathing and I can barely stay awake. They told me I'm in the ICU now. I don't remember much from the last day or two."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "sepsis",
+          "COPD exacerbation",
+          "heart failure exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "comprehensive metabolic panel",
+          "blood cultures",
+          "chest X-ray",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "supplemental oxygen",
+          "intravenous fluids",
+          "broad-spectrum antibiotics",
+          "continuous cardiac monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis",
+          "cardiac complications"
+        ],
+        "communication_note": "The patient is critically ill and requires immediate intensive care."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507909.1290033
+}

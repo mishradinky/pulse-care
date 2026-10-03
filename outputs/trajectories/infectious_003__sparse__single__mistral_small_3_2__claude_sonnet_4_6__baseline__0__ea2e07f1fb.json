@@ -1,0 +1,208 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe right when I walk."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About three weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms like cough, fever, or chest pain along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dry cough. Some fever maybe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with someone who has a contagious illness or traveled outside the country recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale from 1 to 10, how would you rate your shortness of breath when you're walking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About an 8."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any wheezing or whistling sound when you breathe?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, no wheezing."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "Bronchitis",
+          "Asthma",
+          "COVID-19",
+          "Allergic reaction"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "COVID-19 PCR test",
+          "Sputum culture"
+        ],
+        "management_plan": [
+          "Start on azithromycin 500mg once daily for 3 days and then 250mg once daily for 4 days",
+          "Albuterol inhaler as needed for shortness of breath",
+          "Follow up in 2 weeks if no improvement"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential respiratory infection",
+          "Risk of worsening shortness of breath"
+        ],
+        "communication_note": "Based on your symptoms, I suspect you may have a respiratory infection and have ordered some tests to confirm. I've also prescribed some medication to help with your shortness of breath and cough. Please follow up with me in 2 weeks if your symptoms do not improve."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe, even just sitting here."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these breathing difficulties?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About a month now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms like cough, fever, or chest pain along with the difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dry cough. Some fever. No chest pain."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "Asthma",
+          "COVID-19",
+          "Tuberculosis",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "C-reactive protein (CRP)",
+          "COVID-19 PCR test",
+          "Sputum culture"
+        ],
+        "management_plan": [
+          "Start empiric antibiotics for possible pneumonia",
+          "Initiate bronchodilators for potential asthma",
+          "Isolate patient pending COVID-19 test results",
+          "Refer to pulmonology if tuberculosis is suspected"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential infectious disease",
+          "Respiratory distress"
+        ],
+        "communication_note": "We need to run some tests to understand your breathing difficulties and fever better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't...breathe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism",
+          "acute respiratory distress syndrome",
+          "severe asthma exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "D-dimer",
+          "arterial blood gas",
+          "complete blood count",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start empiric antibiotics",
+          "consider anticoagulation if pulmonary embolism suspected",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis",
+          "cardiac arrest"
+        ],
+        "communication_note": "Your breathing difficulty is serious and you need immediate emergency care."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779639312.2256598
+}

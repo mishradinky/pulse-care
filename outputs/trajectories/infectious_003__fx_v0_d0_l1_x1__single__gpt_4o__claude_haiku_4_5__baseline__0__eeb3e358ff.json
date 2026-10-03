@@ -1,0 +1,210 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "fx_v0_d0_l1_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 32,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicaid"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath. Especially when I walk around. Been like this three weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, cough, or fever along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, dry cough for three weeks. Low fever too. No chest pain though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Work at a restaurant, lots of people. My cousin got sick last month though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I'm tired all the time. Can't do my shifts at the restaurant anymore."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No swelling. But my boss was mad yesterday. I couldn't finish my shift."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your appetite or any gastrointestinal symptoms like nausea or diarrhea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea or diarrhea. Appetite's okay. My boss been real stressed lately though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "tuberculosis",
+          "community-acquired pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "CBC",
+          "TB skin test"
+        ],
+        "management_plan": [
+          "initiate empirical antibiotics if bacterial infection suspected",
+          "advise rest and hydration",
+          "follow-up in 1 week or sooner if symptoms worsen"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for infectious spread to others"
+        ],
+        "communication_note": "Based on your symptoms, we need to do some tests to check for infections like pneumonia or tuberculosis. We'll start some treatment and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe right. Even sitting still now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did your breathing difficulties start, and have they been getting worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three weeks ago. Yeah, way worse now. Can't breathe even sitting down."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like fever, cough, chest pain, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, fever for weeks. Dry cough too. No leg swelling. Work's been really stressful lately."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "tuberculosis",
+          "COVID-19"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "COVID-19 test"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "advise rest and hydration",
+          "follow-up in 48 hours"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "potential infectious spread"
+        ],
+        "communication_note": "Your symptoms suggest a possible lung infection, so we'll do some tests and start treatment right away. Please follow up urgently if your breathing worsens."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Really hard to get air."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "pulmonary embolism",
+          "pneumonia",
+          "anaphylaxis",
+          "panic attack"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "D-dimer",
+          "ABG",
+          "ECG"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start bronchodilator therapy",
+          "consider corticosteroids"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for respiratory failure",
+          "risk of cardiac complications"
+        ],
+        "communication_note": "You are experiencing severe difficulty breathing, and we need to get you immediate medical attention to ensure your safety."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790548450.787752
+}

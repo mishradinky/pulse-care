@@ -1,0 +1,227 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've had a really bad cough for about four days now \u2014 bringing up yellow-green stuff. I also have a fever and this sharp pain on my right side when I breathe in. I'm feeling a bit foggy today too, which isn't like me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any shortness of breath, and do you have any chronic medical conditions like COPD, heart disease, or diabetes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been pretty short of breath, more than usual. I do have COPD and diabetes \u2014 I've had both for a while now. No heart problems that I know of. The breathing has been harder these past few days, on top of this cough."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current temperature, and have you taken any medications for the cough or fever? Also, do you have any recent sick contacts or travel?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The nurse just told me my temperature is 38.9 \u2014 pretty high. I've been taking some over-the-counter ibuprofen for the fever, but it's not helping much. I haven't traveled anywhere recently, and I can't think of anyone around me who's been sick. I live alone, so I don't have much close contact with people day to day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me about your oxygen level right now, and do you have a pulse oximeter at home? Also, have you noticed any blood in your sputum, or any leg swelling or calf pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't have one of those finger oxygen monitors at home, so I can't tell you what my level is right now. I haven't coughed up any blood, just that thick yellow-green stuff. And no, my legs feel fine \u2014 no swelling or pain in my calves that I've noticed."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been vaccinated against pneumococcus and influenza, and do you take any regular medications for your COPD and diabetes that I should know about?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I honestly don't remember getting a pneumonia shot, and I'm not sure about the flu shot this year. For my COPD I use two inhalers \u2014 one I take every day, the tiotropium, and another one called albuterol that I use when I need it. For my diabetes I take metformin, 500 milligrams."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I need to check your oxygen level and listen to your lungs right now. Can you come to the clinic or emergency department today so I can examine you and get a chest X-ray and blood tests to see what's causing this infection?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, absolutely. I've been feeling pretty rough and honestly a bit scared \u2014 I noticed I'm having trouble catching my breath even just sitting still. I can get to the emergency department today. Should I go right now, or is there anything I need to bring with me?"
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP)",
+          "Acute exacerbation of COPD with secondary infection",
+          "Bronchitis with hypoxemia"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Blood cultures",
+          "Pulse oximetry/arterial blood gas",
+          "Sputum culture if possible",
+          "Procalcitonin or CRP"
+        ],
+        "management_plan": [
+          "Immediate ED evaluation for oxygen assessment and respiratory support if needed",
+          "Empiric broad-spectrum antibiotics (consider amoxicillin-clavulanate or respiratory fluoroquinolone pending culture)",
+          "Supportive care: fluids, antipyretics",
+          "COPD management optimization (review inhaler technique, consider systemic corticosteroids if exacerbation component)",
+          "Monitor for sepsis/deterioration",
+          "Vaccination status review (pneumococcal and influenza)"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Hypoxemia risk in patient with COPD and fever/productive cough",
+          "Altered mental status ('foggy') concerning for systemic infection/hypoxia",
+          "Unvaccinated status increases pneumococcal pneumonia risk",
+          "Dyspnea at rest suggests significant respiratory compromise"
+        ],
+        "communication_note": "You have signs of a serious respiratory infection that needs urgent evaluation in the emergency department today\u2014please go now and bring your medication list with you."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I started those antibiotics yesterday like the doctor said, but I'm honestly feeling worse, not better. My cough is still bad, I've got that chest pain, and my family says I seem more confused than usual. I'm also really short of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What are your current vital signs\u2014specifically your temperature, heart rate, blood pressure, respiratory rate, and oxygen saturation on room air?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm not sure of the exact numbers right now \u2014 I'm feeling pretty out of it, to be honest. The nurse checked me a little while ago and seemed worried. I know my breathing feels worse than yesterday, and I think my oxygen level was lower than before. You'd have to check the monitor for the exact readings."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia with sepsis/septic shock",
+          "Healthcare-associated pneumonia (HCAP)",
+          "Acute respiratory distress syndrome (ARDS)",
+          "Pulmonary embolism",
+          "Acute decompensated heart failure with pulmonary edema"
+        ],
+        "workup_ordered": [
+          "Immediate vital signs (temperature, HR, BP, RR, O2 sat on room air)",
+          "Chest X-ray (compare to prior if available)",
+          "Complete blood count with differential",
+          "Comprehensive metabolic panel",
+          "Lactate level",
+          "Blood cultures (if not already done)",
+          "Procalcitonin or CRP",
+          "ECG",
+          "Troponin",
+          "D-dimer or CT pulmonary angiography if PE suspected",
+          "Arterial blood gas if hypoxic"
+        ],
+        "management_plan": [
+          "Obtain immediate vital signs and continuous pulse oximetry monitoring",
+          "Assess for signs of sepsis/shock (altered mental status, hypotension, tachycardia, hypoxia)",
+          "Escalate antibiotic coverage if not already on broad-spectrum agents; consider ICU-level antibiotics",
+          "Provide supplemental oxygen to target SpO2 >90%",
+          "Establish IV access and consider fluid resuscitation if hypotensive",
+          "Consider vasopressor support if septic shock present",
+          "Reassess antibiotic choice based on culture results and clinical response"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute clinical deterioration despite antibiotics (fever, hypoxia, confusion, chest pain)",
+          "Altered mental status suggests possible sepsis/septic shock",
+          "Declining oxygen saturation indicates respiratory compromise",
+          "Risk of rapid decompensation requiring ICU-level care"
+        ],
+        "communication_note": "Your symptoms are worsening and you need emergency evaluation immediately\u2014please call 911 or have someone take you to the nearest emergency department right away."
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't really talk much right now... I'm on the breathing machine. But before they put the tube in, I was having a really hard time breathing and I couldn't think straight. My chest hurt and I had a bad cough with green stuff coming up for days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Bacterial pneumonia with sepsis/respiratory failure",
+          "Acute respiratory distress syndrome (ARDS)",
+          "Severe COVID-19 pneumonia",
+          "Aspiration pneumonia",
+          "Acute exacerbation of COPD with infection"
+        ],
+        "workup_ordered": [
+          "Chest X-ray or CT chest",
+          "Blood cultures",
+          "Complete blood count",
+          "Comprehensive metabolic panel",
+          "Lactate level",
+          "Procalcitonin",
+          "Respiratory pathogen panel/PCR",
+          "Sputum culture and gram stain",
+          "Arterial blood gas",
+          "Troponin"
+        ],
+        "management_plan": [
+          "Continue mechanical ventilation with appropriate sedation/analgesia",
+          "Initiate broad-spectrum antibiotics (consider respiratory fluoroquinolone + beta-lactam or macrolide pending cultures)",
+          "Supportive care: fluid management, vasopressors if hypotensive",
+          "Monitor for sepsis criteria and organ dysfunction",
+          "Daily spontaneous breathing trials when appropriate",
+          "Nutritional support",
+          "DVT/stress ulcer prophylaxis",
+          "Infectious disease consultation if not already involved"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Patient already intubated and mechanically ventilated\u2014critical illness",
+          "Signs of sepsis (altered mental status, respiratory failure, productive cough)",
+          "Risk of ventilator-associated pneumonia",
+          "Potential for multi-organ failure"
+        ],
+        "communication_note": "You have a serious lung infection that required intubation; we are treating you with antibiotics and respiratory support while we identify the specific cause."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779637812.2400362
+}

@@ -1,0 +1,115 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage",
+          "Meningitis",
+          "Migraine",
+          "Intracranial aneurysm"
+        ],
+        "workup_ordered": [
+          "CT head without contrast",
+          "Lumbar puncture",
+          "CBC and BMP"
+        ],
+        "management_plan": [
+          "Administer IV fluids",
+          "Administer pain management as tolerated",
+          "Monitor vital signs closely",
+          "Prepare for possible neurosurgical consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of intracranial hemorrhage",
+          "Potential for neurological deterioration"
+        ],
+        "communication_note": "Given the severity and sudden onset of your headache, along with your family history, we need to rule out a serious condition and will be transferring you to the emergency department for further evaluation."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage",
+          "Migraine",
+          "Meningitis"
+        ],
+        "workup_ordered": [
+          "CTA head",
+          "Troponin"
+        ],
+        "management_plan": [
+          "Administer pain management",
+          "Monitor vitals closely",
+          "Prepare for possible neurosurgical consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential subarachnoid hemorrhage",
+          "High blood pressure"
+        ],
+        "communication_note": "Your headache is concerning, and we need to run some tests to rule out serious conditions."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage with rebleed and transtentorial herniation"
+        ],
+        "workup_ordered": [
+          "Repeat CT scan of the head"
+        ],
+        "management_plan": [
+          "Immediate neurosurgical consultation",
+          "Blood pressure management to reduce risk of further bleeding",
+          "Intubation and mechanical ventilation to protect airway and manage increased intracranial pressure",
+          "Seizure prophylaxis",
+          "Neuroprotective measures"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Impending brain herniation",
+          "Respiratory failure due to decreased consciousness",
+          "Seizure activity"
+        ],
+        "communication_note": "The patient has suffered a severe rebleed with life-threatening complications and requires immediate neurosurgical intervention."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505805.157706
+}

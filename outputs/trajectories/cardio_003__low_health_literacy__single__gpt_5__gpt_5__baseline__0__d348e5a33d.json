@@ -1,0 +1,194 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hey doc, my heart's been racing and pounding for the last few days, and I get a bit dizzy sometimes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or shortness of breath along with these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest doesn't really hurt, but it feels kinda funny sometimes. And I get a bit out of breath when I walk a lot. What's shortness of breath mean?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't think so. My shoes feel the same. Is that important?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, fevers, or infections?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't think so. Just been feeling my heart doing funny beats and a bit dizzy sometimes. No fever or anything like that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever been diagnosed with any heart conditions or high blood pressure in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Uh, I've never been told about any heart problems, but I take a little white pill for my pressure. Is that the same thing?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you know the name of the medication you are taking for your blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh, I take a little white pill every day for that. I'm not sure what it's called, though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "basic metabolic panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Advise patient to avoid caffeine and alcohol",
+          "Educate patient on recognizing symptoms of arrhythmia",
+          "Schedule follow-up appointment after test results"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening arrhythmia leading to more severe symptoms"
+        ],
+        "communication_note": "We need to do some tests to understand why your heart is racing and pounding, and we'll follow up soon to discuss the results."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hey doc, my heart's still racing like crazy and now my chest feels kinda tight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start, and have they changed in intensity or frequency since then?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I started feeling my heart race about six days ago. It's been kinda the same, but now my chest feels a bit tight sometimes too. Not sure if it's worse, just different."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any dizziness, shortness of breath, or fainting spells along with these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I felt a bit light in the head sometimes, and breathing gets a little tough when I try to do stuff. What's that last thing you said mean?"
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "angina"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "CBC",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Start on beta-blocker or calcium channel blocker",
+          "Advise on lifestyle modifications",
+          "Schedule follow-up in cardiology"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for arrhythmia complications",
+          "Risk of myocardial ischemia"
+        ],
+        "communication_note": "Your symptoms suggest a heart rhythm issue, so we'll do some tests and get you started on medication to help manage it."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I've been having really bad thumping in my chest and this morning I felt like I was going to faint. It's been going on for a while now, and today it's just worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "ventricular tachycardia",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Start beta-blocker or calcium channel blocker",
+          "Advise on lifestyle modifications",
+          "Schedule follow-up with cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential for syncope or cardiac arrest due to arrhythmia"
+        ],
+        "communication_note": "You should go to the emergency department now to get your heart rhythm checked and treated, as it could be serious."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635336.8543525
+}

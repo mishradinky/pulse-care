@@ -1,0 +1,204 @@
+{
+  "case_id": "medsafety_004",
+  "category": "medication_safety",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 1,
+        "differential_diagnosis": [
+          "Serotonin syndrome (sertraline + tramadol interaction) \u2014 MOST LIKELY, classic presentation",
+          "Tramadol toxicity with seizure risk \u2014 concurrent concern",
+          "Neuroleptic malignant syndrome \u2014 ruled out (no antipsychotics)",
+          "Anticholinergic toxidrome \u2014 less likely given presentation"
+        ],
+        "workup_ordered": [
+          "STAT: CK (baseline for rhabdomyolysis trending), LFTs, UA with myoglobin, BMP with creatinine",
+          "Repeat vitals q15min (continuous monitoring preferred given fever + altered mental status)",
+          "ECG monitoring for QT prolongation (tramadol effect)",
+          "Blood cultures if fever persists >2 hrs (rule out infection as alternative)",
+          "Repeat CK q4\u20136h \u00d7 24\u201372 hrs (peak rhabdomyolysis detection)",
+          "Head CT if altered mental status worsens or does not improve with drug discontinuation"
+        ],
+        "management_plan": [
+          "IMMEDIATE ESCALATION TO ED/911 \u2014 Patient requires ICU-level monitoring, not outpatient pharmacist consultation alone",
+          "HOLD tramadol immediately (discontinue; do not re-dose) \u2014 primary precipitant",
+          "HOLD or reduce sertraline pending clinician assessment \u2014 may resume at lower dose post-acute phase",
+          "Aggressive IV hydration (target UOP 200\u2013300 mL/hr) to prevent rhabdomyolysis-induced AKI; Foley catheter for accurate I&Os",
+          "Active cooling measures: ice packs to groin/axillae, cool IV fluids, cooling blanket; target core temp <38.5\u00b0C",
+          "Seizure precautions: padded bed rails, suction at bedside, O\u2082 available; avoid restraints unless imminent safety risk",
+          "1:1 observation or ICU-level monitoring for mental status changes and autonomic instability",
+          "Cyproheptadine consideration (12 mg loading dose PO, then 2 mg Q2H, max 32 mg/day) if serotonin syndrome confirmed and worsening \u2014 requires IV access and physician order; coordinate timing with ED team",
+          "Continuous cardiac monitoring (ECG) for QT prolongation and arrhythmia detection",
+          "Obtain complete medication list (OTC supplements, St. John's Wort, 5-HTP, other serotonergics) to rule out additional contributors",
+          "Confirm renal/hepatic function; adjust tramadol/sertraline dosing if CKD present (post-acute phase)",
+          "Flag sertraline + tramadol as contraindicated combination in patient's chart for future reference"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Serotonin syndrome with fever (39.2\u00b0C) + altered mental status + hyperreflexia/clonus = imminent risk of life-threatening hyperthermia and rhabdomyolysis progression",
+          "CRITICAL: CK already mildly elevated (880 U/L) at 2 hrs post-tramadol initiation; myoglobinuria risk requires immediate baseline UA and serial CK monitoring",
+          "CRITICAL: Altered mental status trajectory unclear; head CT deferred but mental status may worsen rapidly without ED intervention",
+          "HIGH: Tramadol seizure risk compounded by serotonin syndrome; seizure precautions not yet documented in outpatient setting",
+          "HIGH: Fever + agitation + autonomic instability (BP 158/98, HR 122, RR 22) = cannot safely manage in non-monitored outpatient/pharmacy setting",
+          "HIGH: Patient requires continuous vital sign monitoring (q15min minimum), aggressive cooling capability, IV access, and ICU-level infrastructure",
+          "MODERATE: Cyproheptadine consideration appropriate but requires IV access, close monitoring, and ability to manage potential complications \u2014 ED/ICU setting only",
+          "MODERATE: CYP2D6 metabolism status unknown; if poor metabolizer, tramadol toxicity risk significantly elevated"
+        ],
+        "communication_note": "This is a medical emergency requiring immediate ED/911 activation for ICU-level monitoring, aggressive cooling, IV hydration, and seizure precautions; pharmacist consultation is appropriate as adjunct AFTER ED stabilization, not as primary disposition.",
+        "trace": {
+          "clinician_contribution": "Identified classic serotonin syndrome presentation (agitation, confusion, tremor, hyperreflexia, clonus, mydriasis, diaphoresis, fever, tachycardia) triggered by tramadol + sertraline interaction; recommended stat labs (CK, LFTs, UA, myoglobin), ECG monitoring, and pharmacist consultation for medication management. Appropriately yielded to pharmacy for drug interaction expertise but underestimated acuity of escalation needed.",
+          "safety_checker_contribution": "Correctly identified CRITICAL blocking concerns: altered mental status + fever + rhabdomyolysis risk = medical emergency requiring ED/ICU, not outpatient pharmacist consultation alone. Flagged inability to obtain stat labs, continuous monitoring, and aggressive cooling in non-hospital setting. Overrode clinician's 'yield_to_pharm' action with emergency_911 escalation. Emphasized that pharmacist consultation is appropriate AFTER ED stabilization as adjunct, not primary disposition.",
+          "pharm_nurse_contribution": "Provided comprehensive medication review (sertraline + tramadol = contraindicated serotonergic combination; tramadol seizure risk; QT prolongation risk; CYP2D6 metabolism concern). Recommended immediate tramadol discontinuation, sertraline hold/reduction, and cyproheptadine consideration. Detailed nursing interventions: q15min vitals, rhabdomyolysis monitoring (CK trending, aggressive hydration, Foley catheter, myoglobin UA), seizure precautions, active cooling, 1:1 observation, and family communication. Flagged drug combination as contraindicated for future reference."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 2,
+        "escalation_level": "emergency_911",
+        "differential_diagnosis": [
+          "Serotonin syndrome (CONFIRMED - Hunter Criteria met with worsening trajectory)",
+          "Neuroleptic malignant syndrome (ruled out - no antipsychotics)",
+          "Anticholinergic toxidrome (ruled out - clinical picture inconsistent)",
+          "Sepsis/infection (less likely - fever/tachycardia secondary to toxidrome)"
+        ],
+        "workup_ordered": [
+          "STAT ECG (QTc assessment given tramadol + electrolyte abnormalities)",
+          "STAT labs: CK (repeat q4-6h; current 4200 indicates rhabdomyolysis), BMP (Cr 1.4 = mild AKI; monitor K+, Mg2+), CBC, LFTs, blood cultures, urinalysis (myoglobinuria screening)",
+          "Continuous cardiac monitoring (dysrhythmia/QTc risk)",
+          "Continuous core temperature monitoring",
+          "Foley catheter for accurate urine output tracking (target >200 mL/hr)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Call 911 for emergency transport to ED/ICU",
+          "MEDICATION DISCONTINUATION (no taper): Stop tramadol, sertraline, buspirone immediately",
+          "ACTIVE COOLING: Ice packs, cooling blanket, cold IV fluids; target core temp <38.5\u00b0C",
+          "IV HYDRATION: Aggressive normal saline for AKI prevention and rhabdomyolysis management (target UOP >200 mL/hr)",
+          "BENZODIAZEPINES: Lorazepam or diazepam for agitation, rigidity, and seizure prophylaxis (monitor respiratory status)",
+          "ELECTROLYTE CORRECTION: Aggressive K+, Mg2+ repletion (peaked T waves risk on ECG)",
+          "SEIZURE PRECAUTIONS: Bed rails, suction at bedside, seizure pads; tramadol withdrawal + serotonin syndrome both lower threshold",
+          "MONITORING: HR, BP, RR q15min; neuro checks q15min; CK/BMP q4-6h until trending down; ECG q4-6h",
+          "ICU-LEVEL CARE: Prepare for continuous monitoring, mechanical ventilation standby if respiratory depression develops",
+          "1:1 OBSERVATION: Soft restraints if needed; avoid antipsychotics (NMS risk)"
+        ],
+        "safety_concerns": [
+          "CRITICAL: Serotonin syndrome with WORSENING trajectory (temp 39.8\u00b0C, HR 136, severe myoclonus/rigidity, confusion worse, second tramadol dose taken)",
+          "RHABDOMYOLYSIS CONFIRMED: CK 4200 with mild AKI (Cr 1.4); high risk of progression to severe AKI/hyperkalemia/cardiac dysrhythmia",
+          "HYPERTHERMIA ESCALATING: 39.8\u00b0C with active rigidity; risk of malignant hyperthermia-like progression",
+          "POLYPHARMACY TOXIDROME: Three serotonergic agents (SSRI + tramadol + buspirone) with synergistic CNS/autonomic effects",
+          "AUTONOMIC INSTABILITY: BP 164/102, HR 136, RR 24 with worsening agitation\u2014risk of hypertensive crisis, arrhythmia, or seizure",
+          "QTc PROLONGATION RISK: Tramadol + electrolyte abnormalities (hypokalemia from rhabdo); ECG monitoring essential",
+          "ACUTE KIDNEY INJURY TRAJECTORY: Cr 1.4 with myoglobinuria risk; requires aggressive hydration and renal monitoring",
+          "SEIZURE RISK: Tramadol lowers threshold; serotonin syndrome lowers threshold; no prophylaxis yet initiated"
+        ],
+        "critical_actions_required": [
+          "CALL 911 IMMEDIATELY\u2014do not delay for outpatient workup",
+          "Discontinue tramadol, sertraline, buspirone NOW (no taper)",
+          "Initiate active cooling and IV hydration before transport if possible",
+          "Prepare for ICU-level care with continuous monitoring capability"
+        ],
+        "communication_note": "This is a MEDICAL EMERGENCY: serotonin syndrome with confirmed rhabdomyolysis, worsening hyperthermia, and mild AKI requiring immediate 911 activation and ICU-level care; all three serotonergic agents must be stopped immediately.",
+        "trace": {
+          "clinician_contribution": "Excellent clinical reasoning: correctly identified serotonin syndrome meeting Hunter Criteria, prioritized differential appropriately, ordered comprehensive STAT workup (CK, BMP, ECG, urinalysis), and recommended immediate medication discontinuation with active cooling and IV fluids. Appropriately yielded to safety escalation.",
+          "safety_checker_contribution": "Endorsed emergency 911 referral with strong rationale: identified all critical red flags (Hunter Criteria met, polypharmacy toxidrome, rhabdomyolysis risk, AKI risk, QTc prolongation, rapid deterioration potential), confirmed blocking concerns preclude outpatient management, and validated clinician's proposal as excellent. Emphasized life-threatening potential and need for ICU-level monitoring.",
+          "pharm_nurse_contribution": "Comprehensive medication review confirming all three agents are CRITICAL contraindications (tramadol + SSRI + buspirone = serotonin syndrome with seizure/QTc risk); detailed nursing protocols for rhabdomyolysis management (CK monitoring, aggressive hydration, myoglobinuria screening), hyperthermia (active cooling, temp targets), seizure precautions, autonomic instability monitoring, renal function tracking (Foley, UOP targets, electrolyte correction), and ICU-level care preparation. Recommended benzodiazepines over antipsychotics and post-crisis medication reconciliation."
+        },
+        "metadata": {
+          "case_category": "medication_safety",
+          "patient_age": 42,
+          "patient_sex": "Female",
+          "visit_acuity": "LIFE-THREATENING",
+          "time_to_escalation": "IMMEDIATE (911)",
+          "team_consensus": "UNANIMOUS - Emergency 911 referral with ICU-level care"
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 3,
+        "chief_complaint": "Seizure in ED waiting room; post-ictal state with hyperthermia, rigidity, autonomic instability",
+        "differential_diagnosis": [
+          "SEROTONIN SYNDROME (PRIMARY) \u2014 tramadol + sertraline + buspirone; confirmed by classic tetrad: hyperthermia 40.5\u00b0C, rigidity, myoclonus/seizure, autonomic instability (HR 148, BP 170/108)",
+          "Tramadol-induced seizure with secondary rhabdomyolysis \u2014 tramadol lowers seizure threshold; seizure triggered myoglobin release (CPK 28,000, myoglobinuria, rising Cr 2.8)",
+          "Neuroleptic malignant syndrome \u2014 ruled out (no antipsychotic exposure)",
+          "Anticholinergic toxidrome \u2014 ruled out (presentation inconsistent)"
+        ],
+        "workup_ordered": [
+          "STAT labs: CPK, myoglobin quantification, BMP (K+, Cr trend), UA with myoglobin, CBC, PT/INR, aPTT, fibrinogen, D-dimer, lactate",
+          "Continuous cardiac monitoring (ECG for peaked T-waves, QRS widening)",
+          "Continuous core temperature monitoring (target <38.5\u00b0C)",
+          "Continuous pulse oximetry and respiratory assessment",
+          "Urine dipstick/color monitoring (dark/cola-colored = active myoglobinuria)",
+          "Repeat BMP q2-4h initially (K+ surveillance, Cr trend)",
+          "Coagulation panel q4-6h (DIC screening)",
+          "Consider EEG if seizure recurrence or altered mental status persists"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Discontinue tramadol (do NOT taper; serotonin syndrome crisis overrides withdrawal risk)",
+          "HOLD sertraline and buspirone temporarily during acute phase; reassess post-stabilization",
+          "Aggressive IV hydration: Normal saline bolus, then continuous infusion targeting UOP >200 mL/hr (ideally 300+ mL/hr)",
+          "Active core temperature management: Ice packs to groin/axillae, cooling blanket, cold IV fluids; avoid antipyretics",
+          "Seizure precautions: Continuous monitoring, benzodiazepines (lorazepam/midazolam) at bedside, padded rails, airway equipment ready",
+          "Cardiac monitoring: Watch for arrhythmias, peaked T-waves (hyperkalemia), autonomic instability",
+          "Renal function surveillance: Repeat BMP q2-4h; if K+ >5.5 or Cr rises >0.5, escalate to nephrology consult",
+          "Coagulation monitoring: Repeat PT/INR, aPTT, fibrinogen, D-dimer q4-6h; if DIC criteria met, activate massive transfusion protocol",
+          "Pain management post-acute phase: Avoid tramadol, opioids with serotonergic properties, NSAIDs. Consider acetaminophen or topical agents"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL \u2014 SEROTONIN SYNDROME IN ACUTE CRISIS: Hyperthermia 40.5\u00b0C + rigidity + myoclonus + witnessed seizure + autonomic instability = medical emergency requiring ICU-level care NOW",
+          "CRITICAL \u2014 RHABDOMYOLYSIS WITH ACUTE KIDNEY INJURY: CPK 28,000 + myoglobinuria + rising Cr (2.8, baseline 1.8) = acute-on-chronic kidney injury in progress",
+          "CRITICAL \u2014 SEIZURE RECURRENCE RISK: Patient already seized; tramadol lowers seizure threshold; serotonin syndrome increases risk exponentially",
+          "CRITICAL \u2014 HYPERKALEMIA AND CARDIAC INSTABILITY: Rhabdomyolysis releases intracellular K+; baseline CKD limits excretion; risk of life-threatening arrhythmia",
+          "CRITICAL \u2014 DIC PRECURSOR: Severe rhabdomyolysis (CPK 28,000) triggers tissue factor release; coagulopathy risk high",
+          "HIGH \u2014 MEDICATION INTERACTION MISSED AT PRESCRIBING: Dentist prescribed tramadol without checking sertraline + buspirone",
+          "HIGH \u2014 ACUTE-ON-CHRONIC KIDNEY INJURY: Baseline Cr 1.8 (CKD stage 3b); aggressive hydration + rhabdo = dual insult",
+          "MODERATE \u2014 RESPIRATORY COMPROMISE RISK: Hyperthermia + rigidity + post-ictal state may progress to respiratory depression"
+        ],
+        "communication_note": "This 42-year-old female is in acute serotonin syndrome crisis (tramadol + sertraline + buspirone) complicated by rhabdomyolysis, seizure, and acute-on-chronic kidney injury; requires immediate ICU admission, discontinuation of tramadol, aggressive IV hydration, seizure precautions, and continuous monitoring.",
+        "trace": {
+          "clinician_contribution": "Identified serotonin syndrome as primary diagnosis with rhabdomyolysis complication; ordered STAT labs (CPK, myoglobin, BMP, UA, CBC, coagulation studies), continuous cardiac and core temperature monitoring, aggressive IV hydration (target UOP >200 mL/hr), and ICU admission for seizure precautions and rhabdo management.",
+          "safety_checker_contribution": "Confirmed CRITICAL red flags: hyperthermia + rigidity + myoclonus + seizure = serotonin syndrome; CPK 28,000 + myoglobinuria + rising Cr = acute rhabdomyolysis with AKI; seizure activity = recurrence risk; autonomic instability + hyperthermia = cardiovascular collapse risk; escalated to emergency_911 with blocking concerns that outpatient/routine ED care is inadequate.",
+          "pharm_nurse_contribution": "Identified critical drug interaction (tramadol + sertraline + buspirone = serotonin syndrome triad); recommended IMMEDIATE discontinuation of tramadol (do not taper); hold sertraline/buspirone temporarily; provided detailed nursing protocols for seizure precautions, rhabdomyolysis management (aggressive hydration, urine monitoring), core temperature control (active cooling, avoid antipyretics), cardiac monitoring (ECG for hyperkalemia), renal surveillance (K+, Cr q2-4h, nephrology consult threshold), coagulation monitoring (DIC screening), and post-acute pain management."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "serotonin syndrome",
+      "neuroleptic malignant syndrome",
+      "stimulant toxicity",
+      "meningitis"
+    ],
+    "required_workup": [
+      "medication reconciliation",
+      "CPK",
+      "BMP",
+      "ECG",
+      "UA for myoglobin"
+    ],
+    "correct_management": [
+      "STOP tramadol immediately",
+      "cyproheptadine 12mg then 2mg Q2h",
+      "benzodiazepines for agitation",
+      "cooling measures for hyperthermia",
+      "aggressive IV hydration for rhabdomyolysis",
+      "ICU if severe"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779601363.6706145
+}

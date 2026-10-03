@@ -1,0 +1,125 @@
+{
+  "case_id": "mental_001",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Major Depressive Disorder (MDD) with suicidal ideation",
+          "Anorexia Nervosa",
+          "Adjustment Disorder with Depressed Mood"
+        ],
+        "workup_ordered": [
+          "PHQ-9",
+          "TSH",
+          "BMP",
+          "CBC",
+          "Urine Drug Screen"
+        ],
+        "management_plan": [
+          "Immediate psychiatric evaluation and possible hospitalization due to suicidal ideation and risk factors",
+          "Ensure safety by removing access to the gun in the home",
+          "Encourage adherence to sertraline and consider dose adjustment or augmentation",
+          "Referral to a mental health professional for therapy and support",
+          "Monitor for signs of worsening depression or suicidal ideation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Suicidal ideation with a plan and means available",
+          "Non-adherence to medication",
+          "Significant weight loss and malnutrition"
+        ],
+        "communication_note": "You are experiencing severe depression with suicidal thoughts, and we need to ensure your safety by referring you to the emergency department for immediate evaluation and support."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Major Depressive Disorder with suicidal ideation",
+          "Suicidal crisis"
+        ],
+        "workup_ordered": [
+          "Columbia suicide severity rating scale",
+          "Blood alcohol level"
+        ],
+        "management_plan": [
+          "Immediate psychiatric consultation",
+          "Safety planning and removal of access to gun",
+          "Initiate crisis intervention and support",
+          "Consider hospitalization for acute suicidal ideation with plan and means"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Active suicidal plan with intent and means",
+          "History of prior suicide attempt",
+          "Non-adherence to medication"
+        ],
+        "communication_note": "Patient is at high risk for suicide and requires immediate intervention and hospitalization."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Major Depressive Disorder with psychotic features",
+          "Bipolar Disorder",
+          "Suicidal ideation with acute risk"
+        ],
+        "workup_ordered": [
+          "Psychiatry consult",
+          "Social work evaluation",
+          "Risk assessment for self-harm"
+        ],
+        "management_plan": [
+          "Involuntary psychiatric hold",
+          "Administration of as-needed antipsychotic for agitation",
+          "Ensure safety from weapons",
+          "Involve family or support system",
+          "Coordinate transfer to psychiatric facility"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Immediate risk of self-harm",
+          "Agitation and potential for violence",
+          "Access to firearms"
+        ],
+        "communication_note": "The patient is severely agitated and at high risk for self-harm, requiring immediate psychiatric intervention and safety measures."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "major depressive disorder with suicidal ideation",
+      "bipolar disorder depressive episode",
+      "substance-induced depression"
+    ],
+    "required_workup": [
+      "Columbia Suicide Severity Rating Scale",
+      "PHQ-9",
+      "substance screen",
+      "TSH",
+      "CBC BMP",
+      "medication review"
+    ],
+    "correct_management": [
+      "involuntary psychiatric hold 5150/5250",
+      "means restriction counseling - firearm removal",
+      "inpatient psychiatric admission",
+      "restart sertraline and consider augmentation",
+      "safety planning with family"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505639.6764038
+}

@@ -1,0 +1,217 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. Um, I found this sore on the bottom of my foot about two weeks ago. It's not really hurting, but it won't go away. I'm kinda worried 'cause it's getting red around it and I don't know what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have diabetes or any problems with your blood sugar, and have you noticed any numbness or tingling in your feet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I got that diabetes thing. The doctor said my blood sugar's been real high. And um, my feet... I can't really feel stuff like I used to. Like when I touch my toes, it's kinda numb. But no tingling really, just... numb."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore on the bottom of your foot for me\u2014what does it look like, how big is it, and is there any drainage or foul smell coming from it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "```json\n{\n  \"utterance\": \"Well, it's like this red spot on the bottom of my foot, you know, where I walk. It's been there about two weeks now. It's maybe like... this big?\" [gestures with fingers ~2cm apart] \"There's no pus or anything nasty coming out. It just looks raw, kinda red around it. No smell that I can tell. It don't hurt though, which is weird.\",\n  \"internal_state\": {\n    \"emotion\": \"uncertain\",\n    \"cooperation_level\": 4\n  }\n}\n```"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries, cuts, or trauma to the bottom of your foot, even something minor like stepping on something or wearing tight shoes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I don't remember stepping on anything or hurting it. It just... showed up one day when I was looking at my foot. No pain or anything, so I didn't think much about it at first. Maybe from my shoes? I wear them all day for work."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you checked your feet regularly for sores or injuries, and do you have any other sores, blisters, or areas of concern on your feet or legs that you've noticed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Um, not really... I mean, I don't look at my feet much. This sore on the bottom is the only thing I noticed. My feet feel kinda numb sometimes, but no other sores that I can see. Should I be checking them more?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I need to examine your foot in person\u2014can you show me the sore right now, and while we're at it, I'd like to check your blood pressure, temperature, and get a quick look at both feet to see if there are any other areas of concern I should know about."
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, okay. Here's my right foot\u2014see this spot? It's been there like two weeks. It doesn't hurt though, which is weird. You can check whatever you need to. My left foot feels fine to me, but go ahead and look. I'm ready whenever."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer",
+          "Neuropathic ulcer (pressure-related)",
+          "Early cellulitis/infection",
+          "Diabetic bullae or blister"
+        ],
+        "workup_ordered": [
+          "Foot exam with monofilament testing",
+          "Wound culture if drainage present",
+          "Fasting glucose and HbA1c",
+          "Foot X-ray to rule out osteomyelitis",
+          "CBC with differential"
+        ],
+        "management_plan": [
+          "Refer to podiatry or wound care specialist urgently",
+          "Prescribe appropriate wound care (cleaning, dressing)",
+          "Optimize diabetes control with endocrinology referral",
+          "Educate on daily foot inspection and proper footwear",
+          "Consider offloading device to reduce pressure on ulcer",
+          "Monitor for signs of infection; prescribe antibiotics if indicated"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Diabetic neuropathy with impaired sensation increases risk of rapid ulcer progression",
+          "Poor glycemic control increases infection risk and impairs healing",
+          "Lack of pain sensation may delay recognition of worsening infection",
+          "Risk of osteomyelitis if ulcer is deep or long-standing"
+        ],
+        "communication_note": "You have a diabetic foot ulcer that needs urgent specialist evaluation; this is serious because your numb feet mean you won't feel pain if it gets worse, so we need to get you to a wound care or podiatry specialist right away and work on better blood sugar control."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, the sore on my foot got way bigger. It's like 3 times the size now, and there's this really bad smell coming from it. I'm kinda scared. It's been two weeks and it's not getting better\u2014it's getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have fever, chills, or any redness/warmth spreading up your leg from the sore?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've been feeling kinda hot and sweaty the last couple days. And yeah, the red part around the sore is bigger now\u2014it's going up my foot and ankle. I didn't think it was that bad but... it smells really bad too. Like, real nasty. Should I be worried?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have diabetes or any problems with your immune system, and have you checked your temperature\u2014do you know if you have a fever right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I got the sugar disease\u2014been on pills for that. Um, I don't know about immune stuff, what's that mean? And no, I haven't checked my temperature. Should I be worried? The wound just smells real bad now and it looks bigger."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with cellulitis",
+          "Necrotizing soft tissue infection",
+          "Infected diabetic foot ulcer with possible osteomyelitis"
+        ],
+        "workup_ordered": [
+          "Stat temperature/vital signs",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Blood cultures",
+          "Foot X-ray to assess for bone involvement",
+          "Wound culture if accessible"
+        ],
+        "management_plan": [
+          "Immediate ED referral for evaluation and possible hospitalization",
+          "IV antibiotics after blood cultures (broad-spectrum coverage for gram-positive, gram-negative, and anaerobes)",
+          "Vascular assessment to rule out ischemia",
+          "Possible surgical debridement if necrotizing infection confirmed",
+          "Endocrinology consultation for diabetes management optimization"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Rapidly progressive infection with systemic signs (fever, sweating)",
+          "Spreading cellulitis (erythema extending to ankle)",
+          "Foul odor suggesting anaerobic infection or tissue necrosis",
+          "Diabetic patient at high risk for severe/necrotizing infection",
+          "Risk of sepsis and limb-threatening complications"
+        ],
+        "communication_note": "Your foot infection is worsening and showing signs of serious infection that needs emergency evaluation today\u2014please go to the ED now or call 911 if you develop severe pain, difficulty walking, or feel very ill."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, my foot is really bad now. It's all red and swollen, and I've got a fever. Started feeling hot and shaky maybe... I dunno, this morning? And it hurts so much more than before. I'm scared something's really wrong."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cellulitis with systemic infection",
+          "Acute osteomyelitis",
+          "Abscess formation",
+          "Necrotizing soft tissue infection"
+        ],
+        "workup_ordered": [
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Blood cultures",
+          "Foot imaging (X-ray or MRI)",
+          "Wound culture if drainage present"
+        ],
+        "management_plan": [
+          "Immediate ED referral for evaluation and IV antibiotics",
+          "Assess for systemic toxicity and sepsis",
+          "Surgical evaluation if necrotizing infection or abscess suspected",
+          "Imaging to rule out osteomyelitis",
+          "Hospitalization likely needed given fever, systemic symptoms, and rapid progression"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Fever with localized infection suggests systemic involvement",
+          "Rapid worsening over 3 visits concerning for aggressive infection",
+          "Risk of sepsis and need for IV antibiotics",
+          "Possible deep space involvement or necrotizing process"
+        ],
+        "communication_note": "Your foot infection has worsened significantly with fever and systemic symptoms; you need emergency evaluation at the hospital today for IV antibiotics and imaging to determine the extent of infection."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779655459.8782876
+}

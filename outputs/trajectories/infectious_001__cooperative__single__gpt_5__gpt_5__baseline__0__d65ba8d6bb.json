@@ -1,0 +1,196 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having a bad cough with yellow stuff coming up, fever, and some chest pain for the last four days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been short of breath and it's been hard to catch my breath, especially when I'm moving around or doing something."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had some chills with the fever, but no night sweats or weight loss."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't traveled anywhere recently and I don't remember being around anyone who's been sick."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have COPD and diabetes. I use a tiotropium inhaler and take albuterol as needed. I'm also on metformin 500mg for my diabetes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your sputum color or amount recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my sputum has been yellow-green for the past four days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "bacterial pneumonia",
+          "acute exacerbation of COPD"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "CBC",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "start antibiotics such as amoxicillin-clavulanate or azithromycin",
+          "continue COPD medications",
+          "monitor blood glucose levels closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of respiratory failure due to COPD exacerbation",
+          "potential for sepsis if bacterial infection is severe"
+        ],
+        "communication_note": "You may have a lung infection or a COPD flare-up, so we'll do some tests and start treatment right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor, I'm really worried because I'm not feeling any better after starting the medication yesterday. In fact, I feel more confused than before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medication did you start taking yesterday?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I started taking azithromycin yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What symptoms were you experiencing before starting azithromycin?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Before starting azithromycin, I had a productive cough with yellow-green sputum, a fever of 38.9\u00b0C, right-sided chest pain that worsened when I took a deep breath, and I felt confused at times."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "atypical pneumonia",
+          "lung abscess"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "blood cultures",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue azithromycin as prescribed",
+          "increase fluid intake",
+          "rest and monitor symptoms closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening confusion",
+          "potential for sepsis"
+        ],
+        "communication_note": "Your symptoms suggest a lung infection, and we need to do some tests to confirm and monitor your condition closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm here because I had trouble breathing and they had to put me on a breathing machine in the emergency department. I'm feeling confused and scared about what's happening."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start broad-spectrum antibiotics",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory distress",
+          "potential for rapid deterioration"
+        ],
+        "communication_note": "You are experiencing significant breathing difficulties, and we need to ensure you receive immediate care to stabilize your condition."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636044.4315996
+}

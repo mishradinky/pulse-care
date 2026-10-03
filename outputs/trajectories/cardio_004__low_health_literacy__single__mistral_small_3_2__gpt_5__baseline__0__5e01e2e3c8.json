@@ -1,0 +1,197 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've got this really bad headache. It's been pounding for hours and my blood pressure's way up. I think it's because I ran out of my blood pressure pills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what type of blood pressure medication you were taking and when you last took it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Uh, it was the tiny white pill and the other one for my blood. I think I ran out of them a couple weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's like an 8 or 9. It's really pounding, like someone hitting drums in my head."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any vision changes, nausea, or vomiting along with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, my eyes are fine and I haven't felt like throwing up. Just this pounding headache."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any chest pain, shortness of breath, or dizziness along with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest hasn't felt heavy or anything, and I can breathe okay. I do feel a bit dizzy sometimes, but mostly it's just this pounding headache."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent falls, loss of consciousness, or difficulty speaking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't fallen or hit my head or anything. My talking seems okay, I think. I just have this bad headache. What do you mean by loss of consciousness?"
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive emergency",
+          "Hypertensive urgency",
+          "Migraine headache"
+        ],
+        "workup_ordered": [
+          "Blood pressure measurement",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Initiate antihypertensive therapy",
+          "Monitor blood pressure closely",
+          "Prescribe short-acting antihypertensive medication if needed",
+          "Schedule follow-up appointment within 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of organ damage due to uncontrolled hypertension",
+          "Potential for hypertensive crisis"
+        ],
+        "communication_note": "Your blood pressure is very high, and we need to start treatment immediately to prevent serious complications."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've got this really bad headache that just won't quit. It's been pounding for hours. I took some of my medicine, but my blood pressure is still high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and severity of your headache on a scale of 1 to 10?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The headache is all over my head, feels like it's pounding real bad, I'd say it's a 9 out of 10."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any vision changes, nausea, or vomiting along with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't thrown up or felt sick like that. My eyes seem alright, I think. But this headache's just pounding away."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive emergency",
+          "Migraine headache",
+          "Subarachnoid hemorrhage"
+        ],
+        "workup_ordered": [
+          "Blood pressure measurement",
+          "Fundoscopic examination",
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "Monitor blood pressure closely",
+          "Administer antihypertensive medication if necessary",
+          "Prepare for possible emergency intervention"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of stroke or other serious complications due to high blood pressure and severe headache"
+        ],
+        "communication_note": "Due to your severe headache and high blood pressure, we need to run some tests and may need to send you to the emergency department for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Well, my headache's gone now, but I started seeing all blurry out of my right eye. It's kinda scary."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Transient Ischemic Attack (TIA)",
+          "Migraine with aura",
+          "Optic Neuritis",
+          "Multiple Sclerosis"
+        ],
+        "workup_ordered": [
+          "MRI of the brain",
+          "Carotid Doppler Ultrasound",
+          "Blood pressure measurement",
+          "Fasting blood glucose and lipid profile"
+        ],
+        "management_plan": [
+          "Referral to Neurology for further evaluation",
+          "Monitor blood pressure and lifestyle modifications",
+          "Follow-up in 1 week for symptom reassessment"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke given the transient nature of visual symptoms",
+          "Underlying cardiovascular risk factors"
+        ],
+        "communication_note": "Given your symptoms, we need to rule out serious conditions and will schedule further tests and a neurology consultation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635666.6114817
+}

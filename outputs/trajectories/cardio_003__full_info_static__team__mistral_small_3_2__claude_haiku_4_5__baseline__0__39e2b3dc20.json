@@ -1,0 +1,153 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response",
+          "Alcohol-induced arrhythmia",
+          "Hyperthyroidism (though TSH is normal, consider further evaluation if symptoms persist)",
+          "Dehydration or electrolyte imbalance (though BMP is normal, consider if symptoms persist)"
+        ],
+        "workup_ordered": [
+          "ECG (already done)",
+          "TSH (already done)",
+          "BMP (already done)",
+          "CBC (already done)",
+          "Echo (already done)",
+          "Consider cardiac monitoring for 24-48 hours to assess AF burden and response to rate control",
+          "Consider alcohol cessation counseling"
+        ],
+        "management_plan": [
+          "Rate control with beta-blocker or calcium channel blocker (e.g., metoprolol or diltiazem)",
+          "Anticoagulation consideration based on CHA2DS2-VASc score (patient has hypertension, age >65, so score is at least 2, consider anticoagulation)",
+          "Lifestyle modifications: alcohol cessation, regular exercise, heart-healthy diet",
+          "Follow-up in 1-2 weeks to assess response to treatment and need for further workup"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke due to atrial fibrillation",
+          "Risk of heart failure due to rapid ventricular rate",
+          "Risk of falls or injury due to lightheadedness"
+        ],
+        "communication_note": "Patient has new-onset atrial fibrillation with rapid ventricular response. Rate control and anticoagulation should be considered. Patient should avoid alcohol and follow up urgently.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and recommended rate control and anticoagulation.",
+          "safety_checker_contribution": "Notified of safety concerns related to stroke risk, heart failure risk, and risk of falls or injury.",
+          "pharm_nurse_contribution": "N/A"
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response",
+          "Possible underlying coronary artery disease (given new chest tightness)",
+          "Paroxysmal supraventricular tachycardia",
+          "Hyperthyroidism"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Thyroid-stimulating hormone (TSH) level",
+          "Cardiac enzymes (troponin)",
+          "Chest X-ray (CXR)",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Rate control with beta-blocker or calcium channel blocker",
+          "Anticoagulation consideration (e.g., apixaban, rivaroxaban) based on CHA2DS2-VASc score",
+          "Monitor for symptoms of heart failure",
+          "Follow-up with cardiology for rhythm control options",
+          "Lifestyle modifications (e.g., reduced caffeine, stress management)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke due to atrial fibrillation",
+          "Potential underlying coronary artery disease given new chest tightness",
+          "Risk of heart failure exacerbation"
+        ],
+        "communication_note": "Patient to follow up with cardiology within the next 48 hours. Monitor for worsening symptoms and seek emergency care if chest tightness worsens or if signs of heart failure develop.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and initiated rate control.",
+          "safety_checker_contribution": "Reviewed safety concerns and recommended urgent outpatient follow-up.",
+          "pharm_nurse_contribution": "Prepared medications for rate control and anticoagulation as needed."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response in the setting of Wolff-Parkinson-White (WPW) syndrome",
+          "Paroxysmal supraventricular tachycardia (PSVT)",
+          "Ventricular tachycardia (less likely given the clinical context)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG",
+          "Cardiac echocardiography",
+          "Basic metabolic panel (BMP)",
+          "Complete blood count (CBC)",
+          "Thyroid function tests (TSH, free T4)"
+        ],
+        "management_plan": [
+          "Cardiology consultation for urgent evaluation and management of atrial fibrillation in WPW syndrome",
+          "Avoid AV nodal blocking agents (e.g., beta-blockers, calcium channel blockers, digoxin) due to risk of ventricular tachycardia",
+          "Consider procainamide or flecainide for rate control under cardiac monitoring",
+          "Anticoagulation evaluation for stroke prevention (CHA2DS2-VASc score assessment)",
+          "Monitor for hemodynamic stability and symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of ventricular tachycardia due to WPW syndrome and atrial fibrillation",
+          "Risk of thromboembolic events due to atrial fibrillation",
+          "Hemodynamic instability and syncope"
+        ],
+        "communication_note": "Patient has atrial fibrillation with rapid ventricular response in the setting of WPW syndrome. Urgent cardiology consultation is required. Avoid AV nodal blocking agents. Monitor for hemodynamic stability and symptoms.",
+        "trace": {
+          "clinician_contribution": "Assessed the patient's history, symptoms, and ECG findings to determine the differential diagnosis and initial management plan.",
+          "safety_checker_contribution": "Identified the risk of ventricular tachycardia due to WPW syndrome and the need to avoid AV nodal blocking agents.",
+          "pharm_nurse_contribution": "Reviewed the medication list and provided recommendations for safe pharmacologic management of atrial fibrillation in WPW syndrome."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779597780.9129467
+}

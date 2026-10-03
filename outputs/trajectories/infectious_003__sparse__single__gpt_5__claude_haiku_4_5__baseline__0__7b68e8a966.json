@@ -1,0 +1,194 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath. Especially when I walk."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About three weeks now. Getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like fever, cough, chest pain, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, fever and cough. No chest pain or swelling."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Work as a waiter, lots of people."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your weight or appetite recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, not really. Just can't breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of asthma, allergies, or other respiratory conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "COVID-19",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "COVID-19 test",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "start empirical antibiotics for pneumonia",
+          "advise rest and hydration",
+          "monitor symptoms closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "potential for rapid deterioration"
+        ],
+        "communication_note": "Based on your symptoms, we need to conduct some tests to determine the cause of your breathing difficulties and fever. We'll start with a chest X-ray and some blood tests, and I'll prescribe antibiotics in case of pneumonia. Please monitor your symptoms closely and seek immediate care if they worsen."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing's worse. Even sitting down now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, fever, or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. Got fever. Cough, yeah. Worse now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your sputum, like color or amount?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really. Just coughing more."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "prescribe antibiotics if bacterial infection is confirmed",
+          "advise rest and hydration",
+          "consider bronchodilators if wheezing is present"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "potential for sepsis if untreated"
+        ],
+        "communication_note": "Your symptoms suggest a possible lung infection, so we'll do some tests and start treatment to help you breathe easier."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't... breathe. Need... air."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start bronchodilator therapy",
+          "consider anticoagulation if PE is suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "severe respiratory distress",
+          "risk of hypoxia"
+        ],
+        "communication_note": "You are experiencing severe difficulty breathing, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508286.8812475
+}

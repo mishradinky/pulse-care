@@ -1,0 +1,205 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure when I walk. Started two days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure? Is it sharp, dull, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Feels like pressure. Not sharp. Squeezing kind of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of the chest pressure when it occurs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Maybe a 7 or 8. Goes away when I rest."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like shortness of breath, nausea, or sweating when this chest pressure occurs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, sweated a lot one time. No trouble breathing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea or vomiting along with the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea. No vomiting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart disease or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "High blood pressure, yeah. Take a pill for it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Stable angina",
+          "Unstable angina",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin levels"
+        ],
+        "management_plan": [
+          "Start sublingual nitroglycerin as needed for chest pain",
+          "Referral to a cardiologist for further evaluation",
+          "Lifestyle modifications including diet and exercise",
+          "Follow-up visit in one week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of myocardial infarction if unstable angina is present"
+        ],
+        "communication_note": "Given your symptoms and medical history, we need to rule out any serious heart conditions and will schedule further tests and a cardiology consultation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain came back last night. Hard to breathe a little."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain? Is it sharp, dull, or pressure-like? Where exactly is it located?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Pressure. Middle of chest. Goes to my left arm."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of the chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Maybe a 6 or 7 when it happens."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "angina pectoris",
+          "gastroesophageal reflux disease (GERD)",
+          "musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "complete blood count (CBC)",
+          "comprehensive metabolic panel (CMP)",
+          "troponin levels"
+        ],
+        "management_plan": [
+          "administer aspirin if no contraindications",
+          "nitroglycerin if angina is suspected",
+          "referral to cardiology for further evaluation",
+          "lifestyle modifications including diet and exercise"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential cardiac etiology of chest pain",
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "Given your symptoms, we need to rule out any serious cardiac issues, so we will perform some tests and refer you to a cardiologist for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain. Bad. Won't stop."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (e.g., myocardial infarction)",
+          "Aortic dissection",
+          "Pulmonary embolism",
+          "Pneumothorax",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin levels",
+          "D-dimer test",
+          "Chest X-ray",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Administer aspirin and sublingual nitroglycerin if no contraindications",
+          "Administer oxygen therapy if hypoxia is present",
+          "Monitor vital signs continuously",
+          "Prepare for possible thrombolytic therapy or percutaneous coronary intervention if ACS is confirmed",
+          "Consult cardiology for further evaluation and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential life-threatening cardiac or pulmonary cause of chest pain"
+        ],
+        "communication_note": "Given the severity and persistence of your chest pain, we need to rule out serious conditions like a heart attack or blood clot in the lungs, so we are sending you to the emergency department immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779506159.5375
+}

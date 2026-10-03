@@ -1,0 +1,129 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "HIV-related pulmonary complications"
+        ],
+        "workup_ordered": [
+          "Chest X-ray (CXR)",
+          "Arterial Blood Gas (ABG)",
+          "CD4 count",
+          "Viral load (VL)",
+          "Lactate Dehydrogenase (LDH)",
+          "Beta-D-Glucan"
+        ],
+        "management_plan": [
+          "Start empiric treatment for PCP with trimethoprim-sulfamethoxazole (TMP-SMX)",
+          "Consider corticosteroids if moderate to severe PCP is suspected",
+          "Initiate antiretroviral therapy (ART) for HIV",
+          "Monitor oxygen saturation and respiratory status closely",
+          "Provide supportive care including oxygen therapy as needed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of respiratory failure due to severe hypoxemia",
+          "Potential for rapid clinical deterioration"
+        ],
+        "communication_note": "Your symptoms and test results suggest a serious lung infection, and we need to start treatment immediately to prevent further complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "HIV-related pulmonary complications"
+        ],
+        "workup_ordered": [
+          "CT chest",
+          "Bronchoalveolar lavage (BAL)",
+          "Arterial blood gas (ABG)"
+        ],
+        "management_plan": [
+          "Continue trimethoprim-sulfamethoxazole (TMP-SMX)",
+          "Start corticosteroids",
+          "Oxygen therapy",
+          "Monitor for improvement in symptoms and oxygenation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Severe hypoxia",
+          "Respiratory failure",
+          "Need for intensive care monitoring"
+        ],
+        "communication_note": "Your breathing problems have worsened, and you need to be seen in the emergency department immediately for further treatment."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis"
+        ],
+        "workup_ordered": [
+          "Arterial blood gas (ABG)",
+          "LDH",
+          "Chest X-ray",
+          "Sputum induction for PCP"
+        ],
+        "management_plan": [
+          "Start high-dose steroids (e.g., prednisone 40 mg twice daily)",
+          "Start empiric antibiotics for PCP (e.g., trimethoprim-sulfamethoxazole)",
+          "Consider admission to the ICU for respiratory support",
+          "Monitor oxygen saturation and respiratory status closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe hypoxemia",
+          "Respiratory distress",
+          "Potential respiratory failure"
+        ],
+        "communication_note": "The patient is in severe respiratory distress and requires immediate medical attention."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505380.930648
+}

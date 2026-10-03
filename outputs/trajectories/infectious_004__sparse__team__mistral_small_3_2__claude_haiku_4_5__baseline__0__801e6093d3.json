@@ -1,0 +1,182 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My face is drooping and my joints hurt everywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started and if you've had any recent illnesses, exposures, or injuries?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Joint pain started three weeks ago. Face drooping last week. Was camping in Connecticut five weeks back."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Bell's palsy (facial droop)",
+          "Lyme disease (joint pain + possible facial nerve involvement)",
+          "Viral syndrome (e.g., influenza, COVID-19)",
+          "Autoimmune disorder (e.g., rheumatoid arthritis, lupus)"
+        ],
+        "workup_ordered": [
+          "Physical exam (facial nerve function, joint exam)",
+          "Lyme serology if endemic exposure",
+          "CBC, ESR/CRP for inflammatory markers",
+          "Consider viral testing (e.g., influenza, COVID-19)"
+        ],
+        "management_plan": [
+          "Monitor for signs of infection if steroids are prescribed",
+          "Assess for GI symptoms with NSAID use",
+          "Educate patient on Lyme disease prevention",
+          "Encourage hydration and renal function monitoring if NSAIDs are used"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Patient's symptoms and history suggest a need for further workup to rule out Lyme disease and other potential causes.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and workup based on patient's symptoms and history.",
+          "safety_checker_contribution": "Approved the plan with no red flags identified and recommended routine escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, potential interactions, and provided nursing concerns and dose adjustments."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Almost fainted twice. Heart's going real slow."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these episodes happened? Were they related to any specific activities or triggers? Also, have you noticed any other symptoms like dizziness, chest pain, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Happened twice this week. No warning. Also dizzy before they happened."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Bradycardia (e.g., sinus node dysfunction, AV block)",
+          "Vasovagal syncope",
+          "Orthostatic hypotension",
+          "Medication side effect",
+          "Electrolyte imbalance"
+        ],
+        "workup_ordered": [
+          "Vital signs (including orthostatic BP)",
+          "ECG",
+          "Basic metabolic panel (electrolytes, glucose)"
+        ],
+        "management_plan": [
+          "Review and potentially adjust metoprolol dose if bradycardia is persistent or symptomatic",
+          "Monitor for signs of orthostatic hypotension and educate patient on avoiding sudden position changes",
+          "Assess for electrolyte imbalances and ensure adequate hydration"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Near-syncope and bradycardia are concerning for potential cardiac or autonomic dysfunction",
+          "Recurrent or severe symptoms may warrant immediate evaluation"
+        ],
+        "communication_note": "Patient requires urgent outpatient evaluation for near-syncope and bradycardia; medication review and monitoring for orthostatic hypotension are recommended.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup for near-syncope and bradycardia.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential issues, and suggested dose adjustments and monitoring."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I passed out in the waiting room."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what happened before you passed out? Did you feel any symptoms like dizziness, nausea, or chest pain beforehand?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Felt dizzy. Then nothing. Woke up here."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Vasovagal syncope",
+          "Orthostatic hypotension",
+          "Cardiac arrhythmia",
+          "Seizure disorder",
+          "Hypoglycemia",
+          "Infectious etiology (e.g., sepsis, dehydration)"
+        ],
+        "workup_ordered": [
+          "Vital signs (BP, HR, O2 sat)",
+          "ECG",
+          "Basic metabolic panel (glucose, electrolytes)",
+          "CBC",
+          "Consider infectious workup if fever or other systemic symptoms"
+        ],
+        "management_plan": [
+          "Monitor for signs of dehydration and electrolyte imbalances",
+          "Educate patient on orthostatic precautions",
+          "Review and adjust medications as needed (e.g., diuretics, antihypertensives)",
+          "Check for recent alcohol or drug use that may contribute to syncope"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Syncope in a 40-year-old patient requires careful evaluation due to potential cardiac or neurological causes",
+          "Potential contraindications with current medications (e.g., NSAIDs, diuretics, antihypertensives)"
+        ],
+        "communication_note": "Patient experienced syncope with preceding dizziness; urgent outpatient evaluation recommended.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup plan focusing on cardiovascular, neurological, and metabolic etiologies.",
+          "safety_checker_contribution": "Approved the plan with a recommendation for urgent outpatient evaluation and highlighted potential red flags.",
+          "pharm_nurse_contribution": "Reviewed medications for potential issues and interactions, suggested dose adjustments, and provided nursing concerns and patient education points."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508632.5044541
+}

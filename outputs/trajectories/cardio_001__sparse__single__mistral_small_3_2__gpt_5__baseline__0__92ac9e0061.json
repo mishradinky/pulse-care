@@ -1,0 +1,202 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure on exertion."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the quality and severity of the chest pressure? For example, is it sharp, dull, tight, or heavy, and how would you rate the severity on a scale from 1 to 10?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Tight, 7 out of 10."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or sweating along with the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, sweating once."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any risk factors for heart disease, such as high blood pressure, high cholesterol, diabetes, or a family history of heart disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "High blood pressure, family history."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medications or nitroglycerin to relieve the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Just lisinopril, no nitroglycerin."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Stable angina pectoris",
+          "Unstable angina pectoris",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin I",
+          "Lipid panel",
+          "Stress test"
+        ],
+        "management_plan": [
+          "Start aspirin 81 mg daily",
+          "Continue lisinopril as prescribed",
+          "Lifestyle modifications: low-fat diet, regular exercise, smoking cessation if applicable",
+          "Follow-up in 1 week for test results and symptom reassessment"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential acute coronary syndrome"
+        ],
+        "communication_note": "We need to rule out heart-related causes for your chest pressure, so I've ordered some tests and will see you again soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure, mild shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure further? Is it sharp, dull, or squeezing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Squeezing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About 6."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "gastroesophageal reflux disease",
+          "musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin",
+          "blood pressure measurement"
+        ],
+        "management_plan": [
+          "Monitor vital signs",
+          "Administer sublingual nitroglycerin if blood pressure permits",
+          "Consider pain management if non-cardiac cause suspected"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential cardiac cause of chest pain"
+        ],
+        "communication_note": "We need to rule out a heart-related cause for your chest pain, so we will perform some tests and monitor you closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain, crushing, 30 minutes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (e.g., myocardial infarction)",
+          "Aortic dissection",
+          "Pulmonary embolism",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin levels",
+          "D-dimer test",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Administer aspirin if no contraindications",
+          "Administer sublingual nitroglycerin if blood pressure is adequate",
+          "Administer oxygen if hypoxic",
+          "Monitor vital signs closely",
+          "Prepare for possible thrombolytic therapy or percutaneous coronary intervention if acute coronary syndrome is confirmed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential life-threatening conditions such as myocardial infarction or aortic dissection"
+        ],
+        "communication_note": "Given the severity of your symptoms, we need to rule out serious conditions like a heart attack or aortic dissection, and we will be transporting you to the emergency department immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634520.96893
+}

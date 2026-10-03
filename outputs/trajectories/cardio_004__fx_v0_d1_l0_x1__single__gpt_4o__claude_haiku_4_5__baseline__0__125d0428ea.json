@@ -1,0 +1,199 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "fx_v0_d1_l0_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 55,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "HMO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache for a few hours. Really throbbing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as nausea, sensitivity to light or sound, or visual changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Just the headache. No nausea. No light sensitivity. Vision's fine. Work's been stressful lately."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent changes in your blood pressure or are you on any medications for hypertension?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I have high blood pressure. Ran out of my pills two weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you know what your blood pressure readings have been recently, or have you had any other symptoms like chest pain or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's been high. No chest pain. My head just really hurts. Been stressed at work too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent changes in your sleep patterns or diet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sleep's fine. Ate lunch before coming here. Head just really hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can I check your blood pressure and other vital signs now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, okay. It's been really bad today though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive headache",
+          "migraine"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "restart antihypertensive medication",
+          "advise stress management techniques",
+          "schedule follow-up visit"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "uncontrolled hypertension"
+        ],
+        "communication_note": "Your headache may be related to high blood pressure; let's restart your medication and monitor your blood pressure closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache's still here. Blood pressure's still high even with the pills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications are you currently taking for your blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Just started amlodipine and clonidine today. Ran out two weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What was your blood pressure reading today?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They said 188 over 110. Still pretty high I guess."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "uncontrolled hypertension",
+          "secondary hypertension"
+        ],
+        "workup_ordered": [
+          "basic metabolic panel",
+          "complete blood count",
+          "urinalysis",
+          "electrocardiogram"
+        ],
+        "management_plan": [
+          "restart antihypertensive medications",
+          "monitor blood pressure at home",
+          "follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive crisis"
+        ],
+        "communication_note": "Your blood pressure is still high, so we'll restart your medications and monitor closely. Please follow up in a week."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My right eye's blurry now. Headache's gone but this is weird."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "ocular migraine",
+          "central retinal artery occlusion"
+        ],
+        "workup_ordered": [
+          "ophthalmology consultation",
+          "fundoscopic examination",
+          "optical coherence tomography"
+        ],
+        "management_plan": [
+          "refer to ophthalmologist",
+          "advise patient to avoid driving until evaluated"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not promptly evaluated"
+        ],
+        "communication_note": "Your blurred vision needs urgent evaluation by an eye specialist to prevent any potential complications."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790547045.8668325
+}

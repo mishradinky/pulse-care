@@ -1,0 +1,147 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypertensive urgency",
+          "Hypertensive encephalopathy (though less likely given no neuro symptoms)",
+          "Severe headache due to uncontrolled hypertension"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis (UA)",
+          "Electrocardiogram (ECG)",
+          "CT scan of the head (already ordered, pending results)"
+        ],
+        "management_plan": [
+          "Administer oral antihypertensive medication (e.g., clonidine or captopril) to lower blood pressure gradually",
+          "Monitor blood pressure closely every 15-30 minutes",
+          "Provide pain management for the headache (e.g., acetaminophen or NSAIDs if no contraindications)",
+          "Restart amlodipine and HCTZ as prescribed",
+          "Schedule follow-up with primary care physician within 1 week",
+          "Educate patient on the importance of medication adherence and lifestyle modifications"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of hypertensive crisis if blood pressure is not controlled",
+          "Potential for end-organ damage due to prolonged uncontrolled hypertension"
+        ],
+        "communication_note": "Patient is stable but requires urgent outpatient management. Coordinate with the primary care physician for follow-up and ensure the patient understands the importance of adhering to the prescribed medication regimen.",
+        "trace": {
+          "clinician_contribution": "Assessed the patient's symptoms and vital signs, ordered initial workup, and initiated management plan.",
+          "safety_checker_contribution": "Reviewed the patient's history and current symptoms to ensure no immediate life-threatening conditions were missed.",
+          "pharm_nurse_contribution": "Prepared and administered the prescribed antihypertensive medication, monitored blood pressure, and provided patient education."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypertensive urgency",
+          "Medication non-adherence",
+          "Secondary hypertension"
+        ],
+        "workup_ordered": [
+          "Repeat blood pressure measurement",
+          "Basic metabolic panel (BMP)",
+          "Electrocardiogram (ECG)",
+          "Urinalysis",
+          "Renal ultrasound if indicated"
+        ],
+        "management_plan": [
+          "Administer oral antihypertensives (amlodipine 10mg, clonidine 0.2mg)",
+          "Monitor blood pressure closely",
+          "Encourage medication adherence",
+          "Lifestyle modifications (diet, exercise, stress management)",
+          "Follow-up in 1-2 weeks for blood pressure recheck"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of hypertensive crisis",
+          "Potential end-organ damage"
+        ],
+        "communication_note": "Patient has persistent hypertension despite oral medications. Partial response to treatment noted. Close monitoring and follow-up are essential.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and started oral antihypertensives.",
+          "safety_checker_contribution": "Reviewed safety concerns and recommended close monitoring.",
+          "pharm_nurse_contribution": "Administered oral medications and monitored vital signs."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Malignant hypertension with hypertensive encephalopathy",
+          "Hypertensive emergency with end-organ damage (renal and visual)",
+          "Possible posterior reversible encephalopathy syndrome (PRES)"
+        ],
+        "workup_ordered": [
+          "Urgent ophthalmology consult for fundoscopy and visual field testing",
+          "Urgent MRI brain with contrast to rule out PRES or other intracranial pathology",
+          "Urgent renal ultrasound to evaluate for hypertensive nephropathy",
+          "24-hour ambulatory blood pressure monitoring"
+        ],
+        "management_plan": [
+          "Immediate blood pressure reduction with IV labetalol or nicardipine infusion, targeting a 20-25% reduction in MAP over the first 2 hours",
+          "Restart amlodipine and add another antihypertensive agent for better BP control (e.g., a thiazide diuretic or ACE inhibitor)",
+          "Monitor renal function and adjust medications as needed",
+          "Ophthalmology follow-up to monitor for resolution of visual symptoms and papilledema",
+          "Neurology follow-up to monitor for resolution of neurological symptoms and to evaluate for PRES"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of stroke or intracranial hemorrhage due to severely elevated blood pressure",
+          "Risk of permanent visual loss due to hypertensive optic neuropathy",
+          "Risk of acute kidney injury due to severely elevated blood pressure"
+        ],
+        "communication_note": "Patient has a hypertensive emergency with end-organ damage (renal and visual). Immediate blood pressure reduction is required to prevent further damage. Ophthalmology and neurology consults are urgently needed.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms, vital signs, and exam findings. Ordered initial labs and imaging.",
+          "safety_checker_contribution": "Identified safety concerns related to severely elevated blood pressure and end-organ damage.",
+          "pharm_nurse_contribution": "Prepared IV labetalol or nicardipine infusion for immediate blood pressure reduction. Monitored patient's response to treatment and adjusted medications as needed."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779597785.0319138
+}

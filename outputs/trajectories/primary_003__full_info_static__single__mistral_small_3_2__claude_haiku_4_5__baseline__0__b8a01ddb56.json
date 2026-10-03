@@ -1,0 +1,117 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Primary hypothyroidism",
+          "Secondary hypothyroidism",
+          "Chronic fatigue syndrome",
+          "Depression"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "free T4",
+          "anti-TPO antibodies",
+          "CBC",
+          "lipid panel"
+        ],
+        "management_plan": [
+          "Pending lab results",
+          "Lifestyle modifications (diet, exercise)",
+          "Follow-up in 1 week for lab results"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Potential thyroid dysfunction",
+          "Mild normocytic anemia",
+          "Elevated lipid levels"
+        ],
+        "communication_note": "We will run some blood tests to check your thyroid function and other factors contributing to your symptoms."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypothyroidism with poor levothyroxine absorption",
+          "Levothyroxine dose insufficient",
+          "Secondary hypothyroidism"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "Free T4",
+          "Thyroid antibodies (if not done before)"
+        ],
+        "management_plan": [
+          "Adjust levothyroxine dose and take on empty stomach",
+          "Consider thyroid hormone absorption test",
+          "Monitor symptoms and repeat labs in 6 weeks"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Persistent hypothyroidism can lead to complications if untreated"
+        ],
+        "communication_note": "Your thyroid levels are still low, so we will adjust your medication and check your levels again soon."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypothyroidism"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "free T4",
+          "lipid panel"
+        ],
+        "management_plan": [
+          "Continue levothyroxine",
+          "Monitor symptoms and labs in 6 weeks",
+          "Encourage healthy lifestyle changes"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for signs of thyroid storm or myxedema coma"
+        ],
+        "communication_note": "Your thyroid levels are improving, and we will continue to monitor your progress."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779505831.6817465
+}

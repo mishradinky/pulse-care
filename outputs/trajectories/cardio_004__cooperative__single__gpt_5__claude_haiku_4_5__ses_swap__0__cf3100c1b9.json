@@ -1,0 +1,193 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've had this really severe throbbing headache for about 4 hours now, and when they checked my blood pressure in the waiting room, it was very high. I'm pretty worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as nausea, vision changes, or sensitivity to light?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I don't have nausea or any problems with my vision. The light doesn't bother me either. It's really just this terrible throbbing headache that came on suddenly a few hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced a headache like this before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, this is definitely the worst headache I've ever had. I've had headaches before, but nothing like this. It's a really severe throbbing pain that started about 4 hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medication for the headache, and if so, did it help?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't taken anything for it yet. I was too worried about my blood pressure being so high. I've been resting at home, but the headache just won't go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What was your blood pressure reading in the waiting room?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The nurse told me it was 200 over 118. That's really high, I know. I've never seen it that high before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of hypertension or are you on any medications for blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have high blood pressure. I've had it for about 10 years. I was taking amlodipine and a water pill\u2014HCTZ\u2014but I ran out of the amlodipine two weeks ago and haven't refilled it yet."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine",
+          "intracranial hemorrhage"
+        ],
+        "workup_ordered": [
+          "CT head without contrast",
+          "CBC",
+          "CMP",
+          "EKG"
+        ],
+        "management_plan": [
+          "Administer antihypertensive medication to lower blood pressure",
+          "Provide pain relief for headache",
+          "Monitor blood pressure closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of stroke or other complications due to severely elevated blood pressure"
+        ],
+        "communication_note": "Your blood pressure is dangerously high, and we need to address it immediately to prevent serious complications. We will arrange for emergency care."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My headache is still there, and my blood pressure is still high even though I've been taking the medicine you gave me. It's been really frustrating."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what medication you are currently taking for your blood pressure and the dosage?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I just started taking amlodipine 10 milligrams and clonidine 0.2 milligrams today. Before that, I hadn't been on anything for two weeks because I ran out of my amlodipine and didn't refill it in time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been monitoring your blood pressure at home, and if so, what have the readings been?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't have a monitor at home, so I haven't been checking it myself. The only readings I know about are the ones you all took here at the clinic\u2014200 over 118 when I first came in, and now 188 over 110 today."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "uncontrolled hypertension",
+          "secondary hypertension"
+        ],
+        "workup_ordered": [
+          "basic metabolic panel",
+          "complete blood count",
+          "urinalysis",
+          "electrocardiogram"
+        ],
+        "management_plan": [
+          "increase clonidine dosage",
+          "consider adding a diuretic",
+          "schedule follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive crisis"
+        ],
+        "communication_note": "Your blood pressure is still quite high, so we need to adjust your medications and monitor you closely. Let's schedule a follow-up soon to ensure your safety."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I came back because my headache got better, but now I'm having some blurring in my vision\u2014specifically in my right eye. It started a few hours ago and I'm a bit worried about it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "migraine with aura",
+          "transient ischemic attack"
+        ],
+        "workup_ordered": [
+          "ophthalmology consultation",
+          "fundoscopic examination",
+          "visual acuity test",
+          "MRI of the brain"
+        ],
+        "management_plan": [
+          "refer to ophthalmologist for urgent evaluation",
+          "advise patient to avoid driving until vision is assessed",
+          "monitor for any additional neurological symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not addressed promptly"
+        ],
+        "communication_note": "Your vision changes need urgent evaluation by an eye specialist to prevent any potential permanent damage."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779641128.0732403
+}

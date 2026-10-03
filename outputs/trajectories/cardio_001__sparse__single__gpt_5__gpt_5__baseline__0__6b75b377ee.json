@@ -1,0 +1,188 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure on exertion."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature of the chest pressure? Is it sharp, dull, squeezing, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Squeezing, radiates to left arm."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like shortness of breath, nausea, or sweating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "One episode of sweating."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or nausea with the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No shortness of breath. No nausea."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had similar symptoms in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, first time."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "initiate aspirin therapy",
+          "consider nitroglycerin if not contraindicated"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "You are experiencing symptoms that could indicate a heart problem, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure, mild shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing the chest pressure and shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure? Is it constant or does it come and go?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Comes and goes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction",
+          "gastroesophageal reflux disease"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "start aspirin",
+          "consider nitroglycerin if chest pain persists",
+          "advise lifestyle modifications"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Given your symptoms, we need to rule out any serious heart conditions, so I'm recommending you go to the emergency department for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Crushing chest pain, 30 minutes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute myocardial infarction",
+          "unstable angina"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "administer nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "You are experiencing severe chest pain, which could be a heart attack. We need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634498.4506803
+}

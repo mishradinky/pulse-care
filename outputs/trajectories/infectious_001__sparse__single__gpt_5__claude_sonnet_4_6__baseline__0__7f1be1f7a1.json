@@ -1,0 +1,198 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Got yellow stuff coming up."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like fever, shortness of breath, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Fever and chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Don't know about sick people."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your medications or started any new medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, same meds as before."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "advise rest and hydration",
+          "consider bronchodilator if wheezing present"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for respiratory distress"
+        ],
+        "communication_note": "You have a cough with yellow sputum, fever, and chest pain. We need to do some tests to check for pneumonia or other lung issues."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still can't breathe right. Getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as chest pain, cough, or fever?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Chest hurts. Still coughing. Feel hot."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Tired. That's about it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture",
+          "blood cultures",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "administer supplemental oxygen",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "potential for sepsis"
+        ],
+        "communication_note": "Your symptoms suggest a serious lung infection or other respiratory issue. We need to get you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. On the machine now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute exacerbation of COPD",
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "ABG",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start bronchodilator therapy",
+          "consider antibiotics if infection is suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory distress",
+          "potential for respiratory failure"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties, and we need to get you immediate medical attention to ensure your safety."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779637957.4808333
+}

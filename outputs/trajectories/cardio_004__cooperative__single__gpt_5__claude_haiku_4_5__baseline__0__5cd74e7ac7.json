@@ -1,0 +1,189 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, thank you for seeing me. I have a really severe throbbing headache that started about four hours ago, and my blood pressure is very high. I'm very concerned about that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms such as vision changes, nausea, or weakness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No vision changes or weakness. I haven't felt nauseous either. It's really just this terrible throbbing headache that started about 4 hours ago. That's what worried me enough to come in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure reading?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The nurse just told me it's 200 over 118. That's pretty high, isn't it? I'm worried about that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a history of high blood pressure or are you on any medications for it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have high blood pressure. I've had it for about 10 years. I was taking amlodipine and a water pill\u2014I think it's called HCTZ\u2014but I ran out of the amlodipine two weeks ago and haven't refilled it yet."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or shortness of breath. No palpitations either. My main problem right now is this terrible headache that started a few hours ago, and my blood pressure is very high according to the staff."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced a headache like this before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, this is the worst headache I've ever had. I've had headaches before, maybe from stress or tension, but nothing like this throbbing pain. It started about 4 hours ago and just won't go away."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "secondary headache due to hypertension"
+        ],
+        "workup_ordered": [
+          "CT head without contrast",
+          "basic metabolic panel",
+          "complete blood count",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "Administer antihypertensive medication to lower blood pressure",
+          "Monitor blood pressure closely",
+          "Provide pain relief for headache"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of hypertensive emergency leading to organ damage"
+        ],
+        "communication_note": "Your severe headache and very high blood pressure are concerning, so I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. My headache is still here even after taking the blood pressure medicine you gave me last time. It's not quite as bad, but my blood pressure is still running high at home."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure reading at home?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't been checking it at home regularly, to be honest. When I ran out of my amlodipine two weeks ago, I didn't have a way to refill it right away. I'm not sure what it's been reading."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like dizziness, chest pain, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or shortness of breath. I'm not dizzy either. It's mainly just this terrible headache that won't go away, even with the medicine you gave me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "uncontrolled hypertension",
+          "medication non-adherence"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "restart amlodipine",
+          "schedule follow-up in 2 weeks",
+          "educate on importance of medication adherence"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive complications"
+        ],
+        "communication_note": "Your headache may be due to high blood pressure; let's restart your medication and monitor your blood pressure closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My headache from before is better now, but I'm having some blurring in my right eye that started a little while ago. I'm also feeling a bit worried about what's going on."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "ocular migraine",
+          "transient ischemic attack"
+        ],
+        "workup_ordered": [
+          "ophthalmology referral",
+          "MRI of the brain",
+          "carotid ultrasound"
+        ],
+        "management_plan": [
+          "refer to ophthalmology for urgent evaluation",
+          "advise patient to avoid driving until evaluated",
+          "monitor blood pressure regularly"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for vision loss",
+          "risk of stroke"
+        ],
+        "communication_note": "Your symptoms need urgent evaluation by an eye specialist to rule out serious conditions like retinal detachment or a mini-stroke."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779506992.9954803
+}

@@ -1,0 +1,188 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm really tired all the time. And I gained weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About four months now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your appetite or eating habits?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No change. Gained weight though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your menstrual cycle or any other hormonal symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my periods are all messed up now. Irregular."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your hair, skin, or nails?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My skin's dry. Hair falling out some."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your mood or mental health, such as feeling more depressed or anxious?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really. Just tired all the time."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypothyroidism",
+          "polycystic ovary syndrome (PCOS)",
+          "chronic fatigue syndrome"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "free T4",
+          "CBC",
+          "CMP",
+          "ferritin",
+          "FSH",
+          "LH"
+        ],
+        "management_plan": [
+          "Start with thyroid function tests to rule out hypothyroidism.",
+          "Consider lifestyle modifications for weight management."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "We will start by checking your thyroid function and some other labs to understand the cause of your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Started that medicine but still really tired. And constipated."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medication did you start, and when did you start taking it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started some pill four weeks ago. For the tiredness thing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you remember the name of the medication or have the prescription bottle with you?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, levo... levo-something. Started it four weeks ago."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypothyroidism",
+          "medication side effect"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "free T4"
+        ],
+        "management_plan": [
+          "Continue current medication as prescribed",
+          "Increase dietary fiber intake to address constipation",
+          "Schedule follow-up appointment in 4 weeks to reassess symptoms and lab results"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for worsening fatigue or other symptoms"
+        ],
+        "communication_note": "We'll check your thyroid levels to see if your medication needs adjustment and address your constipation with dietary changes."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Feeling some better but want to know when I will feel normal."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "post-viral syndrome",
+          "chronic fatigue syndrome"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CMP",
+          "TSH"
+        ],
+        "management_plan": [
+          "reassurance and education about recovery timeline",
+          "encourage gradual increase in activity",
+          "follow-up in 4 weeks"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "You're on the right track to recovery; let's check some labs and follow up in a month to ensure continued improvement."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512634.055087
+}

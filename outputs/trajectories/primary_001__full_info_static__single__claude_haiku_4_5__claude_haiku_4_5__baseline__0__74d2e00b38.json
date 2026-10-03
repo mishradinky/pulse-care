@@ -1,0 +1,143 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with cellulitis",
+          "Diabetic foot ulcer with early osteomyelitis (despite negative X-ray)",
+          "Neuropathic ulcer with secondary infection"
+        ],
+        "workup_ordered": [
+          "Blood culture (if not already done)",
+          "Wound culture and sensitivity",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "MRI foot (to evaluate for osteomyelitis given elevated inflammatory markers despite negative X-ray)",
+          "Vascular assessment/ankle-brachial index if not recently done"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum antibiotics (e.g., amoxicillin-clavulanate or fluoroquinolone pending culture results)",
+          "Aggressive glycemic control optimization\u2014consider insulin initiation given HbA1c 10.2% and acute infection",
+          "Wound care: daily cleaning, appropriate dressing (moisture-retentive), offloading of plantar surface (removable cast boot or total contact cast)",
+          "Referral to podiatry and/or wound care specialist",
+          "Referral to endocrinology for diabetes optimization",
+          "Patient education on daily foot inspection and signs of worsening infection"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of rapid progression to osteomyelitis or systemic infection given poor glycemic control and elevated inflammatory markers",
+          "Neuropathy masks pain\u2014patient may not recognize worsening; requires close monitoring",
+          "Potential for limb-threatening infection if not aggressively managed"
+        ],
+        "communication_note": "You have a diabetic foot ulcer with signs of infection that needs urgent treatment with antibiotics, better blood sugar control, and specialist wound care to prevent serious complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with cellulitis",
+          "Diabetic foot ulcer with early soft tissue infection",
+          "Necrotizing soft tissue infection (early)"
+        ],
+        "workup_ordered": [
+          "Wound culture and sensitivity (already pending)",
+          "Blood cultures",
+          "Complete metabolic panel",
+          "Repeat WBC and CRP in 24-48 hours",
+          "Vascular assessment (ankle-brachial index, consider vascular surgery consult)",
+          "Podiatry evaluation"
+        ],
+        "management_plan": [
+          "Start broad-spectrum IV antibiotics (e.g., piperacillin-tazobactam or vancomycin + fluoroquinolone pending culture results)",
+          "Aggressive glucose control (insulin initiation/intensification; current glucose 310 is unacceptable)",
+          "Urgent wound debridement by surgery/podiatry",
+          "Strict non-weight-bearing status on right foot",
+          "Daily wound care with sterile dressing changes",
+          "Optimize diabetes medications; consider endocrinology referral",
+          "Pain management as needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Rapidly progressive cellulitis with purulent exudate and malodor suggests bacterial superinfection",
+          "Risk of progression to necrotizing infection or osteomyelitis given poor glycemic control (HbA1c 10.2%, current glucose 310)",
+          "Peripheral neuropathy masks pain; patient may not recognize worsening",
+          "Fever (37.8\u00b0C) and elevated inflammatory markers (WBC 13.2, CRP 54) indicate systemic response"
+        ],
+        "communication_note": "Your foot wound is showing signs of serious infection and needs urgent hospital-level care including IV antibiotics, wound cleaning, and better blood sugar control to prevent limb-threatening complications."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Diabetic foot osteomyelitis with cellulitis",
+          "Diabetic foot ulcer with secondary infection/sepsis",
+          "Necrotizing soft tissue infection"
+        ],
+        "workup_ordered": [
+          "Blood cultures (already sent)",
+          "MRI foot (already completed\u2014confirms osteomyelitis)",
+          "CBC with differential",
+          "CMP (renal function, electrolytes)",
+          "Lactate",
+          "Wound culture/bone culture (if not already obtained)",
+          "Chest X-ray (to rule out pulmonary involvement)"
+        ],
+        "management_plan": [
+          "Immediate IV broad-spectrum antibiotics (vancomycin + piperacillin-tazobactam or fluoroquinolone) covering gram-positive, gram-negative, and anaerobes",
+          "Urgent orthopedic/podiatric surgery consultation for possible debridement and bone biopsy",
+          "Aggressive glycemic control (insulin therapy, target glucose <180 mg/dL)",
+          "Wound care and off-loading of affected foot",
+          "Vascular assessment to ensure adequate perfusion",
+          "Monitor for sepsis progression; consider ICU admission if hemodynamic instability develops"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Systemic sepsis with fever, tachycardia, tachypnea, and elevated inflammatory markers",
+          "Confirmed osteomyelitis with bone involvement\u2014high risk for rapid progression",
+          "Diabetic neuropathy masks pain; patient may have underestimated severity",
+          "Uncontrolled diabetes (HbA1c 10.2%) impairs immune response and wound healing",
+          "Risk of limb-threatening infection and septic shock"
+        ],
+        "communication_note": "You have a serious bone infection in your foot with signs of spreading infection (fever, swelling, redness); you need emergency hospital admission for IV antibiotics and possible surgery to prevent loss of your foot or life-threatening infection."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505761.4319773
+}

@@ -1,0 +1,130 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection",
+          "Antibiotic-associated diarrhea",
+          "Inflammatory bowel disease flare"
+        ],
+        "workup_ordered": [
+          "Stool C. difficile toxin A/B",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Abdominal X-ray (AXR)"
+        ],
+        "management_plan": [
+          "Start oral vancomycin 125mg QID",
+          "Discontinue omeprazole",
+          "IV fluids for hydration",
+          "Monitor for signs of toxic megacolon"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Dehydration",
+          "Electrolyte imbalances",
+          "Potential toxic megacolon"
+        ],
+        "communication_note": "You have a severe infection likely caused by recent antibiotics, and we are treating you with specific medications to address it."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile colitis",
+          "Toxic megacolon",
+          "Severe inflammatory bowel disease flare"
+        ],
+        "workup_ordered": [
+          "CT abdomen/pelvis with contrast",
+          "Abdominal X-ray (AXR)",
+          "Blood cultures",
+          "Stool cultures and C. difficile toxin assay"
+        ],
+        "management_plan": [
+          "IV fluids for hypotension and hypovolemia",
+          "IV vancomycin and IV metronidazole for severe C. difficile infection",
+          "NPO (nil per os) status and bowel rest",
+          "Consultation with gastroenterology and surgery for toxic megacolon",
+          "Monitor for signs of sepsis and organ failure"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis and septic shock",
+          "Perforation risk due to toxic megacolon",
+          "Electrolyte imbalances and renal failure"
+        ],
+        "communication_note": "Your symptoms have worsened significantly, and you require immediate hospitalization for severe infection and complications."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Colonic perforation with peritonitis",
+          "Toxic megacolon",
+          "Severe Clostridioides difficile colitis"
+        ],
+        "workup_ordered": [
+          "AXR (already done)",
+          "Lactate (already done)",
+          "WBC (already done)",
+          "ABG",
+          "Blood cultures"
+        ],
+        "management_plan": [
+          "Immediate surgical consultation for perforation repair",
+          "Broad-spectrum IV antibiotics (e.g., vancomycin + piperacillin-tazobactam)",
+          "IV fluids and vasopressors for septic shock",
+          "NPO status and NG tube placement",
+          "ICU admission for close monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Septic shock with hemodynamic instability",
+          "Peritonitis and bowel perforation",
+          "Acute kidney injury and metabolic acidosis"
+        ],
+        "communication_note": "The patient has a life-threatening abdominal emergency requiring immediate surgery and ICU care."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505447.3741045
+}

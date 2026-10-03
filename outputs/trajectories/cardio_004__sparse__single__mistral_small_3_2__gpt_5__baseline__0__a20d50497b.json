@@ -1,0 +1,194 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Severe headache, very high blood pressure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache further? For example, is it throbbing, sharp, or dull? Where is it located?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing, all over my head."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "4 hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any vision changes, nausea, or vomiting along with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No vision changes, no nausea, no vomiting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent head trauma or injury?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No trauma or injury."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been diagnosed with hypertension before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, 10 years ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive emergency",
+          "Migraine",
+          "Subarachnoid hemorrhage"
+        ],
+        "workup_ordered": [
+          "Blood pressure measurement",
+          "Complete blood count",
+          "Comprehensive metabolic panel",
+          "Urinalysis",
+          "Electrocardiogram",
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "Monitor blood pressure closely",
+          "Administer antihypertensive medication if necessary",
+          "Pain management for headache",
+          "Follow-up appointment within 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke or organ damage due to high blood pressure"
+        ],
+        "communication_note": "Your blood pressure is very high, and we need to monitor it closely to prevent any serious complications."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache won't go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache? For example, is it sharp, dull, throbbing, or constant? Where is it located?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing, severe, whole head."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four hours."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "migraine",
+          "tension headache",
+          "subarachnoid hemorrhage"
+        ],
+        "workup_ordered": [
+          "CT scan of the head without contrast"
+        ],
+        "management_plan": [
+          "Administer IV fluids",
+          "Administer pain medication as needed",
+          "Monitor for changes in symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Possible subarachnoid hemorrhage"
+        ],
+        "communication_note": "We need to rule out serious causes of your headache, so we will perform a CT scan and monitor your symptoms closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache gone, right eye blurry."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Temporal arteritis",
+          "Migraine",
+          "Hypertension"
+        ],
+        "workup_ordered": [
+          "ESR",
+          "CRP",
+          "Blood pressure measurement",
+          "Fundoscopic examination"
+        ],
+        "management_plan": [
+          "Start prednisone if temporal arteritis suspected",
+          "Monitor blood pressure",
+          "Follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential vision loss if temporal arteritis is present",
+          "Uncontrolled hypertension"
+        ],
+        "communication_note": "We need to rule out serious causes for your symptoms and will monitor you closely."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779633754.51883
+}

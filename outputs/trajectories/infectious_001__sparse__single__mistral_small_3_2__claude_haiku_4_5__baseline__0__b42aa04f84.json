@@ -1,0 +1,194 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough with yellow stuff, fever, chest pain. Four days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or wheezing along with the cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe. Real bad the last two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with someone who has a similar illness or have you traveled anywhere recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Live alone. Don't know anyone sick."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent vaccinations, particularly for pneumonia or the flu?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Had flu shot maybe two years ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight loss or night sweats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just been sick past few days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis",
+          "COPD exacerbation",
+          "pulmonary embolism",
+          "heart failure"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "basic metabolic panel",
+          "chest X-ray",
+          "electrocardiogram"
+        ],
+        "management_plan": [
+          "prescribe bronchodilator",
+          "start antibiotic therapy",
+          "recommend hydration and rest",
+          "schedule follow-up visit in 3 days"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening shortness of breath",
+          "potential bacterial infection"
+        ],
+        "communication_note": "Based on your symptoms, I suspect you may have a respiratory infection and will order some tests to confirm."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not better. More confused now. Cough still bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever or chills recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, been hot. Real hot yesterday and today."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe. Worse today."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COVID-19",
+          "URTI"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CRP",
+          "CXR",
+          "COVID PCR"
+        ],
+        "management_plan": [
+          "O2",
+          "IV fluids",
+          "antipyretics"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious infection, and we need to run some tests and start treatment right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COPD exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "basic metabolic panel",
+          "arterial blood gas",
+          "electrocardiogram"
+        ],
+        "management_plan": [
+          "supplemental oxygen",
+          "broad-spectrum antibiotics",
+          "bronchodilators",
+          "monitor for respiratory failure"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis"
+        ],
+        "communication_note": "Your breathing difficulties are concerning, and we need to run some tests to determine the cause."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779507664.2825027
+}

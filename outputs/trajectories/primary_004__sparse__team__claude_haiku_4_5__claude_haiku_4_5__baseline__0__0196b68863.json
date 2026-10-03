@@ -1,0 +1,244 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My mom is confused and having accidents."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When you say 'confused'\u2014does your mom seem disoriented to time, place, or people? And regarding the accidents\u2014are these urinary, bowel, or falls? When did this start, and has it been gradual or sudden?"
+        },
+        {
+          "speaker": "patient",
+          "text": "She don't know what day it is. Wet herself. Started three days ago, just like that."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "ed_referral",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI) with delirium \u2014 MOST LIKELY given acute onset",
+          "Acute delirium from metabolic derangement (hyponatremia, hypoglycemia, hypoxia)",
+          "Acute stroke or TIA",
+          "Medication-induced delirium",
+          "Dementia with acute behavioral change (less likely given 3-day sudden onset)",
+          "Sepsis from occult infection"
+        ],
+        "critical_assessment": {
+          "timeline": "ACUTE \u2014 3 days, sudden onset (disorientation to time + urinary incontinence)",
+          "acuity_determination": "HIGH \u2014 This is delirium until proven otherwise in a 72-year-old with acute cognitive change",
+          "red_flags_present": [
+            "Acute disorientation (time)",
+            "New-onset incontinence",
+            "Sudden 3-day timeline",
+            "No vital signs or neuro exam documented",
+            "No medication list available",
+            "Potential for rapid deterioration"
+          ]
+        },
+        "workup_ordered": [
+          "STAT vital signs (temperature, BP, HR, RR, O2 sat, glucose)",
+          "Focused neurological exam (orientation to person/place/time, focal deficits, gait)",
+          "Urinalysis with culture and sensitivity",
+          "Basic metabolic panel (Na, K, Cr, glucose, BUN)",
+          "Complete blood count",
+          "Medication reconciliation (COMPLETE list: Rx, OTC, supplements)",
+          "Allergy verification",
+          "Recent medication changes review"
+        ],
+        "management_plan": [
+          "SAME-DAY ED REFERRAL \u2014 Patient requires in-person evaluation, vital signs, and labs to rule out UTI, stroke, metabolic emergency, and medication toxicity",
+          "Do NOT proceed with phone-based history alone",
+          "Advise caller to seek emergency care immediately if: focal neurologic deficit, fever >101\u00b0F, inability to void, fall with head injury, or worsening mental status develops",
+          "Once ED workup complete and UTI confirmed (if applicable): coordinate empiric antibiotic therapy with renal dosing adjustment (pending Cr/eGFR)",
+          "Pending medication list: screen for delirium-inducing agents (anticholinergics, benzodiazepines, opioids, sedating antihistamines) and drug interactions",
+          "Post-ED: assess fall risk, home safety, cognitive baseline (dementia vs. acute delirium), and PT/OT needs"
+        ],
+        "safety_concerns": [
+          "Acute delirium in elderly = medical emergency; life-threatening causes (UTI with sepsis, stroke, metabolic crisis) must be excluded urgently",
+          "No vital signs or neuro exam performed \u2014 cannot assess severity or rule out fever, hypoxia, focal deficits",
+          "Fall risk HIGH due to confusion + incontinence + unknown medication effects",
+          "Aspiration risk if altered mental status progresses",
+          "Medication-induced delirium likely contributor \u2014 cannot assess without complete med list and renal function",
+          "Cognitive baseline unknown \u2014 unclear if acute delirium superimposed on dementia or new-onset"
+        ],
+        "communication_note": "72-year-old with acute 3-day onset disorientation and urinary incontinence requires same-day ED evaluation to rule out UTI-delirium, stroke, and metabolic emergency; phone-based assessment insufficient.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately recognized medical emergency and asked clarifying questions (timeline: sudden 3 days; type: urinary; cognitive domain: disorientation to time). Differential is comprehensive and includes most common reversible cause (UTI-delirium). However, workup array is empty and clinician has not yet triaged acuity or ordered vital signs/neuro exam \u2014 critical gap.",
+          "safety_checker_contribution": "Safety checker correctly identified delirium-until-proven-otherwise, flagged absence of vital signs and neuro exam, and recommended urgent ED referral with blocking concerns. Emphasized that acute timeline (3 days) and lack of baseline cognitive status require immediate in-person assessment and labs, not phone history alone.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical missing data (no medication list, no renal function, no allergies) and highlighted HIGH RISK for medication-induced delirium in elderly patient. Flagged polypharmacy, fall risk, and need for Beers Criteria review. Cannot assess drug interactions or dosing until medication reconciliation complete; will coordinate antibiotic renal dosing once UTI workup results available."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still confused. Worse this morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the confusion start, and has anything changed since your last visit\u2014such as new medications, infections, falls, fever, or difficulty sleeping? Also, are you having any headache, chest pain, or trouble breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Few days ago. Started medicine yesterday. Can't think straight. No headache. No chest pain."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "72-year-old female with acute confusion onset 3-4 days ago, worsening this morning. NEW MEDICATION STARTED YESTERDAY is a critical temporal clue. No headache, chest pain, or dyspnea reported. Fall history and complete medication list still pending.",
+        "differential_diagnosis": [
+          "Medication-induced delirium (most likely given temporal relationship to new med start)",
+          "Urinary tract infection or other infection (elderly often present with delirium, not dysuria)",
+          "Metabolic derangement (hypoglycemia, electrolyte abnormality, renal dysfunction)",
+          "Acute stroke or TIA",
+          "Subdural hematoma (if unreported fall)",
+          "Progression of underlying dementia with acute superimposed delirium"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (temperature, BP, O2 sat, HR, RR) \u2014 obtain FIRST before proceeding",
+          "Focused neurologic exam (MMSE or MoCA, assess for focal deficits)",
+          "COMPLETE MEDICATION LIST: identify new medication started yesterday + all recent dose changes + OTC/supplements/herbals",
+          "Labs: CBC, CMP (electrolytes, glucose, renal function, liver function), urinalysis with culture, blood cultures if febrile",
+          "Medication reconciliation with pharmacy review for drug interactions and age-appropriate dosing",
+          "Fall history screening (explicit question about recent falls, head trauma)",
+          "Consider: ECG, chest X-ray, head CT if focal neuro deficits, fever + altered mental status, or fall with head trauma"
+        ],
+        "management_plan": [
+          "HOLD or REVIEW new medication started yesterday pending pharmacist assessment \u2014 likely culprit",
+          "Obtain complete medication list and past medical history (renal function, liver disease, diabetes, HTN, CKD, CHF) to guide dose adjustments",
+          "Perform medication reconciliation focusing on anticholinergics, benzodiazepines, opioids, sedating antihistamines, corticosteroids (high delirium risk in elderly)",
+          "Assess for drug-disease interactions (e.g., NSAIDs in CKD, ACE-I dosing if renal impairment)",
+          "Screen for infection (UTI, aspiration pneumonia, other) \u2014 elderly present with delirium, not classic symptoms",
+          "Correct any metabolic abnormalities identified on labs",
+          "Implement fall precautions pending evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "escalation_rationale": "Acute confusion in 72-year-old with temporal relationship to new medication is concerning for medication-induced delirium. Requires same-day evaluation with capability for point-of-care labs and imaging. ESCALATE TO ED REFERRAL or 911 IMMEDIATELY if: fever + altered mental status, focal neurologic deficits, severe headache, chest pain, dyspnea, or confirmed recent fall with head trauma.",
+        "safety_concerns": [
+          "\u26a0\ufe0f CRITICAL: New medication started YESTERDAY \u2014 strong temporal relationship to confusion onset; high suspicion for medication-induced delirium",
+          "\u26a0\ufe0f MEDICATION LIST NOT PROVIDED \u2014 cannot assess drug interactions, anticholinergic burden, or age-appropriate dosing without complete list",
+          "\u26a0\ufe0f FALL HISTORY UNKNOWN \u2014 must explicitly screen for recent falls; head trauma requires head CT regardless of other findings",
+          "\u26a0\ufe0f RENAL/HEPATIC FUNCTION UNKNOWN \u2014 at age 72, likely reduced GFR; many drugs accumulate (digoxin, lithium, NSAIDs, ACE-I, antibiotics)",
+          "\u26a0\ufe0f INFECTION MASQUERADE \u2014 elderly often present with delirium rather than dysuria; UTI/sepsis must be ruled out",
+          "\u26a0\ufe0f VITAL SIGNS NOT YET OBTAINED \u2014 fever, hypoxia, or hemodynamic instability would change escalation to ED referral"
+        ],
+        "communication_note": "Patient's acute confusion temporally linked to new medication started yesterday; urgent same-day outpatient evaluation needed with labs, medication review, and imaging capability; escalate to ED if fever, focal deficits, fall history, or vital sign abnormalities present.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately asked about timing, medication changes, infections, falls, fever, and red-flag symptoms (headache, chest pain, dyspnea). Patient revealed critical clue: new medication started YESTERDAY, 1-2 days before confusion worsening. Differential appropriately broad for delirium in elderly. Workup plan comprehensive and well-sequenced.",
+          "safety_checker_contribution": "Safety checker approved clinician proposal and identified key red flags: acute confusion in elderly (high delirium risk), broad differential including life-threatening conditions, unknown symptom onset timing, and unestablished fall history. Recommended urgent outpatient escalation with clear ED referral triggers (fever + AMS, focal deficits, severe headache, chest pain, dyspnea, recent fall with head trauma). Emphasized obtaining vitals FIRST and establishing fall history explicitly.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL GAP: complete medication list not provided. Cannot assess drug interactions, anticholinergic burden, or age-appropriate dosing without knowing what medications patient is taking. Flagged high-risk medication classes for delirium in elderly (anticholinergics, benzodiazepines, opioids, sedating antihistamines, corticosteroids). Emphasized need for renal/hepatic function assessment, medication timing correlation with confusion onset, polypharmacy risks, and infection masquerade in elderly. Requested complete medication list + vitals + PMH to complete safety assessment."
+        },
+        "next_immediate_actions": [
+          "1. Obtain STAT vital signs (temp, BP, O2 sat, HR, RR)",
+          "2. Obtain COMPLETE MEDICATION LIST including new medication started yesterday",
+          "3. Establish fall history explicitly",
+          "4. Obtain past medical history (renal function, liver disease, diabetes, HTN, CKD, CHF)",
+          "5. Schedule URGENT SAME-DAY outpatient visit with labs + imaging capability",
+          "6. Provide ED referral criteria to patient/caregiver (fever, focal deficits, severe headache, chest pain, dyspnea, fall with head trauma)"
+        ]
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not sure. Daughter called ambulance."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what symptoms or problems made your daughter call the ambulance? What were you experiencing before she called?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Don't... remember. Daughter says I wasn't... talking right."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "72-year-old with acute altered mental status (unable to recall events, daughter reports speech abnormality)",
+          "Recent 911 activation by daughter indicating acute decompensation",
+          "Unreliable historian - cannot provide own symptom timeline",
+          "No current vital signs, acuity assessment, or clinical stability documented",
+          "Altered mental status + recent ambulance call = medical emergency until acute causes ruled out",
+          "High risk for acute stroke, MI, sepsis, hypoglycemia, intracranial event, or medication toxicity"
+        ],
+        "differential_diagnosis": [
+          "Acute ischemic or hemorrhagic stroke",
+          "Myocardial infarction",
+          "Sepsis/acute infection",
+          "Hypoglycemia or hyperglycemic emergency",
+          "Intracranial event (subdural hematoma, subarachnoid hemorrhage)",
+          "Medication toxicity or overdose",
+          "Hypoxia/respiratory compromise",
+          "Delirium from acute medical illness"
+        ],
+        "workup_ordered": [
+          "STAT: Vital signs (BP, HR, RR, O2 sat, temp, glucose)",
+          "STAT: Neurological exam (NIHSS or equivalent stroke screening)",
+          "STAT: 12-lead ECG",
+          "STAT: Labs (CBC, CMP, troponin, lactate, blood glucose, ABG if hypoxic)",
+          "STAT: Head CT (non-contrast) to rule out intracranial pathology",
+          "Complete medication reconciliation (Rx, OTC, supplements) from daughter and pharmacy records",
+          "Renal and hepatic function assessment (Cr, BUN, LFTs) for dose adjustments"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Do NOT continue primary care assessment in current setting",
+          "IMMEDIATE: Activate 911 or transfer to nearest ED if not already in transit",
+          "Establish IV access and maintain NPO status pending acute workup",
+          "Implement fall precautions and continuous monitoring (vitals, neuro checks q15min)",
+          "Obtain complete medication history from daughter immediately",
+          "Assess for signs of medication non-adherence, accidental overdose, or drug interactions",
+          "Once acute medical emergency ruled out in ED, coordinate with pharmacy for medication review and dose adjustments based on renal/hepatic function",
+          "Delirium vs. dementia differentiation after acute causes excluded"
+        ],
+        "communication_note": "This patient requires immediate emergency department evaluation; primary care history-taking is inappropriate and unsafe given acute altered mental status with recent 911 activation\u2014do not delay with outpatient questioning.",
+        "trace": {
+          "clinician_contribution": "Identified need to establish chief complaint and symptom timeline; however, clinician's approach assumes stable outpatient encounter and proceeds with history-taking without first establishing patient safety/stability or current clinical status.",
+          "safety_checker_contribution": "Critical escalation flagged: altered mental status + recent 911 activation = medical emergency requiring immediate ED referral. Blocking concerns documented that history-taking is premature without acute stabilization and workup. Recommended emergency_911 escalation.",
+          "pharm_nurse_contribution": "Medication reconciliation identified as URGENT and CRITICAL given altered mental status presentation; flagged need for complete medication list to screen for drug-related causes (anticholinergics, sedatives, opioids, polypharmacy). Nursing priorities include delirium assessment, fall precautions, vital sign monitoring, and IV access pending workup. Renal/hepatic function assessment required for future dose adjustments."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779513038.06003
+}

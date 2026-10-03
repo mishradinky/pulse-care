@@ -1,0 +1,133 @@
+{
+  "case_id": "primary_005",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cauda equina syndrome (CES) secondary to massive L4-L5 disc herniation",
+          "Acute spinal cord compression",
+          "Conus medullaris syndrome"
+        ],
+        "workup_ordered": [
+          "STAT MRI lumbar spine (if not already done)",
+          "Post-void residual/bladder scan",
+          "Rectal examination (already performed)",
+          "BMP/renal function",
+          "Urinalysis"
+        ],
+        "management_plan": [
+          "EMERGENCY neurosurgical consultation for decompressive laminectomy",
+          "Immediate catheterization for urinary retention",
+          "High-dose corticosteroids (methylprednisolone 30mg/kg IV if within 8 hours of symptom onset)",
+          "NPO status pending surgical evaluation",
+          "Continuous neuro monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Cauda equina syndrome is a neurosurgical emergency requiring decompression within 48 hours to prevent permanent neurological damage",
+          "Urinary retention with saddle anesthesia and bilateral leg weakness are classic red-flag findings",
+          "Risk of permanent paralysis, bowel/bladder dysfunction, and sexual dysfunction if not urgently decompressed"
+        ],
+        "communication_note": "You have a serious spinal cord compression requiring emergency surgery; we are calling an ambulance and neurosurgery immediately to prevent permanent paralysis."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cauda Equina Syndrome (confirmed on MRI)",
+          "Lumbar spinal stenosis with acute decompensation",
+          "Metastatic spinal cord compression"
+        ],
+        "workup_ordered": [
+          "Stat neurosurgery consultation",
+          "Stat MRI lumbar spine (already done\u2014confirms CES)",
+          "Post-void residual measurement (already done\u2014750mL)",
+          "Rectal exam (already done\u2014fecal incontinence present)",
+          "Urinalysis and urine culture",
+          "CBC, CMP, coagulation studies pre-operatively"
+        ],
+        "management_plan": [
+          "EMERGENCY neurosurgical decompression (laminectomy) within 24 hours\u2014time-critical to prevent permanent neurological damage",
+          "Immediate catheterization for complete urinary retention",
+          "NPO status in preparation for surgery",
+          "High-dose corticosteroids (dexamethasone 10mg IV q6h) if not contraindicated",
+          "Bowel care protocol for fecal incontinence",
+          "Continuous neuro checks q1h until surgery",
+          "Anesthesia pre-operative clearance"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Cauda Equina Syndrome is a neurosurgical emergency with progressive bilateral leg weakness, complete urinary retention, and new bowel incontinence\u2014risk of permanent paralysis and loss of bowel/bladder control if not decompressed urgently",
+          "Patient unable to ambulate safely (2/5 strength bilaterally)",
+          "Complete urinary retention with 750mL post-void residual\u2014high risk for UTI and renal compromise"
+        ],
+        "communication_note": "You have a surgical emergency called Cauda Equina Syndrome that requires immediate decompression surgery today to prevent permanent paralysis and loss of bladder/bowel control\u2014we are calling neurosurgery now and arranging emergency transport."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cauda equina syndrome with cord ischemia",
+          "Acute spinal cord compression with myelopathy",
+          "Epidural abscess or hematoma"
+        ],
+        "workup_ordered": [
+          "STAT MRI lumbar spine (already done\u2014shows worsening compression with ischemic changes)",
+          "Urgent neurosurgery consultation",
+          "Post-void residual catheterization",
+          "CBC, CMP, coagulation studies",
+          "Blood cultures if fever present"
+        ],
+        "management_plan": [
+          "EMERGENCY 911 activation\u2014patient requires immediate neurosurgical decompression",
+          "Stat urinary catheterization for retention and overflow incontinence",
+          "High-dose IV corticosteroids (methylprednisolone 30 mg/kg bolus) if not contraindicated",
+          "NPO status pending surgical evaluation",
+          "Continuous neuro monitoring; prepare for operative intervention within hours"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Complete bilateral lower extremity paralysis with absent reflexes and sensory loss below L4\u2014hallmark of cauda equina syndrome",
+          "Acute urinary retention with grossly distended bladder and overflow incontinence",
+          "MRI evidence of worsening spinal cord compression with ischemic changes\u2014risk of permanent neurological damage if not decompressed urgently",
+          "Time-critical surgical emergency: prognosis depends on decompression within hours"
+        ],
+        "communication_note": "You have a surgical emergency affecting your spinal cord and nerves that requires immediate hospital admission and likely surgery today to prevent permanent paralysis and loss of bladder control."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "cauda equina syndrome",
+      "conus medullaris syndrome",
+      "central disc herniation",
+      "epidural abscess"
+    ],
+    "required_workup": [
+      "urgent MRI lumbar spine with and without contrast",
+      "bladder scan post-void residual",
+      "BMP CBC"
+    ],
+    "correct_management": [
+      "emergency neurosurgery consult",
+      "Foley catheter immediately",
+      "urgent decompressive surgery within 48h",
+      "steroids controversial but consider"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505876.1206825
+}

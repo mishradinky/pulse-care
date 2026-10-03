@@ -1,0 +1,135 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Panic disorder with agoraphobia",
+          "Generalized anxiety disorder",
+          "Cardiac arrhythmia (less likely given normal ECG/troponin, but Holter pending)",
+          "Thyroid dysfunction (less likely given normal TSH)",
+          "Substance-related anxiety (caffeine overuse)"
+        ],
+        "workup_ordered": [
+          "Holter monitor (already pending)",
+          "Echocardiogram if Holter abnormal",
+          "Psychiatric screening (GAD-7, PHQ-9)",
+          "Caffeine intake assessment and reduction plan"
+        ],
+        "management_plan": [
+          "Reassure patient regarding negative cardiac workup and normal exam findings",
+          "Educate on panic disorder pathophysiology and hyperventilation-induced symptoms",
+          "Recommend gradual caffeine reduction (current high intake likely contributory)",
+          "Refer to psychiatry or behavioral health for cognitive-behavioral therapy (CBT) and consider SSRI reinitiation (patient previously on one)",
+          "Provide grounding techniques and breathing exercises for acute episodes",
+          "Schedule follow-up in 2 weeks to review Holter results and reassess"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Functional impairment: patient has stopped driving and grocery shopping due to fear",
+          "Escalating avoidance behavior may worsen agoraphobia if untreated",
+          "Patient at risk for medication non-adherence given prior SSRI discontinuation"
+        ],
+        "communication_note": "Your heart and basic tests are normal; these symptoms are consistent with panic attacks, which are treatable with therapy and sometimes medication\u2014let's work together to help you feel safe again."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Panic disorder with agoraphobia",
+          "Generalized anxiety disorder",
+          "Cardiac anxiety/health anxiety secondary to panic"
+        ],
+        "workup_ordered": [
+          "Holter monitor (already done - confirms sinus tachycardia with symptoms, no arrhythmia)",
+          "Consider echocardiogram if not done to definitively exclude structural cardiac disease",
+          "Thyroid function tests (TSH, free T4) to rule out hyperthyroidism"
+        ],
+        "management_plan": [
+          "Reassure patient that cardiac workup is reassuring; explain panic physiology and sinus tachycardia as anxiety response",
+          "Initiate SSRI (e.g., sertraline 50 mg daily) for panic disorder and anxiety",
+          "Refer to cognitive-behavioral therapy (CBT) or panic-focused psychotherapy",
+          "Teach grounding/breathing techniques (4-7-8 breathing, 5-4-3-2-1 sensory technique) for acute episodes",
+          "Discuss avoidance behaviors and gradual exposure to feared situations",
+          "Avoid benzodiazepines as first-line due to dependence risk; reserve for acute crisis only"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Developing agoraphobia limiting work attendance and social functioning",
+          "Fear of dying and catastrophic thinking driving health-seeking behavior",
+          "Risk of worsening functional impairment if untreated"
+        ],
+        "communication_note": "Your symptoms are consistent with panic attacks, not a heart attack\u2014your heart is healthy, but your nervous system is in overdrive; we can treat this effectively with medication and therapy to help you regain confidence."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Panic disorder with agoraphobia",
+          "Generalized anxiety disorder with panic attacks",
+          "Agoraphobia secondary to panic disorder"
+        ],
+        "workup_ordered": [
+          "Psychiatric evaluation and formal anxiety disorder assessment",
+          "Consider thyroid function tests (TSH) if not already done",
+          "Baseline PHQ-9 and GAD-7 screening"
+        ],
+        "management_plan": [
+          "Refer to psychiatry/mental health for cognitive-behavioral therapy (CBT) and possible pharmacotherapy (SSRI first-line)",
+          "Educate patient on panic disorder pathophysiology and reassure regarding cardiac clearance (normal ECG, troponin, echo)",
+          "Initiate graded exposure therapy and breathing/relaxation techniques",
+          "Coordinate care with primary care; consider short-term anxiolytic if acute distress limits engagement in therapy",
+          "Involve husband in psychoeducation and support planning to reduce caregiver burden and enable gradual re-engagement with activities"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe functional impairment and complete agoraphobia with 2-week housebound status",
+          "Significant caregiver burden on spouse (FMLA leave) raising risk of relationship strain and patient isolation",
+          "Anticipatory anxiety and avoidance cycle likely to worsen without intervention"
+        ],
+        "communication_note": "Your symptoms are consistent with panic disorder and agoraphobia, not a heart condition\u2014your heart tests are completely normal. With proper psychiatric treatment including therapy and medication, most people recover well and regain their independence."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505690.5731363
+}

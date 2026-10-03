@@ -1,0 +1,237 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I came in because I got back from a long flight to Tokyo five days ago, and since then I've had this sudden sharp pain in my right chest. It hurts more when I breathe, and I'm also having trouble catching my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Does the pain stay in one spot, or does it move around? And have you noticed any swelling, warmth, or redness in your legs\u2014especially your right leg\u2014since the flight?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain stays in one spot on my right side of my chest\u2014it doesn't move around. As for my legs, yeah, my right leg is a bit swollen compared to the left, and it's tender when I touch it. I haven't noticed any redness or warmth though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism (PE) \u2014 HIGH PRIORITY",
+          "Deep vein thrombosis (DVT) with PE risk",
+          "Acute coronary syndrome (ACS)",
+          "Pleurisy/pneumonia",
+          "Musculoskeletal chest pain (less likely given leg findings)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (HR, BP, RR, O\u2082 sat, temperature)",
+          "STAT 12-lead EKG (rule out ACS)",
+          "STAT troponin (high-sensitivity if available)",
+          "STAT D-dimer (if PE risk stratification permits) OR proceed directly to CTA chest PE protocol",
+          "STAT CTA chest with PE protocol (given pleuritic pain + dyspnea + immobility + leg swelling/tenderness)",
+          "STAT bilateral lower extremity ultrasound (DVT assessment given right leg swelling + tenderness)",
+          "CBC, BMP (creatinine for contrast clearance), PT/INR, aPTT, LFTs",
+          "Complete medication/allergy/supplement history (STAT \u2014 before any anticoagulation or contrast)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL \u2014 do not delay for outpatient workup",
+          "Establish IV access en route or upon ED arrival",
+          "Continuous cardiac/oxygen monitoring during transport",
+          "Obtain complete medication reconciliation (including OTC, herbal, antiplatelet agents) BEFORE ED arrival if possible",
+          "Assess for active bleeding risk and contraindications to anticoagulation",
+          "If PE confirmed: initiate anticoagulation per ED protocol (DOAC, LMWH, or UFH depending on renal function, bleeding risk, and medication interactions)",
+          "If DVT confirmed: consider IVC filter vs. anticoagulation based on PE status and bleeding risk",
+          "Baseline neuro exam (if thrombolytics considered)",
+          "Patient education deferred to ED team; emphasize leg elevation and early mobilization post-diagnosis"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Pleuritic chest pain + dyspnea + recent long-haul flight immobility + right leg swelling/tenderness = PE until proven otherwise",
+          "Patient demographics (Black male, age 48) carry elevated VTE risk; this strengthens urgency",
+          "PE is immediately life-threatening and can decompensate rapidly; outpatient history-taking is inappropriate",
+          "Vital signs not yet documented \u2014 SpO\u2082, HR, BP, RR essential for risk stratification",
+          "No medication list obtained \u2014 critical before anticoagulation or contrast administration",
+          "Clinician's differential and questions are clinically sound, but action (continued questioning) is mismatched to acuity level",
+          "DVT signs present (unilateral leg swelling + tenderness) \u2014 increases PE likelihood and urgency"
+        ],
+        "communication_note": "This patient requires immediate ED evaluation for suspected PE/DVT; imaging and labs must proceed urgently in acute care setting, not outpatient office.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified PE as top differential and asked targeted questions about pain character and DVT signs; patient's responses (localized pleuritic pain, right leg swelling/tenderness) confirm high-risk presentation. However, clinician's action (continued history-taking) does not match the acuity level.",
+          "safety_checker_contribution": "Safety checker correctly flagged that PE is life-threatening, vital signs are missing, and ED referral is mandatory. Blocked outpatient-only approach and emphasized that imaging/labs must precede or accompany further history-taking, not follow it.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no medication list, no renal/hepatic function, no bleeding risk assessment. Provided STAT nursing priorities (vitals, med reconciliation, IV access, anticoagulation contraindication screening) and noted demographic-specific pharmacokinetic considerations for anticoagulants. Emphasized continuous monitoring and baseline labs needed before treatment initiation."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a lot more trouble breathing now, even when I'm just sitting down. And my right leg is really hurting more than it was before. I'm pretty worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When did the breathing trouble start, and is it worse when you lie flat? Also, regarding your right leg pain\u2014is there any swelling, warmth, or redness in that leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The trouble breathing started yesterday\u2014it's gotten worse, even when I'm just sitting still now. I haven't noticed it being worse lying down specifically. My right leg is definitely more painful today, and yeah, I can see it's swollen. There's some warmth and redness in the calf area too."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Deep vein thrombosis (DVT) with pulmonary embolism (PE) \u2014 HIGH PRIORITY",
+          "Acute decompensated heart failure with volume overload",
+          "Acute coronary syndrome",
+          "Pneumonia or acute respiratory infection",
+          "Musculoskeletal pain with secondary anxiety-driven dyspnea"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: BP, HR, RR, O\u2082 saturation (pulse oximetry)",
+          "STAT 12-lead ECG",
+          "STAT troponin (high-sensitivity if available)",
+          "STAT D-dimer (if PE risk assessment warrants)",
+          "STAT chest X-ray",
+          "STAT right lower extremity ultrasound (compression duplex) to rule out DVT",
+          "CBC, CMP (electrolytes, creatinine, BUN)",
+          "BNP if heart failure suspected after imaging",
+          "Complete medication reconciliation (current meds, OTC, supplements, allergies)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL \u2014 do not delay for outpatient workup",
+          "Patient to be transported to ED (consider EMS if any hemodynamic instability or severe dyspnea)",
+          "Obtain full medication history and allergy profile before ED handoff",
+          "Communicate to ED: 48M with acute dyspnea (onset yesterday, progressive at rest) + right leg pain with swelling, warmth, redness in calf \u2014 classic DVT/PE presentation",
+          "If PE confirmed: coordinate anticoagulation strategy (LMWH vs. UFH vs. DOAC) with ED team; assess renal function and bleeding risk before initiation",
+          "If HF confirmed: review diuretic dosing, ACE-I/ARB tolerance, electrolytes; counsel on NSAID avoidance given Black male demographic and CKD risk",
+          "Once diagnosis established: provide patient education on medication adherence, monitoring parameters, and red-flag symptoms (worsening dyspnea, chest pain, leg swelling progression)"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "BLOCKING ISSUE: Dyspnea at rest + unilateral leg swelling/warmth/redness is a classic, high-acuity DVT/PE presentation requiring IMMEDIATE objective imaging, not outpatient workup",
+          "CRITICAL OMISSION: No vital signs documented; cannot assess hemodynamic stability or hypoxia \u2014 must obtain NOW before any further delay",
+          "PE MORTALITY RISK: Acute onset respiratory distress with DVT signs can decompensate rapidly; every hour of delay increases mortality risk",
+          "MEDICATION RECONCILIATION INCOMPLETE: No current medication list available; cannot assess for anticoagulant use, drug interactions, or renal dosing until obtained",
+          "ALLERGY HISTORY MISSING: Must confirm drug allergies and reaction severity before ED team initiates any new medications",
+          "DEMOGRAPHIC RISK FACTOR: Black non-Hispanic male age 48 \u2014 higher baseline VTE and CKD risk; NSAID caution if renal function impaired"
+        ],
+        "communication_note": "This patient requires IMMEDIATE ED referral for same-day DVT/PE rule-out imaging; outpatient workup is unsafe given acute dyspnea + classic DVT signs (leg swelling, warmth, redness).",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified red-flag symptom pairing (dyspnea + unilateral leg pain) and generated a sound differential including PE/DVT as top concern; however, clinician's workup list remained empty and approach was history-focused rather than action-focused, creating dangerous delay in time-sensitive diagnosis.",
+          "safety_checker_contribution": "Safety checker correctly identified BLOCKING concerns: (1) PE/DVT presentation requires immediate objective testing, not further history; (2) vital signs are critical omission; (3) empty workup list delays diagnosis; (4) ED referral is mandatory. Escalation to ED_REFERRAL was appropriate and non-negotiable.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged critical gaps: (1) no medication list available for interaction/dosing assessment; (2) allergy history missing; (3) vital signs and labs (D-dimer, troponin, CBC, CMP, ECG) must be obtained urgently; (4) if anticoagulation needed, coordinate bridging strategy and baseline INR; (5) NSAID caution in Black males with CKD risk; (6) patient education deferred until diagnosis confirmed in ED."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a really hard time breathing right now. I almost passed out a few minutes ago, and my chest feels very tight. I'm scared\u2014I can barely catch my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand you're very frightened\u2014that's important information. Let me ask a few quick questions: Did the chest tightness and shortness of breath come on suddenly or gradually? And do you have any chest pain, pressure, or heaviness right now, or is it purely tightness with difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It came on suddenly\u2014I was just sitting and then all at once I couldn't breathe. Right now I have sharp pain on my right side when I breathe in, and I'm really short of breath. It's hard to catch my breath."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / myocardial infarction \u2014 HIGH PRIORITY",
+          "Pulmonary embolism \u2014 HIGH PRIORITY (sudden onset + dyspnea + pleuritic pain)",
+          "Acute decompensated heart failure",
+          "Pneumothorax (sudden onset + pleuritic right-sided pain + dyspnea)",
+          "Pneumonia / acute respiratory infection",
+          "Hypertensive emergency with pulmonary edema",
+          "Arrhythmia (SVT, atrial fibrillation)",
+          "Panic attack / anxiety \u2014 LOW PRIORITY (only after life-threatening etiologies excluded)"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (within 10 minutes) \u2014 PRIORITY 1",
+          "Continuous cardiac monitoring and pulse oximetry",
+          "IV access (18G minimum)",
+          "High-sensitivity troponin (serial if initial negative)",
+          "BNP or NT-proBNP",
+          "Chest X-ray (assess for pneumothorax, infiltrate, pulmonary edema, PE signs)",
+          "Vital signs including O2 saturation, BP in both arms, respiratory rate",
+          "CBC, BMP (renal function critical for medication dosing)",
+          "D-dimer and/or CT pulmonary angiography if PE suspected",
+          "STAT medication/allergy/supplement reconciliation",
+          "Cocaine/stimulant use history (critical in Black male with ACS presentation)"
+        ],
+        "management_plan": [
+          "EMERGENCY DEPARTMENT REFERRAL \u2014 Patient meets criteria for immediate ED evaluation (near-syncope + acute chest tightness + dyspnea + pleuritic pain = hemodynamically concerning)",
+          "Do NOT delay for outpatient workup; activate 911 or direct to ED NOW",
+          "Place patient on continuous cardiac monitoring immediately",
+          "Establish IV access; keep patient NPO pending possible intervention",
+          "Obtain full medication history before any interventions",
+          "Aspirin 325 mg PO (verify no allergy/GI bleed history) \u2014 consider STAT if ACS suspected and no contraindications",
+          "Nitroglycerin SL if chest pain/pressure confirmed and SBP >90 mmHg \u2014 HOLD if right-sided pleuritic pain only (suggests non-cardiac etiology)",
+          "Hold NSAIDs, decongestants, stimulants until ACS/PE/arrhythmia ruled out",
+          "Reassure patient; explain that rapid testing will clarify diagnosis; anxiety component will be reassessed after objective findings",
+          "Prepare for dual antiplatelet therapy (aspirin + P2Y12 inhibitor) and anticoagulation protocols pending troponin/imaging results",
+          "Document baseline renal function and race-ethnicity considerations (KDIGO) for medication safety"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Near-syncope + acute chest tightness + dyspnea = high-risk triad for life-threatening cardiac or pulmonary pathology requiring IMMEDIATE objective evaluation",
+          "CRITICAL: Pleuritic right-sided pain raises concern for PE or pneumothorax \u2014 both require emergency imaging and cannot be ruled out by history alone",
+          "CRITICAL: Sudden onset + hemodynamic symptoms (near-syncope) indicate potential hemodynamic compromise or arrhythmia \u2014 patient is UNSTABLE",
+          "CRITICAL: Black male age 48 with acute cardiac symptoms \u2014 documented higher ACS underrecognition/misdiagnosis risk in this population; requires aggressive early evaluation",
+          "BLOCKING: Clinician's initial action (continued questioning) is mismatched to acuity; this presentation requires IMMEDIATE ECG and troponin, not additional history-taking",
+          "BLOCKING: Time-critical window for ACS intervention (door-to-balloon <90 min, door-to-thrombolytic <30 min if STEMI) \u2014 delays in ED referral reduce treatment efficacy",
+          "BLOCKING: Patient is 'very frightened' + hemodynamically concerning symptoms = high decompensation risk during any delay",
+          "MEDICATION SAFETY: No current medication list obtained; must reconcile immediately to identify drug interactions, contraindications (NSAIDs in ACS), and stimulant/cocaine use",
+          "MEDICATION SAFETY: Renal function unknown \u2014 critical for dosing ACE-I, beta-blockers, anticoagulants in Black male population"
+        ],
+        "communication_note": "This 48-year-old Black male with sudden-onset dyspnea, near-syncope, and acute pleuritic chest pain requires EMERGENCY DEPARTMENT EVALUATION NOW via 911 or direct ED referral\u2014do not delay for outpatient workup.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (ACS, PE, heart failure, arrhythmia) and ordered comprehensive STAT workup (ECG, troponin, BNP, CXR, labs, monitoring). However, clinician's action (asking additional history questions) is mismatched to acuity; this presentation requires immediate objective testing and ED referral, not further questioning.",
+          "safety_checker_contribution": "Safety checker correctly identified BLOCKING concerns: near-syncope + chest tightness + dyspnea = unstable patient requiring emergency pathway, not outpatient evaluation. Flagged time-critical ACS intervention window, hemodynamic compromise risk, and documented ACS underrecognition bias in Black males. Escalation to emergency_911 is appropriate and overrides clinician's 'ask' action.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL gap: no medication history obtained. Flagged need for STAT reconciliation (cardiac meds, NSAIDs, stimulants, cocaine use\u2014especially relevant in Black male ACS presentation). Provided ready medications (aspirin, nitroglycerin if indicated) pending troponin/imaging. Emphasized continuous monitoring, IV access, NPO status, and renal function documentation for safe medication dosing. Noted anxiety component but correctly prioritized cardiac workup first."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634749.5422044
+}

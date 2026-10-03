@@ -1,0 +1,199 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I can't catch my breath, especially when I'm walking around. It's been going on for about three weeks now, and it's gotten really bad\u2014I couldn't even finish my shift at work yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, cough, or fever along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I have a dry cough that's been going on the whole time. And I've had a low fever, nothing too high. But no chest pain\u2014it's mainly just the shortness of breath that's been the worst part, especially when I'm trying to work."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't noticed any swelling in my legs or ankles. My main problem is just the breathing trouble and this cough that won't go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who was sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent travel. I work as a waiter, so I'm around lots of people every day at the restaurant, but I haven't noticed anyone specifically sick that I was around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of asthma, allergies, or any other lung conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I don't have asthma or allergies. No lung problems that I know of before this started. This is all new to me over the last few weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been pretty tired, yeah. Not sure about weight loss\u2014haven't checked. No night sweats that I've noticed. The main thing is just this breathing problem, especially when I'm moving around at work."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "tuberculosis",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "COVID-19 test"
+        ],
+        "management_plan": [
+          "prescribe antibiotics if bacterial infection is confirmed",
+          "advise rest and hydration",
+          "follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening shortness of breath",
+          "high fever",
+          "chest pain"
+        ],
+        "communication_note": "Based on your symptoms, we need to do some tests to determine the cause of your breathing issues. We'll start with a chest X-ray and some lab tests. Please seek immediate care if your symptoms worsen."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really struggling to breathe now, even when I'm just sitting still. It's gotten so much worse since I was here last time. I can barely catch my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, fever, or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had a dry cough for the past few weeks, and a low fever that comes and goes. No chest pain though. The cough and fever have been getting worse, and now I'm having trouble breathing even when I'm just sitting down."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been pretty tired, yeah. As for weight loss or night sweats, I'm not sure\u2014I haven't been paying close attention to that. But I know I'm exhausted and can barely get through my shifts at work."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "tuberculosis",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "PPD skin test"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "advise rest and hydration",
+          "follow-up in 48 hours"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "potential infectious disease spread"
+        ],
+        "communication_note": "Your symptoms suggest a possible lung infection or other serious condition, so we'll do some tests and start treatment right away. Please follow up urgently if your breathing worsens."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can barely breathe. I'm on this oxygen mask and I still feel like I'm not getting enough air. I can't even speak without running out of breath."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory distress syndrome",
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "D-dimer",
+          "CBC",
+          "CMP"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start empirical antibiotics",
+          "consider anticoagulation if PE suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "severe respiratory distress",
+          "potential for rapid deterioration"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779635597.2972727
+}

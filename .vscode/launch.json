@@ -1,0 +1,57 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Simulate: single trajectory",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.runner",
+      "args": [
+        "--case", "cardio_001",
+        "--simulator", "cooperative",
+        "--agent", "single",
+        "--model", "claude_haiku_4_5",
+        "--sim-backbone", "claude_haiku_4_5",
+        "--simulate"
+      ],
+      "envFile": "${workspaceFolder}/.env",
+      "justMyCode": false,
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Simulate: full end-to-end (5 cases)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_simulation.py",
+      "args": ["--cases", "5"],
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Run main experiment (real API)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.batch_driver",
+      "args": ["--subset", "main", "--config", "configs/experiment_config.yaml"],
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Compute EFI metrics",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.metrics.compute_efi",
+      "args": ["--inputs", "outputs/scored", "--out", "outputs/tables"],
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-xvs", "tests/"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

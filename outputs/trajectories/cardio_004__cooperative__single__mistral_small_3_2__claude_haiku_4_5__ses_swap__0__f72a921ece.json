@@ -1,0 +1,189 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. I've had this really severe throbbing headache for about 4 hours now, and when they checked my blood pressure in the waiting room it was very high. I'm worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache further? Is it on one side or both sides of your head? Also, have you experienced any nausea, vomiting, or vision changes with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's all over my head, both sides\u2014a really bad throbbing pain. I haven't thrown up or felt nauseous. My vision is fine, no problems there. It started about 4 hours ago and it's been pretty severe the whole time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent head trauma or injury, and do you have a history of high blood pressure or any other medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any head trauma or injury. Yes, I've had high blood pressure for about 10 years. I was taking amlodipine and a water pill for it, but I ran out of the amlodipine two weeks ago and haven't refilled it yet. No other medical conditions that I know of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any chest pain, shortness of breath, or palpitations along with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or shortness of breath. My heart feels fine. It's just this terrible headache that came on suddenly a few hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What was your blood pressure reading in the waiting room?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The nurse said it was 200 over 118. That's why they brought me right back. I've never seen it that high before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive emergency",
+          "Hypertensive urgency",
+          "Migraine headache"
+        ],
+        "workup_ordered": [
+          "Repeat blood pressure measurement",
+          "Electrocardiogram (ECG)",
+          "Basic metabolic panel (BMP)",
+          "Urinalysis"
+        ],
+        "management_plan": [
+          "Administer oral antihypertensive medication for acute blood pressure control",
+          "Refill amlodipine prescription",
+          "Schedule follow-up appointment within 1 week",
+          "Monitor blood pressure at home daily"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of target organ damage due to severely elevated blood pressure"
+        ],
+        "communication_note": "Your blood pressure is very high, and we need to monitor and treat it to prevent complications."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My headache is still there, even after taking the blood pressure medicine you gave me last time. It's not as bad, but it won't go away. My blood pressure is still running high at home too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache further? Is it throbbing, sharp, or dull? Where exactly is it located?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's definitely throbbing\u2014like a pounding sensation. It's mostly in the front of my head, across my forehead and temples. It started suddenly about 4 hours ago and has been pretty constant. The pain is severe, honestly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any vision changes, nausea, or vomiting along with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No vision changes or nausea. I haven't been sick. The headache is just really throbbing and won't go away even with the medicines they gave me today."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive emergency",
+          "Migraine headache",
+          "Subarachnoid hemorrhage",
+          "Tension headache"
+        ],
+        "workup_ordered": [
+          "Complete blood count",
+          "Comprehensive metabolic panel",
+          "Urinalysis",
+          "Head CT without contrast"
+        ],
+        "management_plan": [
+          "Continue antihypertensive medication as prescribed",
+          "Consider pain management for headache",
+          "Follow up with primary care physician within 1 week",
+          "Monitor blood pressure at home regularly"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke or other cardiovascular events due to uncontrolled hypertension",
+          "Severe headache may indicate a more serious underlying condition"
+        ],
+        "communication_note": "Your blood pressure is still high, and your headache may require further evaluation; we will monitor you closely and consider additional tests."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. My headache from before is gone, but now I'm having blurring in my right eye. It started a few hours ago and it's been getting worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Transient Ischemic Attack (TIA)",
+          "Migraine with aura",
+          "Optic Neuritis",
+          "Hypertensive Crisis"
+        ],
+        "workup_ordered": [
+          "Blood pressure measurement",
+          "Fasting blood glucose",
+          "Lipid profile",
+          "MRI of the brain"
+        ],
+        "management_plan": [
+          "Monitor blood pressure at home",
+          "Follow up with neurology",
+          "Lifestyle modifications (diet, exercise)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke if TIA is the cause"
+        ],
+        "communication_note": "We need to rule out serious causes for your vision changes, so we're ordering some tests and referring you to a specialist."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779634315.978103
+}

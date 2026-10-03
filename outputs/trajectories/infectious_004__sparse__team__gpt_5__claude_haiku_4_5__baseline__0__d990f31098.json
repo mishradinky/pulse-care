@@ -1,0 +1,191 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My face is drooping and my joints hurt everywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when the facial drooping and joint pain started, and if there are any other symptoms you've noticed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Face dropped couple weeks ago. Joints hurt everywhere. Also my heart's been weird."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Bell's palsy",
+          "Lyme disease",
+          "Rheumatoid arthritis",
+          "Systemic lupus erythematosus",
+          "Stroke"
+        ],
+        "workup_ordered": [
+          "Physical examination",
+          "Neurological assessment",
+          "Lyme disease serology",
+          "Rheumatoid factor and anti-CCP antibodies",
+          "ANA test",
+          "MRI of the brain"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency services for stroke evaluation",
+          "Post-emergency follow-up for autoimmune and infectious disease workup if stroke is ruled out",
+          "Monitor neurological symptoms closely",
+          "Consider NSAIDs cautiously if autoimmune conditions are confirmed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Facial drooping could indicate a stroke",
+          "Potential for worsening neurological symptoms",
+          "Need for immediate medical intervention"
+        ],
+        "communication_note": "Immediate emergency referral due to potential stroke symptoms.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and outlined necessary workup steps.",
+          "safety_checker_contribution": "Identified facial drooping as a red flag for stroke, recommending emergency escalation.",
+          "pharm_nurse_contribution": "Highlighted the need for monitoring neurological symptoms and cautious use of NSAIDs."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Almost fainted twice. Heart going slowly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these episodes of almost fainting started and if there are any other symptoms you are experiencing, such as dizziness, chest pain, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started last few days. Dizzy, heart going slow and weird. No chest pain."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "bradycardia",
+          "vasovagal syncope",
+          "orthostatic hypotension",
+          "cardiac arrhythmia",
+          "hypothyroidism"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "blood pressure monitoring",
+          "thyroid function tests",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Evaluate the dose of Metoprolol and consider adjustments if necessary.",
+          "Monitor blood pressure and heart rate regularly.",
+          "Advise the patient to avoid sudden position changes to prevent dizziness."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Episodes of almost fainting and bradycardia could indicate a serious cardiac condition.",
+          "Potential cardiac arrhythmia, which can be life-threatening if not addressed quickly."
+        ],
+        "communication_note": "Patient requires urgent outpatient evaluation due to potential cardiac issues.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac issues and recommended a comprehensive workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and suggested monitoring and dose adjustments."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I passed out in the waiting room."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what happened before you passed out? Did you experience any symptoms like dizziness, nausea, or sweating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got dizzy. Then nothing. Woke up here."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "vasovagal syncope",
+          "orthostatic hypotension",
+          "cardiac arrhythmia",
+          "dehydration",
+          "hypoglycemia"
+        ],
+        "workup_ordered": [
+          "orthostatic vital signs",
+          "ECG",
+          "blood glucose level",
+          "complete blood count",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Monitor blood pressure closely",
+          "Ensure adequate hydration",
+          "Review and monitor current medications, especially Lisinopril",
+          "Schedule urgent outpatient follow-up for further cardiac evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential cardiac arrhythmia",
+          "Immediate safety post-syncope",
+          "Risk of hypotension due to Lisinopril"
+        ],
+        "communication_note": "Patient experienced syncope with dizziness; urgent outpatient follow-up recommended due to potential cardiac concerns.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes of syncope and recommended initial workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medication safety and emphasized monitoring blood pressure and hydration."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508624.6884277
+}

@@ -1,0 +1,219 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Thank you for seeing me. I've had terrible diarrhea\u2014about 10 times a day\u2014for the past 4 days. It started right after I finished my antibiotics from the hospital. I also have really bad cramping in my stomach and a fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What antibiotic did you take in the hospital, and do you remember what you were being treated for?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I was treated for pneumonia. They gave me an antibiotic\u2014I believe it was clindamycin. I finished it just before I left the hospital five days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any blood in your stool, and what is your current temperature?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood that I can see, just watery diarrhea. They checked my temperature this morning and it was 38.7 degrees Celsius\u2014I've been feeling feverish since yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with people who were sick, and do you have any nausea, vomiting, or loss of appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't remember being around anyone sick recently. As for nausea and vomiting, no, I haven't had those. My appetite is pretty much gone though\u2014I just don't feel like eating with all this stomach trouble."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent antibiotic use besides the clindamycin from the hospital, and do you have any medical conditions like inflammatory bowel disease or a weakened immune system?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't taken any other antibiotics besides what they gave me in the hospital. And no, I don't have inflammatory bowel disease or a weakened immune system that I know of. I've been pretty healthy otherwise."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any diarrhea or similar symptoms before, and are you currently taking any other medications such as proton pump inhibitors, H2 blockers, or immunosuppressants?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I've never had diarrhea like this before. As for medications, yes, I take omeprazole 40 milligrams daily for my stomach. I also take lisinopril 5 milligrams and metoprolol 25 milligrams for my blood pressure and heart."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI)",
+          "Infectious gastroenteritis (viral or bacterial)",
+          "Post-antibiotic diarrhea (non-CDI)"
+        ],
+        "workup_ordered": [
+          "Stool C. difficile toxin PCR or enzyme immunoassay",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP) for electrolytes and renal function",
+          "Stool culture if diarrhea persists or worsens"
+        ],
+        "management_plan": [
+          "Discontinue omeprazole if possible (PPI increases CDI risk)",
+          "Initiate empiric oral vancomycin 125 mg QID if CDI suspected pending test results",
+          "Aggressive fluid and electrolyte replacement (oral rehydration solution preferred)",
+          "Monitor for signs of severe colitis or toxic megacolon",
+          "Avoid antimotility agents",
+          "Patient education on hand hygiene and infection control"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of severe dehydration given age 70 and high-volume diarrhea",
+          "Potential for fulminant CDI with sepsis if untreated",
+          "Electrolyte abnormalities (hypokalemia, hyponatremia) from fluid losses"
+        ],
+        "communication_note": "Your symptoms are most consistent with an antibiotic-related infection called C. difficile colitis; we need urgent stool testing and will likely start you on specific antibiotics while monitoring your hydration and electrolytes closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still having terrible diarrhea\u2014it's not getting better even though I started the vancomycin you prescribed. I'm going to the bathroom 8 to 10 times a day, my stomach is cramping badly, and my fever came back higher than before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been taking the vancomycin, and have you noticed any blood or mucus in your stool, or any signs of dehydration like dizziness, dark urine, or extreme thirst?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I started the vancomycin maybe 2 days ago. Yes, there's definitely blood and mucus in the stool\u2014it's been that way since the diarrhea started. I feel dizzy when I stand up, my urine looks dark, and I'm very thirsty all the time. I'm also sweating a lot."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current temperature, and have you had any recent antibiotic use before the vancomycin\u2014specifically, were you on antibiotics like fluoroquinolones or clindamycin in the weeks before your diarrhea started?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My temperature this morning was 38.7 degrees Celsius. Yes, I was just discharged from the hospital 5 days ago after treatment for pneumonia\u2014they gave me clindamycin for that. The diarrhea started about 4 days ago, so it was right after I came home."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) - fulminant colitis",
+          "Inflammatory bowel disease (IBD) flare",
+          "Infectious colitis (Salmonella, Shigella, Campylobacter)",
+          "Ischemic colitis"
+        ],
+        "workup_ordered": [
+          "Stool C. difficile toxin PCR or enzyme immunoassay",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP) - assess electrolytes, renal function",
+          "Lactate level",
+          "Abdominal imaging (CT abdomen/pelvis with contrast) - assess for toxic megacolon, perforation",
+          "Blood cultures if febrile"
+        ],
+        "management_plan": [
+          "Continue vancomycin 125 mg PO QID; consider increasing to 500 mg QID if CDI fulminant",
+          "Aggressive fluid resuscitation (IV fluids given signs of dehydration)",
+          "Electrolyte repletion (K+, Mg2+)",
+          "NPO status pending imaging",
+          "Avoid antimotility agents",
+          "Infectious disease consultation",
+          "Surgical consultation if imaging shows toxic megacolon or perforation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Signs of severe dehydration (orthostatic dizziness, dark urine, tachycardia likely)",
+          "High fever (38.7\u00b0C) with bloody diarrhea and severe cramping",
+          "Possible fulminant CDI with risk of toxic megacolon or perforation",
+          "Inadequate response to vancomycin after 2 days suggests severe disease or alternative diagnosis"
+        ],
+        "communication_note": "Your symptoms are concerning for a severe infection of the colon that requires immediate hospital evaluation and imaging to rule out life-threatening complications; please go to the emergency department now."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really worried. My belly is very rigid and hard, it hurts terribly, and I'm having trouble breathing. I've been so sick since I left the hospital."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute abdomen (perforation, peritonitis, bowel obstruction)",
+          "Pulmonary embolism",
+          "Acute decompensated heart failure",
+          "Post-operative complication (if recent surgery)",
+          "Sepsis/severe infection"
+        ],
+        "workup_ordered": [
+          "Stat abdominal CT with IV contrast",
+          "Chest X-ray",
+          "CBC, CMP, lactate, prothrombin time",
+          "Blood cultures if febrile",
+          "ECG",
+          "Troponin"
+        ],
+        "management_plan": [
+          "Immediate emergency department referral",
+          "NPO status",
+          "Establish IV access",
+          "Continuous monitoring of vital signs and oxygen saturation",
+          "Surgical consultation if acute abdomen confirmed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute rigid abdomen with severe pain suggests surgical emergency (perforation, peritonitis)",
+          "Dyspnea with abdominal rigidity raises concern for sepsis or cardiopulmonary compromise",
+          "Recent hospitalization increases risk for nosocomial infection and post-operative complications",
+          "Hemodynamic instability risk given age and acute presentation"
+        ],
+        "communication_note": "Your symptoms are very concerning and require immediate emergency evaluation; please call 911 or go to the nearest emergency department right away."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508842.472826
+}

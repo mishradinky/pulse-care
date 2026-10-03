@@ -1,0 +1,189 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Yellow stuff coming up. Fever. Chest hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis",
+          "chronic obstructive pulmonary disease (COPD) exacerbation",
+          "lung abscess",
+          "tuberculosis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "complete blood count (CBC)",
+          "C-reactive protein (CRP)",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "Initiate empirical antibiotic therapy considering patient's age and potential allergies.",
+          "Monitor vital signs and hydration status closely.",
+          "Educate patient on signs of worsening condition and when to seek immediate care."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential penicillin allergy with Amoxicillin.",
+          "QT prolongation risk with Azithromycin, especially if cardiac history is present.",
+          "Tendonitis risk with Levofloxacin, particularly in older adults.",
+          "Interaction with warfarin if patient is on it, requiring INR monitoring.",
+          "Risk of antibiotic-associated diarrhea or Clostridioides difficile infection."
+        ],
+        "communication_note": "Patient presents with symptoms suggestive of a respiratory infection, requiring urgent outpatient follow-up and empirical treatment.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and recommended workup based on respiratory symptoms.",
+          "safety_checker_contribution": "Approved plan with no red flags, recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed potential medication issues and interactions, advised on monitoring and dose adjustments."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not better. More confused now. Real confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've had any recent fevers, chills, or other symptoms like a cough or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Fever. Cough. Yellow stuff. Can't breathe good."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "delirium due to infection (e.g., pneumonia)",
+          "metabolic disturbance (e.g., electrolyte imbalance)",
+          "medication side effect",
+          "neurological event (e.g., stroke)"
+        ],
+        "workup_ordered": [
+          "complete blood count (CBC)",
+          "basic metabolic panel",
+          "urinalysis",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "Initiate antibiotic therapy if pneumonia is confirmed.",
+          "Adjust medications to avoid those contributing to confusion, such as anticholinergics and benzodiazepines.",
+          "Ensure renal dosing adjustments for any new medications if renal impairment is suspected.",
+          "Monitor hydration and nutritional status closely."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening confusion due to medication side effects.",
+          "Risk of dehydration or electrolyte imbalance contributing to confusion."
+        ],
+        "communication_note": "Patient presents with confusion, fever, cough, and difficulty breathing, suggesting a possible infection.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes of confusion and ordered relevant diagnostic tests.",
+          "safety_checker_contribution": "Approved the plan with no red flags, recommending routine escalation.",
+          "pharm_nurse_contribution": "Highlighted medication concerns and emphasized monitoring for infection and hydration."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when your breathing problems started and if you have any other symptoms like fever or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started four days ago. Cough, yellow stuff. Had fever. Hard to breathe."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pneumonia",
+          "chronic obstructive pulmonary disease (COPD) exacerbation",
+          "pulmonary embolism",
+          "heart failure"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture",
+          "arterial blood gas analysis"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and monitoring.",
+          "Ensure proper inhaler technique for Albuterol and assess frequency of use.",
+          "Monitor for side effects of Prednisone and potential interactions with Lisinopril.",
+          "Adjust Lisinopril dose if renal function is compromised."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "History of intubation suggests potential for severe respiratory issues.",
+          "Difficulty breathing in a 65-year-old male could indicate life-threatening conditions.",
+          "Immediate action is necessary due to potential rapid deterioration."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to severe respiratory symptoms and history of intubation.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and suggested initial workup based on respiratory symptoms.",
+          "safety_checker_contribution": "Identified red flags and recommended immediate ED referral due to potential severity of symptoms.",
+          "pharm_nurse_contribution": "Reviewed current medications, identified potential interactions, and suggested monitoring and dose adjustments."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779507685.3259346
+}

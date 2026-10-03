@@ -1,0 +1,185 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's been racing for three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as chest pain, shortness of breath, dizziness, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart racing. Little short of breath when I move around. Dizzy sometimes."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "anxiety",
+          "hyperthyroidism"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "thyroid function tests",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Schedule an urgent outpatient cardiology consultation.",
+          "Initiate ECG and Holter monitoring to assess for arrhythmias.",
+          "Conduct thyroid function tests to rule out hyperthyroidism.",
+          "Review current medications for potential interactions and side effects.",
+          "Monitor vital signs, especially heart rate and blood pressure, during follow-up."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Presence of chest pain, shortness of breath, and dizziness in a 62-year-old male with a racing heart.",
+          "Potential medication interactions and side effects, particularly with Metoprolol and Levothyroxine.",
+          "Risk of electrolyte imbalance contributing to arrhythmias."
+        ],
+        "communication_note": "The patient requires urgent outpatient evaluation due to potential serious cardiac conditions.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac and non-cardiac causes for the symptoms and recommended diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation due to potential serious cardiac conditions.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and side effects, emphasizing the need for monitoring and potential dose adjustments."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's still racing. Chest feels tight now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when these symptoms started and if anything seems to trigger them?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started three days ago. Happens randomly, no pattern."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "myocardial infarction",
+          "atrial fibrillation",
+          "angina",
+          "anxiety"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "stress test"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management.",
+          "Administer aspirin if not contraindicated.",
+          "Monitor vital signs closely, especially heart rate and blood pressure.",
+          "Educate patient on recognizing symptoms of myocardial infarction and the importance of seeking immediate care."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential myocardial infarction requiring immediate intervention.",
+          "Risk of delayed treatment leading to severe cardiac complications."
+        ],
+        "communication_note": "Patient requires immediate emergency care due to potential myocardial infarction.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac issues and recommended diagnostic workup.",
+          "safety_checker_contribution": "Highlighted red flags indicating a possible myocardial infarction and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medications and highlighted potential interactions and contraindications, emphasizing the need for emergency protocols."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's pounding bad. Passed out this morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what you were doing when you passed out and how long the episode lasted?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Was sitting down. Woke up on floor. Maybe minute or two."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "arrhythmia",
+          "myocardial infarction",
+          "orthostatic hypotension",
+          "vasovagal syncope"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "echocardiogram",
+          "blood tests including electrolytes and cardiac enzymes"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor vital signs closely, especially heart rate and blood pressure.",
+          "Review and potentially adjust Metoprolol dosage to prevent bradycardia and hypotension.",
+          "Ensure patient is well-hydrated and monitor for orthostatic hypotension."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Syncope in a 62-year-old male with potential cardiac causes.",
+          "Symptoms suggestive of arrhythmia or myocardial infarction.",
+          "Potential interaction between Metoprolol and Lisinopril enhancing hypotensive effect."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential cardiac causes of syncope.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac causes for syncope and recommended diagnostic workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended ED referral due to potential myocardial infarction or serious arrhythmia.",
+          "pharm_nurse_contribution": "Reviewed medications and identified potential interactions and concerns related to hypotension."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779506781.7339504
+}

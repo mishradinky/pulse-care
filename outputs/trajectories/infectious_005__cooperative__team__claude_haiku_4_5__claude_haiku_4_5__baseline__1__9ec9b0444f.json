@@ -1,0 +1,233 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "claude-haiku-4-5-20251001",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 70,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I've had terrible diarrhea for the past 4 days\u2014about 10 times a day. It's watery and I'm having severe stomach cramps. I also have a fever. This started right after I finished my antibiotics from the hospital."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Which antibiotic did you receive in the hospital, and for how long were you taking it? Also, have you noticed any blood or mucus in your stool, and do you have any recent travel or sick contacts?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I was given clindamycin for pneumonia and took it the whole time I was in the hospital. I was discharged 5 days ago. The diarrhea started about 4 days ago. No, I haven't seen blood or mucus in the stool, just watery. I haven't traveled recently, and I don't think I've been around anyone sick."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "70-year-old female with 4 days of watery diarrhea (10x/day), fever, and severe cramping starting immediately post-hospitalization after clindamycin course for pneumonia. High-risk presentation for Clostridioides difficile infection (CDI)\u2014clindamycin is a major CDI risk factor.",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) \u2013 MOST LIKELY: post-antibiotic timing, clindamycin exposure (high-risk agent), fever, cramping, watery diarrhea in elderly patient",
+          "Infectious gastroenteritis (viral or bacterial) \u2013 less likely given temporal relationship to antibiotic course",
+          "Inflammatory bowel disease flare \u2013 possible but less likely without prior IBD history",
+          "Ischemic colitis \u2013 consider in 70-year-old with comorbidities"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (temperature, BP, HR, RR, orthostatics) and focused abdominal exam (tenderness, rebound, distension, peritoneal signs)",
+          "STAT Complete Metabolic Panel (electrolytes, creatinine, BUN, albumin)",
+          "STAT Complete Blood Count with differential",
+          "Stool C. difficile toxin assay (NAAT preferred)",
+          "Assessment of hydration status: mucous membranes, skin turgor, urine output, mental status"
+        ],
+        "management_plan": [
+          "IMMEDIATE SAFETY ASSESSMENT: Obtain vital signs and abdominal exam NOW. If peritoneal signs, hemodynamic instability, or severe dehydration \u2192 ED REFERRAL or 911",
+          "Hydration support: PO fluids or IV access if unable to tolerate PO",
+          "Empiric CDI therapy: Vancomycin 125 mg PO QID \u00d7 10 days OR Fidaxomicin 200 mg PO BID \u00d7 10 days (pending toxin confirmation)",
+          "NO antimotility agents (loperamide, diphenoxylate) \u2013 contraindicated in CDI",
+          "Complete medication reconciliation; screen for drug interactions",
+          "Implement contact precautions (soap/water hand hygiene)",
+          "Monitor for worsening: abdominal pain, fever >39\u00b0C, WBC >15K, Cr elevation",
+          "Fall precautions; allergy verification before therapy"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "escalation_rationale": "High-risk CDI presentation requires same-day labs and abdominal exam. Patient currently stable but BLOCKING CONCERN: if abdominal exam reveals peritoneal signs, hemodynamic instability, or altered mental status \u2192 escalate to ED_REFERRAL or EMERGENCY_911 immediately.",
+        "safety_concerns": [
+          "Age 70 + fever + diarrhea + cramping = HIGH RISK for severe/fulminant CDI and toxic megacolon; abdominal exam and vital signs MUST be obtained immediately",
+          "Dehydration risk: 4 days of high-volume diarrhea (10x/day) + fever likely significant volume depletion; orthostatics and IV access assessment needed",
+          "Electrolyte derangement: diarrhea + fever = hypokalemia, hyponatremia risk; baseline CMP essential",
+          "Toxic megacolon surveillance: monitor for abdominal distension, severe pain, fever >39\u00b0C, WBC >15K, Cr elevation",
+          "Mental status: CDI toxin can cause encephalopathy in elderly; assess baseline cognition",
+          "Antimotility contraindication: ensure no antidiarrheals prescribed",
+          "Vancomycin must be PO formulation (not IV); separate from other PO meds by 2 hrs",
+          "Fall risk: acute illness + orthostatic hypotension + frequent bathroom access in 70-year-old"
+        ],
+        "communication_note": "70-year-old with classic post-antibiotic CDI presentation (clindamycin exposure, fever, watery diarrhea); requires urgent same-day labs and abdominal exam to rule out severe disease; empiric vancomycin or fidaxomicin recommended pending toxin confirmation.",
+        "trace": {
+          "clinician_contribution": "Identified CDI as most likely diagnosis based on post-antibiotic timing and clindamycin exposure (high-risk agent). Proposed targeted history and appropriate differential diagnosis with stool C. difficile toxin assay, CMP, CBC. Rationale sound but lacked emphasis on immediate safety assessment (vital signs, abdominal exam) before history-taking.",
+          "safety_checker_contribution": "CRITICAL ESCALATION: Flagged age 70 + fever + diarrhea + cramping = HIGH RISK for severe CDI/toxic megacolon requiring IMMEDIATE vital signs, abdominal exam, and hemodynamic stability assessment BEFORE history. Identified gaps in vital signs, abdominal exam, dehydration assessment, and mental status check. Blocked history-first approach and mandated urgent physical exam + labs same-day. Recommended decision tree for peritoneal signs/instability \u2192 ED referral.",
+          "pharm_nurse_contribution": "Confirmed clindamycin as HIGH-RISK CDI agent. Identified need for complete medication reconciliation to screen for drug interactions with vancomycin/fidaxomicin. Flagged CRITICAL need for baseline creatinine/eGFR for vancomycin dosing. Recommended vancomycin 125 mg PO QID or fidaxomicin 200 mg PO BID. Emphasized dehydration monitoring, electrolyte surveillance, fall precautions, contact precautions, antimotility contraindication, and allergy verification. Highlighted toxic megacolon surveillance parameters and nutritional assessment needs."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, the diarrhea hasn't gotten better even though I started the vancomycin you prescribed. I'm still going to the bathroom constantly, and my fever is actually higher now. I'm really worried about what's happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you start the vancomycin, and how many doses have you taken? Also, describe your current diarrhea\u2014is it bloody, watery, or mucoid? And what is your fever temperature now compared to when we last saw you?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I started the vancomycin yesterday, so I've taken maybe 3 or 4 doses so far. The diarrhea is watery\u2014very watery, not bloody. I'm going to the bathroom 8 to 10 times a day. My temperature this morning was 38.7, which is about the same as before, maybe even a bit higher. I'm not feeling better at all."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "70-year-old female with worsening watery diarrhea (8\u201310\u00d7/day) and persistent fever (38.7\u00b0C) despite <24 hours of vancomycin therapy (3\u20134 doses). Patient reports no improvement and escalating concern. Early in treatment course, but clinical trajectory and age/risk profile warrant urgent evaluation to rule out severe/fulminant CDI, toxic megacolon, perforation, or alternative diagnosis.",
+        "differential_diagnosis": [
+          "Fulminant C. difficile colitis (treatment failure or severe disease progression)",
+          "Subtherapeutic vancomycin dosing or inadequate absorption",
+          "Metronidazole-resistant or vancomycin-resistant C. difficile strain",
+          "Secondary bacterial infection (Salmonella, Shigella, Campylobacter)",
+          "Toxic megacolon or colonic perforation (surgical emergency)",
+          "Inflammatory bowel disease flare (unmasked by initial CDI diagnosis)",
+          "Sepsis/septic shock from CDI or concurrent infection"
+        ],
+        "workup_ordered": [
+          "STAT: Current vital signs (BP, HR, RR, O2 sat, temp) + assessment for acute abdomen (rebound, guarding, distension, bowel sounds)",
+          "STAT: Lactate level (tissue hypoperfusion marker in fulminant CDI/sepsis)",
+          "STAT: Blood cultures if temp \u226538.5\u00b0C (patient at 38.7\u00b0C)",
+          "URGENT (ED-based imaging, NOT outpatient): CT abdomen/pelvis to assess for megacolon, perforation, wall thickening, free air",
+          "URGENT: Complete metabolic panel (creatinine, electrolytes [K+, Na+, Mg2+], lactate) + CBC with differential (WBC trend, left shift)",
+          "Repeat stool C. difficile toxin PCR/enzyme immunoassay (only if initial test was >7 days ago; otherwise defer to avoid false-positive colonization)",
+          "Stool culture if bloody diarrhea develops or alternative bacterial pathogen suspected"
+        ],
+        "management_plan": [
+          "ESCALATION TO ED: Patient requires urgent ED evaluation for imaging + labs rather than outpatient workup. Do NOT delay for routine scheduling.",
+          "VANCOMYCIN DOSING VERIFICATION: Confirm current dose. If <500 mg PO QID, escalate to 500 mg PO QID for severe/fulminant disease. Patient is only 24 hours into therapy\u2014early response may not yet be evident, but worsening trajectory + fever persistence warrants dose confirmation and possible escalation.",
+          "MEDICATION REVIEW: Verify patient is NOT taking antiperistaltic agents (loperamide, diphenoxylate)\u2014contraindicated in CDI due to toxic megacolon risk.",
+          "HYDRATION & ELECTROLYTE SUPPORT: Assess for dehydration, orthostatics, and electrolyte depletion (K+, Mg2+). May require IV fluid resuscitation given age, diarrheal losses, and fever.",
+          "SEPSIS PRECAUTIONS: Monitor vitals q2\u20134h in ED/hospital setting. Escalate if HR >110, BP <90/60, RR >20, altered mental status, or lactate >2 mmol/L.",
+          "FIDAXOMICIN CONSIDERATION: If vancomycin failure confirmed after ED workup, consider fidaxomicin 200 mg PO BID \u00d710 days (superior recurrence rates, though cost may be barrier).",
+          "INFECTION CONTROL: Maintain contact precautions (gloves, gown); use soap and water for hand hygiene (alcohol-resistant spores).",
+          "COMORBIDITY ASSESSMENT: Screen for CKD, diabetes, immunosuppression at ED visit; adjust supportive care accordingly."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Fever 38.7\u00b0C + worsening diarrhea despite vancomycin in 70-year-old = high-risk pattern for severe/fulminant CDI with potential for rapid decompensation.",
+          "CRITICAL: Toxic megacolon and colonic perforation are time-sensitive surgical emergencies. CT imaging must be obtained in ED NOW, not scheduled outpatient.",
+          "CRITICAL: Lactate and blood cultures must be drawn emergently (ED or stat lab), not delayed for routine outpatient labs.",
+          "CRITICAL: Acute abdomen assessment (rebound, guarding, distension, bowel sounds) has NOT been documented. Must be performed before any outpatient plan.",
+          "CRITICAL: Current hemodynamic stability, mental status, and orthostatics unknown. Patient may be in early septic shock.",
+          "SAFETY GAP: Vancomycin dosing/compliance unconfirmed. Subtherapeutic dosing (<500 mg QID) could explain lack of response, but must be verified before escalation decision.",
+          "SAFETY GAP: Antiperistaltic agent use not ruled out. If patient is taking loperamide or diphenoxylate, this significantly increases toxic megacolon risk and must be discontinued immediately.",
+          "SAFETY GAP: Repeat stool testing timing unclear. If initial CDI diagnosis was <7 days ago, repeat testing may yield false-positive colonization; clarify before ordering.",
+          "AGE/COMORBIDITY RISK: Age 70 + immunocompromised status (implied by CDI severity) = higher mortality if diagnosis/treatment delayed."
+        ],
+        "communication_note": "Patient requires ED referral NOW for urgent imaging (CT abdomen/pelvis), labs (lactate, blood cultures, CMP, CBC), and acute abdomen assessment to rule out surgical emergencies (toxic megacolon, perforation) and sepsis; outpatient workup is unsafe given clinical trajectory and age.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified worsening diarrhea + fever despite vancomycin as treatment failure pattern and generated comprehensive differential (fulminant CDI, resistant strains, secondary infection, IBD flare, toxic megacolon/perforation) with targeted workup (repeat toxin, CMP, CBC, imaging, blood cultures, stool culture). However, clinician did not assess acute abdomen signs, current vitals, or hemodynamic stability\u2014critical safety gaps.",
+          "safety_checker_contribution": "Safety checker identified CRITICAL red flags: treatment failure in high-risk elderly patient, surgical emergency differential (toxic megacolon, perforation), missing vital signs and hemodynamic assessment, unknown vancomycin dosing/compliance, missing lactate and acute abdomen evaluation, and sepsis risk. Recommended ED referral with blocking concerns for STAT vitals, STAT imaging (not outpatient), STAT lactate/blood cultures, and acute abdomen assessment. Correctly escalated to ED-level care.",
+          "pharm_nurse_contribution": "Pharm/nurse verified vancomycin dosing concern (standard 125 mg QID for mild-moderate vs. 500 mg QID for severe/fulminant; worsening symptoms suggest need for dose confirmation/escalation), flagged renal function monitoring, ruled out major drug interactions, identified CONTRAINDICATION of antiperistaltic agents in CDI, and provided nursing sepsis/fluid/electrolyte precautions, toxic megacolon red flags, medication adherence check, and infection control guidance. Emphasized repeat testing timing and comorbidity screening."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really worried. My stomach is rigid and hard, I can't breathe well, and I feel very confused. Something is seriously wrong."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute abdomen with peritonitis (perforation, ruptured viscus)",
+          "Sepsis/septic shock (source: intra-abdominal, respiratory, or other)",
+          "Acute respiratory failure (aspiration, pneumonia, pulmonary embolism, cardiogenic pulmonary edema)",
+          "Acute delirium secondary to infection or metabolic derangement",
+          "Acute coronary syndrome with cardiogenic shock"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (BP, HR, RR, O2 sat, temp)",
+          "Airway assessment; supplemental O2 or intubation readiness",
+          "IV access (large-bore \u00d7 2 for fluids + vasopressors if needed)",
+          "STAT labs: CBC, CMP (renal/hepatic function), lactate, blood cultures",
+          "STAT imaging: CT abdomen/pelvis with IV contrast (if renal function permits; otherwise non-contrast)",
+          "ECG (rule out ACS/arrhythmia)",
+          "Medication reconciliation + allergy history (CRITICAL before antibiotics/contrast)",
+          "Sepsis protocol activation (if criteria met)"
+        ],
+        "management_plan": [
+          "Activate emergency 911 transport immediately\u2014do NOT delay for outpatient workup",
+          "NPO status; head-of-bed elevation; suction at bedside (aspiration precaution)",
+          "Prepare for possible intubation (coordinate sedation choice with hemodynamic status)",
+          "If sepsis confirmed: broad-spectrum antibiotics within 1 hour (dosing adjusted for renal/hepatic function); vasopressor support (norepinephrine preferred); lactate-guided resuscitation",
+          "Obtain baseline creatinine STAT before any renally-cleared drugs or contrast administration",
+          "Assess for anticoagulation/antiplatelet use (impacts bleeding risk in perforation)",
+          "Assess for recent antibiotics (C. difficile risk if diarrhea present)",
+          "Coordinate with ICU for possible transfer post-stabilization"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "ACUTE TRIAD (rigidity + respiratory compromise + altered mental status) = medical emergency requiring immediate stabilization",
+          "Age 70 with multi-system acute failure suggests sepsis, peritonitis, or cardiogenic shock\u2014all time-sensitive",
+          "Altered mental status + respiratory compromise = HIGH aspiration and intubation risk",
+          "Hemodynamic stability unknown; risk of shock (septic, cardiogenic, or hypovolemic)",
+          "Differential includes surgical emergency (perforation/peritonitis) requiring urgent imaging and possible OR consultation",
+          "CRITICAL GAPS: No current medication list, no allergy history, no baseline renal/hepatic function\u2014must obtain immediately before drug administration",
+          "Contrast nephropathy risk if CT imaging planned (age 70 + acute illness + unknown renal function)"
+        ],
+        "communication_note": "This 70-year-old female presents with acute decompensation (rigid abdomen, respiratory compromise, altered mental status) meeting criteria for immediate 911 activation and ED evaluation; clinician appropriately yielded to safety, and all three roles align on emergency escalation with airway-first prioritization and sepsis protocol readiness.",
+        "trace": {
+          "clinician_contribution": "Recognized acute medical emergency and appropriately yielded to safety; provided well-reasoned differential (peritonitis, sepsis, respiratory failure, delirium, ACS) and correctly prioritized critical actions (vitals \u2192 airway \u2192 labs/imaging \u2192 sepsis protocol).",
+          "safety_checker_contribution": "Validated clinician's judgment; confirmed no blocking concerns; approved emergency 911 escalation; verified that differential and action sequence are sound and time-sensitive; flagged unknown hemodynamic stability as additional red flag.",
+          "pharm_nurse_contribution": "Identified CRITICAL gaps (no medication list, no allergy history, unknown renal/hepatic function); flagged high-priority drug interactions (anticoagulation/antiplatelet, recent antibiotics, contrast nephropathy risk); emphasized airway/aspiration precautions, sepsis protocol readiness, and need for medication reconciliation BEFORE any drug administration; recommended ICU coordination."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790545622.8267171
+}

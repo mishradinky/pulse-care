@@ -1,0 +1,166 @@
+{
+  "case_id": "mental_002",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Bipolar I disorder, manic episode",
+          "Substance-induced mania",
+          "Schizoaffective disorder",
+          "Anxiety disorder",
+          "Thyroid dysfunction"
+        ],
+        "workup_ordered": [
+          "Lithium level",
+          "Thyroid-stimulating hormone (TSH)",
+          "Basic metabolic panel (BMP)",
+          "Complete blood count (CBC)",
+          "Urine drug screen",
+          "Young Mania Rating Scale (YMRS)"
+        ],
+        "management_plan": [
+          "Initiate mood stabilizer therapy (e.g., lithium, valproic acid, or atypical antipsychotic)",
+          "Consider benzodiazepines for agitation and insomnia",
+          "Monitor vital signs and psychiatric symptoms closely",
+          "Coordinate with psychiatry for further evaluation and management",
+          "Ensure patient safety and consider hospitalization if necessary"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of harm to self or others due to agitation and aggression",
+          "Potential for impulsive and dangerous behaviors",
+          "Need for close monitoring of vital signs and psychiatric symptoms"
+        ],
+        "communication_note": "Patient is a 34-year-old male with bipolar I disorder presenting with severe manic symptoms, including grandiosity, impulsive spending, and aggression. Lithium was stopped 3 weeks ago. Patient requires immediate psychiatric evaluation and management.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's psychiatric and physical symptoms, ordered relevant labs and scales.",
+          "safety_checker_contribution": "Identified safety concerns related to patient's agitation and aggression.",
+          "pharm_nurse_contribution": "Reviewed medication history and recommended appropriate pharmacotherapy."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Bipolar I disorder, manic episode with psychotic features",
+          "Substance-induced mania",
+          "Schizoaffective disorder",
+          "Brief psychotic disorder"
+        ],
+        "workup_ordered": [
+          "Urinary drug screen",
+          "Serum lithium level",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Thyroid function tests (TSH, free T4)",
+          "Pregnancy test (if applicable)",
+          "ECG (already done, QTc monitoring)"
+        ],
+        "management_plan": [
+          "Immediate psychiatric evaluation and stabilization",
+          "Initiate mood stabilizer (e.g., valproic acid or atypical antipsychotic)",
+          "Consider benzodiazepines for agitation (e.g., lorazepam)",
+          "Ensure safety and prevent harm to self/others",
+          "Involve crisis team or psychiatric consultation",
+          "Assess capacity and need for involuntary hospitalization",
+          "Address lithium discontinuation and potential toxicity",
+          "Monitor QTc interval due to potential drug interactions"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Aggressive behavior and violence",
+          "Poor insight and lack of cooperation",
+          "Risk of harm to self/others",
+          "Need for immediate psychiatric intervention"
+        ],
+        "communication_note": "Patient requires immediate psychiatric evaluation and stabilization due to severe manic symptoms with psychotic features and aggressive behavior. Coordination with crisis team, psychiatric consultation, and potential hospitalization is necessary. Ensure safety and prevent harm to self/others.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's psychiatric and neuro exam findings, ordered labs and ECG.",
+          "safety_checker_contribution": "Identified safety concerns and need for immediate intervention.",
+          "pharm_nurse_contribution": "Assisted with medication management and monitoring."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Bipolar I disorder, manic episode",
+          "Substance-induced mania",
+          "Schizoaffective disorder",
+          "Brief psychotic disorder"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Thyroid function tests (TSH, T3, T4)",
+          "Urine drug screen",
+          "Repeat lithium level in 6 hours",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Continue lithium therapy and monitor levels closely",
+          "Consider adding an atypical antipsychotic (e.g., olanzapine, quetiapine) for mood stabilization and psychosis",
+          "Monitor for extrapyramidal symptoms (EPS) due to haloperidol use",
+          "Encourage adequate hydration and electrolyte balance",
+          "Psychiatric consultation for long-term management and medication adjustment",
+          "Social work consultation for financial and occupational support",
+          "Discharge planning with follow-up appointment within 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of self-harm or harm to others due to poor insight and grandiose delusions",
+          "Potential for financial exploitation or reckless behavior",
+          "Risk of medication non-adherence and relapse"
+        ],
+        "communication_note": "Coordinate with psychiatric team for urgent outpatient follow-up and ensure patient has a support system in place for discharge.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's psychiatric and medical status, ordered necessary labs and tests, and initiated management plan.",
+          "safety_checker_contribution": "Identified safety concerns related to patient's behavior and lack of insight.",
+          "pharm_nurse_contribution": "Monitored patient's response to medications, ensured proper dosing and administration, and provided education on medication adherence."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "bipolar I disorder manic episode with psychosis",
+      "substance-induced mania",
+      "schizoaffective disorder",
+      "secondary mania"
+    ],
+    "required_workup": [
+      "lithium level",
+      "TSH",
+      "BMP CBC",
+      "urine drug screen",
+      "ECG before antipsychotics",
+      "head imaging if first episode"
+    ],
+    "correct_management": [
+      "involuntary psychiatric hold",
+      "IM benzodiazepine for acute agitation",
+      "antipsychotic (haloperidol risperidone)",
+      "restart lithium targeting 0.8-1.2 mEq/L",
+      "inpatient psychiatric admission",
+      "family education"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597894.3692236
+}

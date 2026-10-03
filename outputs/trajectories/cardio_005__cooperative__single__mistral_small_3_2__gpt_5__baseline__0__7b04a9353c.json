@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having sudden sharp pain on the right side of my chest and I'm short of breath. It started after a long flight I took a few days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain further? Is it worse with deep breaths or movement?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain is sharp and on the right side of my chest. It definitely gets worse when I take deep breaths or move around too much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your chest or ribs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any injuries or trauma to my chest or ribs recently."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling or redness in your leg or calf area recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg is a bit swollen compared to the left, and it's tender too."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pulmonary embolism",
+          "Pneumothorax",
+          "Costochondritis",
+          "Musculoskeletal injury"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "Chest X-ray",
+          "Ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Pain management with NSAIDs",
+          "Anticoagulation if PE is confirmed",
+          "Follow-up in 24 hours for test results"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Possible pulmonary embolism given the combination of chest pain, shortness of breath, and leg swelling"
+        ],
+        "communication_note": "We need to rule out a blood clot in your lung given your symptoms, so we've ordered some tests and will follow up soon."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I'm feeling worse than before. My breathing is really difficult even when I'm just sitting, and my right leg is more painful now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain in your right leg? Is it a sharp pain, dull ache, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain in my right leg feels like a dull ache, and it's been getting worse. It's also more painful than when I first noticed it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling or redness in your right leg along with the pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg is more swollen and painful, and it seems a bit redder than before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or surgeries that could be related to these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any recent injuries or surgeries. I did have a long flight from Tokyo about five days ago, though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Deep Vein Thrombosis (DVT)",
+          "Pulmonary Embolism (PE)",
+          "Chronic Obstructive Pulmonary Disease (COPD) exacerbation"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "Lower extremity Doppler ultrasound",
+          "Chest CT angiography"
+        ],
+        "management_plan": [
+          "Start anticoagulation therapy if DVT or PE is confirmed",
+          "Referral to a cardiologist or pulmonologist for further evaluation",
+          "Monitor symptoms and adjust treatment as necessary"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of pulmonary embolism due to recent long flight and worsening symptoms",
+          "Potential for further complications if DVT or PE is not promptly treated"
+        ],
+        "communication_note": "Given your symptoms and recent travel, we need to rule out serious conditions like blood clots in your leg or lungs, so we will order some tests and start appropriate treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm here because I've been feeling like I'm going to pass out and I'm really short of breath. It's gotten quite severe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "syncope",
+          "dysrhythmia",
+          "pulmonary embolism",
+          "heart failure",
+          "anemia"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "complete blood count",
+          "basic metabolic panel",
+          "D-dimer",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "monitor vital signs",
+          "prepare for possible cardiology consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sudden cardiac arrest",
+          "potential for severe hypoxia"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious cardiac or pulmonary condition, and we are sending you to the emergency department for further evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779635771.1613863
+}

@@ -1,0 +1,126 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "UTI",
+          "acute kidney injury",
+          "hyperglycemia",
+          "UTI with delirium"
+        ],
+        "workup_ordered": [
+          "urine culture",
+          "BMP",
+          "CBC"
+        ],
+        "management_plan": [
+          "IV fluids",
+          "antibiotic therapy",
+          "monitor blood glucose"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of falls due to confusion and incontinence",
+          "potential for worsening renal function"
+        ],
+        "communication_note": "Your mom is showing signs of an infection and some kidney issues, so we're starting treatment and will monitor her closely."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Sepsis due to ESBL E. coli UTI",
+          "Acute kidney injury",
+          "Delirium secondary to infection"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Urine culture sensitivity",
+          "Basic metabolic panel",
+          "Complete blood count",
+          "Renal ultrasound"
+        ],
+        "management_plan": [
+          "Switch antibiotics to carbapenem based on sensitivity results",
+          "IV fluids for dehydration",
+          "Monitor renal function closely",
+          "Consult nephrology for resistant UTI",
+          "Initiate delirium protocol including reorientation and family support"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Sepsis risk due to resistant infection",
+          "Acute kidney injury progression",
+          "Dehydration and malnutrition"
+        ],
+        "communication_note": "Your mother's infection has worsened and we're changing her antibiotics to treat it more effectively, while also addressing her kidney function and confusion."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urosepsis",
+          "septic shock",
+          "acute kidney injury"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "BMP",
+          "CBC",
+          "lactate"
+        ],
+        "management_plan": [
+          "IV fluids",
+          "broad-spectrum antibiotics",
+          "pressor support",
+          "ICU admission"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "septic shock",
+          "acute kidney injury",
+          "respiratory failure"
+        ],
+        "communication_note": "Patient is critically ill with septic shock and needs immediate emergency care."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505862.6039555
+}

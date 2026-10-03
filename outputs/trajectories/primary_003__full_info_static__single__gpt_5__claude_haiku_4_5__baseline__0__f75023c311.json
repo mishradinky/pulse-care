@@ -1,0 +1,99 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Primary hypothyroidism",
+          "Hashimoto's thyroiditis"
+        ],
+        "workup_ordered": [
+          "Thyroid ultrasound"
+        ],
+        "management_plan": [
+          "Start levothyroxine therapy",
+          "Monitor thyroid function tests in 6-8 weeks",
+          "Educate patient on hypothyroidism symptoms and management"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Your symptoms and test results suggest an underactive thyroid, which we can manage with medication."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "suboptimal levothyroxine absorption",
+          "hypothyroidism"
+        ],
+        "workup_ordered": [
+          "repeat TSH and free T4 in 6 weeks"
+        ],
+        "management_plan": [
+          "advise taking levothyroxine on an empty stomach with water, at least 30-60 minutes before coffee or food",
+          "monitor symptoms and adjust levothyroxine dose based on follow-up labs"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "ensure proper medication absorption to avoid persistent hypothyroid symptoms"
+        ],
+        "communication_note": "It seems like the levothyroxine might not be fully absorbed due to taking it with coffee. Let's adjust how you take it and recheck your thyroid levels in a few weeks."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypothyroidism"
+        ],
+        "workup_ordered": [
+          "none"
+        ],
+        "management_plan": [
+          "continue current dose of levothyroxine",
+          "recheck TSH and free T4 in 6 weeks",
+          "encourage patient to maintain a healthy diet and exercise routine"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Your thyroid levels are improving, and you should continue your current medication. We'll recheck your levels in 6 weeks to ensure they stabilize."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779505826.2518864
+}

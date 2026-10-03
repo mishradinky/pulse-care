@@ -1,0 +1,187 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Terrible diarrhea. Ten times a day. Can't stop it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this diarrhea, and have you noticed any other symptoms such as fever, abdominal pain, or blood in your stool?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Bad cramps. Fever. No blood that I saw."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "infectious gastroenteritis",
+          "Clostridioides difficile infection",
+          "inflammatory bowel disease",
+          "medication-induced diarrhea"
+        ],
+        "workup_ordered": [
+          "stool culture and sensitivity",
+          "Clostridioides difficile toxin assay",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "Initiate oral rehydration therapy to prevent dehydration.",
+          "Hold Metformin temporarily to prevent further dehydration and potential lactic acidosis.",
+          "Monitor blood pressure and renal function due to potential interactions between Lisinopril and NSAIDs.",
+          "Consider alternative pain management options to avoid NSAID use."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of dehydration and electrolyte imbalance due to frequent diarrhea.",
+          "Potential for Clostridioides difficile infection, which can be severe in older adults.",
+          "Possible interaction between Lisinopril and NSAIDs affecting renal function."
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up to address potential dehydration and assess for Clostridioides difficile infection.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and recommended initial workup based on patient's symptoms and age.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation due to patient's age and symptom severity.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and recommended holding Metformin to prevent dehydration."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Diarrhea's worse. Fever's back up."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me how long you've been experiencing diarrhea and fever, and if you've noticed any other symptoms like abdominal pain, nausea, or vomiting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days of diarrhea and fever. Bad stomach cramps. No vomiting."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "gastroenteritis",
+          "Clostridioides difficile infection",
+          "inflammatory bowel disease",
+          "diverticulitis"
+        ],
+        "workup_ordered": [
+          "stool culture",
+          "C. difficile toxin assay",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "Immediate assessment of hydration status and initiation of oral rehydration therapy.",
+          "Hold Metformin temporarily until renal function is assessed.",
+          "Avoid Ibuprofen due to potential renal impairment and dehydration risk.",
+          "Monitor blood pressure closely if Lisinopril is continued.",
+          "Schedule urgent outpatient follow-up to reassess symptoms and review test results."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of dehydration due to diarrhea and fever in an elderly patient.",
+          "Potential for Clostridioides difficile infection, which can be severe in older adults.",
+          "Medication interactions and renal function concerns due to dehydration."
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up due to dehydration risk and potential C. difficile infection.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup plan based on symptoms.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation due to dehydration risk.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and recommended monitoring and adjustments."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My belly's hard. Can't breathe right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when these symptoms started and if anything makes them better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started four days ago. Nothing helps. Getting worse."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "ascites due to liver disease",
+          "congestive heart failure",
+          "chronic obstructive pulmonary disease exacerbation",
+          "abdominal mass or tumor"
+        ],
+        "workup_ordered": [
+          "physical examination focusing on abdominal distension and respiratory effort",
+          "abdominal ultrasound",
+          "chest X-ray",
+          "basic metabolic panel",
+          "liver function tests"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor vital signs closely, especially respiratory rate and oxygen saturation.",
+          "Ensure patient is not taking NSAIDs and adjust diuretics as needed based on renal function and fluid status."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Difficulty breathing in conjunction with abdominal distension in an elderly patient.",
+          "Potential for rapid deterioration due to underlying conditions such as congestive heart failure or significant fluid accumulation."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to serious symptoms.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and outlined necessary workup to investigate symptoms.",
+          "safety_checker_contribution": "Identified red flags and recommended immediate ED referral due to potential for rapid deterioration.",
+          "pharm_nurse_contribution": "Highlighted medication interactions and necessary monitoring, emphasizing the need to avoid NSAIDs and adjust diuretics."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508951.9015307
+}

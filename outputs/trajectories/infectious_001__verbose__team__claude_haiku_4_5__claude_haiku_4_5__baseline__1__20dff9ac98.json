@@ -1,0 +1,238 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "claude-haiku-4-5-20251001",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh doc, thank goodness you're here. You know, I was just thinking about last year when I had that spell\u2014my neighbor had to drive me to urgent care because I could barely catch my breath. Anyway, this cough, it's been just awful these past four days, just terrible. I'm coughing up this yellowish-green stuff, you know? And I've got this fever\u2014I took my temperature this morning and it was way up there. Plus my chest really hurts when I breathe, especially on this side here [gestures to right side]. Been running a fever too. I'm also feeling a bit foggy, if I'm being honest. I live alone, so it's been rough managing everything. Can barely sleep with all this noise coming out of me. I smoke, been doing that for years, and I know I shouldn't but... anyway, doc, I'm really worried this time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to make sure I have the full picture. A few quick things: Do you have any shortness of breath right now, or just with the coughing? And have you had any recent sick contacts\u2014anyone at home or people you've been around who were ill? Also, any nausea, vomiting, or diarrhea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, you know, I live alone\u2014been that way for a while now\u2014so I don't really have people coming and going much. My neighbor across the hall, she had something nasty last month, but that was weeks ago, so probably not related. As for the shortness of breath, yeah, I get it even when I'm just sitting here trying to watch TV. It's worse when I cough, obviously, but honestly my breathing's been a bit rough for a while with my lung condition, so it's hard to say what's new. The nausea and all that\u2014no, thank God, just the cough and the fever. My stomach's been okay. I'm more worried about this chest pain, it really hurts when I breathe in deep. And I'm getting confused sometimes, which is strange for me. Just want to get better so I can get back to work."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "ed_referral",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) \u2014 HIGH PROBABILITY",
+          "Acute bronchitis with pleurisy",
+          "Influenza with secondary bacterial infection",
+          "COPD exacerbation with superimposed infection"
+        ],
+        "critical_blocking_issues": [
+          "ALTERED MENTAL STATUS (fogginess + confusion) + FEVER + PRODUCTIVE COUGH + PLEURITIC CHEST PAIN + DYSPNEA AT REST in 65yo smoker = RED FLAG for sepsis or severe pneumonia with hypoxia",
+          "NO VITAL SIGNS OBTAINED \u2014 SpO2, RR, BP, HR, temperature MUST be measured immediately; patient reports dyspnea at rest and altered cognition suggesting possible hypoxemia",
+          "Patient cannot reliably distinguish baseline dyspnea (chronic lung condition) from acute worsening \u2014 requires objective assessment",
+          "Lives alone with no support system \u2014 safety concern for deterioration at home"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (SpO2, RR, BP, HR, temperature) \u2014 BEFORE any further history",
+          "Chest X-ray (portable if needed for ED triage)",
+          "CBC with differential, CMP (creatinine/eGFR, LFTs), blood cultures \u00d7 2",
+          "Sputum culture and gram stain if productive sample obtainable",
+          "Consider lactate if sepsis concern confirmed on vitals"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL \u2014 do not manage outpatient; patient requires urgent stabilization, oxygenation assessment, and possible IV therapy",
+          "Obtain complete medication list (current Rx, OTC, supplements) and confirm drug allergies (penicillin/beta-lactam, macrolide reaction type) BEFORE ED handoff",
+          "Assess baseline mental status and document for delirium screening in ED",
+          "Do NOT initiate oral antibiotics in office \u2014 defer to ED for IV therapy decision based on severity and renal function",
+          "Communicate smoking history and prior respiratory episode (urgent care visit last year) to ED team"
+        ],
+        "safety_concerns": [
+          "Altered mental status is RED FLAG for hypoxia, sepsis, or metabolic derangement \u2014 NOT safe for outpatient observation",
+          "Age 65 + smoking history + 4-day fever + productive cough + pleuritic pain + dyspnea at rest = HIGH RISK for rapid decompensation",
+          "Patient lives alone \u2014 no one to monitor for worsening or call for help if deteriorates",
+          "Baseline renal and hepatic function unknown \u2014 cannot safely dose antibiotics without labs",
+          "Fall risk: altered mental status + age + potential hypoxia-related dizziness"
+        ],
+        "communication_note": "Patient requires immediate ED evaluation for suspected pneumonia with sepsis concern; do not delay for outpatient workup given altered mental status, dyspnea at rest, and high-risk demographics.",
+        "trace": {
+          "clinician_contribution": "Appropriately identified high pretest probability for CAP and initiated targeted history (dyspnea acuity, sick contacts, GI symptoms); however, proceeded with additional questioning despite red flags that should have triggered immediate vital signs and escalation.",
+          "safety_checker_contribution": "Correctly identified altered mental status + fever + respiratory symptoms as sepsis red flag; flagged critical gap (no vitals documented); recommended ED referral and STAT vital signs as blocking concern before any further workup.",
+          "pharm_nurse_contribution": "Identified critical gaps in medication list and allergy documentation; flagged need for renal/hepatic function before antibiotic dosing; raised concern about altered mental status as potential hypoxia/delirium; noted fall risk and medication adherence barriers in elderly patient living alone."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank goodness you're here, doc. I... I'm just not doing any better, you know? My daughter was just here this morning\u2014she works nights at the hospital over on Maple Street\u2014and she said I'm talking funny, repeating myself. I don't remember half of what she said, to be honest. And this cough, it's still just as bad, maybe worse. Yellow stuff, really nasty. I took those pills you gave me yesterday, the ones that start with an 'A', and honestly I thought I'd feel better by now but I feel worse. I'm all mixed up in my head, can't really think straight. My breathing's gotten harder too. I'm pretty scared, doc. I haven't even eaten since yesterday\u2014nothing tastes right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm concerned about what you're describing. Let me ask a few quick things: Do you have a fever right now, and have you checked your temperature? And when you say you're 'all mixed up'\u2014are you having trouble finding words, or is it more like confusion about where you are or what day it is?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my daughter was just here this morning\u2014she brought me some soup, bless her heart, though I couldn't really eat much of it, you know? Anyway, she said I felt hot when she hugged me. I don't have one of those thermometer things handy right now, but I remember yesterday the nurse took my temperature and it was pretty high, like 103 or something? As for the mixed up part... honestly, doc, it's hard to explain. My grandson was visiting earlier and I couldn't remember his name for a second, which scared me. And I kept asking my daughter what time it was\u2014like, I'd ask her and then five minutes later ask again. It's not like I can't find the words exactly, more like... my head's just foggy and I'm not tracking things right. Everything feels kind of blurry. My daughter's worried sick about me."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia with sepsis/systemic toxicity (day 2 treatment failure)",
+          "Meningitis or encephalitis (fever 103\u00b0F + acute altered mental status + respiratory symptoms)",
+          "Aspiration pneumonia with secondary infection (poor oral intake + cognitive impairment = aspiration risk)",
+          "Acute delirium from hypoxia or metabolic derangement (fever + respiratory decline + CNS changes)",
+          "Antibiotic-associated adverse effect or C. difficile colitis (day 2 of antibiotics)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs including O\u2082 saturation, temperature, BP, HR, RR",
+          "STAT labs: CBC, CMP (renal function, electrolytes, glucose), lactate, blood cultures",
+          "Chest X-ray (compare to prior if available)",
+          "Urinalysis and urine culture",
+          "Lumbar puncture if meningeal signs present or high clinical suspicion (time-sensitive)",
+          "Consider CT head if LP contraindicated or delayed"
+        ],
+        "management_plan": [
+          "IMMEDIATE EMERGENCY DEPARTMENT REFERRAL\u2014do not delay for office-based assessment",
+          "Verify current antibiotic regimen (patient reports 'pills starting with A'\u2014likely amoxicillin or azithromycin; inadequate for suspected sepsis/meningitis)",
+          "Obtain collateral history from daughter (reliable witness to acute cognitive decline and fever)",
+          "Assess for meningeal signs (neck stiffness, photophobia, Kernig/Brudzinski signs) en route or upon ED arrival",
+          "Establish IV access and initiate fluid resuscitation if sepsis suspected",
+          "Review medication list for sedating agents (opioids, benzodiazepines, anticholinergics) that could contribute to delirium",
+          "Implement aspiration precautions (NPO pending swallow evaluation; patient at high risk given altered mental status + poor intake)",
+          "Monitor for C. difficile if diarrhea develops; screen for aspiration pneumonia progression",
+          "Renal function assessment critical for antibiotic dosing (especially if aminoglycosides or fluoroquinolones considered)",
+          "If meningitis confirmed, ensure CNS-penetrating antibiotics (ceftriaxone/cefotaxime preferred over fluoroquinolones alone)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Acute altered mental status (memory loss, disorientation to time, repetition, fogginess) on day 2 of antibiotics\u2014RED FLAG for meningitis, encephalitis, or sepsis with CNS involvement",
+          "Fever 103\u00b0F + respiratory decline + cognitive changes = classic meningitis/encephalitis triad; cannot be safely ruled out outside acute care setting",
+          "Treatment failure on day 2 suggests resistant organism, inadequate antibiotic coverage, or secondary infection (aspiration pneumonia, C. difficile)",
+          "High aspiration risk: poor oral intake + acute confusion + impaired cognition = cannot protect airway reliably",
+          "Age 65 with acute sepsis = high mortality risk if not rapidly identified and treated; requires continuous monitoring and resuscitation capability",
+          "Patient's self-reporting is unreliable due to acute confusion; collateral history from daughter is essential",
+          "Risk of rapid deterioration: septic shock, respiratory failure, or cerebral herniation if meningitis\u2014requires ICU-level monitoring",
+          "Medication-induced delirium possible but cannot be assumed; must rule out life-threatening infection first",
+          "Renal function unknown; antibiotic dosing cannot be optimized without baseline creatinine/eGFR"
+        ],
+        "communication_note": "This 65-year-old male with day-2 antibiotic failure, fever (103\u00b0F), worsening respiratory status, and acute progressive altered mental status (memory loss, disorientation, repetition, fogginess) requires IMMEDIATE emergency evaluation to rule out meningitis/encephalitis and sepsis; office-based assessment is unsafe and delays critical imaging, LP, and resuscitation.",
+        "trace": {
+          "clinician_contribution": "Identified red flags (worsening respiratory status, acute cognitive changes, poor intake, possible fever) and proposed targeted history-taking to clarify mental status type (expressive vs. disorientation). Differential appropriately includes meningitis/encephalitis, CAP with sepsis, aspiration pneumonia, and hypoxic delirium. Workup plan is comprehensive (vitals, labs, CXR, UA, LP consideration) but assumes outpatient or office setting.",
+          "safety_checker_contribution": "CRITICAL escalation override: flagged that acute altered mental status + fever + respiratory decline on day 2 of antibiotics is a medical emergency requiring IMMEDIATE ED/911 referral, not outpatient questioning. Emphasized that meningitis/encephalitis cannot be ruled out by phone/office assessment, LP is time-sensitive, and patient is at high risk for rapid deterioration (septic shock, respiratory failure, herniation). Correctly identified need for collateral history and continuous monitoring.",
+          "pharm_nurse_contribution": "Identified critical knowledge gap: current antibiotic regimen not specified (patient says 'pills starting with A'\u2014likely inadequate for sepsis/meningitis). Flagged need to rule out medication-induced delirium (sedating agents), assess for drug interactions, obtain renal function STAT (affects dosing), and implement aspiration precautions. Highlighted C. difficile screening, allergy confirmation, and medication adherence verification. Emphasized CNS penetration requirements if meningitis confirmed."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here, doctor. I... I can barely breathe. They had to put that tube down my throat in the emergency room\u2014scared me half to death, honestly. My wife was just here crying, saying I looked like I was drowning. You know, I was fine yesterday morning, had my coffee like always, and then... I don't know what happened. This cough just got worse and worse. I couldn't catch my breath. My chest hurts something awful when I try to take a deep breath, and everything's all fuzzy in my head. They've got me on all these machines now beeping and whooshing. I just want to know what's going on with me and why I ended up here like this."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand this came on very suddenly. Let me ask a few clarifying questions: Over the past week or two before yesterday, did you have any fever, chills, sore throat, or body aches? And have you had any recent travel, sick contacts, or exposure to anyone with respiratory illness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, you know, my daughter was visiting from out of state about two weeks ago\u2014she had this nasty cough, kept saying 'Dad, you should really stay away from me'\u2014but I figured, what's the harm, right? We're family. Anyway, now that you mention it, yeah, I've been feeling pretty worn down. My wife kept saying I looked flushed last week, but I thought it was just work stress\u2014been dealing with some frustrating stuff at the shop. I don't remember exactly when the chills started, to be honest. Maybe four or five days ago? And my throat's been scratchy, though I've been smoking more than usual with all the stress, so I wasn't sure if that was it. The body aches, yeah, I've had those too\u2014thought maybe I'd pulled something. No travel though, just stayed local. But thinking back, my buddy came by about ten days ago and he was coughing up a storm. Didn't think much of it then."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "emergency_911",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with acute respiratory failure \u2013 MOST LIKELY given prodrome (sick contacts 10\u201314 days ago), fever, chills, sore throat, body aches, productive cough, pleuritic chest pain, and acute decompensation requiring intubation",
+          "Influenza with secondary bacterial pneumonia \u2013 supported by acute onset, systemic symptoms, and respiratory compromise",
+          "Acute exacerbation of COPD with infection \u2013 possible given smoking history and productive cough",
+          "Pulmonary embolism with infarction \u2013 MUST RULE OUT: pleuritic chest pain + acute dyspnea + altered mental status",
+          "Acute coronary syndrome with pulmonary edema \u2013 MUST RULE OUT: chest pain + dyspnea + altered mental status in 65-year-old",
+          "Acute bronchitis progressing to severe respiratory compromise \u2013 less likely given severity and systemic signs"
+        ],
+        "workup_ordered": [
+          "STAT labs: CBC, CMP (renal/hepatic function), lactate, troponin, D-dimer, blood cultures (\u00d72 before antibiotics), procalcitonin",
+          "STAT imaging: Chest X-ray (portable at bedside), ECG (rule out ACS/arrhythmia)",
+          "Sputum culture and Gram stain (if productive secretions available)",
+          "Viral panel (influenza, RSV, COVID-19, parainfluenza) if available",
+          "Consider CT pulmonary angiography (CTPA) if D-dimer elevated or PE suspicion remains high after initial workup",
+          "Arterial blood gas (ABG) to assess oxygenation, ventilation, acid-base status on current ventilator settings",
+          "Complete medication reconciliation and allergy history from wife/collateral sources STAT"
+        ],
+        "management_plan": [
+          "CONTINUE mechanical ventilation with current sedation/paralytic regimen; verify no interactions with home medications once reconciled",
+          "Initiate empiric broad-spectrum antibiotics AFTER blood cultures drawn: Consider CAP-directed regimen (e.g., ceftriaxone + azithromycin OR fluoroquinolone monotherapy) pending culture results and allergy confirmation; adjust for renal/hepatic function once labs available",
+          "Obtain baseline renal and hepatic function STAT before finalizing antibiotic dosing; anticipate dose adjustments for age 65 + acute illness",
+          "Manage pleuritic chest pain with acetaminophen or opioids (avoid NSAIDs pending renal assessment)",
+          "Supportive care: Maintain sedation, monitor hemodynamics, optimize oxygenation/ventilation, monitor for sepsis progression",
+          "Cardiology consultation if troponin elevated or ECG abnormal (rule out ACS)",
+          "Pulmonology consultation if CTPA needed or if clinical course suggests PE",
+          "Plan for extubation readiness assessment once acute phase stabilizes; assess swallow function before resuming oral intake"
+        ],
+        "safety_concerns": [
+          "CRITICAL: Patient is intubated in ICU-level care\u2014this is NOT an outpatient scenario; all diagnostics must proceed in parallel, not sequentially",
+          "CRITICAL: Altered mental status indicates severe systemic compromise (hypoxia, sepsis, or medication effect); requires immediate objective testing, not delayed history-taking",
+          "CRITICAL: Differential includes PE and ACS\u2014both require STAT ECG, troponin, and D-dimer; imaging (CTPA) may be needed urgently",
+          "HIGH: Blood cultures must be drawn BEFORE empiric antibiotics to avoid false negatives; timing is critical",
+          "HIGH: Complete medication and allergy history missing\u2014obtain from wife/collateral sources STAT to prevent drug interactions and adverse reactions",
+          "HIGH: Renal and hepatic function unknown\u2014all renally/hepatically-cleared drugs (antibiotics, antivirals, sedatives) require dose adjustment pending labs",
+          "MODERATE: Smoking history + stress-related increased smoking may indicate underlying COPD; assess baseline pulmonary function once stable",
+          "MODERATE: Aspiration risk post-extubation; swallow assessment required before oral medications or feeding"
+        ],
+        "communication_note": "This 65-year-old intubated male with acute respiratory failure, prodromal sick contacts, fever, and systemic symptoms is most consistent with severe CAP but requires STAT labs, blood cultures, ECG, CXR, and D-dimer to rule out PE/ACS; empiric antibiotics and supportive care to begin immediately after cultures; collateral history and medication reconciliation from wife essential.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified severe CAP as leading diagnosis and recognized need for prodromal/exposure history; however, failed to recognize that patient is already intubated and in ICU-level care, making sequential history-taking inappropriate. Clinician's differential (CAP, COPD exacerbation, bronchitis, influenza, PE, ACS) is comprehensive but the proposed action (asking questions) is mismatched to acuity level. Collateral history from wife should be prioritized; objective testing (labs, imaging) must proceed in parallel, not after history completion.",
+          "safety_checker_contribution": "Safety checker correctly identified critical mismatch: patient is intubated with altered mental status, requiring IMMEDIATE diagnostics (labs, ECG, CXR, D-dimer, blood cultures), not conversational history-taking. Flagged that PE and ACS remain on differential and demand urgent objective testing. Emphasized that history must come from collateral sources (family, EMS, prior records), not from sedated/intubated patient. Recommended escalation to emergency care (already in place) and blocking concerns about sequential vs. parallel workup.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no medication list, allergy history, or organ function data documented. Flagged need for STAT renal/hepatic function before dosing antibiotics, antivirals, or sedatives. Highlighted drug-drug interaction risks with unknown home medications and sedation/paralytic regimen. Noted aspiration risk post-extubation, sepsis monitoring, and pain management strategy (avoid NSAIDs pending renal assessment). Emphasized need for complete allergy documentation before CAP-directed therapy initiated."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539645.9719858
+}

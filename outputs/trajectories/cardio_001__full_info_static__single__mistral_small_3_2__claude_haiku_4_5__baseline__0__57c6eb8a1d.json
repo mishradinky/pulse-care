@@ -1,0 +1,143 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome (ACS)",
+          "gastroesophageal reflux disease (GERD)",
+          "musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "high-sensitivity troponin",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "lipid panel"
+        ],
+        "management_plan": [
+          "administer aspirin 325mg chewable",
+          "administer sublingual nitroglycerin if chest pain recurs",
+          "start high-intensity statin therapy",
+          "schedule follow-up visit in 24-48 hours for repeat troponin",
+          "refer to cardiology for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential acute coronary syndrome",
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "We need to rule out a heart attack and will monitor you closely."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (NSTEMI)",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Troponin hs",
+          "CBC",
+          "CMP",
+          "Lipid panel"
+        ],
+        "management_plan": [
+          "Administer aspirin 325mg and atorvastatin 80mg",
+          "Administer sublingual nitroglycerin if chest pain recurs",
+          "Administer IV heparin",
+          "Administer IV morphine for pain control if needed",
+          "Administer IV metoprolol for heart rate control if needed",
+          "Administer IV furosemide for fluid management if needed",
+          "Administer IV nitroglycerin for blood pressure control if needed",
+          "Administer IV morphine for pain control if needed",
+          "Administer IV metoprolol for heart rate control if needed",
+          "Administer IV furosemide for fluid management if needed",
+          "Administer IV nitroglycerin for blood pressure control if needed",
+          "Administer IV morphine for pain control if needed",
+          "Administer IV metoprolol for heart rate control if needed",
+          "Administer IV furosemide for fluid management if needed",
+          "Administer IV nitroglycerin for blood pressure control if needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High risk for acute coronary syndrome given recurrent chest pain, positive cardiac risk factors, and new ECG changes with elevated troponin"
+        ],
+        "communication_note": "Your symptoms and test results suggest a possible heart-related issue, and we need to evaluate you further in the emergency department."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "ST-elevation myocardial infarction (STEMI)",
+          "Unstable angina",
+          "Aortic dissection"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Troponin HS",
+          "Complete blood count",
+          "Basic metabolic panel",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Activate the catheterization lab for emergent percutaneous coronary intervention (PCI)",
+          "Administer aspirin 325 mg orally",
+          "Administer ticagrelor 180 mg orally",
+          "Administer heparin intravenous bolus and infusion",
+          "Administer intravenous nitroglycerin for ongoing pain",
+          "Administer intravenous morphine for pain control",
+          "Administer intravenous antiemetic for nausea",
+          "Administer supplemental oxygen",
+          "Continuous cardiac monitoring",
+          "Prepare for possible intubation if respiratory status declines"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "High risk of cardiac arrest",
+          "Potential for rapid decompensation",
+          "Need for immediate reperfusion therapy"
+        ],
+        "communication_note": "You are having a heart attack and need emergency treatment to open the blocked artery."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505148.0591774
+}

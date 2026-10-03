@@ -1,0 +1,58 @@
+section,metric,value,ci_lo,ci_hi,pct_value,notes
+EFI,Score Sensitivity,0.2573,0.2315,0.2849,25.7,"Mean (max−min) score across simulator variants per (case, model)"
+EFI,Ranking Instability,0.2222,,,22.2,Mean normalized Kendall-τ distance across simulator pairs
+EFI,Rank-Flip Rate,0.2222,,,22.2,Fraction of model-pair comparisons that reverse direction
+EFI,Escalation Instability,0.3508,,,35.1,"Fraction of (case, model) pairs where escalation changes across variants"
+EFI,Under-Escalation Rate,0.198,,,19.8,Fraction where agent chose a level lower than ground truth (dangerous)
+EFI,Over-Escalation Rate,0.4088,,,40.9,Fraction where agent chose a level higher than ground truth
+EFI,Emergency Miss Rate,0.0265,,,2.6,Fraction of true-emergency cases not escalated to emergency_911
+EFI,Severe Leakage Rate,0.0611,0.0404,0.0901,6.1,Fraction where simulator revealed diagnosis (level=2)
+EFI,Disclosure Failure Rate,0.2281,0.164,0.308,22.8,Fraction where agent never elicited critical facts
+EFI,Counterfactual Action Disparity,0.3542,,,35.4,Fraction of demographic-swapped pairs with different escalation
+EFI,Backbone Sensitivity,0.1136,,,11.4,Mean |Δ score| between Haiku and GPT-5 simulator backbones
+EFI,Scorer Pass/Fail Disagreement,0.2,,,20.0,Pass/fail disagreement between Haiku and GPT-5 scorers (n=60)
+EFI,Coordination Trace Loss,0.0093,,,0.9,Fraction of team visits with a role contribution <50 chars
+EFI,EFI-Core (composite),0.1836,,,18.4,"Mean of 5 primary metrics: sensitivity, rank_instab, rank_flip, esc_instab, under_esc"
+EFI,EFI-Full (composite),0.1772,,,17.7,Mean of 9 metrics: EFI-Core + backbone_sens + scorer_disagree + CAD + trace_loss
+Task Scores,claude_haiku_4_5  ×  cooperative,0.807,,,80.7,mean±SD=0.807±0.171  n=122
+Task Scores,claude_haiku_4_5  ×  low_health_literacy,0.802,,,80.2,mean±SD=0.802±0.162  n=74
+Task Scores,claude_haiku_4_5  ×  sparse,0.7225,,,72.2,mean±SD=0.723±0.184  n=74
+Task Scores,claude_haiku_4_5  ×  verbose,0.7924,,,79.2,mean±SD=0.792±0.165  n=74
+Task Scores,gpt_4o  ×  cooperative,0.5659,,,56.6,mean±SD=0.566±0.168  n=112
+Task Scores,gpt_4o  ×  low_health_literacy,0.5808,,,58.1,mean±SD=0.581±0.169  n=64
+Task Scores,gpt_4o  ×  sparse,0.5499,,,55.0,mean±SD=0.550±0.182  n=64
+Task Scores,gpt_4o  ×  verbose,0.5882,,,58.8,mean±SD=0.588±0.186  n=64
+Task Scores,mistral_small_3_2  ×  cooperative,0.5705,,,57.0,mean±SD=0.571±0.192  n=112
+Task Scores,mistral_small_3_2  ×  low_health_literacy,0.5946,,,59.5,mean±SD=0.595±0.190  n=64
+Task Scores,mistral_small_3_2  ×  sparse,0.4505,,,45.1,mean±SD=0.451±0.252  n=64
+Task Scores,mistral_small_3_2  ×  verbose,0.5815,,,58.1,mean±SD=0.582±0.211  n=64
+Escalation,cooperative  —  Under-escalation,0.2366,,,23.7,n=317
+Escalation,cooperative  —  Over-escalation,0.3502,,,35.0,n=317
+Escalation,cooperative  —  Emergency miss rate,0.0379,,,3.8,n=317
+Escalation,cooperative  —  Exact escalation,0.4132,,,41.3,n=317
+Escalation,low_health_literacy  —  Under-escalation,0.1587,,,15.9,n=189
+Escalation,low_health_literacy  —  Over-escalation,0.4709,,,47.1,n=189
+Escalation,low_health_literacy  —  Emergency miss rate,0.0053,,,0.5,n=189
+Escalation,low_health_literacy  —  Exact escalation,0.3704,,,37.0,n=189
+Escalation,sparse  —  Under-escalation,0.2804,,,28.0,n=189
+Escalation,sparse  —  Over-escalation,0.254,,,25.4,n=189
+Escalation,sparse  —  Emergency miss rate,0.0582,,,5.8,n=189
+Escalation,sparse  —  Exact escalation,0.4656,,,46.6,n=189
+Escalation,verbose  —  Under-escalation,0.2337,,,23.4,n=184
+Escalation,verbose  —  Over-escalation,0.3533,,,35.3,n=184
+Escalation,verbose  —  Emergency miss rate,0.0217,,,2.2,n=184
+Escalation,verbose  —  Exact escalation,0.413,,,41.3,n=184
+Manipulation Check,cooperative  —  words/turn (mean),36.96,,,,SD=11.02
+Manipulation Check,cooperative  —  FK grade (mean),5.51,,,,SD=1.90
+Manipulation Check,low_health_literacy  —  words/turn (mean),43.37,,,,SD=11.52
+Manipulation Check,low_health_literacy  —  FK grade (mean),2.75,,,,SD=1.35
+Manipulation Check,sparse  —  words/turn (mean),7.85,,,,SD=3.40
+Manipulation Check,sparse  —  FK grade (mean),1.67,,,,SD=3.43
+Manipulation Check,verbose  —  words/turn (mean),141.22,,,,SD=21.72
+Manipulation Check,verbose  —  FK grade (mean),5.75,,,,SD=1.54
+Scorer Agreement,Kappa pass/fail,0.1155,,,,Slight agreement
+Scorer Agreement,Pearson r (score),0.5156,,,,Moderate
+Scorer Agreement,Mean |Δ| task score,0.2151,,,,On 0-1 scale
+Scorer Agreement,Pass/fail disagreement rate,0.2,,,20.0,20% of trajectories
+Fairness,minority_swap  —  major disparity rate,0.5417,,,54.2,"Fraction of (case,model) pairs with major action disparity"
+Fairness,ses_swap  —  major disparity rate,0.5556,,,55.6,"Fraction of (case,model) pairs with major action disparity"

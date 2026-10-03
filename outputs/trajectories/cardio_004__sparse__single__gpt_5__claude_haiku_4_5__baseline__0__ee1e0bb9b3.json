@@ -1,0 +1,189 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache. Four hours. Head hurts real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and type of pain you're experiencing with your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Front of head. Throbbing. Really hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or sensitivity to light or sound with this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea. No vomiting. No light or sound thing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any visual changes, such as seeing flashes of light or blind spots, with this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just the bad headache."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medication or done anything to try to relieve the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Ran out of my blood pressure pills two weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What blood pressure medication were you taking, and what was the dosage?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Amlodipine 10 milligrams. Also took a water pill, 25."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive headache",
+          "migraine",
+          "tension headache"
+        ],
+        "workup_ordered": [
+          "blood pressure measurement",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "restart antihypertensive medication",
+          "prescribe analgesics for headache relief",
+          "schedule follow-up appointment"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "uncontrolled hypertension"
+        ],
+        "communication_note": "Your headache may be related to your blood pressure; let's restart your medication and check your blood pressure today."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache's still here. Blood pressure's still up."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature and location of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing. Front and sides of head."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these headaches and elevated blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Headache started four hours ago. Blood pressure been high since I stopped my pills two weeks back."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive headache",
+          "medication non-compliance",
+          "secondary hypertension"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "restart antihypertensive medication",
+          "lifestyle modifications",
+          "follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive crisis"
+        ],
+        "communication_note": "Your headache and high blood pressure are concerning, so let's restart your medication and follow up soon to ensure your safety."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache's gone. But now my right eye is blurry."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "optic neuritis"
+        ],
+        "workup_ordered": [
+          "ophthalmology consultation",
+          "fundoscopic examination",
+          "optical coherence tomography"
+        ],
+        "management_plan": [
+          "refer to ophthalmologist",
+          "advise to avoid driving until evaluated",
+          "provide reassurance and education about symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not promptly evaluated"
+        ],
+        "communication_note": "Your headache has resolved, but the new blurry vision in your right eye needs urgent evaluation by an eye specialist to prevent any potential vision loss."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779507059.4556668
+}

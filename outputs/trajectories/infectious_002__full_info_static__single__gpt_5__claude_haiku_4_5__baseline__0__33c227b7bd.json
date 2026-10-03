@@ -1,0 +1,123 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urosepsis",
+          "acute pyelonephritis",
+          "acute kidney injury"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "urine culture",
+          "renal ultrasound"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum IV antibiotics",
+          "administer IV fluids",
+          "monitor vital signs closely",
+          "consult nephrology for acute kidney injury"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "sepsis",
+          "acute kidney injury",
+          "hypotension"
+        ],
+        "communication_note": "You have a severe infection likely from your urinary tract affecting your kidneys and causing confusion; we need to treat you urgently in the hospital."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urosepsis",
+          "acute kidney injury",
+          "ciprofloxacin-resistant E.coli infection"
+        ],
+        "workup_ordered": [
+          "switch to ceftriaxone or ertapenem",
+          "repeat blood cultures",
+          "monitor renal function"
+        ],
+        "management_plan": [
+          "admit to ICU",
+          "initiate IV fluids",
+          "start broad-spectrum antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "septic shock",
+          "multi-organ failure"
+        ],
+        "communication_note": "You have a severe infection that is resistant to the initial antibiotics, and we need to admit you to the ICU for intensive treatment."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "septic shock secondary to urosepsis",
+          "multiorgan dysfunction syndrome (MODS)"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "urine cultures",
+          "renal function panel",
+          "lactate clearance monitoring"
+        ],
+        "management_plan": [
+          "continue broad-spectrum IV antibiotics",
+          "maintain vasopressor support",
+          "optimize fluid resuscitation",
+          "monitor organ function closely",
+          "consider renal replacement therapy if indicated"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "high risk of mortality due to septic shock",
+          "potential for further organ failure"
+        ],
+        "communication_note": "The patient is critically ill with septic shock and is receiving intensive care support."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505342.516281
+}

@@ -1,0 +1,213 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 55,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "HMO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I have a really bad headache\u2014it's been throbbing for about 4 hours now. And they told me my blood pressure is very high when I came in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache in more detail? For example, is it on one side of your head, or all over? Have you had any nausea, vision changes, or dizziness with it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's all over my head, throbbing really badly. I haven't had any nausea, dizziness, or vision problems\u2014just this intense pounding headache. It started about 4 hours ago and it's been constant since then."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient presents with severe, throbbing, generalized headache for 4 hours with elevated BP; no neurological deficits, nausea, or vision changes. Medication review reveals suboptimal BP control and contraindicated NSAID use for headache.",
+        "differential_diagnosis": [
+          "Hypertensive emergency (BP >180/120 mmHg or end-organ damage)",
+          "Primary headache disorder (e.g., tension-type or migraine)",
+          "Secondary headache (e.g., intracranial pathology if neurological deficits develop)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Increase lisinopril to 40mg daily (per guidelines) for BP control",
+          "Discontinue ibuprofen for headache; recommend acetaminophen 500-1000mg PRN instead",
+          "Monitor BP closely (goal: <130/80 mmHg per ACC/AHA guidelines)",
+          "Educate patient on hydration and avoiding NSAIDs due to CKD risk (if applicable)",
+          "Follow up in 1 week to reassess BP and headache symptoms"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Risk of hypertensive emergency if BP remains uncontrolled (systolic >180mmHg or diastolic >120mmHg)",
+          "NSAID use (ibuprofen) contraindicated in CKD and may worsen hypertension",
+          "Possible electrolyte imbalances (hypokalemia) from HCTZ requiring monitoring",
+          "Dehydration from HCTZ may exacerbate headache"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician performed focused history (headache characteristics, associated symptoms) and identified differential including hypertensive emergency, primary headache disorder, and secondary causes. Proposed workup: vital signs (repeat BP), neurological exam, fundoscopic exam, basic metabolic panel, and CT head if deficits present.",
+          "pharm_nurse_contribution": "Pharm/nurse identified medication issues: suboptimal BP control with lisinopril 20mg daily, risk of electrolyte imbalances from HCTZ, and contraindicated NSAID use (ibuprofen) for headache. Recommended dose adjustment (lisinopril 40mg daily), avoidance of NSAIDs, and monitoring for dehydration/end-organ damage. Noted interactions (lisinopril + HCTZ additive BP-lowering; lisinopril + NSAIDs reduce efficacy and increase nephrotoxicity).",
+          "safety_checker_contribution": "Safety checker approved plan with no immediate red flags requiring emergency intervention. Identified severe headache with elevated BP as concern for hypertensive emergency but noted no focal deficits, altered mental status, or signs of intracranial hemorrhage. Recommended escalation to urgent outpatient care and confirmed appropriateness of proposed workup."
+        },
+        "workup_ordered": [
+          "Vital signs (repeat BP measurement)",
+          "Neurological examination",
+          "Fundoscopic exam (for papilledema)",
+          "Basic metabolic panel (to assess end-organ damage and electrolytes)",
+          "Renal function panel (if CKD risk present)"
+        ]
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. My headache is still there even after taking the blood pressure medicine you gave me last time. It's not as bad, but it's still throbbing, and my blood pressure is still running high when I check it at home."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache in more detail? For example, is it worse at certain times of day, or does it wake you up at night? Also, have you noticed any other symptoms like vision changes, dizziness, or nausea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The headache started this morning and has been pretty constant\u2014it's that throbbing feeling I mentioned. It doesn't seem to get worse at certain times, and it didn't wake me up. I haven't had any vision changes or dizziness. No nausea either, thankfully. It's just been the headache and feeling like my head is pounding."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Uncontrolled hypertension (despite medication)",
+          "Medication non-adherence or inadequate dosing",
+          "Secondary hypertension (e.g., renal artery stenosis, pheochromocytoma)",
+          "Migraine or tension headache exacerbated by hypertension",
+          "Intracranial pathology (e.g., mass, hemorrhage) - though less likely given chronicity",
+          "NSAID-induced hypertension exacerbation (due to ibuprofen use)",
+          "Chronic kidney disease (CKD) contributing to resistant hypertension"
+        ],
+        "workup_ordered": [
+          "Check home BP logs for consistency and timing of readings",
+          "Assess adherence to current antihypertensive regimen",
+          "Basic metabolic panel (including creatinine, electrolytes) to evaluate for secondary causes and CKD",
+          "Urinalysis to screen for proteinuria/hematuria (evidence of end-organ damage)",
+          "24-hour ambulatory BP monitoring to assess for white-coat effect or masked hypertension",
+          "Renal ultrasound if secondary hypertension (e.g., renal artery stenosis) is suspected"
+        ],
+        "management_plan": [
+          "Discontinue ibuprofen; switch to acetaminophen 500-1000mg PRN for headache (due to CKD and hypertension risks)",
+          "Increase lisinopril from 20mg to 40mg daily (if renal function stable and no contraindications)",
+          "Switch hydrochlorothiazide (HCTZ) 25mg daily to chlorthalidone 12.5mg daily for improved BP control and reduced electrolyte disturbances",
+          "Educate patient on avoiding NSAIDs and importance of adherence to new regimen",
+          "Schedule follow-up in 2 weeks to reassess BP control and symptoms",
+          "Encourage home BP monitoring with logs to track response to medication changes"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "NSAID use (ibuprofen) contraindicated in CKD and may exacerbate hypertension",
+          "Risk of electrolyte imbalances (hypokalemia, hyponatremia) with HCTZ, necessitating monitoring",
+          "Potential for hyperkalemia with uptitration of lisinopril, requiring electrolyte checks",
+          "Persistent headache despite treatment may indicate uncontrolled hypertension or secondary causes requiring prompt evaluation"
+        ],
+        "communication_note": "Patient to discontinue ibuprofen immediately and switch to acetaminophen for headaches; follow up in 2 weeks to reassess BP control and symptoms.",
+        "trace": {
+          "clinician_contribution": "Clinician identified persistent headache despite antihypertensive treatment and proposed detailed workup (BP logs, labs, ambulatory monitoring) to refine differential diagnosis, including uncontrolled hypertension, secondary causes, or intracranial pathology.",
+          "safety_checker_contribution": "Safety checker approved the proposed workup, identified red flags (persistent headache, need for ambulatory BP monitoring), and recommended routine escalation with no blocking concerns.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications, identified suboptimal dosing (lisinopril), electrolyte risks (HCTZ), and contraindicated NSAID use (ibuprofen). Recommended dose adjustments (lisinopril uptitration, HCTZ to chlorthalidone) and discontinuation of ibuprofen, along with nursing concerns for monitoring and patient education."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. My headache finally went away, but now I'm having some blurring in my right eye. It started a couple hours ago and it's been getting a bit worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the blurring in your right eye more? Is it like a curtain coming down, or more like a general haziness? Have you had any vision changes before, or any other symptoms like flashes of light, floaters, or pain in the eye?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's more like a general haziness across my right eye, like looking through fog. I haven't had vision changes before. No flashes of light, floaters, or eye pain\u2014just this blurring that started a few hours ago. My headache from earlier is better now, but this vision thing is worrying me."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Urgent ophthalmology referral is required today for evaluation of potential retinal detachment or acute angle-closure glaucoma given the new onset of right eye blurring.",
+        "differential_diagnosis": [
+          "Retinal detachment or tear",
+          "Acute angle-closure glaucoma",
+          "Vitreous hemorrhage",
+          "Optic neuritis",
+          "TIA or stroke affecting visual pathway",
+          "Migraine with visual aura"
+        ],
+        "escalation_level": "ed_referral",
+        "management_plan": [
+          "Schedule same-day ophthalmology consultation for fundoscopic exam and intraocular pressure measurement",
+          "Hold sumatriptan pending ophthalmology evaluation due to potential exacerbation of visual symptoms",
+          "Monitor for severe eye pain, nausea, or redness (signs of acute angle-closure glaucoma)",
+          "Document serial visual acuity assessments",
+          "Ensure blood pressure control to prevent hypertensive urgency"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "New onset right eye blurring in a 55-year-old patient with no prior visual symptoms requires immediate evaluation to rule out vision-threatening conditions",
+          "Sumatriptan may exacerbate visual symptoms and should be held pending ophthalmology review",
+          "Risk of acute angle-closure glaucoma necessitates urgent referral to prevent irreversible vision loss",
+          "Need to rule out TIA/stroke as potential cause of visual pathway involvement"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician identified key differential diagnoses including retinal detachment, acute angle-closure glaucoma, and TIA/stroke, and recommended urgent workup including visual acuity testing, fundoscopic exam, and intraocular pressure measurement.",
+          "pharm_nurse_contribution": "Pharm/nurse identified sumatriptan as a potential exacerbating factor for visual symptoms and highlighted contraindications (e.g., avoidance of anticholinergics/sympathomimetics if acute glaucoma confirmed). Also emphasized need for timely ophthalmology referral and monitoring for acute angle-closure glaucoma signs.",
+          "safety_checker_contribution": "Safety checker approved the clinician's plan, identified red flags including new onset eye-specific symptoms in a 55-year-old patient, and recommended urgent outpatient escalation to prevent permanent damage from vision-threatening conditions."
+        },
+        "workup_ordered": [
+          "Visual acuity testing",
+          "Fundoscopic exam (ophthalmoscope)",
+          "Intraocular pressure measurement",
+          "Visual field testing",
+          "Blood pressure measurement",
+          "Urgent same-day ophthalmology consultation"
+        ]
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790544793.784228
+}

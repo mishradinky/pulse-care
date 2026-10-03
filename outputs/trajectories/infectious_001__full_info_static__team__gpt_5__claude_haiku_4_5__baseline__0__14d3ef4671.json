@@ -1,0 +1,166 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP)",
+          "Acute exacerbation of COPD",
+          "Pulmonary embolism",
+          "Lung abscess",
+          "Heart failure exacerbation"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Procalcitonin level",
+          "Sputum culture",
+          "Blood cultures",
+          "Arterial blood gas (ABG)",
+          "ECG"
+        ],
+        "management_plan": [
+          "Admit to hospital for further management and monitoring",
+          "Initiate supplemental oxygen therapy to maintain SpO2 > 92%",
+          "Start empiric broad-spectrum antibiotics (e.g., ceftriaxone and azithromycin)",
+          "Administer bronchodilators (e.g., albuterol nebulizer)",
+          "Monitor blood glucose levels and manage hyperglycemia",
+          "Consider corticosteroids for COPD exacerbation",
+          "Ensure adequate hydration and electrolyte balance"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of respiratory failure due to low SpO2",
+          "Potential for sepsis given high fever and elevated procalcitonin",
+          "Confusion indicating possible hypoxia or sepsis",
+          "Living alone increases risk of delayed help if condition worsens"
+        ],
+        "communication_note": "Patient requires immediate hospital admission due to severe respiratory distress, hypoxia, and potential sepsis. Coordination with emergency services for transport is necessary. Family or next of kin should be informed about the patient's condition and hospital admission.",
+        "trace": {
+          "clinician_contribution": "Identified the need for hospital admission and broad-spectrum antibiotics.",
+          "safety_checker_contribution": "Highlighted the risk of respiratory failure and sepsis.",
+          "pharm_nurse_contribution": "Recommended bronchodilator therapy and glucose monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) due to Streptococcus pneumoniae",
+          "Acute exacerbation of COPD",
+          "Sepsis secondary to pneumonia",
+          "Hypoxemic respiratory failure",
+          "Dehydration and electrolyte imbalance"
+        ],
+        "workup_ordered": [
+          "Repeat chest X-ray to assess progression",
+          "Blood cultures to confirm bacteremia",
+          "Sputum culture and sensitivity",
+          "Arterial blood gas (ABG) for respiratory status",
+          "Basic metabolic panel (BMP) for renal function and electrolytes",
+          "Complete blood count (CBC) for infection markers"
+        ],
+        "management_plan": [
+          "Admit to hospital for inpatient management",
+          "Initiate intravenous antibiotics (e.g., ceftriaxone and azithromycin)",
+          "Administer supplemental oxygen to maintain SpO2 > 92%",
+          "Start intravenous fluids for rehydration",
+          "Monitor vital signs and mental status closely",
+          "Consult pulmonology for COPD management",
+          "Consider ICU transfer if respiratory status worsens"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of respiratory failure due to hypoxemia",
+          "Potential for septic shock given confusion and hypotension",
+          "Dehydration leading to acute kidney injury",
+          "Worsening confusion indicating possible CNS involvement"
+        ],
+        "communication_note": "Patient presents with worsening symptoms despite outpatient azithromycin. Given the hypoxemia, confusion, and bilateral infiltrates, immediate hospital admission is necessary for aggressive management of suspected pneumonia and potential sepsis. Coordination with pulmonology and infectious disease specialists is advised.",
+        "trace": {
+          "clinician_contribution": "Identified need for hospital admission and initiation of IV antibiotics.",
+          "safety_checker_contribution": "Highlighted risk of respiratory failure and need for close monitoring.",
+          "pharm_nurse_contribution": "Recommended IV fluid administration and oxygen therapy."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia with possible bacterial superinfection",
+          "Acute exacerbation of COPD",
+          "Acute Respiratory Distress Syndrome (ARDS) secondary to infection",
+          "Sepsis secondary to pneumonia"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Sputum culture and sensitivity",
+          "Complete blood count with differential",
+          "Comprehensive metabolic panel",
+          "Repeat arterial blood gas",
+          "Procalcitonin level",
+          "Chest CT if stable for transport"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum antibiotics (e.g., piperacillin-tazobactam and vancomycin)",
+          "Continue mechanical ventilation with ARDS protocol settings",
+          "Consider corticosteroids for ARDS",
+          "Optimize fluid management to maintain hemodynamic stability",
+          "Consult infectious disease for antibiotic stewardship",
+          "Consult pulmonology for ventilator management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of ventilator-associated pneumonia",
+          "Hemodynamic instability due to sepsis",
+          "Potential for multi-organ dysfunction syndrome"
+        ],
+        "communication_note": "Patient is currently intubated and mechanically ventilated in the ICU due to respiratory failure and ARDS. Family should be updated on the critical nature of the condition and the ongoing management plan.",
+        "trace": {
+          "clinician_contribution": "Identified the need for broad-spectrum antibiotics and ARDS management.",
+          "safety_checker_contribution": "Highlighted the risk of ventilator-associated pneumonia and hemodynamic instability.",
+          "pharm_nurse_contribution": "Ensured appropriate antibiotic dosing and monitored for potential drug interactions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597800.2467444
+}

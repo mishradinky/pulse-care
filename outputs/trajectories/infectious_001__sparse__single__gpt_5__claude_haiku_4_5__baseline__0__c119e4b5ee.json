@@ -1,0 +1,199 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Yellow stuff coming up. Fever. Chest hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Started Monday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe. Especially when I move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Chills, yeah. Sweats at night too. Don't know about weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Live alone."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I got lung problems. Take inhaler stuff. Also take a diabetes pill."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "acute exacerbation of COPD",
+          "bronchitis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "start antibiotics such as azithromycin or amoxicillin-clavulanate",
+          "increase use of bronchodilator inhaler",
+          "consider oral corticosteroids if COPD exacerbation is suspected"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of respiratory distress due to underlying lung condition"
+        ],
+        "communication_note": "You have a lung infection, possibly pneumonia, and we need to do some tests and start treatment right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not better. More confused now. Coughing worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever or chills?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, been hot. Had chills yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Can't catch my breath. Real bad now."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COVID-19",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "COVID-19 test"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "administer supplemental oxygen",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for sepsis"
+        ],
+        "communication_note": "You need immediate medical attention due to worsening breathing and confusion; we're calling emergency services now."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory failure",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory arrest",
+          "potential for sepsis"
+        ],
+        "communication_note": "You are currently on a ventilator due to breathing difficulties, and we are conducting tests to determine the cause and provide appropriate treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779507657.18141
+}

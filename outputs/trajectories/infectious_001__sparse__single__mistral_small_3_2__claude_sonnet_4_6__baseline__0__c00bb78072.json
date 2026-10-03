@@ -1,0 +1,206 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Chest hurts. Got a fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or difficulty breathing along with the cough and chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with someone who has a contagious illness or have you traveled recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Don't think so."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses or medical procedures that might weaken your immune system?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I got diabetes. That's about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the quality of the chest pain? Is it sharp, dull, or pressure-like?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sharp. Gets worse when I breathe in."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "Pleurisy",
+          "Acute bronchitis",
+          "COPD exacerbation",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "D-dimer test",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Start on empiric antibiotics for possible bacterial pneumonia",
+          "Provide symptomatic relief for cough and fever (e.g., acetaminophen, cough suppressants)",
+          "Monitor oxygen saturation and provide supplemental oxygen if needed",
+          "Follow up in 48-72 hours to reassess symptoms and review test results"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential respiratory failure due to difficulty breathing",
+          "Underlying cardiac or pulmonary conditions that may worsen symptoms"
+        ],
+        "communication_note": "We need to run some tests to better understand your symptoms and start appropriate treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still can't breathe right. Getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the quality of your breathing difficulty? Is it shortness of breath, wheezing, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any fever, cough, or chest pain along with your breathing difficulty?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. All of them."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COPD exacerbation",
+          "heart failure"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "basic metabolic panel",
+          "electrocardiogram"
+        ],
+        "management_plan": [
+          "start on antibiotics",
+          "administer bronchodilators",
+          "supplemental oxygen as needed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis"
+        ],
+        "communication_note": "Your breathing difficulty, fever, cough, and chest pain suggest a possible infection, and we need to run some tests to determine the best course of treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. On the machine now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "COPD exacerbation",
+          "Community-acquired pneumonia",
+          "Heart failure exacerbation"
+        ],
+        "workup_ordered": [
+          "Complete blood count",
+          "Basic metabolic panel",
+          "Arterial blood gas",
+          "Chest X-ray",
+          "Electrocardiogram"
+        ],
+        "management_plan": [
+          "Administer bronchodilators and corticosteroids if COPD is suspected",
+          "Start antibiotics if pneumonia is suspected",
+          "Consider diuretics if heart failure is suspected",
+          "Monitor oxygen saturation and vital signs closely",
+          "Prepare for possible intubation if respiratory status worsens"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Respiratory failure",
+          "Sepsis",
+          "Cardiac complications"
+        ],
+        "communication_note": "Your breathing difficulty is serious, and you need immediate medical attention."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779637992.1322653
+}

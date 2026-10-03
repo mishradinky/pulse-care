@@ -1,0 +1,193 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, ankles swollen."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, 4 kilograms."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a history of heart problems or any other medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, heart problems."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "echocardiogram",
+          "BNP level",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "initiate diuretics",
+          "monitor fluid intake and output",
+          "low-sodium diet"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential for respiratory distress"
+        ],
+        "communication_note": "You have symptoms that suggest your heart may not be working as well as it should, leading to fluid buildup. We need to do some tests and start treatment to help you feel better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still very short of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the shortness of breath start, and has it changed since your last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days ago, it's worse now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain, just short of breath."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "ECG",
+          "CBC",
+          "BMP"
+        ],
+        "management_plan": [
+          "optimize diuretic therapy",
+          "monitor oxygen saturation",
+          "consider bronchodilator therapy if wheezing present"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory status",
+          "potential for hypoxia"
+        ],
+        "communication_note": "Your shortness of breath is concerning, and we need to do some tests to understand the cause. We'll adjust your medications and monitor you closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe lying down, panic."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "elevate head of bed",
+          "monitor oxygen saturation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your breathing difficulty."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779640439.83677
+}

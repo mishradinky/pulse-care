@@ -1,0 +1,201 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 70,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I've had terrible diarrhea for the past 4 days\u2014about 10 times a day. It's watery and I'm having severe stomach cramps. I also have a fever. This started right after I finished my antibiotics from the hospital last week."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the antibiotics you were taking? Were they for a specific infection, and did you complete the full course?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I was in the hospital about 5 days ago being treated for pneumonia. They gave me an antibiotic called clindamycin, and I finished the full course before I came home. That's when the diarrhea started a few days later."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (antibiotic-associated diarrhea, likely due to clindamycin)",
+          "Viral gastroenteritis (e.g., norovirus, rotavirus)",
+          "Bacterial gastroenteritis (e.g., Salmonella, Campylobacter)",
+          "Ischemic colitis (given age, recent hospitalization, and severe cramps)"
+        ],
+        "workup_ordered": [
+          "Stool studies: C. difficile PCR (to confirm CDI), bacterial culture (to rule out other pathogens), and fecal calprotectin (if available, to assess inflammation)",
+          "Complete blood count (CBC) with differential (to evaluate for leukocytosis, a marker of severe CDI)",
+          "Basic metabolic panel (BMP) (to assess for electrolyte abnormalities, renal dysfunction, or dehydration)",
+          "Abdominal imaging (e.g., CT abdomen/pelvis) if severe pain, signs of obstruction, or worsening symptoms"
+        ],
+        "management_plan": [
+          "Discontinue clindamycin if still ongoing (consult with clinician for alternative if needed for pneumonia)",
+          "Avoid antidiarrheals (e.g., loperamide) due to risk of toxic megacolon in suspected CDI",
+          "Initiate contact precautions (isolation) if CDI is confirmed or highly suspected",
+          "Hydration support (oral or IV if severe dehydration) and electrolyte repletion as needed",
+          "Empiric treatment for CDI with oral vancomycin (if severe or high suspicion) pending stool studies",
+          "Monitor for signs of severe CDI (e.g., severe abdominal pain, distension, fever, leukocytosis, or rising creatinine)",
+          "Patient education on hand hygiene to prevent CDI transmission and when to seek urgent care"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "High risk of severe C. difficile colitis due to recent clindamycin use, age 70, and recent hospitalization",
+          "Risk of toxic megacolon if antidiarrheals are used or if CDI is untreated",
+          "Potential for dehydration and electrolyte imbalances due to frequent diarrhea",
+          "Possible contraindication of NSAIDs if patient is taking them (risk of exacerbating colitis)",
+          "Need for isolation if CDI is confirmed to prevent nosocomial spread"
+        ],
+        "communication_note": "Patient should be seen urgently for stool studies and possible empiric CDI treatment; avoid antidiarrheals and NSAIDs until further evaluation.",
+        "trace": {
+          "clinician_contribution": "Clinician identified key differential diagnoses (CDI, viral/bacterial gastroenteritis, ischemic colitis) and ordered targeted workup (stool studies, CBC, BMP, imaging if needed) based on patient's recent clindamycin use, symptoms (watery diarrhea, cramps, fever), and age/hospitalization history.",
+          "safety_checker_contribution": "Safety checker approved plan with no blocking concerns but flagged red flags: age 70 with recent hospitalization (risk for severe CDI), fever + watery diarrhea + cramps (classic CDI red flags), and recent clindamycin use (strong CDI risk factor). Recommended routine escalation but coordinator upgraded to urgent outpatient due to high-risk CDI.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (clindamycin as CDI risk factor, potential NSAID use contraindicated in ischemic colitis, and antidiarrheals contraindicated in CDI), highlighted drug interactions (antibiotics + antidiarrheals increasing toxic megacolon risk), and provided nursing concerns (monitoring for dehydration, isolation if CDI, avoiding antidiarrheals, and patient education)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still having terrible diarrhea\u2014it's not getting better even though I started the vancomycin a few days ago. And my fever came back, it's higher now. I'm really worried because I thought the medicine would help by now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) recurrence or treatment failure (persistent symptoms despite vancomycin therapy)",
+          "Antibiotic-associated colitis (non-CDI, e.g., due to prior broad-spectrum antibiotics)",
+          "Alternative infectious diarrhea (e.g., viral, parasitic)",
+          "Medication-related adverse effect (e.g., vancomycin resistance, intolerance, or subtherapeutic dosing)"
+        ],
+        "workup_ordered": [
+          "Repeat stool testing for C. difficile toxin (PCR/antigen) to confirm recurrence or treatment failure",
+          "Check vancomycin levels (if applicable) and assess adherence to therapy",
+          "Review prior stool studies for pathogens or alternative diagnoses",
+          "Evaluate for colonoscopy if severe/refractory symptoms persist (consider Medicare prior authorization requirements)",
+          "Assess hydration status and electrolyte imbalances due to persistent diarrhea"
+        ],
+        "management_plan": [
+          "Escalate therapy if CDI recurrence is confirmed: consider fidaxomicin (200mg BID) or bezlotoxumab for high-risk patients (e.g., age >65)",
+          "If severe CDI: switch to IV metronidazole + PO vancomycin (500mg QID) per IDSA guidelines",
+          "Discontinue prior antibiotics if possible to reduce CDI risk (antibiotic stewardship)",
+          "Implement contact precautions if CDI is confirmed or highly suspected",
+          "Monitor stool frequency/characteristics daily to guide therapy duration (aim for resolution of diarrhea)",
+          "Ensure patient is hydrated and electrolytes are repleted (e.g., oral rehydration solutions, IV fluids if severe)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "High risk of severe CDI complications in a 70-year-old patient (e.g., toxic megacolon, sepsis) due to persistent diarrhea and fever despite vancomycin therapy",
+          "Potential vancomycin resistance or subtherapeutic dosing (standard 125mg QID may be insufficient for severe CDI)",
+          "Medicare insurance may delay advanced diagnostics (e.g., colonoscopy) without prior authorization, risking delayed diagnosis",
+          "Dehydration and electrolyte imbalances from persistent diarrhea require urgent intervention",
+          "Need for rapid pharmacist review to optimize antibiotic therapy and minimize resistance"
+        ],
+        "communication_note": "Urgent outpatient follow-up with infectious disease specialist and pharmacist within 24-48 hours to reassess therapy and coordinate advanced diagnostics.",
+        "trace": {
+          "clinician_contribution": "Identified persistent diarrhea and fever despite vancomycin as potential treatment failure or alternative diagnosis, prompting need for pharmacist input on antibiotic stewardship and resistance. Recommended repeat stool studies, vancomycin level assessment, and colonoscopy if refractory.",
+          "safety_checker_contribution": "Highlighted high-risk patient (age 70) with persistent symptoms despite therapy, potential for vancomycin resistance, and Medicare-related barriers to diagnostics. Recommended urgent outpatient escalation and rapid pharmacist review.",
+          "pharm_nurse_contribution": "Reviewed vancomycin dosing (125mg QID may be subtherapeutic for severe CDI; consider 500mg QID or fidaxomicin), medication interactions, and nursing concerns (e.g., dehydration monitoring, contact precautions). Emphasized need for stool frequency documentation and alternative agents if treatment failure."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really worried. My belly is very hard and rigid, and I'm having trouble breathing. I feel confused and very sick."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Peritonitis (e.g., secondary to perforated viscus like diverticulitis or peptic ulcer disease)",
+          "Sepsis with abdominal source (e.g., intra-abdominal infection)",
+          "Bowel obstruction with complications (e.g., strangulation, perforation)",
+          "Mesenteric ischemia (given rigid abdomen and confusion)",
+          "Severe electrolyte imbalance (e.g., hypercalcemia) causing altered mental status"
+        ],
+        "workup_ordered": [
+          "STAT abdominal X-ray or CT scan to assess for perforation/obstruction",
+          "Labs: CBC with differential, BMP, LFTs, lipase, lactate, blood cultures",
+          "Vital signs with oxygen saturation, sepsis protocol initiation",
+          "IV fluids and broad-spectrum antibiotics (e.g., piperacillin-tazobactam) if sepsis suspected"
+        ],
+        "management_plan": [
+          "Hold all home medications (NSAID, antihypertensive, diuretic, anticoagulant) until hemodynamic stability and diagnosis confirmed",
+          "Administer IV fluids and broad-spectrum antibiotics immediately if sepsis is suspected",
+          "Monitor for signs of shock (tachycardia, hypotension, oliguria) and report immediately",
+          "Avoid NSAIDs for pain control; use acetaminophen cautiously if no liver dysfunction",
+          "Strict I/O monitoring given risk of AKI in sepsis and bowel obstruction",
+          "Prepare for potential vasopressor support if hypotensive despite fluids",
+          "Assess for occult bleeding (e.g., melena, hematochezia) if anticoagulants were recently taken"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Rigid abdomen (suggestive of peritonitis or perforation)",
+          "Confusion (altered mental status indicating severe systemic compromise)",
+          "High risk of rapid clinical deterioration without immediate intervention",
+          "Sepsis protocol initiation is warranted given suspected intra-abdominal source",
+          "Contraindicated home medications (NSAID, antihypertensive, diuretic, anticoagulant) in acute abdomen/sepsis",
+          "Risk of nephrotoxicity and hyperkalemia from NSAID + ACE inhibitor interaction",
+          "Increased bleeding risk from NSAID + anticoagulant interaction"
+        ],
+        "communication_note": "Patient requires immediate emergency transport for life-threatening abdominal emergency with suspected peritonitis/sepsis.",
+        "trace": {
+          "clinician_contribution": "Identified life-threatening differentials (peritonitis, sepsis, mesenteric ischemia) and prioritized STAT imaging and stabilization. Emphasized safety concerns over further history.",
+          "safety_checker_contribution": "Confirmed red flags (rigid abdomen, confusion) and recommended emergency_911 escalation due to high risk of rapid deterioration and need for time-sensitive interventions.",
+          "pharm_nurse_contribution": "Highlighted contraindicated home medications (NSAID, antihypertensive, diuretic, anticoagulant) and potential interactions (e.g., NSAID + ACE inhibitor, NSAID + anticoagulant). Recommended holding all medications and monitoring for shock, AKI, and occult bleeding."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790545552.449675
+}

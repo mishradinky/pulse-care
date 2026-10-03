@@ -1,0 +1,201 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "fx_v0_d0_l1_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 55,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "HMO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My head hurts really bad. Four hours now. Blood pressure's up too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and nature of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Front of my head. Throbbing. Really bad. Started this morning after work stress."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or visual changes with this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea. No throwing up. No vision stuff. My sister had migraines last month though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced headaches like this before, or is this your first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Never this bad. Usually get them at work when stressed. My sister gets migraines too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure reading?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They said it's 200 over 118. Pretty high, I guess."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like chest pain, shortness of breath, or weakness on one side of your body?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. No trouble breathing. Feel fine otherwise. My sister had a stroke last year though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine headache"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "electrocardiogram",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "Administer antihypertensive medication",
+          "Monitor blood pressure closely",
+          "Provide pain relief for headache"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of stroke or other cardiovascular events due to severely elevated blood pressure"
+        ],
+        "communication_note": "Your blood pressure is very high, and we need to address it immediately to prevent any serious complications. We'll get you to the emergency room for urgent care."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache's still here. Blood pressure medicine didn't help much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache in more detail, such as its location, intensity, and any associated symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Front of head. Really bad. Still hurts even with the pills they gave me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms like nausea, vision changes, or sensitivity to light or sound?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea. No light stuff. My sister's been sick too. Head still hurts bad."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertension-related headache",
+          "migraine",
+          "tension headache"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "adjust blood pressure medication",
+          "consider headache-specific medication",
+          "lifestyle modifications for hypertension"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "uncontrolled hypertension"
+        ],
+        "communication_note": "Your headache may be related to your blood pressure, so we'll adjust your treatment and monitor closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My headache's gone but now I can't see right out of one eye."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "optic neuritis"
+        ],
+        "workup_ordered": [
+          "urgent ophthalmology consultation",
+          "fundoscopic examination",
+          "optical coherence tomography (OCT)"
+        ],
+        "management_plan": [
+          "refer to ophthalmologist immediately",
+          "advise patient to avoid any strenuous activity until seen by specialist"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for permanent vision loss if not addressed promptly"
+        ],
+        "communication_note": "You need to see an eye specialist immediately to evaluate your vision changes and prevent any potential permanent damage."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790547007.2412786
+}

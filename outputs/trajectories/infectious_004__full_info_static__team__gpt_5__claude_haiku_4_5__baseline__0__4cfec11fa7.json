@@ -1,0 +1,153 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Lyme disease with neurological and cardiac involvement",
+          "Bell's palsy",
+          "Rheumatic fever",
+          "Viral myocarditis",
+          "Systemic lupus erythematosus (SLE)"
+        ],
+        "workup_ordered": [
+          "Lyme disease serology (already positive)",
+          "Repeat ECG monitoring",
+          "Echocardiogram to assess cardiac function",
+          "Neurology consultation for facial palsy",
+          "Cardiology consultation for AV block"
+        ],
+        "management_plan": [
+          "Initiate intravenous ceftriaxone for Lyme disease with neurological and cardiac involvement",
+          "Monitor cardiac rhythm closely due to risk of progression to complete heart block",
+          "Consider temporary pacemaker if AV block worsens",
+          "Physical therapy referral for facial palsy",
+          "Patient education on Lyme disease and prevention of tick bites"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of progression to complete heart block",
+          "Potential for worsening neurological symptoms",
+          "Need for close monitoring of cardiac status"
+        ],
+        "communication_note": "The patient presents with symptoms highly suggestive of Lyme disease with both neurological and cardiac manifestations. Immediate initiation of antibiotic therapy is crucial to prevent further complications. Coordination with cardiology and neurology is essential for comprehensive management. Patient education on the importance of early treatment and prevention of tick bites should be emphasized.",
+        "trace": {
+          "clinician_contribution": "Identified Lyme disease as the primary diagnosis based on history and positive serology.",
+          "safety_checker_contribution": "Highlighted the risk of progression to complete heart block and need for close monitoring.",
+          "pharm_nurse_contribution": "Recommended intravenous ceftriaxone as the treatment of choice for Lyme disease with neurological involvement."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Lyme disease with cardiac involvement (Lyme carditis)",
+          "Idiopathic facial nerve palsy (Bell's palsy)",
+          "Other infectious causes of heart block (e.g., viral myocarditis)",
+          "Autoimmune conditions (e.g., lupus, rheumatoid arthritis)"
+        ],
+        "workup_ordered": [
+          "Lyme serology (IgM and IgG)",
+          "CSF analysis for Lyme antibodies",
+          "Repeat EKG monitoring",
+          "Holter monitor for continuous cardiac rhythm assessment",
+          "Consultation with infectious disease specialist"
+        ],
+        "management_plan": [
+          "Immediate hospitalization for cardiac monitoring",
+          "Initiate intravenous antibiotics (e.g., ceftriaxone) for suspected Lyme carditis",
+          "Consider temporary pacing if symptomatic bradycardia persists",
+          "Consultation with cardiology for potential pacemaker placement",
+          "Symptomatic treatment for joint pain (e.g., NSAIDs)",
+          "Neurology consultation for persistent facial palsy"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of syncope due to complete heart block",
+          "Potential progression to more severe cardiac complications",
+          "Persistent facial palsy indicating possible neurological involvement"
+        ],
+        "communication_note": "Patient presents with symptoms highly suggestive of Lyme disease with cardiac involvement, given the history of a bull's-eye rash and recent camping in an endemic area. The presence of complete heart block necessitates urgent intervention. Immediate hospitalization and initiation of IV antibiotics are crucial to prevent further complications. Coordination with cardiology and infectious disease specialists is essential for comprehensive management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for urgent intervention due to complete heart block and potential Lyme carditis.",
+          "safety_checker_contribution": "Highlighted the risk of syncope and the need for continuous cardiac monitoring.",
+          "pharm_nurse_contribution": "Recommended initiation of IV antibiotics and symptomatic treatment for joint pain."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Lyme disease with cardiac involvement (Lyme carditis)",
+          "Complete heart block secondary to Lyme disease",
+          "Other infectious myocarditis",
+          "Autoimmune myocarditis",
+          "Idiopathic complete heart block"
+        ],
+        "workup_ordered": [
+          "Immediate cardiac monitoring",
+          "Consultation with cardiology",
+          "Lyme serology testing",
+          "Echocardiogram to assess cardiac function",
+          "Consider temporary pacing if symptomatic bradycardia persists"
+        ],
+        "management_plan": [
+          "Initiate intravenous antibiotics (Ceftriaxone) for suspected Lyme carditis",
+          "Consider temporary transvenous pacing due to complete heart block and symptomatic bradycardia",
+          "Monitor hemodynamic status closely",
+          "Administer IV fluids to address hypotension",
+          "Prepare for potential transfer to a higher level of care if condition worsens"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of progression to complete heart block without intervention",
+          "Potential for hemodynamic instability due to bradycardia and hypotension",
+          "Need for immediate intervention to prevent syncope or cardiac arrest"
+        ],
+        "communication_note": "Patient presents with complete heart block likely secondary to Lyme carditis, evidenced by recent history of tick exposure and bull's-eye rash. Immediate intervention is necessary to address symptomatic bradycardia and prevent further complications. Coordination with cardiology and infectious disease specialists is crucial for optimal management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate cardiac monitoring and intervention due to complete heart block.",
+          "safety_checker_contribution": "Highlighted the risk of hemodynamic instability and the necessity for urgent care.",
+          "pharm_nurse_contribution": "Recommended initiation of IV antibiotics and supportive care measures."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597824.7361155
+}

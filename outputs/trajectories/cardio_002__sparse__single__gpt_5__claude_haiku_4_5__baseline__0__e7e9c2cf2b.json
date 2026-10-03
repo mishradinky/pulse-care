@@ -1,0 +1,192 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath. Getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days. Getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. Just can't breathe good."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my legs are puffy. Been like that few days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your weight recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, gained some weight. Four kilos in a week."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your medications or started any new medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Taking same pills as always."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure exacerbation",
+          "pulmonary edema",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram",
+          "electrolyte panel",
+          "ECG"
+        ],
+        "management_plan": [
+          "initiate diuretics",
+          "monitor fluid intake and output",
+          "low-sodium diet"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress",
+          "potential for worsening heart failure"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your breathing difficulties and leg swelling."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still very short of breath. Gained more weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or abdomen?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My legs feel puffy. Belly's tight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. Just can't breathe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "initiate diuretics",
+          "monitor weight daily",
+          "low-sodium diet"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure symptoms"
+        ],
+        "communication_note": "You may have fluid buildup related to your heart, so we'll start treatment and get some tests done quickly."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe lying down. Using five pillows. Scared."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "optimize heart failure medications"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress",
+          "potential for worsening heart failure"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your breathing difficulty."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779506440.042933
+}

@@ -1,0 +1,193 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having a really hard time breathing the past few days, like it's getting worse when I try to move around. Also, I've been feeling kind of heavy and more tired than usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest feels kind of heavy and tight. It's harder to breathe when I walk around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my feet and ankles are puffy. They look like they're holding onto water or something."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've put on about 4 kilos in the last few days. I haven't really been eating more, but my ankles feel all puffed up."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart problems or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my heart's been not so strong for a while. I think my doctor said something about it being weak. I dunno much about high pressure, though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been experiencing any cough, especially at night or when lying down?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, when I lie down, it's like I gotta prop myself up or I start coughing and it's hard to breathe. It's been like that for a few days now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "pulmonary edema",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "electrocardiogram",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate diuretics",
+          "optimize heart failure medications",
+          "monitor fluid intake and output"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress",
+          "potential for worsening heart failure"
+        ],
+        "communication_note": "You are experiencing symptoms that suggest your heart condition may be worsening, so I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still having a really hard time catching my breath, and I keep putting on more weight. It feels like I'm dragging around extra bags with me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or abdomen?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My legs feel a bit puffy and tight, like they're too full. Is that what you mean?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest feels kind of heavy sometimes. It's hard to catch my breath too. Is that what you meant?"
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "echocardiogram",
+          "BNP level",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "initiate diuretic therapy",
+          "monitor weight daily",
+          "low-sodium diet",
+          "follow-up in cardiology clinic"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure symptoms"
+        ],
+        "communication_note": "We need to address your breathing and swelling issues urgently, so we'll arrange some tests and start treatment to help relieve your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe when I lie down, been sleeping with five pillows. It makes me panic."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "echocardiogram",
+          "BNP level",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "optimize heart failure medications",
+          "advise on fluid and salt restriction"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of acute decompensated heart failure"
+        ],
+        "communication_note": "You may have a heart condition causing fluid buildup, so we'll do some tests and adjust your medications to help you breathe easier."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779634956.810855
+}

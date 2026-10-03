@@ -1,0 +1,210 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't catch my breath, especially when I'm walking. It's been getting worse over the last 3 weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any cough, wheezing, or chest pain along with your shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had a dry cough for the last few weeks, but no wheezing or chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, weight loss, or night sweats recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had a low-grade fever for the past three weeks, but no weight loss or night sweats."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with anyone who has a known infectious disease, such as tuberculosis, or have you traveled to any areas where infectious diseases are common?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any recent contact with anyone with tuberculosis or traveled to any areas with common infectious diseases."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't noticed any swelling in my legs or ankles."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your appetite or any other symptoms like fatigue or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't really noticed any changes in my appetite, but I have been feeling more tired than usual. No significant weight loss that I'm aware of."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "Tuberculosis",
+          "Asthma",
+          "Chronic Obstructive Pulmonary Disease (COPD)",
+          "Pulmonary Embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete Blood Count (CBC)",
+          "Basic Metabolic Panel (BMP)",
+          "Sputum Culture",
+          "Pulmonary Function Tests (PFTs)"
+        ],
+        "management_plan": [
+          "Start on empiric antibiotics for possible pneumonia",
+          "Consider starting on antitussive for dry cough",
+          "Follow up in 1 week if no improvement"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential infectious disease process",
+          "Risk of respiratory failure"
+        ],
+        "communication_note": "We need to rule out potential infectious causes for your symptoms and will start you on some medications to help with your breathing and cough."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm here because my breathing has gotten worse. It's difficult even when I'm just sitting now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you're experiencing, such as cough, fever, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had a dry cough for the past few weeks and a low-grade fever. I haven't felt any chest pain though. Just a lot of breathlessness, especially when I try to move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any weight loss, night sweats, or exposure to anyone with a similar illness recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't noticed any weight loss or night sweats. I don't think I've been around anyone with a similar illness either."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "Tuberculosis",
+          "Asthma exacerbation",
+          "COVID-19"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "C-reactive protein (CRP)",
+          "Sputum culture",
+          "Tuberculin skin test (TST) or interferon-gamma release assay (IGRA)"
+        ],
+        "management_plan": [
+          "Start empiric antibiotics for community-acquired pneumonia",
+          "Consider antiviral therapy if COVID-19 is suspected",
+          "Oxygen therapy if hypoxemic",
+          "Pulmonary consult for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Respiratory failure",
+          "Sepsis"
+        ],
+        "communication_note": "Based on your symptoms, we will run some tests to determine the cause of your breathing difficulties and start appropriate treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm struggling to breathe and can't speak in full sentences. I'm really worried because it's getting worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism",
+          "acute exacerbation of asthma",
+          "COVID-19",
+          "bacterial bronchitis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "D-dimer",
+          "electrocardiogram (ECG)",
+          "COVID-19 PCR test"
+        ],
+        "management_plan": [
+          "supplemental oxygen",
+          "bronchodilators",
+          "corticosteroids",
+          "antibiotic therapy if bacterial infection is suspected",
+          "antiviral therapy if COVID-19 is confirmed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis",
+          "cardiac complications"
+        ],
+        "communication_note": "Your breathing difficulties are serious, and you need immediate medical attention."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636856.418118
+}

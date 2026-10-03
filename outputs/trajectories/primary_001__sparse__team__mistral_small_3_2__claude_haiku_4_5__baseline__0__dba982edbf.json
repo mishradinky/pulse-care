@@ -1,0 +1,177 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a sore on my foot. Two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore in more detail? For example, is it painful, draining, or changing in size? Also, have you had any recent injuries or illnesses?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It doesn't hurt. No drainage. Been there two weeks. No injury that I remember."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer",
+          "Cellulitis",
+          "Traumatic wound",
+          "Venous stasis ulcer",
+          "Fungal infection (e.g., athlete's foot)"
+        ],
+        "workup_ordered": [
+          "Visual inspection of the wound",
+          "Assessment of circulation and sensation",
+          "Blood glucose test if diabetes is suspected",
+          "Possible wound culture if infection is suspected"
+        ],
+        "management_plan": [
+          "Monitor for signs of infection and wound care needs",
+          "Review and adjust medications as necessary, considering potential interactions and contraindications",
+          "Evaluate and manage blood glucose levels if diabetic foot ulcer is suspected"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Patient has a non-painful, non-draining sore on their foot for two weeks with no remembered injury.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and workup based on patient's description of the sore.",
+          "safety_checker_contribution": "Approved the plan with no red flags identified and recommended routine escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, potential interactions, and nursing concerns related to wound care and medication management."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "The wound got bigger. Smells bad now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe where the wound is located and how long you've noticed these changes? Also, have you had any fever, redness, or increased pain around the area?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Bottom of right foot. Two weeks now. Smell got worse. No fever I think. Red around it."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Infection (e.g., cellulitis, abscess)",
+          "Chronic wound (e.g., diabetic ulcer, venous stasis ulcer)",
+          "Malignant transformation (e.g., squamous cell carcinoma)"
+        ],
+        "workup_ordered": [
+          "Visual inspection of the wound",
+          "Assessment for systemic signs of infection (e.g., fever, tachycardia)",
+          "Possible wound culture if infection suspected"
+        ],
+        "management_plan": [
+          "Monitor for signs of systemic infection and local wound progression",
+          "Assess pain management needs, avoiding NSAIDs if contraindicated",
+          "Evaluate wound care practices (e.g., dressing changes, offloading pressure) to promote healing",
+          "Check for allergies and ensure appropriate dosing if antibiotics are prescribed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Foul odor from the wound (suggests necrosis or severe infection)",
+          "Worsening size (may indicate rapid progression of infection or malignancy)"
+        ],
+        "communication_note": "Patient has a worsening wound on the bottom of the right foot with foul odor and redness, requiring urgent outpatient evaluation.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and workup based on patient's symptoms and history.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medications for potential issues, interactions, and dose adjustments, and provided nursing concerns."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Foot is very red, swollen. I have a fever now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started? And have you had any recent injuries or trauma to your foot?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever started yesterday. No injury. Wound was there two weeks ago."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cellulitis",
+          "Gout",
+          "Septic arthritis",
+          "Deep vein thrombosis (DVT)",
+          "Infection (e.g., abscess, osteomyelitis)"
+        ],
+        "workup_ordered": [
+          "Physical exam of the foot and lower leg",
+          "Assessment of vital signs (including temperature)",
+          "Possible imaging (e.g., X-ray, ultrasound, or MRI if indicated)",
+          "Blood tests (e.g., CBC, ESR, CRP, blood cultures if infection suspected)",
+          "Joint aspiration if septic arthritis is suspected"
+        ],
+        "management_plan": [
+          "Monitor for signs of systemic infection",
+          "Assess pain management and side effects",
+          "Educate patient on activity restrictions if DVT is suspected",
+          "Document baseline vital signs and joint function"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Patient has redness, swelling, and fever in the foot; further workup and monitoring are needed.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and workup based on patient's symptoms and history.",
+          "safety_checker_contribution": "Approved the plan with no red flags identified and recommended routine escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, potential interactions, and nursing concerns related to the patient's condition."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779512090.8602474
+}

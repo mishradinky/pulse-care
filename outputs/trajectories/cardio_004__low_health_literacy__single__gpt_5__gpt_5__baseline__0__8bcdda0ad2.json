@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've got this really bad headache, like my head's gonna pop. And they said my blood pressure is super high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this headache and high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had this headache really bad for about 4 hours. My blood pressure, I dunno, but I ain't felt this before. I ran out of my blood pills a couple weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medication were you taking for your blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I was taking a couple of pills. One was a little white one, and the other was kind of a big yellow pill, I think. But I ran out of them a couple weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, or vision changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I ain't got no chest pain, and I can breathe fine. My eyes are okay too, I think. What's shortness of breath mean?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or dizziness with your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I felt kinda woozy, like I might tip over, but no throwing up or feeling sick to my stomach."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you have any history of kidney problems or any other medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno about kidneys, but I've had high blood pressure for a while. I take some pills for it, but I ran out of them."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "medication non-compliance"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel",
+          "complete blood count",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "restart antihypertensive medication",
+          "educate on medication adherence",
+          "schedule follow-up appointment"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive complications"
+        ],
+        "communication_note": "Your headache and high blood pressure are concerning, so we need to restart your medication and monitor your condition closely. Let's get you back on track with your treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had this really bad pounding headache for hours now, and my blood pressure is still high even after taking some pills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medication did you take for your blood pressure, and what is your current blood pressure reading?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I took the big white pill and a little round one. My blood pressure was real high when they checked it, like 188 over something."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me the names of the medications you took or show me the bottles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I had this little round white one, and a bigger one that's kind of oval. I think one's for my blood pressure, but I ran out a while ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "medication non-compliance",
+          "secondary hypertension"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel",
+          "complete blood count",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "restart antihypertensive medication",
+          "educate on medication adherence",
+          "schedule follow-up appointment"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of stroke or heart attack due to high blood pressure"
+        ],
+        "communication_note": "Your blood pressure is very high, and it's important to address this urgently. We'll restart your medication and monitor your blood pressure closely. Please follow up with your primary care provider soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Well, my headache's gone now, but I\u2019m having trouble seeing out of my right eye. Everything\u2019s kinda blurry."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "optic neuritis"
+        ],
+        "workup_ordered": [
+          "ophthalmology consultation",
+          "fundoscopic examination",
+          "optical coherence tomography"
+        ],
+        "management_plan": [
+          "urgent ophthalmology referral",
+          "avoid activities that could worsen vision"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not addressed promptly"
+        ],
+        "communication_note": "Your vision changes need urgent evaluation by an eye specialist to prevent any potential permanent damage."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635641.5374935
+}

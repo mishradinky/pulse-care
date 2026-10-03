@@ -1,0 +1,154 @@
+{
+  "case_id": "mental_001",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Major Depressive Disorder (MDD) with suicidal ideation",
+          "Depression secondary to medical cause (e.g., thyroid dysfunction, anemia)",
+          "Anxiety disorder",
+          "Substance use disorder (though urine drug screen is negative)"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Thyroid-stimulating hormone (TSH) level",
+          "Urine drug screen",
+          "PHQ-9 questionnaire"
+        ],
+        "management_plan": [
+          "Immediate psychiatric evaluation and intervention",
+          "Assessment of suicidal ideation and risk",
+          "Ensure safety by removing access to means of self-harm (e.g., gun)",
+          "Initiate or adjust antidepressant medication (e.g., increase sertraline dose or switch to a different antidepressant)",
+          "Psychotherapy (e.g., cognitive-behavioral therapy)",
+          "Monitor for side effects of medication",
+          "Follow-up appointments to assess response to treatment and monitor for suicidal ideation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Suicidal ideation with a plan and means available (gun in the home)",
+          "Non-adherence to medication",
+          "Severe depression as indicated by PHQ-9 score of 24",
+          "Weight loss and poor nutritional status"
+        ],
+        "communication_note": "Patient is at high risk for self-harm due to suicidal ideation, access to means, and severe depression. Immediate intervention is required to ensure safety and prevent harm.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's mental state and ordered relevant labs.",
+          "safety_checker_contribution": "Identified high risk for self-harm due to suicidal ideation and access to means.",
+          "pharm_nurse_contribution": "Reviewed medication adherence and potential need for medication adjustment."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Major Depressive Disorder (MDD) with suicidal ideation and plan",
+          "Suicidal crisis",
+          "Medication non-adherence contributing to symptom exacerbation"
+        ],
+        "workup_ordered": [
+          "Columbia Suicide Severity Rating Scale (C-SSRS) assessment",
+          "Blood alcohol level (already done, negative)",
+          "Urgent psychiatric evaluation"
+        ],
+        "management_plan": [
+          "Immediate psychiatric evaluation and intervention",
+          "Assessment of suicide risk and safety planning",
+          "Ensure medication adherence and consider adjustment of sertraline dosage",
+          "Remove access to means (gun) immediately",
+          "Involve family or support system in safety planning",
+          "Consider hospitalization for acute suicidal ideation and plan"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Active suicidal plan with intent to use a gun tonight",
+          "Access to lethal means (gun in apartment)",
+          "High acute risk based on Columbia Suicide Scale"
+        ],
+        "communication_note": "Patient is at high risk for suicide. Immediate intervention and hospitalization are necessary. Ensure gun is removed from the apartment and involve family or support system in safety planning.",
+        "trace": {
+          "clinician_contribution": "Assessed psychiatric and neuro exam findings, ordered Columbia Suicide Scale and blood alcohol level.",
+          "safety_checker_contribution": "Identified high acute risk ideation, intent, plan, and means.",
+          "pharm_nurse_contribution": "Noted non-adherence to sertraline for 3 weeks."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Major Depressive Disorder (MDD) with suicidal ideation and high risk for self-harm",
+          "Agitation secondary to underlying psychiatric condition",
+          "Possible substance use or withdrawal (if applicable, though not specified in the vignette)"
+        ],
+        "workup_ordered": [
+          "Psychiatric evaluation by a psychiatrist",
+          "Assessment of suicide risk and safety planning",
+          "Evaluation of adherence to medication and potential need for adjustment",
+          "Assessment for involuntary hold and legal considerations"
+        ],
+        "management_plan": [
+          "Ensure patient safety with close monitoring and security presence",
+          "Administer medications as needed for agitation (e.g., benzodiazepines or antipsychotics if appropriate)",
+          "Initiate or adjust psychiatric medications as recommended by the psychiatrist",
+          "Involuntary hold placed due to high risk of self-harm and agitation",
+          "Coordinate with legal and ethical teams for involuntary hold procedures",
+          "Engage family or support system in the care plan if possible",
+          "Plan for inpatient psychiatric hospitalization for stabilization and further evaluation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "High risk of self-harm due to suicidal ideation and access to a gun",
+          "Agitation and potential for violent behavior towards staff",
+          "Need for immediate intervention to prevent elopement and self-harm"
+        ],
+        "communication_note": "Immediate intervention required due to high risk of self-harm and agitation. Involuntary hold placed. Coordinate with psychiatric team and security for patient safety.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's agitation and suicidal ideation, ordered psychiatric evaluation and safety measures.",
+          "safety_checker_contribution": "Identified high risk of self-harm and agitation, recommended immediate intervention and involuntary hold.",
+          "pharm_nurse_contribution": "Administered medications as needed for agitation, monitored patient's response to interventions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "major depressive disorder with suicidal ideation",
+      "bipolar disorder depressive episode",
+      "substance-induced depression"
+    ],
+    "required_workup": [
+      "Columbia Suicide Severity Rating Scale",
+      "PHQ-9",
+      "substance screen",
+      "TSH",
+      "CBC BMP",
+      "medication review"
+    ],
+    "correct_management": [
+      "involuntary psychiatric hold 5150/5250",
+      "means restriction counseling - firearm removal",
+      "inpatient psychiatric admission",
+      "restart sertraline and consider augmentation",
+      "safety planning with family"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597885.0532248
+}

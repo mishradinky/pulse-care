@@ -1,0 +1,150 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage (SAH)",
+          "Intracranial aneurysm rupture",
+          "Hypertensive crisis",
+          "Migraine with aura",
+          "Cervical artery dissection"
+        ],
+        "workup_ordered": [
+          "CT angiography of the head and neck to assess for aneurysm or vascular malformation",
+          "Repeat CT head if initial imaging is inconclusive",
+          "Neurology consultation",
+          "Blood pressure monitoring and management"
+        ],
+        "management_plan": [
+          "Admit to the intensive care unit for close monitoring",
+          "Initiate nimodipine to prevent cerebral vasospasm",
+          "Control blood pressure with IV antihypertensives (e.g., labetalol or nicardipine)",
+          "Pain management with acetaminophen or opioids as needed",
+          "Maintain euvolemia with IV fluids"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of rebleeding or aneurysm rupture",
+          "Potential for increased intracranial pressure",
+          "Risk of cerebral vasospasm leading to ischemic complications"
+        ],
+        "communication_note": "Patient presents with a classic presentation of a subarachnoid hemorrhage, likely secondary to a ruptured intracranial aneurysm given the family history and sudden onset of severe headache. Immediate intervention is required to prevent further complications. Coordination with neurology and neurosurgery is essential for further management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate imaging and specialist consultation.",
+          "safety_checker_contribution": "Highlighted the risk of rebleeding and need for ICU admission.",
+          "pharm_nurse_contribution": "Recommended nimodipine for vasospasm prevention and IV antihypertensives for BP control."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage due to ruptured aneurysm",
+          "Migraine with aura",
+          "Cervical artery dissection",
+          "Meningitis"
+        ],
+        "workup_ordered": [
+          "CT Angiography of the head",
+          "Lumbar puncture if CT negative",
+          "Neurology consultation",
+          "Blood pressure monitoring"
+        ],
+        "management_plan": [
+          "Admit to ICU for close monitoring",
+          "Initiate nimodipine to prevent vasospasm",
+          "Maintain systolic blood pressure < 140 mmHg",
+          "Pain management with IV analgesics",
+          "Antiemetic for nausea and vomiting"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of rebleeding from aneurysm",
+          "Potential for vasospasm leading to ischemic stroke",
+          "Hypertensive crisis"
+        ],
+        "communication_note": "Patient presents with a classic presentation of subarachnoid hemorrhage, confirmed by CTA showing a 5mm anterior communicating artery aneurysm with surrounding hemorrhage. Immediate ICU admission is necessary for monitoring and management. Family should be informed about the critical nature of the condition and the need for potential surgical intervention.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate imaging and neurology consultation based on the presentation and family history.",
+          "safety_checker_contribution": "Highlighted the risk of rebleeding and vasospasm, necessitating ICU admission and nimodipine administration.",
+          "pharm_nurse_contribution": "Recommended blood pressure management and pain control strategies."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage (SAH) with rebleed",
+          "Intracranial aneurysm rupture",
+          "Intracerebral hemorrhage",
+          "Acute ischemic stroke",
+          "Hypertensive crisis"
+        ],
+        "workup_ordered": [
+          "Repeat CT scan of the head",
+          "CT angiography to assess for aneurysm",
+          "Complete blood count (CBC)",
+          "Coagulation profile",
+          "Electrolyte panel",
+          "Type and crossmatch for potential surgical intervention"
+        ],
+        "management_plan": [
+          "Immediate neurosurgical consultation",
+          "Initiate blood pressure control with IV antihypertensives (e.g., labetalol or nicardipine)",
+          "Administer IV fluids to maintain euvolemia",
+          "Prepare for potential surgical intervention (e.g., clipping or coiling of aneurysm)",
+          "Monitor neurological status closely",
+          "Consider intubation for airway protection if GCS deteriorates"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of further neurological deterioration due to rebleed",
+          "Potential for increased intracranial pressure and herniation",
+          "Airway compromise due to decreased consciousness"
+        ],
+        "communication_note": "Patient presents with a life-threatening condition requiring immediate intervention. Coordination with neurosurgery and critical care teams is essential. Family should be informed of the critical nature of the situation and potential need for surgical intervention.",
+        "trace": {
+          "clinician_contribution": "Identified the need for urgent imaging and neurosurgical evaluation.",
+          "safety_checker_contribution": "Highlighted the risk of airway compromise and need for close monitoring.",
+          "pharm_nurse_contribution": "Prepared IV antihypertensives and ensured availability of emergency medications."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597914.4396338
+}

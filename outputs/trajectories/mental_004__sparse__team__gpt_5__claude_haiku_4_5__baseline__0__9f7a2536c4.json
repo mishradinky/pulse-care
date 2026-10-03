@@ -1,0 +1,192 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Shaking. Sweating. Can't stop. Need a drink."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started and how often they occur?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started yesterday when I stopped drinking. Shaking won't stop."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "alcohol withdrawal",
+          "anxiety disorder",
+          "hyperthyroidism"
+        ],
+        "workup_ordered": [
+          "complete blood count (CBC)",
+          "comprehensive metabolic panel (CMP)",
+          "thyroid function tests",
+          "blood alcohol level"
+        ],
+        "management_plan": [
+          "Initiate Lorazepam for alcohol withdrawal management, ensuring appropriate dosing.",
+          "Consider Propranolol for anxiety symptoms if not contraindicated.",
+          "Monitor for signs of alcohol withdrawal, such as tremors or agitation.",
+          "Conduct ordered lab tests to clarify diagnosis."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for potential interactions between benzodiazepines and other CNS depressants.",
+          "Assess for contraindications of NSAIDs if the patient has any renal impairment."
+        ],
+        "communication_note": "Patient presents with symptoms consistent with alcohol withdrawal; routine management initiated with monitoring.",
+        "trace": {
+          "clinician_contribution": "Identified potential diagnoses and ordered relevant lab tests.",
+          "safety_checker_contribution": "Approved plan with no red flags, recommended routine escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, suggested Lorazepam for withdrawal, and highlighted potential interactions."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I... I had a seizure. Don't remember it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've had any previous seizures or if there's a family history of seizures?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Had 'em before when I stopped drinking. Don't know about family."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "seizure disorder",
+          "alcohol withdrawal seizure",
+          "metabolic disturbance",
+          "brain tumor",
+          "stroke"
+        ],
+        "workup_ordered": [
+          "neurological examination",
+          "EEG",
+          "brain MRI",
+          "blood tests including electrolytes and glucose",
+          "toxicology screen"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Initiate therapeutic drug monitoring for Phenytoin if prescribed.",
+          "Monitor liver function tests and platelet counts if Valproic Acid is used.",
+          "Check for potential interactions and monitor for signs of toxicity if Carbamazepine is prescribed."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Patient reports a seizure, which is a significant neurological event requiring immediate attention.",
+          "Potential for serious underlying conditions such as brain tumor or stroke.",
+          "Seizures can indicate life-threatening conditions that require urgent medical assessment."
+        ],
+        "communication_note": "Patient requires immediate referral to the emergency department due to the reported seizure and potential serious underlying conditions.",
+        "trace": {
+          "clinician_contribution": "Identified the need for a comprehensive workup to determine the cause of the seizure.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation and recommended emergency department referral.",
+          "pharm_nurse_contribution": "Provided insights on medication management and potential interactions."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Everything's spinning. Bugs crawling on me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started and if anything seems to trigger them?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started yesterday after I stopped drinking. Getting worse now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "alcohol withdrawal",
+          "substance-induced hallucinations",
+          "delirium",
+          "vertigo",
+          "anxiety disorder"
+        ],
+        "workup_ordered": [
+          "complete blood count (CBC)",
+          "comprehensive metabolic panel (CMP)",
+          "urine toxicology screen",
+          "MRI of the brain",
+          "psychiatric evaluation"
+        ],
+        "management_plan": [
+          "Initiate a tapering schedule for Lorazepam to prevent withdrawal symptoms.",
+          "Monitor for signs of alcohol withdrawal and provide supportive care as needed.",
+          "Avoid Meclizine due to potential worsening of delirium symptoms.",
+          "Schedule an urgent outpatient follow-up to reassess symptoms and adjust treatment as necessary."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Hallucinations indicating potential severe withdrawal or substance-induced state.",
+          "Risk of rapid deterioration due to delirium or severe withdrawal symptoms.",
+          "Potential CNS depression from medication interactions."
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up due to risk of severe withdrawal symptoms.",
+        "trace": {
+          "clinician_contribution": "Identified a broad differential diagnosis and recommended a comprehensive workup to narrow down the cause of symptoms.",
+          "safety_checker_contribution": "Highlighted red flags such as hallucinations and potential alcohol withdrawal, recommending urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and suggested monitoring for withdrawal symptoms."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511739.8879573
+}

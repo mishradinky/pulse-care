@@ -1,0 +1,194 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Worst headache of my life. Started two hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any neck stiffness, fever, confusion, vision changes, weakness, or difficulty speaking right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Neck's stiff. No fever. I'm fine otherwise."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Did this headache come on suddenly like a thunderclap, or did it build up gradually over minutes to hours?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Came on all at once. Like a bolt."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage",
+          "Meningitis",
+          "Acute severe hypertension/hypertensive emergency",
+          "Reversible cerebral vasoconstriction syndrome (RCVS)"
+        ],
+        "workup_ordered": [
+          "Stat non-contrast head CT",
+          "Lumbar puncture (if CT negative)",
+          "Blood pressure measurement",
+          "CBC, CMP, coagulation studies"
+        ],
+        "management_plan": [
+          "Immediate ED referral for neuroimaging and evaluation",
+          "Do not delay for outpatient workup",
+          "Keep patient NPO pending evaluation",
+          "Establish IV access if available before transfer"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Thunderclap headache with neck stiffness is a medical emergency until subarachnoid hemorrhage is ruled out",
+          "Risk of rapid deterioration, increased intracranial pressure, or meningeal infection",
+          "Requires immediate neuroimaging and possible lumbar puncture"
+        ],
+        "communication_note": "Your sudden severe headache with neck stiffness requires emergency evaluation at the hospital right now to rule out serious causes like bleeding in the brain\u2014please call 911 or go to the nearest ED immediately."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still hurts bad. Meds helped a little."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 0-10, what is your current headache pain level, and has the location, character, or severity changed since your last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still like 8 or 9. Same spot, back of head. Won't go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any new symptoms since your last visit, such as fever, vision changes, neck stiffness, weakness, numbness, or confusion?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Neck's still stiff. Threw up once. Head still really bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a fever right now, and have you checked your temperature? Also, is the neck stiffness worse when you try to touch your chin to your chest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. Didn't check. Neck's stiff, hurts to bend."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Meningitis (viral or bacterial)",
+          "Subarachnoid hemorrhage",
+          "Cervicogenic headache with neck strain",
+          "Tension headache with cervical myofascitis",
+          "Intracranial mass or lesion"
+        ],
+        "workup_ordered": [
+          "Stat temperature check",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Blood cultures (if fever develops)",
+          "Stat non-contrast head CT",
+          "Consider lumbar puncture if CT normal and clinical suspicion remains high"
+        ],
+        "management_plan": [
+          "Immediate ED referral for evaluation of possible meningitis/SAH",
+          "Do not delay\u2014patient has classic triad concerning for meningitis: severe headache, neck stiffness, and vomiting",
+          "Empiric antibiotics and antivirals should be considered at ED if meningitis suspected",
+          "Neuroimaging urgently needed to rule out intracranial pathology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Severe persistent headache (8-9/10) with neck stiffness and vomiting is a medical emergency until meningitis/SAH ruled out",
+          "Absence of reported fever does NOT exclude meningitis",
+          "Risk of rapid deterioration if infectious meningitis present"
+        ],
+        "communication_note": "Your headache, neck stiffness, and vomiting together are concerning and need urgent evaluation in the emergency department to rule out serious conditions like meningitis or bleeding in the brain."
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't think straight. Left arm won't move."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute ischemic stroke",
+          "Transient ischemic attack (TIA)",
+          "Hemorrhagic stroke",
+          "Todd's paralysis (post-ictal)",
+          "Complex migraine with aura",
+          "Hemiplegic migraine"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT",
+          "ECG",
+          "Troponin",
+          "CBC, CMP, coagulation studies",
+          "Blood glucose",
+          "Lipid panel"
+        ],
+        "management_plan": [
+          "Immediate emergency department evaluation",
+          "Establish time of symptom onset",
+          "Assess for thrombolytic eligibility",
+          "Neurological examination and NIH Stroke Scale",
+          "Consider advanced imaging (CTA/MRI) based on CT results"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute focal neurological deficit (left arm paralysis) with cognitive changes suggests possible acute stroke",
+          "Time-sensitive condition requiring immediate evaluation for thrombolytic therapy eligibility",
+          "Risk of progression or additional neurological compromise"
+        ],
+        "communication_note": "You need emergency evaluation right now for your arm weakness and thinking problems\u2014call 911 immediately as this could be a stroke."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512345.4167168
+}

@@ -1,0 +1,213 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "fx_v0_d1_l0_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 78,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever, chills, back pain. Haven't peed in hours. Feel confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days. Started yesterday morning with chills. My daughter visited yesterday, she's been sick too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any changes in your urine, such as color or smell, before you stopped urinating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yellow and cloudy. Smelled bad. My daughter visited yesterday, she's been sick too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or abdominal pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, throwing up. Bad pain in my back. Been here two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of urinary tract infections or kidney problems?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I get them a lot. Had one few months back. My daughter's been sick too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or feet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No swelling. My daughter visited yesterday, said I looked pale though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urosepsis",
+          "acute kidney injury"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum IV antibiotics",
+          "administer IV fluids",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for sepsis",
+          "risk of acute kidney injury due to urinary retention"
+        ],
+        "communication_note": "You have a serious infection that may have spread to your kidneys and possibly your bloodstream. We need to get you to the emergency room immediately for treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still got fever. More confused now. Been on antibiotics one day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific symptoms or changes have you noticed since starting the antibiotics?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still have fever. More confused now. Didn't eat breakfast."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What antibiotics are you currently taking and for what condition?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They gave me Cipro yesterday. For the fever and infection, I guess."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "sepsis",
+          "adverse drug reaction"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "blood cultures",
+          "urinalysis",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "continue antibiotics as prescribed",
+          "ensure adequate hydration",
+          "monitor mental status closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis",
+          "risk of dehydration",
+          "risk of worsening confusion"
+        ],
+        "communication_note": "Given your persistent fever and increased confusion, it's important to go to the emergency department for further evaluation and management."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm in the ICU. Very sick. Can't breathe without the tube."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute respiratory distress syndrome",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis"
+        ],
+        "communication_note": "You are in the ICU because your lungs are not working well, and we are doing everything to support your breathing and treat any possible infection."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790548140.7703028
+}

@@ -1,0 +1,211 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I have the worst headache of my life. It started suddenly about two hours ago while I was lifting weights at the gym. I've never had anything like this before\u2014the pain is unbearable."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage (thunderclap headache) \u2014 HIGHEST PRIORITY",
+          "Intracerebral hemorrhage",
+          "Arterial dissection (carotid/vertebral)",
+          "Reversible cerebral vasoconstriction syndrome (RCVS)",
+          "Acute severe hypertension",
+          "Exertional migraine"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT (rule out hemorrhage) \u2014 IMMEDIATE",
+          "Lumbar puncture if CT negative (xanthochromia detection)",
+          "Vital signs including BP in both arms",
+          "Comprehensive neurologic exam (focal deficits, meningismus, vision changes)",
+          "ECG",
+          "CBC, CMP, coagulation studies",
+          "Complete medication/supplement/OTC history (BEFORE any interventions)",
+          "Allergy documentation (contrast agents, antibiotics)",
+          "Baseline renal function (Cr/eGFR) for imaging safety"
+        ],
+        "management_plan": [
+          "ACTIVATE 911 EMERGENCY TRANSPORT \u2014 patient should NOT self-drive",
+          "Establish large-bore IV access in primary care setting while awaiting transport",
+          "NPO status (nothing by mouth) pending possible urgent intervention",
+          "HOLD all non-essential medications pending diagnosis",
+          "AVOID analgesics, NSAIDs, and opioids until diagnosis confirmed",
+          "DO NOT aggressively treat hypertension until hemorrhage ruled out",
+          "Obtain complete medication history immediately (critical for contraindication check: triptans, ergotamines, stimulants, anticoagulants, antiplatelets)",
+          "Notify receiving ED of thunderclap presentation and Valsalva trigger \u2014 ensure neurosurgical consultation availability",
+          "Continuous monitoring for signs of deterioration (altered mental status, focal deficits, seizure activity)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Thunderclap headache ('worst headache of life') \u2014 classic SAH presentation",
+          "Valsalva trigger (weightlifting) \u2014 increases intracranial pressure, consistent with hemorrhagic process",
+          "Age 52 with acute neurologic emergency \u2014 time-critical diagnosis window",
+          "Risk of rapid deterioration if active hemorrhage ongoing \u2014 potential for re-bleeding, vasospasm, herniation",
+          "Unknown medication status \u2014 CRITICAL: must rule out vasoconstrictive agents (triptans, ergotamines, stimulants) that are contraindicated in dissection/RCVS",
+          "Anticoagulation/antiplatelet status unknown \u2014 impacts hemorrhage risk and LP safety",
+          "Contrast allergy status unknown \u2014 may affect imaging modality selection (CTA vs. conventional angiography)",
+          "Pain management must be deferred \u2014 analgesics mask symptoms and NSAIDs increase bleed risk"
+        ],
+        "communication_note": "This is a life-threatening emergency requiring immediate 911 activation and ED evaluation with emergent neuroimaging and neurosurgical capability; do not delay for primary care workup.",
+        "trace": {
+          "clinician_contribution": "Correctly identified thunderclap headache with Valsalva trigger as medical emergency; provided comprehensive, evidence-based differential diagnosis prioritizing SAH; sequenced workup appropriately (imaging first, LP if negative); appropriately yielded to safety with emergency escalation recommendation.",
+          "safety_checker_contribution": "Validated clinician's threat recognition as appropriate; confirmed all red flags present (thunderclap, Valsalva, age, time-critical diagnosis); approved emergency_911 escalation with no blocking concerns; emphasized time-critical intervention window and need for emergency transport rather than self-driving.",
+          "pharm_nurse_contribution": "Identified critical gap in medication history and flagged contraindication checks (vasoconstrictive agents in dissection/RCVS, anticoagulants affecting hemorrhage/LP safety); provided nursing priorities (IV access, NPO status, allergy documentation, renal function baseline, BP management caution); recommended holding all non-essential medications and analgesics pending diagnosis."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, my headache is still really bad even with the pain medication they gave me. It's a little better than before, but it's still severe. I'm in a lot of pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. Can you describe the headache for me\u2014where exactly is it located, what does it feel like (throbbing, pressure, sharp), and has anything changed about it since your last visit? Also, are you experiencing any new symptoms like vision changes, weakness, fever, or neck stiffness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain is all over my head, really intense and sharp. It hit me like a lightning bolt when I was lifting. I took some pain medication and it's a bit better now, but still severe. My neck feels stiff. I threw up once earlier. The light bothers my eyes less than before, but the headache is still there."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage (SAH) \u2013 HIGHEST PRIORITY: thunderclap onset + neck stiffness + photophobia + vomiting",
+          "Meningitis/encephalitis: neck stiffness + photophobia + vomiting + severe headache",
+          "Acute severe migraine with aura",
+          "Cervical artery dissection (carotid/vertebral): thunderclap + neck stiffness + lifting trigger",
+          "Temporal arteritis (age 52, persistent severe headache \u2013 still in differential but lower priority given acute thunderclap presentation)"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT (rule out SAH, ICH)",
+          "If CT negative and clinical suspicion remains high \u2192 STAT lumbar puncture (meningitis, SAH with negative CT)",
+          "STAT labs: CBC, CMP, ESR, CRP, blood cultures (if fever develops)",
+          "Cervical/cerebral vascular imaging (CTA head/neck or MRA) if SAH/dissection suspected after CT"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL \u2013 do not manage in primary care",
+          "Patient should call 911 or go directly to nearest ED",
+          "Provide ED with summary: thunderclap-onset severe headache + neck stiffness + photophobia + vomiting + lifting trigger",
+          "Hold all outpatient pain management pending ED evaluation",
+          "Do NOT attempt lumbar puncture in primary care setting"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\u26a0\ufe0f THUNDERCLAP ONSET is pathognomonic for SAH until proven otherwise \u2013 this is a medical emergency",
+          "\u26a0\ufe0f Neck stiffness + photophobia + vomiting = meningitis triad; SAH can present identically",
+          "\u26a0\ufe0f Lifting trigger suggests Valsalva-induced event (SAH, dissection, or increased ICP)",
+          "\u26a0\ufe0f Patient reports 'a bit better' with pain meds \u2013 DO NOT be falsely reassured; SAH can have variable symptom trajectory",
+          "\u26a0\ufe0f Medication overuse and temporal arteritis remain in differential but are SECONDARY concerns; life-threatening etiologies must be ruled out first"
+        ],
+        "communication_note": "This patient requires IMMEDIATE emergency evaluation for possible subarachnoid hemorrhage, meningitis, or arterial dissection; advise 911 or ED referral now.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately screened for red-flag symptoms and obtained detailed headache characterization. Patient's responses (thunderclap onset, neck stiffness, photophobia, vomiting, lifting trigger) revealed critical red flags that escalate this from routine follow-up to medical emergency. Clinician's differential appropriately included secondary causes but did not yet recognize the acute thunderclap presentation as requiring immediate ED referral.",
+          "safety_checker_contribution": "Safety checker correctly identified temporal arteritis as a concern for age 52 and outlined escalation pathways. However, the patient's actual presentation (thunderclap + neck stiffness + photophobia + vomiting) meets criteria for EMERGENCY 911 referral per the safety checker's own contingency protocol. This overrides routine escalation and mandates immediate ED evaluation.",
+          "pharm_nurse_contribution": "Pharm/nurse appropriately flagged need for medication reconciliation and medication overuse assessment, but these are now secondary to acute life-threat evaluation. Medication review and renal function assessment should occur AFTER ED clearance of SAH/meningitis/dissection. Nurse's red-flag assessment was sound but must now be escalated to emergency level based on patient's actual symptom report."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm confused and something's wrong with my left arm\u2014I can't move it. Everything happened so fast. I'm really scared."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute ischemic stroke",
+          "Acute hemorrhagic stroke",
+          "Transient ischemic attack (TIA)",
+          "Todd's paralysis (post-ictal)",
+          "Hemiplegic migraine",
+          "Spinal cord compression",
+          "Brachial plexus injury"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (BP, HR, O2 sat, temp, glucose)",
+          "STAT non-contrast CT head \u00b1 CTA head/neck",
+          "STAT labs: CBC, CMP, coagulation studies (PT/INR, aPTT), troponin, lactate",
+          "STAT 12-lead ECG",
+          "Rapid NIHSS assessment",
+          "Establish exact last known well time (critical for thrombolytic window)",
+          "STAT medication reconciliation (anticoagulants, antiplatelets, recent thrombolytics)",
+          "STAT allergy confirmation (drug + contrast allergies)",
+          "Fingerstick glucose",
+          "Swallow screen (before any oral intake)"
+        ],
+        "management_plan": [
+          "ACTIVATE STROKE PROTOCOL immediately\u2014do NOT delay for any reason",
+          "Call 911 for EMS transport to comprehensive stroke center with thrombectomy capability",
+          "Establish IV access (large bore if possible)",
+          "NPO status immediately (aspiration precautions)",
+          "Place on continuous cardiac monitoring and pulse oximetry",
+          "Obtain complete medication history from patient, pharmacy, PCP, or emergency contact if patient unable to provide",
+          "If IV tPA eligible (within 4.5 hr window, no contraindications): weight-based dosing 0.9 mg/kg (max 90 mg)",
+          "If mechanical thrombectomy candidate (large vessel occlusion on imaging, within 24 hr window): coordinate with interventional neurology",
+          "Blood pressure management: avoid aggressive lowering pre-imaging; post-tPA target <180/105 mmHg",
+          "Seizure precautions: monitor for post-ictal confusion or repeat seizure activity",
+          "Implement bleeding precautions if thrombolytic given",
+          "Hold all oral medications until stroke etiology confirmed and swallow screen passed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Time-critical emergency: every minute of delay reduces thrombolytic/thrombectomy eligibility and worsens outcomes",
+          "Primary care setting is inappropriate for this acuity\u2014patient requires comprehensive stroke center with advanced imaging and interventional capability",
+          "CRITICAL GAP: Complete medication history unknown\u2014must obtain STAT before thrombolytic consideration (anticoagulants, antiplatelets, recent thrombolytics are absolute decision-drivers)",
+          "Last known well time not yet established\u2014essential for determining treatment window eligibility",
+          "Differential includes immediately life-threatening vascular emergencies (acute ischemic/hemorrhagic stroke) requiring emergent neuroimaging",
+          "Aspiration risk post-stroke\u2014NPO status and swallow precautions mandatory",
+          "Hyperglycemia worsens stroke outcomes\u2014glucose control critical",
+          "Contrast allergy status unknown\u2014must confirm before CTA"
+        ],
+        "communication_note": "Activate stroke protocol immediately, call 911 for emergency transport to comprehensive stroke center, and obtain complete medication history STAT while EMS en route.",
+        "trace": {
+          "clinician_contribution": "Correctly identified acute-onset unilateral arm paralysis as a stroke alert requiring immediate safety yield. Provided well-reasoned differential including both vascular (ischemic/hemorrhagic stroke, TIA) and non-vascular mimics (Todd's paralysis, hemiplegic migraine, structural lesions). Appropriately escalated to stroke protocol with stat vitals, rapid NIHSS, last known well time documentation, and emergent CT \u00b1 CTA.",
+          "safety_checker_contribution": "Approved clinician's stroke alert decision and confirmed protocol activation is standard of care. Identified critical time-sensitive window for thrombolytic/thrombectomy eligibility. Flagged that primary care setting is inappropriate for this acuity and mandated immediate EMS activation with no delays. Emphasized importance of exact symptom onset time for treatment eligibility determination.",
+          "pharm_nurse_contribution": "Identified CRITICAL GAP: no medication history provided. Mandated STAT medication reconciliation focusing on anticoagulants (warfarin, DOACs), antiplatelets (aspirin, clopidogrel), and recent thrombolytics\u2014these are absolute decision-drivers for IV tPA/thrombectomy eligibility. Specified IV tPA dosing (0.9 mg/kg, max 90 mg) requires weight-based calculation. Outlined nursing priorities: NPO status, bleeding precautions, BP management, glucose control, seizure precautions, allergy confirmation, and medication hold pending stroke etiology confirmation."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512387.3314903
+}

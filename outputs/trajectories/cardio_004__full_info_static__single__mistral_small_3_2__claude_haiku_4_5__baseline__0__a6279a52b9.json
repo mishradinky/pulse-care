@@ -1,0 +1,117 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive urgency",
+          "Migraine headache",
+          "Hypertensive encephalopathy"
+        ],
+        "workup_ordered": [
+          "CT head without contrast",
+          "Basic metabolic panel",
+          "Electrocardiogram",
+          "Fundoscopy"
+        ],
+        "management_plan": [
+          "Administer oral antihypertensive medication (e.g., clonidine or labetalol)",
+          "Monitor blood pressure closely",
+          "Restart amlodipine and HCTZ",
+          "Schedule follow-up appointment within 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of hypertensive crisis if blood pressure is not controlled"
+        ],
+        "communication_note": "Your blood pressure is very high, and we need to monitor and treat it to prevent complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive urgency",
+          "Medication non-adherence",
+          "Secondary hypertension"
+        ],
+        "workup_ordered": [
+          "Basic metabolic panel (BMP)",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Continue oral antihypertensives (amlodipine, clonidine)",
+          "Monitor blood pressure closely",
+          "Consider adding a third antihypertensive agent if BP remains elevated"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of hypertensive crisis if BP is not controlled"
+        ],
+        "communication_note": "Your blood pressure is still high, and we need to adjust your medications to better control it."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Malignant hypertension with hypertensive encephalopathy",
+          "Hypertensive emergency with end-organ damage",
+          "Renal disease (given proteinuria and red cell casts)"
+        ],
+        "workup_ordered": [
+          "CT head without contrast",
+          "MRI brain with angiography",
+          "24-hour urine protein",
+          "Renal ultrasound"
+        ],
+        "management_plan": [
+          "IV labetalol for blood pressure control",
+          "Ophthalmology consult for urgent evaluation",
+          "Neurology consult for further evaluation",
+          "Admit to ICU for blood pressure management and monitoring"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of stroke or intracranial hemorrhage due to severely elevated blood pressure",
+          "Risk of renal failure due to hypertensive nephropathy"
+        ],
+        "communication_note": "Your blood pressure is dangerously high and you're experiencing serious symptoms that require immediate attention."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505251.1837835
+}

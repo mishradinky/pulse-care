@@ -1,0 +1,140 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive urgency (severe HTN with headache, no end-organ damage)",
+          "Hypertensive emergency (rule out with fundoscopy and labs)",
+          "Secondary hypertension exacerbation",
+          "Medication non-adherence with rebound hypertension"
+        ],
+        "workup_ordered": [
+          "Fundoscopy (to assess for papilledema, hemorrhages, exudates)",
+          "Repeat BP in 15 minutes",
+          "Troponin and BNP if chest symptoms develop",
+          "Urinalysis with microscopy (already done\u2014negative)",
+          "Basic metabolic panel (already done\u2014normal)",
+          "ECG (already done\u2014shows LVH)"
+        ],
+        "management_plan": [
+          "Reinitiate amlodipine 10 mg daily immediately",
+          "Reinitiate HCTZ 25 mg daily immediately",
+          "Consider short-acting agent: nifedipine ER 30 mg or labetalol 200 mg PO for acute BP reduction",
+          "Recheck BP in 15\u201330 minutes; target reduction 10\u201315% in first hour",
+          "Patient education on medication adherence and refill scheduling",
+          "Arrange close follow-up (24\u201348 hours) with primary care or cardiology"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe hypertension (200/118) with 2-week medication lapse\u2014risk of hypertensive emergency if end-organ involvement develops",
+          "Fundoscopy not yet performed\u2014must rule out retinopathy/papilledema before discharge",
+          "LVH on ECG indicates chronic hypertensive burden; monitor for decompensation"
+        ],
+        "communication_note": "Your blood pressure is very high due to missing your blood pressure medications for two weeks; we are restarting them today and will monitor you closely to ensure your headache improves and your blood pressure comes down safely."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive urgency (severe hypertension without end-organ damage)",
+          "Hypertensive emergency (with possible subclinical end-organ involvement)",
+          "Secondary hypertension (medication non-adherence masking underlying condition)",
+          "Medication non-adherence with rebound hypertension"
+        ],
+        "workup_ordered": [
+          "Urinalysis with microscopy (assess for proteinuria/hematuria)",
+          "Repeat BP monitoring q15-30min",
+          "ECG (evaluate for acute ischemic changes)",
+          "Troponin (rule out ACS given severe hypertension)",
+          "Fundoscopic exam (assess for hypertensive retinopathy)"
+        ],
+        "management_plan": [
+          "Continue amlodipine 10mg daily; add clonidine 0.2mg BID (already initiated with partial response)",
+          "Consider adding ACE inhibitor or thiazide diuretic if BP remains >180/110 after 1 hour",
+          "Strict medication adherence counseling and pill organizer/reminder system",
+          "Recheck BP in 1 hour; if SBP remains >180 or new symptoms develop, escalate to ED",
+          "Arrange cardiology follow-up for LVH management and optimization of antihypertensive regimen",
+          "Patient education on hypertension complications and importance of medication compliance"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Persistent severe hypertension (188/110) despite dual therapy initiation suggests need for closer monitoring",
+          "Concentric LVH indicates chronic hypertensive burden; risk for acute decompensation",
+          "Medication non-adherence pattern requires intervention to prevent future hypertensive crises"
+        ],
+        "communication_note": "Your blood pressure remains elevated despite starting two medications today, but there are no signs of immediate organ damage; we will recheck in 1 hour and may add another medication, with close follow-up arranged."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive emergency with end-organ damage (acute kidney injury, hypertensive retinopathy/papilledema)",
+          "Posterior reversible encephalopathy syndrome (PRES)",
+          "Acute stroke (right eye visual field defect concerning for vascular event)",
+          "Malignant hypertension with acute nephritis"
+        ],
+        "workup_ordered": [
+          "Stat head CT or MRI brain (rule out PRES, stroke, intracranial pathology)",
+          "Stat ophthalmology consultation (papilledema, visual field defect assessment)",
+          "Repeat BMP, urinalysis with microscopy, 24-hour urine protein",
+          "ECG (assess for LVH, ischemia)",
+          "Renal ultrasound or doppler (assess renal perfusion, rule out renal artery stenosis)"
+        ],
+        "management_plan": [
+          "Immediate IV antihypertensive therapy (labetalol or nicardipine) targeting MAP reduction of 10-15% in first hour, then gradual reduction to <160/110 over 2-6 hours",
+          "Admit to ICU for continuous monitoring and titration",
+          "Hold amlodipine restart pending imaging; initiate IV agents first",
+          "Nephrology consultation for acute kidney injury and proteinuria with RBC casts (concern for acute glomerulonephritis)",
+          "NPO pending imaging; establish IV access, continuous cardiac monitoring",
+          "Assess for other end-organ involvement (troponin already negative; monitor for pulmonary edema)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Hypertensive emergency with acute end-organ damage (kidney, eye, possible CNS involvement)",
+          "New visual field defect raises concern for acute stroke or posterior circulation involvement",
+          "Bilateral papilledema indicates severely elevated intracranial pressure",
+          "Acute kidney injury with proteinuria and RBC casts suggests acute glomerulonephritis or malignant hypertension",
+          "Risk of further neurological deterioration, seizure, or intracranial hemorrhage"
+        ],
+        "communication_note": "Your blood pressure remains dangerously high with new vision changes and signs of kidney stress; you need emergency hospital admission to the ICU for IV blood pressure control and urgent imaging to rule out stroke and brain swelling."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505239.2002373
+}

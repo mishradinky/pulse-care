@@ -1,0 +1,199 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Sharp pain in my right chest. Can't breathe right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain further? For example, does it radiate anywhere, is it worse with movement or breathing, and does it come and go or is it constant?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sharp. Right side. Worse when I breathe. Doesn't go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of the pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Eight. Sharp. Right side hurts worse when I breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your chest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just the pain started sudden after the flight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or dizziness along with the chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe. No dizziness though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent surgeries or medical procedures that might have contributed to this pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No surgeries. Just the flight."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumothorax",
+          "Pulmonary embolism",
+          "Costochondritis",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "Administer oxygen therapy if hypoxia is present",
+          "Provide analgesia for pain management",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential life-threatening conditions such as pneumothorax or pulmonary embolism"
+        ],
+        "communication_note": "Given the severity of your symptoms and the potential seriousness of the underlying cause, I recommend an immediate referral to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing worse. Even sitting still. Right leg hurts more."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature of your breathing difficulty? Is it shortness of breath, wheezing, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Hard to breathe. Worse when I lay down."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles, or have you gained weight recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right leg is swollen. More painful now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure",
+          "deep vein thrombosis",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "D-dimer test",
+          "lower extremity Doppler ultrasound"
+        ],
+        "management_plan": [
+          "oxygen therapy",
+          "diuretics if heart failure suspected",
+          "anticoagulation if DVT/PE confirmed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential cardiovascular compromise"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart or lung issue, and we need to run some tests to determine the best course of treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Almost passed out."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute coronary syndrome",
+          "Pulmonary embolism",
+          "Severe anemia",
+          "Cardiac arrhythmia",
+          "Pneumothorax"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Complete blood count",
+          "Basic metabolic panel",
+          "D-dimer",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Administer oxygen",
+          "Monitor vital signs continuously",
+          "Prepare for possible advanced cardiac life support if condition deteriorates"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of cardiac arrest",
+          "Potential for rapid deterioration"
+        ],
+        "communication_note": "Your symptoms are serious and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507366.7555974
+}

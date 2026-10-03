@@ -1,0 +1,175 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I have the worst headache of my life. It started suddenly about two hours ago while I was lifting at the gym. I've never felt anything like this before\u2014it came on all at once."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any neck stiffness, nausea, vomiting, vision changes, weakness, numbness, or difficulty speaking right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my neck is stiff\u2014it's hard to bend it forward. I don't have nausea, vomiting, or vision problems. No weakness, numbness, or trouble speaking. Just this terrible headache and the stiff neck."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage",
+          "Meningitis",
+          "Cervical artery dissection",
+          "Acute severe tension headache with cervical strain"
+        ],
+        "workup_ordered": [
+          "Stat non-contrast head CT",
+          "If CT negative: lumbar puncture with CSF analysis",
+          "CBC, CMP, coagulation studies",
+          "Blood cultures if fever develops"
+        ],
+        "management_plan": [
+          "Immediate emergency department referral",
+          "Do not delay for further outpatient workup",
+          "Keep patient NPO pending evaluation",
+          "Monitor for any new neurological symptoms en route"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Thunderclap headache (worst of life, sudden onset during Valsalva) with neck stiffness is a medical emergency until subarachnoid hemorrhage is excluded",
+          "Risk of rapid deterioration if SAH or meningitis",
+          "Exertional onset during weight lifting increases SAH suspicion"
+        ],
+        "communication_note": "Your combination of sudden severe headache with neck stiffness requires emergency evaluation to rule out serious causes like bleeding around the brain\u2014please go to the nearest emergency department immediately or call 911."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still having this terrible headache. It started suddenly when I was lifting at the gym about 2 hours ago. The pain medicine helped a little bit, but it's still really severe. I've never had anything like this before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any neck stiffness, vision changes, nausea, vomiting, or weakness in your arms or legs right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my neck is still stiff. I haven't had any vision problems or weakness in my arms or legs. The light does bother me a bit less than before. I did throw up once earlier, but nothing since then."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage",
+          "Cervical artery dissection (carotid or vertebral)",
+          "Acute severe tension headache with exertion",
+          "Meningitis"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT",
+          "If CT negative: lumbar puncture for CSF analysis",
+          "CBC, CMP, coagulation studies",
+          "Consider CT angiography of head/neck if dissection suspected"
+        ],
+        "management_plan": [
+          "Immediate ED referral for neuroimaging and evaluation",
+          "NPO status pending evaluation",
+          "IV access and monitoring",
+          "Avoid further exertion",
+          "Pain management as appropriate in ED setting"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sudden-onset severe headache with exertion is classic for subarachnoid hemorrhage",
+          "Neck stiffness + headache + vomiting raises concern for meningitis or SAH",
+          "Risk of rapid deterioration or rebleeding if SAH present",
+          "Exertional headache with neck stiffness suggests vascular emergency"
+        ],
+        "communication_note": "Your sudden severe headache with neck stiffness and vomiting requires emergency evaluation to rule out serious causes like bleeding around the brain; we're sending you to the emergency department immediately."
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really confused right now and I can't move my left arm. Something's wrong\u2014it just happened. I'm scared."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When exactly did you notice you couldn't move your left arm\u2014was it minutes ago, and did anything happen right before it, like chest pain, difficulty speaking, facial drooping, or a fall?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It started just a few minutes ago, maybe 5 or 10 minutes. I didn't have chest pain or fall\u2014I was just sitting here when I realized I couldn't move my left arm. I'm having trouble getting my words out too, which is scary."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute ischemic stroke",
+          "Transient ischemic attack (TIA)",
+          "Hemorrhagic stroke",
+          "Todd's paralysis (post-ictal)",
+          "Hemiplegic migraine"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT or MRI brain",
+          "ECG",
+          "Troponin",
+          "CBC, CMP, coagulation studies",
+          "Blood glucose"
+        ],
+        "management_plan": [
+          "Activate emergency medical services (911) immediately",
+          "Establish time of symptom onset (last known well) for thrombolytic eligibility",
+          "NPO status pending evaluation",
+          "Continuous cardiac monitoring",
+          "IV access and labs in ED",
+          "Neurology consultation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute focal neurological deficit (arm weakness + speech difficulty) with sudden onset suggests possible acute stroke\u2014time-critical emergency",
+          "Patient is within potential thrombolytic window (symptom onset 5-10 minutes ago)",
+          "Risk of aspiration given speech difficulty"
+        ],
+        "communication_note": "You are having signs of a possible stroke, which is a medical emergency; we are calling 911 immediately to get you to the hospital for urgent imaging and treatment."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512271.9058547
+}

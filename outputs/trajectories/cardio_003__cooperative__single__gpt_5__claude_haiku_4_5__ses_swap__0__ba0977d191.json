@@ -1,0 +1,193 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been having a racing heart and palpitations for the past three days. It's been really bothering me, and I'm worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, dizziness, or fainting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had chest pain, but yes, I do get a bit short of breath when I'm active. And I've felt lightheaded a few times over these last three days, though I haven't actually fainted."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in medication, caffeine or alcohol intake, or stress levels?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't changed my blood pressure medication\u2014still taking the same dose. As for alcohol, I did have quite a bit to drink last weekend, which was unusual for me. Caffeine intake is normal. Stress has been about the same as usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your blood pressure medication, including the name and dosage?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I take lisinopril, 5 milligrams. I've been on it for a while now for my blood pressure. That's the only medication I take regularly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced similar symptoms in the past, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "This is the first time something like this has happened to me. I've never had my heart racing like this before, and it's pretty concerning. The palpitations started three days ago and haven't really stopped."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any triggers or activities that make the palpitations worse or better?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, the palpitations seem to be there most of the time, whether I'm resting or moving around. They get a bit worse when I exert myself, like climbing stairs. I haven't really noticed anything that makes them better."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "alcohol-induced arrhythmia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Advise patient to avoid alcohol and caffeine",
+          "Educate patient on recognizing symptoms of arrhythmia",
+          "Schedule follow-up appointment after initial tests"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for arrhythmia to worsen or lead to complications"
+        ],
+        "communication_note": "We need to perform some tests to understand the cause of your racing heart and palpitations, and it's important to avoid alcohol and caffeine for now."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. I'm still having these palpitations\u2014my heart keeps racing and feels irregular. But now I've also developed some chest tightness over the past day or so, which is new and worrying me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest tightness? Is it constant or does it come and go?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's more of a tightness that comes and goes. It's not severe, but it's been bothering me along with the heart racing. It started a couple of days ago, around the same time the palpitations got worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, dizziness, or fainting along with these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had some shortness of breath when I exert myself, and I've felt lightheaded a few times. I haven't actually fainted though. The shortness of breath is mild, but it's new for me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "angina",
+          "anxiety-related palpitations"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "complete blood count",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "advise patient to avoid caffeine and alcohol",
+          "prescribe beta-blocker for rate control",
+          "schedule follow-up cardiology appointment"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for acute coronary syndrome",
+          "risk of arrhythmia complications"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart rhythm issue or heart-related problem, so I recommend going to the emergency department for immediate evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really worried. The heart palpitations got much worse, and this morning I actually passed out for a moment. My heart's been racing and I'm feeling lightheaded again."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "ventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "start beta-blocker",
+          "advise on avoiding caffeine and alcohol",
+          "schedule cardiology follow-up"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of syncope-related injury",
+          "potential for serious arrhythmia"
+        ],
+        "communication_note": "Given your worsening palpitations and recent fainting, I recommend going to the emergency department for immediate evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779634026.2924645
+}

@@ -1,0 +1,199 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My daughter brought me in because I've been confused the past few days and having accidents. I'm not usually like this\u2014I live on my own and take care of myself."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or other symptoms like pain or burning during urination?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had a fever\u2014my daughter took my temperature and it was high. I'm not sure about chills exactly, but I do feel warm. As for burning when I go to the bathroom, I haven't noticed that, but I am going much more often than usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your appetite or weight recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really, no. My appetite's been about the same. I haven't noticed any weight changes that I can tell. Is that something you're concerned about?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent falls or injuries?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any falls or injuries recently. My daughter brought me in because I've been confused these past few days and having accidents with the bathroom."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any changes in your bowel movements or noticed any blood in your urine?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood in my urine that I've noticed. My bowel movements have been normal, I think. My daughter brought me in because I've been confused the past few days and having accidents with my bladder\u2014that's what she's worried about."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been experiencing any dizziness or lightheadedness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any dizziness or lightheadedness. My daughter brought me in because I've been confused the last few days and having accidents with the bathroom."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "delirium secondary to infection"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "start empirical antibiotics for UTI",
+          "ensure adequate hydration",
+          "monitor mental status closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of dehydration",
+          "risk of worsening confusion"
+        ],
+        "communication_note": "Based on your symptoms, we suspect a urinary tract infection which might be causing your confusion. We'll start treatment and monitor your condition closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still very confused, and my daughter says I seem even worse this morning. I don't really remember what happened yesterday. She brought me in because of that confusion and some problems with water works, but I'm not feeling right at all."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the problems with your water works? Are you having trouble urinating, or is it something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I'm having to go to the bathroom much more often than usual, and... I'm having accidents now. That's never happened to me before. It's very embarrassing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in the color or smell of your urine?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm not sure, to be honest. My daughter has been helping me more with everything these past few days because I haven't been feeling quite right. I don't remember noticing anything strange about it myself."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "delirium",
+          "dehydration"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "start empirical antibiotics for UTI",
+          "ensure adequate hydration",
+          "monitor mental status closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of worsening confusion",
+          "potential for falls due to confusion and frequent urination"
+        ],
+        "communication_note": "Given your confusion and urinary symptoms, we need to do some tests and start treatment, so I'm recommending you go to the emergency department for further evaluation and care."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My daughter called 911 because I wasn't responding to her. I don't remember much from the last couple of days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "transient ischemic attack",
+          "stroke",
+          "seizure",
+          "hypoglycemia",
+          "delirium"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "MRI of the brain",
+          "blood glucose level",
+          "electrolyte panel",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "admit to hospital for observation and further evaluation",
+          "neurology consultation",
+          "monitor vital signs closely",
+          "initiate stroke protocol if indicated"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for recurrent neurological events",
+          "risk of falls due to altered mental status"
+        ],
+        "communication_note": "You experienced a serious episode that requires immediate hospital evaluation to determine the cause and prevent further complications."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779512880.6733043
+}

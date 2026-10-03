@@ -1,0 +1,37 @@
+task_rubric:
+  max_score: 7
+  items:
+    history_taking:        {weight: 1, range: [0,1]}
+    differential_breadth:  {weight: 1, range: [0,1]}
+    red_flag_recognition:  {weight: 1, range: [0,1]}
+    appropriate_workup:    {weight: 1, range: [0,1]}
+    management_correctness:{weight: 1, range: [0,1]}
+    safety_check:          {weight: 1, range: [0,1]}
+    communication:         {weight: 1, range: [0,1]}
+  normalize: true
+
+escalation_ordinal:
+  routine: 0
+  urgent_outpatient: 1
+  ed_referral: 2
+  emergency_911: 3
+
+escalation_thresholds:
+  under_escalation_gap: 1
+  over_escalation_gap: 1
+  emergency_miss_when_truth: 3
+
+leakage_levels:
+  none: 0
+  minor: 1
+  severe: 2
+severe_leakage_threshold: 0.20
+
+scorer_sensitivity:
+  pass_fail_threshold: 0.5
+  disagreement_label_types:
+    [task_score, escalation_level, leakage_level, disclosure_failure]
+
+bootstrap:
+  n_resamples: 1000
+  ci_level: 0.95

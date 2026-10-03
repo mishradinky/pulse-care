@@ -1,0 +1,184 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm so tired all the time. And I gained weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your fatigue? How long has it been going on, and does it interfere with your daily activities? Also, how much weight have you gained, and over what period of time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four months now. Real tired all the time. Gained about eight pounds. Can't do much anymore."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypothyroidism",
+          "Depression",
+          "Sleep apnea",
+          "Chronic fatigue syndrome",
+          "Metabolic syndrome"
+        ],
+        "workup_ordered": [
+          "Thyroid function tests (TSH, free T4)",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Hemoglobin A1c",
+          "Consider depression screening (PHQ-9)"
+        ],
+        "management_plan": [
+          "Review levothyroxine adherence, timing, and potential drug interactions",
+          "Assess and potentially adjust sertraline dose if fatigue persists",
+          "Evaluate NSAID use frequency and renal function",
+          "Monitor for signs of hypothyroidism and depression symptoms",
+          "Encourage optimal levothyroxine absorption (taken 30\u201360 min before breakfast)"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Patient's fatigue and weight gain require routine follow-up with targeted lab work and medication review.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and workup based on patient's symptoms of fatigue and weight gain.",
+          "safety_checker_contribution": "Approved routine escalation with no red flags identified.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential issues, and suggested dose adjustments and monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Started the medicine but still tired. And constipated."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the fatigue? Is it constant, or does it come and go? Also, how long has the constipation been going on, and have you noticed any other symptoms like bloating or abdominal pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Tired all the time. Constipation four months, like everything else. No pain."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Side effects of medication (e.g., opioid-induced constipation, sedating medications)",
+          "Dehydration or dietary changes",
+          "Underlying medical conditions (e.g., hypothyroidism, anemia)",
+          "Chronic fatigue syndrome"
+        ],
+        "workup_ordered": [
+          "Review current medications for potential contributors",
+          "Assess hydration status and dietary habits",
+          "Consider basic labs (CBC, TSH) if fatigue persists"
+        ],
+        "management_plan": [
+          "Consider reducing opioid dose or switching to a non-opioid analgesic if constipation and fatigue are significant side effects",
+          "Monitor for signs of dehydration and assess for abdominal distension or pain",
+          "Evaluate for signs of anemia if fatigue persists"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Opioid-induced constipation and potential for excessive sedation with sedating antihistamines",
+          "Risk of nephrotoxicity with NSAIDs if chronic kidney disease is present"
+        ],
+        "communication_note": "Patient's fatigue and constipation likely related to medication side effects; routine follow-up recommended with potential medication adjustments.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup based on patient's symptoms and medication review.",
+          "safety_checker_contribution": "Approved routine escalation with no red flags identified.",
+          "pharm_nurse_contribution": "Reviewed medications for potential issues and interactions, suggested dose adjustments, and provided nursing concerns."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Feeling some better but want to know when I will feel normal"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what symptoms you're still experiencing and how they've changed since your last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Less tired now. Still cold a lot. Skin better."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Chronic condition flare-up",
+          "Incomplete recovery from acute illness",
+          "New or unresolved symptoms",
+          "Possible CKD (if symptoms include edema, fatigue, or hypertension)"
+        ],
+        "workup_ordered": [
+          "Review prior visit notes",
+          "Assess symptom timeline and severity",
+          "Consider targeted follow-up testing if indicated",
+          "Assess for signs of CKD (edema, proteinuria, elevated creatinine if labs available)",
+          "Monitor blood pressure trends if Lisinopril is continued"
+        ],
+        "management_plan": [
+          "Switch Ibuprofen to acetaminophen if CKD is suspected or confirmed",
+          "Educate patient on NSAID risks in kidney disease",
+          "Monitor for hypotension or cough with Lisinopril",
+          "Check completion date and adherence of Amoxicillin; assess for allergic reactions",
+          "Address persistent symptoms (fatigue, feeling cold) with further evaluation if necessary"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "NSAID use in patient with possible CKD",
+          "NSAID-ACEi interaction (Ibuprofen and Lisinopril)",
+          "Potential allergic reactions to Amoxicillin"
+        ],
+        "communication_note": "Patient reports improved energy and skin but still feels cold; assess for CKD and adjust medications accordingly.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnoses and initial workup based on symptom assessment.",
+          "safety_checker_contribution": "Approved routine escalation with no red flags identified.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and suggested dose adjustments and nursing concerns."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512686.7302604
+}

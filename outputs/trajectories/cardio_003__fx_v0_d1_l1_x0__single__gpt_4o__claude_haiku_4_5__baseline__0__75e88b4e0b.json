@@ -1,0 +1,203 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "fx_v0_d1_l1_x0",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 62,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's been racing for three days. Won't stop."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or dizziness along with the racing heart?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Little bit short of breath when I walk. Get dizzy sometimes. No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, fever, or infections?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. Been feeling okay otherwise."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in medication or started any new medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just take the white pill for my blood pressure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me the name of the blood pressure medication you are taking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The white pill. Takes it every day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced this racing heart sensation before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "First time. Never had this before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "complete blood count",
+          "thyroid function tests",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "start beta-blocker if ECG confirms atrial fibrillation",
+          "advise on lifestyle modifications to reduce stress and caffeine intake"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of stroke if atrial fibrillation is confirmed and untreated"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart rhythm issue, so we'll do some tests and get you treated quickly."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's been racing. And now my chest feels tight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About six days now. Started with the heart thing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, dizziness, or fainting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Little bit dizzy sometimes. No fainting. Breathing's okay."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "anxiety-induced tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "start beta-blocker if ECG confirms arrhythmia",
+          "advise on lifestyle modifications",
+          "schedule follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for arrhythmia to worsen",
+          "risk of stroke if atrial fibrillation"
+        ],
+        "communication_note": "Your symptoms suggest a heart rhythm issue; we'll do some tests and may start treatment soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's racing real bad. Had a fainting spell this morning."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "ventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "electrolyte panel",
+          "troponin levels"
+        ],
+        "management_plan": [
+          "start beta-blocker if ECG confirms atrial fibrillation",
+          "consider anticoagulation if atrial fibrillation is confirmed",
+          "monitor heart rate and rhythm"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of stroke if atrial fibrillation",
+          "risk of cardiac arrest if ventricular tachycardia"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious heart rhythm issue, so we need to get you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790546717.1145034
+}

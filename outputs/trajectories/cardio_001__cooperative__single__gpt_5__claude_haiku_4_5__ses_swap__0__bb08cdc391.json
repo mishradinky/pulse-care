@@ -1,0 +1,192 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been having chest pressure for the past two days. It happens when I exert myself\u2014like when I walk up stairs or hurry around. It goes away when I rest. I'm a bit worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure? Is it sharp, dull, squeezing, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's more of a pressure, like something's pressing on my chest. Not sharp. It started two days ago and comes and goes, especially when I'm doing things like walking or climbing stairs. The last time it happened was about six hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like shortness of breath, sweating, nausea, or dizziness when the chest pressure occurs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I did sweat quite a bit during one of the episodes yesterday. I haven't noticed shortness of breath or nausea though. No dizziness either."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart disease, high blood pressure, high cholesterol, or diabetes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have high blood pressure\u2014I've been taking a medication for it, lisinopril I think it's called. No diabetes or high cholesterol that I know of. And my father had a heart attack when he was 55, so that's in the family."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever smoked or do you currently smoke?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've smoked for many years. I'd say about 25 pack-years total. I'm not currently smoking right now, but I did smoke regularly in the past."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent changes in your physical activity level or stress levels?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I've been pretty stressed lately with work, but I haven't really changed how much I exercise. I usually walk a bit, nothing intense. The chest pressure I've been having these past two days is what's really got me worried though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "stable angina",
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin levels",
+          "stress test",
+          "lipid profile"
+        ],
+        "management_plan": [
+          "start aspirin therapy",
+          "consider beta-blocker or calcium channel blocker",
+          "advise smoking cessation",
+          "schedule follow-up with cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so I recommend going to the emergency department for further evaluation and tests."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. I'm back because the chest pressure came back last night, and this time I was also a bit short of breath. It lasted about 15 minutes. I'm okay now, but I'm pretty worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure in more detail? Is it sharp, dull, or squeezing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's more of a pressure or heaviness, not sharp. It feels like something's pressing down on my chest. It started yesterday evening and came back again last night for about 15 minutes. I also felt a bit short of breath this time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Did anything trigger the chest pressure, like physical activity or stress?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, it gets worse when I exert myself\u2014like walking up stairs or hurrying. It happened last night too, and I was just moving around the house. The pressure comes and goes, but physical activity definitely makes it worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "angina",
+          "myocardial infarction",
+          "gastroesophageal reflux disease"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin levels",
+          "stress test"
+        ],
+        "management_plan": [
+          "start aspirin therapy",
+          "consider beta-blocker",
+          "advise lifestyle modifications"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of acute coronary syndrome"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so we need to do some tests urgently to ensure your heart is okay."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I've had this crushing chest pain for about 30 minutes now. It won't go away. I'm also sweating and feeling a bit nauseated. I'm really worried about what's happening."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute myocardial infarction",
+          "unstable angina"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "administer nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of myocardial damage"
+        ],
+        "communication_note": "You are experiencing symptoms that could be related to your heart, and we need to get you to the hospital immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779640802.954299
+}

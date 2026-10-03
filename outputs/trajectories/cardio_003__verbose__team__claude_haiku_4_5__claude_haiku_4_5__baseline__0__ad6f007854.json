@@ -1,0 +1,226 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh, thank goodness you're here, doctor. I've been a wreck, honestly. You know, my wife kept saying I should come in sooner, but I was just so busy at work last week\u2014we had this big project deadline, very stressful\u2014anyway, that's not important. The thing is, for the last three days my heart's been doing these weird things. It's like... racing, you know? Pounding in my chest. Sometimes it feels like it's skipping around, and then it'll just take off like I've been running even though I'm just sitting there. And I get a little short of breath when I walk up the stairs, which never happens to me. Plus, once or twice I felt a bit dizzy, kind of lightheaded. It's really got me worried. I've never had anything like this before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand the rhythm better. When your heart is 'racing and pounding,' can you tap out the pattern on the table for me? And when you say it 'skips around'\u2014do you feel individual extra beats, or does it feel completely irregular? Also, have you had any chest pain, pressure, or discomfort\u2014even mild\u2014during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh man, good question. You know, my brother-in-law\u2014he's always complaining about his heart too, works in construction, stress you know\u2014anyway, he says his goes boom-boom-boom real steady. Mine's nothing like that. [taps irregularly on table, clearly uneven rhythm, no pattern] See? It's all over the place, like that. Not extra beats so much as... it just doesn't have a beat, if that makes sense? One second it's racing, next second it feels like it skips, then it's pounding again. No real rhythm I can count on. And the chest\u2014no, no pain exactly, but there's pressure, like someone's sitting on my chest sometimes? Not terrible, but it's there. Especially when I'm walking around. Scared me pretty good last night, I'll be honest. And all this started after I had a few too many drinks last weekend with some buddies. We were celebrating a promotion at work. But yeah, the pressure comes and goes."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "62-year-old male with 3-day history of palpitations, dyspnea on exertion, presyncope, and chest pressure. Patient describes irregular rhythm ('all over the place'), exertional dyspnea, lightheadedness, and substernal pressure. Recent alcohol binge (last weekend) is potential trigger. Clinician obtained descriptive rhythm history; Safety Checker flagged critical omissions (vital signs, stat ECG timing); Pharm/Nurse identified medication reconciliation gap and electrolyte/renal function unknowns.",
+        "differential_diagnosis": [
+          "Atrial fibrillation (new-onset or paroxysmal)\u2014most likely given irregular rhythm description",
+          "Supraventricular tachycardia (SVT)",
+          "Acute coronary syndrome (ACS) with secondary arrhythmia\u2014chest pressure + dyspnea + age 62",
+          "Premature atrial contractions (PACs) with anxiety",
+          "Alcohol-induced cardiomyopathy or arrhythmia (recent binge drinking)"
+        ],
+        "workup_ordered": [
+          "**STAT 12-lead ECG** (non-negotiable; obtain BEFORE extended history)",
+          "**Continuous cardiac monitoring** (minimum 6\u201312 hours given presyncope + palpitations)",
+          "**Troponin (serial): 0, 3, 6 hours** (rule out ACS; single troponin insufficient)",
+          "**CBC, BMP, TSH** (electrolytes\u2014K+, Mg2+, Ca2+\u2014critical for arrhythmia risk; renal function for drug dosing)",
+          "**Chest X-ray** (assess for pulmonary edema, cardiomegaly, other cardiopulmonary pathology)",
+          "**Medication reconciliation** (URGENT: obtain complete home med list, OTC, herbal, recent changes)",
+          "**Vital signs documentation** (BP, HR, O\u2082 sat, RR\u2014MUST be recorded immediately; assess hemodynamic stability)"
+        ],
+        "management_plan": [
+          "**IMMEDIATE**: Obtain STAT ECG and vital signs in monitored setting (ED or urgent care with continuous monitoring capability)",
+          "**If ECG shows AF/SVT with rapid ventricular response (HR >120) or hemodynamic instability**: Consider IV rate control (metoprolol 5 mg IV q5min or diltiazem 0.25 mg/kg IV) pending cardiology consultation",
+          "**If troponin positive or ECG shows ischemic changes**: Activate ACS protocol\u2014aspirin 325 mg PO \u00d71, P2Y12 inhibitor loading (clopidogrel 600 mg or ticagrelor 180 mg), IV anticoagulation (unfractionated heparin or LMWH), consider cardiology/cath lab consultation",
+          "**If troponin negative + stable rhythm on ECG**: Admit for telemetry observation, serial troponins, and cardiology consultation for outpatient EP evaluation (Holter, event monitor, echocardiogram)",
+          "**Electrolyte correction**: If K+ <3.5 or Mg2+ <2.0, replicate before antiarrhythmic dosing",
+          "**Anticoagulation**: If AF confirmed, calculate CHA\u2082DS\u2082-VASc and HAS-BLED scores; initiate anticoagulation per cardiology (do NOT start empirically without specialist input if new-onset AF)",
+          "**Alcohol counseling**: Address recent binge drinking as potential arrhythmia trigger; consider brief intervention or referral to substance use services"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "**PRESYNCOPE IS A RED FLAG**: Indicates hemodynamically significant arrhythmia or cardiogenic ischemia\u2014NOT low-risk. Requires immediate ED evaluation with continuous monitoring.",
+          "**VITAL SIGNS MISSING**: No documented BP, HR, O\u2082 sat, or RR. Patient may be hemodynamically unstable; clinician cannot assess risk without these data.",
+          "**STAT ECG TIMING UNCLEAR**: Clinician ordered ECG but did not explicitly mark as 'STAT' or document time-to-ECG. Presyncope + palpitations + chest pressure mandate ECG within 10 minutes of arrival.",
+          "**CHEST PRESSURE + DYSPNEA + AGE 62**: Classic ACS triad. Troponin alone is insufficient; serial troponins (0, 3, 6 hours) required. Single negative troponin does NOT rule out ACS.",
+          "**MEDICATION RECONCILIATION CRITICAL GAP**: No home medication list obtained. Cannot assess for drug interactions, contraindications, or prior antiarrhythmic/rate-control tolerance before prescribing.",
+          "**ALCOHOL AS ARRHYTHMIA TRIGGER**: Recent binge drinking can precipitate AF, SVT, or cardiomyopathy. Increases risk of sudden cardiac death if untreated arrhythmia present.",
+          "**SETTING UNCLEAR**: If this encounter is in office or urgent care WITHOUT continuous monitoring, patient MUST be transferred to ED immediately.",
+          "**ELECTROLYTE STATUS UNKNOWN**: Hypokalemia, hypomagnesemia, hypocalcemia are common arrhythmia precipitants and must be corrected before antiarrhythmic therapy."
+        ],
+        "communication_note": "Patient requires IMMEDIATE ED referral with continuous cardiac monitoring; STAT ECG and serial troponins are non-negotiable given presyncope, irregular palpitations, chest pressure, and age 62\u2014do NOT manage as outpatient.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately pursued detailed rhythm characterization (tap-out test, regularity vs. irregularity, chest pain assessment) and ordered comprehensive workup including ECG, troponin, labs, and CXR with correct differential (AF, SVT, PACs, ACS). However, clinician did NOT explicitly order STAT ECG, did not document vital signs, and continued narrative history-taking instead of prioritizing immediate ECG in a patient with presyncope\u2014a critical safety gap.",
+          "safety_checker_contribution": "Safety Checker correctly identified presyncope as a RED FLAG for hemodynamically significant arrhythmia or ACS, flagged missing vital signs as a CRITICAL OMISSION, and emphasized that STAT ECG must precede extended questioning. Correctly escalated to ED referral and blocked outpatient management. Identified that troponin timing (serial protocol) was not explicit and that setting/monitoring capability was undocumented.",
+          "pharm_nurse_contribution": "Pharm/Nurse identified CRITICAL GAP in medication reconciliation (no home med list provided), preventing assessment of drug interactions, contraindications, or prior tolerance to rate-control agents. Highlighted that renal function (BMP/eGFR) is unknown and required before dosing antiarrhythmics or anticoagulants. Provided specific nursing actions: STAT ECG + continuous monitoring, troponin protocol, medication reconciliation URGENT, electrolyte monitoring (K+, Mg2+), anticoagulation risk stratification (CHA\u2082DS\u2082-VASc, HAS-BLED), and symptom-triggered reassessment. Emphasized that 'stable appearance' does NOT rule out ACS or hemodynamically significant arrhythmia."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh, thank goodness you're here, doctor. I've been a wreck, honestly. You know, my wife keeps telling me I need to relax more\u2014she says I stress too much about work, and maybe she's right because my boss has been riding me hard this quarter\u2014but anyway, these palpitations just won't quit. They've actually gotten worse since I was in last time, maybe three days ago? And now on top of all that heart racing business, I'm getting this tightness right here in my chest. It's not severe pain or anything, but it's definitely there, you know? Makes me nervous. I couldn't even walk up the stairs without feeling short of breath yesterday. I'm really worried something's seriously wrong with me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand these symptoms better. When you feel the heart racing\u2014the palpitations\u2014can you describe what that feels like? Is it a fast regular rhythm, or does it feel irregular or like it's skipping? And does the chest tightness happen at the same time as the palpitations, or separately?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh man, you know, it's been driving me absolutely crazy. My wife keeps telling me to stop worrying so much\u2014she says I've been stressed about the merger at work, you know, we're downsizing and it's just... anyway. So the heart thing. It's like, it's not a steady fast beat, if that makes sense? It's more like it's all jumbled up, like someone's in there just tapping randomly, you know? Not boom-boom-boom regular, but more like boom-tap-boom-boom-tap, if you follow me. Really erratic. And this chest tightness, that's newer\u2014just started in the last couple days. It comes and goes, not always at the same time as the crazy heartbeat feeling. Sometimes I'll feel the irregular stuff and my chest is fine, then other times there's this pressure. Honestly, it's got me pretty worried. The palpitations started three days ago, but now with this chest thing too... I don't know what's going on."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome / unstable angina (HIGH PRIORITY)",
+          "Supraventricular tachycardia or other arrhythmia",
+          "Atrial fibrillation with RVR",
+          "Pulmonary embolism",
+          "Thyroid dysfunction (hyperthyroidism)",
+          "Anxiety disorder with panic attacks (lower priority given objective findings)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG \u2014 STAT (within 10 minutes, before or concurrent with further history)",
+          "Troponin (high-sensitivity if available) \u2014 STAT",
+          "BNP \u2014 STAT",
+          "CBC, CMP (including renal and hepatic function), TSH \u2014 STAT",
+          "Chest X-ray \u2014 STAT",
+          "Vital signs including orthostatics \u2014 STAT",
+          "Continuous cardiac monitoring (ED setting)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL \u2014 Patient does not meet criteria for safe outpatient evaluation",
+          "Obtain FULL medication list (Rx, OTC, supplements, herbals) BEFORE transfer \u2014 especially aspirin, NSAIDs, stimulants, antiarrhythmics, QT-prolonging agents",
+          "Confirm drug allergies (beta-blockers, ACE inhibitors, contrast agents)",
+          "Establish peripheral IV access",
+          "NPO status pending ECG/troponin results and possible urgent intervention",
+          "ED team to perform risk stratification, continuous monitoring, and definitive diagnosis",
+          "Hold detailed symptom clarification questions until after STAT ECG and troponin obtained (clinician's questions are appropriate but secondary to ruling out ACS/PE)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL TIMING ISSUE: Patient presenting with classic ACS triad (chest tightness + palpitations + dyspnea on exertion) in 62-year-old male over 3-day progressive course \u2014 this is a time-sensitive emergency",
+          "Patient describes IRREGULAR palpitations ('boom-tap-boom-boom-tap') suggesting possible arrhythmia (SVT, AFib) or ischemic irritability \u2014 increases ACS risk",
+          "Dyspnea on exertion (unable to climb stairs) is RED FLAG for cardiac decompensation or PE",
+          "MEDICATION LIST UNKNOWN \u2014 cannot assess for QT-prolonging agents, drug-drug interactions, or contraindications in setting of suspected ACS; cannot safely dose cardiac medications without renal/hepatic function",
+          "ALLERGY HISTORY UNKNOWN \u2014 critical before ED administration of beta-blockers, ACE-I, or contrast",
+          "Clinician's approach to detailed symptom clarification is clinically sound BUT must not delay STAT ECG and vital signs \u2014 ECG should be obtained in parallel with or before extended interview",
+          "Patient's attribution of symptoms to work stress and wife's reassurance about anxiety may create false reassurance \u2014 objective cardiac pathology must be ruled out first"
+        ],
+        "communication_note": "62-year-old male with 3-day progressive palpitations (irregular rhythm), new chest tightness, and dyspnea on exertion meets criteria for emergency evaluation; STAT ECG and troponin required immediately; ED referral with continuous monitoring; medication list and allergy history critical before transfer.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (ACS, arrhythmia, PE, thyroid, heart failure) and ordered comprehensive workup (ECG, troponin, BNP, CBC, CMP, TSH, CXR, vitals). Symptom clarification questions are clinically valuable for narrowing differential but must not delay stat testing. Patient's description of irregular palpitations ('boom-tap-boom-boom-tap') supports arrhythmia or ischemic irritability.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL TIMING ISSUE: stat ECG must be obtained immediately (within 10 minutes) in parallel with or before detailed history-taking, not deferred pending symptom clarification. Flagged that ACS protocol requires stat ECG regardless of symptom character. Recommended emergency_911 escalation and ED referral with continuous monitoring capability. Blocked outpatient management as unsafe.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL GAPS: no medication list, allergy history, or renal/hepatic function available. Flagged need to obtain STAT: full medication list (Rx, OTC, supplements, herbals, especially stimulants and QT-prolonging agents), drug allergies (beta-blockers, ACE-I, contrast), baseline vitals with orthostatics, IV access, and NPO status. Noted that CMP results will inform dosing of cardiac medications and contrast safety. Emphasized continuous monitoring and assessment for symptom escalation."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank goodness you're here, doctor. I've been a real mess since this morning\u2014absolutely terrible. You know, my wife kept telling me yesterday that I looked pale, and then this morning around 7 AM, I just... I felt like the room was spinning, like when I stood up too fast after my nephew's wedding last month. Everything went black for just a second, maybe two. Scared me half to death, honestly. And these heart palpitations\u2014they're so much worse now, like my chest is just pounding away, won't settle down. I can barely catch my breath. It's been going on for days now, getting worse and worse. I'm really worried something serious is happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your chest symptoms better. When you feel the pounding and shortness of breath, do you also have any chest pain or pressure? And can you describe where in your chest you feel it most?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, you know, my daughter was just visiting last week and she kept saying I looked pale, which worried me to death. But to answer your question\u2014no, thank goodness, no chest pain or pressure, nothing like that. It's more this awful pounding feeling, like my heart's trying to escape my ribcage, you know? It's been going on for over a week now, maybe nine days or so. The shortness of breath comes and goes, especially when I'm moving around. This morning though, that was scary\u2014I actually blacked out for a moment in the kitchen. The pounding is mostly in my chest, center area, and it just won't settle down. My pulse feels all jumpy and irregular when I touch my neck. No specific pressure or pain anywhere, just this relentless thumping and feeling like I can't quite catch my breath sometimes."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial fibrillation or other supraventricular arrhythmia (MOST LIKELY given irregular pulse, palpitations, dyspnea, syncope)",
+          "Acute coronary syndrome (lower probability given absence of chest pain, but age/risk profile warrant exclusion)",
+          "Ventricular arrhythmia (VT/PVCs) - concerning given syncope",
+          "Thyroid dysfunction (hyperthyroidism) - supports palpitations + dyspnea over 9 days",
+          "Anemia - pallor + dyspnea + palpitations consistent",
+          "Pulmonary embolism - dyspnea + palpitations + syncope possible but less likely without risk factors",
+          "Orthostatic hypotension with compensatory tachycardia - possible but syncope + irregular pulse suggests primary arrhythmia"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (within 10 minutes) - CRITICAL to identify arrhythmia, ischemia, or structural abnormality",
+          "STAT vital signs: BP (both arms), HR with rhythm assessment, RR, O\u2082 saturation, temperature; orthostatic vitals if hemodynamically stable",
+          "STAT troponin (high-sensitivity if available) - rule out ACS",
+          "STAT CBC - assess for anemia as contributor",
+          "STAT comprehensive metabolic panel - electrolytes (K\u207a, Mg\u00b2\u207a, Ca\u00b2\u207a), renal function",
+          "STAT TSH + free T4 - rule out thyroid dysfunction",
+          "Complete medication reconciliation including OTC, supplements, recent changes",
+          "Allergy verification before any acute interventions",
+          "Continuous cardiac monitoring if available in current setting"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Establish IV access and place on continuous cardiac monitoring",
+          "IMMEDIATE: Obtain all STAT labs and ECG before further history-taking",
+          "CONDITIONAL: If ECG shows atrial fibrillation with RVR, hemodynamic instability, or ongoing syncope risk \u2192 ED referral or 911",
+          "CONDITIONAL: If troponin elevated or ECG shows ischemic changes \u2192 911/ED",
+          "CONDITIONAL: If vitals show severe bradycardia, hypotension, or hypoxia \u2192 911/ED",
+          "If stable after workup: Consider outpatient cardiology referral for further evaluation (Holter monitor, echocardiogram, stress test as indicated by ECG findings)",
+          "Patient education: Advise to call 911 immediately if syncope recurs, chest pain develops, or dyspnea worsens"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Syncope + palpitations + dyspnea + pallor = acute hemodynamic compromise requiring emergency evaluation",
+          "CRITICAL: Patient reports irregular pulse on self-palpation\u2014highly suspicious for arrhythmia (AFib, VT, or other dangerous rhythm)",
+          "CRITICAL: Syncope is a red flag for life-threatening arrhythmia (ventricular tachycardia, complete heart block, severe bradycardia) or cardiogenic shock",
+          "CRITICAL: No vital signs or ECG obtained yet despite acute presentation\u2014this is a safety violation in acute cardiac presentation",
+          "HIGH: 62-year-old male with cardiac risk profile and 9-day progressive symptom course now with acute syncope",
+          "HIGH: Patient is not in monitored setting; risk of recurrent syncope or hemodynamic decompensation without continuous monitoring",
+          "MODERATE: Dyspnea + palpitations + syncope raises PE concern, though less likely without clear risk factors",
+          "PROCESS: Clinician appropriately obtained symptom clarification (no chest pain/pressure), but must pivot immediately to objective data collection before further questioning"
+        ],
+        "communication_note": "This 62-year-old with 9-day progressive palpitations, dyspnea, pallor, and acute syncope with self-reported irregular pulse requires EMERGENCY DEPARTMENT evaluation with continuous cardiac monitoring and STAT ECG/labs to rule out life-threatening arrhythmia or ACS; outpatient workup is unsafe.",
+        "trace": {
+          "clinician_contribution": "Appropriately identified acute cardiac presentation and obtained targeted symptom clarification (absence of chest pain/pressure helps narrow differential but does NOT reduce acuity). Differential includes arrhythmia, ACS, thyroid dysfunction, anemia, and PE. However, clinician must immediately pivot to STAT vital signs and ECG before further history.",
+          "safety_checker_contribution": "Correctly identified CRITICAL red flags: syncope + palpitations + dyspnea + pallor = acute hemodynamic compromise. Flagged blocking concerns (vitals and ECG must precede extended history-taking) and recommended emergency_911 escalation. Noted patient should not remain in outpatient setting without continuous monitoring given syncope recurrence risk.",
+          "pharm_nurse_contribution": "Identified critical gaps: no medication list, allergies, or baseline labs available. Provided nursing priorities (continuous monitoring, IV access, STAT vitals, STAT ECG, medication/allergy reconciliation) and baseline labs needed (troponin, CBC, TSH, electrolytes, renal function) to guide acute management and medication selection. Cannot perform drug interaction screening until medication list obtained."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779506980.8107822
+}

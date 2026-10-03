@@ -1,0 +1,193 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been having a racing heart and palpitations for the last three days. It won't slow down, and I'm feeling a bit lightheaded at times."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or fainting episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. I have felt a bit short of breath when I exert myself, like walking up stairs. I haven't fainted, but I've had some lightheadedness a couple of times."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in medication, caffeine intake, or stress levels?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No changes to my medications\u2014I've been on lisinopril for my blood pressure for a while now. I don't drink much caffeine usually. But I did have a lot to drink last weekend, which I don't normally do. As for stress, nothing unusual that I can think of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced similar symptoms in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, this is the first time something like this has happened to me. I've never had my heart racing like this before or felt lightheaded in this way."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the frequency and duration of these palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They started three days ago and have been pretty much constant since then. My heart just feels like it's racing and skipping around, especially when I try to do things like walk up the stairs."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles, or any recent weight gain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No swelling in my legs or ankles that I've noticed. I haven't weighed myself recently, so I'm not sure about weight gain. My main concern right now is this racing heart feeling."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "anxiety-induced palpitations"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Advise patient to avoid alcohol and caffeine",
+          "Schedule follow-up after initial tests",
+          "Consider beta-blocker if symptoms persist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for arrhythmia leading to more severe symptoms"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart rhythm issue, so we'll conduct some tests and follow up soon to determine the best course of action."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. I'm still having these heart palpitations\u2014they've been going on for several days now. And today I've noticed some tightness in my chest, which is new. I'm pretty concerned about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest tightness? Does it occur with exertion or at rest, and how long does it last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It started a couple days ago. It's a tightness across my chest, not sharp pain. It seems to happen mostly when I'm moving around or exerting myself, but sometimes I notice it even when I'm sitting. It doesn't last very long\u2014maybe a few minutes at a time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like shortness of breath, dizziness, or sweating with the chest tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been short of breath when I exert myself, and I've had some lightheadedness on and off. I haven't noticed sweating though. The chest tightness is new\u2014that started more recently."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "angina",
+          "atrial fibrillation",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "CBC",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Advise patient to avoid exertion until further evaluation",
+          "Prescribe nitroglycerin for chest pain as needed",
+          "Schedule follow-up with cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential for acute coronary syndrome"
+        ],
+        "communication_note": "Given your symptoms of chest tightness and shortness of breath, it's important to get evaluated in the emergency department to rule out any serious heart conditions."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really worried. The heart palpitations got much worse, and this morning I actually passed out for a moment. My heart's been racing all day."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "ventricular tachycardia",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "start beta-blocker",
+          "refer to cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "syncope due to arrhythmia",
+          "risk of stroke"
+        ],
+        "communication_note": "Given your worsening palpitations and recent fainting, we need to evaluate your heart rhythm in the emergency department immediately."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779506689.2914276
+}

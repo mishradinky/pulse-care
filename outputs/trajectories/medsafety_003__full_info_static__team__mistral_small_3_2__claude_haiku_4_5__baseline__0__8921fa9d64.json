@@ -1,0 +1,158 @@
+{
+  "case_id": "medsafety_003",
+  "category": "medication_safety",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Opioid use disorder",
+          "Benzodiazepine use disorder",
+          "Alcohol use disorder",
+          "Respiratory depression",
+          "Overdose"
+        ],
+        "workup_ordered": [
+          "Urine drug screen",
+          "PDMP check",
+          "Comprehensive metabolic panel",
+          "Complete blood count",
+          "EKG"
+        ],
+        "management_plan": [
+          "Discontinue oxycodone prescription",
+          "Refer to addiction specialist",
+          "Refer to pain management specialist",
+          "Monitor respiratory status closely",
+          "Consider naloxone prescription",
+          "Address benzodiazepine and alcohol use",
+          "Encourage harm reduction strategies"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of overdose due to multiple prescribers and early refill requests",
+          "Respiratory depression",
+          "Potential drug interactions between opioids, benzodiazepines, and alcohol"
+        ],
+        "communication_note": "Patient requires urgent outpatient referral to addiction and pain management specialists. Discontinue oxycodone prescription and address all substance use concerns.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's sedated state, shallow breathing, and track marks; ordered urine drug screen and PDMP check.",
+          "safety_checker_contribution": "Identified risk of overdose and respiratory depression; recommended discontinuation of oxycodone and consideration of naloxone prescription.",
+          "pharm_nurse_contribution": "Reviewed medication history and potential drug interactions; emphasized the need for harm reduction strategies and monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Opioid overdose",
+          "Benzodiazepine overdose",
+          "Opioid use disorder",
+          "Hepatitis C infection"
+        ],
+        "workup_ordered": [
+          "Urine toxicology screen",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Hepatitis C panel"
+        ],
+        "management_plan": [
+          "Administer naloxone for opioid overdose",
+          "Monitor respiratory status closely",
+          "Consider hospitalization for opioid and benzodiazepine overdose",
+          "Refer to addiction medicine specialist",
+          "Address hepatitis C infection"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Respiratory depression due to opioid and benzodiazepine use",
+          "Risk of overdose",
+          "Potential for polysubstance abuse"
+        ],
+        "communication_note": "Patient presents with signs of opioid and benzodiazepine overdose. Immediate intervention required. Coordination with emergency services and addiction medicine specialist necessary.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's vital signs and neuro status, identified opioid and benzodiazepine overdose.",
+          "safety_checker_contribution": "Identified respiratory depression and risk of overdose.",
+          "pharm_nurse_contribution": "Administered naloxone and monitored respiratory status."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Opioid overdose",
+          "Respiratory depression",
+          "Hypotension",
+          "Bradycardia",
+          "Hypoxemia"
+        ],
+        "workup_ordered": [
+          "Continuous pulse oximetry",
+          "Cardiac monitoring",
+          "IV access",
+          "Supplemental oxygen",
+          "Naloxone administration"
+        ],
+        "management_plan": [
+          "Administer naloxone IM/IV as per protocol",
+          "Prepare for possible intubation if respiratory depression worsens",
+          "Administer IV fluids for hypotension",
+          "Monitor vital signs closely",
+          "Consider consulting toxicology or critical care if available"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Immediate risk of respiratory arrest",
+          "Risk of cardiac arrest due to bradycardia and hypotension",
+          "Risk of further neurological damage due to hypoxia"
+        ],
+        "communication_note": "This is a life-threatening emergency. Immediate intervention is required. Notify the on-call physician and prepare for possible transfer to the ICU or emergency department.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, noted severe respiratory depression and altered mental status, initiated naloxone administration.",
+          "safety_checker_contribution": "Identified high-risk situation due to witnessed overdose and severe vital sign abnormalities.",
+          "pharm_nurse_contribution": "Prepared and administered naloxone, monitored vital signs, assisted with IV access."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "opioid use disorder",
+      "opioid overdose",
+      "polysubstance overdose",
+      "opioid-induced respiratory depression"
+    ],
+    "required_workup": [
+      "PDMP check",
+      "urine drug screen",
+      "respiratory monitoring SpO2",
+      "blood glucose",
+      "hepatitis panel",
+      "HIV screen"
+    ],
+    "correct_management": [
+      "naloxone 0.4-2mg IV/IM/IN for overdose",
+      "do not refill opioids without treatment agreement",
+      "offer buprenorphine",
+      "overdose prevention counseling",
+      "addiction medicine referral",
+      "HCV referral"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779597855.354386
+}

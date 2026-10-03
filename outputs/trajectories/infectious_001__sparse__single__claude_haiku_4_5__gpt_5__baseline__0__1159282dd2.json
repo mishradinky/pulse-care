@@ -1,0 +1,229 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough, yellow stuff, fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had this cough and fever?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any shortness of breath, chest pain, or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, chest pain and breathing trouble."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1-10, how severe is your chest pain right now, and does it get worse when you take a deep breath or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Pain is 7, worse with deep breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions like heart disease, COPD, or diabetes, and are you currently taking any medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "COPD, diabetes. Tiotropium, albuterol, metformin."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent fever, and if so, what was your temperature? Also, do you have any leg swelling, calf pain, or recent travel or immobility?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, fever 38.9C. No leg swelling, pain, travel."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP)",
+          "Acute exacerbation of COPD with infection",
+          "Pulmonary embolism",
+          "Acute bronchitis"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Procalcitonin or CRP",
+          "Blood cultures",
+          "Pulse oximetry and vital signs",
+          "ECG"
+        ],
+        "management_plan": [
+          "Obtain chest imaging urgently to evaluate for pneumonia",
+          "Start empiric broad-spectrum antibiotics (amoxicillin-clavulanate or respiratory fluoroquinolone) pending culture results",
+          "Optimize COPD management with increased bronchodilators",
+          "Assess oxygenation and consider supplemental oxygen if SpO2 <90%",
+          "Monitor for clinical deterioration; consider hospitalization if hypoxic or unstable",
+          "Reassess in 48-72 hours for treatment response"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Hypoxemia risk given COPD history and respiratory symptoms",
+          "Pleuritic chest pain with fever raises concern for pneumonia with pleural involvement",
+          "Age 65 with comorbidities (COPD, diabetes) increases risk of severe infection"
+        ],
+        "communication_note": "You likely have a chest infection (pneumonia or severe bronchitis); we need urgent imaging and blood tests today, and I'm starting you on antibiotics to treat this infection while we get more information."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "No better, more confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the confusion start, and has it been getting worse since our last visit? Also, do you have a fever, headache, or neck stiffness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Confusion worse, yes to fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a headache or neck stiffness, and what is your current temperature?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No headache, no neck stiffness. Dunno temperature."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Sepsis/bacteremia",
+          "Meningitis",
+          "Encephalitis",
+          "Urinary tract infection with systemic involvement",
+          "Pneumonia with systemic effects",
+          "Acute delirium from metabolic cause"
+        ],
+        "workup_ordered": [
+          "Stat CBC with differential",
+          "Comprehensive metabolic panel",
+          "Blood cultures (before antibiotics)",
+          "Urinalysis and urine culture",
+          "Chest X-ray",
+          "CT head (if no improvement after initial workup)",
+          "Lumbar puncture (if meningitis suspected after imaging)"
+        ],
+        "management_plan": [
+          "Obtain vital signs immediately including temperature",
+          "Establish IV access",
+          "Initiate empiric broad-spectrum antibiotics after blood cultures",
+          "Fluid resuscitation if hypotensive",
+          "Monitor mental status closely",
+          "Repeat assessment in 2-4 hours"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Acute confusion with fever suggests possible CNS infection or sepsis",
+          "Patient unable to provide temperature\u2014vital sign assessment critical",
+          "Risk of rapid deterioration with meningitis or sepsis"
+        ],
+        "communication_note": "Your worsening confusion with fever requires urgent evaluation in the emergency department to rule out serious infections like meningitis or sepsis."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Respiratory failure, intubated in ER."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Severe community-acquired pneumonia with sepsis",
+          "Acute respiratory distress syndrome (ARDS)",
+          "Aspiration pneumonia",
+          "Pulmonary embolism with acute decompensation",
+          "Acute exacerbation of COPD with infection"
+        ],
+        "workup_ordered": [
+          "Chest X-ray or CT chest",
+          "Blood cultures",
+          "Complete blood count",
+          "Comprehensive metabolic panel",
+          "Lactate level",
+          "Procalcitonin",
+          "Respiratory pathogen panel/PCR",
+          "Arterial blood gas",
+          "Ventilator settings and oxygenation parameters"
+        ],
+        "management_plan": [
+          "Continue mechanical ventilation with appropriate PEEP and FiO2 titration",
+          "Initiate broad-spectrum antibiotics (consider pneumonia coverage)",
+          "Aggressive fluid resuscitation and vasopressor support if septic",
+          "Sedation and analgesia for intubated patient",
+          "Serial monitoring of oxygenation, ventilation, and hemodynamics",
+          "Infectious disease consultation",
+          "Consider ICU-level care if not already admitted"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Patient is intubated and in respiratory failure - critical condition",
+          "Risk of ventilator-associated complications",
+          "Potential sepsis with hemodynamic instability",
+          "Airway management and tube placement verification essential"
+        ],
+        "communication_note": "You are critically ill with respiratory failure requiring mechanical ventilation; we are treating you for a serious infection and working to support your breathing while we identify the underlying cause."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779656161.3123624
+}

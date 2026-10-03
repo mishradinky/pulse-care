@@ -1,0 +1,216 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "primary_care",
+    "demographics": {
+      "age": 45,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a sore on my foot. Two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore in more detail? For example, is it painful, oozing, or growing in size? Have you had any similar issues before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not painful. Been there two weeks. No oozing. Kinda red around it."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient presents with a 2-week history of a non-painful, non-oozing foot lesion with surrounding erythema; further evaluation needed for potential ulceration and medication safety in context of possible CKD.",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer",
+          "Pressure ulcer",
+          "Venous stasis ulcer",
+          "Arterial ulcer",
+          "Infection (cellulitis, abscess)",
+          "Traumatic wound"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Obtain detailed wound characteristics (size, depth, location, progression)",
+          "Assess for signs of infection (warmth, purulence, systemic symptoms)",
+          "Order basic labs (CBC, BMP including eGFR, HbA1c) to evaluate for CKD and diabetes",
+          "Discontinue ibuprofen; recommend acetaminophen for pain management",
+          "Educate patient on proper wound care and infection prevention",
+          "Schedule urgent outpatient follow-up within 3-5 days for wound evaluation and further management",
+          "Consider podiatry or wound care specialist referral if ulcer is confirmed"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "NSAID use (ibuprofen) contraindicated if CKD present; risk of further renal impairment",
+          "Metformin and lisinopril may require dose adjustments if CKD is confirmed",
+          "Uncontrolled pain or signs of infection may necessitate urgent escalation",
+          "Wound may represent underlying vascular or neuropathic pathology requiring specialist input"
+        ],
+        "trace": {
+          "clinician_contribution": "Clarified wound characteristics (painless, 2 weeks duration, erythema) to narrow differential and guide next steps.",
+          "pharm_nurse_contribution": "Identified medication-related risks (ibuprofen contraindicated in CKD, metformin/lisinopril dose adjustments needed) and recommended alternative pain management and monitoring strategies.",
+          "safety_checker_contribution": "No red flags identified; recommended routine escalation initially, but coordinator upgraded to urgent outpatient based on medication safety concerns and wound characteristics."
+        },
+        "workup_ordered": [
+          "CBC with differential",
+          "Basic metabolic panel (including eGFR)",
+          "HbA1c",
+          "Wound culture if signs of infection",
+          "Vascular studies (ABI) if arterial ulcer suspected"
+        ]
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "The wound got bigger. Smells bad now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you noticed the wound getting bigger and smelling bad? Have you had any pain, fever, or drainage from it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About a week now. No pain. Maybe fever yesterday. Yellow stuff coming out."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient reports a 1-week history of worsening wound size, odor, and possible fever/yellow drainage, requiring urgent outpatient evaluation for infection management.",
+        "differential_diagnosis": [
+          "Infected wound (cellulitis, abscess, or osteomyelitis)",
+          "Chronic wound complication (e.g., diabetic ulcer, pressure ulcer)",
+          "Necrotizing soft tissue infection (less likely but urgent)",
+          "Foreign body or retained material"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Inspect and measure the wound for size, depth, and signs of infection (erythema, warmth, purulent drainage).",
+          "Check vital signs (fever, tachycardia) to assess for systemic involvement.",
+          "Obtain wound culture if purulent drainage is present.",
+          "Administer empiric antibiotics if cellulitis/abscess is suspected (adjust dose for renal function if CKD present).",
+          "Consider imaging (X-ray for foreign body/osteomyelitis, ultrasound for abscess) if deep infection is suspected.",
+          "Educate patient on proper wound care (cleaning, dressing changes) and red flags (increased pain, foul odor, pus).",
+          "Avoid ibuprofen if CKD present; use acetaminophen for pain/fever instead.",
+          "Schedule follow-up within 48 hours or sooner if symptoms worsen."
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Risk of necrotizing soft tissue infection despite low likelihood (requires prompt evaluation).",
+          "Potential for masked fever due to ibuprofen use, complicating infection assessment.",
+          "Risk of nephrotoxicity with ibuprofen + amoxicillin in CKD.",
+          "Need for renal dose adjustments if eGFR <60 mL/min/1.73m\u00b2.",
+          "Risk of Clostridioides difficile infection with prolonged amoxicillin use."
+        ],
+        "trace": {
+          "clinician_contribution": "Identified key differential diagnoses (infected wound, chronic complication, necrotizing infection, foreign body) and outlined workup (inspection, imaging, cultures) based on patient's report of worsening wound size/odor and possible fever/drainage.",
+          "pharm_nurse_contribution": "Highlighted medication safety concerns (ibuprofen contraindicated in CKD, amoxicillin dose adjustments, acetaminophen safety) and nursing priorities (monitoring for systemic toxicity, patient education on wound care and red flags).",
+          "safety_checker_contribution": "Flagged red flags (worsening infection signs, potential for deep infection) and recommended urgent outpatient escalation due to risk of rapid progression, while noting no immediate life-threatening risks."
+        },
+        "workup_ordered": [
+          "Inspect and measure the wound for size, depth, and signs of infection (erythema, warmth, purulent drainage).",
+          "Check vital signs (fever, tachycardia) to assess for systemic involvement.",
+          "Obtain wound culture if purulent drainage is present.",
+          "Consider imaging (X-ray for foreign body/osteomyelitis, ultrasound for abscess) if deep infection is suspected."
+        ]
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Foot is very red, swollen. I have a fever now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had the redness and swelling in your foot, and did it start after an injury or cut?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Red and swollen past two weeks. Cut was there before that."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cellulitis",
+          "Osteomyelitis",
+          "Gout",
+          "Septic arthritis",
+          "Deep vein thrombosis"
+        ],
+        "workup_ordered": [
+          "CBC with differential",
+          "CRP or ESR",
+          "Blood cultures (if febrile)",
+          "X-ray of foot (to assess for osteomyelitis or fracture)",
+          "Doppler ultrasound (if concern for DVT)"
+        ],
+        "management_plan": [
+          "Discontinue ibuprofen immediately due to infection risk and potential masking of inflammation/fever",
+          "Continue acetaminophen 500mg PO q6h PRN for pain/fever (ensure total daily dose <4g)",
+          "Switch amoxicillin to a non-penicillin antibiotic (e.g., cephalexin) pending allergy confirmation; verify penicillin allergy history (rash vs anaphylaxis)",
+          "Educate patient on red flags: worsening pain, fever >101\u00b0F, spreading redness, or signs of systemic infection (e.g., chills, confusion)",
+          "Schedule follow-up in 24\u201348 hours to reassess symptoms and antibiotic response",
+          "Consider renal function assessment if chronic NSAID use was previously planned"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "NSAID use in undiagnosed foot infection (risk of worsening infection and masking fever)",
+          "Unverified penicillin allergy with new amoxicillin prescription (risk of allergic reaction)",
+          "Potential nephrotoxicity from ibuprofen in undiagnosed CKD",
+          "Risk of progression to osteomyelitis or septic arthritis if infection is untreated"
+        ],
+        "communication_note": "Patient must discontinue ibuprofen immediately and switch to acetaminophen; follow up within 48 hours for reassessment.",
+        "trace": {
+          "clinician_contribution": "Clarified symptom onset and trauma history to narrow differential (cellulitis, osteomyelitis, gout, septic arthritis, DVT) and emphasized need for urgent evaluation due to fever and localized redness/swelling.",
+          "safety_checker_contribution": "Approved plan with no red flags identified and recommended routine escalation, but emphasized need for allergy verification and NSAID discontinuation.",
+          "pharm_nurse_contribution": "Identified unsafe NSAID use in infection, potential penicillin allergy with amoxicillin, and provided dose adjustment guidance (e.g., avoid ibuprofen, monitor for allergy, assess renal function)."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790536222.1224852
+}

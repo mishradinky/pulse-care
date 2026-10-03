@@ -1,0 +1,152 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) with fulminant colitis",
+          "Infectious colitis (other bacterial pathogen)",
+          "Ischemic colitis"
+        ],
+        "workup_ordered": [
+          "Stool C. difficile toxin A/B and GDH (if not already done)",
+          "Complete metabolic panel (electrolytes, creatinine, albumin)",
+          "CBC with differential",
+          "Abdominal imaging (CT abdomen/pelvis with IV contrast to assess for colonic dilatation, wall thickening, complications)",
+          "Blood cultures if sepsis concern"
+        ],
+        "management_plan": [
+          "Start oral vancomycin 125 mg QID (first-line for CDI, especially fulminant disease)",
+          "Consider IV metronidazole as adjunct given severe presentation and colonic dilatation",
+          "Aggressive fluid resuscitation and electrolyte repletion (hypokalemia, hyponatremia present)",
+          "NPO status; monitor for toxic megacolon and perforation",
+          "Discontinue all antimotility agents",
+          "Monitor vital signs and abdominal exam closely for peritonitis/perforation",
+          "Infectious disease consultation given fulminant features"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Fulminant CDI with colonic dilatation (6 cm) and systemic toxicity\u2014high risk for toxic megacolon and perforation",
+          "Severe electrolyte derangements (K 3.2, Na 134) with ongoing diarrhea",
+          "Elevated lactate risk; sepsis criteria present (fever, tachycardia, tachypnea, leukocytosis with left shift)",
+          "Low albumin (2.4) indicates malnutrition/critical illness"
+        ],
+        "communication_note": "Your severe diarrhea and fever after antibiotics are concerning for a serious infection called C. difficile colitis; you need urgent hospital evaluation and IV fluids, antibiotics, and close monitoring for complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) - fulminant with toxic megacolon",
+          "Toxic megacolon secondary to severe CDI",
+          "Inflammatory bowel disease flare (less likely given acute post-antibiotic onset)",
+          "Ischemic colitis"
+        ],
+        "workup_ordered": [
+          "Surgical consultation urgently",
+          "Repeat abdominal imaging (CT or AXR) to assess megacolon progression",
+          "Blood cultures if not already done",
+          "Stool C. difficile toxin PCR (if not confirmed)",
+          "Lactate level",
+          "Procalcitonin"
+        ],
+        "management_plan": [
+          "Continue IV metronidazole (if not already) + oral vancomycin (high-dose 125mg QID)",
+          "Consider fidaxomicin if available and tolerated",
+          "NPO status; nasogastric decompression if vomiting/ileus develops",
+          "Aggressive IV fluid resuscitation (currently hypotensive, tachycardic, elevated Cr)",
+          "Electrolyte repletion (K 2.8 is critical)",
+          "Broad-spectrum IV antibiotics (cover gram-negatives/anaerobes)",
+          "Prepare for possible emergency colectomy if megacolon worsens or perforation suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Fulminant CDI with toxic megacolon (colon 9 cm) - imminent perforation risk",
+          "Septic shock physiology: hypotension, tachycardia, tachypnea, elevated lactate expected",
+          "Severe hypokalemia (K 2.8) with risk of arrhythmia",
+          "Acute kidney injury (Cr 2.1, baseline likely ~0.8-1.0)",
+          "Severe malnutrition (albumin 1.8) impairs immune response",
+          "High mortality risk in fulminant CDI; surgical intervention may be life-saving"
+        ],
+        "communication_note": "You have a severe, life-threatening infection of your colon (C. difficile) that is not responding to antibiotics and is causing dangerous swelling; you need emergency hospital admission and possible surgery to prevent your colon from rupturing."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridium difficile infection with toxic megacolon and perforation",
+          "Fulminant colitis with perforation",
+          "Septic shock secondary to perforated viscus"
+        ],
+        "workup_ordered": [
+          "STAT abdominal X-ray (already done\u2014confirms free air)",
+          "STAT CT abdomen/pelvis with IV contrast",
+          "Blood cultures",
+          "Lactate (already done\u20145.8, elevated)",
+          "CBC with differential (already done\u2014WBC 38)",
+          "Comprehensive metabolic panel",
+          "Prothrombin time/INR",
+          "Type and cross for transfusion"
+        ],
+        "management_plan": [
+          "EMERGENCY SURGICAL CONSULTATION immediately",
+          "Activate sepsis protocol: broad-spectrum antibiotics (vancomycin + piperacillin-tazobactam + metronidazole)",
+          "Aggressive fluid resuscitation with normal saline; target MAP >65 mmHg",
+          "Vasopressor support (norepinephrine) for refractory hypotension",
+          "Discontinue all antimotility agents",
+          "NPO status",
+          "Nasogastric tube placement",
+          "Prepare for emergency colectomy/subtotal colectomy with ileostomy",
+          "ICU admission for continuous monitoring and mechanical ventilation support"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Perforated colon with free air\u2014surgical emergency",
+          "Septic shock (BP 82/50, HR 138, lactate 5.8, altered mental status)",
+          "Respiratory compromise (RR 32, SpO2 90%)",
+          "Toxic megacolon with risk of further deterioration",
+          "Multi-organ dysfunction (renal, hepatic, coagulation)"
+        ],
+        "communication_note": "You have a life-threatening perforation of your colon from severe C. difficile infection; you need emergency surgery and ICU care immediately."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505429.9825888
+}

@@ -1,0 +1,109 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "intracranial aneurysm rupture"
+        ],
+        "workup_ordered": [
+          "CT angiography of the brain"
+        ],
+        "management_plan": [
+          "Immediate neurosurgical consultation",
+          "Blood pressure management with IV antihypertensives",
+          "Admission to ICU for monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of rebleeding or worsening hemorrhage",
+          "Potential for increased intracranial pressure"
+        ],
+        "communication_note": "You have a serious headache that needs immediate hospital care to prevent complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "intracranial aneurysm rupture"
+        ],
+        "workup_ordered": [
+          "neurosurgical consultation",
+          "repeat CTA if indicated"
+        ],
+        "management_plan": [
+          "admit to ICU for monitoring",
+          "blood pressure control with IV antihypertensives",
+          "pain management",
+          "monitor for vasospasm"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of rebleeding",
+          "potential for vasospasm"
+        ],
+        "communication_note": "You have a serious condition called a subarachnoid hemorrhage, likely due to an aneurysm, and need immediate hospital care."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage rebleed",
+          "intracranial aneurysm rupture"
+        ],
+        "workup_ordered": [
+          "emergency CT scan",
+          "neurosurgical consultation"
+        ],
+        "management_plan": [
+          "stabilize airway, breathing, and circulation",
+          "administer antihypertensive medication to control blood pressure",
+          "prepare for possible surgical intervention"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of further neurological deterioration",
+          "potential for increased intracranial pressure"
+        ],
+        "communication_note": "You have a serious brain bleed that requires immediate emergency care."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505800.140615
+}

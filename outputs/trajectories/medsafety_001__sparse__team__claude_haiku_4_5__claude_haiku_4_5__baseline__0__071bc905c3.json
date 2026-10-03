@@ -1,0 +1,216 @@
+{
+  "case_id": "medsafety_001",
+  "category": "medication_safety",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got these bruises. And my gums are bleeding."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you first notice the bruises and bleeding gums? Are you taking any medications, especially blood thinners, aspirin, or NSAIDs? Have you had any recent falls, injuries, or changes in your diet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days ago. Yeah, I take warfarin. No falls. Same diet."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Supratherapeutic INR / warfarin toxicity (MOST LIKELY given 3-day onset + warfarin use)",
+          "Warfarin-drug interaction (antibiotic, NSAID, or other potentiator)",
+          "Warfarin-dietary interaction (decreased vitamin K intake)",
+          "Thrombocytopenia (drug-induced or other etiology)",
+          "Liver disease (affects warfarin metabolism and coagulation)",
+          "Vitamin K deficiency"
+        ],
+        "workup_ordered": [
+          "STAT CBC with differential (platelet count, hemoglobin, WBC)",
+          "STAT PT/INR (warfarin level assessment\u2014CRITICAL)",
+          "aPTT and fibrinogen (coagulation panel)",
+          "Comprehensive metabolic panel including Cr/eGFR and LFTs (AST, ALT, bilirubin, albumin)",
+          "Medication reconciliation: complete list of all Rx, OTC, supplements (especially NSAIDs, antibiotics, statins, herbal products)"
+        ],
+        "management_plan": [
+          "Obtain STAT labs before or concurrent with further history; do not delay",
+          "Complete medication reconciliation immediately\u2014identify any recent antibiotic starts, NSAIDs, or dose changes",
+          "Assess bleeding severity: Is gingival bleeding spontaneous or provoked? Bruise size/location? Any hemoptysis, hematuria, melena, or severe oral bleeding?",
+          "Obtain vital signs and assess hemodynamic stability",
+          "If INR >4 or any active/severe bleeding: escalate to ED immediately",
+          "If INR 2.5\u20134 and bleeding is mild/localized: urgent outpatient follow-up with labs; consider warfarin dose reduction pending INR result",
+          "If NSAID or antibiotic identified: discontinue NSAID (switch to acetaminophen); review antibiotic necessity and consider warfarin interaction",
+          "Reinforce bleeding precautions and medication adherence; advise patient to report any new bleeding immediately",
+          "Dietary counseling: confirm consistent vitamin K intake (leafy greens); avoid sudden dietary changes"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL: Spontaneous bruising + gingival bleeding in warfarin patient = high risk for serious bleeding; STAT labs mandatory before discharge from encounter",
+          "MISSING DATA: Bleeding severity not yet assessed (active vs. provoked, location, volume); if severe/active, escalate to ED",
+          "MISSING DATA: Vital signs and hemodynamic stability not documented",
+          "MISSING DATA: Complete medication list not yet obtained; cannot rule out warfarin-drug interactions (antibiotics, NSAIDs, statins)",
+          "MISSING DATA: Recent INR value unknown; cannot assess if supratherapeutic without lab confirmation",
+          "RISK: If INR >4 or platelet count <20K, patient requires ED evaluation and possible reversal therapy (vitamin K, FFP, or idarucizumab if on DOAC)",
+          "RISK: Age 68 + warfarin + potential fall history = high fall risk; assess home safety and mobility"
+        ],
+        "communication_note": "68-year-old male on warfarin presenting with 3-day history of spontaneous bruising and gingival bleeding; STAT INR/CBC and medication reconciliation required urgently to rule out supratherapeutic anticoagulation or drug interaction before outpatient management can proceed.",
+        "trace": {
+          "clinician_contribution": "Obtained focused history (3-day onset, warfarin use, no recent falls, stable diet) and generated appropriate differential diagnosis prioritizing medication-induced bleeding; however, did not order labs or assess bleeding severity/vital signs.",
+          "safety_checker_contribution": "Identified critical gaps: missing STAT labs (CBC, PT/INR, coagulation studies), missing bleeding severity assessment, missing vital signs, and missing medication reconciliation; flagged spontaneous bleeding as high-risk presentation requiring urgent lab confirmation and escalation pathway.",
+          "pharm_nurse_contribution": "Highlighted warfarin as primary concern; identified need for complete medication reconciliation (OTC, supplements, antibiotics); flagged major drug interactions (anticoagulant + NSAID, anticoagulant + aspirin, warfarin + antibiotics); recommended STAT labs (CBC, PT/INR, LFTs, Cr/eGFR) and bleeding precautions; provided nursing assessment framework (bleeding severity, fall risk, dietary vitamin K, renal/liver function)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a bad headache. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry you're having such a severe headache. I need to ask you a few quick questions: When did this headache start, and is this the worst headache you've ever had in your life? Also, do you have any fever, neck stiffness, confusion, vision changes, or weakness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started this morning. Not the worst. No fever. No stiff neck. No confusion. Can't see any different. No weakness."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Tension headache",
+          "Migraine",
+          "Medication-related headache (rebound or adverse effect)",
+          "Hypertensive emergency",
+          "Subarachnoid hemorrhage",
+          "Meningitis",
+          "Acute stroke"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (BP, HR, temp, RR, O2 sat)",
+          "Complete medication list reconciliation (Rx, OTC, supplements)",
+          "Allergy history documentation",
+          "Renal function (creatinine, eGFR)",
+          "Liver function tests",
+          "ED referral for neuroimaging (CT/CTA head) and comprehensive evaluation"
+        ],
+        "management_plan": [
+          "DO NOT administer analgesics in primary care setting",
+          "Obtain complete vital signs immediately",
+          "Perform focused neurological exam (gait, coordination, cranial nerves, motor/sensory)",
+          "Refer to ED for imaging and specialist evaluation",
+          "Defer medication review and optimization until acute pathology excluded",
+          "If any new red-flag symptoms develop during triage (focal deficits, acute confusion, vision changes), call 911"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Age 68 + severe headache = high-risk presentation for intracranial pathology, stroke, hypertensive emergency",
+          "Red-flag screening negative (no 'worst headache of life,' no meningeal signs, no acute neuro deficits), but does NOT exclude serious pathology",
+          "Critical information gaps: no current medications, no vital signs, no renal/liver function, no allergy history",
+          "Medication-related headache possible but cannot assess without complete med list",
+          "NSAID use contraindicated until BP and renal status clarified in 68-year-old",
+          "Analgesic administration in primary care is unsafe without ruling out SAH, stroke, and other emergencies first"
+        ],
+        "communication_note": "Patient's negative red-flag screening is reassuring but does not exclude serious pathology; ED referral is appropriate for imaging, vital sign assessment, and medication safety review before outpatient management.",
+        "trace": {
+          "clinician_contribution": "Appropriate red-flag screening questions asked; patient denies worst headache of life, fever, neck stiffness, confusion, vision changes, and weakness\u2014reducing but not eliminating concern for SAH, meningitis, and stroke. Clinician correctly identified need for urgent assessment and differential includes life-threatening causes.",
+          "safety_checker_contribution": "Conditional approval with mandatory ED escalation pathway. Identified critical gaps (no vitals, no BP documented) and emphasized that even negative red-flag responses do not justify outpatient-only management in a 68-year-old with severe headache. Escalation to ED is non-negotiable before medication administration or outpatient workup.",
+          "pharm_nurse_contribution": "Identified critical blockers: no medication list (cannot assess rebound/iatrogenic headache), no allergy history (unsafe to give analgesics), no renal/liver function (essential before dosing in elderly patient). Reinforced that analgesics are contraindicated until life-threatening causes ruled out and medication safety profile established. Highlighted medication overuse headache as common in older adults on multiple agents."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head hurts. Real bad. Can't think straight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this headache start, and have you had anything like this before? Also, are you experiencing any fever, neck stiffness, vision changes, weakness, or recent falls?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started this morning. Worse now. Never like this. No fever. Can't think straight."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute intracranial pathology (stroke, intracerebral hemorrhage, subarachnoid hemorrhage)",
+          "Meningitis or encephalitis",
+          "Acute hypertensive emergency with secondary headache",
+          "Medication-induced headache (vasodilators, stimulants, withdrawal)",
+          "Metabolic derangement"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT (or MRI if CT contraindicated)",
+          "STAT vitals including BP, temperature, orthostatics",
+          "Focused neurological exam (GCS, meningeal signs, focal deficits)",
+          "Labs: CBC, CMP, blood cultures if fever develops",
+          "Complete medication reconciliation (current list, doses, allergies, recent changes)",
+          "Renal/hepatic function assessment"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL\u2014do not delay for outpatient workup",
+          "Obtain STAT vitals and brief focused neuro exam before transport",
+          "Provide ED handoff with: onset (this morning, worsening), altered cognition, negative fever/neck stiffness/vision changes/weakness/falls, medication_safety category flag, and full differential",
+          "Bring complete medication list and insurance card to ED",
+          "Do NOT treat symptomatically or attribute to medication without imaging",
+          "If patient refuses ED: document refusal, provide emergency warning signs (worsening headache, loss of consciousness, seizure, severe weakness), advise 911 call immediately"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL TRIAD: Severe headache + altered cognition in 68-year-old = HIGH-RISK presentation for acute intracranial pathology (stroke, ICH, SAH, meningitis)",
+          "Visit 3 status indicates recurrent/progressive issue\u2014escalation threshold is LOWER, not deferred; verbal screening alone is insufficient and dangerous",
+          "Altered cognition is an objective RED FLAG, not a symptom to characterize verbally; requires immediate neuroimaging and labs to rule out life-threatening causes",
+          "Medication-induced headache is plausible but CANNOT be diagnosed without first ruling out stroke, bleed, infection via imaging",
+          "Medication list unavailable\u2014cannot assess for drug interactions, withdrawal risk, or dose appropriateness; critical gap that must be filled at ED",
+          "If patient on anticoagulants/antiplatelets: intracranial bleed risk is elevated\u2014imaging becomes even more urgent",
+          "Acute hypertension may be SECONDARY to intracranial process, not primary\u2014do not treat symptomatically without imaging"
+        ],
+        "communication_note": "Patient requires immediate ED evaluation with neuroimaging and labs to rule out stroke, bleed, meningitis, or other acute intracranial pathology; medication-induced headache cannot be diagnosed without first excluding life-threatening causes.",
+        "trace": {
+          "clinician_contribution": "Appropriate differential diagnosis (medication-induced, acute HTN, intracranial pathology, infection, metabolic) and focused symptom screening questions; however, workup list is EMPTY despite high-risk presentation\u2014mismatch between differential and diagnostic plan.",
+          "safety_checker_contribution": "Correctly identified CRITICAL RED FLAG triad (severe headache + altered cognition + age 68) and blocking concern: questioning alone is dangerous delay for time-sensitive diagnoses. Mandated ED referral, STAT vitals, focused neuro exam, and neuroimaging before any symptomatic treatment. Escalation threshold appropriately lowered for visit 3 recurrence.",
+          "pharm_nurse_contribution": "Flagged missing medication list as critical gap preventing assessment of medication-induced headache, drug interactions, and withdrawal risk. Identified common elderly culprits (vasodilators, stimulants, SSRI/SNRI withdrawal, antihypertensive rebound) and elevated bleed risk if on anticoagulants. Reinforced that imaging must precede medication attribution and recommended stat vitals, orthostatics, and full med reconciliation."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "warfarin supratherapeutic due to drug interaction",
+      "subdural hematoma",
+      "intracranial hemorrhage"
+    ],
+    "required_workup": [
+      "INR STAT",
+      "CBC",
+      "CT head if neurological symptoms",
+      "hold warfarin",
+      "drug interaction review"
+    ],
+    "correct_management": [
+      "stop clarithromycin",
+      "vitamin K 10mg IV",
+      "4-factor PCC if active bleeding or INR >10",
+      "neurosurgery consult",
+      "hold warfarin until safe"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779509339.8948264
+}

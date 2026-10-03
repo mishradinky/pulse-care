@@ -1,0 +1,160 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Urinary tract infection",
+          "Acute kidney injury",
+          "Hyperglycemia",
+          "Delirium due to infection"
+        ],
+        "workup_ordered": [
+          "Urinalysis (already done)",
+          "Complete blood count (already done)",
+          "Basic metabolic panel (already done)",
+          "Blood cultures",
+          "Chest X-ray",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Start antibiotics for suspected UTI (e.g., cephalexin or nitrofurantoin)",
+          "Increase fluid intake",
+          "Monitor blood glucose levels and adjust diabetes management as needed",
+          "Assess and manage hypertension",
+          "Monitor for signs of sepsis or worsening confusion"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to infection",
+          "Risk of falls due to confusion and incontinence",
+          "Risk of dehydration and electrolyte imbalances"
+        ],
+        "communication_note": "Patient's daughter should be informed about the diagnosis and management plan. She should monitor her mother closely for any changes in mental status or other symptoms and report any concerns to the healthcare team.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms, ordered initial labs and tests, and developed initial management plan.",
+          "safety_checker_contribution": "Identified safety concerns related to infection, falls, and dehydration.",
+          "pharm_nurse_contribution": "Reviewed medications and provided recommendations for antibiotic choice and diabetes management."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Sepsis from ESBL E. coli UTI",
+          "Acute kidney injury",
+          "Delirium due to infection and metabolic derangement",
+          "Dehydration"
+        ],
+        "workup_ordered": [
+          "Repeat BMP and electrolytes",
+          "Blood cultures (already pending)",
+          "Urinalysis and urine culture (already done, ESBL E. coli identified)",
+          "CBC with differential",
+          "Renal ultrasound if AKI persists"
+        ],
+        "management_plan": [
+          "Discontinue ciprofloxacin due to resistance",
+          "Start IV hydration with normal saline",
+          "Start IV antibiotics with coverage for ESBL E. coli (e.g., carbapenem)",
+          "Monitor urine output and renal function closely",
+          "Provide supportive care for delirium (e.g., reorientation, family support)",
+          "Encourage oral intake if tolerated"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis and worsening renal function",
+          "Risk of falls due to confusion and incontinence",
+          "Risk of dehydration and electrolyte imbalances"
+        ],
+        "communication_note": "Patient's daughter should be informed about the resistant infection and the need for IV antibiotics. Social work should be consulted to assess home safety and support needs.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, identified worsening confusion and dehydration, ordered initial workup and management.",
+          "safety_checker_contribution": "Identified safety concerns related to sepsis risk, falls, and dehydration.",
+          "pharm_nurse_contribution": "Reviewed medications, identified ciprofloxacin resistance, and recommended IV antibiotics."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Urosepsis due to ciprofloxacin-resistant E. coli ESBL",
+          "Septic shock",
+          "Acute kidney injury",
+          "Altered mental status due to systemic infection"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Blood cultures",
+          "Lactate level",
+          "Urinalysis and urine culture",
+          "Chest X-ray",
+          "ECG"
+        ],
+        "management_plan": [
+          "Immediate IV fluids for hypotension",
+          "Broad-spectrum antibiotics covering ESBL E. coli (e.g., carbapenem)",
+          "Oxygen supplementation for hypoxia",
+          "Continuous cardiac monitoring",
+          "Frequent vital sign monitoring",
+          "Urology consultation for urinary source control",
+          "ICU admission for septic shock management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Septic shock with organ dysfunction",
+          "Respiratory compromise",
+          "Altered mental status with GCS 8",
+          "Risk of cardiac arrest"
+        ],
+        "communication_note": "Patient is critically ill with urosepsis and septic shock. Immediate ICU admission and aggressive management required. Inform family of critical condition and need for urgent interventions.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's critical condition and initiated emergency management.",
+          "safety_checker_contribution": "Identified high-risk safety concerns requiring immediate intervention.",
+          "pharm_nurse_contribution": "Prepared and administered IV fluids and antibiotics as per protocol."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597933.3758082
+}

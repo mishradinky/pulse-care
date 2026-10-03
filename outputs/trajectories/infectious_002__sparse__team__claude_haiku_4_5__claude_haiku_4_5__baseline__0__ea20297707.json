@@ -1,0 +1,216 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever. Chills. Back hurts. Haven't peed all day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the fever start, and have you measured your temperature? Also, do you have any pain or burning with urination, or have you noticed any changes in urine color or cloudiness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever started two days ago. Haven't checked temperature myself. No burning. Haven't peed in... twelve hours maybe."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute pyelonephritis with possible progression to urosepsis (fever \u00d7 2 days, flank pain, anuria \u00d7 12 hours)",
+          "Urosepsis secondary to urinary obstruction or acute urinary retention",
+          "Acute kidney injury (anuria as primary presentation)",
+          "Acute glomerulonephritis or other renal inflammatory process",
+          "Systemic infection with renal involvement (pneumonia, endocarditis)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: BP, HR, RR, O2 saturation, core temperature",
+          "STAT labs: CBC, CMP (Cr, BUN, K+, Na+), lactate, blood cultures \u00d7 2 (before antibiotics)",
+          "STAT urinalysis + urine culture (via Foley if needed for obstruction assessment)",
+          "STAT renal ultrasound \u00b1 CT abdomen/pelvis (rule out obstruction, assess kidney size/echogenicity)",
+          "qSOFA and SIRS criteria assessment for sepsis staging",
+          "Post-void residual assessment; Foley catheter placement for accurate UOP monitoring and possible obstruction relief",
+          "Full medication reconciliation (Rx, OTC, supplements) \u2014 CRITICAL for renal dosing and drug interactions"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL or 911 activation \u2014 do NOT delay for additional outpatient workup",
+          "Establish IV access; prepare for possible fluid resuscitation and vasopressor readiness if septic shock criteria met",
+          "Empiric broad-spectrum antibiotics AFTER blood cultures and UA obtained (pending renal function and culture sensitivities); avoid aminoglycosides; adjust dosing for anuria/AKI",
+          "Hold ACE-I/ARB and NSAIDs during acute phase; monitor K+ closely (anuria + renal dysfunction = hyperkalemia risk)",
+          "Strict intake/output monitoring; assess for fluid overload vs. hypovolemia; prepare for possible ICU-level monitoring",
+          "Medication reconciliation and renal dosing review once serum creatinine/eGFR available",
+          "Fall precautions and bed rest given age, fever, sepsis risk, and medication effects"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Anuria \u00d7 12 hours + fever \u00d7 2 days + flank pain in 78-year-old = presumed urosepsis until proven otherwise; this is a medical emergency, not a routine outpatient visit",
+          "Elderly patients with sepsis have atypical presentations and poor physiologic reserve; rapid decompensation is common",
+          "No current vital signs obtained \u2014 BP, HR, O2 sat, and temperature are essential for sepsis assessment and hemodynamic stability determination",
+          "Anuria suggests acute kidney injury, urinary obstruction, or sepsis \u2014 all time-sensitive conditions requiring immediate intervention",
+          "Medication list not provided \u2014 critical for drug interaction screening, renal dosing, and contraindication identification (e.g., NSAIDs, ACE-I/ARB, anticoagulants)",
+          "Clinician's 'ask' approach is appropriate for history but must be CONCURRENT with immediate escalation, not sequential; patient should not remain in outpatient setting"
+        ],
+        "communication_note": "78-year-old female with 2-day fever, flank pain, and 12-hour anuria requires IMMEDIATE ED evaluation or 911 activation for presumed urosepsis; do not delay for additional screening questions\u2014obtain vitals, stat labs (CBC, CMP, lactate, blood cultures, UA), and imaging (renal ultrasound \u00b1 CT) in emergency setting.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified classic triad (fever, flank pain, anuria) and generated robust differential diagnosis; history-gathering questions (fever onset, dysuria, urine changes) are clinically sound but SECONDARY to the emergency nature of anuria in an elderly patient. Workup array was empty\u2014this has been corrected by coordinator with stat orders.",
+          "safety_checker_contribution": "Safety checker correctly identified this as a medical emergency requiring immediate escalation (emergency_911); flagged anuria as a critical red flag for AKI/obstruction/sepsis; highlighted elderly age as risk factor for rapid decompensation; noted absence of vital signs and empty workup array as dangerous gaps. Recommendation to activate EMS or send to ED NOW is appropriate and overrides routine outpatient management.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no medication list provided (essential for renal dosing and interactions); flagged anuria as contraindication for renally-cleared drugs; highlighted need for medication hold (NSAIDs, ACE-I/ARB) during AKI workup; recommended avoiding aminoglycosides in elderly; emphasized need for IV access, Foley catheter, strict I&Os, hyperkalemia monitoring, and post-discharge medication reconciliation. Nursing concerns (sepsis assessment, ICU readiness, fall precautions) are appropriate for emergency-level care."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still got fever. More confused now. Worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the fever start, and have you had any chills, cough, difficulty breathing, urinary symptoms, abdominal pain, or headache? Also, are you taking any new medications, and have you fallen or had any recent procedures?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever two days ago. Chills, yes. No cough. No trouble breathing. Haven't... peed in hours. Pain in my side. No headache. No new pills. No falls."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Sepsis secondary to urinary tract infection (fever, chills, flank pain, oliguria \u00d7 2 days)",
+          "Pyelonephritis with early sepsis",
+          "Meningitis or encephalitis (fever + acute mental status change)",
+          "Acute stroke or TIA (acute confusion worsening)",
+          "Delirium from metabolic derangement (hypoxia, hypoglycemia, electrolyte abnormality, AKI)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs including temperature, BP (orthostatics), HR, RR, O2 saturation",
+          "STAT focused neurological exam (mental status, meningeal signs, focal deficits, NIHSS if stroke concern)",
+          "STAT labs: CBC, CMP (electrolytes, creatinine, BUN, glucose), lactate, blood cultures \u00d72",
+          "Urinalysis and urine culture (high suspicion for UTI/pyelonephritis given flank pain + oliguria)",
+          "Chest X-ray (rule out aspiration pneumonia or other pulmonary source)",
+          "Consider CT head if focal neuro findings or no improvement with treatment",
+          "Renal ultrasound or CT abdomen/pelvis if concern for obstructive uropathy or abscess"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED TRANSFER (see escalation below)",
+          "Establish IV access and initiate fluid resuscitation (likely dehydrated given fever, oliguria, sepsis concern)",
+          "Empiric broad-spectrum antibiotics pending cultures (dosing adjusted for renal function once creatinine available)\u2014likely fluoroquinolone or 3rd-gen cephalosporin for UTI/pyelonephritis coverage",
+          "Fever management: acetaminophen preferred (max 3g/day in elderly); avoid NSAIDs until renal function and hydration status confirmed",
+          "Complete medication reconciliation (patient reports no new meds, but verify all home medications, OTC, supplements for drug interactions and toxicity screening)",
+          "Confirm allergy history (especially beta-lactams, fluoroquinolones) before antibiotic selection",
+          "Monitor for fall risk during acute delirium; implement precautions",
+          "Reassess mental status after initial stabilization and treatment initiation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Fever + acute worsening mental status in 78-year-old = HIGH-RISK presentation for life-threatening sepsis, meningitis, or acute stroke",
+          "Patient is oliguria \u00d7 2 hours with flank pain and fever\u2014strong concern for pyelonephritis with early sepsis; risk of rapid decompensation",
+          "Acute delirium in elderly patient requires immediate evaluation in monitored setting (ED); cannot be safely managed in outpatient or home setting",
+          "Unknown current vital signs and oxygen saturation\u2014must be obtained IMMEDIATELY, not after full history",
+          "Medication list incomplete (patient denies new meds, but full reconciliation needed to screen for toxicity as delirium contributor)",
+          "Renal function unknown\u2014critical for antibiotic dosing and assessment of AKI risk in sepsis",
+          "Fall risk HIGH due to acute delirium + possible orthostatic changes from sepsis/dehydration"
+        ],
+        "communication_note": "78-year-old with 2-day fever, chills, flank pain, oliguria, and acute worsening confusion requires EMERGENCY ED evaluation for suspected sepsis (pyelonephritis) with delirium; activate 911 immediately.",
+        "trace": {
+          "clinician_contribution": "Obtained focused history revealing fever onset (2 days), chills, flank pain, and oliguria\u2014classic presentation for pyelonephritis. Appropriately ruled out respiratory, GI, and neurological localizing symptoms. Proposed comprehensive workup (vitals, neuro exam, labs, cultures, imaging) and broad differential including sepsis, meningitis, and stroke.",
+          "safety_checker_contribution": "Identified CRITICAL acuity mismatch: fever + acute mental status change in elderly patient requires EMERGENCY evaluation, not sequential outpatient questioning. Flagged that vital signs and focused neuro exam must occur IMMEDIATELY and concurrently, not after history completion. Emphasized need for ED setting and 911 activation. Blocked routine approach.",
+          "pharm_nurse_contribution": "Highlighted missing medication reconciliation (patient denies new meds but full list needed), unknown renal function (critical for antibiotic dosing in 78-year-old at risk for AKI), and need for allergy confirmation before empiric therapy. Recommended acetaminophen over NSAIDs for fever management and flagged fall risk from acute delirium. Noted polypharmacy review needed post-stabilization."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Tube in my throat."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute respiratory failure (on mechanical ventilation)",
+          "Ventilator-associated pneumonia (VAP)",
+          "Acute exacerbation of chronic lung disease",
+          "Sepsis with respiratory compromise",
+          "Aspiration pneumonia",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "STAT bedside ventilator assessment: tube position, breath sounds, SpO2, ABG, end-tidal CO2",
+          "STAT portable chest X-ray (if not already in ICU)",
+          "STAT labs: CBC, CMP (including creatinine/eGFR), lactate, blood cultures \u00d7 2, procalcitonin",
+          "Sputum culture (if accessible without compromising airway)",
+          "EKG (rule out PE, assess QT if fluoroquinolones anticipated)",
+          "STAT medication reconciliation: home meds, current hospital orders, allergy history",
+          "Baseline renal function (creatinine, BUN, eGFR) for dose adjustments"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Emergency transport to ICU (if not already present) with portable ventilation support",
+          "Verify sedation/paralysis agents are appropriately dosed and infusing; assess synchrony with ventilator",
+          "Rule out tube obstruction, migration, or self-extubation at bedside",
+          "Initiate empiric VAP coverage pending culture results (consider age 78 + renal function: fluoroquinolone or beta-lactam with renal adjustment; vancomycin if MRSA risk with therapeutic drug monitoring)",
+          "If sepsis suspected: initiate vasopressor support per hemodynamics; target MAP \u226565 mmHg, lactate clearance",
+          "Head of bed \u226530\u00b0, oral care protocol, subglottic secretion drainage if available",
+          "Daily monitoring: sedation scales (RASS/CPOT), ventilator weaning parameters, fluid balance, renal function trends",
+          "Confirm all IV access appropriate for vasopressors; consider central line if not present",
+          "Hold NSAIDs and nephrotoxic agents pending renal function assessment"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Patient is intubated and actively reporting dyspnea\u2014indicates acute decompensation (inadequate oxygenation, ventilator malfunction, tube obstruction, or migration)",
+          "Age 78 on mechanical ventilation\u2014high risk for VAP, aspiration, sepsis, and acute kidney injury",
+          "Fever mentioned as risk factor\u2014combined with intubation creates strong VAP/sepsis signal requiring parallel infectious workup",
+          "Dyspnea in intubated patient is life-threatening and NOT suitable for conservative management",
+          "Potential for self-extubation, tube obstruction, or sinusitis (VAP risk factor) given reported dyspnea",
+          "Immobility + intubation = thromboembolism risk; PE remains on differential",
+          "CRITICAL DATA GAPS: No current medication list, no allergy history, no renal function baseline\u2014must obtain STAT before antibiotic/sedative dosing",
+          "Elderly patient on multiple anticipated agents (sedatives, opioids, vasopressors, antibiotics)\u2014high risk for drug-drug interactions and dose-related toxicity"
+        ],
+        "communication_note": "78-year-old intubated female with acute dyspnea requiring emergency ICU-level intervention; clinician and safety checker both recommend immediate bedside stabilization and parallel infectious workup; pharm/nurse flagged critical gaps in medication reconciliation and renal function that must be obtained STAT before antibiotic/sedative dosing.",
+        "trace": {
+          "clinician_contribution": "Identified acute respiratory emergency requiring safety yield; provided comprehensive differential (ARF, VAP, sepsis, PE, aspiration, chronic lung exacerbation) and rationale for immediate airway/oxygenation assessment before history-taking; recommended rapid infectious workup post-stabilization.",
+          "safety_checker_contribution": "Approved escalation to emergency_911; identified six critical red flags (intubation + dyspnea, age + VAP risk, fever + sepsis signal, acute decompensation, tube complications, PE risk); mandated bedside ventilator/oxygenation assessment BEFORE history and emphasized ICU-level intervention requirement.",
+          "pharm_nurse_contribution": "Flagged CRITICAL medication reconciliation gap and absence of allergy history; anticipated sedation/paralysis, vasopressor, and antibiotic needs; highlighted age 78 + unknown renal function requiring STAT CrCl/eGFR and dose adjustments for aminoglycosides, fluoroquinolones, vancomycin; provided nursing concerns (aspiration precautions, ventilator management, daily monitoring parameters, IV access verification)."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779508083.2490299
+}

@@ -1,0 +1,199 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe good. Been three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. Both legs."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any chest pain or pressure along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Put on some weight. Skipped some pills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications have you skipped and for how long?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Water pill. Few days, maybe a week."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had a fever or any other symptoms like cough or sore throat?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. No sore throat."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Congestive Heart Failure",
+          "Pulmonary Embolism",
+          "Pneumonia",
+          "Chronic Obstructive Pulmonary Disease (COPD) Exacerbation"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Electrocardiogram (ECG)",
+          "Basic Metabolic Panel (BMP)",
+          "Complete Blood Count (CBC)",
+          "Brain Natriuretic Peptide (BNP)"
+        ],
+        "management_plan": [
+          "Restart skipped diuretic medication",
+          "Monitor weight and fluid intake",
+          "Follow up in 1 week if symptoms persist or worsen"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential worsening of heart failure",
+          "Risk of respiratory distress"
+        ],
+        "communication_note": "We need to run some tests to better understand your symptoms and adjust your medications."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still can't breathe good."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the quality of your shortness of breath? For example, is it sharp, dull, or like a pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Like I can't get enough air."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my ankles are puffy."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Congestive heart failure",
+          "Chronic obstructive pulmonary disease (COPD) exacerbation",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "BNP level",
+          "EKG",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Start diuretic therapy if CHF is suspected",
+          "Oxygen therapy if hypoxemia is present",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of respiratory failure",
+          "Risk of cardiac decompensation"
+        ],
+        "communication_note": "We need to run some tests to better understand your breathing difficulties and ankle swelling."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe lying down."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "orthopnea due to heart failure",
+          "pulmonary edema",
+          "gastroesophageal reflux disease (GERD)",
+          "anxiety or panic disorder"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "electrocardiogram (ECG)",
+          "basic metabolic panel (BMP)",
+          "brain natriuretic peptide (BNP) test"
+        ],
+        "management_plan": [
+          "elevate the head of the bed",
+          "prescribe diuretics if heart failure is suspected",
+          "refer to a cardiologist for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential heart failure exacerbation",
+          "risk of aspiration if GERD is present"
+        ],
+        "communication_note": "Please follow up with your cardiologist as soon as possible for further evaluation and management of your symptoms."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779635357.531213
+}

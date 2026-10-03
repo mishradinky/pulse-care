@@ -1,0 +1,205 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm really tired. Can't keep up."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about this tiredness? When did it start, is it constant or does it come and go, and have you noticed anything else\u2014like changes in sleep, mood, appetite, weight, or energy levels throughout the day?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started four months ago. All day tired. Gained weight. Cold a lot."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypothyroidism (PRIMARY\u2014onset 4mo, fatigue, weight gain, cold intolerance classic triad)",
+          "Depression/mood disorder",
+          "Anemia",
+          "Vitamin deficiency (B12, folate, iron)",
+          "Medication side effect",
+          "Autoimmune condition",
+          "Sleep disorder",
+          "Diabetes",
+          "Chronic fatigue syndrome"
+        ],
+        "workup_ordered": [
+          "TSH + free T4 (hypothyroidism screening\u2014PRIORITY given classic presentation)",
+          "CBC with differential (anemia)",
+          "Serum B12, folate, ferritin (micronutrient deficiency)",
+          "Fasting glucose or HbA1c (diabetes)",
+          "Comprehensive metabolic panel (renal/hepatic function, electrolytes)",
+          "CRITICAL: Complete medication list (OTC, supplements, herbals, hormonal contraceptives) BEFORE interpreting results or prescribing"
+        ],
+        "management_plan": [
+          "Obtain detailed medication/supplement history at next contact (pharm/nurse priority)",
+          "Assess contraceptive use and timing relative to symptom onset",
+          "Screen for depression symptoms (PHQ-9 or equivalent) given nonspecific fatigue",
+          "Sleep hygiene review and sleep pattern characterization",
+          "Pending labs: If TSH elevated \u2192 initiate levothyroxine with counseling on empty-stomach dosing and drug interactions (iron, calcium, PPIs)",
+          "If anemia confirmed \u2192 iron supplementation with GI tolerance monitoring",
+          "If B12/folate low \u2192 supplementation \u00b1 investigation of malabsorption",
+          "Reassess in 4\u20136 weeks after labs and initial intervention"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "No red flags for acute emergency (no chest pain, SOB, syncope, severe depression/SI reported)",
+          "Medication side effect must be ruled out before attributing fatigue to primary condition",
+          "If on hormonal contraceptive: assess for thromboembolism risk factors (not mentioned, but routine screening advised)",
+          "Renal/hepatic function unknown\u2014baseline CMP essential before any new medication dosing"
+        ],
+        "communication_note": "38-year-old woman with 4-month progressive fatigue, weight gain, and cold intolerance highly suggestive of hypothyroidism; urgent labs (TSH/free T4, CBC, micronutrients, CMP) and complete medication inventory needed before treatment initiation.",
+        "trace": {
+          "clinician_contribution": "Characterized fatigue onset (4 months), pattern (constant), and associated symptoms (weight gain, cold intolerance) to narrow differential; prioritized hypothyroidism, depression, anemia, and deficiency states; appropriately deferred workup pending history clarification.",
+          "safety_checker_contribution": "Confirmed no acute red flags or blocking concerns; escalation remains routine; no emergency indicators present.",
+          "pharm_nurse_contribution": "Flagged critical gaps: (1) complete medication list unavailable\u2014cannot assess drug-drug/supplement interactions; (2) if hypothyroidism confirmed, levothyroxine absorption affected by iron, calcium, PPIs (timing critical); (3) hormonal contraceptive review needed; (4) baseline labs (CBC, TSH, B12, folate, ferritin, CMP) mandatory before workup interpretation; (5) medication side effect screening for statins, antihypertensives, antihistamines, sedating agents started in past 6 months."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Started that medicine but still tired. And constipated."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Which medicine did you start, and when? Also, how long have you been experiencing the tiredness and constipation\u2014is this new since starting the medication, or were these symptoms present before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started that pill four weeks ago. Tired and constipated before that. Still am."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypothyroidism or other endocrine disorder (symptoms predate medication)",
+          "Iron deficiency anemia (fatigue + constipation pattern)",
+          "Depression or mood disorder (fatigue prominent, preexisting)",
+          "Medication side effect (less likely given temporal relationship, but cannot rule out without medication name)",
+          "Chronic constipation with secondary fatigue from poor nutrition/absorption"
+        ],
+        "workup_ordered": [
+          "CBC (assess for anemia; hemoglobin, hematocrit, iron studies if low)",
+          "TSH + free T4 (rule out hypothyroidism)",
+          "BMP (renal function, electrolytes\u2014relevant for medication safety and constipation etiology)",
+          "Medication identification: CRITICAL\u2014patient must specify which medication started 4 weeks ago"
+        ],
+        "management_plan": [
+          "HOLD medication adjustment pending identification of the specific agent",
+          "Initiate conservative bowel management: increase fluids, dietary fiber, consider stool softener (docusate) as first-line if constipation is bothersome",
+          "Reassure patient that fatigue + constipation predate medication, suggesting systemic cause rather than iatrogenic effect",
+          "Once labs return: if TSH elevated \u2192 endocrinology referral; if anemia confirmed \u2192 iron supplementation \u00b1 GI workup; if labs normal \u2192 consider depression screening (PHQ-9) and medication efficacy review",
+          "Schedule follow-up in 1\u20132 weeks after labs to review results and adjust plan"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "No red flags for acute decompensation (vital signs stable, no alarm symptoms reported)",
+          "Medication identity unknown\u2014cannot assess for contraindications, interactions, or dose appropriateness until clarified",
+          "Constipation + fatigue for 4+ weeks warrants timely workup to exclude anemia or thyroid disease, but not emergent"
+        ],
+        "communication_note": "Symptoms predate your medication, so we'll investigate underlying causes (thyroid, anemia, mood) with bloodwork while you continue your current medication as prescribed.",
+        "trace": {
+          "clinician_contribution": "Established temporal relationship (symptoms predate medication initiation by at least 4 weeks), narrowing differential away from simple medication side effect and toward systemic disease; requested medication name to complete assessment.",
+          "safety_checker_contribution": "Confirmed no acute safety concerns; routine escalation appropriate; no blocking concerns identified.",
+          "pharm_nurse_contribution": "Highlighted critical need for medication identification before any medication review possible; flagged common culprits (anticholinergics, sedating agents, iron, opioids) for future reference; recommended baseline labs (CBC, TSH, BMP, LFTs) and emphasized temporal relationship as key discriminator; advised allergy screening and follow-up dosing/timing adjustments once medication known."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Feeling some better but want to know when I will feel normal."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm glad you're feeling better. To help me understand your recovery timeline, could you remind me what brought you in initially, and what symptoms you still have now compared to your last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Was tired all the time. Still tired but less. Skin better. Cold doesn't bother me as much."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "Visit 3 for 38F with improving but incomplete recovery from presumed viral illness (URI/influenza/gastroenteritis). Patient reports persistent fatigue (improved), resolved skin findings, and resolved cold symptoms. Critical documentation gaps from visits 1-2 limit assessment.",
+        "differential_diagnosis": [
+          "Viral illness in recovery phase (URI, influenza, gastroenteritis) \u2014 MOST LIKELY given symptom pattern",
+          "Post-viral fatigue syndrome or prolonged recovery",
+          "Bacterial superinfection or treatment failure",
+          "Medication side effect or adjustment period",
+          "Underlying comorbidity (anemia, thyroid dysfunction, depression) unmasked by acute illness"
+        ],
+        "workup_ordered": [
+          "PRIORITY: Obtain and review visit 1-2 documentation (presenting complaint, vitals, exam, labs, treatment course)",
+          "CONDITIONAL on history clarification: CBC, CMP, LFTs if fatigue persists or comorbidities suspected",
+          "Allergy/intolerance history (CRITICAL \u2014 not documented)",
+          "Complete medication reconciliation (all Rx, OTC, supplements started/stopped since visit 1)"
+        ],
+        "management_plan": [
+          "Clinician to obtain detailed history: original complaint severity, treatment(s) attempted, response timeline, current symptom specificity",
+          "Pharm/Nurse to reconcile all medications and confirm allergy status before any new prescriptions",
+          "Reassurance regarding expected post-viral fatigue recovery trajectory (typically 1-4 weeks depending on etiology)",
+          "Counsel on activity progression, sleep, hydration, nutrition",
+          "Safety checker to re-evaluate after history obtained \u2014 escalate if red flags emerge (chest pain, dyspnea, severe headache, neurologic changes, signs of sepsis, medication non-adherence)"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "CRITICAL: Incomplete medical record \u2014 visits 1-2 documentation missing; unable to assess true recovery trajectory or treatment response",
+          "CRITICAL: No allergy history documented \u2014 blocks safe prescribing",
+          "CRITICAL: No medication list provided \u2014 cannot screen for interactions, assess adherence, or identify side effects",
+          "RED FLAG: Persistent fatigue at visit 3 \u2014 must rule out post-viral complications, medication effects, or unmasked comorbidities (anemia, thyroid, depression)",
+          "CONDITIONAL ESCALATION: If patient reports worsening symptoms, new concerning symptoms (chest pain, dyspnea, neurologic changes), or medication non-adherence, lower escalation threshold to urgent outpatient or ED referral"
+        ],
+        "communication_note": "Patient is improving but documentation gaps prevent full assessment; clinician's history-gathering is appropriate first step, followed by medication reconciliation and allergy confirmation before proceeding.",
+        "trace": {
+          "clinician_contribution": "Correctly identified documentation gap and asked clarifying question about original complaint and symptom trajectory. Appropriate differential includes viral illness, bacterial infection, and medication effects. Deferred workup pending history clarification.",
+          "safety_checker_contribution": "Flagged three critical gaps (incomplete records, unclear treatment course, vague recovery claim) and identified conditional red flags requiring re-evaluation after history obtained. Approved clinician's question as safe and necessary. Recommended routine escalation with caveats for escalation if concerning symptoms emerge.",
+          "pharm_nurse_contribution": "Identified inability to perform medication safety review without current medication list, allergy history, or baseline labs. Flagged medication reconciliation and adherence as potential issues. Recommended obtaining complete medication list, allergy/intolerance history, and baseline labs (CBC, CMP, LFTs) before new prescriptions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512720.0887268
+}

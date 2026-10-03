@@ -1,0 +1,237 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I've had this awful cough for like four days now. I'm coughing up yellow-green stuff, and my chest really hurts when I breathe. Plus I got a fever and I'm feeling kinda confused... like foggy in the head. I'm pretty worried about this."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How high has your fever been, and have you noticed any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The fever's been real high, like 103 or 104 I think. And yeah, I can't catch my breath good. Even walking to the bathroom wears me out. My chest feels tight and heavy too."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with high pretest probability given age, fever, productive cough, chest pain, and confusion",
+          "Severe influenza or viral pneumonia (e.g., COVID-19) with systemic symptoms and hypoxia risk",
+          "Bacterial sinusitis with postnasal drip causing cough and secondary lower respiratory tract irritation",
+          "Acute exacerbation of underlying chronic conditions (e.g., COPD, heart failure) exacerbated by infection"
+        ],
+        "workup_ordered": [
+          "Vital signs including oxygen saturation (SpO2) and respiratory rate",
+          "Portable chest X-ray (if patient unable to mobilize) to evaluate for pneumonia",
+          "Complete blood count (CBC) with differential to assess for leukocytosis/infection",
+          "Basic metabolic panel (BMP) to evaluate renal function and electrolytes (critical for medication dosing)",
+          "Point-of-care glucose check (given metformin use and diabetes)",
+          "Influenza and COVID-19 testing (given seasonality and high-risk symptoms)",
+          "Sputum culture if productive cough persists after initial antibiotics",
+          "12-lead ECG if chest pain is concerning for cardiac etiology"
+        ],
+        "management_plan": [
+          "Administer supplemental oxygen if SpO2 <90% to target >92%",
+          "Administer acetaminophen 500mg PO every 6 hours for fever (max 3g/day; monitor total acetaminophen intake)",
+          "Initiate empiric amoxicillin 500mg PO every 8 hours for CAP (hold if penicillin allergy confirmed; adjust dose per BMP for renal function)",
+          "Administer hydrocodone/acetaminophen 5/325mg PO every 6 hours as needed for severe chest pain (monitor for respiratory depression; avoid in opioid-naive elderly if possible)",
+          "Hold metformin and lisinopril if acute kidney injury develops (monitor BMP and creatinine)",
+          "Encourage hydration and pulmonary toilet (e.g., incentive spirometry, deep breathing exercises)",
+          "Reassess confusion after oxygenation and fever control; consider urgent imaging if persistent"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Confusion in a 65-year-old male is a high-risk symptom indicating potential hypoxia, sepsis, or systemic illness requiring immediate evaluation",
+          "Fever of 103-104\u00b0F with productive cough, chest pain, and hypoxia risk suggests high likelihood of severe pneumonia requiring urgent intervention",
+          "Age 65+ and comorbidities (e.g., hypertension, diabetes) increase risk of rapid deterioration from respiratory infections",
+          "Medication risks: opioid-induced respiratory depression (hydrocodone), lactic acidosis (metformin if AKI), and hyperkalemia (lisinopril if AKI)",
+          "No current SpO2 assessment or urgent imaging in initial workup plan, which could delay critical care"
+        ],
+        "communication_note": "Urgent ED referral required due to high-risk symptoms (confusion, hypoxia risk) and need for immediate oxygenation and imaging.",
+        "trace": {
+          "clinician_contribution": "Identified key symptoms (fever, productive cough, chest pain, confusion) and proposed workup including vital signs, chest X-ray, CBC, BMP, and testing for influenza/COVID-19. Rationale emphasized pneumonia as leading concern due to systemic symptoms and age.",
+          "safety_checker_contribution": "Flagged confusion as a red flag requiring immediate evaluation and escalated care. Highlighted lack of urgent oxygen saturation assessment and imaging in initial plan, recommending ED referral for timely intervention.",
+          "pharm_nurse_contribution": "Reviewed medications (acetaminophen, amoxicillin, hydrocodone/acetaminophen, lisinopril, metformin) and identified critical dose adjustments (e.g., amoxicillin for renal impairment, holding metformin/lisinopril if AKI) and interactions (e.g., amoxicillin with oral contraceptives). Emphasized monitoring for opioid-induced respiratory depression and avoidance of NSAIDs."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I'm not gettin' any better. I took those pills you gave me yesterday, but I still feel real bad. My chest hurts when I breathe, and I can't stop coughin' up that nasty yellow stuff. And I'm... I'm feelin' kinda confused, like my head's all foggy. I'm really worried."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry to hear you're still feeling so poorly. Let's focus on your symptoms right now. When did the chest pain and coughing start? And can you tell me more about the yellow phlegm\u2014how much are you coughing up, and does it have any odor or blood in it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it started like four days ago. I been coughing up this nasty yellow stuff, you know? A lot of it. Like, I'm hocking it up pretty much all day. No blood that I seen, but it smells kinda bad, I guess. And my chest... it hurts when I breathe in, like a sharp pain on this side. *gestures to right side* I'm just so tired, doc."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with possible bacterial superinfection",
+          "COPD exacerbation with secondary bacterial pneumonia",
+          "Influenza or viral respiratory infection with bacterial superinfection",
+          "Less likely: Pulmonary embolism, heart failure exacerbation, or atypical pneumonia (e.g., Legionella)"
+        ],
+        "workup_ordered": [
+          "Vital signs with oxygen saturation (STAT)",
+          "Chest X-ray (STAT, to evaluate for pneumonia/consolidation)",
+          "Complete blood count (CBC) with differential (STAT, to assess for leukocytosis/sepsis)",
+          "Basic metabolic panel (BMP) (STAT, to evaluate electrolytes, renal function, and baseline for potential AKI)",
+          "Sputum Gram stain and culture (if productive cough persists)",
+          "Influenza/RSV testing (if seasonally appropriate)",
+          "Lactate level and qSOFA assessment (to screen for sepsis)",
+          "Consider D-dimer and CT chest (if PE suspected, though less likely given cough/sputum)",
+          "Troponin level (if ACS suspected given chest pain)"
+        ],
+        "management_plan": [
+          "Administer supplemental oxygen if SpO2 <90% to prevent hypoxia-related confusion",
+          "Start empiric antibiotics (e.g., ceftriaxone + azithromycin or doxycycline) for CAP pending cultures",
+          "Avoid NSAIDs (e.g., ibuprofen) for fever/pain due to risk of AKI with lisinopril; use acetaminophen instead",
+          "Monitor renal function closely (BMP in 24-48 hours) and adjust lisinopril if creatinine rises >30% from baseline",
+          "Ensure proper inhaler technique for albuterol and consider systemic steroids if COPD exacerbation confirmed",
+          "Reassess confusion with repeat vitals and oxygen saturation; consider ABG if hypoxia persists",
+          "Provide patient education on red flags (e.g., worsening shortness of breath, hemoptysis, severe chest pain) requiring immediate ED evaluation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Confusion in a 65-year-old patient is a high-risk symptom indicating possible hypoxia, sepsis, or systemic illness requiring immediate evaluation",
+          "Chest pain with productive cough suggests worsening respiratory distress or potential cardiac involvement (e.g., pericarditis, myocardial strain)",
+          "Yellow phlegm with potential odor/blood indicates bacterial superinfection or severe inflammation, warranting urgent workup",
+          "Age (65) increases risk for complications (e.g., sepsis, respiratory failure) in infectious processes",
+          "Risk of AKI with lisinopril use, especially if pneumonia progresses or nephrotoxic drugs are added",
+          "Potential drug interactions (e.g., lisinopril + NSAIDs) increasing risk of hyperkalemia and renal impairment"
+        ],
+        "communication_note": "Urgent ED referral is required due to high-risk symptoms (confusion, chest pain, productive cough) and need for immediate imaging/labs.",
+        "trace": {
+          "clinician_contribution": "Identified key symptoms (chest pain, productive cough, confusion) and proposed initial differential (CAP, COPD exacerbation, viral/bacterial superinfection) with rationale prioritizing pneumonia workup. Focused on symptom timeline and severity.",
+          "safety_checker_contribution": "Highlighted critical red flags (confusion, chest pain, bacterial superinfection signs) and blocked approval due to missing urgent elements in workup (e.g., STAT imaging, sepsis screening). Recommended ED referral for immediate evaluation.",
+          "pharm_nurse_contribution": "Reviewed medications (lisinopril, aspirin, albuterol, acetaminophen) for interactions and contraindications (e.g., NSAID use with lisinopril). Emphasized monitoring for AKI, proper inhaler technique, and sepsis signs. Advised avoiding nephrotoxic drugs."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc... I can't breathe right. They put a tube down my throat in the ER. Everything's fuzzy. My chest hurts and I'm real scared. What happened to me?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry to hear you're feeling this way. Can you tell me more about when this breathing trouble started? Did it come on suddenly or gradually?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It started like... four days ago? I woke up coughing real bad. Had that yellow stuff coming up, you know? At first I thought it was just my regular cough from smoking, but it got worse. Then I got hot and cold, and my chest started hurting when I breathe. Yesterday I got all confused and... I dunno, things got real bad real quick."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient presents with acute respiratory distress 4 days post-intubation, requiring urgent evaluation for potential life-threatening complications.",
+        "differential_diagnosis": [
+          "Sepsis with respiratory failure",
+          "Pneumonia with acute exacerbation",
+          "Post-intubation laryngitis/tracheitis",
+          "Acute heart failure exacerbation",
+          "Pulmonary embolism",
+          "Medication-induced respiratory depression (residual sedation from intubation)",
+          "Drug-induced lung injury (e.g., antibiotic toxicity)"
+        ],
+        "escalation_level": "ed_referral",
+        "management_plan": [
+          "Administer supplemental oxygen to maintain SpO2 > 92%",
+          "Obtain urgent chest X-ray and ABG to assess for hypoxia/hypercapnia",
+          "Initiate empiric antibiotics (e.g., ceftriaxone + azithromycin) with dose adjustments for renal function",
+          "Monitor for signs of opioid-induced respiratory depression (e.g., sedation, low SpO2) and titrate sedatives/analgesics accordingly",
+          "Assess fluid status (JVD, crackles) and titrate diuretics cautiously in heart failure/CKD",
+          "Hold NSAIDs due to renal/heart failure risks",
+          "Consider stress ulcer prophylaxis (e.g., PPI) if high-dose steroids/anticoagulants are used",
+          "Evaluate need for anticoagulation if PE is suspected (adjust enoxaparin dose for renal impairment)",
+          "Monitor electrolytes (K+, Mg2+) with diuretics/antibiotics"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Acute respiratory distress in a 65-year-old male with recent intubation is a time-sensitive condition requiring immediate evaluation.",
+          "Differential includes life-threatening conditions (sepsis, PE, heart failure) that warrant urgent workup.",
+          "Residual sedation from intubation may contribute to respiratory depression and delay recovery.",
+          "Antibiotic choices (e.g., azithromycin, vancomycin) carry risks of QT prolongation, nephrotoxicity, and drug-induced lung injury.",
+          "NSAIDs are contraindicated in acute kidney injury (AKI) or CKD and may worsen fluid retention in heart failure.",
+          "Overdiuresis or underdosing of diuretics could exacerbate pulmonary edema or hypotension.",
+          "Electrolyte imbalances (K+, Mg2+) are a risk with diuretics/antibiotics and require monitoring."
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician identified acute respiratory distress in a 65-year-old male with recent intubation, prompting evaluation for post-procedural complications or underlying infection. Proposed workup included vital signs, chest X-ray, CBC with differential, BMP with troponin, BNP/NT-proBNP, D-dimer (if PE suspected), blood cultures (if febrile), and ABG (if unstable). Rationale emphasized clarifying symptom onset and severity to prioritize interventions.",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted medication-related risks: residual sedation from intubation (propofol, fentanyl, midazolam) contributing to respiratory depression; empiric antibiotics (e.g., ceftriaxone + azithromycin or vancomycin) posing risks of QT prolongation, nephrotoxicity, or drug-induced lung injury; NSAIDs contraindicated in AKI/CKD; diuretics requiring cautious titration to avoid overdiuresis or underdosing; and anticoagulants needing dose adjustments for renal impairment. Also noted interactions (e.g., azithromycin + QT-prolonging drugs) and nursing concerns (e.g., monitoring for opioid-induced respiratory depression, fluid overload, electrolyte imbalances).",
+          "safety_checker_contribution": "Safety checker approved the clinician's plan but flagged critical red flags: acute respiratory distress in a 65-year-old male with recent intubation is time-sensitive and requires immediate evaluation. Recommended escalation to ED due to life-threatening differentials (sepsis, PE, heart failure). Noted that ABG should be prioritized immediately (not optional) and that delaying interventions while obtaining symptom history could be hazardous if the patient deteriorates."
+        },
+        "workup_ordered": [
+          "Vital signs with continuous oxygen saturation monitoring",
+          "Urgent chest X-ray",
+          "ABG (arterial blood gas) to assess for hypoxia/hypercapnia",
+          "Complete blood count with differential",
+          "Basic metabolic panel including troponin and BNP/NT-proBNP",
+          "D-dimer (if PE suspected)",
+          "Blood cultures if febrile",
+          "Electrocardiogram (ECG) to evaluate for QT prolongation or ischemia",
+          "Renal function assessment (e.g., creatinine clearance) for antibiotic dose adjustments",
+          "Electrolyte panel (K+, Mg2+)"
+        ]
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790540087.877709
+}

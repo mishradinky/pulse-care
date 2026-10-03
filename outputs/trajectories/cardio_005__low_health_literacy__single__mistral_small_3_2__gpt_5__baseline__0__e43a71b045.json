@@ -1,0 +1,206 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hey doc, I just got back from a long flight, and now my right side of the chest hurts real sharp, and it's hard to catch my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain further? Is it a sharp, dull, or stabbing pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's like a really sharp jab on the right side, especially when I take a deep breath or move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of the pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'd say it's like a really sharp pain, maybe around an 8? It's pretty bad when I breathe in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like coughing, fever, or swelling in your legs or arms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, my right leg's been a bit puffy and sore. I haven't noticed any fever or much coughing, but my chest hurts a lot, especially when I breathe in. It's like a sharp pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your chest or leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't think so, but my right leg feels kinda puffy, like it's bigger than the other one."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent surgeries or prolonged immobility that could contribute to these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No surgeries, but I did sit on a plane for a long time without moving much. My legs felt kinda cramped after."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pulmonary embolism",
+          "Pneumothorax",
+          "Costochondritis",
+          "Musculoskeletal injury",
+          "Deep vein thrombosis (DVT)"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "D-dimer test",
+          "Electrocardiogram (ECG)",
+          "Ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Administer oxygen if hypoxemic",
+          "Pain management with analgesics",
+          "Encourage ambulation if safe",
+          "Follow up with pulmonary or cardiology if indicated"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential pulmonary embolism or DVT given recent prolonged immobility and leg swelling"
+        ],
+        "communication_note": "Given your symptoms and recent travel, we need to rule out serious conditions like a blood clot in your lung or leg, so we're sending you to the emergency department for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathin's gotten worse, even when I'm just sittin' around. And my right leg, it hurts more now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the quality of your breathing difficulty? For example, is it a sharp pain, a dull ache, or a sensation of pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's like I can't catch my breath right. Kinda feels like someone's sitting on my chest and it's hard to breathe out. Hurts more when I try to take a deep breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles, or have you gained weight recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my right leg's been hurting more, feels kinda puffy and warm. Not sure about weight, haven't checked."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "heart failure",
+          "pneumonia",
+          "costochondritis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "D-dimer test",
+          "electrocardiogram (ECG)",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)"
+        ],
+        "management_plan": [
+          "administer oxygen if hypoxic",
+          "start anticoagulation if pulmonary embolism suspected",
+          "consider diuretics if heart failure suspected",
+          "prescribe analgesics for pain management"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential pulmonary embolism",
+          "possible heart failure exacerbation"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition, and we need to run some tests to determine the best course of treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I feel like I'm about to pass out and it's really hard to breathe. My chest feels really heavy."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "aortic dissection",
+          "pneumothorax",
+          "severe anxiety attack"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin",
+          "D-dimer",
+          "chest X-ray",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "administer nitroglycerin if no contraindications",
+          "administer aspirin if suspected ACS",
+          "prepare for possible thrombolytics if PE suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential life-threatening cardiac or pulmonary cause of symptoms"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious condition, and you need to be evaluated in the emergency department immediately."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634008.941224
+}

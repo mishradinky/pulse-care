@@ -1,0 +1,214 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this headache start, and is this the worst headache you've ever had in your life?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About four hours ago. Pretty bad, yeah."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any chest pain, shortness of breath, vision changes, weakness, numbness, or difficulty speaking right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a fever, neck stiffness, nausea, or vomiting with this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. No stiff neck. Little nausea."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Does this headache feel different from your usual headaches, and do you have any history of high blood pressure or migraine headaches?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it's worse. I have high blood pressure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure medication, and have you been taking it regularly? Also, do you know if your blood pressure has been checked recently, and what was the reading?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Amlodipine. Ran out two weeks ago. Haven't checked since."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive urgency/emergency with severe headache",
+          "Acute migraine",
+          "Subarachnoid hemorrhage",
+          "Intracranial hemorrhage",
+          "Hypertensive encephalopathy"
+        ],
+        "workup_ordered": [
+          "Stat blood pressure measurement (both arms)",
+          "Stat non-contrast head CT",
+          "Basic metabolic panel",
+          "Urinalysis",
+          "ECG",
+          "Troponin"
+        ],
+        "management_plan": [
+          "Immediate ED referral for evaluation of severe headache with uncontrolled hypertension",
+          "Do not restart amlodipine until evaluated",
+          "Monitor for red flag symptoms: vision changes, weakness, chest pain, altered mental status"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Off antihypertensive medication for 2 weeks with known hypertension",
+          "Severe headache with nausea in setting of uncontrolled BP\u2014concern for hypertensive emergency or intracranial pathology",
+          "Cannot safely rule out subarachnoid hemorrhage or stroke without imaging"
+        ],
+        "communication_note": "Your severe headache combined with being off your blood pressure medication requires urgent evaluation in the emergency department to rule out serious conditions and check your blood pressure."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still pounding. Pills didn't help much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this headache start, and have you experienced any chest pain, shortness of breath, vision changes, or weakness since we last spoke?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still just the headache. No chest pain, no blurry vision, no weakness."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure, and have you checked it at home? Also, have you experienced any nausea, vomiting, or neck stiffness with this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No home check. Nausea, yes. No neck stuff."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive urgency/emergency",
+          "Migraine with aura",
+          "Tension headache",
+          "Intracranial pathology (less likely given no focal neuro deficits)"
+        ],
+        "workup_ordered": [
+          "Stat blood pressure measurement (office)",
+          "Basic metabolic panel",
+          "Urinalysis",
+          "ECG",
+          "Consider head CT if BP remains elevated or neuro exam abnormal"
+        ],
+        "management_plan": [
+          "Obtain accurate BP reading immediately in clinic",
+          "If SBP >180 or DBP >120 with symptoms, refer to ED",
+          "If moderately elevated (160-180), initiate/adjust antihypertensive therapy",
+          "Antiemetic for nausea",
+          "Hydration and rest",
+          "Follow-up within 24-48 hours with home BP monitoring"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Persistent headache with nausea and unknown BP status raises concern for hypertensive emergency",
+          "Lack of home BP monitoring in patient with apparent hypertension is a safety gap"
+        ],
+        "communication_note": "Your headache and nausea may be related to high blood pressure; we need to check your BP right away and may need to adjust your medications or send you to the ER depending on the reading."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Right eye's blurry."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Amaurosis fugax (transient monocular vision loss)",
+          "Acute angle-closure glaucoma",
+          "Central retinal artery occlusion",
+          "Posterior circulation stroke/TIA",
+          "Migraine with aura",
+          "Retinal detachment",
+          "Optic neuritis"
+        ],
+        "workup_ordered": [
+          "Urgent ophthalmology referral",
+          "Carotid ultrasound",
+          "ECG",
+          "Troponin",
+          "CBC, CMP, coagulation studies",
+          "Dilated fundoscopic exam by ophthalmology",
+          "OCT if available"
+        ],
+        "management_plan": [
+          "Immediate ophthalmology evaluation (same day if possible)",
+          "Assess for stroke risk factors and consider neurology input if TIA suspected",
+          "Hold anticoagulation pending evaluation",
+          "Monitor for progression of symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Monocular vision loss in 55-year-old suggests vascular etiology (amaurosis fugax, CRAO) or acute angle-closure glaucoma\u2014all require urgent evaluation to prevent permanent vision loss",
+          "Risk of concurrent stroke given age and presentation"
+        ],
+        "communication_note": "Your eye symptoms need urgent evaluation by an eye specialist today to determine the cause and prevent vision loss."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779636702.7174459
+}

@@ -1,0 +1,141 @@
+{
+  "case_id": "medsafety_001",
+  "category": "medication_safety",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Warfarin over-anticoagulation due to clarithromycin interaction",
+          "Warfarin toxicity with bleeding diathesis",
+          "Drug-drug interaction (macrolide inhibition of warfarin metabolism)"
+        ],
+        "workup_ordered": [
+          "INR (already done: 8.2)",
+          "CBC (already done: normal platelets, Hgb 13.2)",
+          "PT/PTT",
+          "Fibrinogen level",
+          "Liver function tests",
+          "Urinalysis (already done: negative for hematuria)"
+        ],
+        "management_plan": [
+          "Hold warfarin immediately",
+          "Administer fresh frozen plasma or prothrombin complex concentrate (PCC) for INR >8 with bleeding",
+          "Consider vitamin K 10 mg IV (slow infusion) for sustained reversal",
+          "Discontinue clarithromycin; switch to alternative antibiotic (e.g., amoxicillin-clavulanate or doxycycline) for sinus infection",
+          "Recheck INR in 24 hours",
+          "Patient education on warfarin-drug interactions and dietary consistency",
+          "Arrange close outpatient follow-up with anticoagulation clinic within 2-3 days"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Active bleeding (gum oozing, extensive ecchymoses) with supratherapeutic INR 8.2",
+          "Risk of intracranial hemorrhage, GI bleed, or other major hemorrhage",
+          "Clarithromycin significantly inhibits CYP3A4, potentiating warfarin effect"
+        ],
+        "communication_note": "Your antibiotic is interacting dangerously with your blood thinner, causing your blood to be too thin; we are stopping the antibiotic, reversing the warfarin effect, and switching you to a safer antibiotic."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subdural hematoma (traumatic, anticoagulation-related)",
+          "Hypertensive headache secondary to INR reversal",
+          "Intracranial hemorrhage (other location)",
+          "Medication side effect (clarithromycin, vitamin K)"
+        ],
+        "workup_ordered": [
+          "Stat neurosurgery consultation",
+          "Repeat CT head with contrast to assess for expansion",
+          "Coagulation panel (PT/INR, aPTT, fibrinogen)",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Type and cross for possible transfusion"
+        ],
+        "management_plan": [
+          "Admit to ICU for continuous neuro monitoring",
+          "Hold warfarin; continue vitamin K 5mg IV daily \u00d7 3 days",
+          "Consider fresh frozen plasma or prothrombin complex concentrate if INR remains elevated or hematoma expands",
+          "Strict fall precautions; bed rest",
+          "Manage hypertension cautiously (avoid aggressive lowering given ICH risk)",
+          "Clarithromycin discontinuation confirmed",
+          "Reassess anticoagulation strategy post-acute phase (bridge vs. alternative agent)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute intracranial hemorrhage with risk of expansion",
+          "Supratherapeutic INR despite vitamin K reversal",
+          "Recent fall with head trauma in anticoagulated patient",
+          "Elevated BP may worsen bleeding"
+        ],
+        "communication_note": "You have a small bleed in your brain that requires immediate hospital admission to the ICU for close monitoring and specialist care; we are stopping your blood thinner and giving additional vitamin K to reverse the effect."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Expanding subdural hematoma (confirmed on imaging)",
+          "Intracranial hemorrhage secondary to supratherapeutic anticoagulation",
+          "Warfarin-clarithromycin drug interaction with critical INR elevation"
+        ],
+        "workup_ordered": [
+          "STAT neurosurgery consultation",
+          "STAT CT head with contrast (already done\u2014shows 15mm subdural with 5mm midline shift)",
+          "Coagulation panel (PT/INR, PTT, fibrinogen)",
+          "CBC, type & cross for possible transfusion",
+          "Continuous neuro monitoring"
+        ],
+        "management_plan": [
+          "EMERGENCY transfer to neurosurgery-capable facility",
+          "Reverse anticoagulation immediately: IV vitamin K 10 mg + fresh frozen plasma or prothrombin complex concentrate",
+          "Neurosurgery evaluation for possible evacuation of subdural hematoma",
+          "Hold warfarin; reassess anticoagulation strategy post-acute phase",
+          "Discontinue clarithromycin; review all drug interactions",
+          "Maintain airway protection; prepare for possible intubation given GCS 12 and declining mental status"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute neurological deterioration with GCS 12, focal deficits (left arm drift, slurred speech), and imaging evidence of mass effect",
+          "Risk of herniation and death without emergent neurosurgical intervention",
+          "Supratherapeutic INR (3.8) with active intracranial bleeding",
+          "Clarithromycin-warfarin interaction caused critical anticoagulation"
+        ],
+        "communication_note": "You have a serious bleeding in your brain that requires emergency surgery; we are calling an ambulance immediately and alerting the neurosurgery team."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "warfarin supratherapeutic due to drug interaction",
+      "subdural hematoma",
+      "intracranial hemorrhage"
+    ],
+    "required_workup": [
+      "INR STAT",
+      "CBC",
+      "CT head if neurological symptoms",
+      "hold warfarin",
+      "drug interaction review"
+    ],
+    "correct_management": [
+      "stop clarithromycin",
+      "vitamin K 10mg IV",
+      "4-factor PCC if active bleeding or INR >10",
+      "neurosurgery consult",
+      "hold warfarin until safe"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505462.5303872
+}

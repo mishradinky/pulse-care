@@ -1,0 +1,139 @@
+agents:
+  # ── primary (evaluated in the main experiment) ─────────────────────────────
+  claude_haiku_4_5:
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
+    temperature: 0.1
+    max_tokens: 2048
+    max_retries: 5
+    timeout_s: 60
+  gpt_4o:
+    provider: openai
+    model: gpt-4o-2024-08-06
+    temperature: 0.1
+    max_tokens: 2048
+    max_retries: 5
+    timeout_s: 60
+  # NOTE 2026-09-27: Mistral La Plateforme no longer serves mistral-small-2506 (Mistral Small 3.2);
+  # requests are silently routed to mistral-small-latest = mistral-small-2603 (Mistral Small 4,
+  # 119B). The client's version guard rejects that. To keep the SAME weights as the May runs,
+  # point this entry at a host that still serves the open 2506 checkpoint (DeepInfra or OpenRouter,
+  # OpenAI-compatible) by setting in .env:
+  #   DEEPINFRA_BASE_URL=https://api.deepinfra.com/v1/openai
+  #   DEEPINFRA_API_KEY=...
+  # and using the block marked "same weights". The block marked "La Plateforme" runs the NEW
+  # Mistral Small 4 instead and must be disclosed as a model-version change.
+  # DECISION 2026-09-27 (author): run all NEW Mistral trajectories on Mistral Small 4
+  # (mistral-small-2603) via La Plateforme. The 576 May trajectories are Mistral Small 3.2
+  # (mistral-small-2506). Every new trajectory records `agent_model_id`; analyses that need
+  # same-model replicates (seed noise floor, fairness null pairs) exclude cross-version pairs.
+  mistral_small_3_2:                       # La Plateforme -- Mistral Small 4 -- ACTIVE
+    provider: vllm
+    model: mistral-small-2603
+    base_url_env: MISTRAL_BASE_URL
+    api_key_env: MISTRAL_API_KEY
+    temperature: 0.15
+    max_tokens: 2048
+    max_retries: 5
+    timeout_s: 90
+  # mistral_small_3_2:                     # same weights as May (DeepInfra) -- alternative
+  #   provider: vllm
+  #   model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+  #   base_url_env: DEEPINFRA_BASE_URL
+  #   api_key_env: DEEPINFRA_API_KEY
+  #   temperature: 0.15
+  #   max_tokens: 2048
+  #   max_retries: 5
+  #   timeout_s: 120
+  # ── extended coverage (subset extended_models*) ────────────────────────────
+  claude_sonnet_4_6:
+    provider: anthropic
+    model: claude-sonnet-4-6
+    temperature: 0.1
+    max_tokens: 2048
+    max_retries: 5
+    timeout_s: 90
+  gpt_4_1:
+    provider: openai
+    model: gpt-4.1-2025-04-14
+    temperature: 0.1
+    max_tokens: 2048
+    max_retries: 5
+    timeout_s: 90
+  ministral_8b:                  # open-weight 8B; the only Mistral model reachable on the current
+    provider: vllm                 # La Plateforme tier besides mistral-small (checked 2026-09-27)
+    model: ministral-8b-latest
+    base_url_env: MISTRAL_BASE_URL
+    api_key_env: MISTRAL_API_KEY
+    temperature: 0.15
+    max_tokens: 2048
+    max_retries: 5
+    timeout_s: 120
+  # mistral_large: 403 "not available in your subscription tier" (2026-09-27). Re-enable after
+  # upgrading the Mistral plan:
+  #   provider: vllm, model: mistral-large-latest, base_url_env: MISTRAL_BASE_URL,
+  #   api_key_env: MISTRAL_API_KEY, temperature: 0.15, max_tokens: 2048
+  # Open-weight / clinically specialised backbones need a self-hosted vLLM endpoint
+  # (VLLM_BASE_URL). Uncomment and add the key to extended_models in experiment_config.yaml.
+  # llama_3_3_70b:
+  #   provider: vllm
+  #   model: meta-llama/Llama-3.3-70B-Instruct
+  #   base_url_env: VLLM_BASE_URL
+  #   api_key_env: VLLM_API_KEY
+  #   temperature: 0.1
+  #   max_tokens: 2048
+  # medgemma_27b:
+  #   provider: vllm
+  #   model: google/medgemma-27b-text-it
+  #   base_url_env: VLLM_BASE_URL
+  #   api_key_env: VLLM_API_KEY
+  #   temperature: 0.1
+  #   max_tokens: 2048
+
+patient_simulator_backbones:
+  claude_haiku_4_5:
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
+    temperature: 0.7
+    max_tokens: 512
+  gpt_4o:
+    provider: openai
+    model: gpt-4o-2024-08-06
+    temperature: 0.7
+    max_tokens: 512
+  claude_sonnet_4_6:
+    provider: anthropic
+    model: claude-sonnet-4-6
+    temperature: 0.7
+    max_tokens: 512
+
+# Task / leakage / disparity scorers. `independent: true` marks scorers that are NOT one of
+# the evaluated agent models (GPT-4o and Haiku are both evaluated and used as judges).
+scorers:
+  claude_haiku_4_5:            # primary scorer used for all_scored.csv (evaluated model)
+    provider: anthropic
+    model: claude-haiku-4-5-20251001
+    temperature: 0.0
+    max_tokens: 1024
+    independent: false
+  gpt_4o:                      # original alternative scorer (evaluated model)
+    provider: openai
+    model: gpt-4o-2024-08-06
+    temperature: 0.0
+    max_tokens: 1024
+    independent: false
+  claude_sonnet_4_6:
+    provider: anthropic
+    model: claude-sonnet-4-6
+    temperature: 0.0
+    max_tokens: 1024
+    independent: true
+  gpt_4_1:
+    provider: openai
+    model: gpt-4.1-2025-04-14
+    temperature: 0.0
+    max_tokens: 1024
+    independent: true
+  # mistral_large scorer disabled: not available on the current Mistral tier (403). The two
+  # independent scorers are claude_sonnet_4_6 and gpt_4_1 (different vendor from each other and
+  # from the primary scorer's family only for gpt_4_1; note Sonnet shares Haiku's vendor).

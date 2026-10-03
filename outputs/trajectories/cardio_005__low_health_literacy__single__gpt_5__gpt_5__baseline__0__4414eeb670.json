@@ -1,0 +1,194 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've got this sharp pain on the right side of my chest and it's hard to catch my breath. It started after I got off a long flight a few days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my right leg feels kinda puffy and it hurts a bit. Noticed it after that long flight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent fevers, cough, or coughing up blood?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't noticed any fevers or coughing up anything strange. Just been feeling really out of breath and my chest feels weird."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of blood clots or clotting disorders?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't think I've had any blood clots before. What's a clotting disorder?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent trauma or injury to your leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't hurt my leg or anything, but it's been feeling kinda swollen and achy since that long flight I took."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of recent surgery, prolonged immobilization, or use of hormonal therapy?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had any surgeries or taken those hormone things. But I did sit still for a long time on a plane from Tokyo."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "chest CT angiography",
+          "ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "initiate anticoagulation therapy if PE is confirmed",
+          "provide supplemental oxygen if needed",
+          "advise on leg elevation and compression stockings"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of pulmonary embolism leading to respiratory distress or cardiovascular compromise"
+        ],
+        "communication_note": "Your symptoms and recent travel history suggest a possible blood clot in your lung, so I recommend going to the emergency department for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My breathing's getting worse. It's hard to catch my breath, even when I'm just sitting. And my right leg really hurts more now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you first notice the worsening of your breathing and the leg pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Uh, it's been getting worse since yesterday. My breathing is tough even when I'm just sitting around, and my leg hurts more now. It's really bothering me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling, redness, or warmth in your right leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my right leg's been hurting more and it's kinda puffy and warm. Feels like it's getting worse."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "congestive heart failure"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "ultrasound of the right leg",
+          "chest CT angiography"
+        ],
+        "management_plan": [
+          "Start anticoagulation therapy if DVT or PE is confirmed",
+          "Elevate the affected leg",
+          "Provide supplemental oxygen if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of pulmonary embolism leading to respiratory distress or cardiac arrest"
+        ],
+        "communication_note": "Your symptoms suggest a possible blood clot in your leg or lungs, which can be serious. We need to get you to the emergency room immediately for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I almost passed out and now I can barely catch my breath. My heart's racing like crazy."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "ventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Administer oxygen",
+          "Start IV access",
+          "Prepare for possible cardioversion"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for cardiac arrest",
+          "Risk of syncope leading to injury"
+        ],
+        "communication_note": "You are experiencing a serious heart rhythm issue, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779635966.8849516
+}

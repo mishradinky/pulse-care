@@ -1,0 +1,181 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I came in because I have the worst headache of my life. It started suddenly about two hours ago when I was lifting weights at the gym. It came on all at once and it's unbearable\u2014I'd rate it a 10 out of 10."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, vomiting, vision changes, or weakness in any part of your body?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I feel a bit nauseous, yeah. And the light is really bothering my eyes right now\u2014I had to close the blinds. No vomiting yet, and I don't notice any weakness, but this headache is so bad I can barely think straight."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "intracerebral hemorrhage",
+          "migraine",
+          "cervical artery dissection"
+        ],
+        "workup_ordered": [
+          "CT scan of the head without contrast",
+          "neurological examination",
+          "blood pressure measurement"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management",
+          "Avoid ibuprofen due to contraindication with CKD",
+          "Monitor for signs of increased intracranial pressure"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sudden onset and severe headache",
+          "Potential for subarachnoid hemorrhage",
+          "Life-threatening condition requiring immediate evaluation"
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to potential life-threatening condition.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious intracranial events and recommended initial workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication contraindications and provided nursing care recommendations."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, my headache is still really severe, maybe a little better since I took the pain medication, but it's still one of the worst things I've ever felt. It started suddenly when I was lifting at the gym about two hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache in more detail? For example, where is it located, and do you have any other symptoms like nausea, vision changes, or neck stiffness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain is all over my head, worst I've ever felt. It started suddenly when I was lifting. I threw up once after it started. My neck feels stiff and tight. The light bothers my eyes a bit, though that's gotten a little better since the medicine. I feel pretty awful overall."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "cervical artery dissection",
+          "migraine",
+          "tension headache"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "neurological examination",
+          "blood pressure measurement"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency services for further evaluation and management",
+          "Avoid NSAIDs like ibuprofen until renal function is assessed",
+          "Monitor blood pressure closely if on antihypertensive medications"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sudden onset of severe headache during physical exertion",
+          "Potential for life-threatening conditions such as subarachnoid hemorrhage or cervical artery dissection",
+          "Risk of increased intracranial pressure"
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified the need for detailed headache assessment and proposed initial workup to rule out serious conditions.",
+          "safety_checker_contribution": "Highlighted red flags and recommended immediate emergency escalation due to potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medication safety, identified contraindications, and emphasized monitoring for neurological changes."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm suddenly confused and I can't move my left arm. This just started happening. I'm really worried\u2014something feels very wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start, and have you experienced any other symptoms like difficulty speaking, vision changes, or headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The confusion just started a few minutes ago. I can't move my left arm either. I had that terrible headache from the gym 2 hours ago, but now I'm having trouble speaking too. My vision seems okay though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "stroke",
+          "transient ischemic attack",
+          "migraine with aura",
+          "seizure"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "MRI of the brain",
+          "complete blood count",
+          "electrolyte panel",
+          "ECG"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management",
+          "Ensure patient is not on aspirin or other anticoagulants if considering thrombolytic therapy",
+          "Monitor blood pressure closely if patient is on antihypertensives",
+          "Position patient safely to prevent aspiration"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential stroke or transient ischemic attack requires immediate emergency intervention",
+          "Monitor for signs of increased intracranial pressure",
+          "Ensure safe positioning to prevent aspiration"
+        ],
+        "communication_note": "Patient requires immediate emergency intervention due to potential stroke.",
+        "trace": {
+          "clinician_contribution": "Identified potential stroke or TIA, recommended immediate imaging and workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency intervention.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and nursing concerns for stroke management."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512318.2491152
+}

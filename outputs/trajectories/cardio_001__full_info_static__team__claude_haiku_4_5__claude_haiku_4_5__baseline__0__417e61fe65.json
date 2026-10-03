@@ -1,0 +1,182 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / unstable angina \u2014 HIGH PROBABILITY",
+          "Non-ST elevation myocardial infarction (NSTEMI) \u2014 HIGH PROBABILITY",
+          "Stable angina with acute exacerbation \u2014 MODERATE PROBABILITY",
+          "Coronary vasospasm (Prinzmetal angina) \u2014 LOWER PROBABILITY",
+          "Aortic dissection \u2014 LOWER PROBABILITY (exam reassuring)",
+          "Pulmonary embolism \u2014 LOWER PROBABILITY (clear lungs, normal SpO2)"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (repeat; compare to baseline)",
+          "Serial high-sensitivity troponin at 0, 3, and 6 hours (hospital-based protocol)",
+          "Chest X-ray (rule out alternative diagnoses)",
+          "Continuous cardiac telemetry monitoring",
+          "IV access and continuous hemodynamic monitoring",
+          "Lipid panel, CBC, BMP, coagulation studies",
+          "STAT cardiology evaluation (interventional cardiology standby for possible urgent angiography)"
+        ],
+        "management_plan": [
+          "IMMEDIATE TRANSFER TO ED VIA 911 \u2014 This is a time-sensitive ACS presentation requiring acute hospital-level care, not outpatient management.",
+          "Aspirin 325 mg PO STAT (after allergy/contraindication verification) \u2014 loading dose for ACS",
+          "P2Y12 inhibitor loading: Verify agent choice (prasugrel 60 mg preferred if no prior stroke/TIA; clopidogrel 600 mg or ticagrelor 180 mg as alternatives) \u2014 confirm renal function and CYP3A4 interactions",
+          "Beta-blocker optimization: Obtain current home regimen; if not on beta-blocker, initiate per cardiology protocol (verify HR >50, SBP >90, no contraindications)",
+          "Nitrate therapy: Initiate per cardiology; CRITICAL \u2014 screen explicitly for phosphodiesterase-5 inhibitor use (sildenafil, tadalafil, vardenafil) in past 24\u201348 hours before administration",
+          "Anticoagulation strategy: Coordinate with interventional cardiology for UFH vs. LMWH vs. fondaparinux selection based on angiography timing",
+          "GI prophylaxis: Consider PPI given dual antiplatelet therapy and bleeding risk",
+          "Smoking cessation counseling (acute phase; avoid nicotine replacement)",
+          "Serial troponin protocol: Ensure high-sensitivity assay; coordinate lab timing at 0, 3, 6 hours for rule-out/rule-in ACS"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "BLOCKING ISSUE: Classic ACS presentation (exertional substernal chest pressure radiating to left arm + diaphoresis) in high-risk patient (age 58, HTN, 25 pack-year smoking, father MI age 55) \u2014 this is NOT safe for outpatient workup.",
+          "BLOCKING ISSUE: Troponin at upper limit of normal (12 ng/L, URL 14) is NOT reassuring in acute chest pain; serial troponin requires continuous hospital monitoring, not office-based draws.",
+          "BLOCKING ISSUE: Patient requires IMMEDIATE continuous cardiac telemetry, IV access, and acute hospital-level care \u2014 cannot be safely managed in outpatient clinic.",
+          "BLOCKING ISSUE: Door-to-ECG and door-to-balloon times are critical in ACS; delays in escalation increase risk of adverse outcomes.",
+          "BLOCKING ISSUE: Dual antiplatelet therapy (aspirin + P2Y12 inhibitor) must be initiated immediately in ED/ambulance, not delayed pending 'optimization.'",
+          "BLOCKING ISSUE: Nitrate use requires explicit screening for phosphodiesterase-5 inhibitor use \u2014 severe hypotension risk if combined.",
+          "BLOCKING ISSUE: Cardiology 'consultation' language is inadequate; this patient needs STAT interventional cardiology evaluation for possible urgent coronary angiography.",
+          "Medication reconciliation required: Verify current home medications (lisinopril 20 mg noted; obtain full list for interaction screening).",
+          "Renal function pending (BMP): Will inform P2Y12 inhibitor choice and contrast-induced nephropathy risk if angiography performed.",
+          "Bleeding risk: Dual antiplatelet therapy increases GI bleed risk \u2014 monitor for melena/hematemesis; PPI consideration if high-risk features present."
+        ],
+        "communication_note": "This 58-year-old with classic ACS presentation and high-risk features requires IMMEDIATE emergency department transfer via 911 for continuous telemetry, serial troponin, and urgent cardiology evaluation for possible coronary angiography \u2014 outpatient workup is unsafe and contraindicated.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified ACS as top differential and proposed appropriate diagnostic workup (serial troponin, ECG, cardiology evaluation); however, failed to specify acute hospital setting and did not emphasize time-sensitive nature of presentation.",
+          "safety_checker_contribution": "Safety checker identified critical blocking issues: (1) presentation requires ED/hospital-level care, not outpatient clinic; (2) serial troponin protocol requires continuous monitoring and hospital admission; (3) antiplatelet therapy must be initiated immediately, not delayed; (4) 'cardiology consultation' language is too passive for ACS emergency. Correctly escalated to emergency_911.",
+          "pharm_nurse_contribution": "Pharm/nurse provided essential medication safety checks: (1) aspirin allergy/contraindication verification required; (2) P2Y12 inhibitor agent/dose clarification needed (prasugrel preferred if eligible); (3) CRITICAL phosphodiesterase-5 inhibitor screening before nitrate use; (4) beta-blocker baseline assessment (HR, BP, contraindications); (5) bleeding risk monitoring with dual antiplatelet therapy; (6) renal function impact on drug selection; (7) medication reconciliation for home regimen and interactions. Identified need for continuous telemetry and crash cart accessibility."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome \u2013 NSTEMI (most likely)",
+          "Unstable angina",
+          "Coronary vasospasm",
+          "Demand ischemia"
+        ],
+        "workup_ordered": [
+          "Stat 12-lead ECG (compare to prior)",
+          "Serial high-sensitivity troponin (0, 3, 6 hours)",
+          "Chest X-ray",
+          "Coronary angiography (urgent)",
+          "Continuous cardiac monitoring",
+          "Echocardiography"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate 911 for EMS transport with pre-hospital notification to receiving facility for catheterization lab readiness",
+          "STAT medications in ED (verify administration and document times):",
+          "  \u2013 Aspirin 325 mg chewed PO (or 600 mg if not yet given)",
+          "  \u2013 P2Y12 inhibitor loading dose: ticagrelor 180 mg PO preferred (or clopidogrel 600 mg, prasugrel 60 mg); document choice and timing",
+          "  \u2013 Anticoagulation: UFH bolus 80 units/kg IV + infusion 18 units/kg/hr (preferred over LMWH due to shorter half-life and reversibility for urgent catheterization); confirm weight-based dosing and baseline aPTT/CBC",
+          "  \u2013 High-intensity statin: atorvastatin 80 mg or rosuvastatin 40 mg STAT",
+          "  \u2013 Beta-blocker (IV metoprolol or atenolol) if HR >50 and SBP >90 mmHg; hold if contraindicated",
+          "  \u2013 Hold ACE-I/ARB until post-catheterization and hemodynamically stable",
+          "Establish large-bore IV access (18G or better) for catheterization",
+          "Maintain NPO status; verify consent and allergy history (contrast, iodine, heparin, P2Y12 inhibitors)",
+          "Continuous telemetry monitoring during acute phase",
+          "Urgent cardiology consultation and coronary angiography with intent to revascularize",
+          "Post-catheterization: anticipate dual antiplatelet therapy (DAPT) for 12 months; counsel on adherence and bleeding precautions"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Triple antithrombotic therapy (aspirin + P2Y12 inhibitor + heparin) carries HIGH BLEEDING RISK\u2014monitor CBC, aPTT q4\u20136h initially; assess for major bleeding (GI, intracranial, retroperitoneal, hematuria)",
+          "Objective evidence of acute myocardial ischemia/necrosis: new ST depression on ECG + elevated troponin (38 ng/L) + classic ACS symptom complex\u2014this is NOT a stable outpatient presentation",
+          "Recurrent exertional chest pressure with diaphoresis indicates ongoing ischemia and high acute risk for progression to STEMI or cardiogenic shock",
+          "Renal function must be confirmed (baseline creatinine/eGFR) before heparin dosing; if eGFR <30, adjust dosing and monitor closely",
+          "Hepatic impairment would require statin intensity reduction; verify baseline LFTs",
+          "Absolute contraindication to NSAIDs in ACS setting\u2014educate patient",
+          "Ensure reversal agents available (protamine for heparin) in catheterization lab",
+          "No blocking concerns identified; clinician judgment is sound and guideline-concordant"
+        ],
+        "communication_note": "58-year-old male with recurrent exertional substernal chest pressure, diaphoresis, new ST depression, and elevated troponin meets criteria for acute NSTEMI; requires immediate 911 activation for EMS transport and urgent coronary angiography with cardiology standby.",
+        "trace": {
+          "clinician_contribution": "Correctly identified ACS with high-risk features (exertional chest pressure with radiation, diaphoresis, new ST depression V4\u2013V6, elevated hs-troponin 38 ng/L) and appropriately escalated to emergency care with guideline-concordant workup (serial troponin, ECG, CXR, angiography, continuous monitoring, echo). Differential diagnosis is sound and prioritizes NSTEMI.",
+          "safety_checker_contribution": "Validated clinician's judgment as appropriate and identified no safety gaps. Confirmed all red flags (symptom complex, objective ECG/troponin evidence, demographic risk, exertional pattern) and endorsed emergency 911 escalation with pre-hospital notification for catheterization lab readiness. Blocked no concerns.",
+          "pharm_nurse_contribution": "Provided comprehensive medication review for acute ACS management: verified STAT aspirin, P2Y12 inhibitor (ticagrelor preferred), UFH anticoagulation (weight-based), high-intensity statin, and conditional beta-blocker/ACE-I sequencing. Flagged critical interactions (triple antithrombotic bleeding risk), dose adjustments (renal/hepatic function, weight-based heparin), and nursing priorities (bleeding monitoring, telemetry, IV access, NPO status, contrast allergy verification, post-PCI DAPT counseling). Documented exact medication timing requirements for cardiology handoff."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute anterior STEMI (ST-elevation myocardial infarction) \u2014 PRIMARY",
+          "Acute coronary syndrome with cardiogenic shock",
+          "Acute decompensated heart failure with pulmonary edema secondary to acute MI"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (COMPLETED: anterior STEMI pattern V2-V4 with reciprocal changes)",
+          "High-sensitivity troponin (COMPLETED: 540 ng/L, markedly elevated)",
+          "STAT chest X-ray (assess pulmonary edema given bibasilar crackles)",
+          "STAT basic metabolic panel and CBC (renal function critical for contrast/medication dosing)",
+          "STAT coagulation studies (baseline for anticoagulation management)",
+          "Transthoracic echocardiography (assess LV function, wall motion abnormality, EF)",
+          "STAT coronary angiography with primary PCI (door-to-balloon <120 minutes)"
+        ],
+        "management_plan": [
+          "IMMEDIATE MEDICATIONS (pre-PCI): Aspirin 325 mg PO chewed NOW; P2Y12 inhibitor loading dose (Prasugrel 60 mg or Ticagrelor 180 mg PO preferred); Unfractionated heparin 60-70 units/kg IV bolus; High-intensity statin (Atorvastatin 80 mg PO); Morphine 2-4 mg IV q5-10min PRN for pain/anxiety",
+          "DEFER until post-PCI stabilization: IV beta-blockers, ACE inhibitors, IV diuretics, nitrates (verify no RV infarction first)",
+          "SUPPORTIVE CARE: Continuous cardiac monitoring, pulse oximetry, BP monitoring; position upright; supplemental O2 to maintain SpO2 >94%; establish large-bore IV access; prepare ICU bed; have vasopressors and IABP on standby for hemodynamic support",
+          "POST-PCI: Echocardiography for LV function assessment; resume beta-blockers (low-dose oral) and ACE inhibitors (low-dose, titrate per BP/renal function) within 24 hours if hemodynamically stable; address pulmonary edema with diuretics once perfusion confirmed",
+          "MONITORING: Serial troponin, BNP, renal function, urine output (AKI risk from cardiogenic shock + contrast); bleeding surveillance (triple anticoagulation); pain reassessment post-intervention"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "STEMI with hemodynamic compromise (hypertension + tachycardia + tachypnea + S4 gallop + bibasilar crackles) indicating cardiogenic shock \u2014 time-critical emergency",
+          "Acute decompensated heart failure with pulmonary edema risk; defer diuretics until post-PCI to avoid worsening perfusion",
+          "High bleeding risk from triple anticoagulation (aspirin + P2Y12 inhibitor + heparin) \u2014 have reversal agents and ICU monitoring ready",
+          "Acute kidney injury risk from cardiogenic shock + contrast exposure \u2014 baseline creatinine essential; monitor urine output and renal function closely",
+          "Potential need for mechanical circulatory support (IABP, inotropes) if cardiogenic shock worsens during PCI \u2014 ensure ICU and cardiothoracic surgery standby",
+          "Medication sequencing critical: premature beta-blockers, ACE inhibitors, or diuretics may worsen shock; defer all until post-PCI and hemodynamic stabilization confirmed"
+        ],
+        "communication_note": "58M with acute anterior STEMI, hemodynamic instability, and signs of cardiogenic shock requires IMMEDIATE emergency activation with STEMI alert to receiving facility for primary PCI within 120 minutes; EMS should notify receiving cath lab of cardiogenic shock risk and prepare for possible mechanical support.",
+        "trace": {
+          "clinician_contribution": "Correctly identified acute anterior STEMI with hemodynamic compromise; appropriately escalated to emergency level; differential includes cardiogenic shock and acute heart failure; workup is time-sensitive and comprehensive (ECG, troponin, imaging, angiography); rationale emphasizes ICU-level care need and door-to-balloon urgency.",
+          "safety_checker_contribution": "Approved immediate escalation; identified all critical red flags (STEMI pattern, elevated troponin, hemodynamic instability, acute HF signs, cardiogenic shock risk); confirmed no blocking concerns; mandated emergency 911 activation with STEMI alert to receiving facility; emphasized zero-delay protocol.",
+          "pharm_nurse_contribution": "Specified urgent pre-PCI medications (aspirin, P2Y12 inhibitor, UFH, statin, morphine) with appropriate dosing and loading strategies; identified critical deferrals (beta-blockers, ACE inhibitors, diuretics, nitrates) until post-PCI stabilization to avoid worsening shock; flagged triple anticoagulation bleeding risk, AKI risk, and need for ICU-level hemodynamic monitoring; provided nursing concerns including vasopressor/IABP standby and continuous monitoring protocols."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779599494.8737197
+}

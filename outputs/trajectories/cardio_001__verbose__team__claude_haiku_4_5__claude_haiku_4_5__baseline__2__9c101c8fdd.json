@@ -1,0 +1,239 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "claude-haiku-4-5-20251001",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh, thank God you're here, doc. I've been so worried, you know? My dad\u2014he had a heart thing when he was younger, maybe around 55 or so, and ever since I turned 50 I just... anyway. So the thing is, for the past couple days I've been getting this pressure, you know, right here in my chest. It comes and goes, especially when I'm walking around or doing stuff at work. Yesterday I was just moving some boxes and\u2014boom\u2014there it was again, real uncomfortable. Went away when I sat down though. This morning it happened again, maybe six hours ago? I'm a bit anxious about it, honestly. I used to smoke quite a bit, quit a while back but... yeah. The pressure goes into my left arm sometimes too. Right now I feel okay, but I'm just worried there's something wrong with my heart."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this chest pressure better. When it happens, can you describe it more\u2014is it a squeezing or heaviness, sharp pain, or something else? And does anything besides sitting down make it better, like taking a deep breath or changing position?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, you know, it's funny you ask that because my wife keeps telling me I need to pay more attention to these things. She's always on me about my health\u2014drives me crazy at work, honestly, with all the stress I've got going on there. But anyway, when it hits me, it's not like a sharp stabbing thing, you know? It's more like... like someone's got a weight sitting right here on my chest, pressing down. Real heavy feeling. And the thing is, it doesn't really matter if I sit down or stand up or change how I'm sitting\u2014that doesn't help much. I tried taking deep breaths yesterday and that actually made it worse, made me feel more uncomfortable. It's really when I'm doing something, like walking up the stairs or hurrying to catch something, that's when it comes on strongest. When I just sit still and rest, it goes away after a bit. That's the only thing that really helps."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / stable angina \u2014 PRIMARY CONCERN",
+          "Musculoskeletal chest pain",
+          "Anxiety-related chest discomfort",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (concurrent with history, not sequential)",
+          "High-sensitivity troponin (serial if initial negative and clinical suspicion remains)",
+          "Vital signs including BP in both arms (aortic dissection screening)",
+          "Oxygen saturation and continuous cardiac monitoring",
+          "Baseline creatinine/eGFR for medication dosing",
+          "Complete medication list (current, OTC, supplements, herbal)",
+          "Aspirin allergy/intolerance status",
+          "Detailed cardiac risk factor assessment (lipids, diabetes, hypertension status)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL \u2014 Do not delay; patient requires continuous cardiac monitoring and rapid troponin/ECG interpretation",
+          "Establish IV access upon arrival for potential interventions",
+          "NPO status pending troponin results (anticipate possible cardiac catheterization)",
+          "Obtain brief symptom timeline while simultaneously triggering ECG/labs (parallel, not sequential)",
+          "If troponin elevated: initiate dual antiplatelet therapy (aspirin 325 mg loading + P2Y12 inhibitor per cardiology protocol); monitor for bleeding",
+          "If beta-blocker/ACE-I indicated: assess renal function and BP before dosing; monitor for hypotension",
+          "Consider GI prophylaxis (PPI) if dual antiplatelet therapy initiated, especially given GERD in differential",
+          "Reassure patient; reinforce smoking cessation given former smoker status and acute event risk",
+          "Avoid unnecessary sedation until ACS ruled out"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Exertional chest pressure with radiation to left arm + heaviness + relief only with rest in 58M with multiple cardiac risk factors (age, male, paternal early MI at ~55, former smoker) is ACS until proven otherwise \u2014 time-sensitive presentation",
+          "TIMING RISK: Clinician's initial proposal to ask clarifying questions first risks delaying STAT ECG and troponin; these must be ordered immediately and concurrently with history-taking, not sequentially",
+          "CARE SETTING: This presentation requires ED-level evaluation with continuous cardiac monitoring capability, NOT routine outpatient clinic",
+          "SYMPTOM PATTERN: Patient's description (exertional onset, relief with rest only, heaviness, left arm radiation, deep breathing worsens) is highly consistent with angina; deep breath-induced worsening argues against musculoskeletal etiology",
+          "MEDICATION GAPS: No current medication list provided; must obtain before any cardioactive drugs initiated; renal function unknown",
+          "ALLERGY SCREENING: Aspirin allergy/intolerance status not documented; MUST clarify before antiplatelet therapy",
+          "ACTIVE SYMPTOM STATUS: Patient reports symptom onset 6 hours ago; current status ('feels okay now') does not reduce ACS risk \u2014 symptoms may be intermittent"
+        ],
+        "communication_note": "This 58-year-old with significant cardiac risk factors and classic exertional anginal symptoms (heaviness, left arm radiation, relief only with rest) requires immediate ED referral with STAT ECG and troponin ordered concurrently with history-taking; every minute matters in ACS rule-out.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified ACS as primary differential and requested clarifying symptom details (character, relieving factors) and ordered appropriate workup (ECG, troponin, vitals, risk factor assessment). However, proposal sequenced questioning before testing, which Safety Checker correctly flagged as time-risk.",
+          "safety_checker_contribution": "Safety Checker identified CRITICAL blocking concerns: (1) STAT ECG/troponin must be concurrent with history, not sequential; (2) ED-level care required, not outpatient; (3) Immediate vital signs and symptom timeline needed; (4) Escalation clarity missing. Recommended ED referral and reframed workflow to parallel testing + history.",
+          "pharm_nurse_contribution": "Pharm/Nurse identified medication review gaps (no list provided), renal function unknown, aspirin allergy status undocumented, and outlined nursing priorities: IV access, continuous monitoring, NPO status, dual antiplatelet interaction monitoring, BP both arms, GI prophylaxis consideration, and smoking cessation reinforcement. Flagged need for baseline creatinine before cardioactive drugs."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh, thank goodness you're here, doc. Look, I've been a wreck since last night\u2014couldn't sleep a wink. You know, my boss has been riding me hard about the quarterly reports, and I think the stress just... anyway, that pressure came back. It was milder this time, maybe fifteen minutes or so, and I got a little short of breath with it. Nothing like before, but it scared me enough that I didn't want to just ignore it. My wife practically dragged me in here. She's worried sick, keeps saying I need to take this seriously. I mean, I feel okay right now, sitting here, but I'd be lying if I said I wasn't nervous about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this chest pressure better. Can you describe exactly where you felt it, what it felt like (sharp, dull, squeezing, burning?), and did anything make it better or worse? Also, you mentioned 'before'\u2014when was your last episode like this, and what was the outcome then?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, you know, my wife was just saying yesterday how I've been stressed at work\u2014they're doing layoffs and I'm worried about my job, which doesn't help my nerves, I'll tell you that much. But anyway, about the pressure... it's right here in the middle of my chest, kind of behind the breastbone if that makes sense? It's not sharp like a stabbing pain\u2014more like someone's sitting on my chest, squeezing it real tight. Heavy, you know? And it shoots up into my left arm and shoulder. Yesterday when I was walking up the driveway\u2014just carrying groceries, nothing crazy\u2014boom, there it was again for about fifteen minutes. Made me sweat something fierce. Rest helps it go away, but the thing is, even sitting here talking to you I feel a little tight. Last time I had something like this was two days ago when all this started, and honestly I was just hoping it would pass on its own, but my wife insisted I come in today."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "emergency_911",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / unstable angina \u2014 PRIMARY CONCERN",
+          "Stress-induced cardiomyopathy (Takotsubo)",
+          "Anxiety disorder with panic attacks",
+          "Musculoskeletal chest pain",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG \u2014 STAT (bedside, before further history)",
+          "High-sensitivity troponin \u2014 STAT (0-hour draw; serial at 3 and 6 hours if initial negative)",
+          "Vital signs including orthostatics \u2014 STAT",
+          "Chest X-ray",
+          "Basic metabolic panel (BMP) \u2014 for renal function, electrolytes, baseline before any cardiac medications",
+          "Complete medication reconciliation \u2014 current Rx, OTC, supplements, herbal",
+          "Allergy history \u2014 drug, food, contrast (critical before imaging/intervention)",
+          "Prior cardiac workup/imaging records from 'before' episodes \u2014 obtain immediately"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate emergency response (911 or direct ED transfer); do NOT delay for office-based workup",
+          "Continuous cardiac monitoring during transport/ED arrival",
+          "Establish IV access; keep patient NPO pending evaluation",
+          "Obtain 12-lead ECG within 10 minutes of arrival; compare to any prior baseline",
+          "Administer aspirin 325 mg PO (chewed) if no contraindications and not already given; verify allergy status first",
+          "Nitroglycerin SL if systolic BP \u226590 mmHg and no RV infarction suspected; monitor BP closely",
+          "Pain management: avoid NSAIDs; acetaminophen or opioids per ED protocol pending cardiac clearance",
+          "Serial troponins (0, 3, 6 hours minimum) to rule out ACS; do NOT rely on single negative troponin",
+          "Cardiology consultation if ECG abnormal, troponin elevated, or clinical suspicion remains high",
+          "Once renal function (BMP) available: adjust dosing for any dual antiplatelet therapy, ACE-I, beta-blockers, or other cardiac agents",
+          "Medication reconciliation: verify home cardiac regimen adherence; clarify prior 'similar episodes' and their diagnostic outcomes",
+          "If angiography considered: confirm no prior contrast reactions; assess eGFR for contrast nephropathy risk"
+        ],
+        "safety_concerns": [
+          "CRITICAL \u2014 ACS CANNOT BE EXCLUDED BY HISTORY ALONE: Chest pressure + dyspnea + diaphoresis + radiation to left arm/shoulder in 58-year-old male = ACS until proven otherwise; recurrent episodes with unknown prior outcomes = progressive coronary disease risk",
+          "SYMPTOM TIMELINE UNCLEAR: Patient reports 'feeling okay now' but also 'feel a little tight' during interview \u2014 current symptom status must be documented; if ANY chest discomfort ongoing, this is an emergency presentation requiring immediate ECG and troponin",
+          "STRESS TRIGGER DOES NOT EXCLUDE ACS: Takotsubo cardiomyopathy and anxiety are diagnoses of exclusion, not inclusion; stress is a known ACS trigger in this age group",
+          "PRIOR EPISODES UNRESOLVED: 'Two days ago' and 'before' outcomes unknown \u2014 no documentation of prior ECG, troponin, or imaging; cannot assume benign recurrence without definitive prior cardiac clearance",
+          "MEDICATION LIST MISSING: Cannot assess drug-disease interactions, contraindications, or prior cardiac medication adherence without complete reconciliation",
+          "ALLERGY HISTORY ABSENT: No documented drug, food, or contrast allergies \u2014 critical before aspirin, nitrates, or imaging",
+          "CLINICIAN ACTION SEQUENCE ERROR: Detailed history-taking should NOT precede stat ECG and troponin in active/recent chest pain; this delays critical objective workup",
+          "TROPONIN SINGLE-DRAW TRAP: One negative troponin does NOT rule out ACS; serial troponins (0, 3, 6 hours) are mandatory",
+          "RENAL FUNCTION UNKNOWN: BMP pending; if CKD present, NSAIDs contraindicated and dual antiplatelet dosing must be adjusted"
+        ],
+        "communication_note": "This 58-year-old male with recurrent chest pressure (squeezing, substernal, radiating to left arm), dyspnea, and diaphoresis triggered by stress requires EMERGENCY evaluation (911/ED transfer) for ACS exclusion; office-based history-taking is inappropriate and delays critical ECG and troponin.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified ACS as primary differential and ordered appropriate workup (ECG, troponin, CXR, BMP, prior records). However, proposed action (detailed history-taking first) contradicts the urgency of ACS exclusion and delays stat ECG/troponin in a patient with active/recent chest pain. Coordinator overrides action sequence: ECG and troponin must be obtained BEFORE further questioning.",
+          "safety_checker_contribution": "Safety checker identified critical blocking concerns: (1) ACS cannot be excluded by history alone; (2) clinician's proposed action (ask questions first) delays stat ECG/troponin; (3) current symptom status not documented; (4) prior episodes and outcomes unknown; (5) stress trigger does NOT exclude ACS. Safety checker correctly recommended emergency_911 escalation. Coordinator adopts this escalation and prioritizes objective cardiac workup over history refinement.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged CRITICAL gaps: (1) no medication list provided \u2014 cannot assess interactions or prior cardiac regimen adherence; (2) no allergy history \u2014 cannot safely administer aspirin, nitrates, or contrast; (3) renal function pending \u2014 will affect dosing of dual antiplatelet therapy and other cardiac drugs; (4) serial troponins required (0, 3, 6 hours); (5) contrast nephropathy risk if angiography considered. Coordinator incorporates all medication reconciliation, allergy verification, and serial troponin requirements into ED-level management plan."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here, doc. Look, I've been having this awful crushing feeling in my chest\u2014been going on for about thirty minutes now, just won't quit. My wife, she keeps telling me to calm down, but I can't help it. You know, reminds me of when my dad had that heart thing back in '98, scared me half to death. Anyway, I'm sweating like I just ran a marathon, and my stomach feels all twisted up too. This is really scaring me. I thought maybe it was just indigestion from the sandwich I had at lunch, but this feels... different. Way worse than the pressure I had the last couple days."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / STEMI / NSTEMI \u2014 PRIMARY CONCERN",
+          "Unstable angina",
+          "Aortic dissection",
+          "Pulmonary embolism",
+          "Acute gastroesophageal reflux / esophageal spasm",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (immediate)",
+          "STAT high-sensitivity troponin",
+          "Continuous cardiac monitoring",
+          "Large-bore IV access (18G or larger)",
+          "Chest X-ray",
+          "Basic metabolic panel (BMP) + CBC",
+          "D-dimer if PE suspected after initial ECG/troponin",
+          "STAT medication reconciliation (including OTC, supplements, recent changes)",
+          "Allergy verification (contrast, aspirin, P2Y12 inhibitors)",
+          "Cocaine/stimulant use screening",
+          "Bleeding risk assessment"
+        ],
+        "management_plan": [
+          "EMERGENCY 911 ACTIVATION \u2014 do not delay for self-transport",
+          "Maintain NPO status pending possible emergent cardiac catheterization/PCI",
+          "Establish large-bore IV access immediately",
+          "Continuous cardiac monitoring and frequent vital signs during transport",
+          "Pain reassessment and documentation",
+          "Defer all acute coronary medications (aspirin, P2Y12 inhibitors, anticoagulation) pending complete medication reconciliation and ECG/troponin results",
+          "Defer renal function-dependent dosing (P2Y12 inhibitors, anticoagulants, contrast safety) pending BMP results",
+          "Interventional cardiology consultation upon ED arrival",
+          "Screen for diabetes and CKD to guide medication selection and monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "LIFE-THREATENING PRESENTATION: Crushing substernal chest pain \u00d7 30 minutes with diaphoresis, nausea, and significant anxiety in 58M with family history of early MI",
+          "CRITICAL MEDICATION GAP: No medication list provided \u2014 must obtain immediately before any acute coronary intervention to assess for current antiplatelet/anticoagulation use and drug interactions",
+          "RENAL FUNCTION UNKNOWN: BMP pending; essential for contrast safety, P2Y12 inhibitor dosing, and anticoagulant selection",
+          "ALLERGY STATUS UNCONFIRMED: Must verify contrast allergy, aspirin allergy, and P2Y12 inhibitor allergy before intervention",
+          "NSAID/COCAINE USE UNKNOWN: Screen immediately; NSAIDs contraindicated in acute MI; cocaine can precipitate ACS",
+          "BLEEDING RISK UNASSESSED: Recent surgery, active bleeding, or anticoagulation status unknown",
+          "SYMPTOM DURATION \u226530 MIN: Meets ACS time-sensitivity threshold; door-to-balloon time is critical"
+        ],
+        "communication_note": "This is a high-risk acute coronary syndrome presentation requiring immediate emergency department evaluation with 911 transport; all three roles unanimously recommend emergency escalation with STAT ECG, troponin, monitoring, and IV access, pending urgent medication reconciliation and allergy verification.",
+        "trace": {
+          "clinician_contribution": "Identified classic ACS presentation (crushing substernal chest pain, diaphoresis, nausea, anxiety, family history, prodromal symptoms) and appropriately yielded to safety protocol with well-reasoned differential and standard-of-care STAT workup (ECG, troponin, monitoring, IV access, CXR, labs).",
+          "safety_checker_contribution": "Validated clinician proposal as appropriate and well-reasoned; confirmed all seven red flags for ACS; mandated emergency 911 activation rather than self-drive or outpatient workup; identified no blocking concerns; endorsed immediate ED evaluation with continuous monitoring.",
+          "pharm_nurse_contribution": "Flagged CRITICAL medication reconciliation gap and identified high-priority screening needs (antiplatelet/anticoagulation status, NSAID use, cocaine/stimulant use, allergy verification, bleeding risk, renal function, contrast safety); recommended large-bore IV access, NPO status, and deferred all acute coronary medications pending complete medication list and ECG/troponin results."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790537473.6306365
+}

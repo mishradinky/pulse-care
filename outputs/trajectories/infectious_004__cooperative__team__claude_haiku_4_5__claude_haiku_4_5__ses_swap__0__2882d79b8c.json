@@ -1,0 +1,235 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My main problems right now are that my face is drooping on one side and I have joint pain all over my body that keeps moving around. It's been going on for a few weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your symptoms better. When did the facial drooping start, and has it been constant or does it come and go? Also, can you describe the joint pain more\u2014which joints are affected, and does anything make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The facial drooping started about a week ago and it's been constant since then. The joint pain has been going on for about three weeks\u2014it moves around, affecting my knees and wrists mostly. Nothing really makes it better or worse; it's just there all the time, moving from one joint to another."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Lyme disease (facial palsy + migratory polyarthralgia)",
+          "Bell's palsy with concurrent viral arthritis",
+          "Systemic lupus erythematosus or other autoimmune condition",
+          "Viral infection (EBV, CMV, parvovirus B19)",
+          "Sarcoidosis",
+          "Stroke or other acute neurological event"
+        ],
+        "workup_ordered": [
+          "STAT: Neurological exam (facial symmetry, arm drift, speech clarity, gait) to rule out stroke",
+          "STAT: Brain MRI or CT if acute stroke cannot be excluded clinically",
+          "Same-day labs: CBC, CMP (renal/hepatic function), ESR/CRP, ANA panel, Lyme serology (if endemic area)",
+          "Tick exposure history and geographic risk assessment",
+          "Complete medication list (OTC, supplements, herbals)",
+          "Allergy history (penicillin, tetracyclines, sulfonamides)",
+          "Pregnancy/contraception status and menstrual history"
+        ],
+        "management_plan": [
+          "HOLD all empiric treatment pending stroke rule-out and initial labs",
+          "If stroke excluded and Lyme serology positive: doxycycline 100 mg PO BID \u00d7 14\u201321 days (after pregnancy/contraception confirmation; counsel on photosensitivity and sun protection)",
+          "If autoimmune/SLE suspected: AVOID NSAIDs until renal function confirmed; consider rheumatology referral",
+          "If Bell's palsy confirmed (stroke excluded, Lyme negative): consider corticosteroids; monitor for drug interactions",
+          "Do NOT recommend NSAIDs for joint pain until renal function and autoimmune serology ruled out",
+          "Monitor for disseminated Lyme disease signs: erythema migrans rash, fever, systemic symptoms",
+          "Ensure medication adherence counseling if antibiotics prescribed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "ACUTE UNILATERAL FACIAL DROOPING IS A STROKE RED FLAG: Requires same-day neurological exam and imaging consideration; cannot defer to history-taking alone.",
+          "TEMPORAL URGENCY: Facial drooping onset 1 week ago (acute) vs. joint pain 3 weeks (subacute) suggests possible disseminated Lyme disease or systemic inflammatory disease\u2014both time-sensitive.",
+          "MISSING STROKE ASSESSMENT: No documented facial symmetry exam, arm drift, speech clarity, or time-of-onset confirmation in clinical record despite stroke in differential.",
+          "WORKUP DEFERRAL RISK: Clinician's initial plan was history-only; labs/imaging deferred. Safety checker correctly flagged that labs cannot wait\u2014same-day CBC, CMP, ESR/CRP, ANA, Lyme serology required.",
+          "MEDICATION INTERACTIONS: No baseline renal/hepatic function documented; critical before doxycycline (if Lyme) or NSAIDs (if arthritis).",
+          "PREGNANCY STATUS UNKNOWN: Doxycycline is teratogenic; must confirm non-pregnant status and contraceptive use before prescribing.",
+          "ALLERGY HISTORY MISSING: Essential before empiric antibiotic therapy."
+        ],
+        "communication_note": "Patient requires urgent same-day neurological assessment to rule out stroke, followed by concurrent labs and imaging; empiric treatment held pending workup results and safety clearance.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (Lyme disease, autoimmune, stroke) and asked targeted temporal and symptom-distribution questions. However, proposed history-taking alone without concurrent workup\u2014safety checker correctly escalated this gap.",
+          "safety_checker_contribution": "Safety checker identified critical blocking concerns: (1) stroke rule-out cannot be deferred, (2) labs cannot wait for interview completion, (3) missing neurological exam documentation. Recommended urgent_outpatient escalation with same-day imaging/labs consideration.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged essential safety checks: pregnancy/contraception status (doxycycline teratogenicity), allergy history, baseline renal/hepatic function (before antibiotics/NSAIDs), tick exposure assessment, and medication adherence counseling. Correctly advised HOLD on NSAIDs pending renal function and autoimmune serology."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've almost fainted twice in the past few days, and my heart is going really slowly. I'm scared something's seriously wrong with my heart."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When you felt like you were going to faint, were you sitting, standing, or lying down? And did you notice any chest pain, shortness of breath, dizziness, or palpitations before or during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Both times it happened, I was standing up. I didn't have chest pain, but my heart was racing and then it felt really slow and irregular. I got dizzy and lightheaded right before everything went black for a moment. No shortness of breath though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Syncope/presyncope with bradycardia (vasovagal, orthostatic, or cardiac arrhythmia)",
+          "Cardiac arrhythmia (sinus bradycardia, heart block, SVT with rate-drop response, long QT syndrome)",
+          "Acute coronary syndrome",
+          "Myocarditis/pericarditis",
+          "Medication-induced bradycardia or QT prolongation (beta-blockers, calcium channel blockers, digoxin, fluoroquinolones, macrolides, antiretrovirals)",
+          "Hypothyroidism",
+          "Electrolyte abnormality (hyperkalemia, hypomagnesemia, hypocalcemia)",
+          "Anemia"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (assess for bradycardia, AV block, prolonged QT, ischemic changes, arrhythmia)",
+          "Orthostatic vital signs (supine \u2192 sitting 1 min \u2192 standing 3 min with BP/HR)",
+          "Continuous cardiac telemetry monitoring",
+          "Basic metabolic panel (K+, Mg2+, Ca2+, renal function)",
+          "TSH and free T4",
+          "Complete blood count (assess for anemia)",
+          "Troponin (given syncope and cardiac symptoms)",
+          "Complete medication reconciliation (OTC, supplements, herbal products)",
+          "Liver function tests (if hepatic impairment suspected)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL\u2014do not manage in routine outpatient setting",
+          "Establish IV access before transport",
+          "Implement fall precautions; keep patient supine or seated until cleared",
+          "Obtain complete medication list including recent additions (within 2 weeks) and timing relative to syncope episodes",
+          "Assess for medication non-adherence or recent dose changes in cardiac-active drugs",
+          "Review for drug-disease interactions (CKD, hepatic impairment)",
+          "Confirm allergy status and cross-sensitivities if antimicrobials being considered",
+          "ED team to perform rapid ECG interpretation and continuous monitoring",
+          "Prepare for possible atropine or temporary pacing if severe bradycardia or heart block confirmed",
+          "Infectious disease consult may be warranted given case category\u2014clarify if patient on antimicrobials (fluoroquinolones, macrolides) or antiretrovirals known to prolong QT"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Presyncope + bradycardia + palpitations = high-risk presentation for dangerous cardiac arrhythmias, conduction disease, or acute ischemia",
+          "Patient reports positional component (standing) and loss of consciousness ('everything went black')\u2014classic syncope with hemodynamic compromise",
+          "Palpitations followed by bradycardia suggests possible arrhythmia with rate-drop response or post-arrhythmic bradycardia",
+          "Fall/injury risk from syncope episodes; patient already experienced transient loss of consciousness",
+          "Risk of sudden decompensation, complete heart block, or cardiac arrest during evaluation in non-monitored setting",
+          "CRITICAL GAP: No medication list provided\u2014cannot rule out QT-prolonging or bradycardia-inducing drugs (especially relevant given infectious disease category suggesting possible antimicrobials or antiretrovirals)",
+          "Outpatient office setting lacks continuous monitoring, resuscitation capability, and immediate ECG interpretation needed for this presentation"
+        ],
+        "communication_note": "Patient requires immediate ED referral for continuous cardiac monitoring, STAT ECG, and rapid evaluation of syncope with bradycardia; clinician's history-taking is appropriate but must occur in ED with full resuscitation capability, not primary care office.",
+        "trace": {
+          "clinician_contribution": "Excellent differential diagnosis and workup plan appropriately prioritizing cardiac causes (bradycardia, syncope, arrhythmia, ACS, myocarditis) and medication effects. History-taking question is clinically sound and targets key features (positional, associated symptoms, palpitations). Rationale correctly identifies presyncope + bradycardia as red flag requiring urgent ECG and vital assessment.",
+          "safety_checker_contribution": "Critical escalation decision: approved clinical reasoning but flagged SETTING as the blocking concern. Correctly identified that presyncope + bradycardia is an emergency presentation requiring ED-level monitoring and resuscitation capability, not outpatient office management. Emphasized that the question itself is safe but must be asked by ED staff with immediate access to ECG and monitoring.",
+          "pharm_nurse_contribution": "Identified critical gap: no medication list provided, preventing assessment for bradycardia-inducing agents (beta-blockers, calcium channel blockers, digoxin, amiodarone) or QT-prolonging drugs (fluoroquinolones, macrolides, antiretrovirals\u2014relevant given infectious disease category). Provided urgent nursing actions: fall precautions, orthostatic vital signs protocol, IV access, continuous telemetry, medication timing correlation, and recent medication review. Flagged need for drug-disease interaction assessment and allergy documentation."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I passed out in the waiting room a few minutes ago. I felt dizzy and then everything went black. I'm feeling weak and my heart feels like it's racing... or maybe skipping? I'm pretty scared right now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm concerned about your syncope and heart symptoms. Let me ask a few quick questions: Do you have fever, chills, or recent illness? Any chest pain, shortness of breath, or leg swelling? Are you on any medications, and have you had any recent infections or sick contacts?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever or chills that I remember. No chest pain or shortness of breath right now, and no leg swelling. I'm not on any regular medications. I haven't been sick recently, but I did go camping in Connecticut about five weeks ago. I'm not sure about sick contacts."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute arrhythmia (palpitations, syncope, tachycardia)",
+          "Sepsis/severe infection (syncope + tachycardia + weakness; camping exposure raises tick-borne illness concern)",
+          "Myocarditis/pericarditis (viral prodrome, palpitations, syncope)",
+          "Hypovolemia/dehydration (syncope, weakness, tachycardia)",
+          "Pulmonary embolism (syncope, tachycardia)",
+          "Anemia (weakness, syncope, compensatory tachycardia)",
+          "Tick-borne illness (Lyme disease, babesiosis, anaplasmosis\u2014camping 5 weeks ago; may present with fever, weakness, arrhythmia)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (BP supine/sitting, HR, temp, RR, O2 sat); repeat q15min until stable",
+          "STAT 12-lead ECG (within 10 minutes) to rule out arrhythmia, ischemia, myocarditis",
+          "CBC, CMP, lactate (assess for anemia, infection, renal/hepatic function)",
+          "Troponin (if chest symptoms or myocarditis concern)",
+          "Blood cultures if febrile or sepsis suspected",
+          "Lyme serology (ELISA + Western blot if positive) given camping exposure 5 weeks ago",
+          "Consider babesiosis/anaplasmosis PCR or serology if Lyme positive or high clinical suspicion",
+          "Chest X-ray if respiratory symptoms develop or PE suspected",
+          "Orthostatic vital signs and volume status assessment"
+        ],
+        "management_plan": [
+          "Establish large-bore IV access immediately for fluid resuscitation capability and labs",
+          "Implement fall precautions; continuous cardiac monitoring if available; keep call bell within reach",
+          "Obtain complete medication history (including OTC, supplements, herbal) and confirm allergy status before any treatment",
+          "Confirm pregnancy status before imaging or certain medications",
+          "If febrile: acetaminophen preferred (avoid NSAIDs pending cardiac workup); obtain blood cultures BEFORE antibiotics if sepsis suspected",
+          "If hypovolemic: initiate IV fluid resuscitation (normal saline bolus)",
+          "If arrhythmia confirmed on ECG: cardiology consultation and continuous monitoring; hold any QT-prolonging agents",
+          "If myocarditis suspected: avoid NSAIDs; consider cardiology referral",
+          "If Lyme or tick-borne illness suspected: initiate doxycycline (if non-pregnant, non-breastfeeding) pending serology; infectious disease consultation if severe",
+          "Monitor chest pain, dyspnea, palpitations continuously; report worsening immediately"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Syncope + tachycardia + weakness = potential hemodynamic instability requiring immediate vital signs and ECG before extended questioning",
+          "Patient at high risk for recurrent syncope during evaluation; fall/injury precautions mandatory",
+          "Differential includes multiple life-threatening conditions (sepsis, PE, acute arrhythmia, myocarditis) requiring ED-level resources (continuous monitoring, rapid labs, imaging)",
+          "Camping exposure 5 weeks ago raises concern for tick-borne illness (Lyme, babesiosis, anaplasmosis), which can present with arrhythmia and syncope",
+          "No current medications documented; allergy status unconfirmed\u2014essential before any empiric treatment",
+          "Pregnancy status unknown\u2014critical before imaging or certain medications",
+          "If any vital sign abnormality (hypotension, severe tachycardia, altered mental status) or recurrent syncope during assessment \u2192 immediate ED transfer"
+        ],
+        "communication_note": "40F with syncope, palpitations, tachycardia, and weakness requires immediate ED evaluation for life-threatening cardiac and infectious etiologies; camping exposure 5 weeks ago raises tick-borne illness concern.",
+        "trace": {
+          "clinician_contribution": "Identified appropriate differential diagnosis (sepsis, arrhythmia, hypovolemia, myocarditis, PE, anemia) and comprehensive workup (vitals, ECG, CBC, CMP, lactate, blood cultures, troponin, CXR). History-taking questions were clinically appropriate but sequencing was unsafe.",
+          "safety_checker_contribution": "CRITICAL RESEQUENCING: Blocked premature extended questioning; mandated STAT vitals and ECG BEFORE history to assess hemodynamic stability. Identified that syncope + palpitations + tachycardia is an acute presentation requiring ED-level resources and continuous monitoring, not office-based workup. Recommended ED referral if any vital sign abnormality or recurrent symptoms.",
+          "pharm_nurse_contribution": "Flagged critical gaps: no medication history, allergy status unconfirmed, pregnancy status unknown. Established fall precautions, IV access, continuous monitoring, and q15min vital sign protocol. Identified medication contraindications (NSAIDs in myocarditis, QT-prolonging agents if arrhythmia), dosing considerations pending renal function, and need for blood cultures BEFORE antibiotics. Emphasized ECG within 10 minutes and fever management with acetaminophen."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636071.6703446
+}

@@ -1,0 +1,232 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a bad cough for 4 days now with yellow stuff coming up, and I've got a fever. My chest hurts too, especially when I breathe in. I'm pretty worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or wheezing along with the cough and fever?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been short of breath, especially when I move around. I don't think I'm wheezing though. The cough started 4 days ago with the fever, and it's been getting worse."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient requires urgent outpatient evaluation for suspected pneumonia with respiratory symptoms in an elderly individual.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "Acute bronchitis",
+          "Influenza",
+          "COVID-19",
+          "COPD exacerbation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Obtain vital signs including respiratory rate and oxygen saturation immediately",
+          "Order chest X-ray to evaluate for pneumonia",
+          "Consider CBC and basic metabolic panel to assess severity and hydration status",
+          "Empiric antibiotic therapy if pneumonia is confirmed (e.g., amoxicillin-clavulanate or doxycycline, pending allergy history)",
+          "Hydration assessment and encouragement of fluid intake",
+          "Monitor for signs of respiratory distress (e.g., tachypnea, hypoxia)",
+          "Avoid NSAIDs in elderly if possible due to risk of AKI and GI bleed; consider acetaminophen for fever/pain",
+          "Follow up within 24-48 hours or sooner if symptoms worsen"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "High risk for severe pneumonia in elderly patient (age 65) with fever, productive cough, pleuritic chest pain, and shortness of breath",
+          "Missing critical vital signs (respiratory rate, oxygen saturation) which are essential for assessing pneumonia severity",
+          "No workup proposed despite classic symptoms of pneumonia (e.g., no chest X-ray, CBC, or oxygen saturation check)",
+          "Potential contraindications to empiric antibiotics not assessed (e.g., penicillin allergy, renal impairment)",
+          "Risk of dehydration due to fever and inadequate fluid intake assessment",
+          "No evaluation of baseline respiratory function or home oxygen use despite COPD being in differential"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician identified key symptoms (productive cough, fever, pleuritic chest pain) and asked about shortness of breath/wheezing to assess for pneumonia. Differential included pneumonia, bronchitis, influenza, COVID-19, and COPD exacerbation. However, no workup was proposed despite concerning symptoms.",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted the need for immediate monitoring of respiratory status (tachypnea, hypoxia) and hydration. Raised concerns about potential contraindications to empiric antibiotics (e.g., penicillin allergy, renal impairment) and cautioned against NSAIDs in an elderly patient. Also noted the lack of baseline medication review, which is critical for safe prescribing.",
+          "safety_checker_contribution": "Safety checker identified critical red flags: elderly patient with fever, productive cough, and pleuritic chest pain is high-risk for severe pneumonia. Highlighted the absence of vital signs (respiratory rate, oxygen saturation) and lack of workup (e.g., chest X-ray, CBC). Recommended urgent outpatient escalation due to incomplete assessment and potential life-threatening pneumonia."
+        },
+        "workup_ordered": [
+          "Vital signs: respiratory rate, oxygen saturation",
+          "Chest X-ray",
+          "CBC with differential",
+          "Basic metabolic panel (if not contraindicated)",
+          "Assess for penicillin allergy and renal function before antibiotic initiation"
+        ]
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not getting any better. In fact, I'm more confused now than yesterday, and the medicine you gave me isn't helping. I'm still coughing up that yellow-green stuff and I feel terrible."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry to hear you're feeling worse. Can you tell me more about the confusion? When did it start, and is it getting worse? Also, have you had any fever, chills, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The confusion started a couple days ago, but it's definitely worse today. My family says I'm not making sense sometimes. Yes, I've had fever and chills since this started four days ago. And I'm short of breath\u2014worse than yesterday even though I took the medicine you prescribed."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient's worsening confusion, fever, and dyspnea with persistent productive cough require urgent outpatient evaluation today to assess for pneumonia progression or sepsis.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with progression to sepsis or delirium",
+          "Delirium secondary to infection, medication side effects, or systemic illness",
+          "Exacerbation of underlying chronic conditions (e.g., COPD) with superimposed infection",
+          "Medication-induced confusion (e.g., NSAID toxicity, dehydration from diuretics) or metabolic derangements (e.g., AKI, electrolyte imbalance)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Administer empiric antibiotics (amoxicillin 500mg PO TID) with close monitoring for response; consider broader coverage if no improvement in 48h",
+          "Hold metformin and NSAIDs (ibuprofen) due to risk of AKI and lactic acidosis; switch to acetaminophen for fever/pain if needed",
+          "Monitor vital signs every 4\u20136 hours; assess oxygen saturation and initiate supplemental oxygen if SpO2 <90%",
+          "Recheck BMP and CBC in 24\u201348 hours to evaluate for AKI, electrolyte imbalances, or leukocytosis",
+          "Arrange urgent outpatient follow-up today (or ED referral if symptoms worsen overnight) for chest X-ray, blood cultures if febrile, and further evaluation",
+          "Educate patient/caregiver on red flags: increased confusion, inability to urinate, severe shortness of breath, or signs of bleeding",
+          "Review medication list for CNS-active drugs (e.g., opioids, benzodiazepines) and discontinue if contributing to delirium"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "High risk of sepsis in elderly patient with confusion, fever, and productive cough; delay in care could lead to rapid deterioration",
+          "NSAID use (ibuprofen) poses significant risk of AKI, GI bleeding, and hyperkalemia, especially with lisinopril and potential dehydration",
+          "Metformin should be held immediately due to risk of lactic acidosis in acute illness or AKI",
+          "Delirium may be multifactorial (infection, medications, metabolic derangements); requires prompt evaluation to prevent falls or aspiration",
+          "Dehydration from fever and poor oral intake increases risk of AKI and medication toxicity"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician identified worsening pneumonia/sepsis as likely causes of confusion and dyspnea, ordered comprehensive workup (vitals, CBC, BMP, CXR, blood cultures if febrile), and emphasized oxygenation assessment. Rationale highlighted critical need for immediate infection and systemic complication evaluation.",
+          "pharm_nurse_contribution": "Pharm/nurse identified high-risk medications: NSAIDs (ibuprofen) contraindicated in elderly/possible CKD, metformin to be held in acute illness/AKI, and potential interactions (e.g., amoxicillin-warfarin). Provided dose adjustments for renal impairment, nursing monitoring priorities (AKI, GI bleed, confusion), and education on red flags. Highlighted need to hold metformin and avoid NSAIDs immediately.",
+          "safety_checker_contribution": "Safety checker approved escalation to urgent outpatient care, citing age >65, worsening confusion, and persistent productive cough as high-risk features for delirium/sepsis. No immediate life-threatening concerns (e.g., hypotension, severe hypoxia) but emphasized need for rapid evaluation to prevent deterioration. Blocked concerns noted appropriate workup but lack of immediate 911-level urgency."
+        },
+        "workup_ordered": [
+          "Vital signs with oxygen saturation (SpO2)",
+          "Complete blood count (CBC) with differential",
+          "Basic metabolic panel (BMP) to assess electrolytes, renal function, and glucose",
+          "Chest X-ray to evaluate for pneumonia progression or complications",
+          "Blood cultures if patient is febrile (>38\u00b0C)",
+          "Urinalysis if delirium persists to rule out UTI as alternative diagnosis",
+          "Consider arterial blood gas (ABG) if severe dyspnea or hypoxia is present"
+        ]
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having trouble breathing. They put a tube down my throat in the emergency room because my oxygen levels dropped too low. I can't talk normally with this tube in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry to hear about your breathing difficulties. When did this trouble breathing first start, and have you noticed any other symptoms like fever, cough, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It started about 4 days ago with a cough that brings up yellow-green stuff. I've had a fever\u2014they said it was about 103 degrees\u2014and my chest hurts when I breathe, especially on the right side. I've also been feeling confused the last day or so."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient requires urgent outpatient evaluation for severe respiratory symptoms with red flags for pneumonia, CHF, or PE; medication review highlights ACE inhibitor cough and beta-blocker considerations.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with possible sepsis given fever, productive cough, and confusion",
+          "Congestive heart failure (CHF) exacerbation with acute respiratory distress and history of intubation",
+          "Pulmonary embolism (PE) given pleuritic chest pain and hypoxia history",
+          "Chronic obstructive pulmonary disease (COPD) exacerbation with possible superimposed infection",
+          "Medication-induced respiratory symptoms (ACE inhibitor cough, beta-blocker effects)"
+        ],
+        "escalation_level": "ed_referral",
+        "management_plan": [
+          "Hold lisinopril pending evaluation for ACE inhibitor cough; consider ARB (e.g., losartan) if cough confirmed",
+          "Continue metoprolol tartrate but monitor for masking of tachycardia in acute distress; consider cardioselective beta-1 blocker if CHF confirmed",
+          "Monitor furosemide dose and electrolytes (K+, Mg2+) with BMP; adjust for CKD if present",
+          "Evaluate albuterol inhaler use for overuse (>2x/week) and reinforce proper technique",
+          "Avoid NSAIDs (e.g., ibuprofen) due to potential worsening of respiratory symptoms",
+          "Initiate empiric antibiotics for CAP if pneumonia confirmed (e.g., ceftriaxone + azithromycin)",
+          "Consider diuresis for CHF exacerbation if BNP elevated or echocardiogram shows volume overload",
+          "Order D-dimer and CT-PE if PE suspected; initiate anticoagulation if PE confirmed",
+          "Monitor for respiratory failure (SpO2 <90%, accessory muscle use) and escalate to ICU if needed"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "History of intubation for hypoxia indicates severe respiratory compromise requiring immediate ED evaluation",
+          "Confusion suggests possible sepsis or hypoxia; urgent workup needed",
+          "ACE inhibitor cough may mimic or exacerbate respiratory symptoms; discontinue if confirmed",
+          "Beta-blocker (metoprolol tartrate) may mask tachycardia in acute distress; consider cardioselective alternative",
+          "Electrolyte imbalances (hypokalemia, hypomagnesemia) from furosemide use require monitoring",
+          "Overuse of albuterol inhaler may indicate uncontrolled COPD or asthma",
+          "NSAID avoidance critical if acute infection or COPD exacerbation suspected"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician identified key differential diagnoses (CAP, COPD, CHF, PE, ARDS) and proposed comprehensive workup (CXR/CT, CBC, BMP, ABG, D-dimer, echocardiogram) based on patient's history of intubation and severe respiratory symptoms. Rationale emphasized urgent evaluation for infectious, cardiac, or thromboembolic causes.",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted medication-related concerns: ACE inhibitor-induced cough (lisinopril), beta-blocker masking tachycardia (metoprolol tartrate), electrolyte imbalances (furosemide), albuterol overuse, and NSAID risks. Provided dose adjustment recommendations and nursing monitoring priorities (SpO2, fluid balance, inhaler technique).",
+          "safety_checker_contribution": "Safety checker approved escalation to urgent outpatient but flagged no immediate life-threatening red flags (e.g., cyanosis, stridor). Identified high-risk patient (age 65, comorbidities) and confirmed appropriateness of proposed workup. Recommended ED referral due to severity of symptoms (fever, confusion, hypoxia history)."
+        },
+        "workup_ordered": [
+          "Chest X-ray (priority for CAP/CHF/PE evaluation)",
+          "Complete blood count (CBC) with differential (infection, leukocytosis)",
+          "Basic metabolic panel (BMP) (electrolytes, renal function, glucose)",
+          "Arterial blood gas (ABG) (hypoxia, acid-base status)",
+          "D-dimer (if PE suspected)",
+          "B-type natriuretic peptide (BNP) (if CHF suspected)",
+          "Echocardiogram (if CHF or PE suspected)",
+          "Blood cultures (if sepsis suspected)",
+          "Sputum culture (if productive cough)",
+          "CT pulmonary angiogram (if PE high probability)"
+        ]
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539205.9372885
+}

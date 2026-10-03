@@ -1,0 +1,201 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Shaking. Sweating. Can't stop. Need a drink."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Since I stopped drinking yesterday. About eighteen hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much were you drinking before you stopped?"
+        },
+        {
+          "speaker": "patient",
+          "text": "A pint of vodka. Every day. For about ten years."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any hallucinations or seizures since you stopped drinking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No hallucinations. Had seizures before when I quit drinking."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Alcohol withdrawal syndrome",
+          "Delirium tremens",
+          "Seizure disorder"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CMP",
+          "Vitals (BP, HR, Temp)",
+          "Blood alcohol level"
+        ],
+        "management_plan": [
+          "Monitor vitals closely",
+          "Start benzodiazepine for alcohol withdrawal",
+          "Consider thiamine supplementation",
+          "Refer to addiction specialist"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of seizures",
+          "Risk of delirium tremens",
+          "Risk of alcohol withdrawal complications"
+        ],
+        "communication_note": "You're experiencing alcohol withdrawal, which can be dangerous; we need to monitor you closely and start treatment."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Had a seizure. Don't remember it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what others told you happened during the seizure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They said I fell down. Shaking bad. Don't remember it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had a seizure before or been diagnosed with epilepsy?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Happened before when I stopped drinking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much alcohol do you typically consume in a week?"
+        },
+        {
+          "speaker": "patient",
+          "text": "A lot. Bottle of vodka daily. For years."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Alcohol withdrawal seizure",
+          "Epilepsy",
+          "Metabolic imbalance (e.g., hyponatremia, hypoglycemia)"
+        ],
+        "workup_ordered": [
+          "Basic metabolic panel (BMP)",
+          "Complete blood count (CBC)",
+          "Liver function tests (LFTs)",
+          "Alcohol level",
+          "Electroencephalogram (EEG)"
+        ],
+        "management_plan": [
+          "Monitor for withdrawal symptoms and manage accordingly",
+          "Refer to neurology for further evaluation and management of seizures",
+          "Encourage participation in alcohol cessation program",
+          "Provide education on seizure safety and first aid"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of recurrent seizures",
+          "Risk of alcohol withdrawal complications"
+        ],
+        "communication_note": "We need to run some tests and refer you to a specialist to better understand and manage your seizures."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Everything's spinning. Bugs crawling on me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Delirium",
+          "Psychotic disorder",
+          "Substance-induced psychosis",
+          "Neurological disorder (e.g., epilepsy, brain tumor)"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Thyroid function tests (TSH, T3, T4)",
+          "Urinalysis",
+          "Drug screen",
+          "CT scan of the head",
+          "MRI of the brain"
+        ],
+        "management_plan": [
+          "Immediate referral to a psychiatrist for further evaluation and management",
+          "Consider hospitalization for safety and further evaluation",
+          "Monitor for signs of self-harm or harm to others",
+          "Provide supportive care and ensure a safe environment"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of self-harm or harm to others due to psychotic symptoms",
+          "Potential underlying medical condition requiring immediate attention"
+        ],
+        "communication_note": "Based on your symptoms, I am concerned about a serious condition and will refer you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511709.0122736
+}

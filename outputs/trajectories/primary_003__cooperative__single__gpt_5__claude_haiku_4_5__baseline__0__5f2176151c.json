@@ -1,0 +1,188 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I've been extremely tired for about four months now, and I've gained weight even though I haven't been eating more. I'm really concerned because nothing seems to help."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your mood, such as feeling more depressed or anxious?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I wouldn't say depressed exactly, but I just feel so tired all the time that I don't have energy for things I normally enjoy. I'm not anxious, just exhausted. It's been going on for about four months now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your sleep patterns, such as difficulty falling asleep or staying asleep?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't really had trouble falling asleep or staying asleep. If anything, I feel like I could sleep all the time\u2014I'm just exhausted no matter how much rest I get. It's more that I'm constantly tired rather than having sleep problems."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your hair, skin, or nails?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my skin has gotten really dry, and I've noticed my hair is falling out more than usual. It feels coarse too, not like it used to be."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your bowel habits, such as constipation or diarrhea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been constipated for the past few months. It's been pretty consistent and bothersome. I'm not sure what's causing it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your menstrual cycle or any other symptoms like feeling cold more often?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my periods have become irregular over these past few months. And I do feel cold much more easily than I used to\u2014even when others say the room is warm enough, I find myself needing an extra sweater."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypothyroidism",
+          "chronic fatigue syndrome"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "free T4",
+          "CBC",
+          "CMP"
+        ],
+        "management_plan": [
+          "Start levothyroxine if hypothyroidism is confirmed",
+          "Consider lifestyle modifications including diet and exercise"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for worsening fatigue or new symptoms"
+        ],
+        "communication_note": "Based on your symptoms, we will check your thyroid function and some other labs to understand what's causing your fatigue and other symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I started the levothyroxine you prescribed last visit, but I'm still very tired all the time. And the constipation hasn't really improved either. I was hoping I'd feel better by now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been taking the levothyroxine, and at what dose?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been taking it for about 4 weeks now. I think it's 50 micrograms, but I'm not completely sure about the exact dose\u2014I'd have to check the bottle. I was hoping I'd feel better by now, but I'm still really tired and constipated."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms or changes since starting the medication, such as weight changes, mood changes, or changes in your menstrual cycle?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I haven't lost any weight yet\u2014I'm still about the same. My mood is okay, I guess. But my periods have been pretty irregular, which is different from before. And honestly, I'm still really tired and constipated, even though I've been taking the medicine for about a month now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "suboptimal levothyroxine dosing",
+          "non-compliance with medication",
+          "secondary hypothyroidism"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "Free T4",
+          "CBC",
+          "CMP"
+        ],
+        "management_plan": [
+          "Review and adjust levothyroxine dose based on lab results",
+          "Discuss importance of medication adherence",
+          "Consider referral to endocrinology if no improvement after dose adjustment"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Ensure patient understands the importance of taking medication as prescribed"
+        ],
+        "communication_note": "Let's check your thyroid levels to see if we need to adjust your medication dose to help with your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I'm feeling some better than before, but I'm wondering when I'll feel completely normal again. I've been on the medication for about 10 weeks now, and while things have improved, I'm not quite where I want to be yet."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "depression",
+          "anxiety disorder"
+        ],
+        "workup_ordered": [
+          "none"
+        ],
+        "management_plan": [
+          "Continue current medication",
+          "Schedule follow-up in 4 weeks",
+          "Consider therapy or counseling if not already in place"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for worsening symptoms or side effects"
+        ],
+        "communication_note": "You've made progress on your medication, and we'll continue to monitor your improvement. Let's follow up in a month to reassess your progress."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512577.8736162
+}

@@ -1,0 +1,222 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. I've been having chest pressure for the past two days. It happens when I'm exerting myself, like walking upstairs or doing yard work. It goes away when I rest. I'm a bit worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure in more detail? For example, is it a tightness, heaviness, or sharp pain? Does it radiate anywhere, like your arm, jaw, or back? Also, have you noticed any other symptoms like shortness of breath, nausea, or sweating when this happens?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's more of a heaviness or pressure, not sharp. It radiates to my left arm. I haven't had shortness of breath or nausea, but I did sweat pretty heavily once, about six hours ago. It happens when I exert myself, like walking upstairs or hurrying. Right now I feel okay, just a bit anxious."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Stable angina (exertional chest heaviness radiating to left arm, relieved by rest)",
+          "Unstable angina (if symptoms worsen or occur at rest)",
+          "Gastroesophageal reflux disease (GERD) (rule out if no radiation or exertional pattern)",
+          "Musculoskeletal chest pain",
+          "Anxiety-related chest discomfort"
+        ],
+        "workup_ordered": [
+          "12-lead electrocardiogram (ECG)",
+          "Cardiac enzymes (troponin) if ECG is abnormal or symptoms persist",
+          "Basic metabolic panel (electrolytes, renal function)",
+          "Chest X-ray (if pulmonary cause suspected)",
+          "Stress test (if stable angina suspected and medications are optimized)"
+        ],
+        "management_plan": [
+          "Continue aspirin 81 mg daily for secondary cardiovascular prevention (monitor for GI bleeding risk)",
+          "Continue metoprolol 50 mg BID (ensure HR/BP stability; hold if HR <50 or symptomatic bradycardia)",
+          "Continue atorvastatin 40 mg daily (monitor LFTs and for myopathy)",
+          "Continue lisinopril 10 mg daily (monitor renal function and potassium levels)",
+          "Educate patient on angina warning signs (chest heaviness radiating to left arm, diaphoresis) and when to seek emergency care",
+          "Avoid NSAIDs (risk of AKI and hyperkalemia with ACEi)",
+          "Schedule follow-up in 1 week to review ECG, troponin results, and symptom progression",
+          "Consider referral to cardiology if stress test is abnormal or symptoms persist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Chest heaviness radiating to left arm with exertion and diaphoresis raises concern for acute coronary syndrome",
+          "Need to rule out unstable angina if symptoms worsen or occur at rest",
+          "Monitor for medication side effects (e.g., bradycardia with metoprolol, hyperkalemia with lisinopril)"
+        ],
+        "communication_note": "Patient should seek emergency care if chest pressure worsens, radiates more, or occurs at rest.",
+        "trace": {
+          "clinician_contribution": "Clinician elicited detailed history of chest pressure (heaviness, radiation to left arm, exertional pattern, diaphoresis), narrowing differential to stable angina vs. unstable angina vs. GERD. Ordered ECG, troponin, BMP, and chest X-ray to rule out acute coronary syndrome and other causes.",
+          "safety_checker_contribution": "Safety checker approved plan with no red flags identified and recommended routine escalation. No blocking concerns noted.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (aspirin, metoprolol, atorvastatin, lisinopril) for appropriateness, interactions, and dose adjustments (e.g., CKD considerations). Highlighted need to monitor BP/HR before stress test and educate patient on angina warning signs and NSAID avoidance."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm back because the chest pressure came back last night. It happened again, and this time I was also a bit short of breath. I'm feeling okay right now, but I'm worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure in more detail? For example, is it a pressure, tightness, or pain? Did it radiate anywhere, like your arm, jaw, or back? Also, how long did it last this time, and what were you doing when it started?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's more of a pressure than sharp pain, right here in my chest. Last night it radiated down my left arm. It lasted about 15 minutes. I was walking up the stairs when it started. I also felt a bit short of breath, which worried me."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (unstable angina or NSTEMI)",
+          "Stable angina with recent progression",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain",
+          "Pulmonary embolism (given dyspnea)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG",
+          "Troponin levels",
+          "Basic metabolic panel (electrolytes, renal function)",
+          "Chest X-ray",
+          "D-dimer (if PE suspected after initial workup)"
+        ],
+        "management_plan": [
+          "Verify compliance with aspirin, metoprolol, atorvastatin, and omeprazole; assess recent dosing and adherence.",
+          "Hold metoprolol if HR <50 bpm or SBP <90 mmHg (per ACS protocol).",
+          "Ensure IV access for potential rapid medication administration (e.g., nitroglycerin, beta-blockers).",
+          "Schedule same-day cardiac evaluation (urgent outpatient) for further assessment of chest pressure and dyspnea.",
+          "Monitor for signs of ACS progression (e.g., worsening chest pressure, diaphoresis, ECG changes).",
+          "Avoid NSAIDs for chest pain; document allergies (e.g., contrast dye if cardiac cath planned)."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Chest pressure radiating to left arm with associated dyspnea is high-risk for acute coronary syndrome.",
+          "Recurrent episodes increase concern for unstable angina or NSTEMI, requiring urgent evaluation.",
+          "Metoprolol may mask tachycardia in ACS; ensure no contraindications (e.g., severe bradycardia, AV block).",
+          "No immediate life-threatening red flags (e.g., syncope, hemodynamic instability) present, but symptoms warrant same-day evaluation."
+        ],
+        "communication_note": "Patient should proceed to urgent outpatient cardiac evaluation today for ECG, troponin, and further assessment.",
+        "trace": {
+          "clinician_contribution": "Clinician elicited detailed history of chest pressure (pressure vs. pain, radiation to left arm, duration 15 minutes, triggered by stair climbing) and associated dyspnea, expanding differential to include ACS, GERD, musculoskeletal pain, and PE. Ordered 12-lead ECG, troponin, BMP, chest X-ray, and D-dimer (if PE suspected). Rationale prioritized ruling out ACS given recurrent symptoms.",
+          "safety_checker_contribution": "Safety checker identified chest pressure with dyspnea as high-risk, warranting immediate cardiac evaluation. Noted recurrent episodes increase concern for unstable angina/NSTEMI. Recommended urgent outpatient escalation due to concerning symptoms but absence of immediate life-threatening red flags (e.g., syncope, STEMI on ECG).",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (aspirin, metoprolol, atorvastatin, omeprazole), noting appropriate use for ACS prevention but potential issues (e.g., metoprolol masking tachycardia, aspirin compliance). Highlighted interactions (e.g., metoprolol + aspirin bleeding risk) and nursing concerns (e.g., IV access, NSAID avoidance, allergy documentation). Suggested holding metoprolol if HR/BP unstable."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I've had this crushing chest pain for about 30 minutes now. It's really bad\u2014I'm sweating and feel a bit nauseous. I'm pretty worried about what's happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you point to where the pain is located? Does it radiate anywhere, like your arm, jaw, or back? Also, on a scale of 1 to 10, how severe is the pain right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain is right here in the center of my chest, behind my breastbone. It's radiating down my left arm. Right now it's a 9 out of 10\u2014it's really crushing and intense. I'm sweating and feel a bit nauseous too."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) including STEMI/NSTEMI",
+          "Unstable angina",
+          "Aortic dissection",
+          "Pulmonary embolism (PE)",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG (STAT)",
+          "Troponin levels (STAT + serial measurements)",
+          "Chest X-ray (STAT)",
+          "D-dimer (if PE suspected)",
+          "Basic metabolic panel (BMP) including renal function and electrolytes",
+          "Cardiac enzymes (if ACS suspected)",
+          "Vital signs (BP in both arms, HR, SpO2, temperature)",
+          "Assess for respiratory distress (e.g., tachypnea, hypoxia)"
+        ],
+        "management_plan": [
+          "Administer aspirin 325mg chewable (unless contraindicated by active bleeding or severe CKD)",
+          "Administer sublingual nitroglycerin 0.4mg (if SBP >100mmHg and no PDE-5 inhibitor use in past 24h)",
+          "Establish IV access for emergency medications (e.g., morphine for pain if needed)",
+          "Hold metoprolol if SBP <100mmHg or HR <50bpm; otherwise continue at current dose with monitoring",
+          "Hold lisinopril if acute kidney injury develops (monitor BMP)",
+          "Avoid NSAIDs for pain; use acetaminophen or opioids cautiously (monitor respiratory depression risk with metoprolol)",
+          "Prepare for possible dual antiplatelet therapy (DAPT) post-ACS diagnosis (e.g., clopidogrel + aspirin)",
+          "Monitor for signs of bleeding (e.g., hematuria, melena) with aspirin + potential heparin during ACS workup",
+          "Ensure patient is NPO in case of urgent cardiac catheterization"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Crushing chest pain with radiation to left arm, diaphoresis, and nausea are classic ACS red flags requiring immediate ED evaluation",
+          "Lack of documented vital signs (BP asymmetry, tachycardia) could mask critical instability (e.g., aortic dissection, PE)",
+          "Troponin may not detect early ACS\u2014serial measurements are critical",
+          "Metoprolol and lisinopril may exacerbate hypotension or bradycardia in ACS; dose adjustments required based on vitals",
+          "Aspirin + metoprolol interaction may enhance hypotensive effects; monitor BP closely",
+          "No mention of oxygen saturation or respiratory distress assessment\u2014critical for PE or ACS evaluation",
+          "Potential GI bleed risk with aspirin + possible DAPT; monitor for signs of bleeding"
+        ],
+        "communication_note": "Patient requires immediate ED referral for urgent cardiac evaluation due to high-risk ACS symptoms; ensure clear handoff to ED team with documented vitals, workup results, and medication list.",
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk ACS symptoms (crushing chest pain, radiation to left arm, diaphoresis, nausea) and ordered appropriate workup (ECG, troponin, chest X-ray, D-dimer, BMP). Differential included life-threatening causes (ACS, aortic dissection, PE) and GERD. Rationale emphasized immediate ECG/troponin for ACS evaluation.",
+          "safety_checker_contribution": "Safety checker approved workup but flagged critical gaps: lack of immediate vitals assessment (BP asymmetry, tachycardia), need for serial troponin measurements, and respiratory distress evaluation. Recommended urgent_outpatient escalation but emphasized ED referral due to red flags (e.g., crushing chest pain, age 58, associated symptoms). Highlighted risk of missing dissection/PE without vitals.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (aspirin, metoprolol, lisinopril, atorvastatin, omeprazole) and identified interactions/contraindications (e.g., aspirin + metoprolol hypotensive effects, lisinopril renal risk). Provided dose adjustment guidance (e.g., hold metoprolol if SBP <100mmHg) and nursing concerns (e.g., monitor for bleeding, avoid NSAIDs, ensure IV access). Emphasized need for GI protection with DAPT."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790537045.5612614
+}

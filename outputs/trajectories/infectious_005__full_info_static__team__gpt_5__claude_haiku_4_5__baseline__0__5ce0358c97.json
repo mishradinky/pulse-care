@@ -1,0 +1,154 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI)",
+          "Antibiotic-associated diarrhea",
+          "Pseudomembranous colitis",
+          "Sepsis secondary to CDI"
+        ],
+        "workup_ordered": [
+          "Stool test for C. difficile toxin (already positive)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Abdominal X-ray (AXR)",
+          "Consider CT abdomen if no improvement"
+        ],
+        "management_plan": [
+          "Initiate oral vancomycin 125 mg four times daily for 10 days",
+          "Consider oral fidaxomicin if vancomycin is not tolerated",
+          "Discontinue clindamycin and any unnecessary antibiotics",
+          "Monitor fluid and electrolyte status; consider IV fluids for rehydration",
+          "Consult infectious disease specialist for severe CDI management",
+          "Consider probiotics to restore gut flora"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of dehydration due to profuse diarrhea",
+          "Electrolyte imbalance, particularly hypokalemia",
+          "Potential for colonic perforation or toxic megacolon",
+          "Sepsis risk due to high WBC and fever"
+        ],
+        "communication_note": "Patient presents with symptoms highly suggestive of Clostridioides difficile infection following recent antibiotic use. Immediate initiation of appropriate antibiotic therapy is crucial. Monitor closely for signs of complications such as toxic megacolon or sepsis. Ensure patient understands the importance of hydration and adherence to the treatment plan.",
+        "trace": {
+          "clinician_contribution": "Recognized the classic presentation of CDI post-antibiotic use and ordered confirmatory tests.",
+          "safety_checker_contribution": "Highlighted the risk of dehydration and electrolyte imbalance, emphasizing the need for close monitoring.",
+          "pharm_nurse_contribution": "Suggested the initiation of oral vancomycin and potential use of probiotics to aid recovery."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (C. diff)",
+          "Toxic megacolon secondary to C. diff",
+          "Sepsis secondary to gastrointestinal infection",
+          "Electrolyte imbalance due to diarrhea"
+        ],
+        "workup_ordered": [
+          "Stool test for C. difficile toxin",
+          "Blood cultures",
+          "Repeat complete blood count",
+          "Serum electrolytes",
+          "Lactate level",
+          "Consultation with gastroenterology"
+        ],
+        "management_plan": [
+          "Admit to hospital for close monitoring and treatment",
+          "Initiate intravenous fluids for rehydration and electrolyte correction",
+          "Start intravenous metronidazole in addition to oral vancomycin",
+          "Consider surgical consultation for potential colectomy if no improvement",
+          "Monitor vital signs and urine output closely",
+          "Initiate bowel rest and consider nasogastric decompression"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of bowel perforation due to toxic megacolon",
+          "Severe dehydration and electrolyte imbalance",
+          "Potential for septic shock"
+        ],
+        "communication_note": "Patient requires immediate hospitalization due to severe C. difficile infection with complications of toxic megacolon and potential sepsis. Coordination with gastroenterology and surgical teams is essential for comprehensive management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate escalation due to signs of toxic megacolon and potential sepsis.",
+          "safety_checker_contribution": "Highlighted the critical nature of the patient's electrolyte imbalance and dehydration.",
+          "pharm_nurse_contribution": "Recommended the addition of IV metronidazole to the treatment regimen."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection leading to toxic megacolon and colonic perforation",
+          "Sepsis secondary to gastrointestinal perforation",
+          "Acute respiratory distress syndrome (ARDS) due to sepsis"
+        ],
+        "workup_ordered": [
+          "Immediate surgical consultation for suspected perforation",
+          "CT abdomen/pelvis if patient is stable enough for transport",
+          "Blood cultures and lactate levels",
+          "Type and crossmatch for potential surgical intervention",
+          "ABG to assess respiratory status"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum IV antibiotics (e.g., piperacillin-tazobactam)",
+          "Administer IV fluids aggressively to address hypotension",
+          "Start vasopressors if hypotension persists despite fluid resuscitation",
+          "Administer supplemental oxygen and consider intubation due to respiratory distress",
+          "Prepare for potential surgical intervention for perforation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of septic shock due to gastrointestinal perforation",
+          "Respiratory failure due to ARDS",
+          "Hemodynamic instability due to severe sepsis"
+        ],
+        "communication_note": "Patient presents with signs of severe sepsis and suspected colonic perforation. Immediate surgical intervention is likely required. The patient is hemodynamically unstable with signs of respiratory distress, necessitating urgent escalation of care.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate surgical consultation and broad-spectrum antibiotics.",
+          "safety_checker_contribution": "Highlighted the risk of septic shock and respiratory failure, ensuring rapid escalation of care.",
+          "pharm_nurse_contribution": "Prepared for administration of IV antibiotics and fluids, and monitored vital signs closely."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597845.2160292
+}

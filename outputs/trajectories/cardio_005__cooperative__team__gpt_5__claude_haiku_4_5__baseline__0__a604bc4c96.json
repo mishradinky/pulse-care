@@ -1,0 +1,185 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I came in because I got back from a long flight to Tokyo five days ago, and since then I've had this sudden sharp pain in my right chest. It hurts more when I breathe, and I'm also having trouble catching my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs, or noticed any redness or warmth in your calves?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg is swollen and tender. I noticed it started a couple of days ago. The left leg looks normal by comparison. I haven't seen any redness or warmth though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumothorax",
+          "pleuritis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "D-dimer test",
+          "CT pulmonary angiography",
+          "ECG"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Initiate anticoagulation therapy if PE is confirmed.",
+          "Monitor INR levels if Warfarin is prescribed.",
+          "Educate patient on signs of DVT and PE for future prevention."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential pulmonary embolism due to recent long flight and symptoms.",
+          "Possible deep vein thrombosis indicated by leg swelling and tenderness."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to high suspicion of pulmonary embolism.",
+        "trace": {
+          "clinician_contribution": "Identified potential pulmonary embolism and deep vein thrombosis, ordered relevant diagnostic tests.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation, recommending ED referral due to the potential medical emergency.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized monitoring for bleeding if anticoagulants are prescribed."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a lot more trouble breathing now, even when I'm just sitting still. And my right leg is really hurting and feels more swollen than it did before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when these symptoms started and if anything seems to make them better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The chest pain and shortness of breath started suddenly about 5 days ago, right after I got off a long flight from Tokyo. Nothing really makes it better\u2014it's actually gotten worse since then. The pain is worse when I breathe in, and now I'm short of breath even when I'm just sitting down."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "deep vein thrombosis (DVT)",
+          "pulmonary embolism",
+          "heart failure",
+          "chronic obstructive pulmonary disease (COPD) exacerbation"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "Doppler ultrasound of the right leg",
+          "chest X-ray",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor INR levels if the patient is on Warfarin.",
+          "Avoid NSAIDs due to potential bleeding risk if anticoagulated.",
+          "Monitor electrolytes and renal function if on diuretics."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential pulmonary embolism or DVT requiring urgent evaluation.",
+          "Risk of bleeding if on anticoagulation therapy.",
+          "Worsening heart failure symptoms."
+        ],
+        "communication_note": "Patient requires immediate referral to the emergency department due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious conditions and recommended diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency department referral.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and provided guidance on monitoring and adjustments."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I almost passed out a few minutes ago, and now I can barely catch my breath. I'm really struggling to breathe right now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've experienced any chest pain, palpitations, or dizziness along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I had chest pain on the right side when I breathe in\u2014it's sharp. My heart's been racing and pounding hard. And I felt dizzy just now, like I might pass out. Everything's gotten much worse in the last little while."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "heart failure",
+          "arrhythmia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor vital signs closely, especially heart rate and blood pressure.",
+          "Avoid NSAIDs due to potential renal impairment and interaction with Lisinopril.",
+          "Consider dose adjustment of Metoprolol if bradycardia is confirmed."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Near syncope and shortness of breath could indicate serious cardiac or pulmonary conditions.",
+          "Potential for acute coronary syndrome or pulmonary embolism."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac or pulmonary issues and recommended diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended ED referral due to serious symptoms.",
+          "pharm_nurse_contribution": "Reviewed medications for potential interactions and side effects, emphasizing monitoring and dose adjustments."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507336.8486056
+}

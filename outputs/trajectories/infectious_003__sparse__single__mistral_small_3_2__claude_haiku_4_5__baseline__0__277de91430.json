@@ -1,0 +1,205 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath. Especially when I walk around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About three weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms, such as cough, fever, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I got a cough. Fever too, little bit."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with someone who has a contagious illness or traveled outside the country recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent travel. Work with lots of people though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any wheezing or wheezing sound when you breathe?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No wheezing. Just can't breathe right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "COVID-19",
+          "Asthma exacerbation",
+          "Bronchitis",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "COVID-19 PCR test",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "Start on azithromycin and amoxicillin-clavulanate for possible community-acquired pneumonia",
+          "Albuterol inhaler for bronchospasm",
+          "Oxygen therapy if needed",
+          "Follow-up in 48 hours"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential respiratory infection with systemic symptoms",
+          "Risk of worsening respiratory status"
+        ],
+        "communication_note": "We need to run some tests to figure out what's causing your breathing problems and fever."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing's worse. Even sitting down now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these breathing difficulties?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About three weeks now. Worse the last few days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any fever, cough, or chest pain along with the breathing difficulties?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, cough and fever. No chest pain though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "Bronchitis",
+          "Asthma exacerbation"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "C-reactive protein (CRP)"
+        ],
+        "management_plan": [
+          "Start empiric antibiotics for suspected pneumonia",
+          "Prescribe bronchodilators if asthma is suspected",
+          "Recommend rest, hydration, and over-the-counter fever reducers"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential respiratory infection that may require urgent treatment"
+        ],
+        "communication_note": "Based on your symptoms, I suspect you may have a respiratory infection and will order some tests to confirm. I'll start you on antibiotics and other medications to help manage your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Need air."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "Asthma exacerbation",
+          "Pulmonary embolism",
+          "COPD exacerbation",
+          "Anxiety-induced hyperventilation"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Arterial blood gas (ABG)",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Administer oxygen therapy as needed",
+          "Start empiric antibiotics if pneumonia is suspected",
+          "Administer bronchodilators if asthma or COPD is suspected",
+          "Consider anticoagulation if pulmonary embolism is suspected",
+          "Provide anxiolytic medication if anxiety-induced hyperventilation is suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Respiratory failure",
+          "Hypoxemia",
+          "Cardiac complications"
+        ],
+        "communication_note": "Your breathing difficulties are concerning, and you need immediate medical attention."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508294.2899063
+}

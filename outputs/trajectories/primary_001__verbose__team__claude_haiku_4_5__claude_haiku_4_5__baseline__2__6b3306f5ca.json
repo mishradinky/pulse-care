@@ -1,0 +1,224 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "claude-haiku-4-5-20251001",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "primary_care",
+    "demographics": {
+      "age": 45,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh, thank goodness you're here, doctor. I've been so worried about this thing on my foot. You know, my mother had diabetes too, and she was always so careful about her feet\u2014she'd check them every night before bed. Anyway, about two weeks ago I noticed this sore spot on the bottom of my right foot, right where I push off when I walk. The weird thing is, it doesn't really hurt, which is strange because usually when I get a cut or something it bothers me for days. My coworker said I should come in right away, especially with my blood sugar being all over the place lately. I've been so stressed at work\u2014we're short-staffed and I've been eating worse than usual. But anyway, yes, this wound on my foot has just been sitting there, not getting better, and there's some redness around it. I'm really hoping it's nothing serious."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm glad you came in\u2014foot wounds need careful attention, especially with your family history. Let me ask a few more things: Do you have a diagnosis of diabetes, or are you just noticing your blood sugar has been high lately? And have you noticed any drainage, warmth, swelling, or spreading of the redness around the sore?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh yes, I've had diabetes for quite a few years now\u2014my mother had it too, actually started when she was in her fifties. Mine came on a bit earlier, I guess. Anyway, I take those pills for it, metformin and the other one... glipizide, I think? My doctor checks it regularly. As for the sore itself, well, you know, I was at work last week\u2014I work in accounting, very stressful with year-end coming up\u2014and I noticed the area around it does look a bit red, maybe an inch or so around the actual wound. I haven't seen any drainage or anything oozing out, thank goodness. It doesn't feel warm when I touch it, but honestly I'm not sure I'd notice because that whole foot has felt kind of numb for a while now. No real swelling that I can see. The redness hasn't been spreading that I've noticed, but I've only been checking it for a couple weeks since I found it."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer (neuropathic) \u2014 MOST LIKELY given: established diabetes on metformin/glipizide, painless wound, chronic foot numbness, location at pressure point (metatarsal head), 2-week duration without healing",
+          "Cellulitis or early soft-tissue infection \u2014 LOWER probability: no drainage, no warmth on exam, no spreading erythema, no systemic symptoms; however, neuropathy may mask early signs",
+          "Plantar callus with breakdown \u2014 possible but less likely given neuropathy and non-healing course",
+          "Pressure ulcer/metatarsal head ulceration \u2014 consistent with presentation",
+          "Non-diabetic traumatic wound with delayed healing \u2014 ruled out by confirmed diabetes diagnosis"
+        ],
+        "workup_ordered": [
+          "STAT labs: HbA1c, fasting glucose, BMP (creatinine/eGFR), CBC (infection screen)",
+          "Foot X-ray (AP, lateral, oblique) to assess for underlying osteomyelitis, foreign body, or bone involvement",
+          "Wound culture if any drainage becomes apparent or if clinical suspicion for infection rises",
+          "Consider MRI foot if X-ray shows bony changes or if clinical concern for deep space infection/necrotizing process"
+        ],
+        "management_plan": [
+          "CONFIRM current diabetes regimen (metformin + glipizide dosing, adherence, last HbA1c value) and glycemic targets; consider endocrine co-management if HbA1c significantly elevated",
+          "Obtain complete medication reconciliation (OTC, supplements, herbals) and allergy history before any new prescriptions",
+          "Wound care: sterile dressing with appropriate moisture balance; assess for need of offloading device (diabetic shoe, orthotic, or pressure-relief insole) to prevent recurrence and allow healing",
+          "Prescribe: topical wound care agent (e.g., hydrogel or collagen dressing) pending infection workup; hold systemic antibiotics pending culture/imaging unless signs of infection emerge",
+          "CRITICAL patient education: daily foot self-inspection (given neuropathy), proper footwear, recognition of infection warning signs (spreading erythema, purulent drainage, fever, systemic symptoms, increased pain), importance of glycemic control",
+          "Schedule follow-up in 1\u20132 weeks to review labs and imaging; sooner if any signs of infection develop"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Established diabetes + painless foot wound + chronic neuropathy = HIGH RISK for occult depth, infection, and rapid progression to limb-threatening complications if infection present",
+          "Patient's neuropathy may mask early signs of infection (warmth, pain); clinical vigilance required",
+          "CONTINGENCY: If labs reveal HbA1c >10%, acute hyperglycemia, or imaging shows osteomyelitis/deep involvement \u2192 escalate to URGENT_OUTPATIENT or ED_REFERRAL same-day for surgical evaluation and possible IV antibiotics",
+          "CONTINGENCY: If patient develops ANY drainage, spreading erythema, fever, or systemic symptoms before follow-up \u2192 ED referral same-day"
+        ],
+        "communication_note": "Patient has confirmed diabetes on metformin/glipizide with neuropathy and a painless, non-healing foot ulcer at high risk for infection; proceed with labs, imaging, and wound care while maintaining low threshold for escalation if infection signs emerge.",
+        "trace": {
+          "clinician_contribution": "Appropriately clarified diabetes status (confirmed), assessed for infection signs (no drainage, no warmth, no spreading erythema, no swelling), and identified neuropathy as key risk factor. Differential correctly prioritizes neuropathic ulceration. Workup plan (labs, imaging) is well-reasoned and risk-aware.",
+          "safety_checker_contribution": "Validated clinician's approach as appropriate and risk-aware. Identified critical red flags: painless wound + established diabetes + neuropathy = high risk for occult infection and rapid progression. Provided clear contingency escalation triggers (ANY infection signs, HbA1c >10%, imaging findings of osteomyelitis) and emphasized need for labs and imaging before discharge.",
+          "pharm_nurse_contribution": "Flagged need for complete medication reconciliation and allergy history before prescribing. Emphasized baseline renal function assessment (creatinine/eGFR) before any nephrotoxic agents. Provided critical nursing assessment: diabetic neuropathy screening, daily foot inspection education, wound care technique (sterile dressing, offloading device), and patient education on infection warning signs and glycemic control. Identified need for HbA1c, glucose, BMP, CBC, and possible wound culture."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh doctor, I'm so glad you're here. You know, I was just telling my sister on the phone this morning\u2014she lives up in Connecticut now, we hardly see each other\u2014anyway, I was saying how worried I am. That sore on my foot, the one I mentioned last time? Well, it's gotten so much worse. It looks bigger now, maybe twice the size, and there's this awful smell coming from it. I don't know what that means, but it's really scaring me. My daughter said I should have come in sooner, and she's probably right. I've been limping around the house, can barely get my work done. The redness around it has spread too, it's going further up my foot now. I'm really frightened about what's happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this wound better. Can you tell me: when did you first notice this sore, have you had any fever or chills, is there any drainage from it, and do you have diabetes or any problems with circulation in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh boy, where do I start? You know, my sister just called me yesterday about her garden\u2014she's growing tomatoes this year, can you believe it?\u2014anyway, that's not important. So this sore on my foot, I first noticed it maybe two weeks ago now, could be a little longer, I wasn't really keeping track at first because, well, I couldn't feel it hurting, which was strange. As for fever, I don't think so, but I've been feeling a bit warm lately, though that could be the stress from work\u2014my boss has been on my case all month. And yes, there's definitely some drainage coming out of it now, which really worried me, that's why I'm here. Oh, and yes, I do have diabetes\u2014I've had it for years, been taking my pills. My legs feel okay mostly, though my feet have been numb and tingly for a while now, especially at night. The sore just keeps getting worse instead of better."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Infected diabetic foot ulcer with cellulitis (MOST LIKELY)",
+          "Diabetic foot ulcer with abscess formation",
+          "Osteomyelitis (chronic/deep infection\u2014must rule out)",
+          "Polymicrobial/anaerobic infection (malodorous drainage is classic)",
+          "Diabetic neuropathic ulcer with superinfection"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (temperature, HR, BP, RR) to assess for sepsis",
+          "Complete physical exam: wound inspection (size, depth, drainage character), surrounding erythema extent, pedal pulses (DP/PT bilaterally), capillary refill, skin temperature, hair loss",
+          "Labs: CBC with differential (WBC), CMP (renal function for antibiotic dosing), blood cultures if febrile",
+          "Imaging: Foot X-ray (AP, lateral, oblique) to assess for gas, bone involvement, foreign body; MRI if osteomyelitis suspected after X-ray",
+          "Medication reconciliation: allergy history (\u03b2-lactams, fluoroquinolones), current diabetes meds, OTC analgesics/topicals, compliance assessment",
+          "Glucose/HbA1c if not recent (assess glycemic control\u2014major factor in infection risk and healing)"
+        ],
+        "management_plan": [
+          "DO NOT proceed with phone/video assessment alone\u2014patient requires SAME-DAY IN-PERSON evaluation \u00b1 imaging",
+          "If vitals stable (afebrile, normotensive, HR <100): urgent outpatient wound care clinic or ED observation with imaging and empiric antibiotics",
+          "If vitals abnormal (fever \u226538.5\u00b0C, tachycardia, hypotension, altered mental status): ED referral or 911 for possible sepsis workup and IV antibiotics",
+          "Empiric antibiotic coverage (pending culture): broad-spectrum to cover Staph, Strep, anaerobes (e.g., amoxicillin-clavulanate or fluoroquinolone + clindamycin; adjust for renal function and allergies)",
+          "Wound care: gentle debridement, drainage assessment, sterile dressing, offloading/elevation instructions",
+          "Diabetes optimization: reinforce medication adherence, glucose monitoring, foot care education",
+          "Pain management: clarify current analgesic use; avoid NSAIDs if renal impairment present",
+          "Follow-up: wound reassessment in 24\u201348 hours; escalate if worsening despite antibiotics"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Vital signs NOT YET OBTAINED\u2014fever/tachycardia/hypotension would mandate ED referral or 911, not outpatient-only pathway",
+          "CRITICAL: Malodorous drainage + rapidly enlarging erythema + functional impairment = presumptive cellulitis/abscess; phone/video assessment is insufficient",
+          "Diabetic neuropathy (reported numbness/tingling) + inability to feel initial sore = high risk for deep/chronic infection and osteomyelitis; imaging mandatory",
+          "No documented allergy history\u2014cannot safely prescribe antibiotics without penicillin/cephalosporin/fluoroquinolone allergy screening",
+          "Diabetes duration and glycemic control unknown\u2014poor control accelerates infection progression and impairs healing",
+          "Workup array was empty in clinician output\u2014labs and imaging pathway must be explicitly ordered before disposition"
+        ],
+        "communication_note": "45-year-old woman with 2-week history of rapidly enlarging, malodorous diabetic foot ulcer with spreading cellulitis, neuropathy, and functional impairment requires urgent same-day in-person evaluation with vital signs, wound exam, labs (CBC, CMP, blood cultures if febrile), and imaging (X-ray \u00b1 MRI) to rule out osteomyelitis and sepsis before antibiotic initiation.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified red flags (rapid progression, malodor, spreading erythema, functional impact) and formulated targeted history questions (timeline, fever, drainage, diabetes, circulation). Differential diagnosis is sound. HOWEVER: workup array is empty, no vital signs ordered, and no explicit escalation decision documented. Clinician's questions must be paired with immediate disposition and imaging orders.",
+          "safety_checker_contribution": "Safety checker correctly flagged CRITICAL gaps: (1) vital signs not obtained\u2014cannot rule out sepsis; (2) malodorous + spreading erythema = presumptive cellulitis requiring same-day in-person evaluation, not phone/video; (3) osteomyelitis in differential but no imaging ordered; (4) no documented antibiotic plan or escalation threshold. Recommended urgent_outpatient|ed_referral with blocking concerns for vital signs and imaging. This escalation is appropriate and must be enforced.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication reconciliation gaps (no allergy history, no current med list, no renal function for dosing) and nursing assessment priorities (sepsis signs, wound characteristics, vascular exam, diabetes screening, pain/functional status). Flagged NSAID contraindication in diabetes/CKD and need for HbA1c. These inputs are essential for safe antibiotic selection and wound care planning post-escalation."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank goodness you're here, doctor. I've been so worried I could barely sleep last night. You know, my sister called me this morning asking about my work stress\u2014I've been dealing with this awful project deadline\u2014but honestly that's the least of my worries right now. My foot is just... it's very red and swollen, much worse than when I was here before, and I woke up this morning with a fever. I could feel the heat radiating off my skin. I've never had this happen before with the foot thing, and I'm really scared something serious is going on. The whole foot feels hot to the touch and it's throbbing now, which is different because remember I said it didn't hurt before? Now it really does."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When you were here before, what did we find or discuss about your foot? And can you tell me\u2014is the redness spreading, or staying in one area? Also, any breaks in the skin, cuts, or recent injuries to that foot?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh gosh, you know, it's been such a stressful couple weeks\u2014my boss has been on me about deadlines, and I haven't been sleeping well. But anyway, when I came in last time, I remember you looked at my foot and said something about the wound, and we talked about keeping it clean and dry, I think? I'm honestly fuzzy on the details because I was worried the whole time. But now\u2014and this is what's really scaring me\u2014the redness, it's not staying put anymore. It's spreading up my foot, getting bigger, and the whole thing is swollen and hot to the touch. As for cuts, well, I found that first wound on the bottom of my foot about two weeks ago, just this sore spot I didn't even feel at first because, you know, my feet have been numb for years with my diabetes. I don't remember bumping it or cutting it\u2014it just kind of appeared. But now there's definitely an open area there, and honestly, it looks worse than before."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot infection with cellulitis (PRIMARY - spreading erythema, fever, warmth, open wound, neuropathy history)",
+          "Acute gout or inflammatory arthritis",
+          "Erysipelas",
+          "DVT with secondary infection",
+          "Abscess or localized deep infection"
+        ],
+        "workup_ordered": [
+          "STAT vital signs including core temperature (fever threshold >38.5\u00b0C triggers blood cultures)",
+          "Detailed foot exam: demarcation of erythema, warmth, fluctuance, assessment of open wound, skin integrity",
+          "CBC with differential, CMP (renal/liver function for antibiotic dosing), ESR/CRP",
+          "Blood cultures if febrile (draw BEFORE antibiotics)",
+          "Wound culture if purulent drainage present",
+          "Lower extremity ultrasound or MRI same-day if concern for deep abscess or if any calf swelling/asymmetry (DVT rule-out)",
+          "HbA1c if not recent (diabetes severity assessment)",
+          "Tetanus status review"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Complete medication reconciliation (allergies, current meds, recent antibiotics, NSAIDs, cardiac/QT agents)",
+          "IMMEDIATE: Obtain prior visit records to assess recurrence pattern and prior organism/resistance",
+          "If febrile AND cellulitis confirmed: initiate empiric IV antibiotics same-day (pending culture; typical: cephalosporin or fluoroquinolone depending on allergy history and renal function)",
+          "If afebrile but spreading cellulitis: oral antibiotics with close 24-48hr follow-up",
+          "Pain management: acetaminophen preferred; AVOID NSAIDs (mask progression, worsen swelling in acute cellulitis)",
+          "Wound care: assess for debridement need; ensure sterile dressing if open area",
+          "Diabetes optimization: review glucose control, foot care education, neuropathy assessment",
+          "Clear return precautions: spreading redness, fever >39\u00b0C, inability to bear weight, systemic symptoms \u2192 ED referral"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL TIMING: Patient is febrile with spreading cellulitis and open diabetic foot wound\u2014this is NOT routine outpatient. Vital signs and physical exam must occur immediately; blood cultures if temp >38.5\u00b0C must be drawn BEFORE antibiotics.",
+          "DVT RISK: Differential includes DVT; any asymmetric calf swelling, calf tenderness, or unilateral leg edema requires same-day lower extremity ultrasound. If present, escalate to ED.",
+          "DIABETIC FOOT INFECTION: Neuropathy + open wound + spreading infection = high risk for rapid progression to osteomyelitis or sepsis. Same-day imaging (ultrasound/MRI) needed to assess depth of infection.",
+          "PRIOR INFECTION HISTORY: Patient reports 'wound' discussed at prior visit but is 'fuzzy on details'\u2014obtain prior records immediately to determine if this is recurrence, inadequate treatment, or resistant organism.",
+          "MEDICATION/ALLERGY GAPS: No current medication list documented; allergy history unknown. Cannot initiate antibiotics safely without complete reconciliation.",
+          "DISPOSITION CLARITY: Plan must specify whether patient receives same-day labs/imaging in-office or requires ED referral for IV antibiotics and imaging access."
+        ],
+        "communication_note": "45-year-old female with diabetes, neuropathy, and open foot wound now presenting with fever, spreading cellulitis, and systemic symptoms\u2014requires urgent same-day evaluation with immediate vitals, labs, cultures, and imaging; escalate to ED if febrile or if DVT signs present.",
+        "trace": {
+          "clinician_contribution": "Appropriately identified acute infection concern and requested targeted history (prior visit context, progression pattern, skin breaks). Differential and workup are comprehensive and correctly prioritize cellulitis, DVT, and abscess. However, proposal frames this as extended questioning rather than urgent assessment\u2014safety checker correctly flagged that vitals and physical exam must precede extended history.",
+          "safety_checker_contribution": "Critical escalation: flagged that fever + erythema + warmth + swelling + DVT in differential = urgent_outpatient minimum, not routine. Identified blocking concerns: (1) TIMING\u2014vitals first, then history; (2) DVT RISK\u2014imaging same-day, not deferred; (3) BLOOD CULTURE TIMING\u2014must draw before antibiotics if febrile; (4) MISSING DISPOSITION\u2014unclear if in-office or ED. Coordinator adopts urgent_outpatient with same-day imaging contingency.",
+          "pharm_nurse_contribution": "Identified critical gaps: (1) NO MEDICATION LIST\u2014obtain before any treatment; (2) ALLERGY HISTORY UNKNOWN\u2014essential before empiric antibiotic selection; (3) DIABETIC STATUS CONFIRMED\u2014increases infection risk; (4) PRIOR FOOT ISSUE\u2014obtain records to assess recurrence/resistance; (5) NSAID CONTRAINDICATION\u2014use acetaminophen only; (6) RENAL/LIVER FUNCTION PENDING\u2014needed for antibiotic dosing; (7) WOUND CULTURE if purulent; (8) TETANUS STATUS. Coordinator incorporates all into medication reconciliation and workup sequencing."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790536464.1871023
+}

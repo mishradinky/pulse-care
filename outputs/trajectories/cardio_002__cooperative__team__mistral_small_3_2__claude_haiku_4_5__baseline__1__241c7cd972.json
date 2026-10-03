@@ -1,0 +1,216 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 70,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. I've been having trouble catching my breath, especially when I move around. It started about three days ago and it's getting worse. I can barely walk across the room without feeling like I can't breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the breathlessness in more detail? For example, is it worse when lying flat, or do you notice any swelling in your legs? Have you had any chest pain or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, it's definitely worse when I lie down flat\u2014I've been sleeping on extra pillows. My legs have been swollen, especially by evening. No chest pain, but I do feel a bit dizzy when I stand up quickly. It's been getting worse over the last few days."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute heart failure exacerbation (most likely given orthopnea, leg swelling, and age)",
+          "Pulmonary embolism (less likely but possible given acute dyspnea and dizziness)",
+          "Pneumonia or acute bronchitis (possible but less supported by absence of fever/cough)",
+          "Anemia or systemic causes (less likely without systemic symptoms or pallor)"
+        ],
+        "workup_ordered": [
+          "Vital signs including oxygen saturation",
+          "Cardiac exam (JVD, murmurs, S3 gallop)",
+          "Lung exam (crackles, wheezing)",
+          "Basic labs (CBC, BMP, BNP, troponin)",
+          "Chest X-ray",
+          "ECG",
+          "Echocardiogram (if available) to assess cardiac function"
+        ],
+        "management_plan": [
+          "Start or adjust diuretic therapy: Consider IV furosemide 40-80mg if persistent volume overload (monitor BMP for electrolyte imbalances)",
+          "Hold lisinopril if SBP <100 mmHg or SCr >2.5 mg/dL (monitor closely)",
+          "Hold metoprolol if HR <50 bpm or new AV block on ECG",
+          "Monitor strict I/O and daily weights for fluid balance",
+          "Educate patient on low-sodium diet and fluid restriction (1.5-2L/day)",
+          "Arrange urgent outpatient follow-up within 48 hours for reassessment and further management",
+          "Provide patient with clear instructions on when to seek emergency care (e.g., worsening dyspnea, chest pain, syncope)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of hypotension and renal dysfunction with lisinopril + furosemide (monitor BMP closely)",
+          "Potential masking of compensatory tachycardia by metoprolol (hold if hypotensive/bradycardic)",
+          "Risk of hyperkalemia with lisinopril (monitor BMP)",
+          "Contraindicated NSAIDs (educate patient to avoid OTC NSAIDs)",
+          "Risk of digoxin toxicity if patient is on digoxin (not listed but common in HF; monitor if applicable)"
+        ],
+        "communication_note": "Patient should be educated on red flags (e.g., worsening dyspnea, chest pain, syncope) requiring immediate medical attention.",
+        "trace": {
+          "clinician_contribution": "Clinician identified key differentials (acute HF exacerbation, PE, pneumonia, anemia) and proposed a comprehensive workup (vitals, cardiac/pulmonary exams, labs, imaging) to distinguish cardiac vs. pulmonary causes of dyspnea. Rationale emphasized urgent evaluation for cardiopulmonary etiologies in an older adult.",
+          "safety_checker_contribution": "Safety checker approved the proposed workup as appropriate and identified no immediate red flags (e.g., hypoxia, chest pain, hemodynamic instability). Recommended escalation to urgent outpatient setting for further management.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications and identified critical issues: possible underdosing of furosemide for acute HF (suggested IV route if volume overload persists), risk of hypotension/renal dysfunction with lisinopril + furosemide, and potential masking of tachycardia by metoprolol. Provided dose adjustments (e.g., hold lisinopril if SBP <100 mmHg, consider IV furosemide) and nursing concerns (e.g., monitor I/O, orthostatic hypotension, low-sodium diet)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still very short of breath, even worse than before. And I've gained more weight\u2014I don't understand why, I've been trying to watch what I eat."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How many pillows do you use to sleep at night? Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm using three pillows now to prop myself up at night. As for swelling, I haven't really noticed any in my legs or ankles, no."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient has orthopnea (3 pillows) and weight gain, warranting urgent evaluation for decompensated heart failure with medication optimization and dietary counseling.",
+        "differential_diagnosis": [
+          "Worsening heart failure (HFpEF or HFrEF)",
+          "Fluid overload from dietary indiscretion or medication non-adherence",
+          "Pulmonary embolism",
+          "Pneumonia or other infection"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Increase furosemide to 80 mg PO daily or add metolazone 2.5 mg PO daily if edema persists/refractory",
+          "Monitor BMP closely for hyperkalemia or worsening renal function with lisinopril dose adjustments",
+          "Educate patient on low-sodium diet (1.5\u20132 L/day fluid restriction) and daily weight monitoring (>2 lbs/day gain to report)",
+          "Reassess metoprolol tartrate dose for HR/BP control once euvolemic",
+          "Ensure no OTC NSAID use; reinforce bleeding risk with apixaban",
+          "Schedule follow-up within 1 week for repeat BNP/NT-proBNP and echocardiogram"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Age 70 with dyspnea and weight gain is high-risk for decompensated heart failure",
+          "Possible underdosing of diuretic (furosemide 40 mg daily) given 3 lbs weight gain in 1 week and orthopnea",
+          "Risk of hyperkalemia or renal dysfunction with lisinopril/furosemide combination",
+          "Potential for drug interactions (e.g., apixaban + omeprazole) and bleeding risk",
+          "Need for strict dietary adherence to prevent further fluid overload"
+        ],
+        "trace": {
+          "clinician_contribution": "Identified key symptoms (orthopnea, weight gain) and ordered appropriate workup (BNP, echo, CXR, BMP, D-dimer if PE suspected) to evaluate for decompensated heart failure, PE, or pneumonia.",
+          "pharm_nurse_contribution": "Reviewed medications (furosemide underdosed, lisinopril/metoprolol need reassessment, apixaban interactions) and provided dose adjustment recommendations (increase furosemide to 80 mg or add metolazone) and nursing concerns (daily weights, orthostatic hypotension, OTC NSAID avoidance).",
+          "safety_checker_contribution": "Approved workup and escalation to urgent outpatient with red flags identified (age 70, dyspnea, weight gain) and blocking concerns addressed (no immediate red flags blocking NT-proBNP/echo; D-dimer only if PE suspicion persists)."
+        },
+        "workup_ordered": [
+          "BNP or NT-proBNP",
+          "Transthoracic echocardiogram",
+          "Chest X-ray",
+          "Basic metabolic panel (including renal function)",
+          "D-dimer (if PE suspicion remains after initial workup)"
+        ]
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I can't breathe when I lie down. I've been using five pillows to sleep and I'm still struggling. I'm really scared right now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this difficulty breathing when lying down? Have you noticed any swelling in your legs or feet, or any chest pain or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The breathing problem lying down started about three days ago, and it's gotten worse. I need five pillows now just to sleep. I haven't noticed swelling in my legs or feet, but I do feel my heart racing and sometimes it feels irregular. No chest pain though."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient presents with acute orthopnea, palpitations, and paroxysmal nocturnal dyspnea requiring urgent evaluation for possible decompensated heart failure.",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure (ADHF) with possible systolic/diastolic dysfunction",
+          "Pulmonary edema secondary to fluid overload",
+          "Arrhythmia (e.g., atrial fibrillation) contributing to symptoms",
+          "Chronic obstructive pulmonary disease (COPD) exacerbation",
+          "Obstructive sleep apnea"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Initiate or optimize diuresis with furosemide (consider increasing to 80 mg PO BID if no response in 24\u201348 hours; adjust for renal function)",
+          "Monitor daily weights and fluid intake/output to guide diuretic therapy",
+          "Optimize guideline-directed medical therapy for heart failure (e.g., titrate metoprolol succinate to target dose or switch to carvedilol; monitor renal function and electrolytes with lisinopril)",
+          "Arrange urgent outpatient cardiology follow-up within 48\u201372 hours for echocardiogram and further evaluation",
+          "Educate patient on fluid restriction (1.5\u20132 L/day) and signs of worsening heart failure (e.g., increased dyspnea, weight gain >2 lbs/day)",
+          "Avoid NSAIDs and monitor for orthostatic hypotension, hyperkalemia, and renal impairment"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Risk of rapid deterioration if ADHF is present (e.g., pulmonary edema, cardiogenic shock)",
+          "Potential for arrhythmia (e.g., atrial fibrillation) causing palpitations and hemodynamic instability",
+          "Medication-related risks: hypotension with ACEi/beta-blocker/diuretic combination, hyperkalemia with ACEi, renal impairment with diuretics",
+          "Contraindicated NSAID use could exacerbate fluid retention and renal dysfunction"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician performed focused history (orthopnea duration, leg swelling, chest pain/palpitations) and developed a comprehensive differential diagnosis prioritizing ADHF. Ordered vital signs, physical exam (JVD, lung/cardiac auscultation, peripheral edema), labs (CBC, BMP, BNP, troponin), imaging (CXR, echocardiogram), and ECG to evaluate for heart failure, ischemia, or arrhythmia.",
+          "pharm_nurse_contribution": "Reviewed current medications (furosemide, lisinopril, metoprolol tartrate, aspirin, atorvastatin) and identified potential issues: underdosing of diuretic for suspected ADHF, suboptimal beta-blocker dosing, and medication interaction risks (e.g., furosemide + lisinopril causing hypotension/renal impairment). Recommended dose adjustments (e.g., furosemide 80 mg PO BID, consider metolazone if refractory edema), monitoring for orthostatic hypotension, hyperkalemia, and renal function, and patient education on fluid restriction and daily weights.",
+          "safety_checker_contribution": "Identified orthopnea in a 70-year-old as a high-risk symptom for ADHF requiring urgent evaluation. Flagged chest pain/palpitations as potential time-sensitive emergencies (e.g., acute coronary syndrome, arrhythmia). Recommended escalation to urgent outpatient care with clear red flags for ED referral (e.g., severe dyspnea at rest, syncope, chest pain with diaphoresis). Highlighted the need for immediate stabilization if ADHF or acute coronary syndrome is confirmed."
+        },
+        "workup_ordered": [
+          "Vital signs (BP, HR, SpO2, respiratory rate)",
+          "Physical exam: Jugular venous distension (JVD), lung auscultation (crackles), cardiac exam (S3 gallop), peripheral edema",
+          "Basic labs: CBC, BMP (including electrolytes, BUN/Cr), BNP, troponin",
+          "Imaging: Chest X-ray (pulmonary edema, cardiomegaly), echocardiogram (if available)",
+          "ECG (ischemia, arrhythmia, LVH)",
+          "Daily weights and fluid intake/output monitoring"
+        ]
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790541414.3496497
+}

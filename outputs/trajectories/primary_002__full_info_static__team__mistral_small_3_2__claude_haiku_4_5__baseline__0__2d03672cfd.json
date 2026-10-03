@@ -1,0 +1,149 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage",
+          "Meningitis",
+          "Intracranial aneurysm rupture",
+          "Hypertensive emergency"
+        ],
+        "workup_ordered": [
+          "CT head without contrast",
+          "Lumbar puncture",
+          "CBC and BMP",
+          "Blood cultures if infection suspected"
+        ],
+        "management_plan": [
+          "Administer IV fluids",
+          "Start antihypertensive therapy if indicated",
+          "Administer analgesics as needed",
+          "Monitor for neurological changes",
+          "Consult neurology and neurosurgery"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of intracranial hemorrhage",
+          "Potential for neurological deterioration",
+          "Hypertensive crisis"
+        ],
+        "communication_note": "Patient presents with thunderclap headache, nuchal rigidity, and family history of intracranial aneurysm. CT head is equivocal for subarachnoid hemorrhage. Lumbar puncture shows xanthochromia and elevated RBCs. Immediate neurology and neurosurgery consultation required. Patient should be transferred to the emergency department for further evaluation and management.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and initiated management plan.",
+          "safety_checker_contribution": "Identified high-risk features and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Prepared medications and monitored patient for adverse reactions."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage due to ruptured aneurysm",
+          "Meningitis",
+          "Migraine",
+          "Intracranial hemorrhage",
+          "Takotsubo cardiomyopathy"
+        ],
+        "workup_ordered": [
+          "CTA of the head",
+          "Lumbar puncture (if CTA is negative)",
+          "Troponin levels",
+          "ECG",
+          "CBC, electrolytes, renal function"
+        ],
+        "management_plan": [
+          "Administer analgesics for pain management",
+          "Monitor vital signs closely, especially blood pressure",
+          "Prepare for possible neurosurgical consultation",
+          "Cardiology consultation for suspected Takotsubo cardiomyopathy",
+          "IV fluids and blood pressure management as needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of aneurysm re-rupture",
+          "Potential for cardiovascular complications due to Takotsubo cardiomyopathy",
+          "Neurological deterioration"
+        ],
+        "communication_note": "Patient has a confirmed 5mm anterior communicating artery aneurysm with surrounding subarachnoid hemorrhage. Immediate neurosurgical consultation is required. Cardiology should be involved for management of Takotsubo cardiomyopathy. Patient's family history of intracranial aneurysm is notable.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered CTA, noted persistent neck stiffness and vomiting",
+          "safety_checker_contribution": "Identified high-risk features requiring emergency escalation",
+          "pharm_nurse_contribution": "Administered pain medication, monitored vital signs"
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage with rebleed and transtentorial herniation",
+          "Intracranial aneurysm rupture",
+          "Intracranial hypertension"
+        ],
+        "workup_ordered": [
+          "Emergency CT head without contrast",
+          "CT angiography of head and neck",
+          "Neurological consultation",
+          "Emergency neurosurgical consultation"
+        ],
+        "management_plan": [
+          "Immediate stabilization and airway protection",
+          "Blood pressure control with IV labetalol or nicardipine",
+          "Seizure prophylaxis with IV levetiracetam",
+          "Osmotic diuresis with IV mannitol for cerebral edema",
+          "Preparation for emergency neurosurgical intervention"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Impending cerebral herniation",
+          "Seizure risk",
+          "Respiratory compromise due to neurological deterioration"
+        ],
+        "communication_note": "Immediate neurosurgical consultation required. Patient at high risk of herniation and requires urgent intervention.",
+        "trace": {
+          "clinician_contribution": "Assessed neurological status and ordered initial imaging and medications.",
+          "safety_checker_contribution": "Identified high-risk features for cerebral herniation and seizure.",
+          "pharm_nurse_contribution": "Prepared and administered IV medications for blood pressure control and seizure prophylaxis."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597917.4021697
+}

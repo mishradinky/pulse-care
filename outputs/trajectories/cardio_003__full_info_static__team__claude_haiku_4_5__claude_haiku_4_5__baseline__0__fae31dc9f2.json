@@ -1,0 +1,183 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 1,
+        "escalation_level": "ed_referral",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response (RVR) \u2014 PRIMARY, confirmed on ECG",
+          "Alcohol-induced arrhythmia (holiday heart syndrome) \u2014 precipitant identified",
+          "Acute coronary syndrome \u2014 must rule out (troponin protocol)",
+          "Thyroid dysfunction \u2014 low probability (TSH normal), but confirm",
+          "Underlying structural heart disease \u2014 mild LA enlargement noted on echo"
+        ],
+        "workup_ordered": [
+          "STAT: Serial troponin (0, 3, 6 hours) \u2014 ACS rule-out protocol",
+          "STAT: Continuous cardiac telemetry monitoring",
+          "STAT: IV access and acute rate control initiation (IV diltiazem or IV metoprolol per ED protocol)",
+          "STAT: Repeat BMP with focus on K+, Mg2+ (repletion if low)",
+          "STAT: LFTs (AST, ALT, bilirubin, albumin) \u2014 assess for alcohol-related hepatic impairment",
+          "STAT: Baseline INR and renal function (eGFR) \u2014 anticoagulation planning",
+          "Confirm TSH (already normal, but document)",
+          "Transthoracic echocardiogram (already completed \u2014 mild LA enlargement, EF 55%)",
+          "Chest X-ray (assess for pulmonary/structural causes)",
+          "Calculate CHA2DS2-VASc and HAS-BLED scores \u2014 anticoagulation decision"
+        ],
+        "management_plan": [
+          "IMMEDIATE (ED-level care): Establish IV access, place on continuous cardiac monitoring, obtain serial troponin per ACS protocol",
+          "ACUTE RATE CONTROL: Initiate IV rate-limiting agent (IV diltiazem 0.25 mg/kg or IV metoprolol 5 mg IV q5min \u00d7 3 doses) targeting HR <110 bpm and hemodynamic stability; transition to PO beta-blocker or non-dihydropyridine CCB once stable",
+          "ANTICOAGULATION: Calculate CHA2DS2-VASc (age 62 = 1 pt; HTN = 1 pt; likely score \u22652). If no contraindications, initiate anticoagulation urgently (consider LMWH bridge or direct DOAC per protocol) within 24 hours of ED arrival; assess HAS-BLED for bleeding risk",
+          "ELECTROLYTE REPLETION: If K+ <3.5 or Mg2+ <2.0, repleted acutely (critical for arrhythmia control and rate-control efficacy)",
+          "ALCOHOL ASSESSMENT: Screen for alcohol withdrawal (CIWA protocol if admitted); refer to addiction medicine and social work for counseling, relapse prevention, and outpatient follow-up",
+          "MEDICATION RECONCILIATION: Confirm home lisinopril 5 mg; assess for drug interactions with rate-control and anticoagulation agents; counsel on strict adherence",
+          "DISCHARGE PLANNING: Cardiology follow-up (1\u20132 weeks), primary care follow-up (1 week), addiction medicine referral, written AFib education, medication list, and signs/symptoms of bleeding or recurrent arrhythmia"
+        ],
+        "safety_concerns": [
+          "ACUTE HEMODYNAMIC INSTABILITY RISK: AFib with RVR (HR 112) + mild structural disease (LA enlargement, EF 55%) requires IMMEDIATE rate control \u2014 not outpatient questioning. Patient needs ED-level monitoring and IV rate-control agent.",
+          "ACUTE CORONARY SYNDROME: Troponin + ECG changes + palpitations + dyspnea = active ACS rule-out protocol required (serial troponin, continuous monitoring, not passive assessment).",
+          "ANTICOAGULATION URGENCY: New-onset AFib carries immediate stroke risk. CHA2DS2-VASc score likely \u22652 (age + HTN); anticoagulation decision and initiation must occur within 24 hours of ED arrival.",
+          "ELECTROLYTE REPLETION DEFERRED: Proposal said 'confirm' K+/Mg2+ but did NOT address acute repletion if low \u2014 critical for rate control and arrhythmia suppression.",
+          "ALCOHOL WITHDRAWAL RISK: Heavy weekend use + acute presentation may indicate escalating pattern. No CIWA protocol or addiction medicine consultation documented \u2014 withdrawal can be life-threatening.",
+          "RATE CONTROL STRATEGY UNDEFINED: Beta-blocker vs. CCB mentioned but no acute dosing plan, IV route, or target HR specified. Patient currently in RVR at 112 bpm \u2014 requires immediate intervention.",
+          "DRUG INTERACTIONS UNDERESTIMATED: Heavy alcohol use + rate-control agents (beta-blockers, CCBs) = additive hypotension, bradycardia, CNS depression. Alcohol + anticoagulation = increased bleeding risk. Requires careful monitoring and patient counseling.",
+          "SETTING MISMATCH: Proposal reads as outpatient workup, but AFib+RVR with structural disease is an ACUTE presentation requiring ED admission, continuous telemetry, and inpatient rate control initiation."
+        ],
+        "communication_note": "ESCALATE TO ED IMMEDIATELY: This is an acute arrhythmia requiring inpatient monitoring, IV rate control, serial troponin, and urgent anticoagulation decision \u2014 not outpatient interrogation.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified new-onset AFib with RVR on ECG, recognized alcohol as precipitant ('holiday heart'), and proposed sound differential (AFib, ACS, thyroid, structural disease) with appropriate workup (troponin, TSH, BMP, echo, CXR, anticoagulation/rate-control assessment). However, clinician framed next step as 'ask' (outpatient questioning) rather than 'escalate' (acute intervention), missing the urgency of RVR in a patient with structural disease.",
+          "safety_checker_contribution": "Safety checker correctly identified BLOCKING CONCERNS: (1) AFib+RVR is an acute presentation requiring ED-level care, not outpatient questioning; (2) rate control must be initiated immediately (IV agent + continuous monitoring), not deferred; (3) ACS rule-out protocol must be ACTIVE (serial troponin, continuous monitoring); (4) anticoagulation decision must occur within hours, not days; (5) electrolyte repletion must be addressed acutely, not passively confirmed. Recommended ED referral and rejected 'ask' action as primary next step. Approved differential and workup list as clinically sound.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication gaps (no rate control prescribed, no anticoagulation initiated), flagged major drug interactions (beta-blockers/CCBs + alcohol = additive hypotension; anticoagulation + alcohol = increased bleeding risk), highlighted need for LFTs and renal function assessment before DOAC selection, and emphasized nursing priorities: continuous monitoring, IV access, acute rate control, hemodynamic stability checks q15min, anticoagulation urgency, alcohol withdrawal screening (CIWA), medication adherence barriers, fall/bleed precautions, and discharge planning (cardiology, primary care, addiction medicine referrals)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 2,
+        "chief_complaint": "Palpitations persisting \u00d7 6 days; NEW chest tightness",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response (confirmed on ECG)",
+          "Acute coronary syndrome / ACS (NEW chest tightness is RED FLAG; single negative troponin insufficient for clearance)",
+          "Pulmonary embolism (dyspnea + tachycardia + AF as presenting rhythm)",
+          "Acute decompensated heart failure (dyspnea, palpitations, AF, elevated BP)",
+          "Thyrotoxicosis or other high-output state precipitating AF",
+          "Electrolyte disturbance (hypokalemia, hypomagnesemia) triggering/perpetuating AF"
+        ],
+        "workup_ordered": [
+          "Serial troponin (repeat in 3 hours; one negative troponin does NOT exclude ACS in early presentation)",
+          "BNP/NT-proBNP (assess for acute HF)",
+          "TSH, free T4 (rule out thyrotoxicosis)",
+          "Stat CMP with Mg, Ca (electrolyte abnormalities can trigger AF; critical before rate-control optimization)",
+          "CBC (assess for anemia as HF/AF precipitant)",
+          "Echocardiogram (assess LV function, structural disease, LA size, EF to guide rate-control strategy)",
+          "D-dimer or CT PE protocol (dyspnea + tachycardia + AF warrants PE rule-out)",
+          "Continuous cardiac monitoring (mandatory given RVR + new chest symptoms)"
+        ],
+        "management_plan": [
+          "ESCALATE TO ED FOR EVALUATION: New-onset AF with RVR + new chest tightness meets ACS rule-out criteria and requires continuous monitoring, serial troponins, and rate-control initiation in monitored setting.",
+          "Rate control strategy: PENDING echo and troponin results. If HF present, initiate beta-blocker (e.g., metoprolol IV); if hypotensive or cardiogenic shock, hold rate-control and consider IV inotropes.",
+          "Anticoagulation: Assess CHA\u2082DS\u2082-VASc score for stroke risk; initiate anticoagulation (DOAC or warfarin) unless contraindicated by bleeding risk or acute presentation requiring ED evaluation first.",
+          "Electrolyte repletion: Correct hypokalemia (target K+ >4.0) and hypomagnesemia (target Mg >2.0) before optimizing rate control.",
+          "Medication review: Obtain complete home medication list; screen for recent stimulants, decongestants, or missed doses of chronic medications that could precipitate AF.",
+          "Symptom characterization: Clinician to obtain detailed chest pain character (pressure vs. sharp vs. pleuritic), radiation, associated dyspnea/diaphoresis, and relationship to exertion/position.",
+          "Safety net: If symptoms worsen (chest pain, dyspnea, syncope, hypotension), patient instructed to call 911 immediately; do NOT defer to outpatient follow-up."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "BLOCKING: NEW chest tightness in setting of confirmed AF with RVR\u2014ACS cannot be excluded with single negative troponin. Patient requires ED evaluation with continuous monitoring and serial troponins.",
+          "BLOCKING: Patient remains in RVR (HR 118)\u2014hemodynamic stability not confirmed. RVR can deteriorate rapidly; rate control and monitoring mandatory.",
+          "BLOCKING: No current medication list provided\u2014cannot assess for drug interactions, anticoagulation status, or rate-control adequacy. CRITICAL to obtain before any medication adjustment.",
+          "BLOCKING: Electrolytes (K+, Mg, Ca) unknown\u2014hypokalemia/hypomagnesemia can precipitate/perpetuate AF and increase arrhythmia risk. Stat CMP required before rate-control optimization.",
+          "BLOCKING: PE remains plausible differential (dyspnea + tachycardia + AF as presenting rhythm); D-dimer/CT PE protocol should be initiated in ED, not deferred.",
+          "BLOCKING: Anticoagulation status and stroke-risk assessment (CHA\u2082DS\u2082-VASc) not documented. New-onset AF warrants urgent anticoagulation decision.",
+          "BLOCKING: No explicit safety net documented. Patient must understand when/how to escalate if symptoms worsen (chest pain, syncope, severe dyspnea)."
+        ],
+        "communication_note": "This 62-year-old with new-onset AF + RVR now presenting with NEW chest tightness requires immediate ED referral for ACS rule-out, continuous monitoring, rate control, and anticoagulation initiation\u2014outpatient management is unsafe.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified ACS as top differential and ordered serial troponin, BNP, TSH, electrolytes, echo, and D-dimer/PE protocol. Clinician correctly recognized need for detailed chest pain characterization to risk-stratify. However, clinician did not explicitly recommend ED escalation or document hemodynamic stability; proposal implied outpatient 3-hour troponin recheck, which is unsafe.",
+          "safety_checker_contribution": "Safety Checker identified FIVE BLOCKING concerns: (1) new chest tightness + AF + RVR = ACS rule-out requires ED evaluation, not outpatient deferral; (2) single negative troponin insufficient; (3) hemodynamic stability not documented; (4) rate control and anticoagulation not addressed; (5) PE rule-out should occur in ED with continuous monitoring. Safety Checker correctly recommended ED referral and continuous cardiac monitoring.",
+          "pharm_nurse_contribution": "Pharm/Nurse flagged CRITICAL gap: no current medication list provided, preventing drug-interaction assessment and anticoagulation/rate-control review. Pharm/Nurse emphasized need for stat CMP (electrolyte abnormalities can trigger AF), troponin timing (serial protocol appropriate but must occur in monitored ED setting), and anticoagulation decision (CHA\u2082DS\u2082-VASc assessment needed). Pharm/Nurse also highlighted that rate-control strategy depends on echo results and HF status, and that digoxin (if considered) requires therapeutic drug monitoring. Nursing concerns reinforced high acuity, need for continuous monitoring, and likely admission/ED disposition."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "62M with 9-day history of atrial fibrillation presenting with acute decompensation: syncope this morning, HR 140, wide-complex irregular rhythm with WPW delta waves on ECG, EF 50%, mild LA enlargement. This represents pre-excited atrial fibrillation (WPW + AF)\u2014a high-risk arrhythmia requiring emergency intervention.",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response in setting of WPW syndrome (pre-excited AF) \u2014 PRIMARY DIAGNOSIS",
+          "Accessory pathway-mediated tachycardia (AVNRT/AVRT with aberrancy)",
+          "Hemodynamically unstable SVT with wide-complex morphology secondary to accessory pathway conduction"
+        ],
+        "workup_ordered": [
+          "\u2713 Stat 12-lead ECG (completed\u2014confirms WPW delta waves + wide-complex irregular rhythm)",
+          "\u2713 Transthoracic echocardiogram (completed\u2014EF 50%, mild LA enlargement)",
+          "Troponin, BNP, electrolytes (K+, Mg2+, Ca2+), TSH to rule out secondary causes and assess electrolyte status pre-ibutilide",
+          "Continuous cardiac monitoring (mandatory\u2014watch for VF degeneration)",
+          "Medication reconciliation: VERIFY absence of beta-blockers, CCBs, digoxin on current regimen",
+          "Anticoagulation status assessment (INR/DOAC levels if applicable)"
+        ],
+        "management_plan": [
+          "EMERGENCY ESCALATION: This patient requires immediate ED/ICU-level care with cardiology/EP presence.",
+          "FIRST-LINE: Synchronized DC cardioversion (100\u2013200 J) \u2014 patient meets criteria (syncope = hemodynamic instability, HR 140, wide-complex irregular rhythm). Sedate if conscious.",
+          "ALTERNATIVE (if hemodynamically stable enough to defer cardioversion): IV ibutilide 1 mg over 10 min (prolongs accessory pathway refractoriness) OR IV procainamide 15 mg/kg load over 25\u201330 min, then 1\u20134 mg/min infusion (slows conduction in both AV node and accessory pathway). Requires cardiology/EP approval and continuous QTc monitoring.",
+          "CRITICAL CONTRAINDICATIONS\u2014DO NOT USE: Beta-blockers, calcium channel blockers (verapamil, diltiazem), digoxin. These preferentially block AV nodal conduction and shunt current down the accessory pathway, accelerating ventricular response and risking VF.",
+          "Post-conversion management: Continue anticoagulation (do NOT hold for acute rhythm control); prepare for urgent EP study and possible accessory pathway ablation.",
+          "NPO status if cardioversion/sedation planned.",
+          "Establish IV access \u00d72; have defibrillator and crash cart at bedside."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Syncope + HR 140 + wide-complex irregular rhythm = hemodynamic instability with imminent risk of decompensation or VF degeneration.",
+          "Pre-excited AF is inherently unstable; rapid accessory pathway conduction can cause sudden loss of consciousness and cardiac arrest.",
+          "CONTRAINDICATION ALERT: AV nodal blockers (beta-blockers, CCBs, digoxin) are explicitly dangerous in this patient and must be held/avoided. Verify medication list immediately.",
+          "EF 50% with LA enlargement provides structural substrate for arrhythmia perpetuation and recurrence.",
+          "Syncope as presenting symptom indicates prior hemodynamic compromise; high recurrence risk without definitive ablation.",
+          "Electrolyte abnormalities (especially K+, Mg2+) increase QT prolongation risk if ibutilide used\u2014must be corrected first.",
+          "If patient on warfarin/DOACs: continue anticoagulation; do NOT delay rhythm control for anticoagulation initiation."
+        ],
+        "communication_note": "This is a medical emergency requiring immediate 911 activation and ED/ICU-level cardiology/EP care; pre-excited atrial fibrillation with syncope carries high risk of sudden decompensation or ventricular fibrillation and mandates urgent DC cardioversion or IV antiarrhythmic therapy (ibutilide/procainamide) with explicit avoidance of AV nodal blockers.",
+        "trace": {
+          "clinician_contribution": "Correctly identified pre-excited AF as medical emergency; recognized syncope and hemodynamic instability (HR 140) as indicators for urgent intervention; explicitly contraindicated AV nodal blockers and proposed appropriate agents (DC cardioversion, ibutilide, procainamide); ordered appropriate diagnostic workup (ECG, echo, labs); requested cardiology/EP consultation.",
+          "safety_checker_contribution": "Validated all six critical red flags (syncope + tachycardia, pre-excited AF instability, AV nodal blocker contraindication awareness, wide-complex irregular rhythm, structural substrate, recurrence risk); confirmed no blocking concerns; verified escalation to emergency_911 level; endorsed clinician's safety-conscious reasoning and contraindication awareness as exemplary.",
+          "pharm_nurse_contribution": "Provided comprehensive medication review with explicit contraindication warnings for beta-blockers, CCBs, and digoxin (mechanism: preferential AV nodal blockade \u2192 accessory pathway acceleration \u2192 VF risk); identified preferred agents (ibutilide, procainamide) with dosing and monitoring parameters; outlined critical nursing actions (medication verification, continuous monitoring, IV access \u00d72, crash cart readiness, NPO status, electrolyte correction, anticoagulation continuity); flagged QT prolongation risk and allergy screening for EP study."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779599811.907638
+}

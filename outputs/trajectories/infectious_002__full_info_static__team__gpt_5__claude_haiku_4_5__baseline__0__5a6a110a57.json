@@ -1,0 +1,161 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute pyelonephritis with possible urosepsis",
+          "Septic shock secondary to urinary tract infection",
+          "Acute kidney injury secondary to dehydration and infection",
+          "Hyperglycemia secondary to infection"
+        ],
+        "workup_ordered": [
+          "Blood cultures to identify causative organism",
+          "Urine culture to confirm pathogen and antibiotic sensitivity",
+          "Serum lactate to monitor for sepsis",
+          "Repeat BMP to monitor renal function and electrolytes",
+          "Chest X-ray to rule out concurrent pneumonia"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum IV antibiotics (e.g., piperacillin-tazobactam) pending culture results",
+          "Administer IV fluids aggressively to address hypotension and potential dehydration",
+          "Monitor vital signs closely, especially blood pressure and heart rate",
+          "Consult nephrology for acute kidney injury management",
+          "Consider ICU admission for close monitoring and management of potential septic shock"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of progression to septic shock",
+          "Potential for acute renal failure",
+          "Risk of further deterioration in mental status",
+          "Potential for respiratory compromise due to sepsis"
+        ],
+        "communication_note": "Patient presents with signs of severe infection and possible sepsis. Immediate intervention is required to stabilize her condition and prevent further deterioration. Coordination with ICU and nephrology is essential for optimal management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate broad-spectrum antibiotics and fluid resuscitation.",
+          "safety_checker_contribution": "Highlighted the risk of septic shock and need for ICU monitoring.",
+          "pharm_nurse_contribution": "Recommended monitoring of renal function and adjustment of medications as needed."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Severe sepsis secondary to pyelonephritis",
+          "Acute kidney injury secondary to sepsis and dehydration",
+          "Antibiotic-resistant urinary tract infection",
+          "Possible septic shock"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Urine cultures",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Lactate level",
+          "Urinalysis",
+          "Renal ultrasound to assess for obstruction"
+        ],
+        "management_plan": [
+          "Immediate initiation of broad-spectrum IV antibiotics (e.g., ceftriaxone or ertapenem)",
+          "Aggressive IV fluid resuscitation with crystalloids",
+          "Continuous monitoring of vital signs and urine output",
+          "Consideration for ICU admission for close monitoring and potential vasopressor support",
+          "Consultation with infectious disease for antibiotic management",
+          "Renal function monitoring and nephrology consultation if renal function continues to deteriorate"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of progression to septic shock",
+          "Potential for acute renal failure",
+          "Risk of respiratory compromise due to altered mental status"
+        ],
+        "communication_note": "Patient is in critical condition with signs of severe sepsis and possible septic shock. Immediate intervention with broad-spectrum antibiotics and fluid resuscitation is essential. Close monitoring and potential ICU transfer are recommended. Family should be informed of the severity of the condition and the need for urgent intervention.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate broad-spectrum antibiotics and fluid resuscitation.",
+          "safety_checker_contribution": "Highlighted the risk of septic shock and the need for ICU monitoring.",
+          "pharm_nurse_contribution": "Recommended switching antibiotics due to resistance and ensuring proper fluid management."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Septic shock secondary to urosepsis",
+          "Acute kidney injury secondary to sepsis",
+          "Multiorgan dysfunction syndrome (MODS)",
+          "Possible antibiotic resistance or inappropriate initial antibiotic therapy"
+        ],
+        "workup_ordered": [
+          "Blood cultures x2",
+          "Urine culture and sensitivity",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Lactate level",
+          "Procalcitonin level",
+          "Chest X-ray",
+          "Abdominal ultrasound or CT scan to rule out obstructive uropathy"
+        ],
+        "management_plan": [
+          "Continue norepinephrine infusion to maintain mean arterial pressure (MAP) > 65 mmHg",
+          "Initiate broad-spectrum antibiotics (e.g., piperacillin-tazobactam and vancomycin) pending culture results",
+          "Administer IV fluids (crystalloids) to optimize hemodynamics",
+          "Consider renal replacement therapy if AKI worsens or persists",
+          "Monitor urine output closely and consider bladder catheterization",
+          "Consult infectious disease for antibiotic stewardship",
+          "Consult nephrology for renal support and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "High risk of mortality due to septic shock and MODS",
+          "Potential for further deterioration in renal function",
+          "Risk of respiratory failure despite intubation and mechanical ventilation",
+          "Risk of antibiotic resistance complicating treatment"
+        ],
+        "communication_note": "Patient is critically ill with septic shock secondary to presumed urosepsis. She is currently on norepinephrine to maintain blood pressure and has signs of multiorgan dysfunction. Immediate broad-spectrum antibiotic therapy and supportive care are being provided. Close monitoring and frequent reassessment are essential. Family should be updated on the critical nature of the patient's condition and potential outcomes.",
+        "trace": {
+          "clinician_contribution": "Identified septic shock and initiated appropriate resuscitation measures.",
+          "safety_checker_contribution": "Highlighted the need for close monitoring of hemodynamics and organ function.",
+          "pharm_nurse_contribution": "Ensured timely administration of antibiotics and vasopressors."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597807.288007
+}

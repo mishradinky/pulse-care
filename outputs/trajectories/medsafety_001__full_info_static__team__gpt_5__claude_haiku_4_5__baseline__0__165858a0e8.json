@@ -1,0 +1,140 @@
+{
+  "case_id": "medsafety_001",
+  "category": "medication_safety",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Warfarin overdose due to drug interaction with clarithromycin",
+          "Coagulopathy secondary to liver dysfunction (less likely given normal BMP)",
+          "Vitamin K deficiency (less likely given no dietary changes)"
+        ],
+        "workup_ordered": [
+          "Repeat INR in 24-48 hours after intervention",
+          "Liver function tests to rule out hepatic dysfunction"
+        ],
+        "management_plan": [
+          "Hold warfarin temporarily until INR is within therapeutic range",
+          "Administer oral vitamin K (2.5-5 mg) to help reverse INR elevation",
+          "Discontinue clarithromycin and consider alternative antibiotic if necessary",
+          "Monitor for signs of internal bleeding (e.g., hematuria, melena)",
+          "Educate patient on signs of bleeding and when to seek immediate care"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for serious bleeding due to elevated INR",
+          "Risk of thromboembolic events if warfarin is held too long"
+        ],
+        "communication_note": "Discussed with patient the interaction between clarithromycin and warfarin leading to elevated INR. Advised on holding warfarin and taking vitamin K. Patient instructed to monitor for any signs of bleeding and to follow up with primary care for INR recheck.",
+        "trace": {
+          "clinician_contribution": "Identified drug interaction as cause of elevated INR and bleeding symptoms.",
+          "safety_checker_contribution": "Highlighted risk of serious bleeding and need for close monitoring.",
+          "pharm_nurse_contribution": "Recommended vitamin K administration and discontinuation of clarithromycin."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subdural hematoma secondary to fall and anticoagulation",
+          "Warfarin toxicity exacerbated by clarithromycin",
+          "Hypertensive headache"
+        ],
+        "workup_ordered": [
+          "Repeat INR",
+          "Neurological monitoring",
+          "Blood pressure monitoring",
+          "Consultation with neurology"
+        ],
+        "management_plan": [
+          "Hold warfarin until INR stabilizes",
+          "Administer additional vitamin K to reverse anticoagulation",
+          "Initiate antihypertensive therapy to manage elevated blood pressure",
+          "Monitor neurological status closely for any changes",
+          "Consider admission for observation given the subdural hematoma"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of further bleeding due to elevated INR",
+          "Potential for increased intracranial pressure due to subdural hematoma",
+          "Hypertension contributing to headache and potential for further complications"
+        ],
+        "communication_note": "Patient presents with a significant complication of anticoagulation therapy, likely exacerbated by recent antibiotic use. The presence of a subdural hematoma, although small, necessitates careful monitoring and potential escalation of care. Coordination with neurology and potential admission for observation is advised.",
+        "trace": {
+          "clinician_contribution": "Identified the interaction between warfarin and clarithromycin leading to elevated INR.",
+          "safety_checker_contribution": "Highlighted the risk of further bleeding and need for close monitoring of neurological status.",
+          "pharm_nurse_contribution": "Recommended holding warfarin and administering vitamin K to manage INR."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subdural hematoma secondary to anticoagulation therapy",
+          "Drug interaction between warfarin and clarithromycin",
+          "Hypertensive crisis contributing to neurological symptoms"
+        ],
+        "workup_ordered": [
+          "Repeat INR to monitor anticoagulation status",
+          "CT head to assess for changes in subdural hematoma",
+          "CBC to evaluate for anemia or thrombocytopenia",
+          "Electrolyte panel to rule out metabolic causes of confusion"
+        ],
+        "management_plan": [
+          "Immediate reversal of warfarin with vitamin K and prothrombin complex concentrate (PCC)",
+          "Consult neurosurgery for potential surgical intervention",
+          "Discontinue clarithromycin and consider alternative antibiotic if necessary",
+          "Initiate blood pressure management to control hypertensive crisis",
+          "Admit to ICU for close monitoring and supportive care"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of further intracranial bleeding due to elevated INR",
+          "Potential for rapid neurological deterioration",
+          "Hypertensive crisis exacerbating intracranial pressure"
+        ],
+        "communication_note": "Patient presents with signs of an expanding subdural hematoma likely exacerbated by elevated INR due to drug interaction. Immediate reversal of anticoagulation and neurosurgical evaluation are critical. Family should be informed of the urgency and potential need for surgical intervention.",
+        "trace": {
+          "clinician_contribution": "Identified the need for urgent reversal of anticoagulation and neurosurgical consultation.",
+          "safety_checker_contribution": "Highlighted the risk of further bleeding and neurological deterioration.",
+          "pharm_nurse_contribution": "Recognized the drug interaction between warfarin and clarithromycin contributing to elevated INR."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "warfarin supratherapeutic due to drug interaction",
+      "subdural hematoma",
+      "intracranial hemorrhage"
+    ],
+    "required_workup": [
+      "INR STAT",
+      "CBC",
+      "CT head if neurological symptoms",
+      "hold warfarin",
+      "drug interaction review"
+    ],
+    "correct_management": [
+      "stop clarithromycin",
+      "vitamin K 10mg IV",
+      "4-factor PCC if active bleeding or INR >10",
+      "neurosurgery consult",
+      "hold warfarin until safe"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597836.0473468
+}

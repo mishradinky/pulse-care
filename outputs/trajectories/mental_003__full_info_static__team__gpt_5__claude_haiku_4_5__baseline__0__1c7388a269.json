@@ -1,0 +1,151 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Panic Disorder",
+          "Generalized Anxiety Disorder",
+          "Hyperthyroidism (less likely due to normal TSH)",
+          "Cardiac Arrhythmia (less likely due to normal ECG and troponin)",
+          "Substance-Induced Anxiety Disorder (caffeine-related)"
+        ],
+        "workup_ordered": [
+          "Holter monitor to rule out intermittent arrhythmias",
+          "Referral to mental health specialist for evaluation of anxiety disorder",
+          "Consideration of reinitiating SSRI therapy"
+        ],
+        "management_plan": [
+          "Educate patient on panic disorder and its symptoms",
+          "Discuss lifestyle modifications, including reducing caffeine intake",
+          "Consider cognitive-behavioral therapy (CBT) for anxiety management",
+          "Reassure patient about normal cardiac workup",
+          "Follow-up appointment in 2 weeks to review Holter results and assess symptom progression"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Patient's situational avoidance impacting daily life",
+          "Potential for increased anxiety without intervention"
+        ],
+        "communication_note": "Patient is experiencing recurrent panic attacks, likely exacerbated by high caffeine intake and family history of anxiety. Normal cardiac workup suggests a non-cardiac cause. Discussed the importance of lifestyle changes and potential benefits of therapy and medication. Reassured patient and scheduled follow-up.",
+        "trace": {
+          "clinician_contribution": "Reviewed patient's history, symptoms, and normal cardiac workup. Considered differential diagnoses and recommended further evaluation for anxiety disorder.",
+          "safety_checker_contribution": "Assessed potential safety concerns related to patient's situational avoidance and anxiety impact on daily life.",
+          "pharm_nurse_contribution": "Provided input on medication history and potential reinitiation of SSRI therapy."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Panic Disorder",
+          "Generalized Anxiety Disorder",
+          "Agoraphobia",
+          "Cardiac Arrhythmia (less likely due to normal ECG and Holter)",
+          "Acute Coronary Syndrome (less likely due to negative troponin)"
+        ],
+        "workup_ordered": [
+          "Referral to psychiatry for further evaluation and management",
+          "Consider cognitive behavioral therapy (CBT) referral",
+          "Follow-up Holter monitoring if symptoms persist or change",
+          "Routine follow-up with primary care for ongoing management"
+        ],
+        "management_plan": [
+          "Initiate selective serotonin reuptake inhibitor (SSRI) for anxiety management",
+          "Consider short-term benzodiazepine for acute anxiety episodes",
+          "Encourage gradual exposure therapy to address agoraphobia",
+          "Provide education on panic disorder and reassurance about cardiac health",
+          "Develop a safety plan for managing acute episodes"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of developing severe agoraphobia impacting daily functioning",
+          "Potential for increased anxiety leading to avoidance behavior",
+          "Risk of depression worsening if anxiety remains unmanaged"
+        ],
+        "communication_note": "Discussed with patient the nature of panic attacks and the importance of addressing anxiety to prevent further episodes. Reassured her about the cardiac findings and emphasized the role of psychological factors. Encouraged open communication about any new or worsening symptoms.",
+        "trace": {
+          "clinician_contribution": "Focused on ruling out cardiac causes and identifying anxiety as the primary issue.",
+          "safety_checker_contribution": "Highlighted the risk of agoraphobia and the need for urgent outpatient management.",
+          "pharm_nurse_contribution": "Suggested medication options and emphasized the importance of patient education."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Panic Disorder with Agoraphobia",
+          "Generalized Anxiety Disorder",
+          "Major Depressive Disorder with Anxious Distress",
+          "Cardiac Arrhythmia (ruled out)",
+          "Hyperthyroidism (less likely given normal vitals)"
+        ],
+        "workup_ordered": [
+          "Psychiatric evaluation",
+          "Thyroid function tests (if not previously done)",
+          "Referral to a psychologist or psychiatrist for cognitive-behavioral therapy (CBT)"
+        ],
+        "management_plan": [
+          "Initiate selective serotonin reuptake inhibitor (SSRI) for anxiety management",
+          "Consider short-term benzodiazepine for acute anxiety episodes",
+          "Encourage gradual exposure therapy to address agoraphobia",
+          "Involve husband in therapy sessions to address caregiver burden",
+          "Provide education on panic disorder and coping strategies"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of worsening agoraphobia leading to complete social withdrawal",
+          "Potential for caregiver burnout in husband",
+          "Possibility of self-harm if anxiety and depressive symptoms escalate"
+        ],
+        "communication_note": "Discussed with patient and husband the nature of panic disorder and agoraphobia. Emphasized the importance of therapy and medication adherence. Provided reassurance about the negative cardiac workup and normal echocardiogram findings.",
+        "trace": {
+          "clinician_contribution": "Focused on ruling out cardiac causes and identifying psychiatric symptoms.",
+          "safety_checker_contribution": "Highlighted the risk of social withdrawal and caregiver burnout.",
+          "pharm_nurse_contribution": "Suggested medication options and emphasized the importance of therapy."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597893.589155
+}

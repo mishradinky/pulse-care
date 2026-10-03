@@ -1,0 +1,193 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I thought I was dying. Heart racing, chest tight, can't breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start, and how long do they last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started two months ago. Lasts maybe twenty minutes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How often do these episodes occur?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four times in two months."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any specific triggers or situations that seem to bring on these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Happens at the store. Sometimes driving. Hard to say."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms during these episodes, such as sweating, dizziness, or nausea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, dizzy. Tingling in my hands too. Thought I was dying."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been experiencing any significant stress or anxiety in your life recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really. Just scared something's wrong with my heart."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "panic disorder",
+          "generalized anxiety disorder",
+          "cardiac arrhythmia"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "thyroid function tests",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "start cognitive behavioral therapy",
+          "consider SSRI if symptoms persist",
+          "educate on breathing techniques"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "potential for panic attacks while driving"
+        ],
+        "communication_note": "Your symptoms may be related to anxiety, but we'll do some tests to rule out any heart issues. Let's also explore therapy options to help manage these episodes."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Had another attack at work. Now I'm scared to go anywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what happens during these attacks?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart pounds. Can't breathe. Dizzy. Feel like I'm dying."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long do these attacks usually last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About twenty minutes. Maybe longer sometimes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "panic disorder",
+          "generalized anxiety disorder"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "TSH",
+          "EKG"
+        ],
+        "management_plan": [
+          "Start cognitive behavioral therapy (CBT)",
+          "Consider starting an SSRI if symptoms persist",
+          "Educate on relaxation techniques and breathing exercises"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Potential for avoidance behavior impacting daily functioning"
+        ],
+        "communication_note": "It sounds like you're experiencing panic attacks, and we'll work together to manage them with therapy and possibly medication."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Haven't left home in two weeks."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "major depressive disorder",
+          "generalized anxiety disorder"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "initiate cognitive behavioral therapy",
+          "consider starting an SSRI",
+          "schedule follow-up in 2 weeks"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening depression",
+          "potential for self-neglect"
+        ],
+        "communication_note": "It seems like you're experiencing significant distress, so let's start with therapy and consider medication to help improve your mood and anxiety."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511385.8178558
+}

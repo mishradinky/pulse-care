@@ -1,0 +1,214 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a sore on my foot. Two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore for me? What does it look like\u2014is it open, red, painful, draining anything? And have you had any recent injuries, cuts, or changes to your feet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Open sore. Red around it. No pain. Not draining. Don't remember cutting it."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer (HIGH PRIORITY - neuropathic presentation: painless open sore)",
+          "Venous insufficiency ulcer",
+          "Arterial insufficiency ulcer",
+          "Infected wound/cellulitis (lower suspicion given no drainage/pain, but 2-week duration increases risk)",
+          "Pressure ulcer",
+          "Fungal infection with secondary breakdown"
+        ],
+        "workup_ordered": [
+          "URGENT: In-person foot examination TODAY or NEXT DAY (visual inspection, palpation, assessment of depth/undermining, surrounding erythema, drainage character, pulses, monofilament sensation testing)",
+          "Labs: CBC with differential, comprehensive metabolic panel (renal/hepatic function), fasting glucose or HbA1c (CRITICAL - diabetes status unknown)",
+          "Imaging: Plain foot X-ray to rule out osteomyelitis or foreign body (if exam findings warrant)",
+          "Vascular assessment: Ankle-brachial index (ABI) or duplex ultrasound if arterial insufficiency suspected on exam",
+          "Culture of wound drainage if present or obtained during exam (if infection suspected)",
+          "Tetanus status verification"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Establish diabetes status and glycemic control (HbA1c) - this is the critical missing piece driving escalation",
+          "Obtain complete medication history (diabetes agents, anticoagulants, antiplatelet agents, corticosteroids, topical agents) and allergy/latex sensitivity screening",
+          "Assess for neuropathy (monofilament test, vibration sense) and vascular insufficiency (claudication history, rest pain, prior ulcers, smoking status)",
+          "Screen for systemic infection signs NOW: fever, chills, spreading erythema, malaise, lymphadenopathy - if present, escalate to ED",
+          "Wound care: Keep clean and dry; avoid NSAIDs pending renal function; defer topical agents until characterization complete and allergy history confirmed",
+          "Patient education: Importance of daily foot inspection, proper footwear, avoiding self-treatment if diabetic",
+          "Schedule in-person exam with primary care or podiatry within 24 hours; if unable to arrange, refer to urgent care for same-day evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL: Painless open sore in 45-year-old is RED FLAG for diabetic neuropathy\u2014diabetes status MUST be established immediately before discharge from this call",
+          "CRITICAL: 2-week duration without pain is atypical and concerning for neuropathic ulcer with silent progression; risk of rapid deterioration to osteomyelitis or sepsis if diabetic",
+          "CRITICAL: No in-person examination documented\u2014phone assessment alone is INSUFFICIENT for a 2-week open foot wound; visual inspection and palpation are mandatory",
+          "CRITICAL: Systemic infection screening incomplete\u2014must ask about fever, chills, spreading redness, or systemic symptoms NOW to rule out cellulitis/sepsis requiring ED referral",
+          "Medication history and allergy screening are missing\u2014cannot safely recommend wound care or antibiotics without this information",
+          "Vascular risk factors (smoking, hypertension, claudication, prior ulcers) not yet elicited\u2014needed to risk-stratify for arterial insufficiency urgency",
+          "Workup plan was empty in clinician output\u2014now specified, but clinician must confirm feasibility of same-day/next-day in-person exam"
+        ],
+        "communication_note": "A painless open foot sore for 2 weeks in a 45-year-old is a high-risk presentation for diabetic foot ulcer with neuropathy; urgent in-person examination and diabetes screening are required within 24 hours to prevent serious complications.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately asked for wound characterization (appearance, drainage, pain, trauma history) and generated a reasonable differential including DFU, vascular insufficiency, and infection. However, clinician failed to specify workup plan (imaging, labs, exam timeline) and did not establish diabetes status or screen for systemic infection signs before proceeding.",
+          "safety_checker_contribution": "Safety checker identified CRITICAL gaps: missing diabetes status despite DFU being top differential, absent systemic infection screening (fever/chills/sepsis risk), no in-person exam plan documented, empty workup array, and insufficient vascular risk stratification. Recommended urgent_outpatient escalation with blocking concerns requiring immediate action before routine phone triage continues.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged missing medication history (especially diabetes agents and glucose control), incomplete allergy/latex screening, need for neuropathy and vascular assessment, wound care precautions (NSAID avoidance pending renal function), tetanus status verification, and smoking/alcohol impact on healing. Emphasized that topical agent selection cannot proceed until wound is fully characterized and allergies confirmed."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "The wound got bigger. And it smells bad now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about this wound? When did it first appear, where is it located on your body, and what does it look like now (color, drainage, warmth, or any red streaking)? Also, have you had any fever, chills, or feeling unwell?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started two weeks ago. Bottom of foot. Bigger now, smells bad. Red around it. No fever I think."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cellulitis with local spread (red streaking around wound)",
+          "Infected diabetic foot ulcer or plantar wound",
+          "Abscess with purulent drainage",
+          "Necrotizing fasciitis (lower priority given no fever/chills, but cannot exclude)",
+          "Venous or arterial insufficiency wound with secondary infection"
+        ],
+        "workup_ordered": [
+          "URGENT: Wound examination in-person (location, size, depth, drainage character, warmth, fluctuance, surrounding erythema extent)",
+          "Assess for red streaking/lymphangitis, pedal pulses, capillary refill, skin temperature",
+          "Confirm diabetes status and current glucose control",
+          "Labs if infection confirmed: CBC, CMP (BUN/Cr, LFTs), blood cultures if systemic signs emerge",
+          "Imaging (ultrasound or CT) if abscess or deep space involvement suspected",
+          "Tetanus status review"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Schedule urgent in-person or ED evaluation TODAY given 2-week duration, enlargement, foul odor, and erythema",
+          "Do NOT initiate empiric antibiotics until: (1) allergy screen complete, (2) medication reconciliation done, (3) renal/hepatic function known, (4) wound assessed for depth/drainage",
+          "Pending in-person exam: wound care (gentle cleansing, non-adherent dressing, elevation if lower extremity)",
+          "Pain management: defer NSAIDs until vascular status and renal function confirmed",
+          "If diabetic: reinforce glucose monitoring and foot care education",
+          "Prepare escalation pathway: if red streaking, fever, rapid progression, or systemic toxicity reported \u2192 ED REFERRAL or 911"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL: Enlarging plantar wound with foul odor and erythema over 2 weeks suggests active infection with risk of rapid progression",
+          "Necrotizing fasciitis remains on differential despite absence of fever\u2014lower extremity location and foul odor warrant high vigilance",
+          "Patient reports 'red around it' (erythema) but denies fever; however, systemic symptoms may be underreported or absent early\u2014must assess in-person for red streaking, warmth, lymphadenopathy",
+          "Diabetes status unknown\u2014if diabetic, neuropathy may mask severity; vascular insufficiency may impair healing and increase infection risk",
+          "No medication list, allergy history, or renal/hepatic baseline available\u2014blocks safe antimicrobial prescribing",
+          "Plantar location increases risk of deep space involvement and necrotizing infection; imaging may be needed"
+        ],
+        "communication_note": "45F with 2-week enlarging plantar wound, foul odor, and surrounding erythema requires urgent same-day in-person evaluation to rule out serious infection (cellulitis, abscess, necrotizing fasciitis); escalate to ED if red streaking, fever, or rapid progression develops.",
+        "trace": {
+          "clinician_contribution": "Structured open-ended questioning established wound timeline (2 weeks), location (plantar/foot), and key red flags (erythema present, foul odor, enlargement); appropriately risk-stratified differential to include necrotizing fasciitis and prepared for escalation.",
+          "safety_checker_contribution": "Identified necrotizing fasciitis as life-threatening differential; flagged critical gaps in risk stratification (systemic symptoms, red streaking, vascular status); set escalation triggers (red streaking, fever, rapid progression, lower extremity + vascular risk, systemic toxicity) and recommended pre-identified escalation pathway.",
+          "pharm_nurse_contribution": "Blocked premature antibiotic prescribing pending medication reconciliation, allergy screen, and renal/hepatic baseline; flagged diabetes status as unknown but high-risk; outlined wound care assessment priorities (purulent drainage, undermining, surrounding skin), vascular exam (pulses, capillary refill), and pain management precautions (avoid NSAIDs until vascular/renal status confirmed)."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Foot is very red, swollen. I have a fever now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the redness and swelling start, and have you had any recent injury, insect bite, or break in the skin on that foot? Also, how high is your fever, and do you have any pain, warmth, or red streaking going up your leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Red and swollen past day or two. Had that sore on bottom for weeks. Fever started this morning. Leg feels warm."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cellulitis (most likely\u2014fever + foot erythema + edema + warm leg + chronic foot sore as entry point)",
+          "Acute bacterial skin infection (erysipelas, impetigo)",
+          "Abscess or localized collection with systemic spread",
+          "Deep vein thrombosis with secondary infection",
+          "Gout or inflammatory arthritis (less likely given fever + entry wound)",
+          "Contact dermatitis with secondary infection"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: temperature (quantified), BP, HR, RR",
+          "CBC with differential (WBC elevation suggests infection)",
+          "CMP (renal/hepatic function baseline for antibiotic dosing)",
+          "Blood cultures if fever \u226538.5\u00b0C or systemic toxicity signs present",
+          "Foot/leg ultrasound or MRI if abscess, DVT, or necrotizing infection suspected (clinical judgment after vitals/exam)",
+          "Tetanus status review if skin break confirmed"
+        ],
+        "management_plan": [
+          "Obtain complete medication list, allergy history (especially beta-lactams/sulfonamides), and current medication reconciliation BEFORE prescribing",
+          "Initiate empiric antibiotics urgently if cellulitis confirmed (e.g., cephalexin 500 mg QID or amoxicillin-clavulanate 875/125 mg BID; adjust for renal function once CMP available)",
+          "Consider IV antibiotics or hospitalization if high fever (\u226538.5\u00b0C), tachycardia, hypotension, or rapid progression documented",
+          "Wound care education: keep area clean/dry, elevate leg, monitor for worsening/red streaking",
+          "Analgesia as needed; hold NSAIDs until infection severity and renal function clarified",
+          "Close follow-up in 24\u201348 hours or sooner if worsening"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL: Vital signs not yet documented\u2014fever reported but not quantified; must obtain temperature, BP, HR, RR immediately to assess systemic toxicity",
+          "RED STREAKING UP LEG or LYMPHADENOPATHY not yet assessed\u2014if present, escalate to ED referral or emergency",
+          "Chronic foot sore (weeks duration) is likely entry point for bacterial infection; high risk for cellulitis with rapid progression to sepsis",
+          "Medication allergy history missing\u2014cannot safely prescribe antibiotics without beta-lactam/sulfonamide allergy confirmation",
+          "No baseline renal/hepatic function documented\u2014needed for antibiotic dosing and NSAID safety",
+          "Workup incomplete: labs and imaging not yet ordered; delay in blood cultures increases risk of missed bacteremia"
+        ],
+        "communication_note": "45F with fever, foot erythema/edema, and chronic sore (likely entry point) presents classic cellulitis picture requiring urgent vital signs, labs, blood cultures, and empiric antibiotics; escalate to ED if red streaking, high fever, or systemic toxicity signs emerge.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified cellulitis as leading differential and asked targeted history questions (timeline, mechanism of entry, systemic toxicity signs). However, proposed only history-taking without immediate workup orders; did not quantify fever or assess for red streaking/lymphadenopathy in real time.",
+          "safety_checker_contribution": "Safety checker flagged critical gaps: missing vital signs (fever unquantified), no documented systemic toxicity assessment, incomplete workup (no labs/imaging orders), and risk of rapid progression to sepsis or necrotizing infection. Recommended urgent escalation with blocking criteria (fever \u226538.5\u00b0C, red streaking, or tachycardia \u2192 ED referral).",
+          "pharm_nurse_contribution": "Pharm/nurse identified missing medication reconciliation and allergy history as blocking issues before antibiotic initiation. Highlighted need for baseline renal/hepatic function before dosing and antibiotic interactions. Emphasized nursing assessment of systemic toxicity signs, wound care education, tetanus status, and monitoring for rapid progression."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779512145.7184117
+}

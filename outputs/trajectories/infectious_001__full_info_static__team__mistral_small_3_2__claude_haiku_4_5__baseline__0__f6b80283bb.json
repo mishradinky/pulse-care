@@ -1,0 +1,165 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with possible COPD exacerbation",
+          "Sepsis",
+          "Diabetic ketoacidosis (DKA)",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray (CXR)",
+          "Complete Blood Count (CBC)",
+          "Basic Metabolic Panel (BMP)",
+          "Procalcitonin",
+          "Blood cultures",
+          "Sputum culture",
+          "Arterial Blood Gas (ABG)",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics (e.g., ceftriaxone and azithromycin) for CAP",
+          "Initiate bronchodilators for COPD exacerbation (e.g., albuterol, tiotropium)",
+          "Administer oxygen therapy to maintain SpO2 > 90%",
+          "Monitor vital signs and mental status closely",
+          "Insulin therapy for hyperglycemia and possible DKA",
+          "IV fluids for hydration and sepsis management",
+          "Consider stress-dose steroids if indicated"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe hypoxia (SpO2 88% on room air)",
+          "Fever and tachycardia suggesting sepsis",
+          "Confusion indicating possible severe infection or metabolic derangement",
+          "History of COPD and diabetes complicating management"
+        ],
+        "communication_note": "Patient is a 65-year-old male smoker with COPD and diabetes presenting with symptoms and signs of severe pneumonia, possible sepsis, and COPD exacerbation. Immediate hospitalization and aggressive management are required.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and initiated management plan.",
+          "safety_checker_contribution": "Identified severe hypoxia and potential sepsis as critical safety concerns.",
+          "pharm_nurse_contribution": "Prepared medications for COPD exacerbation and possible DKA."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Severe community-acquired pneumonia with sepsis",
+          "COPD exacerbation",
+          "Diabetic ketoacidosis",
+          "Acute respiratory distress syndrome (ARDS)"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Blood cultures",
+          "Sputum culture and sensitivity",
+          "Chest X-ray",
+          "Arterial blood gas (ABG)",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Administer broad-spectrum antibiotics (e.g., ceftriaxone and azithromycin) intravenously",
+          "Provide supplemental oxygen to maintain SpO2 > 90%",
+          "Administer intravenous fluids for hydration",
+          "Monitor vital signs closely and consider intensive care unit (ICU) admission",
+          "Administer bronchodilators (e.g., albuterol) for COPD exacerbation",
+          "Monitor blood glucose levels and administer insulin as needed",
+          "Provide supportive care, including pain management and nutritional support"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe hypoxia and respiratory distress",
+          "Sepsis and potential septic shock",
+          "Worsening confusion and altered mental status",
+          "Dehydration and electrolyte imbalances"
+        ],
+        "communication_note": "Patient's condition has significantly deteriorated. Immediate hospitalization and ICU admission are required. Inform the patient's family about the critical condition and the need for aggressive intervention.",
+        "trace": {
+          "clinician_contribution": "Assessed the patient's worsening symptoms and ordered necessary diagnostic tests.",
+          "safety_checker_contribution": "Identified critical safety concerns and recommended immediate escalation.",
+          "pharm_nurse_contribution": "Prepared and administered necessary medications and monitored the patient's response."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Severe community-acquired pneumonia with ARDS",
+          "Sepsis secondary to pneumonia",
+          "COPD exacerbation",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Sputum culture and sensitivity",
+          "Influenza and RSV testing",
+          "D-dimer if pulmonary embolism is suspected",
+          "CT chest if clinically stable"
+        ],
+        "management_plan": [
+          "Broad-spectrum antibiotics (e.g., vancomycin and piperacillin-tazobactam) for severe pneumonia",
+          "Mechanical ventilation for respiratory failure",
+          "Fluids and vasopressors for sepsis management",
+          "Steroids for COPD exacerbation if indicated",
+          "Tight glycemic control for diabetes"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Respiratory failure requiring immediate intubation",
+          "Sepsis with hemodynamic instability",
+          "ARDS with severe hypoxia"
+        ],
+        "communication_note": "Patient is critically ill with respiratory failure and ARDS. Immediate ICU admission and aggressive management required. Coordinate with ICU team for further care.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's critical condition and initiated immediate management.",
+          "safety_checker_contribution": "Identified high-risk conditions requiring immediate intervention.",
+          "pharm_nurse_contribution": "Prepared and administered necessary medications and monitored patient's response."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597803.5639193
+}

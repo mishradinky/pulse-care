@@ -1,0 +1,223 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I've been having this pressure in my chest for a couple days now. It gets worse when I walk around or do stuff, and it goes down my left arm. This morning it was really bad\u2014I was sweating like crazy. Right now I'm okay, but I'm pretty worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long do these episodes of chest pressure typically last when they occur? And have you noticed any other symptoms like shortness of breath, nausea, or dizziness during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Um, maybe like... 10, 20 minutes? Hard to say exactly. And yeah, one time I got real sweaty and felt kinda clammy, but I don't think I was short of breath. No puking or nothing. Just this heavy feeling in my chest, you know?"
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (unstable angina or NSTEMI)",
+          "Stable angina",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "12-lead ECG",
+          "Troponin levels",
+          "Basic metabolic panel (electrolytes, renal function)",
+          "Chest X-ray",
+          "Cardiac stress test or coronary angiography if indicated"
+        ],
+        "management_plan": [
+          "Administer aspirin 325mg immediately (unless contraindicated) if ACS is suspected",
+          "Initiate cardiac monitoring and oxygen if needed",
+          "Arrange for immediate ED referral for further evaluation",
+          "Continue current medications (aspirin, lisinopril, atorvastatin, metoprolol) unless contraindicated by ED findings",
+          "Educate patient on red flags (e.g., worsening chest pain, syncope, severe dyspnea) requiring immediate medical attention"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Exertional chest pressure radiating to left arm with diaphoresis is highly suggestive of ACS and requires immediate evaluation",
+          "Associated diaphoresis and exertional nature increase ACS risk significantly",
+          "Age 58 is within high-risk demographic for ACS",
+          "Current medications (e.g., aspirin, metoprolol) are appropriate for ACS but must be reviewed in ED context",
+          "Risk of progression to NSTEMI or STEMI if not evaluated emergently"
+        ],
+        "communication_note": "Patient's symptoms are concerning for ACS; immediate ED referral is warranted for urgent cardiac evaluation.",
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk ACS symptoms (exertional chest pressure radiating to left arm with diaphoresis) and proposed appropriate differential and workup, including urgent cardiac evaluation.",
+          "safety_checker_contribution": "Safety checker identified critical red flags (e.g., exertional chest pain with radiation and diaphoresis) and strongly recommended ED referral due to high ACS risk, blocking routine outpatient testing.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed current medications (aspirin, lisinopril, atorvastatin, metoprolol) for appropriateness in ACS context, noted potential interactions (e.g., aspirin + lisinopril), and highlighted monitoring concerns (e.g., renal function, bleeding risk)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I'm back. Last night it happened again\u2014that heavy feeling in my chest, right here. And this time I was kinda short of breath too. It only lasted about 15 minutes, but I'm worried. I'm not having it right now, but... I dunno, I'm pretty scared."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When the chest heaviness and shortness of breath happened last night, did you feel any nausea, dizziness, or pain radiating to your arm or jaw?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it happened around 10 PM. My chest felt real heavy again, like someone was sitting on me. My left arm was kinda achy too\u2014that's the part that scared me. I don't remember feeling dizzy, but I was sweating a lot. No stomach stuff though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) - high pretest probability given recurrent exertional chest heaviness with left arm radiation",
+          "Unstable angina",
+          "Stable angina",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "12-lead ECG (STAT)",
+          "Troponin levels (STAT + repeat in 3-6 hours if initial negative)",
+          "Basic metabolic panel (electrolytes, renal function) with eGFR",
+          "Chest X-ray (if indicated by exam findings)",
+          "Consider D-dimer if pulmonary embolism remains in differential",
+          "Stress test or coronary angiography if ACS suspected"
+        ],
+        "management_plan": [
+          "Initiate aspirin 325 mg chewable if ACS confirmed (hold current 81 mg until ACS ruled out)",
+          "Hold metoprolol temporarily if ACS confirmed and patient is hypotensive/bradycardic",
+          "Monitor for contrast-induced nephropathy if angiography planned (hold metformin 48h pre/post)",
+          "Educate patient on urgent need for same-day evaluation due to ACS risk",
+          "Arrange same-day or next-day outpatient cardiology evaluation (urgent_outpatient)",
+          "Avoid NSAIDs for pain control"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "High-risk ACS presentation with recurrent exertional symptoms and left arm radiation",
+          "Atypical presentation in male (absence of classic nausea/dizziness) does not exclude ACS",
+          "Medication interactions (aspirin + lisinopril) may worsen renal function or increase bleeding risk",
+          "Metoprolol may mask tachycardia in ACS and cause hypotension",
+          "Contrast dye for angiography may worsen renal function in CKD",
+          "Patient's anxiety and fear of recurrence warrant immediate evaluation"
+        ],
+        "communication_note": "Patient requires same-day cardiology evaluation due to high-risk ACS presentation; emphasize urgency without causing undue alarm.",
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk ACS symptoms (recurrent exertional chest heaviness with left arm radiation) and proposed appropriate workup (ECG, troponin, BMP, stress test/angiography). Differential included ACS, unstable angina, stable angina, GERD, and musculoskeletal pain, with rationale prioritizing ACS rule-out.",
+          "safety_checker_contribution": "Safety checker identified red flags (high-risk ACS symptoms, age 58 with recurrent symptoms, atypical presentation) and recommended urgent_outpatient escalation. Noted that absence of classic symptoms does not rule out ACS and that workup should be expedited (same-day/next-day).",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (aspirin, lisinopril, atorvastatin, metoprolol) and identified potential issues: aspirin may increase bleeding risk if PCI needed, lisinopril may worsen renal function with contrast, metoprolol may mask tachycardia/BP changes in ACS. Provided dose adjustment recommendations and nursing concerns (e.g., holding metformin pre/post angiography, avoiding NSAIDs)."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I... I can't breathe right. My chest feels like somebody's sitting on it, real heavy. Been going on for like half an hour now. I'm sweating a lot and feel kinda sick to my stomach. I'm really scared something bad is happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you point to where the heaviness in your chest is the worst? Does it spread anywhere else, like your arm, jaw, or back? And have you had anything like this before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, right here in the middle *points to center of chest* and it goes down my left arm, like a dull ache. My jaw feels okay though. This happened two days ago too but it was lighter. This time it's way worse and won't stop."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (e.g., unstable angina or myocardial infarction)",
+          "Pulmonary embolism",
+          "Aortic dissection",
+          "Gastroesophageal reflux disease (GERD) or other gastrointestinal causes",
+          "Musculoskeletal chest pain (e.g., costochondritis)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG (immediate)",
+          "Troponin levels (serial measurements)",
+          "Chest X-ray",
+          "D-dimer (if PE suspected)",
+          "Basic metabolic panel and cardiac enzymes",
+          "Consider urgent cardiology consultation",
+          "CT-PA (if PE remains high on differential after initial workup)",
+          "Echocardiogram (if aortic dissection or PE suspected)",
+          "Upper endoscopy (if GERD or gastrointestinal causes remain likely)"
+        ],
+        "management_plan": [
+          "Administer aspirin 325mg immediately (unless contraindicated, e.g., active bleeding or recent GI bleed)",
+          "Hold metoprolol if SBP < 100 mmHg or HR < 50 bpm",
+          "Monitor for contrast-induced nephropathy if imaging with contrast is performed (hydrate with IV fluids)",
+          "Avoid NSAIDs for pain management (risk of AKI and bleeding in ACS/PE)",
+          "Ensure troponin and ECG results are communicated to clinician immediately",
+          "Prepare for potential emergency transfer if ACS or PE is confirmed",
+          "Provide reassurance and continuous monitoring for signs of deterioration (e.g., arrhythmias, hypotension)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Crushing chest pressure with radiation to left arm, diaphoresis, and nausea highly suggestive of ACS (high-risk features for myocardial infarction)",
+          "Potential for life-threatening causes (ACS, PE, aortic dissection) requiring immediate workup and intervention",
+          "Risk of contrast-induced nephropathy if CT-PA or angiogram is performed (monitor renal function and hydrate)",
+          "Risk of bleeding if dual antiplatelet therapy is initiated (e.g., aspirin + P2Y12 inhibitor)",
+          "Risk of bradycardia or hypotension with metoprolol (hold if SBP < 100 mmHg or HR < 50 bpm)",
+          "Risk of AKI with lisinopril if eGFR < 30 mL/min/1.73m\u00b2 (check BMP before imaging)",
+          "Contraindicated NSAIDs for pain management (risk of AKI and bleeding in ACS/PE)"
+        ],
+        "communication_note": "Patient's symptoms are highly concerning for ACS; immediate emergency services activation is warranted due to high-risk features.",
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk features (crushing chest pressure, radiation to left arm, diaphoresis, nausea) and prioritized immediate workup (ECG, troponin, chest X-ray, D-dimer) with rationale emphasizing ACS as the most likely diagnosis. Asked targeted questions to clarify symptom radiation and prior episodes.",
+          "safety_checker_contribution": "Safety checker identified red flags (crushing chest pressure with diaphoresis and nausea) as highly suggestive of ACS and recommended emergency_911 escalation due to potential for life-threatening causes. No blocking concerns identified.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (aspirin, metoprolol, lisinopril, atorvastatin) and identified critical issues: hold metoprolol if SBP < 100 mmHg or HR < 50 bpm, administer aspirin 325mg immediately (ACS protocol), avoid NSAIDs, monitor for contrast-induced nephropathy, and assess for bleeding risks with dual antiplatelet therapy. Provided dose adjustments and nursing concerns for safe management."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790537831.303193
+}

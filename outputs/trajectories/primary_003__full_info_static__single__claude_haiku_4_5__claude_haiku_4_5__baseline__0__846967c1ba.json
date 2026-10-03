@@ -1,0 +1,127 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Primary hypothyroidism (Hashimoto's thyroiditis)",
+          "Secondary hypothyroidism",
+          "Myxedema"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "Free T4",
+          "Anti-TPO antibodies",
+          "CBC",
+          "Lipid panel",
+          "Consider: TSH receptor antibodies if atypical features emerge"
+        ],
+        "management_plan": [
+          "Initiate levothyroxine 25-50 mcg daily, titrate based on TSH response",
+          "Recheck TSH and free T4 in 6-8 weeks",
+          "Counsel on consistent timing of medication (empty stomach, 30-60 min before food)",
+          "Dietary counseling regarding iodine intake and drug interactions",
+          "Monitor for symptom improvement: fatigue, weight, cold intolerance, constipation",
+          "Repeat lipid panel after achieving euthyroid state"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Bradycardia (HR 58) and low temperature (36.2\u00b0C) consistent with hypothyroidism; monitor for worsening cardiac symptoms",
+          "Ensure adequate levothyroxine dosing to avoid prolonged myxedema state"
+        ],
+        "communication_note": "Your symptoms are consistent with an underactive thyroid (hypothyroidism), likely autoimmune; we'll start thyroid hormone replacement and recheck your levels in 6-8 weeks to ensure proper dosing."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Primary hypothyroidism - inadequately treated (levothyroxine malabsorption or suboptimal dosing)",
+          "Levothyroxine drug interaction (coffee/caffeine interference with absorption)",
+          "Persistent hypothyroidism with need for dose escalation",
+          "Secondary cause of hypothyroidism (less likely given TSH elevation)"
+        ],
+        "workup_ordered": [
+          "Repeat TSH and free T4 in 6-8 weeks after dose adjustment",
+          "Assess levothyroxine adherence and timing of administration",
+          "Consider celiac serology if malabsorption suspected (tissue transglutaminase IgA)",
+          "Basic metabolic panel to assess for other contributors to fatigue"
+        ],
+        "management_plan": [
+          "Increase levothyroxine dose (recommend 50 mcg increment to current dose)",
+          "Counsel patient to take levothyroxine on empty stomach, 30-60 minutes before food/beverages",
+          "Specifically advise against taking with coffee or other caffeinated drinks (impairs absorption)",
+          "Recheck TSH/free T4 in 6-8 weeks to assess response",
+          "Address constipation with increased fiber, hydration, and consider stool softener if needed",
+          "Reassure patient that symptom improvement lags biochemical correction by 2-4 weeks"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Subtherapeutic TSH/free T4 despite 4 weeks of treatment suggests absorption issue rather than non-compliance alone",
+          "Persistent fatigue and constipation may impact quality of life but no acute safety risk"
+        ],
+        "communication_note": "Your thyroid levels are still too low because the coffee is preventing your body from absorbing the medication properly\u2014we'll increase your dose and have you take it separately from coffee, checking levels again in 6-8 weeks."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypothyroidism (primary) - on levothyroxine, responding to treatment",
+          "Levothyroxine dose optimization needed",
+          "Residual symptoms from recent hypothyroidism"
+        ],
+        "workup_ordered": [
+          "Repeat TSH and free T4 in 6 weeks",
+          "Lipid panel follow-up in 8 weeks"
+        ],
+        "management_plan": [
+          "Continue levothyroxine at current dose (patient now compliant)",
+          "Reassure patient that symptom resolution typically takes 6-12 weeks after TSH normalization",
+          "Counsel on consistent timing of levothyroxine (empty stomach, 30-60 min before food)",
+          "Recheck TSH/free T4 in 6 weeks; adjust dose if TSH remains >2.5 or if symptoms persist",
+          "Monitor menstrual cycle normalization over next 2-3 months",
+          "Encourage continued exercise and balanced diet for weight management"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Your thyroid levels are normalizing and your symptoms are improving\u2014this is excellent progress. Most patients feel significantly better within 6-12 weeks of starting treatment, so continued improvement is expected; we'll recheck your levels in 6 weeks to ensure your dose is optimal."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779505818.4737473
+}

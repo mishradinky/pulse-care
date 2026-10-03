@@ -1,0 +1,191 @@
+{
+  "case_id": "mental_002",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Police brought me here. Haven't slept much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what happened that led to the police bringing you here?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno. They said I was acting weird. I wasn't doing nothing wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any unusual thoughts or feelings recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I feel fine. Nothing unusual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been experiencing any stress or major changes in your life recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really. Just been busy."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any changes in your mood, such as feeling more irritable or euphoric than usual?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I feel great. Don't need sleep much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever been diagnosed with a mental health condition, such as bipolar disorder or schizophrenia?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Been on medication before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "bipolar disorder, manic episode",
+          "substance-induced mood disorder"
+        ],
+        "workup_ordered": [
+          "urine toxicology screen"
+        ],
+        "management_plan": [
+          "restart or adjust psychiatric medication",
+          "psychiatric follow-up"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for harm due to impaired judgment",
+          "lack of sleep"
+        ],
+        "communication_note": "It seems like you might be experiencing a manic episode, possibly related to bipolar disorder. We'll need to do some tests and adjust your treatment plan."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I didn't do nothing. Let me outta here."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me why you are here and what you remember about how you got here?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Police brought me. Neighbors called. I don't know why."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any unusual thoughts or behaviors recently that might have concerned your neighbors?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't know what they're talking about. I'm fine."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute psychosis",
+          "substance-induced psychosis",
+          "bipolar disorder with psychotic features"
+        ],
+        "workup_ordered": [
+          "urine toxicology screen",
+          "complete blood count",
+          "comprehensive metabolic panel"
+        ],
+        "management_plan": [
+          "psychiatric evaluation",
+          "initiate antipsychotic medication if indicated",
+          "monitor for safety and stabilization"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential harm to self or others due to altered mental status"
+        ],
+        "communication_note": "We need to ensure your safety and understand what's happening, so we're referring you to the emergency department for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm too sleepy now. Can't stay awake."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypersomnia",
+          "depression",
+          "sleep apnea",
+          "narcolepsy"
+        ],
+        "workup_ordered": [
+          "polysomnography",
+          "complete blood count",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "refer to sleep specialist",
+          "consider starting cognitive behavioral therapy for sleep issues",
+          "advise on sleep hygiene"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of accidents due to excessive sleepiness"
+        ],
+        "communication_note": "We need to investigate the cause of your excessive sleepiness with some tests and a referral to a sleep specialist."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "bipolar I disorder manic episode with psychosis",
+      "substance-induced mania",
+      "schizoaffective disorder",
+      "secondary mania"
+    ],
+    "required_workup": [
+      "lithium level",
+      "TSH",
+      "BMP CBC",
+      "urine drug screen",
+      "ECG before antipsychotics",
+      "head imaging if first episode"
+    ],
+    "correct_management": [
+      "involuntary psychiatric hold",
+      "IM benzodiazepine for acute agitation",
+      "antipsychotic (haloperidol risperidone)",
+      "restart lithium targeting 0.8-1.2 mEq/L",
+      "inpatient psychiatric admission",
+      "family education"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511073.0597043
+}

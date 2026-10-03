@@ -1,0 +1,191 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 1,
+        "differential_diagnosis": [
+          "Urosepsis secondary to acute cystitis/pyelonephritis (PRIMARY)",
+          "Delirium from infection with systemic inflammatory response",
+          "Acute kidney injury (prerenal from dehydration \u00b1 direct sepsis-induced)",
+          "Hyponatremia (SIADH vs. volume depletion from infection)",
+          "Hyperglycemia/possible HHS (stress response vs. uncontrolled DM2)"
+        ],
+        "workup_ordered": [
+          "Blood cultures \u00d72 (STAT, before antibiotics)",
+          "Urinalysis with culture (expedite pending)",
+          "Comprehensive metabolic panel (repeat in 4\u20136 hours to assess Cr, BUN, Na, K+ trends)",
+          "Lactate (assess tissue perfusion and sepsis severity)",
+          "Venous or arterial blood gas (acid-base status)",
+          "Renal ultrasound or non-contrast CT abdomen/pelvis (if obstruction or pyelonephritis complications suspected after initial labs)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ESCALATION TO ICU-CAPABLE FACILITY (do not delay for outpatient workup completion)",
+          "Sepsis bundle initiation: IV fluid resuscitation (normal saline 30 mL/kg bolus), lactate, blood cultures \u00d72, broad-spectrum antibiotics within 1 hour of sepsis recognition",
+          "Empiric antibiotic: Ceftriaxone 1\u20132 g IV q12h (covers E. coli, Klebsiella, Proteus; minimal renal adjustment needed) \u00b1 fluoroquinolone if atypical coverage required; adjust for renal function (Cr 1.6, eGFR ~35\u201340)",
+          "HOLD: NSAIDs, diuretics, metformin (contraindicated in AKI/sepsis); reassess ACE-I/ARB after fluid resuscitation and Cr stabilization",
+          "Acute kidney injury protocol: Monitor urine output hourly (target >0.5 mL/kg/hr); repeat BMP q4\u20136h; avoid nephrotoxic agents",
+          "Hyponatremia management: Fluid restriction + treat infection; correct slowly (<8\u201310 mEq/L per 24 hours); repeat Na q4\u20136h",
+          "Hyperglycemia: Monitor glucose q4h; target 140\u2013180 mg/dL during acute phase; avoid aggressive insulin (hypoglycemia risk in sepsis)",
+          "Delirium management: Minimize sedating medications; optimize oxygenation, hydration, infection control; assess for urinary retention",
+          "Continuous monitoring: Pulse oximetry, frequent vitals, strict I&O, daily weights; escalate further if lactate >4, persistent hypotension, or worsening renal function",
+          "Medication reconciliation: Obtain complete home medication list; verify allergy status (penicillin/cephalosporin/fluoroquinolone)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "SEPSIS CRITERIA MET: Fever 38.4\u00b0C + pyuria/nitrites + leukocytosis (WBC 14.2) + altered mental status (delirium) = systemic inflammatory response to infection requiring ICU-level care NOW",
+          "ACUTE KIDNEY INJURY with electrolyte derangement: Cr 1.6, BUN 38, Na 130 (hyponatremia)\u2014prerenal azotemia \u00b1 direct kidney involvement; high risk for rapid decompensation",
+          "ALTERED MENTAL STATUS (delirium) in elderly patient: Multifactorial (infection, AKI, hyponatremia, hyperglycemia 248)\u2014high fall/aspiration risk; cannot safely manage outside ICU",
+          "HYPERGLYCEMIA (248) + altered mental status: HHS cannot be ruled out; requires urgent osmolality assessment and glucose monitoring",
+          "AGE + COMORBIDITIES (T2DM, HTN, CKD stage 3b): 72-year-old with multiple risk factors\u2014high mortality if sepsis not managed emergently with ICU-level monitoring and vasopressor readiness",
+          "CRITICAL DELAY RISK: Clinician note 'ready to yield to pharmacy for empiric antibiotics' suggests potential delay in escalation. Antibiotics must be given within 1 hour of sepsis recognition, but patient MUST be in ICU-capable facility first\u2014do not complete workup in primary care/routine ED",
+          "NO FLUID RESUSCITATION PROTOCOL MENTIONED: Patient requires aggressive IV fluid resuscitation (30 mL/kg bolus), vasopressor readiness, and ICU bed request\u2014non-negotiable for urosepsis with organ dysfunction"
+        ],
+        "communication_note": "72-year-old with urosepsis (fever, pyuria, nitrites, leukocytosis, delirium) + acute kidney injury (Cr 1.6, BUN 38) + hyponatremia (Na 130) meets sepsis criteria and requires EMERGENCY 911 transfer to ICU-capable facility for continuous monitoring, aggressive fluid resuscitation, and empiric antibiotics within 1 hour\u2014do not delay for outpatient workup.",
+        "trace": {
+          "clinician_contribution": "Proposed comprehensive workup (blood cultures, lactate, BMP, imaging) and correctly identified urosepsis with multifactorial delirium; however, did not explicitly escalate to ICU or emphasize time-critical nature of sepsis management.",
+          "safety_checker_contribution": "Identified all sepsis criteria met, acute kidney injury with electrolyte derangement, altered mental status with high fall/aspiration risk, and hyperglycemia/HHS concern. Critically flagged that workup is appropriate but INSUFFICIENT without immediate ICU escalation and blocking concerns (sepsis + organ dysfunction = ICU-level care required NOW, not after workup completion; antibiotics within 1 hour; fluid resuscitation and vasopressor readiness non-negotiable).",
+          "pharm_nurse_contribution": "Provided detailed medication review (hold NSAIDs, diuretics, metformin; reassess ACE-I/ARB), renal dosing adjustments (ceftriaxone preferred; avoid aminoglycosides and nitrofurantoin), and comprehensive nursing protocol (sepsis bundle, AKI management, hyponatremia correction, delirium assessment, catheter consideration, allergy verification, continuous monitoring thresholds). Emphasized medication reconciliation and escalation triggers (lactate >4, persistent hypotension, worsening renal function)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Urosepsis with acute kidney injury (Cr 2.1, BUN 52, ESBL E. coli resistant to ciprofloxacin)",
+          "Ciprofloxacin-induced neurotoxicity (fluoroquinolone CNS penetration in renal dysfunction)",
+          "Hyponatremia-induced encephalopathy (Na 128 with worsening confusion, now oriented \u00d70)",
+          "Multifactorial delirium (sepsis + medication toxicity + metabolic derangement + dehydration)"
+        ],
+        "workup_ordered": [
+          "STAT emergency department transfer (do NOT manage in primary care)",
+          "STAT repeat BMP (assess renal trend, sodium, potassium, glucose)",
+          "STAT blood cultures if not already drawn",
+          "STAT urinalysis and urine culture confirmation (organism sensitivities)",
+          "STAT lactate, CBC with differential",
+          "Consider CT head if mental status does not improve within 24\u201348 h of intervention",
+          "Abdominal/pelvic imaging if urosepsis etiology unclear (rule out obstruction, abscess)"
+        ],
+        "management_plan": [
+          "DISCONTINUE ciprofloxacin immediately (contraindicated: resistance documented + renal dysfunction + CNS toxicity)",
+          "INITIATE sepsis protocol: IV access (large-bore if possible), lactate measurement, blood cultures, early broad-spectrum IV antibiotic",
+          "SWITCH to renal-adjusted carbapenem (meropenem 500 mg IV Q8H for Cr 2.1) OR cephalosporin (ceftazidime 1 g IV Q8\u201312H adjusted) pending ID consultation and sensitivities",
+          "HOLD diuretics; assess volume status and initiate cautious IV fluid resuscitation (target MAP \u226565 mmHg; balance hyponatremia risk)",
+          "HYPONATREMIA CORRECTION: Gentle normal saline infusion preferred (avoid rapid correction; risk osmotic demyelination). Recheck BMP q2\u20134h during acute phase. Nephrology input recommended.",
+          "INFECTIOUS DISEASE consultation (in-hospital) for resistant gram-negative coverage optimization",
+          "NEPHROLOGY consultation for AKI management, renal function trend, dialysis readiness if Cr rises or K+ becomes elevated",
+          "NEURO monitoring: Establish baseline; reassess mental status q1h (expect improvement 24\u201348h post-cipro discontinuation + appropriate antibiotic + metabolic correction)",
+          "FOLEY catheter if not in place; strict I&Os; monitor urine output for oliguria",
+          "MEDICATION RECONCILIATION: Hold NSAIDs, verify no beta-lactam allergy, adjust all renally-cleared drugs for eGFR ~25\u201330 mL/min",
+          "SEPSIS BUNDLE: Vasopressor readiness if hypotensive; continuous cardiac/oxygen monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Sepsis + AKI + resistant organism + altered mental status (now oriented \u00d70) = SEPTIC SHOCK RISK; requires ICU-level continuous monitoring, IV access, vasopressor capability",
+          "CRITICAL: Ciprofloxacin is contraindicated and must be discontinued STAT; delay risks treatment failure and death",
+          "CRITICAL: Hyponatremia (Na 128) with encephalopathy requires careful correction under ICU/nephrology supervision; overcorrection risks osmotic demyelination; undercorrection risks seizure",
+          "CRITICAL: Primary care setting is INAPPROPRIATE for this acuity; patient requires emergency department or ICU admission",
+          "CRITICAL: Worsening confusion despite antibiotics suggests cipro neurotoxicity superimposed on sepsis\u2014discontinuation + appropriate antibiotic + metabolic correction are urgent",
+          "CRITICAL: Blood cultures, repeat labs, and imaging cannot wait for routine outpatient coordination; these are STAT orders in acute care"
+        ],
+        "communication_note": "EMERGENCY ESCALATION: 72F with sepsis (fever, tachycardia, tachypnea), AKI (Cr 2.1), hyponatremia (Na 128), and worsening encephalopathy (now oriented \u00d70) on inappropriate ciprofloxacin\u2014requires immediate ED/ICU transfer, discontinuation of cipro, broad-spectrum IV antibiotic, and careful metabolic/sepsis management.",
+        "trace": {
+          "clinician_contribution": "Identified sepsis with AKI, resistant ESBL E. coli, and multifactorial delirium; recommended ID consultation, repeat labs, and imaging. Appropriately yielded to pharmacy for antimicrobial selection but underestimated acuity escalation.",
+          "safety_checker_contribution": "CRITICAL escalation to emergency_911: Flagged septic shock risk, contraindication of ciprofloxacin, hyponatremia encephalopathy requiring ICU supervision, and inappropriateness of primary care setting. Blocking concerns correctly identified need for STAT labs, continuous monitoring, and in-hospital ID/nephrology consultation.",
+          "pharm_nurse_contribution": "Detailed medication review (cipro contraindicated, hold diuretics, avoid NSAIDs), renal-adjusted dosing (meropenem 500 mg IV Q8H or ceftazidime 1 g IV Q8\u201312H), and comprehensive nursing protocol (sepsis bundle, hyponatremia correction strategy, neuro monitoring q1h, strict I&Os, source control imaging, allergy verification, fluid balance assessment). Provided actionable clinical guidance for ICU-level care."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "72-year-old female in septic shock from urosepsis (E. coli ESBL bacteremia) with acute kidney injury (Cr 3.1), altered mental status (GCS 8), hemodynamic instability (BP 88/52, HR 120, RR 28), elevated lactate (4.2), and mottled skin. LIFE-THREATENING emergency requiring immediate ICU escalation.",
+        "differential_diagnosis": [
+          "Urosepsis (E. coli ESBL)\u2014CONFIRMED by positive blood cultures",
+          "Septic shock (distributive)\u2014CONFIRMED by hypotension, tachycardia, tachypnea, altered mental status, elevated lactate, mottled skin",
+          "Acute kidney injury secondary to sepsis\u2014CONFIRMED by Cr 3.1",
+          "Sepsis-related encephalopathy\u2014CONFIRMED by GCS 8"
+        ],
+        "workup_ordered": [
+          "Emergency 911 activation and ICU admission",
+          "Continuous hemodynamic monitoring en route and in ICU",
+          "Two large-bore IV lines",
+          "Repeat lactate post-resuscitation (Q3\u20136H)",
+          "Repeat BMP, CBC, coagulation studies (PT/INR, fibrinogen, D-dimer)",
+          "Blood cultures \u00d72 (await sensitivities)",
+          "Urinalysis and urine culture",
+          "Foley catheter for accurate I/O monitoring",
+          "Ammonia level if mental status does not improve",
+          "Baseline eGFR calculation for antibiotic dosing"
+        ],
+        "management_plan": [
+          "Sepsis bundle initiation within 1 hour:",
+          "Broad-spectrum IV antibiotics: Meropenem 500mg IV Q12H or Q24H (adjusted for Cr 3.1/eGFR <15); consider vancomycin if MRSA coverage needed (TDM required)",
+          "Aggressive IV fluid resuscitation: 30 mL/kg crystalloid bolus, balanced against AKI and pulmonary edema risk",
+          "Vasopressor support: Norepinephrine first-line; target MAP \u226565 mmHg",
+          "HOLD home NSAIDs immediately (contraindicated in AKI + sepsis)",
+          "HOLD or reduce home ACE-I/ARBs during acute phase",
+          "HOLD home diuretics during resuscitation",
+          "Obtain full medication reconciliation STAT (allergy screening, interaction check)",
+          "Prepare for possible intubation given GCS 8",
+          "Coordinate with nephrology for RRT threshold assessment",
+          "Culture-directed de-escalation once sensitivities available",
+          "Notify family of critical status immediately"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Septic shock criteria met: hypotension (88/52), tachycardia (120), tachypnea (28), altered mental status (GCS 8), mottled skin, elevated lactate (4.2)",
+          "Confirmed bacteremia: E. coli ESBL in blood cultures",
+          "Severe acute kidney injury (Cr 3.1) requiring renal dosing adjustment for all medications",
+          "Altered mental status (GCS 8): airway protection may be imminent",
+          "Mottled skin and hemodynamic instability: monitor for DIC and microvascular thrombosis",
+          "Medication allergy/interaction risk: home medication list unknown; must verify NO carbapenem allergies",
+          "Fluid resuscitation paradox: balance sepsis resuscitation against AKI and pulmonary edema risk",
+          "No delays acceptable: sepsis bundle must initiate within 1 hour"
+        ],
+        "communication_note": "72-year-old female in septic shock from urosepsis (E. coli ESBL) with bacteremia, acute kidney injury, and altered mental status requires IMMEDIATE emergency ICU admission with sepsis bundle, renally-adjusted broad-spectrum antibiotics, aggressive resuscitation, vasopressor support, and continuous monitoring.",
+        "trace": {
+          "clinician_contribution": "Recognized septic shock with confirmed urosepsis source, multi-organ involvement (AKI, altered mental status, hemodynamic instability), and correctly prioritized emergency ICU admission, broad-spectrum antibiotics, aggressive resuscitation, and hemodynamic monitoring.",
+          "safety_checker_contribution": "Validated all septic shock criteria and approved immediate ICU escalation with no blocking concerns. Emphasized sepsis bundle compliance within 1 hour, two large-bore IVs, lactate re-check, vasopressor readiness, Foley catheter placement, and family notification.",
+          "pharm_nurse_contribution": "Identified CRITICAL renal dosing adjustment for carbapenems (meropenem 500mg Q12H or Q24H, NOT standard 1g Q8H) given severe AKI (Cr 3.1). Flagged urgent medication reconciliation, contraindication of NSAIDs in AKI + sepsis, temporary hold of ACE-I/ARBs, and need for vancomycin TDM if added. Emphasized fluid resuscitation paradox, airway protection, and culture-directed de-escalation planning."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779602608.4360316
+}

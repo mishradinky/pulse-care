@@ -1,0 +1,204 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a fever and chills for two days now, and I'm having severe pain in my back. I've also been feeling confused, and I haven't been able to urinate since this morning. I've been vomiting too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in the color or smell of your urine when you were able to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, it looked darker than normal and had a strong smell to it. But I haven't been able to go to the bathroom for about 12 hours now, which is really worrying me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent injuries or trauma to your back?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any injuries or falls that I can remember. The pain in my back just started a couple of days ago along with the fever and chills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent infections or been on antibiotics recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I had a urinary tract infection about three months ago. My doctor treated it with Cipro, an antibiotic. I've had these infections before, more than once."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your bowel movements or any abdominal pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had any bowel movement issues that I can think of. But yes, I do have pain in my back and sides\u2014it's been really hurting, especially on the right side. And I've been vomiting too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling in your legs or feet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't noticed any swelling in my legs or feet. My main problem right now is this fever and the pain in my back, and I haven't been able to urinate since yesterday."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urosepsis",
+          "acute kidney injury"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel",
+          "renal ultrasound"
+        ],
+        "management_plan": [
+          "initiate intravenous fluids",
+          "start broad-spectrum antibiotics",
+          "monitor vital signs closely",
+          "pain management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis",
+          "acute kidney injury due to urinary retention"
+        ],
+        "communication_note": "You need immediate medical attention for your symptoms, as they may indicate a serious kidney infection or other urgent condition."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still running a fever even though I started antibiotics yesterday. And I'm feeling more confused now\u2014my daughter is worried about me. I also feel very weak."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific symptoms led to the prescription of antibiotics, and which antibiotic are you taking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I came in with a high fever, chills, and pain in my side. The doctor said I had an infection and started me on an antibiotic called Cipro yesterday. But I'm still running a fever and feeling more confused than before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your urine, such as pain, frequency, or color changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I haven't been able to urinate at all for the past 12 hours, which worries me. Before that, I was going more often than usual. I don't remember the color being strange, but I've been so focused on the fever and this awful pain in my sides."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "pyelonephritis",
+          "urosepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "continue antibiotics",
+          "monitor vital signs closely",
+          "ensure adequate hydration",
+          "consider hospitalization for IV antibiotics if no improvement"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis",
+          "acute kidney injury due to urinary retention"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment, as your symptoms suggest a serious infection that may require hospitalization."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm very sick. I'm having trouble breathing and I can't stay awake. Everything feels wrong."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "sepsis",
+          "congestive heart failure exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "blood cultures",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start empirical antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential respiratory failure",
+          "possible septic shock"
+        ],
+        "communication_note": "You need immediate medical attention to address your breathing difficulties and overall condition."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507907.8217702
+}

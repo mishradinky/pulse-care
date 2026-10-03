@@ -1,0 +1,113 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "diabetic foot ulcer",
+          "cellulitis"
+        ],
+        "workup_ordered": [
+          "wound culture",
+          "CBC",
+          "wound care consultation"
+        ],
+        "management_plan": [
+          "initiate oral antibiotics",
+          "optimize glycemic control",
+          "educate on foot care",
+          "schedule follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of infection progression",
+          "poor wound healing due to high blood sugar"
+        ],
+        "communication_note": "You have a diabetic foot ulcer with signs of infection; we'll start antibiotics and improve your diabetes management."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "infected diabetic foot ulcer",
+          "cellulitis"
+        ],
+        "workup_ordered": [
+          "wound culture",
+          "blood glucose monitoring",
+          "CBC"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum antibiotics",
+          "optimize blood glucose control",
+          "wound care with debridement"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis",
+          "risk of osteomyelitis"
+        ],
+        "communication_note": "Your foot wound appears to be infected and needs urgent treatment, so I recommend going to the emergency department for further care."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "osteomyelitis",
+          "necrotizing fasciitis"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "surgical consultation"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum IV antibiotics",
+          "admit to hospital for surgical evaluation and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis",
+          "potential for rapid progression of infection"
+        ],
+        "communication_note": "You have a serious foot infection that requires immediate hospital treatment and possibly surgery."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505769.1130202
+}

@@ -1,0 +1,202 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having a fever, chills, and back pain, and I haven't been able to urinate. I'm also feeling quite confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been having these symptoms for about 2 days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent infections or been hospitalized recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had recurrent urinary tract infections. The last one was about three months ago, and I was treated with Cipro for it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in the color or smell of your urine?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm not sure. I haven't urinated in the past 12 hours, so I haven't noticed any changes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or abdominal pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been vomiting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any pain or burning sensation when trying to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't urinated in the past 12 hours, so I can't say if there's any pain or burning sensation right now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urosepsis",
+          "acute urinary retention"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel",
+          "renal ultrasound"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum IV antibiotics",
+          "administer IV fluids",
+          "monitor vital signs closely",
+          "consult urology for possible catheterization"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis",
+          "acute kidney injury due to urinary retention"
+        ],
+        "communication_note": "You need immediate medical attention to address your fever, confusion, and inability to urinate, which could indicate a serious infection."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been on antibiotics for about 24 hours now, but I'm still having a high fever and feeling more confused. It's really concerning me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific antibiotic are you taking and what was it prescribed for?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm on ciprofloxacin, and it was prescribed for a urinary tract infection I had a while ago. I'm not sure if it's the same thing this time, though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like pain during urination, increased frequency, or urgency?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been feeling a lot of flank pain, and I haven't urinated in the last 12 hours. No pain during urination because I haven't been able to go."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urosepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "renal function tests",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "hospital admission for intravenous antibiotics",
+          "fluid resuscitation",
+          "monitoring of vital signs and urine output"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis due to untreated urinary tract infection",
+          "dehydration and acute kidney injury due to lack of urination"
+        ],
+        "communication_note": "You need immediate medical attention to address the high fever and confusion, which could indicate a serious infection."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm in the ICU because I've been really sick with a bad infection. They mentioned something about my blood pressure being very low and needing some strong medicine to help keep it up."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "septic shock",
+          "urosepsis",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "complete blood count",
+          "lactate level",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "continue IV antibiotics",
+          "maintain vasopressor support",
+          "monitor vital signs closely",
+          "consult infectious disease specialist"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of multi-organ failure",
+          "hemodynamic instability"
+        ],
+        "communication_note": "You are in the ICU due to a severe infection causing low blood pressure, and we are providing strong medications to support your blood pressure and treat the infection."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779640603.7626178
+}

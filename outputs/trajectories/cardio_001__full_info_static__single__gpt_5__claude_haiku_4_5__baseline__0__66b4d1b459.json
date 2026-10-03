@@ -1,0 +1,112 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "repeat ECG",
+          "serial troponins",
+          "stress test"
+        ],
+        "management_plan": [
+          "start aspirin",
+          "start beta-blocker",
+          "consider statin therapy",
+          "smoking cessation counseling"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "Your symptoms suggest a heart-related issue; we'll arrange further tests and start some medications to protect your heart."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "non-ST elevation myocardial infarction (NSTEMI)"
+        ],
+        "workup_ordered": [
+          "cardiac catheterization",
+          "repeat troponin in 3 hours",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "initiate dual antiplatelet therapy",
+          "start beta-blocker",
+          "administer statin",
+          "admit to telemetry unit"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "You have signs of a heart issue that needs immediate attention, so we're sending you to the emergency department for further evaluation and treatment."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute myocardial infarction",
+          "unstable angina"
+        ],
+        "workup_ordered": [
+          "emergency coronary angiography"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "administer nitroglycerin",
+          "administer oxygen",
+          "prepare for possible percutaneous coronary intervention"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of cardiac arrest",
+          "risk of heart failure"
+        ],
+        "communication_note": "You are experiencing a heart attack and need immediate emergency care."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505140.074354
+}

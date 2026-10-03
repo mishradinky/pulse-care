@@ -1,0 +1,209 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest hurts. Hard to breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain further? For example, is it sharp, dull, or pressure-like? Does it radiate anywhere?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sharp. Right side. Worse when I breathe in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or falls that might have caused this pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of your chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Seven."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms besides the chest pain and difficulty breathing, such as cough, fever, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. No cough. Just the pain and breathing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses or exposures that might be related to this?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumothorax",
+          "Pneumonia",
+          "Pleurisy",
+          "Costochondritis",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Electrocardiogram (ECG)",
+          "Complete Blood Count (CBC)",
+          "Basic Metabolic Panel (BMP)",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "Administer oxygen therapy if needed",
+          "Provide analgesia for pain management",
+          "Monitor vital signs closely",
+          "Follow up with results of diagnostic tests"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for respiratory compromise",
+          "Risk of underlying serious cardiac or pulmonary condition"
+        ],
+        "communication_note": "We need to run some tests to better understand your chest pain and difficulty breathing."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Worse than before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the quality of your shortness of breath? For example, is it sharp, dull, or like a pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Hard to breathe. Worse now, even sitting still."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Right leg. More than before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure",
+          "pulmonary embolism",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "electrocardiogram (ECG)",
+          "brain natriuretic peptide (BNP) test",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "administer oxygen therapy",
+          "start diuretic therapy",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential heart failure exacerbation",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart-related issue, and we need to run some tests to determine the best course of treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Almost passed out."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute coronary syndrome",
+          "Pulmonary embolism",
+          "Severe anemia",
+          "Cardiac arrhythmia",
+          "Pneumothorax"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin levels",
+          "D-dimer test",
+          "Chest X-ray",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Administer oxygen therapy if SpO2 is low",
+          "Administer aspirin if acute coronary syndrome is suspected",
+          "Administer anticoagulants if pulmonary embolism is suspected",
+          "Monitor vital signs closely",
+          "Prepare for possible cardioversion if arrhythmia is detected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential life-threatening cardiac or pulmonary event",
+          "Risk of sudden cardiac arrest or respiratory failure"
+        ],
+        "communication_note": "Given the severity of your symptoms, we are sending you to the emergency department immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779637371.9648917
+}

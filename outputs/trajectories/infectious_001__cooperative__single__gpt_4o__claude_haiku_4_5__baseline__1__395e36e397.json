@@ -1,0 +1,209 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a bad cough for 4 days now with yellow stuff coming up, and I've got a fever and chest pain. I'm really not feeling well."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been short of breath for the past 4 days. My breathing feels harder than usual, especially when I move around. I think it's from the cough."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had chills on and off with the fever, yeah. As for night sweats or weight loss, I'm not sure\u2014I haven't really noticed anything like that, but I haven't been paying close attention either."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't traveled anywhere recently. I live alone, so I'm not around many people. But I did have something similar last year that my doctor treated with antibiotics."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your sputum color or amount since the symptoms started?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been coughing up a lot more stuff than usual. It's yellow-green colored, which is different from my normal cough. Started about 4 days ago when this fever came on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any underlying medical conditions, such as asthma, COPD, or heart disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have COPD and diabetes. I've had lung problems for a while now, and I take an inhaler regularly. My blood sugar has been hard to control too."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "bacterial pneumonia",
+          "acute exacerbation of COPD",
+          "viral respiratory infection"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "increase frequency of bronchodilator use",
+          "monitor blood glucose closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure due to COPD exacerbation",
+          "potential sepsis from pneumonia"
+        ],
+        "communication_note": "You have symptoms that suggest a lung infection, possibly pneumonia, and given your COPD, it's important to get further evaluation and treatment at the emergency department."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not doing any better. In fact, I'm more confused now, and I'm not sure what's going on. I took that antibiotic you gave me yesterday, but I don't feel like it's helping."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your symptoms and any changes since you started the antibiotic?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, the cough is still there with the yellow-green stuff. I'm more confused now than yesterday, which worries me. The fever is still high. The antibiotic doesn't seem to be helping much. I'm also not eating much and feel pretty weak."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had trouble catching my breath since this started. And there's a sharp pain in my chest on the right side, especially when I take a deep breath. It's been getting worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "blood cultures",
+          "arterial blood gas",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "admit to hospital for further evaluation and treatment",
+          "start intravenous antibiotics",
+          "oxygen therapy as needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "Given your worsening symptoms and confusion, I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I can't breathe properly. They put a tube down my throat in the emergency room because my oxygen levels kept dropping. I don't remember much after that."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory distress syndrome",
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CT scan of the chest",
+          "arterial blood gas analysis"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for sepsis"
+        ],
+        "communication_note": "You are currently receiving critical care for your breathing difficulties, and we are conducting tests to determine the exact cause."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790538928.4124987
+}

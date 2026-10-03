@@ -1,0 +1,192 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having these palpitations and a racing heart for the past three days. It's been quite uncomfortable."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, dizziness, or fainting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've noticed some mild shortness of breath when I exert myself and occasional lightheadedness, but no chest pain or fainting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in medication, caffeine intake, or stress levels?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No changes in medication. I take lisinopril for my blood pressure. I did have a bit more alcohol than usual last weekend, but my caffeine intake and stress levels have been about the same as usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced similar symptoms in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I've never had anything like this before. It's the first time I'm experiencing these palpitations and racing heart."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the palpitations in more detail? Are they constant or do they come and go?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The palpitations feel like my heart is racing or fluttering, and they come and go throughout the day. It's been happening for about three days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any triggers or activities that make the palpitations worse or better?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I did have a pretty heavy weekend with a lot of drinking, but I can't really say if that made it worse. I haven't noticed anything else specifically that triggers it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Advise reduction in alcohol intake",
+          "Monitor symptoms and follow up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for arrhythmia-related complications"
+        ],
+        "communication_note": "Your symptoms may be related to an irregular heart rhythm, so we'll do some tests and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been having these palpitations for a few days now, and they just won't go away. I'm also starting to feel some chest tightness."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the palpitations? Are they fast, irregular, or pounding?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The palpitations feel fast and irregular. It's like my heart is skipping beats or fluttering. It's been like this for a few days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any dizziness, shortness of breath, or fainting along with the palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been feeling a bit lightheaded at times and have some mild shortness of breath, but I haven't fainted."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "ventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "echocardiogram",
+          "thyroid function tests",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Start beta-blocker or calcium channel blocker for rate control",
+          "Advise on lifestyle modifications to reduce palpitations",
+          "Schedule follow-up appointment after initial workup"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening arrhythmia leading to syncope or heart failure"
+        ],
+        "communication_note": "We need to conduct some tests to understand the cause of your palpitations and chest tightness, and we'll start treatment to help manage your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having much worse palpitations and actually had a blackout episode this morning. It's quite concerning."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "arrhythmia",
+          "syncope due to cardiac cause",
+          "vasovagal syncope"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "echocardiogram",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "advise patient to avoid triggers for syncope",
+          "educate on recognizing warning signs of syncope",
+          "schedule follow-up with cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of injury from syncope",
+          "potential for serious underlying cardiac condition"
+        ],
+        "communication_note": "Given your blackout episode and worsening palpitations, I recommend going to the emergency department for further evaluation to ensure your safety and address any potential heart issues."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635027.097779
+}

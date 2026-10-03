@@ -1,0 +1,185 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a sore on my foot. Two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore on your foot? Is it painful, itchy, or has it changed in size or appearance over the past two weeks?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's a sore spot. Not really painful. Been there two weeks, maybe a bit bigger."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "diabetic foot ulcer",
+          "venous stasis ulcer",
+          "pressure ulcer",
+          "infected wound",
+          "dermatitis"
+        ],
+        "workup_ordered": [
+          "physical examination of the foot",
+          "wound culture if signs of infection",
+          "blood glucose level",
+          "ankle-brachial index"
+        ],
+        "management_plan": [
+          "Conduct a thorough physical examination of the foot to assess the sore.",
+          "Order a wound culture if there are signs of infection.",
+          "Monitor blood glucose levels to assess diabetes control.",
+          "Perform an ankle-brachial index to evaluate circulation.",
+          "Educate the patient on proper foot care and wound management.",
+          "Review and adjust medications as necessary, particularly Metformin and Lisinopril, based on renal function."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential diabetic foot ulcer, which can lead to serious complications if not addressed promptly.",
+          "Possibility of an infected wound, which requires timely intervention.",
+          "Ensure renal function is monitored due to Metformin and Lisinopril use.",
+          "Avoid NSAIDs if the patient has CKD, as they can worsen renal function."
+        ],
+        "communication_note": "The patient should be seen urgently in an outpatient setting to address the potential diabetic foot ulcer and prevent complications.",
+        "trace": {
+          "clinician_contribution": "Provided a differential diagnosis and outlined necessary workup to identify the cause of the foot sore.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation to prevent complications.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and emphasized the importance of monitoring renal function and educating the patient on wound care."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "The wound got bigger. Smells bad now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me how long ago the wound started getting bigger and when you first noticed the smell?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got bigger this week. Smell started yesterday or so."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "infected wound",
+          "necrotizing fasciitis",
+          "chronic ulcer"
+        ],
+        "workup_ordered": [
+          "wound culture",
+          "CBC with differential",
+          "wound swab for Gram stain"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure the patient is not taking NSAIDs if there is a risk of kidney impairment or gastrointestinal bleeding.",
+          "Monitor for systemic infection signs such as fever or chills."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential necrotizing fasciitis, which is a rapidly progressing and life-threatening condition.",
+          "Presence of a foul smell from the wound, indicating possible severe infection."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential necrotizing fasciitis.",
+        "trace": {
+          "clinician_contribution": "Identified potential diagnoses and necessary workup based on wound characteristics.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation due to red flags and recommended ED referral.",
+          "pharm_nurse_contribution": "Reviewed medication use and provided guidance on monitoring and wound care."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Foot is very red, swollen. I have a fever now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the redness and swelling in your foot start, and have you experienced any other symptoms like pain or difficulty walking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Red and swollen past day or two. Hard to walk. No pain really."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "cellulitis",
+          "gout",
+          "deep vein thrombosis",
+          "septic arthritis"
+        ],
+        "workup_ordered": [
+          "physical examination of the foot",
+          "complete blood count",
+          "C-reactive protein",
+          "blood cultures",
+          "X-ray of the foot"
+        ],
+        "management_plan": [
+          "Initiate urgent outpatient follow-up to rule out serious conditions.",
+          "Educate the patient on signs of complications requiring immediate attention.",
+          "Consider alternative pain management if renal impairment is present."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for serious conditions such as deep vein thrombosis or septic arthritis.",
+          "NSAID use in patients with renal impairment or on anticoagulants."
+        ],
+        "communication_note": "Urgent outpatient follow-up is necessary to rule out serious conditions like DVT or septic arthritis.",
+        "trace": {
+          "clinician_contribution": "Identified potential diagnoses and recommended initial workup.",
+          "safety_checker_contribution": "Highlighted the need for urgent escalation due to potential serious conditions.",
+          "pharm_nurse_contribution": "Reviewed medication safety and provided nursing care recommendations."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779512081.4291484
+}

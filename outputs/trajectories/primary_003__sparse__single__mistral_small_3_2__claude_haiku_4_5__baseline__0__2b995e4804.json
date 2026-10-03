@@ -1,0 +1,184 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm tired all the time. And I gained weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing fatigue and weight gain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About four months now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your appetite or any other symptoms like dry skin, constipation, or feeling cold?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, skin's dry. Cold all the time. Constipation too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your menstrual cycle or any other symptoms like hair loss or swelling in your face?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Periods are weird now. Hair falling out. No swelling."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your mood or energy levels, such as feeling down or depressed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Just tired all the time. Real tired."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypothyroidism",
+          "depression",
+          "chronic fatigue syndrome"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "free T4",
+          "CBC",
+          "CMP"
+        ],
+        "management_plan": [
+          "lifestyle modifications",
+          "follow-up in 2 weeks"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "fatigue and weight gain could indicate a serious underlying condition"
+        ],
+        "communication_note": "We'll run some tests to check your thyroid function and overall health."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Started that medicine but still tired. And constipated."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing constipation, and have you made any changes to your diet or fluid intake?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Few months now. No real changes. Just... stuck."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any blood in your stool or any significant weight changes recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood. Gained some weight, yeah."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Medication side effects",
+          "Hypothyroidism",
+          "Irritable bowel syndrome",
+          "Depression"
+        ],
+        "workup_ordered": [
+          "Thyroid-stimulating hormone (TSH) level",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)"
+        ],
+        "management_plan": [
+          "Adjust or change medication if side effects are suspected",
+          "Recommend dietary changes and increased fluid intake for constipation",
+          "Consider referral to a gastroenterologist if symptoms persist",
+          "Monitor for signs of depression and consider counseling or therapy if indicated"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Possible underlying medical condition causing fatigue and constipation",
+          "Potential for worsening symptoms if left untreated"
+        ],
+        "communication_note": "We will run some tests to better understand your symptoms and adjust your treatment plan as needed."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Feeling some better but want to know when I will feel normal."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "viral syndrome",
+          "bacterial infection",
+          "allergic reaction"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CRP",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "continue supportive care",
+          "reassess in 3 days if no improvement"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "possible bacterial infection"
+        ],
+        "communication_note": "We will monitor your symptoms and run some tests to ensure you recover fully."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512642.7925894
+}

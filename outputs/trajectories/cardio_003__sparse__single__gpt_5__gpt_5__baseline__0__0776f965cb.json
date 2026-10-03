@@ -1,0 +1,195 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Palpitations and racing heart."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the palpitations and racing heart start, and how long do they last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days ago, constant since."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, dizziness, or fainting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Mild shortness of breath, lightheaded."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent stress, caffeine intake, or changes in medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heavy drinking last weekend."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced similar symptoms in the past, especially after drinking alcohol?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never happened before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart disease or any family history of heart problems?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No history, none in family."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "alcohol-induced arrhythmia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Advise reduction of alcohol intake",
+          "Consider beta-blocker if ECG confirms arrhythmia",
+          "Follow-up in cardiology"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for arrhythmia to worsen or lead to complications"
+        ],
+        "communication_note": "Your symptoms may be related to an irregular heart rhythm possibly triggered by alcohol; we'll do some tests and follow up with cardiology."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Palpitations, chest tightness now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Six days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, dizziness, or fainting along with these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Some dizziness, no fainting."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "angina"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "echocardiogram",
+          "troponin levels"
+        ],
+        "management_plan": [
+          "start beta-blocker",
+          "advise on lifestyle modifications",
+          "schedule follow-up in cardiology"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of arrhythmia leading to stroke",
+          "potential for myocardial ischemia"
+        ],
+        "communication_note": "Your symptoms suggest a heart rhythm issue; we'll do some tests and start treatment to manage it."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Palpitations worse, fainted this morning."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "arrhythmia",
+          "syncope due to cardiac cause",
+          "atrial fibrillation"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "advise patient to avoid driving until cleared",
+          "schedule cardiology follow-up",
+          "educate on recognizing symptoms of arrhythmia"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of recurrent syncope leading to injury",
+          "potential for serious underlying cardiac condition"
+        ],
+        "communication_note": "Given your fainting and worsening palpitations, we need to evaluate your heart rhythm in the emergency department to ensure your safety."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635106.4106739
+}

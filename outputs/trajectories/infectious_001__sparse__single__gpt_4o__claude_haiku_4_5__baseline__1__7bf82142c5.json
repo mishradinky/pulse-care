@@ -1,0 +1,208 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Yellow stuff coming up. Fever. Chest hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Started Monday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, can't catch my breath. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, chills. Sweating at night too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got bad lungs. Take inhalers. Also got sugar disease. Take a pill for that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific inhalers and medications are you currently taking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I take a breathing inhaler daily. And a blue one when I need it. Plus a diabetes pill."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start antibiotics empirically",
+          "increase use of rescue inhaler",
+          "consider corticosteroids if wheezing is present"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure due to underlying lung disease"
+        ],
+        "communication_note": "You have a serious lung infection that needs immediate attention, so I'm referring you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still coughing. Feel worse. More confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Fever. Can't breathe right. Confused too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your sputum, such as color or amount?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it's yellow-green now. More than before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "start antibiotics",
+          "administer supplemental oxygen",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for sepsis"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your worsening symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube down."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory failure",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory arrest",
+          "potential for sepsis"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties and are currently on a ventilator. We are conducting tests to determine the cause and will continue to provide intensive care."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539220.8290842
+}

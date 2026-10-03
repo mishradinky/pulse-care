@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure. Been two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure? Is it constant or does it come and go?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Comes and goes. Worse when I walk."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like shortness of breath, sweating, nausea, or pain radiating to your arm or jaw?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Had some sweating. Left arm too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or nausea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever been diagnosed with any heart conditions or do you have any risk factors like high blood pressure, high cholesterol, or diabetes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "High blood pressure. On a pill for it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medication are you taking for your high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Lisinopril. Twenty milligrams."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "start nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential heart attack"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest is tight again. Hard to breathe some."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the chest tightness and difficulty breathing start?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Last night. Maybe around midnight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like sweating, nausea, or pain radiating to your arm or jaw?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Arm again. Little sweaty last night."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction",
+          "gastroesophageal reflux disease"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "oxygen therapy if needed",
+          "nitroglycerin for chest pain"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential myocardial infarction",
+          "risk of cardiac arrest"
+        ],
+        "communication_note": "You are experiencing symptoms that could indicate a heart problem, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest is killing me. Been going on thirty minutes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "oxygen therapy if needed",
+          "prepare for possible transfer to higher level of care"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for myocardial infarction",
+          "risk of cardiac arrest"
+        ],
+        "communication_note": "Your chest pain is concerning for a heart issue, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634684.0498297
+}

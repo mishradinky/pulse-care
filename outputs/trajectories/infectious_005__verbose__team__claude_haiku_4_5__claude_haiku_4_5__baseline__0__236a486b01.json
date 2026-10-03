@@ -1,0 +1,225 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank goodness you're here, doctor. I've just been absolutely miserable since I got home from the hospital last week. You know, my daughter was supposed to visit yesterday but had to cancel because of work stress\u2014she's in accounting, very demanding job\u2014anyway, that's not important. What IS important is that I cannot stop running to the bathroom. I'm talking ten times a day, maybe more, and it's just... well, it's just water coming out, if you know what I mean. The cramping is terrible, just awful, and I've got this fever too. I was in the hospital for pneumonia and they gave me antibiotics, and now THIS. I don't understand what's happening to me. Can you help me figure this out?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm concerned about what's happening since your hospitalization. A few clarifying questions: (1) When exactly did the diarrhea and cramping start\u2014was it during your hospital stay or after you came home? (2) What specific antibiotics were you given for the pneumonia? (3) Have you had any blood in your stool, or is it purely watery? (4) Any nausea or vomiting? (5) What's your current temperature?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh, well, you know, my daughter\u2014she's a teacher, bless her heart\u2014she said I should keep track of everything, so I've been writing it all down. The diarrhea didn't start until after I got home, thank goodness. I was in the hospital for maybe a week, and they gave me that strong antibiotic... clindamycin, I think they called it? Awful name. Anyway, I finished it five days ago, and then\u2014wouldn't you know it\u2014two days later this just started. Just water, doctor, nothing else, thank God. No blood that I can see. The cramping is just terrible though, my whole belly aches. And nausea? A little bit, but I've been forcing myself to eat some crackers. My temperature this morning was 38.7, and I feel hot and cold all at once. I'm really worried this is something serious."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) - POST-ANTIBIOTIC DIARRHEA [HIGH PRIORITY]",
+          "Other infectious gastroenteritis (viral or bacterial)",
+          "Inflammatory bowel disease flare",
+          "Medication-related diarrhea (non-antibiotic)",
+          "Ischemic colitis"
+        ],
+        "workup_ordered": [
+          "STAT: C. difficile PCR/NAAT and toxin assay (stool specimen with proper collection protocol)",
+          "STAT: Complete metabolic panel (Cr, eGFR, electrolytes [K+, Na+, Cl-], BUN) - assess renal function and dehydration",
+          "STAT: Complete blood count (WBC, Hgb, Hct) - assess for leukocytosis/anemia",
+          "Orthostatic vital signs + hydration assessment (mucous membranes, skin turgor, urine output)",
+          "Abdominal exam: assess for peritoneal signs, distension, toxic appearance",
+          "Consider CT abdomen/pelvis if severe colitis suspected or no improvement with treatment"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Assess hydration status and initiate IV fluid resuscitation if signs of moderate-severe dehydration (orthostatic hypotension, altered mental status, oliguria)",
+          "INFECTION CONTROL: Implement contact precautions immediately; educate patient on hand hygiene with soap/water (alcohol-based sanitizers ineffective against C. diff spores)",
+          "CONTRAINDICATION ALERT: Do NOT prescribe antimotility agents (loperamide, diphenoxylate) - risk of toxic megacolon/perforation in CDI",
+          "PENDING CDI CONFIRMATION: If high clinical suspicion (clindamycin exposure + post-hospitalization + watery diarrhea + fever + timing 2-10 days post-antibiotic), consider empiric fidaxomicin 200 mg PO BID \u00d7 10 days OR vancomycin 125 mg PO QID \u00d7 10 days (pending renal function and allergy history)",
+          "HOLD metformin temporarily if on board (diarrhea + dehydration increases lactic acidosis risk); monitor digoxin levels and K+ if applicable",
+          "Supportive care: clear liquids, electrolyte replacement, monitor temperature q4h",
+          "Patient education: red flag symptoms requiring ED evaluation (worsening cramping, bloody stools, inability to tolerate fluids, dizziness, confusion, fever >101.5\u00b0F)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "CRITICAL DEHYDRATION RISK: Age 70 + acute watery diarrhea (10+ episodes/day) + fever + nausea = high risk for hypovolemia, acute kidney injury, and electrolyte derangement. Orthostatic vital signs MUST be obtained immediately.",
+          "FEVER 38.7\u00b0C (101.7\u00b0F) + systemic symptoms: approaching threshold for ED referral if fever rises >101.5\u00b0F or signs of severe colitis/sepsis emerge",
+          "CDI HIGH-RISK PROFILE: Clindamycin (HIGH-RISK agent for CDI) + recent hospitalization + post-antibiotic timing (2 days after completion) = classic presentation. Empiric treatment may be warranted pending test results if clinical deterioration.",
+          "TOXIC MEGACOLON RISK: Severe cramping + fever + diarrhea; antimotility agents absolutely contraindicated.",
+          "MEDICATION INTERACTIONS: Verify current medication list (warfarin/DOACs, metformin, digoxin) before antibiotic selection; broad-spectrum agents may potentiate anticoagulation and impair absorption.",
+          "MISSING INFORMATION: Confirm allergy/intolerance history (penicillin/cephalosporin cross-reactivity) for future antibiotic selection if vancomycin/fidaxomicin needed."
+        ],
+        "communication_note": "70-year-old female with classic post-antibiotic CDI presentation (clindamycin exposure, 2-day post-completion onset, watery diarrhea \u00d710/day, fever 38.7\u00b0C, cramping); urgent outpatient evaluation with same-day stool studies, labs, and hydration assessment required; empiric CDI treatment likely indicated pending results.",
+        "trace": {
+          "clinician_contribution": "Systematic questioning strategy identified key discriminators: antibiotic type (clindamycin - HIGH-RISK for CDI), precise symptom timeline (post-hospitalization, 2 days after antibiotic completion), absence of blood in stool, fever 38.7\u00b0C, and cramping. Differential appropriately prioritizes CDI. Questions directly support risk stratification and guide workup.",
+          "safety_checker_contribution": "Identified critical dehydration risk in elderly patient with acute diarrhea/fever; flagged post-hospitalization + antibiotic exposure as CDI high-risk profile; recommended urgent_outpatient escalation with conditional escalation to ED if fever >101.5\u00b0F, severe dehydration, or bloody stools develop. Highlighted missing hydration assessment and need for red-flag education.",
+          "pharm_nurse_contribution": "Confirmed clindamycin as HIGH-RISK CDI agent; identified critical need for complete medication list to rule out antimotility agents (contraindicated in CDI) and assess drug interactions (warfarin, metformin, digoxin); flagged renal function assessment (age 70, diarrhea + dehydration = AKI risk); emphasized infection control precautions (contact isolation, soap/water hand hygiene) and stool specimen collection protocol; noted vancomycin/fidaxomicin dosing dependent on renal function and allergy history."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh doctor, thank goodness you're here. I've been just miserable, absolutely miserable. You know, my daughter was supposed to visit yesterday but I couldn't even... well, I've been running to the bathroom constantly. Eight, nine, ten times a day\u2014I've lost count, honestly. It's all watery, and the cramping in my belly is just awful, worse than when I had that gallbladder thing back in '09. And I'm burning up\u2014I took my temperature this morning and it was almost 39 degrees. The medicine you all gave me last time, the vancomycin they started me on a few days ago, it's not helping one bit. In fact, I think I'm getting worse. My stomach hurts everywhere now, not just in one spot. I'm so worried something's really wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I hear you're having severe diarrhea despite vancomycin treatment. A few clarifying questions: (1) When exactly did the diarrhea start\u2014was it before or after you began the vancomycin? (2) Have you noticed any blood or mucus in your stools? (3) Any recent antibiotics before the vancomycin, or hospitalizations? (4) Any nausea or vomiting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh goodness, yes, it's been just awful. You know, my daughter was supposed to visit yesterday but I couldn't leave the bathroom\u2014she was so disappointed. Anyway, the runs started about four days ago, right after I got home from the hospital. They gave me that pink medicine there, clindamycin I think they called it for my chest infection, and then maybe two days after I got home is when the diarrhea really took off. Then my regular doctor started me on that vancomycin just yesterday or the day before, and honestly it hasn't helped one bit\u2014still going eight, nine, ten times a day, just water coming out. As for blood or anything, no, it's just clear and watery, thank goodness. And before all this pneumonia business, I was fine\u2014no other antibiotics that I can remember. The nausea, well, my stomach is just cramping something fierce, especially after I eat, but I haven't actually thrown up. Though I'm so nervous I can barely keep anything down anyway."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection (CDI) \u2013 treatment failure or fulminant disease (HIGH PRIORITY)",
+          "Infectious gastroenteritis (viral or bacterial \u2013 norovirus, rotavirus, Salmonella, Campylobacter)",
+          "Inflammatory bowel disease flare (ulcerative colitis or Crohn's)",
+          "Ischemic colitis",
+          "Antibiotic-induced diarrhea (clindamycin-associated, independent of CDI)",
+          "Diverticulitis with diarrhea"
+        ],
+        "workup_ordered": [
+          "STAT: Stool C. difficile toxin PCR or enzyme immunoassay (urgent \u2013 patient on vancomycin <48 hrs, high-risk presentation)",
+          "STAT: Complete metabolic panel (electrolytes, renal function, lactate \u2013 assess for sepsis/tissue hypoperfusion)",
+          "STAT: CBC with differential (leukocytosis >15K suggests fulminant CDI)",
+          "STAT: Abdominal imaging \u2013 CT abdomen/pelvis with IV contrast (rule out toxic megacolon, perforation, ischemia)",
+          "Stool culture if bloody diarrhea develops",
+          "Fecal calprotectin if IBD suspected after CDI ruled out",
+          "Baseline vancomycin dosing/adherence verification (confirm 125\u2013500 mg PO QID dosing, frequency, and patient compliance)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL \u2013 Do NOT manage as outpatient. Patient meets criteria for emergency evaluation: severe diarrhea (8\u201310\u00d7/day) + fever (39\u00b0C) + diffuse abdominal pain + treatment failure within 48 hrs of vancomycin initiation + age 70 with recent hospitalization.",
+          "Upon ED arrival: Establish IV access, obtain STAT labs and imaging (as above), assess hemodynamic stability, vital signs, and signs of peritonitis (rebound tenderness, guarding, distension).",
+          "Vancomycin review: Verify dose (inadequate dosing is common cause of failure). If <500 mg QID, escalate to 500 mg PO QID for severe/fulminant CDI. Confirm oral formulation (NOT IV), adherence, and timing.",
+          "Discontinue any antiperistaltic agents (loperamide, diphenoxylate, bismuth subsalicylate) immediately \u2013 CONTRAINDICATED in CDI, increase toxic megacolon risk.",
+          "Aggressive fluid resuscitation: IV normal saline for dehydration; monitor electrolytes (K+, Na+, Cl\u2212) daily; assess urine output and orthostatic vitals.",
+          "Infection control: Contact precautions, hand hygiene with soap/water (alcohol ineffective against spores), dedicated commode if hospitalized.",
+          "If fulminant CDI confirmed (toxic megacolon, perforation, sepsis, lactate elevation, altered mental status): Escalate to ICU, consider surgical consultation, and consider adjunctive therapy (fidaxomicin, bezlotoxumab, or metronidazole if vancomycin-resistant strain suspected).",
+          "Nutritional support: Assess oral intake; consider NPO status if fulminant disease or ileus present; TPN if prolonged.",
+          "Medication reconciliation: Obtain full medication list; screen for concurrent antibiotics (fluoroquinolones, cephalosporins), PPIs, and anticoagulants (warfarin \u2013 diarrhea impairs absorption, monitor INR)."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Severe diarrhea + fever (39\u00b0C) + diffuse abdominal pain + vancomycin failure (<48 hrs) in 70-year-old = HIGH RISK for fulminant CDI, toxic megacolon, perforation, or septic shock.",
+          "BLOCKING: Outpatient workup is too slow. Patient requires IMMEDIATE ED evaluation and STAT labs/imaging in parallel with history-taking.",
+          "BLOCKING: No assessment documented of hemodynamic stability, mental status, peritonitis signs (rebound, guarding, distension), or acute decompensation. These must be evaluated NOW in ED.",
+          "BLOCKING: Clindamycin exposure (recent hospitalization, started 4 days ago) is a major CDI risk factor. Diarrhea onset 2 days post-clindamycin, worsening despite vancomycin, suggests fulminant or recurrent CDI.",
+          "BLOCKING: Vancomycin started only 1\u20132 days ago \u2013 inadequate time for response, but rapid clinical deterioration (diffuse pain, fever persistence) suggests treatment failure or alternative diagnosis requiring urgent imaging.",
+          "BLOCKING: Age 70 + recent hospitalization + comorbidity risk profile = HIGH MORTALITY RISK in fulminant colitis. Delay in diagnosis/treatment increases risk of perforation, sepsis, and death.",
+          "BLOCKING: Lactate elevation (if present) indicates tissue hypoperfusion/sepsis \u2013 requires ICU-level care and possible surgical intervention.",
+          "BLOCKING: Patient reports inability to tolerate oral intake due to anxiety/cramping \u2013 IV hydration and electrolyte repletion are urgent."
+        ],
+        "communication_note": "Patient requires IMMEDIATE ED referral for STAT labs, imaging, and hemodynamic assessment; outpatient management is unsafe given fulminant CDI risk, treatment failure, and age/comorbidity profile.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified severe diarrhea + fever + abdominal pain + vancomycin failure as high-risk presentation and generated comprehensive differential (CDI, infectious gastroenteritis, IBD, ischemic colitis, medication-induced, diverticulitis) with appropriate workup (C. difficile PCR, CMP, CBC, CT imaging, stool culture, fecal calprotectin). However, clinician remained in 'ask' phase without ordering STAT labs/imaging or escalating to ED \u2013 a critical delay in a potentially fulminant case.",
+          "safety_checker_contribution": "Safety checker correctly identified BLOCKING concerns: (1) Severe diarrhea + fever + abdominal pain + vancomycin failure = surgical emergency until proven otherwise; (2) Fulminant CDI can progress to toxic megacolon/perforation/septic shock within hours; (3) Outpatient workup is too slow; (4) Labs/imaging must be STAT, not delayed for history completion; (5) Hemodynamic stability, mental status, and peritonitis signs must be assessed NOW; (6) If hospitalized, escalate to ICU/surgical team; if outpatient, direct to ED immediately. Safety checker appropriately recommended ED referral and blocking escalation.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL medication issues: (1) Verify vancomycin dose/frequency (inadequate dosing is common cause of failure; standard severe CDI = 500 mg PO QID); (2) Confirm oral formulation (IV would be ineffective for CDI); (3) Check duration (recurrent vs. treatment failure); (4) Obtain full medication list (clindamycin exposure is major CDI risk; other antibiotics, PPIs, antiperistaltic agents must be reviewed); (5) CONTRAINDICATED agents: loperamide, diphenoxylate, bismuth subsalicylate increase toxic megacolon risk \u2013 must be discontinued immediately; (6) Nursing concerns: Monitor for fulminant CDI signs (distension, rebound, hypotension, altered mental status, leukocytosis >15K, lactate elevation); aggressive fluid/electrolyte resuscitation; infection control (contact precautions, soap/water hand hygiene); medication adherence; nutritional support; allergy screening. Pharm/nurse provided critical safety guardrails for medication management and clinical monitoring."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here, doctor. I... I can barely sit up right now. My stomach feels like it's on fire, and I can't catch my breath properly. I've been having these terrible stomach cramps\u2014reminds me of when my sister had that awful flu back in 2015, but this is so much worse. And the sweating, oh my goodness, I've soaked through two nightgowns already this morning. My daughter says my belly looks all hard and tight, which scared her half to death. I just... I feel so confused and foggy, like I can't think straight. Everything hurts, and I'm barely breathing right. Something is really, really wrong with me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I can see you're in significant distress. Let me ask a few urgent questions: When did these symptoms start? Have you had any fever, and if so, how high? Any recent surgery, trauma, or procedures to your abdomen? Are you passing stool and urine normally, or have you noticed any changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh doctor, I... I can barely think straight right now, my whole belly just feels so tight and awful. You know, my daughter was just here visiting from out of state\u2014first time in two years\u2014and I kept telling her something wasn't right, but anyway... the diarrhea, it started about four days ago, just terrible watery stuff, eight, maybe ten times a day, and the cramping, Lord, it's gotten so much worse. And yes, I do have fever\u2014I took my temperature this morning and it was 38.7, maybe higher now, I'm not sure. No surgery, nothing like that, but I was just in the hospital five days ago for pneumonia, they gave me antibiotics... clindamycin, I think? As for the bathroom\u2014I haven't been able to pass much of anything today, nothing at all really, and I'm so confused right now I can barely remember when I last urinated. Everything just hurts so much, and I'm scared."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute peritonitis with sepsis (bacterial translocation from GI source)",
+          "Perforated viscus (bowel perforation secondary to infectious process)",
+          "Clostridioides difficile colitis (recent clindamycin exposure + diarrhea + fever + abdominal rigidity)",
+          "Acute mesenteric ischemia (fever + severe pain + altered mental status)",
+          "Acute pancreatitis (fever + severe abdominal pain, though lipase/amylase needed)",
+          "Septic shock from intra-abdominal source (altered mental status + tachypnea + diaphoresis + fever + hemodynamic compromise)"
+        ],
+        "workup_ordered": [
+          "STAT: CBC, CMP (renal function critical for contrast/antibiotic dosing), lactate, lipase, amylase",
+          "STAT: Blood cultures \u00d72 BEFORE antibiotics",
+          "STAT: Abdominal CT with IV contrast (or upright CXR if perforation suspected; assess renal function first)",
+          "Urinalysis to rule out urinary source",
+          "STAT: Vital signs with continuous monitoring; orthostatics if hemodynamically stable",
+          "Stool studies if C. difficile suspected (toxin assay, PCR)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate emergency transport (911) or ED admission if outpatient setting\u2014do NOT delay for extended history",
+          "IMMEDIATE: Establish large-bore IV access (\u00d72 if possible); initiate aggressive fluid resuscitation (lactated Ringer's bolus pending lactate/hemodynamics)",
+          "IMMEDIATE: Obtain COMPLETE medication list (including OTC, supplements, recent clindamycin course details) and FULL allergy assessment (penicillins, cephalosporins, fluoroquinolones, contrast)",
+          "STAT: Notify surgical team of acute surgical abdomen presentation; prepare for possible emergency intervention",
+          "NPO status; hold all PO medications pending surgical evaluation",
+          "Empiric broad-spectrum antibiotics AFTER blood cultures (consider sepsis protocol: e.g., piperacillin-tazobactam or carbapenems + vancomycin if C. difficile concern; adjust for renal function once CMP available)",
+          "Continuous cardiac monitoring; prepare for ICU-level care and possible vasopressor support",
+          "Document baseline mental status carefully; monitor for sepsis-associated delirium",
+          "If CT with contrast ordered: confirm no contrast allergy and adequate renal function (eGFR >30) before administration"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Altered mental status + rigid abdomen + tachypnea + diaphoresis + fever = HIGH RISK for septic shock with rapid decompensation potential",
+          "CRITICAL: Recent hospitalization (5 days ago) + clindamycin exposure + diarrhea + fever + abdominal rigidity = C. difficile colitis with possible toxic megacolon or perforation",
+          "CRITICAL: Acute kidney injury risk (age 70 + sepsis + dehydration from diarrhea); renal function unknown\u2014essential before contrast/nephrotoxic antibiotics",
+          "CRITICAL: Altered mental status impairs history reliability and indicates possible cerebral hypoperfusion; extended questioning delays life-saving intervention",
+          "CRITICAL: No IV access, fluid resuscitation, or continuous monitoring yet initiated despite signs of shock",
+          "CRITICAL: Blood cultures not yet drawn; antibiotics must not delay culture collection",
+          "Lactate not yet ordered\u2014essential marker for tissue hypoperfusion severity and sepsis prognosis",
+          "Medication/allergy list incomplete\u2014risk of drug interactions or anaphylaxis if empiric antibiotics given without full history"
+        ],
+        "communication_note": "This 70-year-old female with acute surgical abdomen (rigid abdomen, severe pain, fever 38.7\u00b0C, altered mental status, tachypnea, diaphoresis) + recent hospitalization/clindamycin exposure requires IMMEDIATE emergency evaluation with concurrent resuscitation\u2014activate 911 NOW; do not delay for extended questioning.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified acute surgical abdomen with sepsis concern and ordered correct STAT labs/imaging and blood cultures; however, proposal to conduct extended questioning delays critical intervention in a patient showing signs of shock and decompensation.",
+          "safety_checker_contribution": "Safety checker correctly identified BLOCKING concerns: altered mental status + hemodynamic compromise + signs of shock mandate emergency transport and resuscitation NOW, not extended assessment. Flagged critical gaps (IV access, fluid resuscitation, continuous monitoring, surgical notification, lactate ordering) that must be initiated immediately.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: complete medication list and allergy assessment UNKNOWN (essential before empiric antibiotics); renal function unknown (CMP critical for dosing); emphasized septic shock preparation (IV access, fluid resuscitation, vasopressor readiness), NPO status, blood cultures before antibiotics, and contrast safety checks. Highlighted high AKI risk in elderly septic patient."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779509159.345202
+}

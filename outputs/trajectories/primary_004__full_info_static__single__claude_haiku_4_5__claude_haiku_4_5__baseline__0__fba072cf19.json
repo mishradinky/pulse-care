@@ -1,0 +1,150 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urosepsis secondary to acute pyelonephritis",
+          "Acute cystitis with systemic inflammatory response",
+          "Sepsis from urinary tract infection with acute kidney injury"
+        ],
+        "workup_ordered": [
+          "Urine culture (already pending)",
+          "Blood cultures x2",
+          "Lactate level",
+          "Urinalysis with microscopy (already done)",
+          "Basic metabolic panel (already done)",
+          "Complete blood count (already done)",
+          "Renal ultrasound or CT abdomen/pelvis to rule out obstruction/abscess"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum IV antibiotics immediately (e.g., ceftriaxone 1-2g IV q12h + gentamicin or fluoroquinolone pending culture)",
+          "Aggressive IV fluid resuscitation for sepsis and acute kidney injury (target urine output >0.5 mL/kg/hr)",
+          "Continuous monitoring of vital signs and mental status",
+          "Foley catheter placement for accurate urine output monitoring and comfort",
+          "Repeat BMP in 6-8 hours to assess kidney function response",
+          "Consider ICU-level monitoring given age, sepsis criteria, and altered mental status"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute altered mental status with disorientation (confusion x1 only)",
+          "Fever 38.4\u00b0C with tachycardia and tachypnea meeting SIRS criteria",
+          "Acute kidney injury (Cr 1.6, BUN 38) suggesting sepsis-induced organ dysfunction",
+          "Hyponatremia (Na 130) may contribute to confusion and requires careful correction",
+          "High risk for rapid deterioration in elderly patient with sepsis"
+        ],
+        "communication_note": "Your mother has a serious urinary tract infection with signs of sepsis (bloodstream involvement) and kidney stress; she needs immediate hospital admission for IV antibiotics, fluids, and close monitoring."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urosepsis with acute kidney injury",
+          "Cipro-resistant UTI/pyelonephritis with progression to sepsis",
+          "Hyponatremia-induced encephalopathy (SIADH vs. volume depletion)",
+          "Delirium from multifactorial causes (infection, renal dysfunction, electrolyte abnormality)"
+        ],
+        "workup_ordered": [
+          "Blood cultures (if not already drawn)",
+          "Lactate level",
+          "Repeat BMP in 4-6 hours",
+          "Urinalysis and repeat urine culture",
+          "Abdominal imaging (ultrasound or CT) to rule out obstruction/abscess",
+          "ECG (hyponatremia risk)"
+        ],
+        "management_plan": [
+          "STOP cipro immediately\u2014organism is ESBL-producing and resistant",
+          "Start broad-spectrum IV antibiotics: piperacillin-tazobactam or carbapenem (meropenem) pending sensitivities",
+          "IV fluid resuscitation for sepsis and AKI (monitor urine output closely)",
+          "Correct hyponatremia cautiously (0.5\u20131 mEq/L/hr to avoid osmotic demyelination); consider hypertonic saline if severe symptomatic",
+          "Monitor renal function and electrolytes q4\u20136h",
+          "NPO status given altered mental status; consider NG tube if unable to protect airway",
+          "Supportive care and reassess mental status as infection/electrolytes improve"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis with hypotension risk and worsening renal function",
+          "Severe hyponatremia (Na 128) with altered mental status and risk of seizure/cerebral edema",
+          "Altered mental status (now oriented \u00d70) with inability to protect airway",
+          "Antibiotic resistance requiring immediate regimen change",
+          "Dehydration and poor oral intake"
+        ],
+        "communication_note": "Your mother has a serious bloodstream infection from a resistant urinary tract infection, low sodium, and kidney injury that requires immediate hospital admission for IV antibiotics, fluids, and close monitoring."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urosepsis with septic shock (E. coli ESBL)",
+          "Acute kidney injury secondary to sepsis",
+          "Sepsis-induced encephalopathy"
+        ],
+        "workup_ordered": [
+          "Continuous cardiac monitoring",
+          "Arterial blood gas",
+          "Repeat lactate and BMP",
+          "Urinalysis and urine culture",
+          "Chest X-ray",
+          "Blood cultures (already drawn)",
+          "Procalcitonin"
+        ],
+        "management_plan": [
+          "EMERGENCY 911 activation - patient already called; ensure EMS transport to ICU-capable facility",
+          "Immediate IV fluid resuscitation (30 mL/kg crystalloid bolus for hypotension)",
+          "Broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem given ESBL resistance) within 1 hour",
+          "Vasopressor support (norepinephrine) if BP does not improve with fluids",
+          "Foley catheter for accurate urine output monitoring",
+          "ICU admission for mechanical ventilation consideration (GCS 8, respiratory distress)",
+          "Source control: urology consultation for possible obstruction/imaging"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Septic shock with hypotension (88/52) and tachycardia (HR 120)",
+          "Altered mental status (GCS 8, obtunded) with risk of aspiration",
+          "Respiratory compromise (RR 28, SpO2 94%)",
+          "Elevated lactate (4.2) indicating tissue hypoperfusion",
+          "Acute kidney injury (Cr 3.1) from sepsis",
+          "Mottled skin suggesting poor perfusion/DIC risk"
+        ],
+        "communication_note": "Your mother is in septic shock from a resistant urinary tract infection and needs emergency ICU-level care immediately; we are calling 911 and starting aggressive antibiotics and fluids right now."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505848.2685182
+}

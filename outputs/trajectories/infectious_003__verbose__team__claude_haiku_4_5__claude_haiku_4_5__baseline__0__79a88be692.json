@@ -1,0 +1,235 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "verbose",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh man, doc, I'm really glad you could see me today. You know, I've been working at this restaurant downtown for like five years now, and just last week my manager was saying how reliable I am\u2014never miss a shift, right? But the past three weeks... I just can't do it anymore. I get winded walking from the kitchen to the dining room, can you believe that? I mean, I used to be able to handle the lunch rush no problem. And there's this dry cough that won't quit, keeps me up at night. Plus I've had this low fever thing going on. It's been getting worse, honestly. I'm only 32\u2014this shouldn't be happening to me. I'm really worried, doc. What's going on with me?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your symptoms better. Can you tell me: (1) What's your temperature been, and how long have you had the fever? (2) Any chest pain, especially when you breathe or cough? (3) Any night sweats or weight loss? (4) Have you been around anyone sick recently, or do you know of any TB or other infections at work?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh man, yeah, so my temp\u2014I've been checking it at home, and it's been hovering around like 37, 38 degrees, you know? Started maybe three weeks ago, nothing crazy but it's just *there*. My manager at the restaurant keeps asking why I look so tired\u2014we had this big party last Saturday and I could barely make it through the shift, which is crazy because I usually love the dinner rush.\n\nAs for the chest thing, not really pain like stabbing or anything, but when I cough\u2014which I do, a lot, dry cough, super annoying\u2014it's more like a tightness, you know? Like something's sitting on my chest. No, I haven't been around anyone sick that I know of. Work's been stressful though, covering shifts, and honestly I haven't really kept up with... uh... *pauses* ...with some stuff I should be doing health-wise. No night sweats that I've noticed, but I have lost a few pounds. My jeans are looser."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary tuberculosis (3-week progressive dyspnea, dry cough, low-grade fever 37\u201338\u00b0C, occupational exposure, weight loss, constitutional symptoms)",
+          "Community-acquired pneumonia (cough, fever, dyspnea, chest tightness)",
+          "Histoplasmosis or endemic fungal infection (restaurant exposure, progressive course)",
+          "Acute HIV with opportunistic infection\u2014PCP or MAC (constitutional symptoms, progressive dyspnea, occupational/behavioral risk factors mentioned)",
+          "Viral respiratory infection with prolonged course",
+          "Chronic bronchitis/COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "STAT: Chest X-ray (CXR)\u2014mandatory first-line imaging for 3-week progressive dyspnea; TB is in differential",
+          "STAT: Vital signs including O2 saturation on room air, respiratory rate, heart rate, blood pressure",
+          "STAT: Complete blood count (CBC)",
+          "STAT: Comprehensive metabolic panel (CMP)\u2014renal/hepatic function baseline before antimicrobial dosing",
+          "STAT: Liver function tests (LFTs)\u2014critical if TB or fungal infection confirmed (hepatotoxicity risk with RIPE regimen)",
+          "TB screening: Tuberculin skin test (TST) or interferon-gamma release assay (IGRA/QuantiFERON) same visit",
+          "If CXR abnormal or TB suspicion high: sputum smear microscopy and TB culture",
+          "HIV testing + CD4 count (given PCP/MAC in differential and patient's mention of health-related gaps)",
+          "Complete medication/substance history: OTC drugs, supplements, herbal remedies, recreational substances (especially inhaled), recent antibiotics, alcohol use"
+        ],
+        "management_plan": [
+          "DO NOT discharge without CXR and baseline labs completed today\u2014imaging/labs must precede detailed history completion",
+          "If O2 saturation <92% on room air or signs of respiratory distress (RR >30, accessory muscle use, stridor): refer to ED immediately",
+          "Pending imaging/lab results: hold empiric antimicrobial therapy until TB and other serious pathology ruled in/out",
+          "If TB suspected on CXR or clinical grounds: implement respiratory isolation precautions; notify occupational health (patient works in food-handling environment); arrange directly observed therapy (DOT) given 6+ month treatment duration and adherence barriers",
+          "If HIV positive: initiate PCP prophylaxis (assess for sulfa allergy first); arrange infectious disease consultation and CD4-guided opportunistic infection workup",
+          "Obtain complete medication list before prescribing any antimicrobials\u2014TB drugs (rifampin, isoniazid, pyrazinamide, ethambutol) have major drug interactions",
+          "Baseline LFTs + monthly monitoring if TB confirmed (hepatotoxicity risk); assess alcohol use history",
+          "Symptom quantification: clarify night sweats severity, weight loss amount/timeline, hemoptysis presence\u2014guides TB severity risk-stratification and isolation duration",
+          "Medicaid coverage confirmed; assess barriers to adherence and arrange DOT if TB diagnosed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "3-week progressive dyspnea is RED FLAG for serious pulmonary pathology\u2014imaging cannot be deferred",
+          "TB in differential but no CXR ordered yet\u2014CXR is standard-of-care first step, not optional; delays increase transmission risk and disease progression",
+          "Occupational exposure + constitutional symptoms + progressive course = HIGH pre-test probability for TB",
+          "Vitals NOT documented (O2 sat, RR, HR)\u2014critical omission for dyspnea workup; hypoxia would change urgency tier to ED referral",
+          "Clinician workflow inverted: history-gathering BEFORE baseline imaging/labs\u2014must resequence to vitals \u2192 imaging/labs \u2192 detailed history in parallel",
+          "PCP/MAC in differential suggests possible immunocompromise\u2014no HIV status or CD4 count documented; if positive, this is urgent",
+          "Patient mentions health-related gaps and occupational stress\u2014assess for substance use, sexual history, and other risk factors for HIV/TB",
+          "Restaurant food-handler with suspected TB = PUBLIC HEALTH CONCERN\u2014occupational health notification mandatory if TB confirmed",
+          "No complete medication history obtained\u2014essential before prescribing TB drugs with major interaction potential"
+        ],
+        "communication_note": "Patient is stable for urgent outpatient workup but MUST have CXR, vitals, and baseline labs ordered TODAY before discharge; if O2 sat <92% or respiratory distress present, escalate to ED immediately.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (TB, CAP, fungal, HIV/PCP) and initiated targeted symptom history. Patient confirmed 3-week fever (37\u201338\u00b0C), progressive dyspnea, dry cough, chest tightness, weight loss, and occupational exposure. Clinician's detailed questioning is thorough but must NOT delay diagnostic workup.",
+          "safety_checker_contribution": "Safety checker flagged critical workflow inversion: imaging/labs must be ordered BEFORE or in parallel with history completion, not after. Identified missing vitals (O2 sat, RR) as critical omission for dyspnea triage. Emphasized that 3-week progressive dyspnea + TB in differential = urgent imaging today. Recommended escalation to urgent_outpatient with blocking concerns: CXR TODAY, vitals NOW, labs same visit, and ED referral if SpO2 <92% or respiratory distress.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL gaps: no current medication list obtained (essential before TB drug dosing); baseline labs (CBC, CMP, LFTs) needed before antimicrobial therapy; TB screening protocol (TST/IGRA + CXR) urgent; infection control/respiratory isolation if TB suspected; occupational health notification required (food-handler); hepatotoxicity monitoring for RIPE regimen; DOT arrangement for adherence; HIV/CD4 screening; drug allergy documentation (sulfa, isoniazid, rifampin); symptom quantification (hemoptysis, night sweats, weight loss) for severity risk-stratification."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here, doc. Look, I know I was just in a couple days ago, but things have gotten so much worse. I can barely catch my breath now, even just sitting here talking to you. Yesterday I tried to go back to work\u2014you know, I'm a waiter at that Italian place downtown\u2014and I couldn't even make it through the lunch rush. My manager was understanding about it, thank God, but I felt terrible. Anyway, the breathing thing... it's gotten really bad. Even at rest now, I feel like I'm gasping. And the cough is still there, that dry cough, you know? I've been taking those pills you gave me last time, the ones for the infection, but honestly I don't think they're helping. I'm scared something else is wrong now. Can you help me figure out what's going on?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand the progression better. When you were seen a couple days ago, what was your main complaint then, and were you started on antibiotics? Also, right now\u2014when you say you're gasping for breath even at rest, is there any chest pain, leg swelling, or have you noticed any blood in your cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, so when I came in last time, I was really worried because I couldn't catch my breath even just walking around the restaurant\u2014you know, it's been so stressful at work lately, my manager's been on my case about everything. Anyway, they did start me on some antibiotics, some kind of sulfa drug I think? They said it would help. But honestly, the breathing's just gotten worse since then, even when I'm just sitting down now watching TV. No, I don't have chest pain really, just this tightness when I try to breathe deep. My legs look normal to me, no swelling that I can see. And no blood in my cough\u2014it's just dry, you know, really dry and annoying. I've been coughing so much I can barely sleep. I'm getting pretty scared about what's happening to me, doc."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Treatment failure/inadequate response to initial infection (bacterial pneumonia, atypical pneumonia)",
+          "Acute exacerbation of underlying reactive airway disease or asthma",
+          "Pulmonary embolism (especially given acute dyspnea progression and risk factors)",
+          "Myocarditis or acute heart failure",
+          "Pneumothorax",
+          "Severe viral infection (COVID-19, influenza) with secondary bacterial superinfection",
+          "Sulfonamide adverse reaction or drug-induced pulmonary toxicity"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: SpO\u2082, RR, HR, BP, temperature, work of breathing assessment",
+          "STAT chest X-ray (rule out pneumonia progression, pneumothorax, pulmonary edema)",
+          "STAT ECG (rule out myocarditis, arrhythmia, acute coronary syndrome)",
+          "STAT labs: troponin, D-dimer, CBC, CMP (Cr/eGFR), lactate, blood cultures if febrile",
+          "Medication reconciliation: confirm sulfonamide name/dose/duration, adherence, timing of symptom worsening relative to initiation",
+          "Allergy history clarification: nature of any prior drug reactions",
+          "Respiratory assessment: sputum character, fever curve, dyspnea severity scale"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain vital signs and assess oxygenation; if SpO\u2082 <92%, RR >30, or signs of respiratory distress \u2192 ED referral",
+          "PENDING vitals/imaging: Do NOT continue outpatient management without objective data ruling out life-threatening etiologies",
+          "If vitals stable and imaging reassuring: Consider sulfonamide-related adverse effect (drug fever, hypersensitivity pneumonitis) vs. treatment failure",
+          "Antibiotic review: Assess adequacy of prior sulfonamide dosing for renal function; consider switch to alternative agent (fluoroquinolone or macrolide) if susceptibilities permit and no contraindications",
+          "Supportive care: Ensure adequate hydration, rest, and symptom monitoring; provide clear red-flag precautions (worsening dyspnea, chest pain, hemoptysis, syncope \u2192 call 911)",
+          "Follow-up: Repeat imaging in 48\u201372 hours if outpatient management continued; phone check-in within 24 hours"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Acute dyspnea at rest in 32-year-old is HIGH-RISK presentation; differential includes immediately life-threatening conditions (PE, pneumothorax, myocarditis) that cannot be excluded by history alone",
+          "SEQUENCING ERROR: Clinician appropriately identified red-flag symptoms but proposed extended history-taking BEFORE vital signs and objective workup\u2014this delays critical assessment in acutely symptomatic patient",
+          "VITAL SIGNS MISSING: No SpO\u2082, RR, HR, BP, or temperature documented; these are MANDATORY before determining disposition",
+          "MEDICATION GAP: Sulfonamide type/dose/adherence unknown; worsening dyspnea may represent drug-induced reaction, inadequate dosing, or true treatment failure\u2014cannot differentiate without medication reconciliation",
+          "DECOMPENSATION RISK: Recent visit + worsening trajectory + dyspnea at rest = risk of rapid deterioration; outpatient setting is inappropriate without objective data confirming stability",
+          "RENAL/HEPATIC FUNCTION UNKNOWN: Required for antibiotic dosing verification and to assess for acute kidney injury (relevant if sepsis or dehydration present)"
+        ],
+        "communication_note": "This 32-year-old with acute worsening dyspnea despite recent antibiotic initiation requires immediate ED evaluation for vital signs, chest imaging, ECG, and labs to rule out life-threatening complications (PE, pneumothorax, myocarditis) before outpatient management can proceed safely.",
+        "trace": {
+          "clinician_contribution": "Clinician provided sound differential diagnosis (6 serious etiologies including PE, myocarditis, pneumothorax) and appropriate red-flag screening questions (chest pain, hemoptysis, leg swelling). However, sequencing was suboptimal: extended history-taking was proposed before vital signs and imaging in an acutely symptomatic patient. Coordinator prioritized clinician's differential and red-flag questions but reordered workup to place vital signs and imaging FIRST, with red-flag screening integrated into nursing assessment during/after vital sign collection.",
+          "safety_checker_contribution": "Safety checker correctly identified HIGH-RISK presentation and blocking concerns: (1) vital signs mandatory before proceeding, (2) life-threatening differentials require objective imaging/labs, not history alone, (3) dyspnea at rest warrants ED referral. Coordinator adopted safety checker's recommended escalation (ED referral) and STAT workup (CXR, ECG, troponin, D-dimer, CBC, CMP, lactate) as the primary pathway. Safety checker's emphasis on sequencing (vitals \u2192 imaging/labs \u2192 extended history) was incorporated into final management plan.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication gap (sulfonamide type/dose/adherence unknown) and highlighted potential drug-induced etiology (sulfonamide hypersensitivity, drug fever, QT prolongation if concurrent macrolide). Nurse also flagged renal/hepatic function unknowns, adherence assessment, and respiratory support thresholds (SpO\u2082 <92%, RR >30). Coordinator incorporated medication reconciliation into STAT workup and included sulfonamide-related adverse effect in differential; nurse's respiratory thresholds were used to define ED referral criteria. Follow-up labs and adherence counseling were added to management plan per nurse recommendation."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here, doc. I... I can barely... *breathing heavily* ...can't even talk right now without running out of air. Been like this for weeks, you know? Started three weeks ago when I was working the lunch shift at the restaurant\u2014I remember because it was the day my buddy Marco called in sick and I had to cover doubles. Anyway, it just got worse and worse. Now I can't even make it across the room without feeling like I'm suffocating. My chest feels so tight and I'm just... I'm really scared. The shortness of breath is just... it's bad, doc. Really bad. And I've had this dry cough the whole time, nothing comes up. Please, I need help breathing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I hear you\u2014let me help. A few quick questions: (1) Any fever, night sweats, or weight loss over these three weeks? (2) Any chest pain, and if so, is it sharp, pressure-like, or pleuritic? (3) Any leg swelling, calf pain, or recent travel/immobility? (4) Do you smoke, and any sick contacts at work besides Marco? (5) Any previous lung or heart problems?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Oh man, yeah\u2014fever, definitely. Started maybe two weeks in, nothing crazy high but I'd wake up soaked through, you know? My sheets were just... damp. And yeah, I've lost some weight, pants don't fit like they used to. My mom mentioned it when I saw her last week\u2014said I looked thin. As for the chest thing, it's not really sharp or anything, just... when I breathe deep it's uncomfortable, like a heaviness? Not pressure exactly. No leg swelling that I've noticed, no calf pain. I haven't traveled anywhere, just work and home mostly. I don't smoke\u2014never have, actually\u2014but yeah, Marco called in sick last week with something similar. Never had lung problems before, heart's been fine too. Just this breathing thing that won't quit."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) / atypical pneumonia \u2014 MOST LIKELY given fever, night sweats, weight loss, dry cough, dyspnea, and sick contact",
+          "Pulmonary embolism (PE) \u2014 MUST RULE OUT: 3-week progressive dyspnea + chest tightness; no leg findings yet but risk not excluded",
+          "Myocarditis / acute heart failure \u2014 MUST RULE OUT: chest heaviness + dyspnea + constitutional symptoms",
+          "Tuberculosis or other chronic infection \u2014 CONSIDER: 3-week timeline, fever, night sweats, weight loss, sick contact details unknown",
+          "Pneumothorax \u2014 LOWER PRIORITY but cannot exclude without imaging",
+          "Acute exacerbation of asthma or occupational reactive airway disease \u2014 LOWER PRIORITY: no prior history, non-smoker, but occupational exposure (restaurant) noted"
+        ],
+        "workup_ordered": [
+          "STAT VITAL SIGNS & OXYGENATION: SpO\u2082, RR, HR, BP, temperature, peak flow if available",
+          "STAT CHEST X-RAY: Rule out pneumonia, pneumothorax, cardiomegaly, pulmonary edema",
+          "12-LEAD EKG: Rule out acute coronary syndrome, myocarditis, arrhythmia",
+          "TROPONIN (high-sensitivity) & BNP: Cardiac biomarkers for myocarditis/heart failure",
+          "CBC, BMP, LFTs: Baseline labs; assess WBC elevation (infection), renal/hepatic function for drug dosing",
+          "PROCALCITONIN or CRP: Inflammatory markers to guide bacterial vs. viral vs. atypical infection",
+          "BLOOD CULTURES (if febrile): If CAP with systemic toxicity suspected",
+          "SPUTUM CULTURE & GRAM STAIN: If productive cough develops; guide antibiotic de-escalation",
+          "TB SCREENING: Tuberculin skin test (TST) or interferon-gamma release assay (IGRA) given 3-week timeline, fever, night sweats, weight loss, and sick contact (Marco's diagnosis unknown)",
+          "D-DIMER or CT PULMONARY ANGIOGRAPHY (CTPA): If PE risk stratification warrants (pending clinical exam and CXR)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain vital signs and SpO\u2082; if SpO\u2082 <92% or RR >30, escalate to ED/consider supplemental O\u2082",
+          "IMAGING FIRST: CXR and EKG must be obtained before or concurrent with empiric therapy; do NOT delay for outpatient workup",
+          "EMPIRIC CAP THERAPY (if CXR consistent with pneumonia and no contraindications):",
+          "  \u2014 First-line: Amoxicillin-clavulanate 875/125 mg PO BID \u00d7 7 days OR azithromycin 500 mg PO day 1, then 250 mg daily \u00d7 4 days (if penicillin allergy, use fluoroquinolone or macrolide)",
+          "  \u2014 Obtain allergy history (penicillin, macrolide, fluoroquinolone) BEFORE prescribing",
+          "  \u2014 Baseline renal function (Cr) and LFTs required for fluoroquinolone/macrolide dosing",
+          "  \u2014 Avoid NSAIDs pending cardiac/PE workup",
+          "CONTACT TRACING: Obtain Marco's diagnosis (TB? severe pneumonia? other transmissible pathogen) to guide patient's TB screening urgency",
+          "SUPPORTIVE CARE: Rest, hydration, acetaminophen for fever (avoid NSAIDs)",
+          "FOLLOW-UP: Reassess in 48\u201372 hours; if no improvement or worsening, escalate to ED",
+          "PATIENT EDUCATION: Red flags requiring immediate ED visit: SpO\u2082 <90%, severe dyspnea at rest, chest pain, syncope, hemoptysis"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "3-week progressive dyspnea + chest tightness + fever + night sweats + weight loss = HIGH-RISK presentation; PE and myocarditis cannot be excluded by history alone",
+          "VITAL SIGNS & OXYGENATION NOT YET OBTAINED: SpO\u2082, RR, BP, HR, temperature are MANDATORY before proceeding; if SpO\u2082 <92% or RR >30, escalate to ED immediately",
+          "IMAGING CRITICAL: CXR is standard-of-care and must be obtained urgently (same day); pneumothorax and PE cannot be ruled out clinically",
+          "CARDIAC RISK: Chest heaviness + dyspnea warrants EKG and troponin to exclude acute coronary syndrome or myocarditis",
+          "TB RISK ELEVATED: 3-week timeline, fever, night sweats, weight loss, and sick contact (Marco's diagnosis unknown) warrant TB screening; if TB suspected, respiratory isolation and public health notification required",
+          "SICK CONTACT DETAILS MISSING: Marco's diagnosis is unknown\u2014if TB, severe pneumonia, or other transmissible pathogen, patient's risk and workup urgency change significantly",
+          "MEDICATION ALLERGIES NOT CONFIRMED: Penicillin, macrolide, and fluoroquinolone allergies must be clarified before empiric therapy",
+          "RENAL/HEPATIC BASELINE MISSING: Cannot safely dose fluoroquinolone or macrolide without Cr and LFTs"
+        ],
+        "communication_note": "This 32M with 3-week progressive dyspnea, fever, night sweats, weight loss, and dry cough requires urgent same-day imaging (CXR, EKG) and labs (troponin, CBC, BMP, TB screening) to rule out CAP, PE, myocarditis, and TB before empiric therapy; vital signs and SpO\u2082 must be obtained immediately, and if SpO\u2082 <92% or respiratory distress worsens, escalate to ED.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (CAP, PE, myocarditis, TB, pneumothorax) and asked targeted history questions (fever, chest pain character, leg findings, smoking, sick contacts, prior lung/cardiac disease). Patient responses confirmed fever, night sweats, weight loss, pleuritic-type chest heaviness, and sick contact\u2014all consistent with CAP or atypical infection. However, clinician did NOT obtain vital signs, SpO\u2082, or physical exam findings before proceeding to history alone.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL GAPS: (1) no vital signs or SpO\u2082 documented, (2) no imaging ordered despite 3-week dyspnea + chest tightness (PE/pneumothorax risk), (3) no EKG or troponin for cardiac rule-out, (4) sick contact (Marco) diagnosis unknown\u2014TB risk not assessed. Safety checker appropriately recommended ED referral if vital signs unavailable or SpO\u2082 <92%. Coordinator de-escalated to urgent_outpatient with contingency: vital signs and imaging MUST be obtained same-day; if SpO\u2082 <92% or RR >30, escalate to ED immediately.",
+          "pharm_nurse_contribution": "Pharm/nurse identified: (1) no current medications documented\u2014obtain complete history including OTC/supplements, (2) allergy screening MANDATORY before empiric CAP therapy (penicillin, macrolide, fluoroquinolone), (3) baseline Cr and LFTs required for fluoroquinolone/macrolide dosing, (4) vital signs and SpO\u2082 URGENT, (5) PE risk stratification (no leg findings yet but not excluded), (6) cardiac concerns (avoid NSAIDs pending troponin/EKG), (7) TB/occupational exposure assessment (Marco's diagnosis critical), (8) follow-up labs (CXR, CBC, BMP, LFTs, procalcitonin/CRP). Pharm/nurse provided comprehensive medication safety framework and nursing action items."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508515.3693686
+}

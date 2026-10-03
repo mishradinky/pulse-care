@@ -1,0 +1,130 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "COPD exacerbation",
+          "Diabetic ketoacidosis"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete Blood Count",
+          "Basic Metabolic Panel",
+          "Procalcitonin",
+          "Sputum Culture",
+          "Blood Cultures"
+        ],
+        "management_plan": [
+          "Start empiric antibiotics (e.g., ceftriaxone and azithromycin)",
+          "Oxygen supplementation to maintain SpO2 > 90%",
+          "Bronchodilators for COPD management",
+          "Monitor blood glucose levels and adjust diabetes management as needed",
+          "Frequent reassessment of respiratory status and mental status"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe hypoxia",
+          "Confusion possibly indicating sepsis or hypoxia",
+          "Potential diabetic ketoacidosis"
+        ],
+        "communication_note": "You have a serious lung infection that requires immediate treatment with antibiotics and close monitoring, especially given your COPD and diabetes."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Severe community-acquired pneumonia with sepsis",
+          "COPD exacerbation",
+          "Respiratory failure"
+        ],
+        "workup_ordered": [
+          "CXR",
+          "blood cultures",
+          "sputum culture",
+          "ABG",
+          "BMP"
+        ],
+        "management_plan": [
+          "IV antibiotics (penicillin for S. pneumoniae)",
+          "Oxygen therapy",
+          "IV fluids for dehydration",
+          "Monitor and support respiratory status",
+          "Consider ICU transfer for worsening respiratory failure and sepsis"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Worsening respiratory failure",
+          "Sepsis",
+          "Dehydration and electrolyte imbalances",
+          "Confusion and altered mental status"
+        ],
+        "communication_note": "Your condition has worsened, and you need to be admitted to the hospital for further treatment and monitoring."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "ARDS",
+          "Sepsis",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "ABG",
+          "CXR",
+          "procalcitonin"
+        ],
+        "management_plan": [
+          "Continue mechanical ventilation",
+          "Start broad-spectrum antibiotics",
+          "Consider vasopressor support"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Respiratory failure",
+          "Septic shock"
+        ],
+        "communication_note": "The patient has developed ARDS and sepsis, requiring intensive care and mechanical ventilation."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505315.9957535
+}

@@ -1,0 +1,187 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've had a really severe, throbbing headache for the past four hours, and when the nurse checked my blood pressure, it was extremely high. That's what brought me in today."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what your blood pressure reading was?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The nurse told me it was 200 over 118 when they took it at the front desk. That's what got everyone moving pretty quickly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, or vision changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, none of those. No chest pain, no trouble breathing, and my vision seems fine. Really just this bad headache that's been going on for about four hours now. It's pretty intense \u2014 kind of throbbing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever been diagnosed with high blood pressure before, or are you on any medications for it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had high blood pressure for about ten years now. I was taking two medications for it \u2014 amlodipine and a water pill \u2014 but I ran out of the amlodipine about two weeks ago and haven't been able to get a refill yet."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your diet, stress levels, or physical activity?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really, things have been pretty normal on that front. I haven't changed my diet or exercise routine much. I have been a bit stressed with work lately, but nothing out of the ordinary."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, infections, or changes in your health aside from the headache and high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really. I've been feeling pretty normal otherwise \u2014 no fever, no cough, no infections that I know of. The main thing is I ran out of my blood pressure pills about two weeks ago and haven't been able to get them refilled yet. I think that might be connected to all this."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "medication non-compliance"
+        ],
+        "workup_ordered": [
+          "basic metabolic panel",
+          "complete blood count",
+          "urinalysis",
+          "ECG"
+        ],
+        "management_plan": [
+          "restart amlodipine",
+          "consider adding another antihypertensive medication",
+          "monitor blood pressure closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of end-organ damage due to severe hypertension"
+        ],
+        "communication_note": "Your blood pressure is very high, and we need to address it immediately to prevent any complications. I'm recommending that you go to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, I came back because my headache is still there and I know my blood pressure is still pretty high even after the medications you gave me earlier. It's a little better than before, but I'm still not feeling great."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what medications you are currently taking for your blood pressure and any other conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I was on amlodipine for my blood pressure \u2014 10 milligrams once a day. That was the main one. I ran out about two weeks ago and haven't been able to refill it yet. I'm not taking anything else regularly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or shortness of breath. No dizziness either. Really just this bad throbbing headache that hasn't gone away. It's been there since I came in, and even after the medications you gave me earlier, it's a bit better but still there."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "uncontrolled hypertension",
+          "medication non-adherence"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "refill amlodipine prescription",
+          "counsel on medication adherence",
+          "schedule follow-up in 2 weeks"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive complications"
+        ],
+        "communication_note": "Your headache may be due to high blood pressure, so let's refill your medication and monitor your blood pressure closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My headache actually went away, which was a relief, but now I'm having some blurring in my right eye. It started a little while ago and it's still there. That's what's worrying me now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "optic neuritis"
+        ],
+        "workup_ordered": [
+          "ophthalmology consultation",
+          "fundoscopic examination",
+          "optical coherence tomography"
+        ],
+        "management_plan": [
+          "urgent ophthalmology referral",
+          "advise patient to avoid strenuous activities until seen by specialist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not addressed promptly"
+        ],
+        "communication_note": "Your blurred vision needs urgent evaluation by an eye specialist to prevent any potential vision loss."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779636618.7362576
+}

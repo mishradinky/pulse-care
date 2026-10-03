@@ -1,0 +1,214 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure when I walk. Started two days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Does the chest pressure go away when you rest, or does it persist even at rest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Goes away when I stop moving. Comes back if I do stuff."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Stable angina",
+          "Unstable angina",
+          "Musculoskeletal chest pain",
+          "GERD"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Troponin levels",
+          "Basic metabolic panel (BMP) including renal function and electrolytes",
+          "Lipid panel",
+          "HbA1c",
+          "Chest X-ray if indicated by exam findings"
+        ],
+        "management_plan": [
+          "Continue current medications (Aspirin 81mg daily, Lisinopril 10mg daily, Atorvastatin 40mg nightly, Metoprolol tartrate 25mg BID) with monitoring as per Pharm/Nurse recommendations",
+          "Educate patient on angina symptom recognition and when to seek emergency care (e.g., chest pressure at rest, worsening symptoms, or associated symptoms like diaphoresis, nausea, or radiation to jaw/arm)",
+          "Encourage lifestyle modifications: heart-healthy diet, regular exercise (as tolerated), smoking cessation if applicable, and stress management",
+          "Schedule follow-up in 1-2 weeks to reassess symptoms and medication tolerance",
+          "If symptoms worsen or persist despite rest, instruct patient to seek emergency care immediately"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for signs of GI bleeding (e.g., melena, hematochezia) due to Aspirin use, especially if CKD is present",
+          "Monitor for bradycardia or hypotension with Metoprolol; hold dose if SBP <90 or HR <50",
+          "Monitor renal function and potassium levels with Lisinopril, particularly if CKD is present",
+          "Avoid NSAIDs for pain management due to potential interactions with antihypertensives and Aspirin"
+        ],
+        "communication_note": "Patient educated on angina symptom recognition and emergency care triggers; follow-up scheduled to monitor progress and medication tolerance.",
+        "trace": {
+          "clinician_contribution": "Clinician asked key question to differentiate between anginal and non-anginal causes of chest pressure, narrowing the differential diagnosis to stable angina, unstable angina, musculoskeletal chest pain, and GERD.",
+          "safety_checker_contribution": "Safety checker identified no red flags and recommended routine escalation, confirming no immediate need for urgent or emergency care.",
+          "pharm_nurse_contribution": "Pharm/Nurse reviewed medications, identified appropriate dosing for CAD/angina prevention, and highlighted monitoring parameters and potential dose adjustments for CKD or bradycardia. Also emphasized patient education on symptom recognition and emergency care triggers."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain came back last night. Hard to breathe some."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain in more detail? For example, is it sharp, dull, pressure-like, or burning? And where exactly is it located?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Pressure. Middle of chest. Goes to my left arm sometimes."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Chest pain with radiation to the left arm and associated dyspnea requires urgent evaluation for life-threatening causes.",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (e.g., unstable angina, NSTEMI)",
+          "Pulmonary embolism",
+          "Aortic dissection",
+          "Pneumothorax",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "escalation_level": "ed_referral",
+        "management_plan": [
+          "Administer aspirin 325mg chewable if no contraindications (e.g., active bleeding, severe CKD).",
+          "Obtain 12-lead ECG stat to evaluate for ischemic changes.",
+          "Draw troponin levels and D-dimer (if PE suspected) for risk stratification.",
+          "Proceed with chest X-ray to assess for pneumothorax, aortic dissection, or other pulmonary causes.",
+          "Monitor for signs of hemodynamic instability (e.g., hypotension, tachycardia) and prepare for potential emergency interventions.",
+          "Hold lisinopril 24-48h pre-contrast imaging if eGFR <60 to reduce AKI risk.",
+          "Ensure IV access is patent for emergency medications (e.g., nitroglycerin, morphine).",
+          "Document allergies (e.g., contrast dye, NSAIDs) before imaging."
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Chest pain with radiation to the left arm is highly suggestive of ACS and warrants immediate evaluation.",
+          "Dyspnea in this context may indicate cardiopulmonary compromise, increasing the risk of life-threatening events.",
+          "Contrast dye use for imaging (e.g., CT-PE protocol) may pose a risk of acute kidney injury, particularly in patients with pre-existing CKD.",
+          "Anticoagulation (e.g., heparin) for ACS/PE may increase bleeding risk, especially in patients on chronic aspirin therapy."
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician identified key details of chest pain (pressure, central location, radiation to left arm) and proposed a focused differential diagnosis and workup prioritizing life-threatening causes (ACS, PE, aortic dissection).",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted critical medication considerations (e.g., holding aspirin if ACS/PE requires anticoagulation, monitoring lisinopril for AKI risk with contrast dye, assessing for bleeding risks with anticoagulation) and emphasized the need for IV access and allergy documentation.",
+          "safety_checker_contribution": "Safety checker approved the clinician's plan but escalated to ED referral due to high-risk symptoms (chest pain in a 58-year-old male with dyspnea) and identified red flags (e.g., life-threatening causes like ACS, PE, aortic dissection) that necessitate urgent evaluation."
+        },
+        "workup_ordered": [
+          "12-lead ECG",
+          "Troponin levels",
+          "D-dimer (if PE suspected)",
+          "Chest X-ray",
+          "Basic metabolic panel (electrolytes, renal function)",
+          "Assess eGFR to guide contrast dye use and lisinopril management"
+        ]
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain. Bad. Started thirty minutes ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain in more detail? Is it sharp, pressure-like, or something else? Does it radiate anywhere, like your arm or jaw? Any shortness of breath, nausea, or sweating with it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Crushing. Left arm. Sweating. Hard to breathe."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) including unstable angina or myocardial infarction",
+          "Aortic dissection",
+          "Pulmonary embolism",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest wall pain"
+        ],
+        "workup_ordered": [
+          "12-lead ECG",
+          "Troponin levels",
+          "Chest X-ray",
+          "D-dimer (if PE suspected)",
+          "Basic metabolic panel and cardiac enzymes"
+        ],
+        "management_plan": [
+          "Hold Metoprolol 25mg BID pending ACS confirmation (risk of masking tachycardia and worsening cardiogenic shock)",
+          "Continue Aspirin 81mg daily but monitor for bleeding signs (e.g., melena, epistaxis)",
+          "Monitor Lisinopril 10mg daily for hypotension and renal function (adjust if acute kidney injury develops)",
+          "Avoid NSAIDs for pain control (contraindicated in potential ACS due to platelet aggregation risk)",
+          "Ensure troponin results are reviewed before administering additional cardiac medications (e.g., nitrates)",
+          "Arrange urgent outpatient cardiology follow-up if ACS is ruled out; escalate to ED if red flags develop (e.g., persistent crushing pain, hemodynamic instability)"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High-risk chest pain in a 58-year-old male with crushing pain radiating to left arm, diaphoresis, and dyspnea\u2014strongly suggestive of ACS or aortic dissection",
+          "Current medications (Aspirin, Metoprolol, Lisinopril) may complicate ACS management (e.g., Metoprolol masking tachycardia, Aspirin increasing bleeding risk)",
+          "Delay in definitive workup (e.g., ECG, troponin) could result in missed acute MI or dissection",
+          "Patient\u2019s symptoms (crushing pain, sweating, dyspnea) meet criteria for immediate ED evaluation per ACC/AHA guidelines"
+        ],
+        "communication_note": "Patient\u2019s symptoms are concerning for ACS; urgent ED referral is warranted for immediate evaluation and stabilization.",
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk differential (ACS, aortic dissection, PE) and prioritized critical first-line tests (ECG, troponin) for cardiac ischemia evaluation. Rationale emphasized urgent workup due to life-threatening causes.",
+          "safety_checker_contribution": "Safety checker approved clinician\u2019s plan but flagged high-risk nature of chest pain in a 58-year-old male and recommended urgent_outpatient escalation. No blocking concerns identified.",
+          "pharm_nurse_contribution": "Pharm/nurse identified medication-related risks (e.g., Metoprolol masking ACS, Aspirin increasing bleeding risk) and recommended holding Metoprolol pending ACS confirmation. Also highlighted need to avoid NSAIDs and monitor for hypotension/renal dysfunction."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790537255.0733323
+}

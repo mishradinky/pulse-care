@@ -1,0 +1,160 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer",
+          "Cellulitis",
+          "Osteomyelitis (though X-ray is negative, clinical suspicion remains due to risk factors)",
+          "Neuropathic ulcer"
+        ],
+        "workup_ordered": [
+          "Wound culture and sensitivity",
+          "Foot X-ray (already done, no osteomyelitis)",
+          "Consider MRI if osteomyelitis is suspected despite negative X-ray",
+          "HbA1c (already available)",
+          "Glucose (already available)",
+          "CRP and ESR (already available, elevated)"
+        ],
+        "management_plan": [
+          "Offload pressure on the wound with appropriate footwear or total contact cast",
+          "Wound care: Debridement if necessary, dressing with appropriate topical agents",
+          "Initiate broad-spectrum antibiotics covering gram-positive and gram-negative organisms (e.g., cephalexin + ciprofloxacin or amoxicillin-clavulanate) pending culture results",
+          "Optimize glycemic control: Adjust metformin and glipizide, consider adding or adjusting other antidiabetic medications",
+          "Pain management if needed (though patient reports no pain due to neuropathy)",
+          "Patient education on foot care, importance of glycemic control, and regular follow-up"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of infection progression to osteomyelitis or sepsis",
+          "Poor glycemic control increasing risk of complications",
+          "Potential for rapid deterioration if not managed promptly"
+        ],
+        "communication_note": "Patient has a diabetic foot ulcer with surrounding erythema. Initial management includes wound care, antibiotics, and glycemic control optimization. Urgent outpatient follow-up is required to monitor progress and adjust treatment as needed.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and proposed management plan.",
+          "safety_checker_contribution": "Reviewed safety concerns and escalation level.",
+          "pharm_nurse_contribution": "Provided input on wound care and antibiotic management."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with infection",
+          "Cellulitis",
+          "Osteomyelitis (though MRI suggests no bone involvement)",
+          "Gangrene (though no signs of necrosis mentioned)"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Erythrocyte sedimentation rate (ESR)",
+          "Blood cultures",
+          "Wound culture and sensitivity",
+          "Plain radiographs of the foot (if not already done)",
+          "Possible consultation with infectious disease specialist"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum antibiotics covering gram-positive, gram-negative, and anaerobic organisms (e.g., vancomycin + piperacillin-tazobactam or meropenem)",
+          "Optimize glycemic control with insulin therapy",
+          "Wound care: debridement, off-loading, and moist dressing",
+          "Elevate the affected limb to reduce swelling",
+          "Monitor vital signs and clinical status closely",
+          "Pain management as needed",
+          "Follow-up with infectious disease and podiatry for further management"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to infected diabetic foot ulcer",
+          "Potential for rapid progression of infection",
+          "Poor glycemic control exacerbating infection"
+        ],
+        "communication_note": "Patient has a worsening diabetic foot ulcer with signs of infection. Urgent outpatient management is required. Coordinate with infectious disease and podiatry for further care.",
+        "trace": {
+          "clinician_contribution": "Assessed the patient's worsening wound and ordered initial labs and imaging.",
+          "safety_checker_contribution": "Identified the risk of sepsis and the need for urgent outpatient management.",
+          "pharm_nurse_contribution": "Recommended appropriate antibiotic therapy and wound care."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Osteomyelitis",
+          "Septic foot",
+          "Diabetic foot ulcer infection",
+          "Cellulitis"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "C-reactive protein (CRP)",
+          "Erythrocyte sedimentation rate (ESR)",
+          "Blood cultures",
+          "MRI of the foot",
+          "Wound culture"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum intravenous antibiotics",
+          "Wound care and debridement",
+          "Pain management",
+          "Blood glucose monitoring and control",
+          "Consultation with infectious disease specialist",
+          "Consultation with orthopedic surgeon for possible osteomyelitis"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis",
+          "Risk of further bone infection",
+          "Risk of amputation"
+        ],
+        "communication_note": "Patient has developed systemic signs of infection with fever, elevated WBC, CRP, and ESR. MRI confirms osteomyelitis. Immediate antibiotic therapy and specialist consultation are required.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's systemic signs and ordered relevant labs and imaging.",
+          "safety_checker_contribution": "Identified high risk of sepsis and bone infection.",
+          "pharm_nurse_contribution": "Recommended appropriate antibiotic therapy and wound care."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779597917.6140573
+}

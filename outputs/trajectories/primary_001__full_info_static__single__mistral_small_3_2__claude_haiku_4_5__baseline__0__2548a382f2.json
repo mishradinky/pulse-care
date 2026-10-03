@@ -1,0 +1,128 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer",
+          "Cellulitis",
+          "Osteomyelitis"
+        ],
+        "workup_ordered": [
+          "Wound culture",
+          "Procalcitonin",
+          "Foot X-ray"
+        ],
+        "management_plan": [
+          "Offload pressure on the wound",
+          "Dressing with saline and non-adherent gauze",
+          "Referral to podiatry",
+          "Optimize glycemic control"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of infection",
+          "Poor glycemic control"
+        ],
+        "communication_note": "You have a foot ulcer that needs careful management to prevent infection and promote healing."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with infection and cellulitis",
+          "Osteomyelitis (though MRI suggests no bone involvement)",
+          "Peripheral arterial disease"
+        ],
+        "workup_ordered": [
+          "Wound culture (pending)",
+          "Complete blood count (CBC)",
+          "C-reactive protein (CRP)",
+          "Blood glucose level",
+          "MRI of the foot (already done, no bone involvement)"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics for cellulitis and possible soft tissue infection",
+          "Refer to podiatry for wound care and possible debridement",
+          "Optimize glycemic control with possible adjustment of diabetes medications",
+          "Elevate the affected foot and off-load pressure",
+          "Monitor for signs of worsening infection or systemic symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of worsening infection",
+          "Potential for systemic complications due to uncontrolled diabetes"
+        ],
+        "communication_note": "Your foot wound has worsened and shows signs of infection, so we are starting antibiotics and referring you to a specialist for further care."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Osteomyelitis",
+          "Septic arthritis",
+          "Necrotizing fasciitis"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "C-reactive protein (CRP)",
+          "Erythrocyte sedimentation rate (ESR)",
+          "Blood cultures",
+          "MRI of the foot",
+          "X-ray of the foot"
+        ],
+        "management_plan": [
+          "Start broad-spectrum IV antibiotics",
+          "Refer to orthopedic surgery for evaluation",
+          "Wound care and debridement",
+          "Pain management",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Sepsis",
+          "Spread of infection",
+          "Systemic complications"
+        ],
+        "communication_note": "Your foot infection has worsened, and you have a fever, so we need to start IV antibiotics and refer you to the emergency department for further evaluation and treatment."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505774.8473842
+}

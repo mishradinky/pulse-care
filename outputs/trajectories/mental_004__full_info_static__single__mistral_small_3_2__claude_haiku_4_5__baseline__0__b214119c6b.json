@@ -1,0 +1,140 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Alcohol withdrawal syndrome",
+          "Alcohol withdrawal seizures",
+          "Alcohol withdrawal delirium (impending)",
+          "Alcoholic liver disease",
+          "Alcoholic neuropathy"
+        ],
+        "workup_ordered": [
+          "CIWA-Ar score",
+          "Basic metabolic panel (BMP)",
+          "Complete blood count (CBC)",
+          "Liver function tests (LFTs)",
+          "Blood alcohol level"
+        ],
+        "management_plan": [
+          "Administer benzodiazepines for alcohol withdrawal (e.g., lorazepam or diazepam)",
+          "Administer thiamine 100mg IV to prevent Wernicke-Korsakoff syndrome",
+          "Monitor vital signs closely",
+          "Consider magnesium supplementation if levels are low",
+          "Provide supportive care and reassurance"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of seizures due to prior history",
+          "Risk of delirium tremens",
+          "Risk of dehydration and electrolyte imbalances"
+        ],
+        "communication_note": "You are experiencing alcohol withdrawal, and we need to monitor you closely to prevent complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Alcohol withdrawal delirium (Delirium Tremens)",
+          "Seizure disorder (alcohol withdrawal related)",
+          "Electrolyte imbalances (hyponatremia, hypokalemia, hypomagnesemia)",
+          "Autonomic hyperactivity due to alcohol withdrawal"
+        ],
+        "workup_ordered": [
+          "Basic metabolic panel (BMP)",
+          "CT head (non-contrast)",
+          "CIWA-Ar score assessment"
+        ],
+        "management_plan": [
+          "Administer benzodiazepines (e.g., lorazepam or diazepam) for alcohol withdrawal and seizure prophylaxis",
+          "Correct electrolyte imbalances (IV magnesium, potassium, and sodium supplementation as needed)",
+          "Monitor vital signs closely and consider IV fluids for hypertension and tachycardia",
+          "Provide supportive care in a quiet, calm environment",
+          "Consider ICU admission for close monitoring due to high CIWA-Ar score and history of withdrawal seizures"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of recurrent seizures",
+          "Potential for progression to Delirium Tremens",
+          "Autonomic instability (hypertension, tachycardia)",
+          "Electrolyte imbalances contributing to cardiac risks"
+        ],
+        "communication_note": "The patient is experiencing severe alcohol withdrawal with seizures and requires immediate medical attention to prevent complications."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Delirium Tremens",
+          "Alcoholic Hallucinosis",
+          "Sepsis",
+          "Wernicke's Encephalopathy"
+        ],
+        "workup_ordered": [
+          "BMP",
+          "ABG",
+          "Lactate",
+          "CBC",
+          "Liver Function Tests",
+          "CT Head if indicated"
+        ],
+        "management_plan": [
+          "IV Thiamine 100mg",
+          "IV Lorazepam 4mg",
+          "IV Fluids with Electrolyte Repletion",
+          "ICU Admission for Monitoring",
+          "Consider Phenobarbital if seizures occur"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of seizures",
+          "Risk of cardiac complications due to severe hypertension and tachycardia",
+          "Risk of injury due to agitation and hallucinations"
+        ],
+        "communication_note": "You are very sick with alcohol withdrawal and need to be in the hospital for treatment."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505744.025942
+}

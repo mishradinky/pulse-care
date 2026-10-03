@@ -1,0 +1,201 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's been racing for three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you're experiencing, such as chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart racing. Sometimes short of breath. Dizzy a bit."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any palpitations or irregular heartbeats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my heart's been racing. Three days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, stress, or changes in your medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent illness. Had a lot to drink last weekend."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever been diagnosed with any heart conditions or arrhythmias before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never had heart problems before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation",
+          "Atrial flutter",
+          "Supraventricular tachycardia",
+          "Alcohol-induced arrhythmia",
+          "Anxiety-induced palpitations"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "Basic metabolic panel",
+          "Complete blood count",
+          "Thyroid function tests"
+        ],
+        "management_plan": [
+          "Monitor heart rate and rhythm",
+          "Advise patient to reduce alcohol intake",
+          "Follow up in 1 week if symptoms persist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke or other complications if arrhythmia is not managed",
+          "Potential for dehydration due to alcohol consumption"
+        ],
+        "communication_note": "We need to run some tests to understand your heart racing better; please avoid alcohol and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's still racing. Got chest tightness now too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of your chest tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Maybe a 4 or 5. Comes and goes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or dizziness along with the chest tightness and racing heart?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, some dizziness. Shortness of breath when I move around."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation",
+          "Coronary artery disease",
+          "Anxiety disorder"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin level"
+        ],
+        "management_plan": [
+          "Monitor vital signs closely",
+          "Start on a low-dose beta-blocker to control heart rate",
+          "Schedule follow-up appointment in 1 week",
+          "Refer to cardiology for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of cardiac event due to chest tightness and dizziness"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart-related issue, and we need to run some tests to understand it better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's racing. Bad this morning. Almost passed out."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "supraventricular tachycardia",
+          "ventricular tachycardia",
+          "atrial fibrillation",
+          "anxiety-induced palpitations",
+          "dehydration"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "thyroid-stimulating hormone (TSH)"
+        ],
+        "management_plan": [
+          "monitor vital signs",
+          "administer oxygen if saturation is low",
+          "start intravenous fluids if dehydrated",
+          "consult cardiology for further evaluation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of syncope and injury",
+          "potential cardiac etiology requiring immediate intervention"
+        ],
+        "communication_note": "Your rapid heart rate is concerning, and we need to rule out serious causes, so I'm sending you to the emergency department for further evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779506747.0319872
+}

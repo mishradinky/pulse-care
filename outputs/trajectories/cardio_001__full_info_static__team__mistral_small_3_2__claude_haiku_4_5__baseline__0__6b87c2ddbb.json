@@ -1,0 +1,159 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (unstable angina or NSTEMI)",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain",
+          "Anxiety or panic disorder"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Lipase",
+          "Repeat troponin in 3 hours",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Administer aspirin 325mg orally",
+          "Start sublingual nitroglycerin if chest pain recurs (with BP monitoring)",
+          "Oxygen via nasal cannula at 2-4 L/min if SpO2 < 94%",
+          "Monitor vital signs and cardiac rhythm continuously",
+          "Provide reassurance and anxiolytics if anxiety is significant (e.g., lorazepam 0.5-1mg PO/IV)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential acute coronary syndrome requiring urgent intervention",
+          "Risk of recurrent chest pain or cardiac event",
+          "Need for close monitoring and repeat troponin measurement"
+        ],
+        "communication_note": "Patient has risk factors for coronary artery disease (HTN, smoking history, family history of MI) and symptoms suggestive of acute coronary syndrome. Urgent outpatient follow-up or ED referral should be arranged for further evaluation and management.",
+        "trace": {
+          "clinician_contribution": "Assessed patient history, risk factors, and symptoms; ordered initial workup and management.",
+          "safety_checker_contribution": "Reviewed safety concerns and recommended monitoring and escalation level.",
+          "pharm_nurse_contribution": "Assisted with medication administration and monitoring plan."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (NSTEMI)",
+          "Stable angina pectoris",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Lipid panel",
+          "Repeat troponin in 3 hours",
+          "Echocardiogram",
+          "Stress test (if stable)"
+        ],
+        "management_plan": [
+          "Administer aspirin 325 mg chewable PO",
+          "Administer sublingual nitroglycerin if chest pain recurs",
+          "Start beta-blocker therapy (e.g., metoprolol 25 mg PO twice daily)",
+          "Start high-intensity statin therapy (e.g., atorvastatin 80 mg PO daily)",
+          "Smoking cessation counseling and support",
+          "Lifestyle modifications (diet, exercise, weight management)",
+          "Follow-up with cardiology for further evaluation and management"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Recurrent chest pain may indicate ongoing ischemia",
+          "Risk of acute myocardial infarction",
+          "Potential complications from uncontrolled hypertension"
+        ],
+        "communication_note": "Patient has a history of hypertension and smoking, which are significant risk factors for cardiovascular disease. The recurrence of chest pain with mild shortness of breath and the presence of new ST depression on ECG suggest a possible acute coronary syndrome. Immediate management and further evaluation are crucial to prevent potential complications.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms, risk factors, and ordered initial workup.",
+          "safety_checker_contribution": "Identified safety concerns related to recurrent chest pain and potential complications.",
+          "pharm_nurse_contribution": "Administered medications and provided patient education on lifestyle modifications."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "ST-Elevation Myocardial Infarction (STEMI)",
+          "Unstable angina",
+          "Aortic dissection",
+          "Pericarditis",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG",
+          "High-sensitivity troponin",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Chest X-ray",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Administer aspirin 325 mg chewed",
+          "Administer sublingual nitroglycerin (if no contraindications)",
+          "Administer oxygen therapy",
+          "Administer intravenous heparin",
+          "Prepare for urgent coronary angiography and possible percutaneous coronary intervention (PCI)",
+          "Monitor vital signs continuously",
+          "Provide anxiolytics if needed for anxiety"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "High risk of acute coronary syndrome (ACS)",
+          "Potential for cardiac arrest",
+          "Risk of aortic dissection given the patient's history of hypertension"
+        ],
+        "communication_note": "The patient is experiencing a high-risk presentation of chest pain with ECG changes consistent with STEMI. Immediate intervention is required to prevent further cardiac damage. The patient should be transferred to a cardiac catheterization lab for urgent coronary angiography and possible PCI.",
+        "trace": {
+          "clinician_contribution": "Assessed the patient's symptoms and ordered initial diagnostic tests.",
+          "safety_checker_contribution": "Identified high-risk features and recommended immediate intervention.",
+          "pharm_nurse_contribution": "Prepared and administered necessary medications and monitored the patient's response."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597765.4463227
+}

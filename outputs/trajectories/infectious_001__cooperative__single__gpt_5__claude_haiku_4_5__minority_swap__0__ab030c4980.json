@@ -1,0 +1,199 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a really bad cough for the past 4 days with yellow-green stuff coming up. I also have a fever and chest pain on my right side that hurts when I breathe. I'm pretty concerned about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been having trouble breathing. My oxygen level is low at 88%, and I'm breathing faster than normal. The cough makes it worse, especially when I try to move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had chills on and off with the fever, yeah. Not sure about night sweats\u2014I've been so sick I haven't paid attention. As for weight loss, I don't think so, not that I've noticed anyway."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't traveled anywhere recently. I live alone, so I'm not around many people. I'm not sure where I picked this up from."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have COPD and diabetes. I take a tiotropium inhaler every day, use my albuterol inhaler when I need it, and take metformin 500mg for my diabetes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't noticed any swelling in my legs or ankles. My main problem right now is this cough and the chest pain when I breathe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "acute exacerbation of COPD",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture",
+          "blood cultures",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "start empirical antibiotics for pneumonia",
+          "administer supplemental oxygen to maintain saturation above 92%",
+          "consider bronchodilator therapy for COPD exacerbation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "hypoxemia",
+          "potential for respiratory failure"
+        ],
+        "communication_note": "You have symptoms that suggest a lung infection, possibly pneumonia, and your oxygen levels are low. We need to get you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not getting better. I took that antibiotic you gave me yesterday, but I'm still coughing up this yellow-green stuff, and now I'm feeling more confused. I'm worried something's wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had a fever\u2014they took my temperature yesterday and it was high. I'm definitely short of breath, especially when I try to move around. The chills were bad the first couple days but not as much now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have chest pain on my right side. It gets worse when I breathe in deeply. It's been there since this started a few days ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pleuritis",
+          "lung abscess"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start broad-spectrum antibiotics",
+          "administer supplemental oxygen",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for sepsis"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your worsening symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having trouble breathing. They put a tube down my throat in the emergency room because my oxygen was too low. I can't talk much with this tube in, but I'm very short of breath."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory distress syndrome",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely",
+          "consult pulmonology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory failure",
+          "need for intensive care monitoring"
+        ],
+        "communication_note": "You are currently receiving critical care for your breathing difficulties, and we are closely monitoring your condition."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779634922.1307666
+}

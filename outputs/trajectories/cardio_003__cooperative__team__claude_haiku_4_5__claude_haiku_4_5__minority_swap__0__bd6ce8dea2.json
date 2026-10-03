@@ -1,0 +1,225 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been having a racing heart and palpitations for the past three days. It's been pretty constant, and it's making me feel anxious. I'm also getting a bit short of breath when I move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When you say 'racing heart,' what's your heart rate like\u2014do you know the number? And is the palpitation constant, or does it come and go in episodes? Also, have you had any chest pain, dizziness, or syncope?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm not sure of the exact number, but the nurse said it was over 110 when I came in. It's been pretty constant these past three days, not really coming and going\u2014just keeps racing. No chest pain, but I have felt a bit lightheaded a couple of times, and I'm short of breath when I move around."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial fibrillation (persistent, sustained HR >110)",
+          "Supraventricular tachycardia (SVT)",
+          "Sinus tachycardia (secondary: anxiety, infection, thyroid, anemia, PE)",
+          "Ventricular arrhythmia",
+          "Acute coronary syndrome (lower probability given absence of chest pain, but cannot exclude)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG (STAT\u2014obtain immediately, before or concurrent with further history)",
+          "Continuous cardiac monitoring + telemetry (establish now)",
+          "IV access (establish for potential acute intervention)",
+          "Troponin, BNP (rule out ACS and heart failure)",
+          "CBC, CMP, TSH (assess for secondary causes; CMP critical for renal function before medication dosing)",
+          "Chest X-ray (evaluate for pulmonary etiology of dyspnea)",
+          "Baseline vital signs (HR, BP, RR, O\u2082 sat, temp) with q15min reassessment during acute phase"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain 12-lead ECG and place on continuous cardiac monitoring in monitored setting (ED or acute care unit)",
+          "Establish IV access and oxygen supplementation if O\u2082 sat <94%",
+          "Complete medication history (Rx, OTC, supplements, herbal) with focus on stimulants, antiarrhythmics, beta-blockers, CCBs, digoxin, anticoagulants",
+          "Screen for drug allergies (especially beta-blockers, CCBs, antiarrhythmics)",
+          "HOLD all rate-control and antiarrhythmic medications pending ECG and troponin results",
+          "If ECG shows SVT with hemodynamic instability: prepare for possible acute intervention (vagal maneuvers, adenosine, cardioversion)",
+          "If ECG shows AFib with RVR: assess hemodynamic stability; consider rate control (diltiazem, verapamil, beta-blocker) after renal function confirmed",
+          "If troponin elevated or ECG shows ischemic changes: activate ACS protocol (aspirin, P2Y12 inhibitor, cardiology consult)",
+          "Educate patient on red-flag symptoms: severe chest pain, syncope, severe dyspnea, hemodynamic collapse \u2192 call 911 immediately"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: 62-year-old with 3 days of sustained palpitations (HR >110), exertional dyspnea, and lightheadedness meets criteria for acute cardiac emergency; ACS and ventricular arrhythmia are time-sensitive diagnoses requiring immediate ED evaluation and continuous monitoring.",
+          "Patient is currently symptomatic (lightheadedness documented); hemodynamic stability unknown\u2014cannot safely manage in outpatient setting without real-time monitoring.",
+          "Clinician's approach (detailed history-taking) risks delaying STAT ECG; ECG must be obtained within minutes of arrival, not after full interview.",
+          "No current vital signs, oxygen saturation, or hemodynamic stability documented; cannot proceed without baseline assessment.",
+          "Medication list unknown; cannot initiate rate-control or antiarrhythmic therapy without screening for interactions and contraindications.",
+          "Renal function unknown; CMP required before dosing any cardiac medications (many renally cleared; age 62 + potential CKD increases risk).",
+          "No safety net documented: unclear if patient has emergency contact, knows warning signs for syncope/severe chest pain, or has transportation to ED."
+        ],
+        "communication_note": "This patient requires immediate emergency department evaluation with continuous cardiac monitoring, STAT ECG, and biomarker testing; outpatient workup is unsafe given acute presentation with sustained tachycardia, exertional dyspnea, and lightheadedness.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified acute cardiac differential (AFib, SVT, ACS, ventricular arrhythmia) and ordered comprehensive workup (ECG, troponin, BNP, CBC, CMP, TSH, CXR, telemetry). However, clinician remained in 'clarification mode' (asking detailed history questions) rather than immediately escalating to ED and obtaining STAT ECG; this sequencing delays time-critical diagnostics.",
+          "safety_checker_contribution": "Safety checker correctly identified this as a time-sensitive emergency requiring immediate ED referral and 911 escalation. Flagged critical gaps: no current vital signs, no hemodynamic stability assessment, no documentation of current distress, and ECG sequencing error (should be STAT before/concurrent with history, not after). Blocked outpatient management and mandated emergency escalation.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication review gaps (no current med list documented) and screened for drug interactions with potential antiarrhythmics and ACS therapies. Emphasized renal function assessment (CMP) before dosing, allergy screening, and nursing-level safety measures: STAT ECG support, IV access, continuous monitoring, q15min vital sign reassessment, syncope/chest pain red-flag escalation, and medication hold pending diagnosis. Provided actionable safety protocols for acute cardiac care."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still having these heart palpitations\u2014they've been going on for about six days now. And since yesterday, I've noticed some tightness in my chest too. It's been worrying me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand these symptoms better. Can you describe the palpitations\u2014do you feel your heart racing, skipping beats, or pounding? And regarding the chest tightness: is it constant or does it come and go? Does anything make it better or worse, such as activity, rest, or position changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The palpitations feel like my heart is racing and kind of irregular\u2014like it's skipping around. It's been going on for about six days now. The chest tightness is new, started more recently. It comes and goes, not constant. It seems worse when I'm active or moving around, and it gets a bit better when I sit down and rest."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome / angina (HIGHEST PRIORITY)",
+          "Atrial fibrillation or other arrhythmia",
+          "Myocarditis or pericarditis",
+          "Pulmonary embolism",
+          "Thyrotoxicosis or hyperthyroidism",
+          "Anxiety disorder with panic attacks"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (during or immediately after symptom occurrence if possible)",
+          "STAT high-sensitivity troponin (rule out MI)",
+          "Complete metabolic panel (renal/hepatic function for safe medication dosing)",
+          "Complete blood count",
+          "TSH and free T4 (rule out thyrotoxicosis)",
+          "Chest X-ray (rule out pulmonary pathology, assess cardiac silhouette)",
+          "D-dimer or CT pulmonary angiography if PE risk factors present"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL\u2014do not delay for outpatient workup",
+          "Obtain baseline vital signs (HR, BP, O\u2082 sat, temperature) before transport",
+          "Obtain COMPLETE medication reconciliation including: prescription drugs, OTC medications, supplements, herbal products, recent medication changes, and drug allergies",
+          "Confirm contrast allergy history (anticipate possible cardiac imaging)",
+          "If patient is hemodynamically stable and symptoms are reproducible, obtain 12-lead ECG in ED during symptom episode",
+          "Once ACS and life-threatening arrhythmias ruled out: proceed with rate/rhythm control and further cardiac workup as indicated",
+          "Assess anticoagulation candidacy and bleeding risk if AFib confirmed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: 6 days of palpitations + new-onset exertional chest tightness in 62-year-old = high-risk ACS presentation until proven otherwise",
+          "Patient describes irregular racing heart with exertional chest tightness that improves with rest\u2014classic anginal pattern",
+          "No vital signs, ECG, or troponin documented; these are non-negotiable for this presentation",
+          "Medication history completely absent\u2014cannot assess for drug-induced arrhythmias (stimulants, QT-prolongers, recent antibiotic use) or medication-symptom interactions",
+          "Renal and hepatic function unknown\u2014essential baseline before any antiarrhythmic or anticoagulant therapy",
+          "Symptom phenotyping alone is insufficient; urgent objective testing required before extended history-taking",
+          "Risk of delayed diagnosis of ACS, PE, or myocarditis if outpatient management pursued"
+        ],
+        "communication_note": "This 62-year-old male with 6 days of palpitations and new exertional chest tightness requires immediate ED evaluation with ECG and troponin to rule out acute coronary syndrome and life-threatening arrhythmia; outpatient characterization is unsafe.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified broad differential (ACS, arrhythmia, myocarditis, PE, thyrotoxicosis, anxiety) and initiated symptom phenotyping. However, clinician did not propose urgent diagnostic testing (ECG, troponin) or escalation despite red-flag presentation. Symptom characterization is valuable but must occur *after* acute life threats are ruled out, not instead of them.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL gaps: no vital signs, no ECG, no troponin in workup despite high-risk ACS presentation. Appropriately blocked outpatient-only approach and mandated ED referral. Correctly noted that 6 days of symptoms + new chest tightness is time-sensitive and warrants same-day objective testing, not extended questioning.",
+          "pharm_nurse_contribution": "Pharm/nurse identified essential missing data: complete medication history (prescription, OTC, supplements, herbal), drug allergies, contrast allergies, baseline renal/hepatic function, and vital signs. Flagged critical screening needs (beta-blockers masking tachycardia, stimulants triggering arrhythmias, QT-prolongers, recent antibiotic use) and anticoagulation readiness assessment. These inputs are prerequisite to safe medication management post-diagnosis."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really worried. The heart palpitations got much worse, and this morning I actually passed out for a moment. My heart is racing and I feel lightheaded. I'm concerned something serious is happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand this is concerning. Let me gather some critical details: When you passed out this morning, did you hit your head or injure yourself? How long were you unconscious? And right now\u2014do you have chest pain, shortness of breath, or sweating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I blacked out for maybe a minute or two this morning\u2014it happened so fast I'm not really sure. I didn't hit my head that I know of. Right now I don't have chest pain, but I am feeling a bit short of breath, and I'm sweating some. I'm pretty scared about what happened."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response",
+          "Supraventricular tachycardia (SVT)",
+          "Ventricular arrhythmia",
+          "Syncope from cardiac cause (arrhythmia, structural, or hemodynamic)",
+          "Acute coronary syndrome",
+          "Thyroid storm or severe hyperthyroidism"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (assess rhythm, rate, QT interval, ischemic changes)",
+          "Continuous cardiac monitoring (telemetry)",
+          "Troponin, BNP, CBC, CMP, TSH",
+          "Chest X-ray",
+          "Echocardiogram (if structural disease suspected)",
+          "STAT medication reconciliation (complete list: Rx, OTC, supplements, herbal, illicit)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Call 911 or arrange emergent ED transport\u2014do NOT manage in outpatient setting",
+          "If in-office: obtain STAT 12-lead ECG while awaiting EMS; place on continuous pulse oximetry and cardiac monitoring",
+          "Establish IV access (2 large-bore IVs) if trained staff available",
+          "Keep patient supine, NPO (may require cardioversion or procedures)",
+          "Obtain complete medication history before any acute antiarrhythmic administration",
+          "HOLD QT-prolonging medications and rate-control agents pending ECG interpretation and rhythm identification",
+          "Reassess vitals every 15 minutes; document baseline BP, HR, O2 sat, mental status",
+          "Fall precautions; assist with all ambulation",
+          "Concurrent neurologic assessment for syncope-related head injury",
+          "Electrolyte monitoring (K+, Mg2+, Ca2+) and renal function to guide dosing"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Syncope + palpitations + tachycardia = HIGH-RISK triad for life-threatening arrhythmia (ventricular arrhythmia, ACS, malignant SVT)",
+          "Age 62 with cardiac risk profile\u2014ACS and malignant arrhythmias must be ruled out immediately",
+          "Current symptoms include dyspnea and diaphoresis\u2014signs of hemodynamic compromise or acute coronary event",
+          "Syncope duration 1\u20132 minutes with loss of consciousness indicates significant cerebral hypoperfusion",
+          "Risk of sudden deterioration (recurrent syncope, hemodynamic collapse, cardiac arrest) in unmonitored outpatient setting is unacceptable",
+          "Head injury from syncope requires concurrent neuro assessment\u2014ED is appropriate level of care",
+          "CRITICAL GAP: No medication list obtained\u2014cannot assess for QT-prolonging agents, drug interactions, or medication-induced arrhythmia triggers",
+          "Clinician's 'ask' approach delays definitive evaluation; patient requires IMMEDIATE ECG and monitoring NOW, not after history-taking"
+        ],
+        "communication_note": "This 62-year-old male with syncope, palpitations, dyspnea, and diaphoresis requires EMERGENCY 911 activation and ED-level continuous cardiac monitoring; outpatient management is unsafe and delays time-critical diagnosis.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differential (arrhythmia, ACS, syncope) and ordered comprehensive cardiac workup (ECG, troponin, monitoring, echo). However, clinician remained in history-gathering mode ('ask' action) despite patient meeting criteria for emergency-level care; this delays critical stabilization and diagnostic testing.",
+          "safety_checker_contribution": "Safety checker correctly identified the HIGH-RISK triad (syncope + palpitations + tachycardia) and flagged that outpatient management is inappropriate. Blocking concern is valid: patient requires ED-level continuous monitoring, STAT ECG, and IV access BEFORE further questioning. Escalation to 911 is appropriate and overrides outpatient workup.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL GAP: no medication list provided. Medication reconciliation is essential to rule out QT-prolonging agents, drug interactions, stimulants, or non-compliance as arrhythmia triggers. Nursing concerns (IV access, telemetry, fall precautions, electrolyte monitoring, NPO status, allergy confirmation) are all appropriate for ED-level acute care and must be implemented immediately upon arrival or in-office while awaiting EMS."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779634141.9106293
+}

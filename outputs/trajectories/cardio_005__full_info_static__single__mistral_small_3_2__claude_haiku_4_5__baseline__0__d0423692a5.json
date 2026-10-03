@@ -1,0 +1,126 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "pneumonia",
+          "pleurisy",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "CT pulmonary angiography",
+          "complete blood count",
+          "basic metabolic panel",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer oxygen to maintain SpO2 > 92%",
+          "start anticoagulation if pulmonary embolism is confirmed",
+          "monitor vital signs closely",
+          "consider pain management for pleuritic chest pain"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential pulmonary embolism given risk factors and clinical presentation",
+          "mildly elevated troponin may indicate right heart strain"
+        ],
+        "communication_note": "We need to rule out a blood clot in your lung given your symptoms and travel history, and will order some imaging tests."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "pneumonia",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "CTPA",
+          "echocardiogram",
+          "troponin"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start anticoagulation therapy",
+          "monitor vital signs closely",
+          "consult cardiology for further management"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "right heart strain",
+          "hypoxemia",
+          "potential for hemodynamic instability"
+        ],
+        "communication_note": "Your symptoms and test results suggest a serious condition, and you will be referred to the emergency department for immediate care."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "massive pulmonary embolism",
+          "pneumothorax",
+          "pneumonia",
+          "acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "echocardiogram",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start IV heparin",
+          "prepare for thrombolytic therapy",
+          "transfer to ICU"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "hypotension",
+          "hypoxemia",
+          "right ventricular failure",
+          "impending cardiac arrest"
+        ],
+        "communication_note": "Your symptoms are severe and life-threatening, and you need immediate emergency care."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505280.3553357
+}

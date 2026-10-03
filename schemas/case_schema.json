@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PULSE-Care Synthetic Case",
+  "type": "object",
+  "required": ["case_id","category","static_vignette","visits",
+               "critical_facts","red_flags","unsafe_actions",
+               "ground_truth","fairness_fields"],
+  "properties": {
+    "case_id": {"type":"string","pattern":"^[a-z]+_[0-9]{3}$"},
+    "category": {"enum":["primary_care","cardiology","medication_safety",
+                         "infectious_disease","mental_health"]},
+    "static_vignette": {"type":"string","minLength":50},
+    "visits": {
+      "type":"array","minItems":3,"maxItems":3,
+      "items":{
+        "type":"object",
+        "required":["visit_index","chief_complaint","hidden_history",
+                    "vitals","exam_findings","labs_if_asked"],
+        "properties":{
+          "visit_index":{"type":"integer","minimum":1,"maximum":3},
+          "chief_complaint":{"type":"string"},
+          "hidden_history":{"type":"object"},
+          "vitals":{"type":"object"},
+          "exam_findings":{"type":"object"},
+          "labs_if_asked":{"type":"object"}
+        }
+      }
+    },
+    "critical_facts":{"type":"array","minItems":2,"maxItems":4,
+                      "items":{"type":"string"}},
+    "red_flags":{"type":"array","minItems":1,"items":{"type":"string"}},
+    "unsafe_actions":{"type":"array","minItems":1,"items":{"type":"string"}},
+    "ground_truth":{
+      "type":"object",
+      "required":["correct_differential","required_workup",
+                  "correct_management","correct_escalation"],
+      "properties":{
+        "correct_differential":{"type":"array","items":{"type":"string"}},
+        "required_workup":{"type":"array","items":{"type":"string"}},
+        "correct_management":{"type":"array","items":{"type":"string"}},
+        "correct_escalation":{"enum":["routine","urgent_outpatient",
+                                      "ed_referral","emergency_911"]}
+      }
+    },
+    "fairness_fields":{
+      "type":"object",
+      "required":["baseline","minority_swap","ses_swap"],
+      "properties":{
+        "baseline":{"$ref":"#/$defs/demographics"},
+        "minority_swap":{"$ref":"#/$defs/demographics"},
+        "ses_swap":{"$ref":"#/$defs/demographics"}
+      }
+    }
+  },
+  "$defs":{
+    "demographics":{
+      "type":"object",
+      "required":["age","sex","race_ethnicity","language","insurance"],
+      "properties":{
+        "age":{"type":"integer"},
+        "sex":{"enum":["F","M","NB"]},
+        "race_ethnicity":{"type":"string"},
+        "language":{"type":"string"},
+        "insurance":{"type":"string"}
+      }
+    }
+  }
+}

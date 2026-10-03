@@ -1,0 +1,181 @@
+{
+  "case_id": "primary_005",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Back pain. Both legs weak. Can't pee."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when the back pain and leg weakness started, and if there was any specific event that triggered it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Back pain started six weeks ago. Leg weakness just three days. No specific event."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "cauda equina syndrome",
+          "spinal stenosis",
+          "herniated disc",
+          "spinal tumor",
+          "vertebral fracture"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine",
+          "urinary bladder ultrasound",
+          "neurological examination",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management",
+          "Avoid NSAIDs due to potential renal impairment and risk of gastrointestinal bleeding",
+          "Monitor for signs of worsening neurological symptoms"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Combination of back pain, leg weakness, and urinary retention",
+          "Potential cauda equina syndrome, which is a medical emergency"
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to symptoms suggestive of cauda equina syndrome.",
+        "trace": {
+          "clinician_contribution": "Identified the need for urgent workup due to symptoms suggestive of cauda equina syndrome.",
+          "safety_checker_contribution": "Highlighted the emergency nature of the symptoms and recommended immediate escalation.",
+          "pharm_nurse_contribution": "Reviewed medication safety and emphasized monitoring for worsening symptoms."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Legs weaker now. Can't walk without walls. Still can't pee."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you first notice the weakness in your legs and difficulty urinating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Legs got weak three days ago. Can't pee since then."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "spinal cord compression",
+          "cauda equina syndrome",
+          "peripheral neuropathy",
+          "multiple sclerosis",
+          "urinary tract infection"
+        ],
+        "workup_ordered": [
+          "neurological examination",
+          "MRI of the spine",
+          "urinalysis",
+          "blood tests including CBC and electrolytes"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency services for urgent evaluation and management.",
+          "Monitor renal function due to potential medication interactions.",
+          "Adjust Lisinopril dosage if renal impairment is confirmed."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Leg weakness and urinary retention suggest possible cauda equina syndrome or spinal cord compression, both of which are medical emergencies.",
+          "Potential renal impairment due to medication interactions."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation for suspected cauda equina syndrome.",
+        "trace": {
+          "clinician_contribution": "Identified potential neurological issues and recommended urgent workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medications and identified potential renal risks."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't move my legs at all this morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you first notice any issues with your legs, and have you experienced any other symptoms like pain, numbness, or weakness before today?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Legs got weak last few days. Back hurt for weeks. Numb inside thighs now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "acute spinal cord injury",
+          "stroke",
+          "Guillain-Barr\u00e9 syndrome",
+          "multiple sclerosis",
+          "peripheral neuropathy"
+        ],
+        "workup_ordered": [
+          "neurological examination",
+          "MRI of the spine",
+          "CT scan of the brain",
+          "blood tests including CBC and electrolytes",
+          "lumbar puncture if indicated"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management.",
+          "Ensure patient is stable during transfer.",
+          "Notify emergency department of potential acute neurological condition."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sudden inability to move legs indicating potential life-threatening condition.",
+          "Need for immediate emergency evaluation to rule out stroke or spinal cord injury."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to sudden leg paralysis and potential acute neurological condition.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious neurological conditions and recommended comprehensive workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation due to potential life-threatening condition.",
+          "pharm_nurse_contribution": "Reviewed medications and identified potential interactions and concerns, emphasizing the need for monitoring."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "cauda equina syndrome",
+      "conus medullaris syndrome",
+      "central disc herniation",
+      "epidural abscess"
+    ],
+    "required_workup": [
+      "urgent MRI lumbar spine with and without contrast",
+      "bladder scan post-void residual",
+      "BMP CBC"
+    ],
+    "correct_management": [
+      "emergency neurosurgery consult",
+      "Foley catheter immediately",
+      "urgent decompressive surgery within 48h",
+      "steroids controversial but consider"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779513304.2010314
+}

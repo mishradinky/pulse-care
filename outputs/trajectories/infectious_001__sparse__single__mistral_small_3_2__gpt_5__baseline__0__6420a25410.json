@@ -1,0 +1,206 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough, fever, chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or difficulty breathing along with these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, it's hard to breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate your shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About 7."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with someone who has a contagious illness or traveled recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your sputum production or color?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yellow-green sputum."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "Acute bronchitis",
+          "Influenza",
+          "COVID-19",
+          "Bacterial sinusitis"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Sputum culture",
+          "COVID-19 PCR test"
+        ],
+        "management_plan": [
+          "Start empiric antibiotics for possible bacterial infection",
+          "Encourage hydration and rest",
+          "Prescribe bronchodilators if wheezing is present",
+          "Schedule follow-up visit in 3-5 days to reassess symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe shortness of breath (7/10)",
+          "Possible bacterial infection indicated by yellow-green sputum"
+        ],
+        "communication_note": "Based on your symptoms, we will run some tests and start treatment for a possible infection; please follow up with us in a few days."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "No better, more confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever, chills, or cough recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, fever and cough."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "urinary tract infection",
+          "COVID-19"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "comprehensive metabolic panel",
+          "chest X-ray",
+          "urinalysis",
+          "COVID-19 PCR test"
+        ],
+        "management_plan": [
+          "start on antibiotics",
+          "hydration",
+          "monitor symptoms closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of sepsis due to fever and confusion"
+        ],
+        "communication_note": "Given your symptoms and the potential seriousness, we need to run some tests and start treatment right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Respiratory failure, intubated in ED."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "COPD exacerbation",
+          "Pulmonary embolism",
+          "Heart failure"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count",
+          "Basic metabolic panel",
+          "Arterial blood gas",
+          "Electrocardiogram"
+        ],
+        "management_plan": [
+          "Continue mechanical ventilation",
+          "Start broad-spectrum antibiotics",
+          "Administer bronchodilators if COPD is suspected",
+          "Monitor for hemodynamic stability"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Respiratory failure",
+          "Hemodynamic instability",
+          "Potential sepsis"
+        ],
+        "communication_note": "The patient is critically ill and requires immediate intensive care management."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636175.7186358
+}

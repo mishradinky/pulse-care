@@ -1,0 +1,227 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 48,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm really worried, doctor. I got back from a long flight to Tokyo five days ago, and since then I've had this sudden sharp pain in my right chest that gets worse when I breathe. I'm also having trouble catching my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain more\u2014does it feel like a stabbing sensation, or is it more of a pressure? Also, have you noticed any swelling in your legs or sudden coughing up of blood?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain is sharp and stabbing, especially when I breathe in deeply. It's on the right side of my chest. As for my legs, yes\u2014my right leg is definitely more swollen than the left, and it's tender too. I haven't coughed up any blood, no."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism (high pre-test probability given pleuritic chest pain, dyspnea, and right leg swelling post-flight)",
+          "Pneumothorax (sharp, localized chest pain worse with breathing)",
+          "Musculoskeletal chest wall pain (posture-related or strain, though less likely given leg swelling)",
+          "Pneumonia (infectious process with dyspnea, though no fever or cough reported)",
+          "Acute coronary syndrome (less likely given pleuritic nature of pain but possible)"
+        ],
+        "workup_ordered": [
+          "Vital signs (including oxygen saturation and heart rate)",
+          "D-dimer (initial screening, though not definitive for PE)",
+          "Chest X-ray (to evaluate for pneumothorax, pneumonia, or other pathology)",
+          "ECG (to assess for ischemic changes or right heart strain)",
+          "Doppler ultrasound of right leg (to evaluate for deep vein thrombosis as source of PE)",
+          "CT pulmonary angiogram (if D-dimer is elevated or clinical suspicion remains high)"
+        ],
+        "management_plan": [
+          "Initiate supplemental oxygen if SpO2 < 95%",
+          "Administer analgesia if needed (avoid NSAIDs until renal function is assessed; consider acetaminophen)",
+          "Consider prophylactic anticoagulation if PE is strongly suspected pending imaging (consult specialist)",
+          "Arrange urgent outpatient follow-up with cardiology or pulmonology for further evaluation",
+          "Patient education on red flags (e.g., worsening dyspnea, hemoptysis, syncope) and when to seek emergency care"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High risk of pulmonary embolism given pleuritic chest pain, dyspnea, and right leg swelling post-flight (Virchow's triad: stasis, endothelial injury, hypercoagulability)",
+          "Potential for rapid clinical deterioration if PE is present (risk of hypoxia, hemodynamic compromise)",
+          "Need for urgent imaging (CT pulmonary angiogram) to confirm diagnosis, which may not be feasible in outpatient setting",
+          "Possible renal impairment risk if contrast dye is used (assess baseline renal function)"
+        ],
+        "communication_note": "Patient requires immediate transfer to ED for urgent workup including CT pulmonary angiogram to rule out PE, given high pre-test probability and risk of rapid deterioration.",
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk differential (PE, pneumothorax) and prioritized workup (D-dimer, CXR, ECG, CT PA if needed) based on patient's post-flight pleuritic chest pain, dyspnea, and leg swelling. Asked targeted questions to assess for red flags (hemoptysis, leg swelling).",
+          "safety_checker_contribution": "Safety checker identified red flags (sudden pleuritic chest pain post-flight, dyspnea, hemoptysis, leg swelling) and recommended urgent_outpatient escalation. Highlighted need for imaging (CT PA or VQ scan) and immediate vitals/ECG to assess for hypoxia or ischemia.",
+          "pharm_nurse_contribution": "Pharm/nurse noted lack of medication history (risk of interactions if NSAIDs or opioids are used) and emphasized monitoring for PE progression (hypoxia, tachycardia). Advised against NSAIDs until renal function is known and ensured IV access for potential contrast dye. Highlighted bleeding risk if anticoagulation is initiated."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having worse trouble breathing, even when I'm just sitting down. And my right leg is hurting more now, and it's more swollen than it was a few days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the breathing trouble more? Is it worse when lying down, or do you feel short of breath even at rest? Also, when did the leg swelling and pain start, and is there any redness or warmth in the leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The shortness of breath is worse now\u2014I'm getting it even when I'm just sitting still, not just when I move around. And my right leg is really bothering me more today. It's swollen, painful, and now I'm noticing it's red and warm to the touch. The leg started swelling a few days ago after the flight, but it's gotten worse since yesterday."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient requires urgent outpatient evaluation for acute dyspnea at rest and suspected DVT/PE, with medication adjustments to optimize heart failure management.",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure (worsening dyspnea at rest, possible volume overload)",
+          "Pulmonary embolism (acute dyspnea, leg swelling/pain with redness/warmth suggesting DVT)",
+          "Deep vein thrombosis (right leg swelling, pain, redness, warmth post-flight)",
+          "Cellulitis (leg redness/warmth, though less likely given systemic symptoms)",
+          "COPD exacerbation (if history of smoking, though less supported by current symptoms)"
+        ],
+        "escalation_level": "ed_referral",
+        "management_plan": [
+          "Increase furosemide to 80mg PO BID for volume overload (monitor renal function and electrolytes)",
+          "Hold lisinopril if SCr rises >30% from baseline or hyperkalemia (K+ >5.0 mEq/L)",
+          "Obtain urgent lower extremity Doppler ultrasound to evaluate for DVT",
+          "Consider D-dimer and CT-PE protocol if DVT confirmed or high clinical suspicion for PE",
+          "Order BNP/NT-proBNP and chest X-ray to assess for heart failure",
+          "Initiate low-molecular-weight heparin (e.g., enoxaparin) if DVT/PE confirmed (consult pharmacy for dosing)",
+          "Educate patient on low-sodium diet, fluid restriction, and signs of worsening heart failure (e.g., >2lb weight gain in 24h)",
+          "Avoid NSAIDs due to fluid retention/renal risks in heart failure",
+          "Monitor daily weights, orthostatic vital signs, and signs of DVT/PE progression"
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Acute dyspnea at rest suggests potential respiratory or cardiac decompensation requiring immediate evaluation",
+          "Right leg swelling/pain with redness/warmth raises high concern for DVT (risk of PE if untreated)",
+          "Possible underdosing of diuretic (furosemide) may contribute to volume overload in suspected heart failure",
+          "Lisinopril may need adjustment if renal function declines or hyperkalemia develops",
+          "Aspirin use requires monitoring for GI bleeding, especially if high-dose NSAIDs are considered for pain"
+        ],
+        "trace": {
+          "clinician_contribution": "Clinician elicited key history (dyspnea at rest, leg swelling/pain with redness/warmth) and proposed focused differential (heart failure, PE, DVT, COPD, cellulitis) with appropriate workup (vitals, cardiac/lung/leg exams, D-dimer, BNP, CXR, Doppler ultrasound).",
+          "pharm_nurse_contribution": "Pharm/nurse identified medication issues (possible underdosing of furosemide, need to adjust lisinopril if renal dysfunction/hyperkalemia, interactions between furosemide/lisinopril/aspirin) and provided dose adjustment recommendations (e.g., increase furosemide to 80mg BID, hold lisinopril if SCr rises >30%). Also highlighted nursing concerns (daily weights, orthostatic hypotension, low-sodium diet, avoidance of NSAIDs).",
+          "safety_checker_contribution": "Safety checker approved the plan but flagged red flags (dyspnea at rest, leg swelling/pain with warmth/redness suggesting DVT/PE) and recommended urgent outpatient evaluation (ED referral). Noted no immediate life-threatening red flags but emphasized prompt evaluation to avoid complications (e.g., PE from untreated DVT)."
+        },
+        "workup_ordered": [
+          "Vital signs (including oxygen saturation)",
+          "Cardiac exam (for signs of heart failure)",
+          "Lung exam (for crackles, wheezing)",
+          "Leg exam (for warmth, redness, tenderness, Homan's sign)",
+          "Lower extremity Doppler ultrasound (to evaluate for DVT)",
+          "BNP or NT-proBNP (to assess for heart failure)",
+          "Chest X-ray (to evaluate for pulmonary edema or alternative causes)",
+          "D-dimer (if PE suspected after DVT evaluation)",
+          "Basic metabolic panel (to monitor renal function and electrolytes, especially if lisinopril/furosemide adjusted)",
+          "PT/INR and aPTT (if anticoagulation is initiated)"
+        ]
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a really hard time breathing right now. I nearly passed out a few minutes ago, and my chest hurts. I'm very short of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain for me? Is it sharp, dull, pressure-like, or something else? Also, does the pain radiate anywhere, like your arm, jaw, or back?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's a sharp pain, really sharp. It's worse when I breathe in\u2014that's what makes it so bad right now. It's on my right side, and it doesn't go to my arm or jaw. It just stays right there in my chest on the right."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (e.g., unstable angina, myocardial infarction)",
+          "Pulmonary embolism",
+          "Aortic dissection",
+          "Pneumothorax",
+          "Heart failure exacerbation"
+        ],
+        "workup_ordered": [
+          "Vital signs (BP, HR, O2 saturation, respiratory rate)",
+          "12-lead ECG",
+          "Troponin level",
+          "D-dimer (if PE suspected)",
+          "Chest X-ray",
+          "Basic metabolic panel (electrolytes, renal function)",
+          "Assess for contraindications to aspirin/anticoagulants (e.g., active bleeding, severe CKD)"
+        ],
+        "management_plan": [
+          "Administer oxygen if O2 saturation <90%",
+          "Consider aspirin 325mg (if no contraindications) for ACS suspicion",
+          "Avoid NSAIDs for pain control due to bleeding risk and renal concerns",
+          "Monitor for signs of bleeding or respiratory depression if opioids are required",
+          "Ensure IV access for rapid medication administration (e.g., nitroglycerin if ACS suspected)",
+          "Hold metformin if contrast dye is planned for CT-PA",
+          "Adjust beta-blocker dose if heart rate <60 bpm or systolic BP <100 mmHg"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Acute dyspnea and near-syncope with sharp, pleuritic chest pain raise concern for life-threatening conditions (e.g., PE, ACS, pneumothorax)",
+          "Risk of bleeding with anticoagulants/antiplatelets if PE or ACS is confirmed",
+          "Potential contraindications to aspirin (e.g., active bleeding, severe CKD) or beta-blockers (e.g., bradycardia, hypotension)",
+          "Avoidance of NSAIDs due to increased bleeding risk and renal injury in suspected ACS/PE",
+          "Need for rapid escalation if patient's condition deteriorates (e.g., worsening hypoxia, hypotension)"
+        ],
+        "communication_note": "Patient requires urgent ED evaluation for cardiopulmonary workup given high-risk symptoms (dyspnea, near-syncope, pleuritic chest pain).",
+        "trace": {
+          "clinician_contribution": "Clinician elicited key details about chest pain (sharp, pleuritic, localized to right chest) and identified high-risk differential (ACS, PE, aortic dissection). Proposed appropriate workup (vital signs, ECG, troponin, D-dimer, chest X-ray, BMP) and emphasized urgency of assessing vital signs/ECG.",
+          "safety_checker_contribution": "Safety checker approved clinician's workup and rationale, identified high-risk red flags (acute dyspnea, near-syncope, pleuritic chest pain), and recommended urgent outpatient escalation (ED referral). No blocking concerns identified.",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted critical medication considerations: contraindications to aspirin/anticoagulants, risks of beta-blockers in PE/ACS, avoidance of NSAIDs, and dose adjustments for renal impairment. Also noted nursing concerns (monitoring for bleeding, opioid-induced respiratory depression, IV access)."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790544947.6805015
+}

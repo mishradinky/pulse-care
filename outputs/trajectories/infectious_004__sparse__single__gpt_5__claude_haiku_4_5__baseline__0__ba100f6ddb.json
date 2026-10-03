@@ -1,0 +1,189 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My face is drooping and my joints hurt everywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the facial drooping and joint pain start?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Face drooped maybe a week ago. Joints been hurting three weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like fever, rash, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Had a rash on my leg weeks ago. No fever now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the rash on your leg? What did it look like and how long did it last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Red circle. Bigger in middle. Gone now. Few weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been bitten by a tick recently or spent time in areas where ticks are common?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Went camping in Connecticut five weeks ago. Not sure about ticks."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease",
+          "Bell's palsy"
+        ],
+        "workup_ordered": [
+          "Lyme disease serology",
+          "Complete blood count",
+          "Erythrocyte sedimentation rate"
+        ],
+        "management_plan": [
+          "Start doxycycline if Lyme disease is confirmed",
+          "Consider corticosteroids for facial palsy if indicated"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Progression of neurological symptoms"
+        ],
+        "communication_note": "Based on your symptoms and recent camping trip, we suspect Lyme disease and will conduct tests to confirm. We'll manage your symptoms accordingly."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Almost fainted twice. Heart going slowly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these episodes of almost fainting occur, and how long did they last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Last two days. Maybe a minute each time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dizzy. Almost passed out twice. Heart's slow."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "bradycardia",
+          "vasovagal syncope",
+          "orthostatic hypotension",
+          "cardiac arrhythmia",
+          "hypothyroidism"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "complete blood count",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "advise patient to avoid sudden position changes",
+          "ensure adequate hydration",
+          "schedule follow-up after test results"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of syncope leading to injury"
+        ],
+        "communication_note": "We need to do some tests to understand why your heart rate is slow and you're feeling faint. Please avoid sudden movements and stay hydrated until we have more information."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I passed out in the waiting room."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "vasovagal syncope",
+          "orthostatic hypotension",
+          "cardiac arrhythmia",
+          "hypoglycemia",
+          "dehydration"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "blood glucose level",
+          "complete blood count (CBC)",
+          "electrolyte panel",
+          "orthostatic vital signs"
+        ],
+        "management_plan": [
+          "monitor vital signs",
+          "ensure patient is hydrated",
+          "provide a snack if hypoglycemia is suspected",
+          "observe for any recurrent symptoms"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of recurrent syncope leading to injury"
+        ],
+        "communication_note": "You fainted in the waiting room, and we need to do some tests to understand why this happened. We'll refer you to the emergency department for further evaluation and monitoring."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508596.2269595
+}

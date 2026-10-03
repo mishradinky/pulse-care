@@ -1,0 +1,109 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive urgency",
+          "medication non-compliance"
+        ],
+        "workup_ordered": [
+          "fundoscopy"
+        ],
+        "management_plan": [
+          "restart amlodipine 10mg daily",
+          "add clonidine 0.1mg orally for acute BP control",
+          "follow-up in 1 week for BP check"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive complications"
+        ],
+        "communication_note": "Your headache is likely due to very high blood pressure from missing your medication; we'll restart your medication and add a temporary one to lower your blood pressure quickly."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive urgency",
+          "medication non-compliance"
+        ],
+        "workup_ordered": [
+          "BMP",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "restart amlodipine",
+          "add a thiazide diuretic",
+          "educate on medication adherence"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of end-organ damage due to uncontrolled hypertension"
+        ],
+        "communication_note": "Your blood pressure is still high, so we'll adjust your medications and follow up soon to ensure it's controlled."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive emergency",
+          "intracranial mass effect",
+          "retinal detachment"
+        ],
+        "workup_ordered": [
+          "CT head",
+          "MRI brain",
+          "ophthalmology consult",
+          "renal ultrasound"
+        ],
+        "management_plan": [
+          "restart antihypertensive medication",
+          "admit for blood pressure control",
+          "neurology consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of stroke or further visual loss due to uncontrolled hypertension"
+        ],
+        "communication_note": "Your headache has resolved, but the new visual symptoms and high blood pressure are concerning. We need to address this urgently in the emergency department to prevent any serious complications."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505246.1442719
+}

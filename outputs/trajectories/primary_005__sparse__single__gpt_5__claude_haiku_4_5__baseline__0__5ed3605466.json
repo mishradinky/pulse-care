@@ -1,0 +1,177 @@
+{
+  "case_id": "primary_005",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad back pain. Both legs weak. Can't pee."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Back pain got worse six weeks ago. Legs weak three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any numbness or tingling in your legs or around your buttocks?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Numb inside thighs and around... back there."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or falls?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just my back got worse past few weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any changes in bowel movements or control?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. But can't pee. That's the real problem."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "cauda equina syndrome",
+          "spinal cord compression"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency department for further evaluation and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for permanent nerve damage if not treated promptly"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition that needs immediate attention, so I'm arranging for you to go to the emergency department right away."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Legs weaker now. Can't walk without holding walls. Still can't pee."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start, and have they been getting progressively worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started six weeks ago. Got worse past three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any numbness or tingling in your legs or any other parts of your body?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Numb inside thighs. Legs feel weird, tingly."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "cauda equina syndrome",
+          "spinal cord compression",
+          "multiple sclerosis"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine",
+          "urinary bladder ultrasound",
+          "complete blood count",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "refer to neurology",
+          "consider corticosteroids if inflammatory cause is suspected",
+          "monitor urinary retention"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of permanent nerve damage if not treated promptly",
+          "urinary retention leading to bladder damage"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition affecting your spinal cord, and you need to go to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't move my legs at all this morning."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute spinal cord injury",
+          "stroke",
+          "Guillain-Barre syndrome"
+        ],
+        "workup_ordered": [
+          "MRI of the spine",
+          "CT scan of the brain",
+          "blood tests including CBC, electrolytes, and inflammatory markers"
+        ],
+        "management_plan": [
+          "Immediate immobilization of the spine",
+          "Consultation with neurology and possibly neurosurgery",
+          "Initiate supportive care including monitoring of vital signs and respiratory function"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of respiratory compromise if condition progresses",
+          "Potential for further neurological deterioration"
+        ],
+        "communication_note": "You need immediate medical attention to determine the cause of your sudden inability to move your legs."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "cauda equina syndrome",
+      "conus medullaris syndrome",
+      "central disc herniation",
+      "epidural abscess"
+    ],
+    "required_workup": [
+      "urgent MRI lumbar spine with and without contrast",
+      "bladder scan post-void residual",
+      "BMP CBC"
+    ],
+    "correct_management": [
+      "emergency neurosurgery consult",
+      "Foley catheter immediately",
+      "urgent decompressive surgery within 48h",
+      "steroids controversial but consider"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779513275.7236764
+}

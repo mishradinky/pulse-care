@@ -1,0 +1,224 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough with yellow stuff, fever, chest pain. Four days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any shortness of breath, wheezing, or coughing up blood with this illness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hard to breathe. Cough up yellow stuff. No blood though."
+        }
+      ],
+      "assessment": {
+        "communication_note": "Patient requires urgent outpatient evaluation for suspected pneumonia with COPD and CKD considerations, including medication adjustments and monitoring for respiratory distress.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia",
+          "COPD exacerbation with secondary infection",
+          "Influenza or viral respiratory infection",
+          "Acute bronchitis"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "management_plan": [
+          "Initiate empiric antibiotic therapy (e.g., ceftriaxone + azithromycin) with renal dose adjustment for hydrochlorothiazide and lisinopril.",
+          "Monitor electrolytes (K+, Na+) and renal function (BMP) within 48 hours of antibiotic initiation.",
+          "Avoid NSAIDs for fever/pain; use acetaminophen cautiously due to CKD risk.",
+          "Discontinue hydrochlorothiazide temporarily if dehydration or electrolyte imbalances develop.",
+          "Educate patient on signs of respiratory distress (e.g., worsening SOB) and hyperkalemia (e.g., muscle weakness).",
+          "Follow up in 48\u201372 hours to reassess symptoms and lab results.",
+          "Consider influenza/COVID-19 testing if not already performed."
+        ],
+        "role": "coordinator",
+        "safety_concerns": [
+          "Elderly patient (65M) with CKD risk and concurrent lisinopril/hydrochlorothiazide use is at high risk for hyperkalemia, electrolyte imbalances, and nephrotoxicity with antibiotics.",
+          "Chest pain and shortness of breath may indicate severe pneumonia or alternative diagnoses (e.g., PE, MI), requiring prompt evaluation.",
+          "Avoid NSAIDs due to CKD risk; acetaminophen preferred for fever/pain.",
+          "Monitor for drug interactions (e.g., macrolides + atorvastatin, ACEi + potassium-sparing agents)."
+        ],
+        "trace": {
+          "clinician_contribution": "Identified key differential diagnoses (pneumonia, COPD exacerbation, viral infection) and ordered workup (vital signs, CXR, CBC with diff, BMP, influenza/COVID-19 testing, sputum culture). Asked targeted questions about respiratory symptoms (SOB, wheezing, hemoptysis).",
+          "pharm_nurse_contribution": "Reviewed medications (lisinopril, hydrochlorothiazide, atorvastatin, aspirin) and identified risks: hyperkalemia (ACEi + diuretics), nephrotoxicity (antibiotics + ACEi/diuretics), myopathy (macrolides + atorvastatin), and bleeding risk (aspirin + antibiotics/NSAIDs). Recommended dose adjustments, electrolyte monitoring, and avoidance of NSAIDs.",
+          "safety_checker_contribution": "Approved plan with routine escalation but flagged red flags: elderly age (65), chest pain, productive cough with fever, and CKD risk. Highlighted need for prompt evaluation and monitoring for complications (e.g., respiratory distress, hyperkalemia)."
+        },
+        "workup_ordered": [
+          "Vital signs (temperature, heart rate, respiratory rate, oxygen saturation)",
+          "Chest X-ray",
+          "Complete blood count with differential",
+          "Basic metabolic panel (including electrolytes and renal function)",
+          "Influenza and COVID-19 testing",
+          "Sputum culture if productive cough persists",
+          "ECG if chest pain worsens or new arrhythmias suspected"
+        ]
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not better. More confused now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the confusion? When did it start, and is it getting worse? Also, have you had any fever, chills, or other symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started yesterday. Worse today. Head feels foggy. Yeah, had fever. Chills too."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Delirium secondary to infection (e.g., urinary tract infection, pneumonia, or sepsis)",
+          "Worsening dementia or cognitive decline",
+          "Medication side effect or toxicity (e.g., anticholinergic burden from Oxybutynin, renal impairment from Metformin/Lisinopril)",
+          "Metabolic disturbance (e.g., electrolyte imbalance, hypoglycemia, lactic acidosis)",
+          "Central nervous system infection or inflammation"
+        ],
+        "workup_ordered": [
+          "Vital signs (temperature, blood pressure, heart rate, oxygen saturation)",
+          "Basic metabolic panel (electrolytes, glucose, renal function)",
+          "Complete blood count with differential",
+          "Urinalysis and urine culture",
+          "Chest X-ray if respiratory symptoms are present",
+          "Review of current medications for potential adverse effects",
+          "INR check (given Warfarin use)",
+          "Assessment for anticholinergic burden (e.g., review of all medications with anticholinergic properties)"
+        ],
+        "management_plan": [
+          "Hold Oxybutynin if possible due to anticholinergic effects worsening confusion; consider alternative bladder management",
+          "Review Metformin dose if eGFR 30-45 to reduce risk of lactic acidosis",
+          "Monitor INR closely due to increased bleeding risk from confusion/falls",
+          "Initiate fall precautions given confusion and anticoagulation",
+          "Treat underlying infection if identified (e.g., antibiotics for UTI/pneumonia)",
+          "Ensure hydration and electrolyte correction if abnormalities are found",
+          "Reassess confusion daily and document triggers/improvements"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Increased bleeding risk due to Warfarin in the setting of confusion/falls",
+          "Anticholinergic burden from Oxybutynin exacerbating delirium",
+          "Potential for medication non-adherence due to cognitive decline",
+          "Risk of lactic acidosis from Metformin if renal impairment develops",
+          "Need for close monitoring of renal function and electrolytes given current medications"
+        ],
+        "communication_note": "Patient\u2019s acute confusion with fever/chills requires urgent outpatient evaluation today to assess for infection and medication-related causes.",
+        "trace": {
+          "clinician_contribution": "Clinician identified key differentials for acute confusion in an older adult, including infections, metabolic disturbances, and medication side effects. Proposed a targeted workup focusing on reversible causes and emphasized the need for a focused history.",
+          "safety_checker_contribution": "Safety checker approved the proposed workup with no red flags or blocking concerns. Recommended routine escalation level, noting no immediate life-threatening issues but acknowledging the need for timely evaluation.",
+          "pharm_nurse_contribution": "Pharm/nurse highlighted critical medication-related risks: anticholinergic effects of Oxybutynin worsening confusion, renal/bleeding risks from Metformin/Lisinopril/Warfarin, and interactions (e.g., Warfarin + Metformin). Recommended dose adjustments, fall precautions, and avoidance of NSAIDs."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry to hear that. When did they place the tube, and have you had any fevers or chills since then?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They put it in... maybe an hour ago? I dunno about fever now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Post-procedural infection (e.g., tracheostomy or intubation-related)",
+          "Pneumonia (community-acquired or hospital-acquired)",
+          "Sepsis secondary to infection",
+          "Pulmonary edema or fluid overload"
+        ],
+        "workup_ordered": [
+          "Vital signs (temperature, heart rate, blood pressure, oxygen saturation)",
+          "Chest X-ray or CT scan",
+          "Complete blood count (CBC) with differential",
+          "Blood cultures",
+          "Sputum culture if applicable",
+          "Electrolytes and renal function tests (BUN/creatinine)",
+          "Assessment of tracheostomy/intubation site for signs of infection"
+        ],
+        "management_plan": [
+          "Empiric antibiotics (e.g., ceftriaxone + vancomycin if MRSA suspected), with dose adjustments for potential CKD (e.g., vancomycin 15 mg/kg q24h if eGFR <50 mL/min/1.73m\u00b2)",
+          "Acetaminophen for fever/pain (avoid NSAIDs due to CKD risk)",
+          "Close monitoring of respiratory status (risk of opioid-induced depression if pain management required)",
+          "Strict tracheostomy/intubation site care to prevent infection",
+          "Renal function monitoring (BUN/creatinine) with nephrotoxic drugs"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Patient age (65) increases risk for complications (e.g., pneumonia, sepsis)",
+          "History of tube placement (tracheostomy/intubation) is a known risk factor for infection",
+          "Absence of documented oxygen saturation in initial workup (critical for respiratory assessment)",
+          "Risk of nephrotoxicity with vancomycin in potential CKD (monitor trough levels, adjust dose if eGFR <30 mL/min/1.73m\u00b2)",
+          "Contraindication of NSAIDs in CKD (risk of acute kidney injury)",
+          "Risk of respiratory depression with opioids in post-procedural respiratory compromise",
+          "Potential drug interactions (e.g., vancomycin + loop diuretics, ceftriaxone + calcium-containing IV fluids)"
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up within 24 hours for further evaluation and management of potential post-procedural infection.",
+        "trace": {
+          "clinician_contribution": "Identified post-procedural infection as a key differential and proposed initial workup (vitals, imaging, cultures, labs) and empiric antibiotics. Rationale emphasized infectious etiology given tube placement and symptoms.",
+          "safety_checker_contribution": "Approved clinician's plan but flagged critical gaps (e.g., missing SpO2 in workup) and patient-specific risks (age, CKD). Recommended escalation to 'urgent_outpatient' if fever/chills present.",
+          "pharm_nurse_contribution": "Highlighted medication safety concerns (e.g., nephrotoxicity with vancomycin, NSAID contraindication in CKD, opioid respiratory depression risk) and provided dose adjustments, interactions, and nursing monitoring priorities."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539429.8387544
+}

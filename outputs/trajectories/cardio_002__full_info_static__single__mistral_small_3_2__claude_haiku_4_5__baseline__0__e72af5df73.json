@@ -1,0 +1,125 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Pulmonary embolism",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "BNP",
+          "BMP",
+          "CBC",
+          "CXR"
+        ],
+        "management_plan": [
+          "Increase furosemide to 80mg IV push now, then 40mg IV q12h",
+          "Start nitroglycerin drip for afterload reduction",
+          "Monitor urine output and daily weights",
+          "Consider adding metolazone for diuretic resistance"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of worsening renal function with aggressive diuresis",
+          "Potential for electrolyte imbalances"
+        ],
+        "communication_note": "Your heart failure is worsening, and we need to adjust your medications and monitor you closely."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Pulmonary edema",
+          "Atrial fibrillation with rapid ventricular response"
+        ],
+        "workup_ordered": [
+          "BNP",
+          "Basic Metabolic Panel (BMP)"
+        ],
+        "management_plan": [
+          "Increase furosemide dose and frequency",
+          "Consider adding a second diuretic (e.g., metolazone)",
+          "Monitor fluid intake and weight daily",
+          "Adjust anticoagulation if atrial fibrillation worsens",
+          "Follow up in 1-2 days or sooner if symptoms worsen"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of further decompensation if not managed aggressively",
+          "Potential for electrolyte imbalances with diuretic use"
+        ],
+        "communication_note": "Your heart failure is worsening, and we need to adjust your medications and monitor you closely to prevent further complications."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute decompensated heart failure",
+          "Pulmonary edema",
+          "Acute respiratory failure"
+        ],
+        "workup_ordered": [
+          "BNP",
+          "ABG",
+          "BMP",
+          "Chest X-ray",
+          "EKG"
+        ],
+        "management_plan": [
+          "Administer IV furosemide",
+          "Start IV nitroglycerin",
+          "Oxygen therapy",
+          "Monitor vitals closely",
+          "Prepare for possible intubation if respiratory status worsens"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe respiratory distress",
+          "Hypoxemia",
+          "Potential need for intubation",
+          "High blood pressure and heart rate"
+        ],
+        "communication_note": "Your condition is serious, and you need immediate medical attention to stabilize your breathing and heart function."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505184.5148652
+}

@@ -1,0 +1,225 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 58,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure when I walk. Started two days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Does the chest pressure go away when you rest, or does it persist even at rest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Goes away when I sit down. Comes back when I move around."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Stable angina",
+          "Unstable angina",
+          "Musculoskeletal chest pain",
+          "Gastroesophageal reflux disease (GERD)",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "ECG (12-lead)",
+          "Troponin levels (serial if initial negative)",
+          "Basic metabolic panel (including renal function and electrolytes)",
+          "Complete blood count (CBC)",
+          "D-dimer (if pulmonary embolism remains on differential)",
+          "Chest X-ray (if indicated by exam or history)",
+          "Echocardiogram (if structural heart disease suspected)"
+        ],
+        "management_plan": [
+          "Initiate or continue aspirin 81 mg daily (monitor for bleeding risk, especially given age and potential CKD)",
+          "Continue metoprolol 50 mg BID (monitor heart rate and blood pressure; hold if HR <50 bpm or SBP <90 mmHg)",
+          "Continue lisinopril 10 mg daily (monitor renal function and potassium; adjust dose if eGFR <30 mL/min/1.73m\u00b2 or hyperkalemia)",
+          "Continue atorvastatin 40 mg daily (monitor liver function tests and muscle symptoms)",
+          "Avoid NSAIDs for chest pain; use acetaminophen or other non-NSAID analgesics if needed",
+          "Educate patient on angina triggers (e.g., exertion) and red flags requiring immediate care (e.g., chest pain at rest, syncope, severe dyspnea)",
+          "Schedule follow-up in 1-2 weeks for reassessment of symptoms and workup results",
+          "Refer to cardiology if workup suggests cardiac etiology (e.g., abnormal ECG or troponin)"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Chest pressure at rest is a red flag for unstable angina or myocardial infarction, requiring immediate evaluation despite patient's current symptom resolution with rest",
+          "Failure to rule out life-threatening causes (e.g., acute coronary syndrome, pulmonary embolism) could delay critical interventions",
+          "Risk of misattributing symptoms to benign causes (e.g., GERD, musculoskeletal) without comprehensive workup",
+          "Medication-related risks (e.g., bleeding with aspirin, bradycardia with metoprolol, hyperkalemia with lisinopril) require close monitoring",
+          "Patient's age (58) and potential comorbidities (e.g., CKD) increase risk of complications from untreated cardiac/vascular conditions"
+        ],
+        "communication_note": "Patient requires urgent ED evaluation for chest pressure at rest to rule out acute coronary syndrome and pulmonary embolism.",
+        "trace": {
+          "clinician_contribution": "Clinician asked key question to differentiate exertional vs. at-rest chest pressure, narrowing differential to include stable vs. unstable angina and other causes. Proposed rationale for further workup based on symptom characterization.",
+          "safety_checker_contribution": "Safety checker identified critical red flags (chest pressure at rest, potential PE) and recommended ED referral due to risk of life-threatening conditions. Highlighted lack of initial workup as a blocking concern.",
+          "pharm_nurse_contribution": "Pharm/nurse provided detailed medication review, including appropriateness of current regimen, potential interactions, dose adjustments, and nursing concerns (e.g., monitoring BP/HR, bleeding risk, patient education). Emphasized need for adherence and monitoring of adverse effects."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain came back last night. Hard to breathe some."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain in more detail? For example, is it sharp, dull, pressure-like, or burning? And where exactly is it located?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Pressure. Middle of chest. Left arm too. Worse when I move around."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS)",
+          "Pulmonary embolism (PE)",
+          "Aortic dissection",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "12-lead ECG",
+          "Troponin levels",
+          "D-dimer (if PE suspected)",
+          "Chest X-ray",
+          "Basic metabolic panel (BMP) including eGFR",
+          "CBC with differential",
+          "Cardiac stress test (if ACS suspected)",
+          "CT angiography of chest (if PE or aortic dissection suspected)"
+        ],
+        "management_plan": [
+          "Initiate aspirin 81mg daily (if no contraindications per pharm/nurse review)",
+          "Consider clopidogrel if ACS is high on differential (check CYP2C19 status if possible)",
+          "Start atorvastatin 40-80mg daily (if not already prescribed, per lipid management guidelines)",
+          "Monitor for signs of ACS (chest pain, diaphoresis, ECG changes) and escalate if symptoms worsen",
+          "Educate patient on holding NSAIDs and using acetaminophen for pain if needed",
+          "Arrange urgent outpatient cardiology follow-up within 48 hours for further evaluation",
+          "Avoid IM injections due to potential anticoagulant use (e.g., clopidogrel)",
+          "Check BP/HR before administering antihypertensives (e.g., metoprolol if prescribed)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Recurrent chest pain with dyspnea in a 58-year-old male raises concern for serious cardiopulmonary conditions (ACS, PE, aortic dissection)",
+          "No immediate red flags requiring ED referral or 911, but recurrence of symptoms warrants prompt evaluation",
+          "Risk of bleeding with dual antiplatelet therapy (aspirin + clopidogrel) if ACS is confirmed",
+          "Monitor for bradycardia or hypotension with metoprolol, especially if combined with other antihypertensives",
+          "Avoid NSAIDs due to nephrotoxicity risk in CKD (eGFR <60) and bleeding risk with anticoagulants"
+        ],
+        "communication_note": "Patient requires urgent outpatient cardiology evaluation within 48 hours for further assessment of recurrent chest pain and dyspnea.",
+        "trace": {
+          "clinician_contribution": "Clinician elicited detailed characterization of chest pain (pressure-like, mid-chest, radiating to left arm, exacerbated by movement) to refine differential diagnosis, which includes life-threatening conditions (ACS, PE, aortic dissection) requiring urgent evaluation.",
+          "safety_checker_contribution": "Safety checker identified red flags (recurrent chest pain with dyspnea in a 58-year-old male) and recommended urgent outpatient evaluation due to concern for serious cardiopulmonary conditions, while noting no immediate need for ED referral or 911.",
+          "pharm_nurse_contribution": "Pharm/nurse reviewed medications (aspirin, clopidogrel, metoprolol, atorvastatin, NSAIDs) for contraindications, interactions, and dose adjustments, highlighting bleeding risk with dual antiplatelet therapy, nephrotoxicity with NSAIDs, and monitoring parameters for antihypertensives and statins."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain. Bad. Won't stop."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain more? Where is it located, how long does it last, and does anything make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Middle of chest. Crushing. Thirty minutes now. Worse when I move."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS)",
+          "Aortic dissection",
+          "Pulmonary embolism",
+          "Gastroesophageal reflux disease (GERD)",
+          "Musculoskeletal chest pain"
+        ],
+        "workup_ordered": [
+          "ECG (STAT)",
+          "Troponin levels (STAT)",
+          "Chest X-ray (STAT)",
+          "D-dimer (if PE suspected)",
+          "Basic metabolic panel (including renal function and electrolytes)",
+          "Consider CT angiography if PE or aortic dissection is high on differential"
+        ],
+        "management_plan": [
+          "Hold Metoprolol if heart rate < 50 bpm or SBP < 90 mmHg (per pharmacy/nursing guidance).",
+          "Avoid NSAIDs for pain relief due to bleeding and renal risks.",
+          "Establish IV access for potential emergency medications (e.g., nitroglycerin, heparin).",
+          "Monitor for signs of bleeding (e.g., melena, hematemesis) if aspirin is continued.",
+          "If troponin is elevated, assess renal function before administering contrast agents.",
+          "Follow-up with cardiology if ACS is ruled out but symptoms persist."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Chest pain in a 58-year-old male is a high-risk presentation requiring immediate evaluation for life-threatening causes (ACS, aortic dissection, PE).",
+          "Patient reports crushing chest pain for 30 minutes with worsening with movement\u2014this warrants urgent evaluation.",
+          "Avoid NSAIDs due to bleeding and renal risks in this acute setting.",
+          "Monitor for bradycardia or hypotension if Metoprolol is continued.",
+          "Risk of contrast-induced nephropathy if CT angiography is performed (assess renal function first)."
+        ],
+        "communication_note": "Patient requires immediate ED referral for urgent evaluation of crushing chest pain with high-risk features.",
+        "trace": {
+          "clinician_contribution": "Clinician identified high-risk differential (ACS, aortic dissection, PE) and proposed appropriate STAT workup (ECG, troponin, chest X-ray, D-dimer, BMP) to prioritize cardiac and pulmonary assessments.",
+          "safety_checker_contribution": "Safety checker approved clinician's workup but recommended escalation to ED due to high-risk presentation (crushing chest pain for 30 minutes) and identified red flags requiring immediate attention (e.g., radiation to jaw/left arm, dyspnea, diaphoresis).",
+          "pharm_nurse_contribution": "Pharmacy/nurse identified medication-related concerns (e.g., holding Metoprolol if bradycardia/hypotension, avoiding NSAIDs, monitoring for bleeding with aspirin) and emphasized the need for IV access and renal function assessment before contrast use."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790537260.3651474
+}

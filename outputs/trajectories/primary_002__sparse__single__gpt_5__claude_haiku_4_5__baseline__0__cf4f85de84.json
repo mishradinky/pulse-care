@@ -1,0 +1,186 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Worst headache of my life. Started suddenly at the gym."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Did you experience any other symptoms like nausea, vomiting, vision changes, or weakness when the headache started?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Neck got stiff. Real bright lights hurt. That's it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced a headache like this before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Never like this. Worst ever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent head injuries or trauma?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just started lifting at the gym."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "High blood pressure. Take a pill for it. Forgot today."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medication do you take for your high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Lisinopril. Ten milligrams. Forgot to take it today."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "thunderclap headache",
+          "hypertensive crisis"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "lumbar puncture if CT is negative"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for life-threatening intracranial hemorrhage"
+        ],
+        "communication_note": "You need immediate evaluation at the emergency department to rule out serious causes of your sudden severe headache."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still hurts. Bad. Meds helped a little."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and type of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "All over my head. Worst pain ever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, vomiting, visual changes, or sensitivity to light or sound?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Threw up once. Light bothers me less now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "migraine",
+          "tension headache",
+          "subarachnoid hemorrhage"
+        ],
+        "workup_ordered": [
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "Prescribe stronger pain medication",
+          "Advise rest in a dark, quiet room",
+          "Follow-up in 1 week"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential for serious underlying condition such as hemorrhage"
+        ],
+        "communication_note": "Your headache is severe and persistent, so I recommend going to the emergency department for further evaluation and a CT scan to rule out any serious conditions."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't think straight. Left arm won't move."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "stroke",
+          "transient ischemic attack",
+          "brain tumor"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "MRI of the brain",
+          "complete blood count",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department",
+          "Neurological evaluation",
+          "Initiate stroke protocol if indicated"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for worsening neurological deficits",
+          "Risk of permanent disability if not treated promptly"
+        ],
+        "communication_note": "You need immediate medical attention to evaluate your symptoms and ensure you receive the right care."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512339.3814135
+}

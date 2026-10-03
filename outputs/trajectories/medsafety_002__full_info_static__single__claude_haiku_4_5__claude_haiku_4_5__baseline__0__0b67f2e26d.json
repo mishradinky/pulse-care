@@ -1,0 +1,143 @@
+{
+  "case_id": "medsafety_002",
+  "category": "medication_safety",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute kidney injury superimposed on CKD stage 3, secondary to NSAID use with ACE inhibitor (triple whammy)",
+          "Hyperkalemia with secondary fluid retention",
+          "Acute decompensated heart failure with preserved ejection fraction",
+          "Nephrotic syndrome with proteinuria"
+        ],
+        "workup_ordered": [
+          "Renal ultrasound with doppler (assess for renal artery stenosis, hydronephrosis)",
+          "Urine electrolytes and osmolality",
+          "Urine protein-to-creatinine ratio",
+          "ECG (assess for hyperkalemia changes)",
+          "Echocardiogram (assess cardiac function and volume status)",
+          "Repeat BMP in 24-48 hours"
+        ],
+        "management_plan": [
+          "STOP ibuprofen immediately (NSAID-induced AKI with ACE inhibitor and baseline CKD)",
+          "STOP lisinopril temporarily pending renal function stabilization and hyperkalemia resolution",
+          "Initiate low-sodium diet (<2g/day) and fluid restriction (1-1.5L/day)",
+          "Start potassium-binding agent (patiromer or sodium zirconium cyclosilicate) for hyperkalemia",
+          "Consider loop diuretic (furosemide 40mg daily) for edema and volume overload",
+          "Nephrology referral for acute kidney injury management and medication optimization",
+          "Pain management: switch to acetaminophen for osteoarthritis"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe hyperkalemia (K 5.9) with acute kidney injury\u2014risk of cardiac arrhythmia",
+          "Acute decline in renal function (Cr 1.8\u21923.2, GFR 18) over 3 weeks\u2014rapid progression",
+          "Triple whammy effect (NSAID + ACE inhibitor + CKD) causing acute decompensation"
+        ],
+        "communication_note": "Your kidney function has worsened significantly, likely from the ibuprofen combined with your blood pressure medication; we are stopping the ibuprofen immediately and will adjust your medications to protect your kidneys and manage the swelling."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute kidney injury on chronic kidney disease with hyperkalemia",
+          "Drug-induced nephrotoxicity (NSAIDs) with delayed recovery",
+          "Hyperkalemic periodic paralysis or secondary hyperkalemia with neuromuscular manifestations",
+          "ACE inhibitor-related hyperkalemia exacerbated by renal dysfunction"
+        ],
+        "workup_ordered": [
+          "Repeat BMP (creatinine, potassium, BUN) in 24 hours",
+          "Urinalysis with microscopy",
+          "Urine electrolytes and osmolality",
+          "ECG (already done\u2014peaked T waves noted)",
+          "Consider renal ultrasound to assess kidney size and rule out obstruction",
+          "Aldosterone and renin levels if hyperkalemia persists"
+        ],
+        "management_plan": [
+          "URGENT: Initiate hyperkalemia management\u2014calcium gluconate IV if ECG changes persist, insulin + dextrose, consider sodium polystyrene sulfonate or patiromer",
+          "Hold lisinopril immediately given ACE inhibitor + CKD + hyperkalemia triad",
+          "Strict dietary potassium restriction (<2g/day)",
+          "Ensure adequate hydration to support renal perfusion and clearance",
+          "Nephrology referral for acute kidney injury evaluation and management",
+          "Avoid all NSAIDs and nephrotoxic agents",
+          "Monitor for signs of hyperkalemia progression (palpitations, weakness)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Peaked T waves on ECG indicate cardiac irritability from hyperkalemia\u2014risk of arrhythmia",
+          "Proximal muscle weakness may reflect severe hyperkalemia and warrants urgent treatment",
+          "Creatinine worsening (1.8\u21923.2\u21922.6) suggests ongoing renal injury; recovery trajectory unclear",
+          "Combination of ACE inhibitor + CKD + NSAID exposure created perfect storm for AKI"
+        ],
+        "communication_note": "Your kidney function is still recovering from the ibuprofen, and your potassium level is dangerously high\u2014we're stopping your blood pressure medication temporarily and starting treatment to lower potassium urgently to prevent heart rhythm problems; you'll need close follow-up with a kidney specialist."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Severe hyperkalemia with cardiac manifestations",
+          "Acute kidney injury superimposed on CKD stage 3",
+          "NSAID-induced renal injury with ACE inhibitor synergy"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (if not already done)",
+          "STAT BMP with potassium",
+          "Urinalysis with microscopy",
+          "Urine electrolytes and osmolality",
+          "Cardiac monitoring (continuous telemetry)"
+        ],
+        "management_plan": [
+          "EMERGENCY TRANSFER to ED for hyperkalemia management",
+          "Discontinue ibuprofen and lisinopril immediately",
+          "Initiate IV calcium gluconate for cardiac membrane stabilization",
+          "Administer IV insulin with dextrose and/or albuterol nebulized for potassium shift",
+          "Consider sodium polystyrene sulfonate or loop diuretic if volume overloaded",
+          "Nephrology consultation for acute kidney injury and renal replacement therapy consideration",
+          "Fluid restriction and dietary potassium restriction"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Life-threatening hyperkalemia (K 7.1) with ECG changes (widened QRS, sine wave pattern)",
+          "Symptomatic bradycardia (HR 52) with palpitations and presyncope indicating cardiac instability",
+          "Acute worsening renal function (Cr 3.2\u21922.4 discrepancy suggests lab error or acute fluctuation; confirm STAT)",
+          "High risk of cardiac arrhythmia and sudden cardiac arrest"
+        ],
+        "communication_note": "You have a serious electrolyte imbalance affecting your heart that requires emergency hospital care; we are calling an ambulance now."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "NSAID-induced AKI",
+      "hyperkalemia from ACE-I plus NSAID in CKD",
+      "cardiorenal syndrome"
+    ],
+    "required_workup": [
+      "BMP STAT",
+      "ECG",
+      "hold nephrotoxic medications",
+      "renal ultrasound if AKI unexplained"
+    ],
+    "correct_management": [
+      "STOP NSAIDs immediately",
+      "calcium gluconate for membrane stabilization",
+      "sodium bicarbonate insulin dextrose for K+",
+      "kayexalate or patiromer",
+      "nephrology consult",
+      "consider holding ACE-I temporarily"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505492.8388278
+}

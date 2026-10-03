@@ -1,0 +1,188 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My mom is confused and having accidents."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when the confusion and accidents started and if there have been any other changes in her behavior or health recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started three days ago. She's not herself. Having accidents too."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "dementia",
+          "delirium",
+          "stroke",
+          "medication side effects"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "complete blood count",
+          "basic metabolic panel",
+          "review of current medications",
+          "neurological examination",
+          "electrolyte level check"
+        ],
+        "management_plan": [
+          "Conduct urinalysis and blood tests to rule out infection and electrolyte imbalances.",
+          "Review and possibly adjust medications, especially Furosemide, to prevent further confusion and dizziness.",
+          "Perform a neurological examination to assess for acute neurological issues.",
+          "Ensure a safe environment to prevent falls and monitor for dehydration."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for rapid deterioration if the cause is an acute condition like delirium or stroke.",
+          "Risk of falls due to dizziness and confusion, possibly exacerbated by medication."
+        ],
+        "communication_note": "Urgent outpatient evaluation is recommended to address potential acute conditions and medication-related issues.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes for confusion and incontinence, suggesting a comprehensive workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation due to potential acute conditions.",
+          "pharm_nurse_contribution": "Reviewed medications for potential side effects and interactions, suggesting dose adjustments and monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still confused. Worse this morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the confusion? When did it start, and have you noticed any other symptoms like fever, headache, or changes in your vision?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started three days ago. Confused now. Not eating. Don't know about fever."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "delirium",
+          "dementia",
+          "urinary tract infection",
+          "stroke",
+          "medication side effect"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "basic metabolic panel",
+          "urinalysis",
+          "head CT scan",
+          "review of current medications"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure hydration and monitor vital signs closely.",
+          "Review and adjust medications that may contribute to confusion."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Confusion in an elderly patient could indicate a serious underlying condition such as stroke or severe infection.",
+          "Potential for rapid deterioration if the cause is an acute condition like a stroke or severe infection."
+        ],
+        "communication_note": "Patient requires immediate evaluation in the emergency department due to potential serious underlying conditions causing confusion.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes of confusion and recommended initial workup.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation and recommended ED referral due to red flags.",
+          "pharm_nurse_contribution": "Reviewed medications for potential contributors to confusion and suggested monitoring for dehydration and infection."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not... awake. Called... ambulance."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what happened before you called the ambulance? Did you experience any other symptoms like chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Don't... remember. Daughter called. Confused."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "syncope",
+          "transient ischemic attack",
+          "hypoglycemia",
+          "cardiac arrhythmia"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "blood glucose level",
+          "complete blood count (CBC)",
+          "basic metabolic panel",
+          "neurological examination"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and monitoring.",
+          "Monitor vital signs closely, especially blood pressure and heart rate.",
+          "Review and adjust medications as necessary to prevent hypotension or bradycardia."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Patient's age (72) increases risk for serious conditions.",
+          "Potential cardiac symptoms (chest pain, shortness of breath, dizziness).",
+          "Possible neurological symptoms (confusion, altered consciousness)."
+        ],
+        "communication_note": "Patient requires immediate ED evaluation due to potential cardiac or neurological event.",
+        "trace": {
+          "clinician_contribution": "Provided a differential diagnosis and recommended initial workup based on symptoms.",
+          "safety_checker_contribution": "Identified red flags and recommended ED referral due to potential serious conditions.",
+          "pharm_nurse_contribution": "Reviewed medications for potential interactions and suggested monitoring for hypotension."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779512979.993529
+}

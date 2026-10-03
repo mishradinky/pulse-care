@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, I'm here because I've had a really severe throbbing headache for the past 4 hours, and my blood pressure was very high when I got here."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you have any other symptoms like nausea, vision changes, or weakness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any nausea, vision changes, or weakness. It's really just the headache that's been bothering me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced headaches like this before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had a headache this severe before. It's been throbbing for about 4 hours now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What was your blood pressure reading when you arrived?"
+        },
+        {
+          "speaker": "patient",
+          "text": "When I arrived, my blood pressure was 200 over 118."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of hypertension or are you on any blood pressure medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had hypertension for about 10 years. I was taking amlodipine 10mg and HCTZ 25mg, but I ran out of my amlodipine two weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain, shortness of breath, or palpitations."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "secondary headache due to hypertension"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "BMP",
+          "ECG",
+          "CT head without contrast"
+        ],
+        "management_plan": [
+          "Restart amlodipine 10mg daily",
+          "Add a short-acting antihypertensive like clonidine if needed",
+          "Monitor blood pressure closely",
+          "Educate on medication adherence"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of hypertensive emergency",
+          "Potential for end-organ damage"
+        ],
+        "communication_note": "Your severe headache and very high blood pressure suggest a hypertensive crisis, so we need to refer you to the emergency department for immediate evaluation and management."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, I'm here because I've been having this severe throbbing headache for about four hours now, and my blood pressure was really high when I got here. I ran out of my blood pressure medication, amlodipine, about two weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What was your blood pressure reading when you arrived?"
+        },
+        {
+          "speaker": "patient",
+          "text": "When I arrived, my blood pressure was 200 over 118."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, or vision changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or shortness of breath. My vision seems fine too. Just this terrible headache."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "medication non-compliance"
+        ],
+        "workup_ordered": [
+          "basic metabolic panel",
+          "complete blood count",
+          "urinalysis",
+          "ECG"
+        ],
+        "management_plan": [
+          "restart amlodipine",
+          "consider adding a diuretic",
+          "monitor blood pressure closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of stroke or other cardiovascular events due to severe hypertension"
+        ],
+        "communication_note": "Your blood pressure is dangerously high, and we need to address it immediately to prevent complications. I'm referring you to the emergency department for urgent management."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My headache from last time has resolved, but now I'm experiencing some blurring in my right eye."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion"
+        ],
+        "workup_ordered": [
+          "ophthalmology referral",
+          "fundoscopic examination",
+          "optical coherence tomography"
+        ],
+        "management_plan": [
+          "urgent ophthalmology consultation",
+          "avoid activities that may worsen eye condition"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not addressed promptly"
+        ],
+        "communication_note": "Your blurred vision needs urgent evaluation by an eye specialist to prevent any potential vision loss."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635422.3760245
+}

@@ -1,0 +1,185 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I came in because five days ago I got back from a long flight to Tokyo, and suddenly I got this sharp pain in my right chest. It really hurts when I breathe, and I'm having trouble catching my breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs, or noticed any redness or warmth in your calves?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg is swollen and tender, especially in the calf. It's noticeably bigger than my left leg. I haven't noticed any redness or warmth though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumothorax",
+          "pleuritis"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "CT pulmonary angiography",
+          "chest X-ray",
+          "ECG"
+        ],
+        "management_plan": [
+          "Initiate anticoagulation therapy if PE is confirmed",
+          "Monitor INR levels if on Warfarin",
+          "Avoid NSAIDs if renal impairment is present",
+          "Monitor for signs of bleeding"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential pulmonary embolism due to recent long flight",
+          "Swelling and tenderness in right leg indicating possible DVT"
+        ],
+        "communication_note": "Patient presents with symptoms suggestive of PE; urgent outpatient follow-up is recommended.",
+        "trace": {
+          "clinician_contribution": "Identified potential PE and DVT, ordered relevant tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized monitoring for bleeding."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having worse trouble breathing, even when I'm just sitting still. And my right leg is really painful now\u2014it's more swollen than it was a few days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or dizziness? Also, have you had any recent injuries or changes in your activity level?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have chest pain on my right side that gets worse when I breathe in. It started suddenly about 5 days ago, right after I got back from a long flight from Tokyo. I haven't had any injuries, but I was sitting on the plane for 12 hours without moving around much. No dizziness so far, but I'm short of breath."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "deep vein thrombosis (DVT)",
+          "pulmonary embolism",
+          "congestive heart failure",
+          "chronic venous insufficiency"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "Doppler ultrasound of the right leg",
+          "chest X-ray",
+          "ECG"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor vital signs closely, especially respiratory rate and oxygen saturation.",
+          "Consider anticoagulation therapy if DVT or pulmonary embolism is confirmed."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Worsening dyspnea and unilateral leg swelling could indicate a serious condition such as DVT or pulmonary embolism.",
+          "Potential cardiovascular event that requires immediate attention."
+        ],
+        "communication_note": "Patient requires immediate evaluation in the emergency department due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified potential diagnoses and recommended initial workup based on symptoms.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency department referral due to life-threatening potential.",
+          "pharm_nurse_contribution": "Reviewed medications and identified potential interactions and concerns, especially regarding renal function and bleeding risks."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a really hard time breathing right now. I almost passed out a few minutes ago, and my chest hurts. I'm much worse than when I came in a few days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain you're experiencing? Is it sharp, dull, or pressure-like? Does it radiate anywhere, like your arm or jaw?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's sharp, like a stabbing pain on the right side of my chest. It gets worse when I breathe in deeply. It doesn't go to my arm or jaw\u2014just stays right here on the right side. I'm also having trouble catching my breath."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "pneumothorax",
+          "heart failure exacerbation"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "D-dimer test",
+          "BNP levels"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management.",
+          "Administer aspirin if no contraindications are present.",
+          "Monitor vital signs closely, especially blood pressure and heart rate.",
+          "Prepare for potential administration of nitroglycerin, ensuring no contraindications."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Chest pain with potential cardiac origin",
+          "Difficulty breathing",
+          "Possible acute coronary syndrome"
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to high-risk symptoms.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac and pulmonary causes for chest pain and recommended diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended immediate emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication safety and potential interactions, emphasizing caution with aspirin and nitroglycerin."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779641161.1475658
+}

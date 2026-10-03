@@ -1,0 +1,186 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Getting worse past few days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you're experiencing, such as chest pain, cough, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Can't breathe good. Legs swelled up. No chest pain."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "pulmonary embolism",
+          "chronic obstructive pulmonary disease (COPD) exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "electrocardiogram (ECG)",
+          "B-type natriuretic peptide (BNP) level",
+          "complete blood count (CBC)",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "Initiate diuretic therapy to manage fluid overload.",
+          "Monitor vital signs and oxygen saturation closely.",
+          "Adjust Furosemide dose based on renal function and fluid status.",
+          "Monitor electrolytes, especially potassium, due to Lisinopril and Furosemide.",
+          "Avoid NSAIDs to prevent renal impairment."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential cardiac or pulmonary condition in a 70-year-old patient.",
+          "Symptoms suggestive of serious conditions like heart failure or pulmonary embolism.",
+          "Risk of hyperkalemia and renal impairment due to current medications."
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up for potential heart failure exacerbation.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac and pulmonary causes and recommended diagnostic workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and suggested dose adjustments."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still very short of breath. Gained more weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when the shortness of breath started and if anything makes it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started three days ago. Gets worse when I walk. Better when I sit up."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "chronic obstructive pulmonary disease (COPD)",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram",
+          "spirometry",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "Initiate diuretic therapy with Furosemide, adjusting dose based on fluid status and renal function.",
+          "Monitor vital signs, including blood pressure and heart rate, especially with Lisinopril and Metoprolol.",
+          "Educate patient on recognizing signs of worsening heart failure or COPD exacerbation.",
+          "Ensure proper use of Albuterol inhaler if COPD is suspected."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for pulmonary embolism or heart failure exacerbation.",
+          "Need for rapid identification of life-threatening conditions."
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up to rule out serious conditions and adjust medications.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup plan focusing on heart and lung conditions.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation to address potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medications, suggested dose adjustments, and emphasized patient education on symptom management."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Lying down makes it worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did your breathing difficulties start, and have you noticed any other symptoms like chest pain, swelling in your legs, or a cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days ago. Can't breathe lying down. No chest pain. Legs... maybe swollen. No cough."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema",
+          "chronic obstructive pulmonary disease (COPD) exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "electrocardiogram (ECG)",
+          "B-type natriuretic peptide (BNP) level",
+          "complete blood count (CBC)",
+          "basic metabolic panel",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor vital signs closely, especially respiratory rate and oxygen saturation.",
+          "Initiate oxygen therapy if needed during transport to the ED."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential for life-threatening conditions such as pulmonary embolism or acute heart failure.",
+          "Patient's age and symptom profile increase risk for severe complications."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential serious cardiac or pulmonary condition.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac and pulmonary causes for symptoms and recommended diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended immediate ED referral due to potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medications and identified potential interactions and monitoring needs, emphasizing caution with current symptoms."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779506475.2696466
+}

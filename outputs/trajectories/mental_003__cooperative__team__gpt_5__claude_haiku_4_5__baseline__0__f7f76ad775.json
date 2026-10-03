@@ -1,0 +1,183 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I thought I was dying. My heart was racing, my chest felt tight, and I couldn't breathe. It happened at the grocery store about 20 minutes ago. I'm terrified it's a heart attack."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've experienced similar episodes before, and if so, how often do they occur?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, this has happened 4 times in the last 2 months. Each time I feel like my heart is racing, my chest gets tight, I can't breathe, and I get dizzy. It's terrifying\u2014I really thought I was having a heart attack. The episodes last about 20 minutes."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "panic attack",
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "hyperthyroidism"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin levels",
+          "thyroid function tests",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Monitor vital signs closely, especially heart rate and blood pressure.",
+          "Review and adjust medications as necessary, particularly Atenolol and Levothyroxine.",
+          "Ensure thyroid function tests are current to avoid mismanagement of hyperthyroidism."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential cardiac issues: acute coronary syndrome and pulmonary embolism are life-threatening conditions.",
+          "Need to rule out serious medical conditions before attributing symptoms to a panic attack."
+        ],
+        "communication_note": "Patient requires immediate evaluation in the ED due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified a broad differential diagnosis and recommended initial workup to rule out serious conditions.",
+          "safety_checker_contribution": "Highlighted the urgency of ruling out life-threatening conditions and recommended ED referral.",
+          "pharm_nurse_contribution": "Provided medication review and highlighted potential interactions and necessary monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I had another one of those attacks at work yesterday. My heart was racing, I couldn't breathe, and I felt like something terrible was about to happen. Now I'm scared to leave the house. I don't want to go anywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about these attacks? How long do they last, and have you noticed any specific triggers or patterns?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They last about 20 minutes usually. The first one happened at the grocery store two months ago, and I've had about four since then. The most recent was at work. I get my heart racing, trouble breathing, tingling in my hands, and I feel dizzy. I'm terrified it's a heart attack, but the doctors said my heart is fine. Now I'm afraid to go places."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "panic disorder",
+          "generalized anxiety disorder",
+          "agoraphobia",
+          "cardiac arrhythmia"
+        ],
+        "workup_ordered": [
+          "complete psychiatric evaluation",
+          "EKG to rule out cardiac causes",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Continue monitoring for side effects of Sertraline, especially increased anxiety or insomnia.",
+          "Educate the patient on non-pharmacological strategies such as breathing exercises and mindfulness.",
+          "Schedule a follow-up appointment to discuss psychiatric evaluation results and adjust treatment as necessary."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for signs of increased anxiety or panic attacks.",
+          "Ensure the patient is educated on managing anxiety symptoms."
+        ],
+        "communication_note": "The patient's symptoms align with panic disorder, but further evaluation is needed to rule out other conditions.",
+        "trace": {
+          "clinician_contribution": "Provided a detailed differential diagnosis and suggested a comprehensive workup to rule out cardiac and thyroid issues.",
+          "safety_checker_contribution": "Approved the plan with no red flags or blocking concerns, recommending routine escalation.",
+          "pharm_nurse_contribution": "Reviewed medication, highlighted potential side effects, and emphasized patient education on anxiety management."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I haven't been able to leave my house for two weeks now. I'm too scared. My husband had to take time off work to help me, and I feel terrible about it. I just can't seem to go outside without feeling like something terrible is going to happen."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these feelings of fear started and if anything specific triggered them?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The first attack happened about 2 months ago at the grocery store. I was just shopping and suddenly felt my heart racing, chest got tight, and I couldn't breathe. It felt like I was dying. Since then, I've had three more episodes. I'm not sure what triggered that first one\u2014nothing specific that I can think of."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "agoraphobia",
+          "generalized anxiety disorder",
+          "panic disorder"
+        ],
+        "workup_ordered": [
+          "psychological assessment",
+          "screening for anxiety disorders",
+          "evaluation for panic attacks"
+        ],
+        "management_plan": [
+          "Continue Sertraline with monitoring for side effects",
+          "Evaluate the need for dose adjustment of Sertraline",
+          "Monitor Lorazepam use to prevent dependency",
+          "Consider cognitive behavioral therapy (CBT) referral"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for potential dependency on Lorazepam",
+          "Ensure no contraindications with current medications"
+        ],
+        "communication_note": "The patient is experiencing significant anxiety impacting daily life, requiring routine follow-up and medication management.",
+        "trace": {
+          "clinician_contribution": "Identified potential anxiety disorders and recommended psychological assessments.",
+          "safety_checker_contribution": "Approved the current plan with no red flags, recommending routine follow-up.",
+          "pharm_nurse_contribution": "Reviewed medication use, highlighting potential side effects and interactions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511351.536287
+}

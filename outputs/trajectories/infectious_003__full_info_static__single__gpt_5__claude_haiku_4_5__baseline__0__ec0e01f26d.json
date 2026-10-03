@@ -1,0 +1,120 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis jirovecii pneumonia (PJP)",
+          "Bacterial pneumonia",
+          "Tuberculosis"
+        ],
+        "workup_ordered": [
+          "Sputum culture",
+          "Induced sputum for PCP",
+          "HIV viral load and CD4 count",
+          "LDH",
+          "Beta-D-glucan"
+        ],
+        "management_plan": [
+          "Start trimethoprim-sulfamethoxazole for PCP",
+          "Consider corticosteroids due to hypoxemia",
+          "Reinitiate antiretroviral therapy after stabilization",
+          "Oxygen therapy as needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Hypoxemia with exertion",
+          "Progressive respiratory symptoms"
+        ],
+        "communication_note": "You have a lung infection likely related to your HIV, and we need to start treatment and monitor you closely in the hospital."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP)",
+          "Bacterial pneumonia"
+        ],
+        "workup_ordered": [
+          "Repeat ABG",
+          "Consideration for ICU transfer"
+        ],
+        "management_plan": [
+          "Initiate corticosteroids due to worsening hypoxia",
+          "Continue TMP-SMX for PCP",
+          "Supplemental oxygen therapy"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Worsening hypoxia",
+          "Risk of respiratory failure"
+        ],
+        "communication_note": "Your breathing has worsened, likely due to a lung infection common in untreated HIV, and we need to adjust your treatment and monitor you closely in the hospital."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP)",
+          "bacterial pneumonia",
+          "acute respiratory distress syndrome (ARDS)"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "blood cultures",
+          "HIV viral load",
+          "CD4 count"
+        ],
+        "management_plan": [
+          "initiate high-dose corticosteroids",
+          "start trimethoprim-sulfamethoxazole for PCP",
+          "admit to ICU for close monitoring and potential intubation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "severe hypoxemia",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "You have a severe lung infection related to your HIV, and we need to admit you to the ICU for urgent treatment and monitoring."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505374.9842386
+}

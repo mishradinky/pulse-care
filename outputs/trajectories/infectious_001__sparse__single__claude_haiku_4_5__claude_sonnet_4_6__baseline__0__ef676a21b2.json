@@ -1,0 +1,222 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Got fever too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had the cough and fever, and what is your temperature?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Don't know my temperature."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a thermometer at home, or can we take your temperature now? Also, what does the cough bring up\u2014is there any sputum, and if so, what color is it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yellow-green stuff. Don't own a thermometer."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any shortness of breath, chest pain, or difficulty breathing, and do you have any other medical conditions or take any regular medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, chest hurts. Hard to breathe. Got lung problems and diabetes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your lung problems\u2014do you have COPD, asthma, or something else\u2014and have you had any recent sick contacts or traveled anywhere in the past few weeks?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got COPD. No travel. No sick contacts I know of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Let me take your vital signs now\u2014I need to check your temperature, blood pressure, heart rate, and oxygen level. Can you sit down so I can do that?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sure."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP)",
+          "COPD exacerbation with secondary infection",
+          "Acute bronchitis"
+        ],
+        "workup_ordered": [
+          "Vital signs (temperature, BP, HR, O2 saturation)",
+          "Chest X-ray",
+          "CBC with differential",
+          "BMP (electrolytes, renal function)",
+          "Sputum culture if productive",
+          "Blood cultures if febrile"
+        ],
+        "management_plan": [
+          "Obtain vital signs immediately to assess severity",
+          "Administer supplemental oxygen if O2 sat <90%",
+          "Start empiric broad-spectrum antibiotics (amoxicillin-clavulanate or respiratory fluoroquinolone pending culture)",
+          "Consider bronchodilators for COPD component",
+          "Arrange urgent chest imaging",
+          "Monitor for clinical deterioration"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Respiratory distress with chest pain and hypoxia risk",
+          "COPD with acute infection increases risk of respiratory failure",
+          "Diabetes may complicate infection course"
+        ],
+        "communication_note": "You have signs of a serious chest infection that needs urgent evaluation and imaging at the emergency department to rule out pneumonia and ensure you get the right antibiotics and oxygen support."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still can't breathe right. Getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1-10, how severe is your shortness of breath right now, and are you having any chest pain, fever, or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Breathing... maybe eight. Chest hurts. Still coughing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a fever right now, and have you noticed any sputum or phlegm when you cough\u2014if so, what color is it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, hot. Coughing up green stuff."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP)",
+          "Acute exacerbation of COPD with infection",
+          "Acute bronchitis with secondary bacterial infection",
+          "Aspiration pneumonia"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Blood cultures",
+          "Sputum culture and gram stain",
+          "Pulse oximetry/ABG if available",
+          "ECG"
+        ],
+        "management_plan": [
+          "Initiate empiric broad-spectrum antibiotics (e.g., amoxicillin-clavulanate or respiratory fluoroquinolone pending culture results)",
+          "Supplemental oxygen to maintain SpO2 >90%",
+          "Supportive care: hydration, rest, cough management",
+          "Monitor vital signs closely",
+          "Arrange urgent follow-up within 24-48 hours or sooner if worsening"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Severe dyspnea (8/10) with chest pain and fever suggests significant respiratory compromise",
+          "Productive cough with purulent sputum indicates bacterial infection",
+          "Risk of rapid deterioration to respiratory failure in 65-year-old with likely pneumonia"
+        ],
+        "communication_note": "Your symptoms of severe shortness of breath, chest pain, fever, and green sputum suggest a serious lung infection that needs urgent evaluation and treatment in the emergency department."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Severe respiratory failure requiring intubation",
+          "Pneumonia (bacterial or viral)",
+          "Acute respiratory distress syndrome (ARDS)",
+          "Pulmonary embolism",
+          "Sepsis with respiratory compromise"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Blood cultures",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Lactate level",
+          "Procalcitonin",
+          "D-dimer",
+          "Arterial blood gas",
+          "Sputum culture if intubated"
+        ],
+        "management_plan": [
+          "Patient is intubated and requires ICU-level care",
+          "Initiate broad-spectrum antibiotics pending culture results",
+          "Maintain mechanical ventilation with appropriate sedation",
+          "Monitor vital signs, oxygenation, and ventilator parameters closely",
+          "Obtain imaging and labs to identify underlying etiology",
+          "Consider infectious disease consultation if sepsis suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Patient is already intubated indicating critical respiratory failure",
+          "Risk of ventilator-associated complications",
+          "Potential sepsis or life-threatening infection"
+        ],
+        "communication_note": "You are critically ill and have been intubated to help you breathe; you are receiving intensive care in the ICU while we work to identify and treat the underlying cause."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779637928.3546422
+}

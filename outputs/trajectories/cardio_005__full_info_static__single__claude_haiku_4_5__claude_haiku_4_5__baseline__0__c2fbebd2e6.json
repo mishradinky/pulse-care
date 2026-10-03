@@ -1,0 +1,148 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pulmonary embolism (PE)",
+          "Deep vein thrombosis (DVT) with PE",
+          "Acute coronary syndrome",
+          "Pneumonia with pleurisy"
+        ],
+        "workup_ordered": [
+          "STAT CT pulmonary angiography (CTPA)",
+          "Bilateral lower extremity venous ultrasound",
+          "Troponin serial (repeat in 3 hours)",
+          "BNP",
+          "D-dimer (already elevated)",
+          "CBC, CMP, PT/INR",
+          "Arterial blood gas"
+        ],
+        "management_plan": [
+          "Initiate anticoagulation (unfractionated heparin or LMWH) pending imaging confirmation given high clinical suspicion",
+          "Supplemental oxygen to target SpO2 >94%",
+          "IV access, continuous cardiac monitoring",
+          "NPO pending imaging",
+          "Pain control with analgesics",
+          "Leg elevation and compression stockings for right leg swelling"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High-risk presentation for PE: immobility, obesity, pleuritic chest pain, hypoxia, tachycardia, tachypnea, elevated D-dimer, S1Q3T3 pattern, and clinical DVT signs",
+          "Hemodynamic stability currently but risk of acute decompensation",
+          "Mildly elevated troponin suggests right ventricular strain"
+        ],
+        "communication_note": "Your symptoms are concerning for a blood clot in your lungs (pulmonary embolism) related to your long flight; we need urgent imaging and blood thinning treatment to prevent serious complications."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pulmonary embolism with right heart strain (confirmed)",
+          "Deep vein thrombosis right lower extremity (confirmed)",
+          "Acute right ventricular failure secondary to PE"
+        ],
+        "workup_ordered": [
+          "CTPA (already performed\u2014confirms bilateral PE with saddle embolus)",
+          "Transthoracic echocardiogram (already performed\u2014confirms RV strain)",
+          "Troponin (already performed\u2014elevated at 0.22 ng/mL)",
+          "D-dimer (if not already done)",
+          "CBC, CMP, PT/INR, aPTT",
+          "Arterial blood gas to assess oxygenation/ventilation status",
+          "Compression ultrasound of bilateral lower extremities to assess DVT burden"
+        ],
+        "management_plan": [
+          "Initiate anticoagulation immediately: IV unfractionated heparin bolus (80 units/kg) followed by continuous infusion, OR low-molecular-weight heparin if hemodynamically stable",
+          "Supplemental oxygen to target SpO2 \u226594%",
+          "Continuous cardiac monitoring and hemodynamic assessment",
+          "Consider thrombolysis or catheter-directed intervention given saddle embolus, RV strain, elevated troponin, and hemodynamic compromise (tachycardia, tachypnea, hypoxia)",
+          "Assess for contraindications to thrombolysis; consider ICU-level care",
+          "Fluid resuscitation cautiously (RV is afterload-sensitive)",
+          "Vasopressor support if hypotension develops",
+          "Serial troponin and lactate monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Massive/submassive PE with hemodynamic compromise and right heart strain",
+          "Risk of acute right ventricular failure and cardiogenic shock",
+          "Hypoxemia worsening despite supplemental oxygen",
+          "Saddle embolus with high mortality risk if not rapidly treated",
+          "Potential for sudden decompensation"
+        ],
+        "communication_note": "You have a life-threatening blood clot in your lungs affecting your heart function; you need emergency hospital admission and immediate blood-thinning therapy, possibly with clot-busting medication."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Massive pulmonary embolism with acute right heart failure",
+          "Acute decompensated cor pulmonale",
+          "Cardiogenic shock secondary to PE"
+        ],
+        "workup_ordered": [
+          "STAT CT pulmonary angiography (if not already done)",
+          "Transthoracic echocardiography (already obtained\u2014confirms massive PE with RV failure)",
+          "Arterial blood gas (already obtained\u2014severe hypoxemia and respiratory acidosis)",
+          "Troponin, BNP, lactate, CBC, coagulation studies",
+          "Right heart catheterization if considering mechanical support"
+        ],
+        "management_plan": [
+          "EMERGENCY TRANSFER to ICU/interventional radiology suite",
+          "Initiate high-flow oxygen; consider intubation for airway protection given RR 34 and SpO2 84%",
+          "Establish large-bore IV access; aggressive fluid resuscitation cautiously (RV failure may limit tolerance)",
+          "STAT thrombolysis (alteplase) or consider catheter-directed thrombectomy given hemodynamic collapse",
+          "Vasopressor support (norepinephrine) for hypotension and shock",
+          "Anticoagulation with unfractionated heparin (bolus then infusion)",
+          "Continuous cardiac monitoring and hemodynamic support"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Hemodynamic instability with hypotension (90/60) and tachycardia (HR 130)",
+          "Severe hypoxemia (SpO2 84%, pO2 52) with respiratory acidosis",
+          "Impending cardiogenic shock and syncope risk",
+          "Massive PE with acute RV failure\u2014high mortality without immediate intervention",
+          "Risk of sudden cardiovascular collapse"
+        ],
+        "communication_note": "You are experiencing a life-threatening blood clot in your lungs causing your heart to fail; you need emergency ICU care and urgent clot removal or dissolution to survive."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505266.7898104
+}

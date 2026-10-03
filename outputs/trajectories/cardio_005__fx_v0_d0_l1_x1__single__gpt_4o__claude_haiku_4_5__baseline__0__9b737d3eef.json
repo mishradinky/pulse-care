@@ -1,0 +1,207 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "fx_v0_d0_l1_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 48,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Sharp pain in my right chest. Can't breathe right. Started yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain more? Does it radiate anywhere, and what makes it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sharp, right side. Worse when I breathe in. Nothing helps. My boss kept calling about work stuff."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent injuries or trauma to your chest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that. Just the pain started five days ago after I got back from Tokyo."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling, redness, or warmth in your legs, or noticed any recent leg pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right leg is swollen. A bit sore. Left one's normal. Had sushi on the plane."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent fevers, chills, or night sweats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fevers. But my boss has been on my case all week."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent changes in your ability to exercise or perform physical activities?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Can't do much. Leg hurts. Had sushi yesterday, felt fine then."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "pleurisy",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "D-dimer",
+          "CT pulmonary angiogram",
+          "ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "administer oxygen if needed",
+          "start anticoagulation therapy if PE is confirmed",
+          "pain management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of pulmonary embolism due to recent travel and leg swelling"
+        ],
+        "communication_note": "You need immediate evaluation for a possible blood clot in your lung; please go to the emergency room now."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe good. Chest hurts worse. My leg's killing me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain and when it started?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started five days ago. Right side hurts when I breathe. Sharp pain. My boss was really mad that week."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the leg pain? Where is it located and what does it feel like?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right calf. Hurts more now. It's warm and red. Boss was mad yesterday about the trip."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pleurisy"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "chest CT angiography",
+          "ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Start anticoagulation therapy if DVT/PE confirmed",
+          "Pain management with NSAIDs"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of pulmonary embolism"
+        ],
+        "communication_note": "Your symptoms suggest a possible blood clot in your leg or lungs, which can be serious. We need to get you to the emergency room for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I almost passed out. Can't breathe. Really bad."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "heart failure exacerbation"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin levels",
+          "chest X-ray",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start IV access",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "You are experiencing severe symptoms that could be related to your heart or lungs, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790547365.865677
+}

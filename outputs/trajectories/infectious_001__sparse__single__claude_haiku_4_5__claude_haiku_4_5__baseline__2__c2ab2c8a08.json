@@ -1,0 +1,228 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Yellow stuff. Fever. Chest hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had this cough, and have you had any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Yeah, hard to breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your temperature right now, and do you have any other medical conditions like heart disease, diabetes, or lung disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got a fever. Yeah, I got diabetes and lung disease. Bad lungs."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your actual temperature reading right now, and are you coughing up blood or just yellow sputum?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still hot. Yellow stuff, no blood."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a thermometer at home, and if so, what is your temperature reading? Also, are you currently taking any medications for your diabetes or lung disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No thermometer. Take metformin for sugar. Use inhaler for breathing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been in contact with anyone sick recently, and do you smoke or have you ever smoked cigarettes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Don't know about sick people. Yeah, I smoke."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP)",
+          "Acute exacerbation of chronic obstructive pulmonary disease (COPD)",
+          "Acute bronchitis with secondary bacterial infection"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Sputum culture",
+          "Pulse oximetry/oxygen saturation",
+          "Blood cultures if febrile"
+        ],
+        "management_plan": [
+          "Empiric broad-spectrum antibiotic therapy (amoxicillin-clavulanate or respiratory fluoroquinolone given age, comorbidities, and smoking history)",
+          "Assess oxygen saturation and provide supplemental oxygen if SpO2 <90%",
+          "Encourage fluid intake and rest",
+          "Monitor for clinical deterioration",
+          "Follow-up in 48-72 hours or sooner if worsening"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Respiratory distress with dyspnea for 4 days in patient with underlying lung disease",
+          "Fever with productive cough and chest pain suggests possible pneumonia",
+          "Age 65 with diabetes and chronic lung disease increases risk for severe infection"
+        ],
+        "communication_note": "You likely have a chest infection (pneumonia or severe bronchitis) that needs antibiotics and close monitoring; we'll get chest imaging and bloodwork today, and you must return immediately if you develop worsening shortness of breath, confusion, or chest pain."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not getting better. More confused now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this confusion start, and has it been getting progressively worse since our last visit, or did it suddenly get worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started yesterday. Yeah, worse today. Can't think straight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a fever, headache, neck stiffness, or any recent illness like cough, shortness of breath, or urinary symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got fever. Cough with yellow stuff. Can't breathe good. Head's fuzzy."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia with sepsis/septic encephalopathy",
+          "Meningitis or meningoencephalitis",
+          "Influenza with secondary bacterial pneumonia",
+          "Aspiration pneumonia",
+          "Acute delirium from systemic infection"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count with differential",
+          "Comprehensive metabolic panel",
+          "Blood cultures (before antibiotics)",
+          "Procalcitonin or lactate",
+          "Lumbar puncture with CSF analysis if meningitis suspected",
+          "CT head if focal neurologic findings"
+        ],
+        "management_plan": [
+          "Immediate empiric broad-spectrum antibiotics (ceftriaxone + azithromycin or fluoroquinolone)",
+          "Supplemental oxygen to maintain adequate saturation",
+          "IV fluid resuscitation",
+          "Fever management",
+          "Continuous monitoring for deterioration",
+          "Consider ICU admission if sepsis criteria met"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute confusion with fever and respiratory symptoms suggests serious infection with potential for rapid deterioration",
+          "Risk of sepsis and septic shock",
+          "Possible meningitis requiring urgent CSF evaluation",
+          "Hypoxia risk with respiratory compromise"
+        ],
+        "communication_note": "You need emergency evaluation right now\u2014your fever, cough, breathing difficulty, and confusion together suggest a serious infection that requires immediate hospital care and testing."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Severe respiratory failure requiring intubation",
+          "Community-acquired pneumonia with sepsis",
+          "Acute respiratory distress syndrome (ARDS)",
+          "Pulmonary embolism",
+          "Acute decompensated heart failure"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Blood cultures",
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Lactate level",
+          "Procalcitonin",
+          "D-dimer",
+          "Troponin",
+          "BNP",
+          "ABG/VBG",
+          "Sputum culture and gram stain"
+        ],
+        "management_plan": [
+          "Patient already intubated - continue mechanical ventilation with appropriate settings",
+          "Broad-spectrum antibiotics (pending culture results)",
+          "Supportive care in ICU setting",
+          "Fluid management and hemodynamic monitoring",
+          "Daily sedation interruption and spontaneous breathing trials when appropriate",
+          "Nutritional support",
+          "DVT prophylaxis",
+          "Stress ulcer prophylaxis"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Patient is intubated and critically ill",
+          "Requires ICU-level monitoring and care",
+          "High risk of complications including ventilator-associated pneumonia, sepsis, multi-organ failure"
+        ],
+        "communication_note": "You are very ill and require intensive care in the hospital with a breathing tube to support your lungs while we treat the underlying infection."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779655895.9932272
+}

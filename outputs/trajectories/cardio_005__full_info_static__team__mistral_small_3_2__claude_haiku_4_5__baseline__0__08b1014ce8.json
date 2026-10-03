@@ -1,0 +1,157 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism",
+          "Pneumonia",
+          "Pleural effusion",
+          "Deep vein thrombosis (DVT)"
+        ],
+        "workup_ordered": [
+          "CT pulmonary angiography (CTPA)",
+          "Lower extremity Doppler ultrasound",
+          "Arterial blood gas (ABG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)"
+        ],
+        "management_plan": [
+          "Administer oxygen to maintain SpO2 > 92%",
+          "Start anticoagulation therapy if PE is confirmed (e.g., heparin)",
+          "Elevate and compress the right leg to manage swelling",
+          "Monitor vital signs closely",
+          "Prepare for possible admission to a monitored setting"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential pulmonary embolism with hypoxia",
+          "Possible DVT in the right leg",
+          "Risk of hemodynamic instability"
+        ],
+        "communication_note": "Patient presents with high risk of pulmonary embolism given recent long-haul flight, immobility, and elevated D-dimer. Immediate imaging and anticoagulation consideration are critical. Coordinate with ED for prompt evaluation and management.",
+        "trace": {
+          "clinician_contribution": "Assessed clinical presentation and ordered initial diagnostic tests.",
+          "safety_checker_contribution": "Identified hypoxia and potential DVT as critical safety concerns.",
+          "pharm_nurse_contribution": "Prepared for potential anticoagulation therapy and oxygen administration."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism with right heart strain",
+          "Deep vein thrombosis (DVT) right leg",
+          "Pneumonia",
+          "Pneumothorax"
+        ],
+        "workup_ordered": [
+          "CT Pulmonary Angiography (CTPA)",
+          "Echocardiogram",
+          "Troponin level",
+          "D-dimer test",
+          "Lower extremity Doppler ultrasound"
+        ],
+        "management_plan": [
+          "Administer anticoagulation therapy (e.g., heparin) immediately",
+          "Provide oxygen therapy to maintain SpO2 above 90%",
+          "Monitor vital signs closely, especially heart rate and blood pressure",
+          "Prepare for possible thrombolytic therapy if hemodynamic instability",
+          "Consult cardiology and pulmonary services for further management",
+          "Evaluate for inferior vena cava filter if anticoagulation is contraindicated"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential hemodynamic decompensation due to right heart strain",
+          "Risk of massive pulmonary embolism leading to cardiac arrest",
+          "Risk of recurrent thromboembolic events without immediate anticoagulation"
+        ],
+        "communication_note": "Patient is critically ill with confirmed bilateral pulmonary embolism and right heart strain. Immediate anticoagulation and close monitoring are essential. Consult cardiology and pulmonary services urgently.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms, ordered CTPA, echocardiogram, and troponin level.",
+          "safety_checker_contribution": "Identified high-risk features and recommended immediate anticoagulation and close monitoring.",
+          "pharm_nurse_contribution": "Prepared and administered anticoagulation therapy, monitored vital signs."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Massive pulmonary embolism with right ventricular failure",
+          "Septic shock",
+          "Cardiogenic shock"
+        ],
+        "workup_ordered": [
+          "Emergency echocardiography",
+          "Arterial blood gas analysis",
+          "Complete blood count",
+          "Basic metabolic panel",
+          "Lactate level",
+          "Blood cultures",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Immediate administration of intravenous fluids",
+          "Oxygen therapy via non-rebreather mask",
+          "Intravenous heparin for anticoagulation",
+          "Consideration of thrombolytic therapy or mechanical thrombectomy",
+          "Continuous cardiac monitoring",
+          "Preparation for possible ICU admission"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Hypotension and tachycardia indicating potential shock",
+          "Severe hypoxemia as evidenced by low SpO2 and ABG results",
+          "Near syncope and severe dyspnea suggesting imminent respiratory failure"
+        ],
+        "communication_note": "This is a critical situation. The patient requires immediate emergency intervention. Coordinate with the emergency team for rapid assessment and transfer to the ICU.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's vital signs and symptoms, ordered initial workup.",
+          "safety_checker_contribution": "Identified critical safety concerns and recommended immediate escalation.",
+          "pharm_nurse_contribution": "Prepared medications and equipment for emergency intervention."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597794.5356855
+}

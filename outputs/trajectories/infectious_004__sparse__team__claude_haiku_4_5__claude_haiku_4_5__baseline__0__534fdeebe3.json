@@ -1,0 +1,224 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My face is drooping and my joints hurt everywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the facial drooping start, and did it come on suddenly or gradually? Also, have you had any recent tick bites, rashes, fever, or travel to wooded areas?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started last week, came on fast. Had a rash on my leg weeks ago. Went camping in Connecticut."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute ischemic stroke / TIA (HIGHEST PRIORITY - time-critical)",
+          "Lyme disease with facial palsy (Bell's palsy equivalent) + polyarthralgia",
+          "Lyme neuroborreliosis (if CNS involvement)",
+          "Bell's palsy with concurrent viral syndrome",
+          "Viral exanthem (EBV, CMV, parvovirus B19)",
+          "Rheumatologic condition (early RA, SLE)",
+          "Other spirochetal infection (syphilis)"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT (rule out hemorrhage)",
+          "STAT neurologic exam including NIH Stroke Scale",
+          "Labs: CBC, CMP, coagulation studies, troponin, renal function (Cr, eGFR)",
+          "ECG",
+          "If stroke ruled out, proceed: Lyme serology (ELISA + Western blot if positive), RPR/VDRL, ANA/RF panel",
+          "Consider MRI brain/spine if neuroborreliosis suspected after imaging"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL for acute stroke evaluation (symptom onset ~7 days ago, but acute facial drooping requires urgent neuro assessment)",
+          "Obtain complete medication list (Rx, OTC, supplements, herbals) and allergy history (penicillin/cephalosporin/doxycycline) before treatment",
+          "Confirm pregnancy status (doxycycline contraindicated in pregnancy)",
+          "If stroke excluded and Lyme disease confirmed: doxycycline 100 mg PO BID \u00d7 14\u201321 days (adjust for renal function; counsel on photosensitivity, upright positioning, avoid dairy/antacids)",
+          "If neuroborreliosis suspected: ceftriaxone 2 g IV Q12H (adjust if CrCl <30)",
+          "If Bell's palsy confirmed: eye care protocol (lubricating drops, protective eyewear) to prevent corneal abrasion",
+          "Monitor for meningeal signs (headache, neck stiffness, photophobia) if CNS involvement suspected",
+          "Drug-drug interaction screening: assess warfarin/DOAC use (doxycycline may potentiate anticoagulant effect); assess OCP use (doxycycline reduces efficacy)"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "ACUTE STROKE CANNOT BE RULED OUT AT BEDSIDE: Unilateral facial drooping is a RED FLAG for acute CVA until proven otherwise\u2014requires STAT imaging and urgent neurology evaluation",
+          "TIME-CRITICAL WINDOW: Symptom onset timing relative to last known well is essential to determine thrombolytic/thrombectomy eligibility (4.5-hour window for IV tPA, up to 24 hours for select thrombectomy candidates)",
+          "INCOMPLETE NEURO EXAM: No documentation of facial symmetry, motor/sensory deficits, speech changes, gait, or other focal neurologic signs",
+          "INFECTIOUS WORKUP MUST NOT DELAY STROKE PROTOCOL: Lyme disease history (rash, camping in Connecticut) is relevant but secondary to ruling out acute CNS pathology",
+          "MEDICATION & ALLERGY GAPS: No current medication list, pregnancy status, or drug allergies documented\u2014critical before doxycycline or IV antibiotics",
+          "POLYARTHRALGIA + FACIAL DROOPING: While Lyme disease is reasonable, this combination also fits acute meningitis, encephalitis, or stroke with systemic involvement"
+        ],
+        "communication_note": "Patient with acute facial drooping + polyarthralgia and exposure history (Connecticut camping, prior rash) requires IMMEDIATE ED referral for STAT stroke workup before infectious/rheumatologic evaluation proceeds.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified Lyme disease as key differential and obtained critical exposure history (camping in Connecticut, prior rash). However, differential was listed without prioritization\u2014stroke/TIA was mentioned but not emphasized as time-critical despite being life-threatening and requiring immediate imaging.",
+          "safety_checker_contribution": "Safety checker correctly identified ACUTE STROKE as the blocking concern and mandated ED referral with STAT head CT, NIH Stroke Scale, and urgent neurology evaluation. Flagged dangerous delay in infectious workup and emphasized that time-sensitive thrombolytic/thrombectomy window cannot be missed. Recommended complete neuro exam documentation and clarification of symptom onset timing.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no medication list, unknown pregnancy status (doxycycline contraindicated), missing allergy history, and need for baseline renal function before antibiotic dosing. Provided specific dosing for doxycycline (100 mg BID \u00d7 14\u201321 days) and ceftriaxone (2 g IV Q12H) with renal adjustments. Flagged drug-drug interactions (warfarin/DOACs, OCPs) and nursing care for Bell's palsy (eye protection) and meningeal sign monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Almost fainted twice. Heart going slowly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these episodes start, and did you lose consciousness or just feel like you were about to faint? Also, have you had any fever, chills, fatigue, or recent infections?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started last few days. Didn't pass out, just felt dizzy. No fever. Really tired though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Infectious myocarditis (viral or bacterial)",
+          "Lyme disease with cardiac involvement",
+          "Endocarditis",
+          "Sepsis/bacteremia with bradycardia",
+          "Acute coronary syndrome",
+          "Medication-induced bradycardia",
+          "Hypothyroidism",
+          "Conduction system disease"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (rule out conduction abnormality, ischemia, myocarditis changes)",
+          "Continuous cardiac monitoring (syncope + bradycardia = hemodynamic risk)",
+          "Vital signs with orthostatics (assess current hemodynamic stability)",
+          "Complete blood count, comprehensive metabolic panel, troponin, BNP",
+          "Blood cultures \u00d7 2 (if fever develops or endocarditis suspicion rises)",
+          "Thyroid-stimulating hormone (TSH)",
+          "Complete medication list review (OTC, supplements, herbal products)",
+          "Allergy assessment (drug and food allergies, especially penicillin status)",
+          "Echocardiogram (if ECG abnormal or troponin elevated)"
+        ],
+        "management_plan": [
+          "Establish IV access for labs and potential empiric therapy",
+          "Implement fall precautions; advise against driving until etiology clarified",
+          "Obtain complete medication history and review for bradycardia-inducing agents",
+          "Assess volume status (orthostatics, JVD, edema) and fluid balance",
+          "Monitor for red-flag symptoms: chest pain, dyspnea, palpitations, recurrent presyncope",
+          "Hold NSAIDs pending diagnostic clarification (contraindicated in myocarditis)",
+          "Prepare for possible antibiotic therapy if infectious etiology confirmed; monitor QT interval given baseline bradycardia",
+          "Baseline renal/hepatic function required before antimicrobial dosing"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Syncope + bradycardia = potential hemodynamic instability requiring immediate cardiac evaluation; loss of consciousness is RED FLAG",
+          "CRITICAL: ECG cannot be deferred\u2014must be obtained NOW to rule out conduction abnormality, myocarditis, or ACS before further history-taking",
+          "High-risk differential includes life-threatening conditions (myocarditis, endocarditis, sepsis, ACS) requiring urgent workup beyond outpatient scope",
+          "Current hemodynamic status and ongoing symptom status unknown\u2014patient must be assessed for active chest pain, dyspnea, or presyncope NOW",
+          "Medication-induced bradycardia possible but cannot be ruled in/out without complete medication list",
+          "No baseline vital signs or cardiac monitoring documented despite syncope presentation"
+        ],
+        "communication_note": "Patient requires ED referral for STAT ECG, cardiac monitoring, and urgent labs to rule out myocarditis, endocarditis, or ACS; outpatient workup is insufficient for syncope with bradycardia.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified high-risk differentials (myocarditis, endocarditis, sepsis, ACS) and initiated targeted history regarding syncope timeline, prodromal symptoms, and infectious risk factors. However, clinician deferred objective testing (ECG, labs) until after subjective questioning\u2014inappropriate sequencing for this acuity level.",
+          "safety_checker_contribution": "Safety checker identified CRITICAL gaps: syncope + bradycardia requires IMMEDIATE ECG and vital signs; no hemodynamic status documented; high-risk differentials demand urgent escalation, not gatekeeping by history alone. Recommended ED referral as appropriate escalation.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged CRITICAL medication review gap (no current meds documented), identified bradycardia-inducing agents as differential contributor, noted QT prolongation risk if fluoroquinolones/macrolides used, and outlined essential nursing interventions: continuous cardiac monitoring, IV access, fall precautions, allergy assessment, infection control, and NSAID avoidance in myocarditis."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I passed out in the waiting room."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you lose consciousness\u2014was it sudden or did you feel dizzy/lightheaded beforehand? And how long were you unconscious?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Just... fell. No warning. Woke up here. Maybe a minute?"
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Sepsis/severe infection with hemodynamic compromise (PRIORITY given infectious_disease category)",
+          "Syncope\u2014vasovagal (sudden onset, brief LOC, full recovery)",
+          "Cardiac arrhythmia (QT prolongation, structural disease)",
+          "Orthostatic hypotension/dehydration",
+          "Anemia (severe)",
+          "Hypoglycemia",
+          "Medication-induced (unknown current med list)"
+        ],
+        "workup_ordered": [
+          "STAT VITALS: BP (lying/sitting/standing), HR, RR, temp, O\u2082 sat",
+          "STAT 12-lead ECG (rule out arrhythmia, QT prolongation)",
+          "STAT labs: CBC, BMP, lactate, blood cultures (if febrile or sepsis concern)",
+          "Complete medication reconciliation (Rx, OTC, supplements, herbal)",
+          "Neuro exam: LOC, orientation, focal deficits, fall/head injury assessment",
+          "IV access (if sepsis suspected or ED referral)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain STAT vitals and assess hemodynamic stability, mental status, O\u2082 saturation",
+          "If vitals abnormal (hypotension, tachycardia, fever, hypoxia, elevated lactate) OR sepsis concern: ESCALATE TO ED",
+          "If vitals stable AND syncope >24 hrs ago with full recovery AND no prodrome: proceed with outpatient workup (ECG, labs, med review) with close follow-up",
+          "Assess for prodromal symptoms (chest pain, palpitations, dyspnea, fever, chills, focal infection signs)",
+          "NPO pending evaluation; fall precautions; monitor for recurrent syncope",
+          "Confirm medication allergies directly with patient"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "SYNCOPE IS A RED FLAG requiring immediate risk stratification\u2014not a history-first scenario",
+          "Infectious_disease category + syncope = sepsis with hemodynamic compromise is a priority rule-out",
+          "No vital signs, ECG, or basic labs ordered yet despite loss of consciousness",
+          "Current hemodynamic stability and mental status UNKNOWN\u2014cannot safely defer ED evaluation without STAT assessment",
+          "Medication list incomplete\u2014syncope may be drug-induced (antihypertensives, QT-prolonging agents, stimulants)",
+          "Fall risk: assess for head injury or trauma from syncope episode"
+        ],
+        "communication_note": "Syncope in a 40F with infectious_disease context requires IMMEDIATE ED referral for continuous monitoring, STAT vitals/ECG/labs, and sepsis rule-out; outpatient management only acceptable if vitals stable, syncope remote (>24h), and full recovery documented.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified broad differential (syncope, sepsis, anemia, hypoglycemia, arrhythmia, dehydration) and initiated history-taking; however, action (questioning) is mismatched to acuity\u2014STAT workup must precede or accompany history in this context.",
+          "safety_checker_contribution": "Safety checker correctly flagged syncope as a medical emergency requiring immediate risk stratification, identified critical gaps (no vitals, ECG, labs ordered), and recommended ED referral; blocking concern is valid: sepsis-induced syncope with hemodynamic compromise cannot be safely evaluated in routine outpatient setting.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL medication reconciliation gap, outlined STAT vital signs and labs (CBC, BMP, lactate, blood cultures), emphasized IV access and neuro assessment, and highlighted fall risk and prodromal symptom evaluation\u2014all essential for sepsis rule-out and syncope workup."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508699.1800122
+}

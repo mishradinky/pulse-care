@@ -1,0 +1,202 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "fx_v0_d0_l0_x0",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 55,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "HMO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache for four hours. Blood pressure really high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache? Is it throbbing, sharp, or dull?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing. Worst headache I've had in years."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, vomiting, visual changes, or sensitivity to light or sound?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea, vomiting, or light sensitivity. No vision changes either."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure reading?"
+        },
+        {
+          "speaker": "patient",
+          "text": "They said it was 200 over 118 when I got here."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of hypertension or are you on any blood pressure medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, high blood pressure for ten years. Was taking amlodipine and water pill."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been taking your blood pressure medications as prescribed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Ran out of amlodipine two weeks ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine headache"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "electrolyte panel",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "Administer antihypertensive medication to lower blood pressure",
+          "Reinstate amlodipine prescription",
+          "Monitor blood pressure closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of stroke or other cardiovascular events due to severely elevated blood pressure"
+        ],
+        "communication_note": "Your blood pressure is very high, and we need to address it immediately to prevent complications. We'll send you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache's still here. Blood pressure won't come down."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your headache, like where it is located, how severe it is, and if anything makes it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Front of head, throbbing. Really bad. Nothing helps. Been here four hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any visual changes, nausea, or sensitivity to light or sound with this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No visual changes. No nausea. No light or sound sensitivity."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine",
+          "tension headache"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel",
+          "complete blood count",
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "administer antihypertensive medication",
+          "pain management with analgesics",
+          "monitor blood pressure closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of hypertensive emergency",
+          "potential for end-organ damage"
+        ],
+        "communication_note": "Your headache and high blood pressure need immediate attention, so we'll refer you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My headache's gone, but now my right eye is blurry."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "optic neuritis"
+        ],
+        "workup_ordered": [
+          "ophthalmology referral",
+          "fundoscopic examination",
+          "optical coherence tomography"
+        ],
+        "management_plan": [
+          "urgent ophthalmology consultation",
+          "avoid activities that may worsen eye condition"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not addressed promptly"
+        ],
+        "communication_note": "Your blurred vision needs urgent evaluation by an eye specialist to prevent any potential vision loss."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790546971.3933618
+}

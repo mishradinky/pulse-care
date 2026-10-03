@@ -1,0 +1,146 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial Fibrillation with Rapid Ventricular Response (AF with RVR)",
+          "Alcohol-induced arrhythmia",
+          "Hypertension-related cardiac changes"
+        ],
+        "workup_ordered": [
+          "Repeat ECG to monitor rhythm",
+          "Serum electrolytes to rule out electrolyte imbalance",
+          "Liver function tests due to recent heavy alcohol use",
+          "Holter monitor for further rhythm assessment"
+        ],
+        "management_plan": [
+          "Rate control with beta-blocker (e.g., Metoprolol) or calcium channel blocker (e.g., Diltiazem)",
+          "Consider anticoagulation based on CHA2DS2-VASc score",
+          "Lifestyle modification advice including alcohol reduction",
+          "Follow-up with cardiology for further evaluation and management"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for thromboembolic events due to AF",
+          "Risk of progression to heart failure if not managed"
+        ],
+        "communication_note": "Patient is advised to avoid alcohol and monitor symptoms. Follow-up with cardiology is crucial for long-term management and consideration of anticoagulation therapy.",
+        "trace": {
+          "clinician_contribution": "Identified AF with RVR and initiated rate control.",
+          "safety_checker_contribution": "Highlighted the risk of thromboembolic events and need for anticoagulation assessment.",
+          "pharm_nurse_contribution": "Provided education on medication adherence and lifestyle modifications."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial Fibrillation with Rapid Ventricular Response (AF with RVR)",
+          "Coronary Artery Disease (CAD)",
+          "Anxiety-related palpitations",
+          "Thyrotoxicosis",
+          "Electrolyte Imbalance"
+        ],
+        "workup_ordered": [
+          "Repeat ECG to monitor rhythm and rate",
+          "Serum electrolytes to rule out imbalances",
+          "Thyroid function tests to assess for hyperthyroidism",
+          "Echocardiogram to evaluate cardiac structure and function",
+          "Holter monitor for extended rhythm assessment"
+        ],
+        "management_plan": [
+          "Rate control with beta-blockers or calcium channel blockers",
+          "Consider anticoagulation therapy based on CHA2DS2-VASc score",
+          "Lifestyle modifications including caffeine reduction and stress management",
+          "Patient education on recognizing symptoms of worsening condition",
+          "Follow-up appointment with cardiology for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for thromboembolic events due to AF",
+          "Risk of progression to heart failure if untreated",
+          "Need for close monitoring of heart rate and symptoms"
+        ],
+        "communication_note": "Patient presents with persistent atrial fibrillation and new onset chest tightness. While troponin is negative, the persistence of symptoms and irregular heart rate necessitate urgent outpatient follow-up with cardiology. Patient has been educated on the importance of medication adherence and symptom monitoring. Coordination with cardiology for potential anticoagulation initiation is advised.",
+        "trace": {
+          "clinician_contribution": "Assessed the need for further cardiac evaluation and management of AF with RVR.",
+          "safety_checker_contribution": "Highlighted the importance of monitoring for thromboembolic events and heart failure.",
+          "pharm_nurse_contribution": "Provided input on medication management and patient education."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Atrial Fibrillation with Rapid Ventricular Response (AF with RVR)",
+          "Wolff-Parkinson-White (WPW) Syndrome",
+          "Pre-excited Atrial Fibrillation",
+          "Syncope secondary to arrhythmia"
+        ],
+        "workup_ordered": [
+          "Repeat ECG to confirm WPW pattern",
+          "Continuous cardiac monitoring",
+          "Electrolyte panel",
+          "Thyroid function tests",
+          "Consider electrophysiology consultation"
+        ],
+        "management_plan": [
+          "Initiate rate control with IV beta-blockers or calcium channel blockers, avoiding AV nodal blockers due to WPW",
+          "Consider antiarrhythmic therapy such as procainamide for rhythm control",
+          "Monitor for hemodynamic stability",
+          "Educate patient on signs of worsening symptoms and when to seek emergency care",
+          "Plan for outpatient follow-up with cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential for hemodynamic instability due to rapid ventricular response",
+          "Risk of ventricular fibrillation due to WPW",
+          "Syncope indicating possible severe arrhythmia"
+        ],
+        "communication_note": "Patient presents with worsening palpitations and a syncopal episode, now showing signs of WPW syndrome with pre-excited atrial fibrillation. Immediate referral to the emergency department is warranted for further evaluation and management. Coordination with cardiology for potential electrophysiology intervention is advised.",
+        "trace": {
+          "clinician_contribution": "Identified the presence of WPW pattern and pre-excited atrial fibrillation, necessitating specific management strategies.",
+          "safety_checker_contribution": "Highlighted the risk of ventricular fibrillation and the need for urgent intervention.",
+          "pharm_nurse_contribution": "Recommended avoiding AV nodal blockers due to WPW and suggested alternative pharmacologic interventions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779597774.5830984
+}

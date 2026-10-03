@@ -1,0 +1,185 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I thought I was dying. Heart racing, chest tight, can't breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started and if there are any specific triggers or situations that seem to bring them on?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started two months ago at grocery store. Happens when I'm out shopping or driving."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "panic disorder",
+          "generalized anxiety disorder",
+          "myocardial infarction",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin levels",
+          "D-dimer",
+          "chest X-ray",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency services for cardiac and pulmonary evaluation.",
+          "Consider psychiatric evaluation for anxiety disorders once life-threatening conditions are ruled out.",
+          "Review and adjust any current benzodiazepine use to prevent dependence and sedation."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential cardiac or pulmonary issues (myocardial infarction, pulmonary embolism) need immediate attention.",
+          "Symptoms could be life-threatening if related to cardiac or pulmonary causes.",
+          "Monitor for signs of respiratory depression if benzodiazepines are used."
+        ],
+        "communication_note": "Immediate emergency evaluation is necessary due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and suggested a thorough workup to rule out serious conditions.",
+          "safety_checker_contribution": "Highlighted the urgency of potential cardiac and pulmonary issues, recommending immediate emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication use, highlighting potential risks with benzodiazepines and the need for careful monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Had another attack at work. Now I'm scared to go anywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what happens during these attacks and how long they typically last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart racing, can't breathe, dizzy. Lasts maybe twenty minutes."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "panic disorder",
+          "generalized anxiety disorder",
+          "agoraphobia"
+        ],
+        "workup_ordered": [
+          "psychiatric evaluation",
+          "screening for anxiety disorders",
+          "consider referral to mental health specialist"
+        ],
+        "management_plan": [
+          "Continue monitoring medication adherence and side effects, especially with Sertraline.",
+          "Discuss potential dose reduction or alternative therapies for Alprazolam if sedation is an issue.",
+          "Provide patient education on anxiety management techniques and coping strategies.",
+          "Schedule follow-up appointment to reassess symptoms and treatment efficacy."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for signs of benzodiazepine dependence or withdrawal symptoms.",
+          "Assess patient's ability to manage daily activities and safety, especially if experiencing sedation or cognitive impairment from medications."
+        ],
+        "communication_note": "Patient's symptoms align with anxiety disorders; routine follow-up and medication monitoring advised.",
+        "trace": {
+          "clinician_contribution": "Identified potential anxiety disorders and recommended psychiatric evaluation and screening.",
+          "safety_checker_contribution": "Approved current plan with no red flags, recommended routine escalation.",
+          "pharm_nurse_contribution": "Reviewed medication use, highlighted potential issues with Alprazolam and Sertraline, and suggested monitoring for side effects and dependence."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Haven't left home in two weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about why you haven't left home? Are you experiencing any feelings of anxiety, depression, or something else that's preventing you from going out?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Scared something will happen again. Can't breathe. Don't feel safe out there."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "agoraphobia",
+          "major depressive disorder",
+          "generalized anxiety disorder"
+        ],
+        "workup_ordered": [
+          "patient health questionnaire (PHQ-9)",
+          "generalized anxiety disorder scale (GAD-7)",
+          "clinical interview"
+        ],
+        "management_plan": [
+          "Conduct a thorough clinical interview to assess the severity of symptoms.",
+          "Administer PHQ-9 and GAD-7 to quantify depression and anxiety levels.",
+          "Review and ensure adherence to current medication (Sertraline) and monitor for side effects.",
+          "Provide patient with resources for mental health support, including therapy options.",
+          "Consider dose adjustment of Sertraline if symptoms persist or side effects are intolerable."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Patient has not left home for two weeks, indicating potential severe anxiety or depression.",
+          "Patient reports feeling unsafe and experiencing difficulty breathing when considering leaving home."
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up to address severe anxiety symptoms.",
+        "trace": {
+          "clinician_contribution": "Identified potential mental health issues and suggested diagnostic tools.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation due to the patient's inability to leave home.",
+          "pharm_nurse_contribution": "Reviewed medication adherence and potential side effects, emphasizing the need for mental health support."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511429.9860415
+}

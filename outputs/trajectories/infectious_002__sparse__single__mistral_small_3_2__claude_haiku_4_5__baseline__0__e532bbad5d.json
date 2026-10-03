@@ -1,0 +1,209 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever. Chills. Back hurts. Haven't peed all day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How high has your fever been, and how long have you had it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Real hot. Two days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, travel, or exposure to sick contacts?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Got sick before... three months ago maybe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent urinary symptoms like burning, frequency, or urgency?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't been peeing. Twelve hours now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any blood in your urine or pain when you try to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood. Haven't peed since yesterday morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent procedures or been hospitalized in the past few months?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just got sick few times with water infections."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection",
+          "Kidney infection (pyelonephritis)",
+          "Sepsis",
+          "Dehydration",
+          "Urinary obstruction"
+        ],
+        "workup_ordered": [
+          "Urinalysis",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Blood cultures",
+          "Urinary culture"
+        ],
+        "management_plan": [
+          "Start IV fluids for hydration",
+          "Administer broad-spectrum antibiotics",
+          "Monitor vital signs closely",
+          "Prepare for possible transfer to ED if condition worsens"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to fever and lack of urination",
+          "Potential kidney damage due to urinary obstruction"
+        ],
+        "communication_note": "We need to run some tests and start treatment right away due to your fever and inability to urinate."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still got fever. More confused now. Feel worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you're experiencing, such as cough, shortness of breath, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No cough. Hard to breathe a little. No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine output or color recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't peed in like twelve hours. It's dark."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI)",
+          "Sepsis",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis",
+          "Blood cultures",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Administer intravenous fluids",
+          "Start broad-spectrum antibiotics",
+          "Monitor vital signs closely",
+          "Provide supplemental oxygen if needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Sepsis",
+          "Respiratory distress",
+          "Acute kidney injury"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious infection, and we need to run some tests and start treatment immediately."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Real bad."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COPD exacerbation",
+          "heart failure",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "basic metabolic panel",
+          "electrocardiogram",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "supplemental oxygen",
+          "bronchodilators",
+          "IV fluids",
+          "antibiotic therapy if pneumonia suspected"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis",
+          "cardiac ischemia"
+        ],
+        "communication_note": "Given your severe shortness of breath and risk factors, we need to rule out serious conditions and will send you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507989.8633385
+}

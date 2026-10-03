@@ -1,0 +1,219 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "mistral-small-2603",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "primary_care",
+    "demographics": {
+      "age": 45,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a sore on my foot. Two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore in more detail? For example, is it painful, oozing, or growing in size? Have you had any recent injuries or changes in sensation in that area?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No pain. It's there two weeks. Not getting better."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer",
+          "Pressure ulcer",
+          "Venous stasis ulcer",
+          "Arterial insufficiency ulcer",
+          "Skin infection (e.g., cellulitis, abscess)"
+        ],
+        "workup_ordered": [
+          "Assess wound characteristics (size, depth, exudate, odor)",
+          "Check pedal pulses and capillary refill",
+          "Measure ankle-brachial index (ABI) if arterial insufficiency is suspected",
+          "Order basic metabolic panel (BMP) to evaluate renal function (eGFR, creatinine)",
+          "Consider HbA1c if diabetes is suspected",
+          "Perform wound culture if signs of infection (e.g., purulence, erythema, warmth)"
+        ],
+        "management_plan": [
+          "Discontinue ibuprofen; switch to acetaminophen 500mg Q6H PRN (max 3g/day) for pain",
+          "Monitor renal function closely (eGFR, creatinine) given metformin and lisinopril use",
+          "Educate patient on avoiding nephrotoxic drugs (e.g., NSAIDs, high-dose acetaminophen)",
+          "Initiate proper wound care (cleansing, debridement if needed, appropriate dressing)",
+          "Refer to podiatry if diabetic foot ulcer is suspected",
+          "Schedule follow-up in 1 week to reassess wound and renal function",
+          "Consider referral to vascular surgery if arterial insufficiency is suspected"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of acute kidney injury due to ibuprofen use with lisinopril (contraindicated in CKD)",
+          "Potential for metformin accumulation if renal function declines (eGFR <30 mL/min/1.73m\u00b2)",
+          "Unaddressed wound may lead to infection or ulcer progression",
+          "Need for close monitoring of renal function and wound healing"
+        ],
+        "communication_note": "Patient should avoid NSAIDs and monitor for signs of worsening renal function or infection.",
+        "trace": {
+          "clinician_contribution": "Clinician conducted a focused history to characterize the sore (pain, oozing, growth, recent injuries, sensation changes) and identified a broad differential including diabetic foot ulcer, pressure ulcer, venous stasis ulcer, arterial insufficiency ulcer, and skin infection.",
+          "safety_checker_contribution": "Safety checker approved the plan with no red flags or blocking concerns, recommending routine escalation. However, no immediate red flags were identified despite the need for renal function monitoring due to medication interactions.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication issues: ibuprofen is contraindicated with lisinopril due to increased risk of acute kidney injury; metformin requires renal function monitoring; and ACE inhibitors (lisinopril) can exacerbate renal decline. Recommended switching ibuprofen to acetaminophen and monitoring renal function closely."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "The wound got bigger. It smells bad now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you noticed the wound getting bigger and developing a bad odor?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started smelling bad maybe three, four days ago. Got bigger past week."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Necrotizing soft tissue infection (highest concern given foul odor and rapid progression)",
+          "Cellulitis with secondary bacterial overgrowth",
+          "Chronic wound with osteomyelitis (if bone involvement suspected)",
+          "Pressure ulcer with extensive necrosis"
+        ],
+        "workup_ordered": [
+          "Vital signs (temperature, heart rate, blood pressure) to assess for systemic infection",
+          "Wound inspection for necrosis, purulence, crepitus, or rapid expansion",
+          "Wound culture if purulent drainage present",
+          "CBC with differential if systemic signs (fever, leukocytosis) detected",
+          "Imaging (X-ray or MRI) if osteomyelitis or necrotizing infection suspected",
+          "Renal function assessment (if amoxicillin-clavulanate considered) to guide dosing"
+        ],
+        "management_plan": [
+          "Hold ibuprofen immediately due to risk of masking infection progression and impairing wound healing; switch to acetaminophen for pain/fever",
+          "Empiric antibiotic therapy: Amoxicillin-clavulanate 875mg PO BID (adjust for renal function if needed) to cover gram-positive and some gram-negative organisms, including potential MRSA coverage",
+          "Apply clean, dry dressing to wound; avoid topical antibiotics due to poor tissue penetration in deep infections",
+          "Educate patient on red flags: increased pain, spreading redness, fever, or foul odor worsening (immediate re-evaluation needed)",
+          "Schedule urgent outpatient evaluation within 24 hours for wound debridement and further assessment",
+          "Monitor for signs of sepsis (hypotension, tachycardia, altered mental status) and escalate to ED if present"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "High risk of necrotizing soft tissue infection given foul odor and rapid wound progression; requires urgent debridement",
+          "NSAID use (ibuprofen) may mask systemic infection signs and impair wound healing; must be discontinued immediately",
+          "Suboptimal amoxicillin dosing for severe soft tissue infection; broader coverage (e.g., amoxicillin-clavulanate) is necessary",
+          "Risk of rapid deterioration without timely intervention (e.g., progression to sepsis or compartment syndrome)",
+          "Potential renal impairment requiring dose adjustment for antibiotics"
+        ],
+        "communication_note": "Patient must discontinue ibuprofen immediately and seek urgent outpatient evaluation within 24 hours for wound debridement and antibiotic therapy.",
+        "trace": {
+          "clinician_contribution": "Identified key differential diagnoses (necrotizing infection, cellulitis, osteomyelitis) and ordered appropriate workup (vitals, wound inspection, cultures, imaging) based on foul odor and rapid progression.",
+          "safety_checker_contribution": "Flagged high-risk necrotizing infection due to foul odor and rapid wound growth, recommended urgent outpatient escalation, and noted no immediate life-threatening concerns requiring ED referral.",
+          "pharm_nurse_contribution": "Highlighted critical medication issues (NSAID contraindication in infection, suboptimal antibiotic dosing, dose adjustments for renal impairment) and provided nursing monitoring priorities (vitals, wound inspection, red flag education)."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Foot is very red, swollen. I have a fever now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had the redness and swelling in your foot? Have you injured it recently or noticed any cuts or breaks in the skin?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Red and swollen two weeks. There's a cut I found. No injury that I remember."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cellulitis",
+          "Osteomyelitis",
+          "Gout",
+          "Septic arthritis",
+          "Deep vein thrombosis"
+        ],
+        "workup_ordered": [
+          "Vital signs including temperature",
+          "Examine foot for signs of infection (erythema, warmth, tenderness, fluctuance)",
+          "Check for signs of systemic infection (fever, tachycardia)",
+          "CBC, CRP, ESR, blood cultures if febrile",
+          "X-ray foot to assess for osteomyelitis or fracture",
+          "Consider MRI if osteomyelitis suspected",
+          "Assess for DVT (D-dimer or Doppler ultrasound if high suspicion)"
+        ],
+        "management_plan": [
+          "Hold NSAID (ibuprofen) pending infection workup due to risk of masking fever and worsening inflammation",
+          "Start acetaminophen 500-1000mg Q6H PRN for pain management",
+          "Monitor for red flags: spreading erythema, fever >101\u00b0F, worsening pain, systemic symptoms",
+          "If cellulitis confirmed: Empiric antibiotics (e.g., cephalexin 500mg QID) after cultures if purulent drainage present",
+          "Educate patient on red flags and when to seek urgent care (e.g., worsening fever, spreading redness)",
+          "Reassess in 48-72 hours or sooner if symptoms worsen",
+          "If DVT suspected: Consider imaging and anticoagulation per guidelines"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "NSAID contraindicated in potential infection (risk of masking fever and worsening inflammation)",
+          "Anticoagulant use increases bleeding risk if cellulitis worsens or DVT present",
+          "Risk of acute kidney injury with NSAID + ACE inhibitor combination",
+          "Prolonged symptoms (2 weeks) with fever suggest possible serious infection requiring prompt evaluation"
+        ],
+        "communication_note": "Patient has concerning signs of infection (fever + 2-week duration) requiring urgent outpatient evaluation to rule out cellulitis/osteomyelitis and assess for DVT.",
+        "trace": {
+          "clinician_contribution": "Clarified symptom duration (2 weeks) and identified cut on foot, narrowing differential to infectious causes (cellulitis/osteomyelitis) while considering gout/DVT. Ordered vital signs, infection-focused exam, and labs/imaging to confirm diagnosis.",
+          "safety_checker_contribution": "Approved plan with no red flags but recommended routine escalation due to potential infection. No blocking concerns identified.",
+          "pharm_nurse_contribution": "Highlighted critical medication issues: NSAID contraindicated in infection (risk of masking fever), interactions with ACE inhibitor (renal impairment), and anticoagulant bleeding risk. Recommended holding NSAID, using acetaminophen, and monitoring for complications."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790536230.2552953
+}

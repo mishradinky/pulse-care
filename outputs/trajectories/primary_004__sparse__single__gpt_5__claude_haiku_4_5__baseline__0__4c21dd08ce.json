@@ -1,0 +1,201 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My mom is confused and having accidents."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the confusion and accidents start?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days ago. She's never like this."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has she had any recent illnesses, infections, or changes in medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "She had a bladder infection six months ago. No new medicines."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has she had any fever, chills, or other symptoms like pain or burning during urination?"
+        },
+        {
+          "speaker": "patient",
+          "text": "She's hot. Accidents with the bathroom. That's new."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has she been drinking enough fluids and eating normally?"
+        },
+        {
+          "speaker": "patient",
+          "text": "She's been eating okay. Not drinking much though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has she been experiencing any dizziness, lightheadedness, or weakness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No dizziness. She's just confused and having accidents."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "dehydration",
+          "delirium"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "increase fluid intake",
+          "monitor mental status",
+          "follow up in 48 hours"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of dehydration",
+          "risk of worsening confusion"
+        ],
+        "communication_note": "Your mom's confusion and accidents may be due to a urinary tract infection or dehydration. We need to do some tests and increase her fluid intake. Please monitor her closely and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still confused. Worse this morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what you mean by 'confused'? Are you having trouble remembering things, concentrating, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Don't know what day it is. Can't think straight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your sleep patterns or appetite recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not eating much. Can't remember things."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "delirium",
+          "dementia",
+          "depression",
+          "electrolyte imbalance",
+          "infection"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CMP",
+          "urinalysis",
+          "TSH",
+          "B12 level",
+          "CT head"
+        ],
+        "management_plan": [
+          "Ensure patient safety at home",
+          "Review medications for potential side effects",
+          "Encourage hydration and nutrition",
+          "Schedule follow-up visit"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of falls due to confusion",
+          "Potential for worsening cognitive impairment"
+        ],
+        "communication_note": "We need to do some tests to understand why you're feeling confused and not eating well. Let's ensure you're safe at home and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not... awake. Confused."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "delirium",
+          "stroke"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "complete blood count",
+          "electrolyte panel",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "Ensure patient safety and prevent falls",
+          "Monitor vital signs closely",
+          "Consult neurology"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Patient is confused and not fully awake, which poses a risk for falls and further injury."
+        ],
+        "communication_note": "You are experiencing confusion and decreased alertness, so we need to get you to the hospital immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779512948.454457
+}

@@ -1,0 +1,187 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having sudden sharp pain on the right side of my chest and I'm short of breath. This started after I got back from a long flight a few days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg is a bit swollen and tender compared to the left."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent surgeries or been immobilized for a long period?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had any surgeries recently, but I was on a long flight from Tokyo for about 12 hours and didn't move much during it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any coughing, especially coughing up blood?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any coughing or coughed up any blood."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Administer anticoagulation therapy if PE is confirmed",
+          "Monitor vital signs closely",
+          "Provide supplemental oxygen if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of pulmonary embolism leading to respiratory distress or cardiac arrest"
+        ],
+        "communication_note": "You may have a blood clot in your lung, which is serious. We need to get you to the emergency room immediately for further testing and treatment."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm having worse trouble breathing, even when I'm just sitting around, and my right leg is more painful than before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the breathing difficulty and leg pain start getting worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The breathing difficulty started getting worse recently, and my right leg has been more painful, especially over the last couple of days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling, redness, or warmth in your right leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg has been more swollen and it's also warm and a bit red. It's been getting more painful too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had some chest pain that started suddenly and it's on the right side. I haven't noticed any palpitations, though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the right leg",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "Start anticoagulation therapy if PE or DVT is confirmed",
+          "Pain management for leg pain",
+          "Monitor oxygen saturation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of pulmonary embolism leading to respiratory distress or cardiac complications"
+        ],
+        "communication_note": "Your symptoms suggest a possible blood clot in the lungs or leg, which can be serious. We need to get you to the emergency room immediately for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm feeling really short of breath and I almost fainted earlier. I'm quite concerned about what's going on."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "acute coronary syndrome",
+          "heart failure exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "ECG",
+          "troponin levels",
+          "D-dimer",
+          "BNP"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start IV access",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "You are experiencing severe symptoms that require immediate medical attention, so we are calling emergency services to get you to the hospital quickly."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779635737.0908506
+}

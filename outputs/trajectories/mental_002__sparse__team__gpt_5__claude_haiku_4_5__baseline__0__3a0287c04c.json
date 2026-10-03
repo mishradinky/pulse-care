@@ -1,0 +1,184 @@
+{
+  "case_id": "mental_002",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Police brought me here. Haven't slept much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what happened that led the police to bring you here?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno. They said I was acting weird. I wasn't doing nothing wrong."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "acute stress reaction",
+          "insomnia",
+          "bipolar disorder",
+          "substance use disorder"
+        ],
+        "workup_ordered": [
+          "psychiatric evaluation",
+          "urine toxicology screen",
+          "sleep study"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and stabilization.",
+          "Consideration of a short-term benzodiazepine at the lowest effective dose if deemed safe after evaluation.",
+          "Close monitoring for withdrawal symptoms and ensuring a safe environment."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Police involvement suggests potential risk of harm to self or others.",
+          "Lack of sleep and possible substance use could worsen mental health conditions.",
+          "Potential for medication misuse or dependency."
+        ],
+        "communication_note": "Patient requires immediate evaluation in the emergency department due to safety concerns.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and suggested initial workup based on the patient's presentation.",
+          "safety_checker_contribution": "Identified red flags and recommended escalation to the emergency department due to potential risks.",
+          "pharm_nurse_contribution": "Highlighted medication concerns and interactions, emphasizing the need for cautious use of CNS depressants."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I need to leave. Now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I understand you're feeling the need to leave. Can you tell me more about what's making you feel this way right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Need to go. Got things to do. Important stuff."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "anxiety disorder",
+          "panic disorder",
+          "acute stress reaction"
+        ],
+        "workup_ordered": [
+          "mental health evaluation",
+          "screening for anxiety and panic disorders",
+          "assessment of immediate safety",
+          "direct inquiry about self-harm or harm to others"
+        ],
+        "management_plan": [
+          "Immediate safety assessment to rule out self-harm or harm to others",
+          "Review and ensure adherence to current medication regimen",
+          "Consider potential adjustment of Sertraline dosage",
+          "Schedule urgent outpatient follow-up for comprehensive mental health evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Urgent desire to leave",
+          "Potential risk of self-harm or harm to others",
+          "Medication adherence and potential misuse"
+        ],
+        "communication_note": "Immediate safety concerns prioritized with urgent outpatient follow-up recommended.",
+        "trace": {
+          "clinician_contribution": "Identified potential anxiety or panic disorder and emphasized understanding the underlying cause.",
+          "safety_checker_contribution": "Highlighted immediate safety concerns and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medication adherence and potential interactions, emphasizing safety monitoring."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Tired. Real tired. Why'd they give me that shot?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when you started feeling this tired and if there are any other symptoms you're experiencing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Tired after the shots they gave me. Don't remember much before."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "depression",
+          "chronic fatigue syndrome",
+          "hypothyroidism",
+          "anemia",
+          "sleep apnea"
+        ],
+        "workup_ordered": [
+          "complete blood count (CBC)",
+          "thyroid function tests",
+          "sleep study",
+          "comprehensive metabolic panel",
+          "mental health evaluation"
+        ],
+        "management_plan": [
+          "Proceed with the recommended workup to identify the underlying cause of fatigue.",
+          "Monitor the patient's response to any interventions and adjust the plan as necessary.",
+          "Ensure the patient is informed about the potential causes of fatigue and the importance of follow-up."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Evaluate for contraindicated medications if the patient has underlying conditions such as chronic kidney disease (CKD) or liver dysfunction."
+        ],
+        "communication_note": "The patient's fatigue is being investigated with a comprehensive workup to rule out both physical and mental health causes.",
+        "trace": {
+          "clinician_contribution": "The clinician provided a differential diagnosis and a detailed workup plan to investigate the cause of fatigue.",
+          "safety_checker_contribution": "The safety checker approved the plan with no red flags identified, recommending routine escalation.",
+          "pharm_nurse_contribution": "The pharm/nurse highlighted the need to consider contraindications related to medication metabolism in patients with CKD or liver dysfunction."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "bipolar I disorder manic episode with psychosis",
+      "substance-induced mania",
+      "schizoaffective disorder",
+      "secondary mania"
+    ],
+    "required_workup": [
+      "lithium level",
+      "TSH",
+      "BMP CBC",
+      "urine drug screen",
+      "ECG before antipsychotics",
+      "head imaging if first episode"
+    ],
+    "correct_management": [
+      "involuntary psychiatric hold",
+      "IM benzodiazepine for acute agitation",
+      "antipsychotic (haloperidol risperidone)",
+      "restart lithium targeting 0.8-1.2 mEq/L",
+      "inpatient psychiatric admission",
+      "family education"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511106.0738997
+}

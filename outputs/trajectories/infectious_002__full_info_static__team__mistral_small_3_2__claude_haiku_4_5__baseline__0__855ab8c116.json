@@ -1,0 +1,166 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute pyelonephritis with sepsis",
+          "Obstructive uropathy",
+          "Diabetic ketoacidosis",
+          "Pneumonia with sepsis",
+          "Intra-abdominal abscess"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Urinalysis (UA)",
+          "Blood cultures",
+          "Urine culture",
+          "Chest X-ray",
+          "Abdominal imaging (CT or US)",
+          "Arterial blood gas (ABG) if DKA suspected"
+        ],
+        "management_plan": [
+          "IV fluids for hypotension and sepsis",
+          "Broad-spectrum antibiotics (e.g., IV ceftriaxone and gentamicin or IV piperacillin-tazobactam)",
+          "Monitor urine output and renal function",
+          "Insulin therapy for hyperglycemia",
+          "Frequent vital sign monitoring",
+          "Oxygen therapy if SpO2 < 92%",
+          "Frequent neuro checks due to confusion",
+          "Consider ICU admission for sepsis and hypotension"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis with organ dysfunction (hypotension, acute kidney injury)",
+          "Potential obstructive uropathy",
+          "Diabetic ketoacidosis",
+          "Risk of septic shock"
+        ],
+        "communication_note": "Patient is a 78-year-old female with T2DM and recurrent UTIs presenting with fever, chills, flank pain, confusion, and vomiting. She is tachycardic and hypotensive with signs of sepsis and acute kidney injury. Immediate IV fluids and broad-spectrum antibiotics are required. ICU admission should be considered due to sepsis and hypotension.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial labs and imaging, initiated IV fluids and antibiotics.",
+          "safety_checker_contribution": "Identified sepsis with organ dysfunction, potential obstructive uropathy, and risk of septic shock.",
+          "pharm_nurse_contribution": "Prepared and administered IV fluids and antibiotics, monitored vital signs and urine output."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Sepsis due to pyelonephritis with ESBL E. coli",
+          "Acute kidney injury",
+          "Acute confusion due to sepsis and metabolic derangement"
+        ],
+        "workup_ordered": [
+          "Repeat CBC, BMP, LFTs, lactate",
+          "Blood cultures (already obtained)",
+          "Urine culture (already obtained)",
+          "Chest X-ray to rule out pneumonia",
+          "CT abdomen/pelvis with contrast if stable to assess for abscess or obstruction"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics: ceftriaxone 2g IV every 24 hours (based on urine culture sensitivity)",
+          "Fluids resuscitation with normal saline bolus 30ml/kg",
+          "Monitor urine output and consider Foley catheter if not already placed",
+          "Transfer to ICU for close monitoring and higher level of care",
+          "Reassess mental status and vital signs frequently"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis with organ dysfunction (hypotension, acute kidney injury, altered mental status)",
+          "Risk of septic shock and multi-organ failure",
+          "Risk of further deterioration and need for advanced airway management"
+        ],
+        "communication_note": "Patient is critically ill with sepsis and acute kidney injury. Immediate ICU transfer and aggressive resuscitation required. Infectious disease consultation for management of ESBL E. coli infection.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial labs and antibiotics, recognized severity of illness",
+          "safety_checker_contribution": "Identified sepsis with organ dysfunction, recommended immediate escalation",
+          "pharm_nurse_contribution": "Recommended appropriate antibiotic choice based on culture sensitivities, assisted with medication administration"
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Sepsis secondary to pyelonephritis",
+          "Acute kidney injury",
+          "Septic shock",
+          "Multiple organ dysfunction syndrome (MODS)"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Urinalysis and urine culture",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Lactic acid level",
+          "Procalcitonin (PCT)",
+          "Renal ultrasound or CT scan if stable",
+          "Arterial blood gas (ABG)"
+        ],
+        "management_plan": [
+          "IV fluids resuscitation",
+          "Broad-spectrum antibiotics (e.g., piperacillin-tazobactam or meropenem)",
+          "Vasopressor support (norepinephrine)",
+          "Mechanical ventilation for respiratory support",
+          "Renal replacement therapy if indicated",
+          "Close monitoring in ICU",
+          "Frequent reassessment of hemodynamic status and organ function"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "High risk of septic shock and multi-organ failure",
+          "Potential for rapid deterioration",
+          "Need for immediate ICU level care"
+        ],
+        "communication_note": "Patient is critically ill with septic shock and MODS. Immediate ICU management and close monitoring are essential. Coordination with ICU team and infectious disease specialist is crucial.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's critical condition and ordered initial workup and management.",
+          "safety_checker_contribution": "Identified high-risk safety concerns and recommended immediate escalation.",
+          "pharm_nurse_contribution": "Prepared and administered IV fluids, antibiotics, and vasopressors as per protocol."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597811.3087056
+}

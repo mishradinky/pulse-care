@@ -1,0 +1,198 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache. Four hours. Blood pressure high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache? Is it throbbing, sharp, or dull?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing. Really bad. Started four hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Nine. Really bad. Won't go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any vision changes, nausea, or vomiting with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No vision changes. No nausea or vomiting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent head trauma or injury?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Nothing like that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any similar headaches in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never like this before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Migraine",
+          "Tension headache",
+          "Subarachnoid hemorrhage",
+          "Hypertensive crisis"
+        ],
+        "workup_ordered": [
+          "Blood pressure measurement",
+          "Neurological examination",
+          "CT scan of the head without contrast"
+        ],
+        "management_plan": [
+          "Monitor blood pressure closely",
+          "Administer pain medication if necessary",
+          "Prepare for possible imaging studies"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for subarachnoid hemorrhage given sudden onset and severity",
+          "Risk of hypertensive crisis"
+        ],
+        "communication_note": "Given the severity and duration of your headache, we need to rule out serious causes and will proceed with further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still hurts. Blood pressure still high even with pills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache? Is it throbbing, sharp, or dull? And have you been taking your blood pressure medication as prescribed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing. No, ran out two weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or vision changes recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. No shortness of breath. No vision changes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertension with poor medication adherence",
+          "Migraine",
+          "Secondary hypertension"
+        ],
+        "workup_ordered": [
+          "Blood pressure recheck",
+          "Basic metabolic panel",
+          "Urinalysis"
+        ],
+        "management_plan": [
+          "Refill blood pressure medication",
+          "Headache management with NSAIDs or triptans as appropriate",
+          "Follow-up in 1 week for blood pressure recheck"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Uncontrolled hypertension",
+          "Possible medication non-adherence"
+        ],
+        "communication_note": "Your blood pressure is still high, and we need to monitor it closely. I've refilled your medication and would like to see you again soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My headache's gone. But now my right eye is blurry."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Transient Ischemic Attack (TIA)",
+          "Migraine with aura",
+          "Optic Neuritis",
+          "Hypertension-related vision changes"
+        ],
+        "workup_ordered": [
+          "MRI of the brain",
+          "MRI of the orbits",
+          "Carotid Doppler ultrasound",
+          "Blood pressure measurement",
+          "Fasting blood glucose and lipid profile"
+        ],
+        "management_plan": [
+          "Referral to a neurologist for further evaluation",
+          "Monitor blood pressure regularly",
+          "Consider starting on a statin if lipid profile is abnormal",
+          "Follow up in 1 week to reassess symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential cardiovascular event",
+          "Risk of stroke"
+        ],
+        "communication_note": "We need to do some more tests to understand what's causing your vision changes."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779507065.0745351
+}

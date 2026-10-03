@@ -1,0 +1,211 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "fx_v0_d1_l1_x0",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 78,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever. Chills. Back hurts. Can't pee. Confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days. Started yesterday morning with the fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any changes in your urine, such as blood or a strong odor?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's been dark. Haven't really looked close."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any nausea or vomiting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, been throwing up. Since yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent infections or been on antibiotics recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Had a bladder infection few months back. They gave me pills for it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any pain or burning when you urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't peed in like twelve hours. Real worried."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "pyelonephritis",
+          "urosepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate empiric intravenous antibiotics",
+          "administer intravenous fluids",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis due to urinary tract infection",
+          "acute kidney injury due to urinary retention"
+        ],
+        "communication_note": "You need immediate medical attention to address a possible severe infection and urinary retention."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still got fever. More confused now. Been on antibiotics one day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific symptoms or changes have you noticed since starting the antibiotics?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still got fever. More confused now. Worse, not better."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any new symptoms such as rash, difficulty breathing, or swelling since starting the antibiotics?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Skin looks blotchy. Can't breathe right. Head's foggy."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "allergic reaction to antibiotics",
+          "worsening infection",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "blood cultures",
+          "chest X-ray",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "discontinue current antibiotic",
+          "administer antihistamines",
+          "start broad-spectrum IV antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for anaphylaxis",
+          "risk of sepsis"
+        ],
+        "communication_note": "You need immediate medical attention due to worsening symptoms and possible allergic reaction to antibiotics."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm really sick. Can't think straight. Everything hurts."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "sepsis",
+          "urinary tract infection",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "blood cultures",
+          "urinalysis",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum antibiotics",
+          "administer IV fluids",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for rapid deterioration due to age and possible sepsis"
+        ],
+        "communication_note": "You need immediate medical attention to address a serious infection and prevent complications."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790548173.2077699
+}

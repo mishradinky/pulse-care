@@ -1,0 +1,183 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 1,
+        "differential_diagnosis": [
+          "Disseminated Lyme disease with cardiac and neurologic involvement (CONFIRMED: erythema migrans, Lyme carditis with Mobitz II AV block, Lyme neuroborreliosis with facial palsy)",
+          "Secondary syphilis (lower probability given specific Lyme serology confirmation and rash/conduction pattern)",
+          "Viral myocarditis with concomitant viral arthralgia (lower probability given Lyme serology positivity and epidemiologic fit)"
+        ],
+        "workup_ordered": [
+          "STAT: Continuous cardiac telemetry monitoring (Mobitz II AV block progression risk)",
+          "STAT: Repeat 12-lead ECG and transthoracic echocardiogram (assess for myocarditis/pericarditis, baseline conduction assessment)",
+          "STAT: Cardiology consultation (risk stratification for pacing, progression monitoring)",
+          "Baseline labs: CBC, CMP (renal/hepatic function), LFTs, pregnancy status (if applicable)",
+          "Neurology consultation for facial palsy assessment (House-Brackmann scale baseline) and LP consideration with CSF Lyme PCR/serology if CNS involvement suspected",
+          "Lyme serology CONFIRMED: ELISA positive, Western blot IgG positive (5 bands), IgM positive (2 bands) \u2014 diagnostic for Lyme disease",
+          "RPR/VDRL to exclude secondary syphilis (per differential)",
+          "Rheumatology assessment of migratory joint involvement pattern and inflammatory markers (ESR, CRP)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ADMISSION for continuous cardiac monitoring with pacing capability on standby (Mobitz II AV block with disseminated Lyme disease)",
+          "Antibiotic initiation: Ceftriaxone 2g IV Q12H for 14-21 days (preferred for CNS/cardiac Lyme involvement; covers both carditis and potential neuroborreliosis)",
+          "Obtain comprehensive allergy history (penicillin, cephalosporin, tetracycline, macrolide) BEFORE first antibiotic dose",
+          "Establish reliable IV access (consider central line given prolonged therapy and cardiac monitoring needs)",
+          "Cardiac monitoring protocol: continuous telemetry, serial ECGs (baseline, 6h, 24h, then daily), echocardiogram within 24h",
+          "Neurology baseline assessment: facial nerve function (House-Brackmann scale), mental status, cranial nerve exam before antibiotics",
+          "Educate on red-flag symptoms: syncope, severe bradycardia, chest pain, worsening facial weakness \u2014 alert nursing immediately if occur",
+          "Discharge planning: Schedule post-discharge cardiology follow-up (2-4 weeks), neurology follow-up, and repeat ECG at end of antibiotic course",
+          "Counsel on antibiotic adherence and photosensitivity precautions if doxycycline considered for outpatient continuation (unlikely given cardiac involvement)"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: 2nd degree AV block Mobitz II is HIGH-RISK for unpredictable progression to complete heart block \u2014 requires immediate continuous monitoring and cardiology evaluation, NOT outpatient workup",
+          "CRITICAL: Disseminated Lyme disease with BOTH cardiac (Mobitz II) AND neurologic (facial palsy) involvement \u2014 this is NOT routine diagnostic scenario; requires inpatient admission",
+          "BLOCKING: Patient cannot be discharged to outpatient pathway with documented Mobitz II AV block; cardiac stabilization and exclusion of progression to complete heart block must occur FIRST",
+          "BLOCKING: No current cardiac symptoms documented (syncope, presyncope, dyspnea, chest pain) \u2014 must clarify acuity immediately; if ANY symptoms present, this is EMERGENCY-level",
+          "Lyme carditis with conduction abnormality carries risk of sudden progression; serology-first outpatient approach is inappropriate",
+          "Pacing capability must be available on standby given Mobitz II risk profile",
+          "Facial palsy + swallowing concerns: if doxycycline used for outpatient continuation, ensure upright positioning and adequate water intake to prevent esophageal irritation",
+          "Baseline neurologic assessment (House-Brackmann scale) essential before antibiotics for comparison and prognostication"
+        ],
+        "communication_note": "Patient with confirmed disseminated Lyme disease (serology positive, erythema migrans history, facial palsy, migratory arthralgia) complicated by Mobitz II AV block requires IMMEDIATE ED ADMISSION for continuous cardiac monitoring, cardiology evaluation, and IV ceftriaxone initiation \u2014 outpatient workup is contraindicated given conduction abnormality progression risk.",
+        "trace": {
+          "clinician_contribution": "Proposed comprehensive differential and workup correctly identifying disseminated Lyme disease triad (erythema migrans, Lyme carditis, Lyme neuroborreliosis); recommended appropriate specialist coordination (cardiology, neurology, rheumatology) and diagnostic testing (serology confirmation, cardiac imaging, LP consideration). However, sequencing was inverted: proposed serology confirmation BEFORE cardiac stabilization, which is inappropriate given Mobitz II AV block acuity.",
+          "safety_checker_contribution": "CRITICAL escalation: identified that Mobitz II AV block is HIGH-RISK conduction abnormality requiring immediate continuous monitoring and ED-level care, NOT outpatient workup. Blocked clinician's proposal and correctly escalated to ED referral. Flagged missing cardiac symptom assessment, need for pacing capability standby, and inverted clinical sequencing (cardiac stabilization FIRST, then serology/specialist coordination). This role prevented potentially dangerous outpatient discharge.",
+          "pharm_nurse_contribution": "Provided comprehensive medication planning (ceftriaxone 2g IV Q12H vs. doxycycline dosing), identified critical baseline labs needed (renal/hepatic function, pregnancy status, allergy history), and outlined nursing priorities: continuous telemetry, IV access, baseline neurologic assessment (House-Brackmann scale), antibiotic timing/counseling, and symptom monitoring education. Ensured medication safety before initiation."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 2,
+        "escalation_level": "emergency_911",
+        "differential_diagnosis": [
+          "Lyme carditis with complete 3rd degree AV block (PRIMARY)",
+          "Lyme neuroborreliosis with facial palsy (CONCURRENT)",
+          "Secondary AV block from other infectious etiologies (less likely given epidemiology)"
+        ],
+        "critical_finding": "Complete 3rd degree AV block with junctional escape rhythm (HR 38), symptomatic bradycardia (presyncope \u00d7 2), and hemodynamic compromise (cannon A waves, BP 108/68)\u2014LIFE-THREATENING CARDIAC EMERGENCY",
+        "workup_ordered": [
+          "STAT cardiology consultation for pacemaker evaluation (temporary/permanent)",
+          "Continuous telemetry monitoring during transport and hospitalization",
+          "Lyme serology (ELISA + Western blot) and CSF analysis (Lyme PCR, cell count, protein, glucose) in parallel during admission",
+          "Troponin and BNP to assess myocardial involvement",
+          "Blood cultures if febrile",
+          "Baseline labs: BUN, creatinine, LFTs, CBC",
+          "Repeat ECG post-stabilization"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate 911/ED referral with advance cardiology notification; establish IV access and continuous cardiac monitoring during transport",
+          "Bedside readiness: Atropine (0.5\u20131 mg IV) and isoproterenol infusion available as bridge therapy pending pacemaker placement",
+          "Obtain FULL medication history and allergy verification (PCN/cephalosporin, sulfa, macrolide) BEFORE antibiotic initiation",
+          "Initiate IV Ceftriaxone 2g Q12H (CNS-penetrating dose for Lyme carditis/neuroborreliosis) once allergy status confirmed and renal function verified",
+          "HOLD NSAIDs pending cardiology clearance (contraindicated in acute heart block and hemodynamic instability)",
+          "Monitor fluid status closely; avoid overload given cardiac compromise; assess for heart failure signs (JVD, pulmonary edema)",
+          "Neurologic checks: Document baseline facial palsy (CN VII) for post-treatment comparison",
+          "If lumbar puncture performed: post-LP precautions (flat \u00d7 2\u20134 hours, monitor for headache)",
+          "If doxycycline prescribed as adjunct: counsel on upright positioning, adequate hydration, photosensitivity; separate dosing from beta-blockers by 2+ hours if needed"
+        ],
+        "safety_concerns": [
+          "CRITICAL: Complete 3rd degree AV block with symptomatic bradycardia and presyncope\u2014imminent risk of asystole, cardiogenic shock, or sudden cardiac arrest without pacemaker intervention",
+          "Progressive cardiac manifestation of disseminated Lyme disease (facial palsy + cardiac involvement indicates CNS/cardiac tropism)",
+          "Hemodynamic compromise: BP 108/68 with HR 38 and cannon A waves suggests reduced cardiac output",
+          "No current medication history provided\u2014MUST obtain before any treatment initiation to avoid drug interactions and contraindications",
+          "Potential drug-device interaction if temporary pacemaker placed (electromagnetic interference with electronic devices)",
+          "Risk of cephalosporin-induced fever; distinguish from persistent Lyme infection vs. drug reaction"
+        ],
+        "communication_note": "Patient requires EMERGENCY 911 transport for stat cardiology evaluation and pacemaker consideration; Lyme disease workup and IV antibiotic therapy will proceed in parallel during hospitalization\u2014do NOT delay transport for additional testing.",
+        "trace": {
+          "clinician_contribution": "Correctly identified Lyme carditis with complete 3rd degree AV block as life-threatening emergency requiring immediate cardiology intervention; appropriately yielded to safety and prioritized cardiac stabilization over infectious workup completion; provided sound differential diagnosis and comprehensive initial workup plan.",
+          "safety_checker_contribution": "Approved escalation to emergency_911 with no blocking concerns; identified all critical red flags (complete heart block, symptomatic bradycardia, hemodynamic compromise, disseminated Lyme with CNS/cardiac involvement); mandated continuous telemetry, advance cardiology notification, and bridge therapy readiness; ensured workup can proceed in parallel during hospitalization.",
+          "pharm_nurse_contribution": "Flagged CRITICAL gap in medication history and allergy verification before any treatment; specified IV Ceftriaxone 2g Q12H as standard CNS-penetrating dose with renal function verification; identified drug-device interactions (pacemaker + electronic devices), drug-drug interactions (cephalosporin + anticoagulants, doxycycline + beta-blockers), and contraindications (NSAIDs in acute heart block); provided detailed nursing concerns including continuous monitoring, pacemaker readiness, IV access, fluid management, allergy confirmation, baseline labs, CSF precautions, and neurologic assessment."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 3,
+        "chief_complaint": "Syncopal episode in waiting room with complete heart block (HR 32, BP 92/58)",
+        "differential_diagnosis": [
+          "Lyme carditis with complete AV block (Borrelia burgdorferi) \u2014 PRIMARY",
+          "Acute myocarditis (viral or other infectious etiology)",
+          "Idiopathic conduction system disease"
+        ],
+        "workup_ordered": [
+          "STAT cardiology consultation with pacemaker evaluation capability",
+          "Continuous telemetry monitoring (ICU-level)",
+          "12-lead ECG (already obtained: complete AV block, HR 32, ventricular escape rhythm)",
+          "Troponin (0.08 \u2014 consistent with myocarditis), BNP, CBC, CMP, blood cultures",
+          "Lyme serology (ELISA + Western blot) \u2014 do NOT delay empiric therapy",
+          "Lumbar puncture for CSF analysis (after cardiac stabilization or in parallel) given facial drooping",
+          "Transthoracic echocardiography to assess ventricular function and rule out structural disease"
+        ],
+        "management_plan": [
+          "EMERGENCY 911 ACTIVATION \u2014 Do NOT manage in standard ED; direct to ICU-capable facility with interventional cardiology on standby",
+          "Apply transcutaneous pacing pads immediately upon arrival; have temporary pacemaker kit ready",
+          "Establish 2 large-bore IV lines for emergency medications and potential pacemaker placement",
+          "Initiate IV Ceftriaxone 2g Q12H STAT (after allergy verification) for Lyme carditis with neurologic involvement",
+          "Have ACLS medications at bedside: atropine (0.5\u20131 mg IV), isoproterenol infusion, dopamine as temporizing measures pre-pacemaker",
+          "Strict bed rest with fall/syncope precautions; assist with all ambulation",
+          "Continuous cardiac monitoring with serial ECGs to document AV block progression/resolution",
+          "Monitor troponin and BNP trends for myocardial injury assessment",
+          "Cautious IV hydration given hemodynamic compromise; monitor urine output and electrolytes",
+          "Neurologic assessment: document facial drooping severity, meningeal signs, focal deficits",
+          "CONTRAINDICATIONS: Avoid NSAIDs, decongestants, sympathomimetics, and QT-prolonging agents (fluoroquinolones, macrolides)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Complete heart block (3rd degree AV block) with severe bradycardia (HR 32) and hemodynamic collapse (BP 92/58, syncope) \u2014 LIFE-THREATENING",
+          "Inadequate cerebral perfusion with loss of consciousness \u2014 high risk of cardiac arrest or cardiogenic shock without pacing support",
+          "Lyme neuroborreliosis (facial drooping, CN VII involvement) with concurrent cardiac involvement \u2014 unpredictable progression",
+          "Elevated troponin (0.08) confirms myocardial injury; risk of further conduction deterioration",
+          "Patient is hemodynamically unstable and unsuitable for outpatient or standard ED management"
+        ],
+        "communication_note": "This 40-year-old with camping exposure, erythema migrans, migratory arthralgia, facial drooping, and now complete heart block with syncope requires IMMEDIATE emergency transport to an ICU-capable facility with interventional cardiology; empiric IV ceftriaxone should begin STAT after allergy clearance, and temporary pacemaker placement is anticipated.",
+        "trace": {
+          "clinician_contribution": "Recognized pathognomonic presentation of Lyme carditis with progression from 2nd to 3rd degree AV block; proposed comprehensive differential (Lyme carditis primary, viral myocarditis, idiopathic conduction disease) and appropriate urgent workup including stat cardiology, continuous monitoring, labs, serology, CSF analysis, and echocardiography. Correctly identified need for pacemaker evaluation and IV ceftriaxone.",
+          "safety_checker_contribution": "Escalated to EMERGENCY 911 with emphasis on ICU-level care; identified five critical red flags (complete AV block, hemodynamic compromise, unpredictable progression, arrest/shock risk, CNS/cardiac co-involvement); explicitly rejected standard ED management and mandated direct ICU admission with interventional cardiology standby. Reinforced that serology should NOT delay empiric ceftriaxone and that transcutaneous pacing pads must be applied immediately.",
+          "pharm_nurse_contribution": "Verified ceftriaxone 2g IV Q12H as appropriate first-line therapy; confirmed no active drug interactions (patient medication-naive); flagged contraindications (NSAIDs, fluoroquinolones, macrolides); emphasized allergy verification before cephalosporin use (with IV penicillin G as alternative); outlined critical nursing actions (continuous monitoring, 2 large-bore IVs, transcutaneous pacing pads, strict bed rest, neurologic monitoring, cautious hydration, serial troponin/ECG trending)."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779600710.5623915
+}

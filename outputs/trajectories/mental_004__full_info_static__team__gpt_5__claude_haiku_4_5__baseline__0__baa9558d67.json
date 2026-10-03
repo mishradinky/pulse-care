@@ -1,0 +1,160 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Alcohol withdrawal syndrome",
+          "Essential tremor",
+          "Anxiety disorder",
+          "Hypertension secondary to alcohol withdrawal"
+        ],
+        "workup_ordered": [
+          "CIWA-Ar assessment",
+          "Electrolyte panel (BMP)",
+          "Complete blood count (CBC)",
+          "Liver function tests (LFTs)",
+          "Blood alcohol level"
+        ],
+        "management_plan": [
+          "Initiate benzodiazepine therapy (e.g., lorazepam) for withdrawal symptoms",
+          "Administer thiamine 100mg IV to prevent Wernicke's encephalopathy",
+          "Correct electrolyte imbalances (e.g., magnesium and potassium)",
+          "Monitor vital signs and CIWA-Ar score regularly",
+          "Provide supportive care and reassurance",
+          "Consider admission for observation and management of withdrawal"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of withdrawal seizures",
+          "Potential for severe alcohol withdrawal syndrome (delirium tremens)",
+          "Hypertensive urgency",
+          "Electrolyte imbalances"
+        ],
+        "communication_note": "Patient presents with severe alcohol withdrawal symptoms, including tremors, diaphoresis, and anxiety, with a history of withdrawal seizures. Immediate intervention with benzodiazepines is necessary to prevent complications. Family should be informed of the need for hospital observation and management.",
+        "trace": {
+          "clinician_contribution": "Identified severe alcohol withdrawal and initiated appropriate pharmacological intervention.",
+          "safety_checker_contribution": "Highlighted the risk of seizures and need for close monitoring.",
+          "pharm_nurse_contribution": "Ensured thiamine administration and electrolyte correction."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Alcohol withdrawal syndrome",
+          "Delirium tremens",
+          "Hypertensive urgency",
+          "Electrolyte imbalance",
+          "Seizure disorder secondary to alcohol withdrawal"
+        ],
+        "workup_ordered": [
+          "Repeat BMP to monitor electrolytes",
+          "Magnesium and potassium replacement",
+          "Continuous cardiac monitoring",
+          "CIWA-Ar monitoring every 1-2 hours",
+          "Consider EEG if seizures persist"
+        ],
+        "management_plan": [
+          "Administer benzodiazepines (e.g., lorazepam) for seizure prophylaxis and withdrawal symptoms",
+          "Administer IV fluids with electrolyte replacement (e.g., magnesium sulfate and potassium chloride)",
+          "Monitor and manage blood pressure with antihypertensives if needed",
+          "Provide supportive care in a quiet, low-stimulation environment",
+          "Consult psychiatry for alcohol use disorder management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of recurrent seizures",
+          "Potential progression to delirium tremens",
+          "Hypertensive crisis",
+          "Electrolyte imbalance leading to cardiac arrhythmias"
+        ],
+        "communication_note": "Patient is currently post-ictal and agitated, requiring close monitoring and immediate intervention to prevent further complications. Family should be informed of the critical nature of the situation and the need for hospitalization.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate benzodiazepine administration and electrolyte correction.",
+          "safety_checker_contribution": "Highlighted the risk of progression to delirium tremens and the need for continuous monitoring.",
+          "pharm_nurse_contribution": "Prepared IV fluids and medications for electrolyte replacement and seizure prophylaxis."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Delirium tremens secondary to alcohol withdrawal",
+          "Electrolyte imbalance due to chronic alcohol use",
+          "Metabolic alkalosis",
+          "Sepsis (less likely given the context)"
+        ],
+        "workup_ordered": [
+          "CBC with differential",
+          "Comprehensive metabolic panel",
+          "Magnesium and phosphate levels",
+          "EKG to assess for any cardiac arrhythmias",
+          "CT head if any focal neurological deficits develop"
+        ],
+        "management_plan": [
+          "Initiate benzodiazepine therapy (e.g., lorazepam) for alcohol withdrawal symptoms",
+          "Administer IV fluids with electrolyte replacement (e.g., potassium and magnesium)",
+          "Monitor vital signs and mental status closely",
+          "Consider thiamine and folic acid supplementation to prevent Wernicke's encephalopathy",
+          "Consult psychiatry for potential inpatient detoxification",
+          "Consider ICU admission for close monitoring given the severity of symptoms"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of progression to severe delirium tremens",
+          "Potential for further seizures due to withdrawal",
+          "Risk of cardiac arrhythmias due to electrolyte imbalances",
+          "Respiratory compromise due to agitation and hyperventilation"
+        ],
+        "communication_note": "Patient is experiencing severe alcohol withdrawal symptoms consistent with delirium tremens, requiring immediate medical intervention. Family should be informed about the seriousness of the condition and the need for intensive monitoring and treatment.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate benzodiazepine therapy and electrolyte correction.",
+          "safety_checker_contribution": "Highlighted the risk of seizures and cardiac arrhythmias due to electrolyte imbalances.",
+          "pharm_nurse_contribution": "Recommended thiamine and folic acid supplementation to prevent neurological complications."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597901.7419887
+}

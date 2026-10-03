@@ -1,0 +1,114 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease with neurological and cardiac involvement",
+          "Bell's palsy",
+          "Rheumatic fever"
+        ],
+        "workup_ordered": [
+          "Lyme serology",
+          "EKG monitoring",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Start doxycycline for Lyme disease",
+          "Monitor cardiac status closely",
+          "Consider referral to cardiology for AV block"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential progression of AV block",
+          "Risk of worsening neurological symptoms"
+        ],
+        "communication_note": "You likely have Lyme disease affecting your heart and nerves, and we'll start treatment and monitor your heart closely."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease with cardiac involvement",
+          "idiopathic complete heart block"
+        ],
+        "workup_ordered": [
+          "Lyme serology",
+          "hospital admission for cardiac monitoring"
+        ],
+        "management_plan": [
+          "admit to hospital for cardiac monitoring",
+          "initiate IV antibiotics for suspected Lyme disease",
+          "consider temporary pacing if symptomatic bradycardia persists"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of syncope due to complete heart block",
+          "potential progression to more severe cardiac complications"
+        ],
+        "communication_note": "You need immediate hospital care for your heart block, likely related to Lyme disease, and we'll start treatment right away."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme carditis",
+          "complete heart block"
+        ],
+        "workup_ordered": [
+          "admission to hospital",
+          "continuous cardiac monitoring",
+          "IV antibiotics for Lyme disease",
+          "consult cardiology for possible temporary pacing"
+        ],
+        "management_plan": [
+          "admit to hospital for monitoring and treatment",
+          "initiate IV ceftriaxone for Lyme disease",
+          "consult cardiology for pacemaker evaluation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sudden cardiac arrest due to complete heart block"
+        ],
+        "communication_note": "You have a serious heart condition likely related to Lyme disease, and we need to admit you to the hospital immediately for treatment and monitoring."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505408.1154032
+}

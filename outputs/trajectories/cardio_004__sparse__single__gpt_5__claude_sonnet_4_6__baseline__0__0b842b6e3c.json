@@ -1,0 +1,189 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache. Really bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and nature of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Whole head. Throbbing. Really bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About four hours now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or sensitivity to light or sound with this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced a headache like this before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never this bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your vision or any neurological symptoms like weakness or numbness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "migraine",
+          "tension headache",
+          "hypertensive crisis",
+          "subarachnoid hemorrhage"
+        ],
+        "workup_ordered": [
+          "blood pressure measurement",
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "administer pain relief medication",
+          "monitor blood pressure"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for serious underlying condition such as hemorrhage"
+        ],
+        "communication_note": "Given the severity and sudden onset of your headache, I recommend going to the emergency department for further evaluation and management."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still pounding. Pills didn't help much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and nature of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing. Whole head. Bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Since this morning. About four hours."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "migraine",
+          "tension headache",
+          "hypertensive headache"
+        ],
+        "workup_ordered": [
+          "blood pressure measurement",
+          "complete blood count",
+          "CT scan of the head if indicated"
+        ],
+        "management_plan": [
+          "prescribe a different class of headache medication",
+          "advise on lifestyle modifications to reduce headache triggers",
+          "schedule follow-up visit in one week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for severe hypertension if blood pressure is elevated"
+        ],
+        "communication_note": "Your headache is concerning, and we need to check your blood pressure and possibly do some tests to ensure there's nothing serious. Let's try a different medication and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Right eye's blurry."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "vitreous hemorrhage"
+        ],
+        "workup_ordered": [
+          "ophthalmology consultation",
+          "fundoscopic examination",
+          "optical coherence tomography (OCT)"
+        ],
+        "management_plan": [
+          "urgent referral to ophthalmology",
+          "advise patient to avoid strenuous activities until evaluated"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not promptly evaluated"
+        ],
+        "communication_note": "Your blurred vision needs urgent evaluation by an eye specialist to prevent any potential vision loss."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779636742.9193377
+}

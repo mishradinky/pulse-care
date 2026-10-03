@@ -1,0 +1,150 @@
+{
+  "case_id": "medsafety_002",
+  "category": "medication_safety",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute kidney injury (AKI) secondary to NSAID use in a patient with chronic kidney disease (CKD)",
+          "Volume overload due to worsening renal function",
+          "Hyperkalemia secondary to AKI and NSAID use",
+          "Worsening heart failure (though less likely given no JVD or lung crackles)"
+        ],
+        "workup_ordered": [
+          "Repeat BMP to monitor electrolytes and renal function",
+          "Spot urine protein/creatinine ratio to assess proteinuria",
+          "EKG to evaluate for hyperkalemia-induced cardiac changes",
+          "Echocardiogram to assess for heart failure (if clinically indicated)"
+        ],
+        "management_plan": [
+          "Discontinue ibuprofen immediately due to NSAID-induced AKI",
+          "Initiate sodium polystyrene sulfonate (Kayexalate) for hyperkalemia management",
+          "Consider IV fluids if patient is hypovolemic (but avoid if volume overloaded)",
+          "Adjust lisinopril dose or hold temporarily due to AKI and hyperkalemia",
+          "Monitor BP and adjust antihypertensive medications as needed",
+          "Dietary counseling for low-potassium diet and fluid management",
+          "Follow-up with nephrology for further management of CKD and AKI"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Hyperkalemia can lead to life-threatening cardiac arrhythmias",
+          "Worsening renal function can lead to uremia and other complications",
+          "Volume overload can exacerbate heart failure and other complications"
+        ],
+        "communication_note": "Patient has AKI likely secondary to NSAID use. Hyperkalemia and volume overload are significant concerns. Immediate discontinuation of NSAIDs and management of hyperkalemia are critical. Urgent outpatient follow-up with nephrology is recommended.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's history, symptoms, and lab results to determine AKI and hyperkalemia.",
+          "safety_checker_contribution": "Identified hyperkalemia and AKI as significant safety concerns.",
+          "pharm_nurse_contribution": "Recommended discontinuation of NSAIDs and management of hyperkalemia with Kayexalate."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute kidney injury (AKI) secondary to NSAID use",
+          "Hyperkalemia",
+          "Volume overload",
+          "Rhabdomyolysis (consider given muscle weakness)"
+        ],
+        "workup_ordered": [
+          "Repeat BMP (including electrolytes)",
+          "ECG monitoring",
+          "Urinalysis",
+          "CPK level (to evaluate for rhabdomyolysis)"
+        ],
+        "management_plan": [
+          "Discontinue ibuprofen",
+          "Initiate sodium polystyrene sulfonate (Kayexalate) for hyperkalemia",
+          "Consider IV fluids if evidence of prerenal AKI",
+          "Monitor urine output and renal function closely",
+          "Consider nephrology consultation for worsening renal function"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Hyperkalemia with cardiac risks",
+          "Worsening renal function",
+          "Potential for rhabdomyolysis"
+        ],
+        "communication_note": "Patient has stopped ibuprofen but continues to have edema and new muscle weakness. Hyperkalemia and AKI persist. Urgent follow-up needed.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered additional workup, and initiated management for hyperkalemia and AKI.",
+          "safety_checker_contribution": "Identified hyperkalemia and AKI as critical safety concerns.",
+          "pharm_nurse_contribution": "Reviewed medications, confirmed ibuprofen discontinuation, and monitored for adverse drug events."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hyperkalemia",
+          "Acute kidney injury (AKI)",
+          "Drug-induced nephrotoxicity (NSAIDs)",
+          "Volume overload",
+          "Cardiac arrhythmia"
+        ],
+        "workup_ordered": [
+          "Basic metabolic panel (BMP)",
+          "Electrocardiogram (ECG)",
+          "Renal ultrasound"
+        ],
+        "management_plan": [
+          "Immediate management of hyperkalemia with IV calcium gluconate, insulin, and dextrose, and albuterol nebulization",
+          "Discontinue ibuprofen and assess lisinopril for potential discontinuation or dose adjustment",
+          "Monitor and manage fluid status",
+          "Consult nephrology for further evaluation and management of AKI and hyperkalemia"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe hyperkalemia with cardiac manifestations",
+          "Acute kidney injury",
+          "Potential for life-threatening arrhythmias"
+        ],
+        "communication_note": "Patient presents with severe hyperkalemia and AKI, likely secondary to NSAID use and underlying CKD. Immediate intervention is required to stabilize potassium levels and manage AKI. Patient should be transported to the nearest emergency department for urgent care.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms, ordered initial labs and ECG, and initiated management plan for hyperkalemia.",
+          "safety_checker_contribution": "Identified severe hyperkalemia and AKI as critical safety concerns, recommended immediate intervention and emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication list, identified NSAID use as a potential cause of AKI, and recommended discontinuation of ibuprofen and assessment of lisinopril."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "NSAID-induced AKI",
+      "hyperkalemia from ACE-I plus NSAID in CKD",
+      "cardiorenal syndrome"
+    ],
+    "required_workup": [
+      "BMP STAT",
+      "ECG",
+      "hold nephrotoxic medications",
+      "renal ultrasound if AKI unexplained"
+    ],
+    "correct_management": [
+      "STOP NSAIDs immediately",
+      "calcium gluconate for membrane stabilization",
+      "sodium bicarbonate insulin dextrose for K+",
+      "kayexalate or patiromer",
+      "nephrology consult",
+      "consider holding ACE-I temporarily"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597853.503366
+}

@@ -1,0 +1,203 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "fx_v0_d0_l0_x0",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 70,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't catch my breath. It's been getting worse for three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. Heart feels like it's racing sometimes. Yes, my legs are swollen."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, gained four kilos this week. Ate salty food at a family gathering."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart problems or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, heart failure. Blood pressure runs high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Are you currently taking any medications for your heart failure or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. Furosemide, carvedilol, lisinopril, and apixaban."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine output or any other symptoms like cough or fever?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever. Cough, yes. Urine... I'm not sure, maybe less."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute decompensated heart failure",
+          "fluid overload"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "electrolyte panel",
+          "ECG"
+        ],
+        "management_plan": [
+          "increase dose of furosemide",
+          "restrict fluid and sodium intake",
+          "monitor weight daily"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential electrolyte imbalance"
+        ],
+        "communication_note": "You are experiencing symptoms of worsening heart failure, likely due to fluid overload. We need to adjust your medications and monitor you closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still very short of breath. Gained more weight too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or abdomen?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My legs feel puffy. Haven't checked my belly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. But I'm having trouble breathing."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "initiate diuretics",
+          "monitor weight daily",
+          "restrict fluid intake"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential for respiratory distress"
+        ],
+        "communication_note": "We need to address your shortness of breath and weight gain urgently, so we'll arrange some tests and start treatment to help relieve your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe lying down. Using five pillows. I'm scared."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "optimize heart failure medications"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress",
+          "potential for worsening heart failure"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your breathing difficulties."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790546235.854673
+}

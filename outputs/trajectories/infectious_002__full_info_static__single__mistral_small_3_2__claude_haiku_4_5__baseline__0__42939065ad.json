@@ -1,0 +1,142 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urosepsis",
+          "acute kidney injury",
+          "diabetic ketoacidosis"
+        ],
+        "workup_ordered": [
+          "UA",
+          "CBC",
+          "BMP",
+          "blood cultures",
+          "urine culture",
+          "renal ultrasound"
+        ],
+        "management_plan": [
+          "IV fluids",
+          "IV antibiotics (e.g., ceftriaxone)",
+          "monitor vital signs",
+          "treat hyperglycemia with insulin",
+          "prepare for possible ICU transfer"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "sepsis",
+          "acute kidney injury",
+          "hypotension",
+          "electrolyte imbalances"
+        ],
+        "communication_note": "You have a serious infection and need immediate hospital care."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Sepsis due to ESBL E. coli UTI",
+          "Acute kidney injury",
+          "Acute respiratory failure"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Urine culture",
+          "Basic metabolic panel (BMP)",
+          "Complete blood count (CBC)",
+          "Arterial blood gas (ABG)"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics (e.g., ceftriaxone or ertapenem)",
+          "Administer IV fluids for hypotension",
+          "Provide supportive care for respiratory distress",
+          "Monitor renal function closely",
+          "Consider ICU admission for close monitoring and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis with organ dysfunction",
+          "Hypotension and tachycardia",
+          "Respiratory distress",
+          "Acute kidney injury",
+          "Altered mental status"
+        ],
+        "communication_note": "The patient is critically ill with sepsis and requires immediate hospitalization for IV antibiotics and supportive care."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Septic shock from urosepsis",
+          "Acute kidney injury",
+          "Multiple organ dysfunction syndrome"
+        ],
+        "workup_ordered": [
+          "Blood cultures",
+          "Urinalysis and urine culture",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Lactate level",
+          "Procalcitonin (PCT)",
+          "Arterial blood gas (ABG)"
+        ],
+        "management_plan": [
+          "Continue vasopressor support with norepinephrine",
+          "Start broad-spectrum antibiotics (e.g., piperacillin-tazobactam or meropenem)",
+          "Fluid resuscitation with crystalloids",
+          "Mechanical ventilation support",
+          "Renal replacement therapy if indicated",
+          "Monitor and manage electrolytes and acid-base balance"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Septic shock with pressor dependence",
+          "Acute kidney injury",
+          "Respiratory failure",
+          "Multiple organ dysfunction syndrome"
+        ],
+        "communication_note": "The patient is critically ill with septic shock and multiple organ dysfunction syndrome, requiring intensive care and aggressive management."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505348.356436
+}

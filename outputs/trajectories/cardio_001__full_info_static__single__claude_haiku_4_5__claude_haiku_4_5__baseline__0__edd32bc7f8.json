@@ -1,0 +1,152 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (unstable angina or NSTEMI)",
+          "Stable angina with acute exacerbation",
+          "Coronary vasospasm (Prinzmetal angina)",
+          "Anxiety disorder with chest wall pain"
+        ],
+        "workup_ordered": [
+          "Serial troponin (repeat at 3 hours)",
+          "12-lead ECG (repeat in 10 minutes and at 3 hours)",
+          "Chest X-ray",
+          "Lipid panel",
+          "Complete metabolic panel",
+          "CBC",
+          "Consider stress testing or coronary angiography based on serial troponin results"
+        ],
+        "management_plan": [
+          "Admit to telemetry/chest pain unit for continuous cardiac monitoring",
+          "Aspirin 325 mg PO (if not contraindicated)",
+          "High-intensity statin (atorvastatin 80 mg)",
+          "Beta-blocker optimization (consider uptitration of current antihypertensive regimen)",
+          "Nitroglycerin SL PRN for chest discomfort",
+          "Strict activity restriction until ACS ruled out",
+          "Smoking cessation counseling and resources",
+          "Cardiology consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High-risk presentation: exertional substernal chest pressure with diaphoresis, significant cardiac risk factors (age 58, HTN, 25 pack-year smoking, positive family history of early MI)",
+          "Troponin at upper limit of normal (12 ng/L) with non-specific ECG changes concerning for evolving ACS",
+          "Last episode 6 hours ago\u2014within window for intervention",
+          "Patient anxiety may mask ongoing ischemia"
+        ],
+        "communication_note": "Your chest symptoms are concerning for a possible heart problem and require urgent evaluation in the emergency department with continuous heart monitoring and repeat blood tests to rule out a heart attack."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (NSTEMI)",
+          "Unstable angina",
+          "Coronary artery disease with demand ischemia"
+        ],
+        "workup_ordered": [
+          "Repeat troponin in 3 hours",
+          "Chest X-ray",
+          "Echocardiogram",
+          "Coronary angiography (urgent)",
+          "Lipid panel",
+          "Renal function and electrolytes"
+        ],
+        "management_plan": [
+          "Immediate transfer to ED for acute coronary syndrome protocol",
+          "Aspirin 325 mg (if not already given)",
+          "P2Y12 inhibitor loading (clopidogrel 600 mg or ticagrelor 180 mg)",
+          "Unfractionated heparin or LMWH",
+          "Beta-blocker (metoprolol) for rate/BP control",
+          "High-intensity statin",
+          "Continuous cardiac monitoring",
+          "Prepare for urgent cardiac catheterization"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Recurrent chest pressure with exertion and dyspnea",
+          "Objective ECG changes (ST depression V4-V6) indicating active ischemia",
+          "Elevated troponin (38 ng/L) confirming myocardial injury",
+          "Hemodynamic stress (BP 152/95, HR 92) despite being at rest",
+          "High-risk features: age 58, smoking history, hypertension, male"
+        ],
+        "communication_note": "Your chest symptoms with new EKG changes and elevated heart enzyme levels indicate a heart attack is happening; you need emergency hospital care with a cardiologist right now."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute ST-elevation myocardial infarction (STEMI) - anterior wall",
+          "Acute coronary syndrome with cardiogenic shock",
+          "Acute heart failure with pulmonary edema"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (already obtained)",
+          "High-sensitivity troponin (already obtained)",
+          "Chest X-ray",
+          "Complete metabolic panel",
+          "Complete blood count",
+          "Coagulation studies",
+          "Lactate level"
+        ],
+        "management_plan": [
+          "IMMEDIATE activation of cardiac catheterization lab for primary PCI",
+          "Aspirin 325 mg chewed (if not contraindicated)",
+          "P2Y12 inhibitor loading (clopidogrel 600 mg or ticagrelor 180 mg)",
+          "Unfractionated heparin bolus and infusion",
+          "Oxygen to maintain SpO2 >94%",
+          "Nitroglycerin sublingual (cautiously given elevated BP, monitor for hypotension)",
+          "Morphine for pain and anxiety",
+          "Beta-blocker (metoprolol IV) if hemodynamically stable",
+          "Monitor for cardiogenic shock and pulmonary edema progression",
+          "Continuous cardiac monitoring and telemetry"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Acute STEMI with hemodynamic compromise (elevated BP/HR, S4 gallop, bibasilar crackles suggesting pulmonary edema)",
+          "High troponin (540 ng/L) confirms myocardial necrosis",
+          "Risk of cardiogenic shock, arrhythmia, and sudden cardiac death",
+          "Ongoing ischemia with active chest pain"
+        ],
+        "communication_note": "You are having a heart attack right now and need emergency cardiac catheterization immediately\u2014we are calling an ambulance and activating our heart team to open the blocked artery in your heart."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779505132.604629
+}

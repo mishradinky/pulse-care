@@ -1,0 +1,112 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation with rapid ventricular response",
+          "alcohol-induced atrial fibrillation"
+        ],
+        "workup_ordered": [
+          "repeat ECG",
+          "electrolyte panel",
+          "liver function tests"
+        ],
+        "management_plan": [
+          "start rate control medication such as beta-blocker or calcium channel blocker",
+          "advise on alcohol moderation",
+          "schedule follow-up in cardiology"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of thromboembolism due to atrial fibrillation"
+        ],
+        "communication_note": "You have atrial fibrillation with a fast heart rate, likely triggered by recent alcohol use. We'll start medication to control your heart rate and arrange a follow-up with cardiology."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation with rapid ventricular response",
+          "angina"
+        ],
+        "workup_ordered": [
+          "repeat ECG",
+          "troponin",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "start rate control medication such as a beta-blocker or calcium channel blocker",
+          "consider anticoagulation based on CHA2DS2-VASc score",
+          "advise on lifestyle modifications"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of thromboembolism due to atrial fibrillation",
+          "potential progression to more severe cardiac issues"
+        ],
+        "communication_note": "Your heart rhythm issue is persisting and causing some chest discomfort, so we'll adjust your treatment and follow up closely."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation with pre-excitation (WPW syndrome)",
+          "Ventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "Cardiac electrophysiology consultation",
+          "Repeat ECG after stabilization",
+          "Continuous cardiac monitoring"
+        ],
+        "management_plan": [
+          "Immediate cardioversion due to syncope and hemodynamic instability",
+          "Avoid AV nodal blocking agents",
+          "Consider antiarrhythmic medication post-stabilization"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of ventricular fibrillation due to pre-excitation",
+          "Potential for hemodynamic collapse"
+        ],
+        "communication_note": "You have a serious heart rhythm problem that needs immediate hospital treatment."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505213.5930605
+}

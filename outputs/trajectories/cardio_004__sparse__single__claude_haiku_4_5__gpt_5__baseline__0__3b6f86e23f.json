@@ -1,0 +1,212 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Severe headache, blood pressure high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this severe headache start, and is this the worst headache you've ever had, or similar to headaches you've had before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started 4 hours ago. Similar to before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure reading, and do you have any chest pain, shortness of breath, vision changes, or weakness right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Blood pressure 200/118. No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any shortness of breath, vision changes, weakness, or neurological symptoms like numbness or difficulty speaking right now?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, none of those."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a history of high blood pressure, and are you currently taking any medications for it or any other conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, hypertension. Amlodipine, HCTZ. Ran out."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long ago did you run out of your blood pressure medications, and have you had similar severe headaches with high blood pressure readings before when you missed doses?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Ran out two weeks ago. I dunno about headaches before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypertensive urgency with medication non-adherence",
+          "Hypertensive emergency (if end-organ damage present)",
+          "Primary headache disorder (migraine) with concurrent hypertension",
+          "Secondary hypertension (less likely given known HTN history)"
+        ],
+        "workup_ordered": [
+          "Stat blood pressure recheck",
+          "Comprehensive metabolic panel (electrolytes, creatinine, BUN)",
+          "Urinalysis with protein",
+          "ECG",
+          "Fundoscopic exam for papilledema"
+        ],
+        "management_plan": [
+          "Immediate restart of amlodipine and HCTZ",
+          "Consider acute antihypertensive (e.g., labetalol or nifedipine) if BP remains >180/120 with symptoms",
+          "Assess for end-organ damage (renal, cardiac, neurologic)",
+          "Ensure medication adherence going forward; consider pill organizer or refill reminders",
+          "Follow-up within 1 week to reassess BP control and headache resolution"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "BP 200/118 with severe headache raises concern for hypertensive emergency; must rule out end-organ damage",
+          "Two-week medication gap increases risk of acute complications"
+        ],
+        "communication_note": "Your severe headache is likely related to your high blood pressure from missing your medications for two weeks; we need to restart them immediately and check for any organ damage, but your symptoms suggest this is urgent rather than immediately life-threatening."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache won't go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did this headache start, and has it been continuous or does it come and go?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started 4 hours ago, continuous."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 0-10, how severe is your headache, and is this the worst headache you've ever had?"
+        },
+        {
+          "speaker": "patient",
+          "text": "8, not the worst."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Tension headache",
+          "Migraine",
+          "Hypertensive urgency/emergency",
+          "Subarachnoid hemorrhage",
+          "Intracranial pathology"
+        ],
+        "workup_ordered": [
+          "Blood pressure measurement",
+          "Complete metabolic panel",
+          "Non-contrast head CT",
+          "Fundoscopic examination"
+        ],
+        "management_plan": [
+          "Obtain vital signs immediately, particularly blood pressure",
+          "Perform focused neurological examination",
+          "If BP elevated or any red flag symptoms present, refer to ED",
+          "If stable vitals and benign exam, consider outpatient imaging and neurology referral",
+          "Analgesic therapy pending evaluation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Acute severe headache (8/10) requires urgent evaluation to rule out serious intracranial pathology",
+          "No vital signs obtained yet; hypertensive emergency must be excluded",
+          "Insufficient history to definitively rule out subarachnoid hemorrhage or other emergent conditions"
+        ],
+        "communication_note": "Your headache needs urgent evaluation in the emergency department to ensure there are no serious causes; we'll check your blood pressure and imaging to determine what's happening."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache gone, but blurry right eye."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Amaurosis fugax (transient monocular blindness) - concerning for carotid disease or cardiac emboli",
+          "Retinal artery occlusion",
+          "Posterior circulation stroke/TIA",
+          "Migraine with aura",
+          "Retrobulbar optic neuritis"
+        ],
+        "workup_ordered": [
+          "Stat head CT or MRI brain with diffusion imaging",
+          "Carotid ultrasound (bilateral)",
+          "Echocardiogram",
+          "ECG",
+          "CBC, CMP, coagulation studies, lipid panel",
+          "Ophthalmology consultation"
+        ],
+        "management_plan": [
+          "Urgent ED referral for acute stroke evaluation",
+          "Aspirin 325 mg if no contraindications",
+          "NPO pending imaging",
+          "Continuous cardiac monitoring",
+          "Neurology consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Monocular vision loss is a red flag for stroke/TIA and requires urgent neuroimaging",
+          "Recent headache followed by visual symptoms suggests possible vascular event",
+          "Risk of progression to complete stroke"
+        ],
+        "communication_note": "Your eye symptoms need urgent evaluation at the emergency department to rule out stroke; please go now."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779633737.3617945
+}

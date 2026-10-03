@@ -1,0 +1,157 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pneumocystis jirovecii pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "Viral pneumonia",
+          "Non-infectious causes such as pulmonary embolism or interstitial lung disease"
+        ],
+        "workup_ordered": [
+          "High-resolution CT scan of the chest to further evaluate lung infiltrates",
+          "Sputum induction or bronchoalveolar lavage for PCP diagnosis",
+          "Blood cultures to rule out bacterial infection",
+          "HIV viral load and CD4 count monitoring",
+          "Consider TB testing (e.g., sputum smear, culture, or PCR)"
+        ],
+        "management_plan": [
+          "Initiate treatment for suspected PCP with trimethoprim-sulfamethoxazole (TMP-SMX)",
+          "Consider adjunctive corticosteroids given the degree of hypoxemia",
+          "Re-initiate antiretroviral therapy (ART) after addressing acute infection",
+          "Provide supplemental oxygen to maintain SpO2 > 92%",
+          "Consider prophylaxis for opportunistic infections once stabilized"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of respiratory failure due to worsening hypoxemia",
+          "Potential for opportunistic infections given low CD4 count",
+          "Adherence to ART and prophylactic medications"
+        ],
+        "communication_note": "Patient presents with symptoms and lab findings highly suggestive of PCP, a common opportunistic infection in untreated HIV with low CD4 counts. Immediate initiation of treatment is crucial. Coordination with infectious disease specialists for ART management is recommended.",
+        "trace": {
+          "clinician_contribution": "Identified PCP as the most likely diagnosis given the clinical presentation and lab findings.",
+          "safety_checker_contribution": "Highlighted the need for urgent intervention due to hypoxemia and potential for rapid deterioration.",
+          "pharm_nurse_contribution": "Recommended TMP-SMX dosing and monitoring for side effects, especially given the patient's untreated HIV status."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pneumocystis jirovecii pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "Viral pneumonia",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Arterial blood gas (ABG)",
+          "Chest CT scan",
+          "Bronchoalveolar lavage (BAL)",
+          "Complete blood count (CBC)",
+          "Blood cultures"
+        ],
+        "management_plan": [
+          "Continue TMP-SMX for PCP treatment",
+          "Initiate corticosteroids due to worsening hypoxia",
+          "Supplemental oxygen therapy to maintain SpO2 > 92%",
+          "Consider admission to hospital for close monitoring and further management",
+          "Consult infectious disease specialist for HIV management and potential initiation of antiretroviral therapy"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Worsening hypoxia",
+          "Risk of respiratory failure",
+          "Potential for opportunistic infections due to untreated HIV"
+        ],
+        "communication_note": "Patient presents with worsening respiratory symptoms and hypoxia, consistent with PCP. Immediate intervention with corticosteroids and oxygen therapy is necessary. Consider hospital admission for further management and monitoring.",
+        "trace": {
+          "clinician_contribution": "Identified PCP as the primary diagnosis based on clinical presentation and confirmed by BAL.",
+          "safety_checker_contribution": "Highlighted the need for corticosteroids due to worsening hypoxia and potential respiratory failure.",
+          "pharm_nurse_contribution": "Ensured TMP-SMX is continued and monitored for side effects, and facilitated oxygen therapy."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pneumocystis jirovecii pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "Acute respiratory distress syndrome (ARDS)",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "CT chest (if stable for transport)",
+          "Sputum culture and sensitivity",
+          "Blood cultures",
+          "HIV viral load and CD4 count",
+          "LDH level",
+          "ABG analysis"
+        ],
+        "management_plan": [
+          "Initiate high-dose intravenous corticosteroids (e.g., methylprednisolone) for suspected severe PCP",
+          "Start trimethoprim-sulfamethoxazole (TMP-SMX) for PCP treatment",
+          "Consider adjunctive therapy with clindamycin and primaquine if TMP-SMX is not tolerated",
+          "Administer supplemental oxygen to maintain SpO2 > 92%",
+          "Monitor vital signs and oxygen saturation closely",
+          "Consult infectious disease specialist for further management",
+          "Consider ICU admission for close monitoring and potential respiratory support"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe hypoxemia despite high-flow oxygen",
+          "Risk of respiratory failure",
+          "Potential for rapid clinical deterioration"
+        ],
+        "communication_note": "Patient presents with severe hypoxemia and respiratory distress, likely secondary to untreated HIV and suspected PCP. Immediate intervention with corticosteroids and antibiotics is critical. Escalate care to ICU for potential respiratory support.",
+        "trace": {
+          "clinician_contribution": "Identified severe PCP as the likely cause of respiratory distress and initiated appropriate treatment.",
+          "safety_checker_contribution": "Highlighted the need for urgent intervention due to severe hypoxemia and risk of respiratory failure.",
+          "pharm_nurse_contribution": "Ensured timely administration of corticosteroids and antibiotics, monitored patient response."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597815.2059822
+}

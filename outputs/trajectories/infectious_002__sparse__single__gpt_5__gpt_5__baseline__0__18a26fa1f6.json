@@ -1,0 +1,196 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever, chills, back pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urination, such as pain, frequency, or blood in the urine?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not urinated in 12 hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or abdominal pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Vomiting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent infections or been on antibiotics recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, UTI. Cipro 3 months ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any confusion or changes in mental status?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, confused."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pyelonephritis",
+          "urosepsis"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "initiate intravenous fluids",
+          "start broad-spectrum intravenous antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis due to urinary tract infection",
+          "dehydration from vomiting and not urinating"
+        ],
+        "communication_note": "You have symptoms that suggest a serious kidney infection, and we need to get you to the hospital immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "On antibiotics, still feverish, confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific antibiotic are you taking and for how long have you been on it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Cipro, 24 hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What infection were you prescribed Cipro for?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Urinary tract infection."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "urosepsis"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "blood cultures",
+          "urinalysis",
+          "urine culture",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "continue antibiotics",
+          "monitor vital signs closely",
+          "ensure adequate hydration"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis due to confusion and fever"
+        ],
+        "communication_note": "Given your persistent fever and confusion despite starting antibiotics, we need to further evaluate and manage your condition in the emergency department."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Septic shock on vasopressors."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "septic shock due to bacterial infection",
+          "urosepsis",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "urinalysis",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "continue vasopressors",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of multi-organ failure",
+          "hemodynamic instability"
+        ],
+        "communication_note": "You are in septic shock and receiving critical care to stabilize your condition."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779636522.5692744
+}

@@ -1,0 +1,206 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 2,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "infectious_disease",
+    "demographics": {
+      "age": 65,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "Medicare"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Yellow stuff coming up. Fever. Chest hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Can't catch my breath. Worse today."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Chills, yeah. Sweating at night too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Got lung problems. Take inhalers. Also take a diabetes pill."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever been diagnosed with pneumonia or any other lung infections in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, had something like that last year. They gave me pills."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "acute exacerbation of COPD",
+          "bronchitis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "increase use of bronchodilator inhaler",
+          "consider oral corticosteroids"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of respiratory failure due to underlying COPD"
+        ],
+        "communication_note": "You have a lung infection, likely pneumonia, and we need to start treatment and get some tests done urgently."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not better. More confused now. Cough still bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever, chills, or night sweats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, fever. Been hot. Don't know about sweats."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Can't breathe good. Right side hurts when I breathe."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "blood cultures",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential sepsis"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your symptoms, which could be a serious lung infection or another urgent condition."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute respiratory failure",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory arrest",
+          "need for intensive care monitoring"
+        ],
+        "communication_note": "You are currently on a ventilator to help with your breathing due to a severe respiratory issue. We are conducting tests to determine the exact cause and will continue to provide intensive care."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1790539225.512558
+}

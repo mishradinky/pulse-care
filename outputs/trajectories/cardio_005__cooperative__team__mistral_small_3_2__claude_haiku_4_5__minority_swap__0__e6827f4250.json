@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I came in because I've got this sharp pain in my right chest that started suddenly, and I'm having trouble catching my breath. It happened about 5 days ago, right after I got back from a long flight to Tokyo."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the pain? Where exactly is it located, and does it radiate anywhere? Also, does it get worse with movement or deep breathing? Have you noticed any other symptoms like dizziness, sweating, or nausea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain is on my right side of my chest, kind of sharp. It definitely gets worse when I breathe deeply or move around. I haven't had dizziness, sweating, or nausea, but I have been short of breath since it started. It doesn't radiate anywhere\u2014it's just localized to that right side."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism (given recent travel, sudden onset, and dyspnea)",
+          "Musculoskeletal chest pain (e.g., costochondritis)",
+          "Pneumothorax (sharp pain, dyspnea, but less likely without trauma)",
+          "Acute coronary syndrome (though less likely in a 48-year-old without cardiac risk factors, but must consider)"
+        ],
+        "workup_ordered": [
+          "ECG to assess for cardiac ischemia",
+          "D-dimer to evaluate for pulmonary embolism",
+          "Chest X-ray to rule out pneumothorax or other pulmonary pathology"
+        ],
+        "management_plan": [
+          "Monitor for signs of PE (e.g., worsening dyspnea, tachycardia, hypoxia) if anticoagulants are initiated",
+          "Assess for contraindicated NSAIDs if patient has CKD (not specified in case)",
+          "Ensure patient is NPO if further imaging (e.g., CT angiography) is planned"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Sudden onset of chest pain and dyspnea post-long flight (high-risk for PE)",
+          "Sharp pain and dyspnea (concern for PE, pneumothorax, or ACS)"
+        ],
+        "communication_note": "Patient with sudden onset chest pain and dyspnea post-flight; urgent outpatient evaluation recommended.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup plan based on patient's history and symptoms.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed potential medication interactions and nursing concerns related to pain management and monitoring."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a lot more trouble breathing now, even when I'm just sitting still. And my right leg is really painful and swollen\u2014it's gotten worse since I came in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm sorry to hear about your symptoms. Can you tell me more about the pain and swelling in your right leg? When did it start, and has it changed since you first noticed it? Also, have you had any recent injuries or surgeries?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The leg swelling started around the same time as the chest pain, maybe 5 days ago after my flight from Tokyo. It's gotten worse since then\u2014more painful now, and the calf feels warm to the touch. I haven't had any injuries or surgeries recently. The pain is pretty constant."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Deep vein thrombosis (DVT)",
+          "Pulmonary embolism (PE)",
+          "Congestive heart failure (CHF)",
+          "Peripheral artery disease (PAD)",
+          "Cellulitis or infection"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "Lower extremity Doppler ultrasound",
+          "Chest X-ray",
+          "EKG",
+          "Basic metabolic panel (BMP) and CBC"
+        ],
+        "management_plan": [
+          "Monitor INR closely if DVT/PE is confirmed; assess for drug interactions (e.g., antibiotics, NSAIDs).",
+          "Avoid NSAIDs unless absolutely necessary due to potential contraindications in CKD and worsening CHF.",
+          "Monitor electrolytes (K+, Mg++) if CHF is a concern; adjust diuretic dose if renal function is impaired.",
+          "Check renal function (eGFR) for dose adjustments of anticoagulants; assess for bleeding risk.",
+          "Assess for signs of bleeding if anticoagulants are initiated.",
+          "Monitor for worsening edema, dyspnea, or leg pain; report immediately if symptoms escalate.",
+          "Educate patient on DVT/PE risk factors and prevention strategies."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Worsening dyspnea at rest",
+          "Right leg pain and swelling (possible DVT/PE risk)",
+          "No mention of vital signs (e.g., oxygen saturation, heart rate, blood pressure)"
+        ],
+        "communication_note": "The patient requires urgent outpatient evaluation for potential DVT/PE and other cardiovascular conditions.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and workup plan focusing on DVT/PE and other cardiovascular conditions.",
+          "safety_checker_contribution": "Approved the plan with recommendations for urgent outpatient evaluation and noted red flags.",
+          "pharm_nurse_contribution": "Reviewed medications, interactions, and nursing concerns, emphasizing monitoring and patient education."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a really hard time breathing right now. I almost passed out a few minutes ago, and my chest feels tight. I'm very short of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm very concerned about your symptoms. Can you tell me more about when this started and if anything triggered it? Also, do you have any history of heart problems, high blood pressure, or asthma?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It started suddenly about 5 days ago, right after I got back from a long flight from Tokyo. The chest pain just hit me out of nowhere\u2014sharp pain on my right side when I breathe. No, I don't have heart problems or high blood pressure that I know of. I don't have asthma either. I've been pretty healthy mostly."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism",
+          "Pneumothorax",
+          "Acute coronary syndrome (ACS)",
+          "Anxiety-induced hyperventilation"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Chest X-ray",
+          "Troponin levels",
+          "D-dimer",
+          "Oxygen saturation monitoring"
+        ],
+        "management_plan": [
+          "Administer oxygen if saturation is low",
+          "Monitor vital signs closely",
+          "Review and adjust medications as necessary",
+          "Consider anxiety management strategies if hyperventilation is suspected"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Sudden-onset shortness of breath with chest tightness and near-syncope",
+          "Lack of immediate vital signs or oxygen saturation data",
+          "Potential cardiac or pulmonary emergency"
+        ],
+        "communication_note": "Patient with sudden-onset shortness of breath and chest tightness after long flight; urgent outpatient evaluation recommended.",
+        "trace": {
+          "clinician_contribution": "Provided differential diagnosis and initial workup plan based on patient's symptoms and history.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation due to potential cardiac or pulmonary emergency.",
+          "pharm_nurse_contribution": "Reviewed medications, identified potential interactions, and provided nursing concerns for monitoring and management."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634817.58672
+}

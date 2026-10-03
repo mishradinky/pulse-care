@@ -1,0 +1,184 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Worst headache of my life. Started two hours ago at the gym."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache in more detail? Is it a throbbing, sharp, or dull pain? Do you have any other symptoms like nausea, vision changes, or neck stiffness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Worst pain ever. Sharp. Neck's stiff. Feels sick."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "migraine",
+          "tension headache",
+          "hypertensive crisis"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "blood pressure measurement",
+          "neurological examination"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management.",
+          "Ensure blood pressure is monitored and controlled during transport.",
+          "Avoid NSAIDs until subarachnoid hemorrhage is ruled out."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sudden onset and severe headache indicating possible subarachnoid hemorrhage.",
+          "Potential hypertensive crisis requiring urgent intervention.",
+          "Risk of increased intracranial pressure."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to potential life-threatening condition.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious causes for the headache and recommended immediate workup.",
+          "safety_checker_contribution": "Highlighted red flags and emphasized the need for emergency intervention.",
+          "pharm_nurse_contribution": "Reviewed medications and highlighted potential risks associated with current symptoms."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still hurts. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and nature of your headache? Is it throbbing, sharp, or dull?"
+        },
+        {
+          "speaker": "patient",
+          "text": "All over. Sharp. Worst ever. Still hurts bad."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "migraine",
+          "tension headache",
+          "cluster headache",
+          "sinus headache",
+          "secondary headache due to hypertension",
+          "temporal arteritis",
+          "intracranial pathology"
+        ],
+        "workup_ordered": [
+          "physical examination",
+          "blood pressure measurement",
+          "neurological examination",
+          "ESR/CRP to rule out temporal arteritis",
+          "CT/MRI if indicated"
+        ],
+        "management_plan": [
+          "Monitor blood pressure regularly",
+          "Evaluate current medication regimen, especially NSAIDs",
+          "Consider alternative pain management strategies",
+          "Schedule urgent outpatient follow-up"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Age over 50 with new onset headache",
+          "Potential secondary headache due to hypertension",
+          "Possible interaction between Lisinopril and Ibuprofen"
+        ],
+        "communication_note": "Patient requires urgent outpatient evaluation due to red flags associated with new onset headache in age over 50.",
+        "trace": {
+          "clinician_contribution": "Provided initial differential diagnosis and workup plan focusing on headache characteristics.",
+          "safety_checker_contribution": "Identified red flags and recommended urgent outpatient escalation due to age and hypertension concerns.",
+          "pharm_nurse_contribution": "Highlighted potential medication interactions and recommended monitoring strategies."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't think straight. Left arm won't move."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start, and have you experienced any other symptoms like headache, dizziness, or changes in vision?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started two hours ago at the gym. Head hurts real bad. Can't move my arm now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "stroke",
+          "transient ischemic attack",
+          "migraine with aura",
+          "multiple sclerosis"
+        ],
+        "workup_ordered": [
+          "neurological examination",
+          "CT scan of the head",
+          "MRI of the brain",
+          "blood tests including CBC and metabolic panel"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management.",
+          "Ensure patient is monitored for any progression of symptoms during transfer.",
+          "Educate patient and family on recognizing stroke symptoms and the importance of timely intervention."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential stroke or TIA requires immediate medical attention.",
+          "Sudden onset of cognitive issues and unilateral weakness are red flags."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to potential stroke symptoms.",
+        "trace": {
+          "clinician_contribution": "Identified potential neurological causes and recommended immediate imaging and blood tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation due to potential stroke.",
+          "pharm_nurse_contribution": "Reviewed medications for potential interactions and emphasized monitoring for stroke symptoms."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512392.9174778
+}

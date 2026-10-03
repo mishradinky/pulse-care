@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Sharp chest pain, short breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the chest pain and shortness of breath start?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right after flight, 5 days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right leg swollen, tender."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent surgeries or been immobilized for a long period?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Long flight, 12 hours, no mobility."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of blood clots or family history of clotting disorders?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any coughing, especially coughing up blood?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No coughing up blood."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the leg"
+        ],
+        "management_plan": [
+          "Anticoagulation therapy initiation",
+          "Compression stockings for leg swelling"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of life-threatening pulmonary embolism"
+        ],
+        "communication_note": "You need immediate evaluation in the emergency department to rule out a serious blood clot in your lungs and leg."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing's worse, leg hurts more."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the leg pain in more detail, such as its location, severity, and any factors that make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right calf, worse, warm, swollen."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any redness or discoloration in the right calf, and do you have any history of blood clots or recent long travel?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Redness in calf. Long flight recently."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "deep vein thrombosis",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "ultrasound of the right leg",
+          "chest CT angiography"
+        ],
+        "management_plan": [
+          "start anticoagulation therapy",
+          "advise leg elevation and compression stockings"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of pulmonary embolism"
+        ],
+        "communication_note": "Your symptoms suggest a possible blood clot in your leg, which could be serious, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Near fainting, can't breathe well."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "ECG",
+          "D-dimer",
+          "troponin"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "monitor vital signs",
+          "prepare for possible anticoagulation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of cardiovascular collapse",
+          "potential for respiratory failure"
+        ],
+        "communication_note": "You need immediate medical attention to rule out serious conditions like a blood clot in the lungs or heart issues."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779640508.1286678
+}

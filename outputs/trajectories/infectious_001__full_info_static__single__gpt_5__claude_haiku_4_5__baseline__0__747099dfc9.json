@@ -1,0 +1,127 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "bacterial pneumonia",
+          "COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "sputum culture",
+          "blood cultures",
+          "CXR",
+          "CBC",
+          "BMP",
+          "procalcitonin"
+        ],
+        "management_plan": [
+          "admit to hospital for IV antibiotics and oxygen therapy",
+          "start broad-spectrum antibiotics such as ceftriaxone and azithromycin",
+          "administer supplemental oxygen to maintain SpO2 > 92%",
+          "monitor blood glucose levels and adjust diabetes medications as needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "hypoxemia",
+          "confusion indicating possible severe infection or hypoxia"
+        ],
+        "communication_note": "You have a lung infection and need to be treated in the hospital with antibiotics and oxygen."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "repeat blood cultures",
+          "CBC",
+          "CMP",
+          "repeat ABG"
+        ],
+        "management_plan": [
+          "admit to hospital for IV antibiotics",
+          "oxygen supplementation",
+          "IV fluids for dehydration",
+          "monitor vitals and mental status closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "hypoxemia",
+          "worsening confusion",
+          "dehydration"
+        ],
+        "communication_note": "You need to be admitted to the hospital for further treatment and monitoring due to worsening symptoms and low oxygen levels."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "ARDS secondary to pneumonia",
+          "sepsis",
+          "acute respiratory failure"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "sputum culture",
+          "repeat ABG",
+          "CBC",
+          "CMP"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation with appropriate settings for ARDS",
+          "initiate broad-spectrum antibiotics",
+          "fluid resuscitation",
+          "vasopressors if needed for blood pressure support",
+          "monitor vitals and labs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of multi-organ failure",
+          "hemodynamic instability"
+        ],
+        "communication_note": "The patient is in critical condition with respiratory failure and is being treated in the ICU with mechanical ventilation and antibiotics."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505309.6473742
+}

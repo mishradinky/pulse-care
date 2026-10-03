@@ -1,0 +1,215 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I've been extremely tired for about four months now, and I've gained weight even though I'm not eating more. I'm really concerned about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I appreciate you sharing that. To help narrow down what might be causing your fatigue and weight gain, I need to ask a few more questions: Have you noticed any changes in your mood, concentration, or sleep patterns? And have you experienced any other symptoms like cold intolerance, hair loss, dry skin, or changes in your menstrual cycle?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I've definitely been feeling the cold more than usual\u2014even when others say it's warm. My skin has gotten really dry, and I've noticed some hair coming out in the shower. My periods have become irregular too, which is unusual for me. As for mood and sleep, I feel pretty down and tired all the time, but I'm sleeping more than I used to."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypothyroidism (PRIMARY - classic triad: fatigue, weight gain, cold intolerance + hair loss, dry skin, irregular menses)",
+          "Depression/mood disorder (secondary consideration - fatigue, mood changes, but physical findings favor thyroid)",
+          "Anemia (contributing factor - fatigue, but less likely sole cause given symptom cluster)",
+          "Autoimmune condition - celiac disease or lupus (less likely but in differential)",
+          "Medication side effect (pending complete med reconciliation)",
+          "Sleep disorder (less likely given increased sleep duration)"
+        ],
+        "workup_ordered": [
+          "STAT: TSH, free T4 (thyroid function - PRIMARY)",
+          "CBC with differential (anemia screening)",
+          "CMP (renal/hepatic baseline, electrolytes)",
+          "Fasting glucose and HbA1c (diabetes screening)",
+          "Lipid panel (metabolic assessment)",
+          "Iron studies: ferritin, serum iron, TIBC (anemia workup)",
+          "Tissue transglutaminase (tTG-IgA) if celiac suspected on history",
+          "PHQ-9 depression screening tool (mood assessment)"
+        ],
+        "management_plan": [
+          "COMPLETE medication reconciliation IMMEDIATELY (Rx, OTC, supplements, herbal) - CRITICAL BLOCKING ITEM",
+          "Confirm allergy history before any treatment initiation",
+          "Obtain baseline labs (see workup_ordered) before any thyroid replacement therapy",
+          "If hypothyroidism confirmed (elevated TSH, low free T4): initiate levothyroxine with patient counseling on proper administration (empty stomach, 30-60 min before food/supplements, consistent timing)",
+          "Recheck TSH in 6-8 weeks post-initiation to assess dose adequacy",
+          "Review hormonal contraceptive use if applicable - consider contribution to fatigue/weight gain; discuss alternatives if indicated",
+          "Patient education: reinforce consistent sleep schedule and activity level during diagnostic phase",
+          "Schedule follow-up visit after lab results available (typically 1-2 weeks)"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "No acute safety red flags identified; routine primary care workup appropriate",
+          "Ensure medication reconciliation completed before prescribing (drug interactions with levothyroxine if initiated)",
+          "Monitor for depression - PHQ-9 indicated given mood changes; some antidepressants worsen weight gain"
+        ],
+        "communication_note": "Patient presentation is highly consistent with hypothyroidism; proceed with targeted thyroid workup while ruling out anemia, diabetes, and mood disorder; medication reconciliation is prerequisite before treatment initiation.",
+        "trace": {
+          "clinician_contribution": "Synthesized patient's symptom cluster (fatigue, weight gain, cold intolerance, hair loss, dry skin, irregular menses, mood changes, increased sleep) into focused differential with hypothyroidism as primary consideration; asked targeted screening questions to narrow diagnosis; recommended comprehensive but rational workup.",
+          "safety_checker_contribution": "Cleared case for routine outpatient management with no blocking safety concerns, red flags, or escalation needed; appropriate for primary care setting.",
+          "pharm_nurse_contribution": "Identified CRITICAL gap: complete medication reconciliation required before proceeding (many common meds cause fatigue/weight gain); flagged need for baseline labs BEFORE thyroid replacement dosing; provided specific counseling points for levothyroxine administration if initiated; recommended depression screening tool; highlighted contraceptive review as potential contributor."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I started the levothyroxine you prescribed last visit, but I'm still very tired all the time. And my constipation hasn't really improved either. I was hoping I'd feel better by now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been taking the levothyroxine, and at what dose? Also, have you had any recent lab work done to check your TSH level since starting the medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been taking it for about 4 weeks now. The doctor prescribed it but didn't tell me the dose off the top of my head\u2014I'd have to check the bottle. I haven't had my TSH checked since I started the medication. Should I have had that done by now?"
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypothyroidism\u2014inadequately treated (subtherapeutic dose or poor absorption)",
+          "Hypothyroidism\u2014non-adherence or timing issues with levothyroxine",
+          "Secondary cause of fatigue (anemia, depression, sleep disorder, B12 deficiency)",
+          "Levothyroxine malabsorption (celiac disease, H. pylori, PPI use)",
+          "Concurrent autoimmune or systemic condition"
+        ],
+        "workup_ordered": [
+          "TSH and free T4 level (assess adequacy of current levothyroxine dose)\u2014PRIORITY",
+          "CBC (rule out anemia)",
+          "Comprehensive metabolic panel (electrolytes, renal/hepatic function)",
+          "Vitamin B12 and folate levels",
+          "Iron studies if anemia suspected",
+          "Consider celiac serology if malabsorption suspected"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain levothyroxine dose from patient's medication bottle; confirm initiation date (4 weeks aligns with early phase\u2014steady state not yet reached)",
+          "MEDICATION REVIEW: Assess timing of levothyroxine administration (empty stomach, 30\u201360 min before breakfast); screen for concurrent medications/supplements interfering with absorption (calcium, iron, PPIs, antacids, H2-blockers)",
+          "LABS: Order TSH/free T4 (draw before morning levothyroxine dose if possible); CBC, CMP, B12/folate, iron studies",
+          "PATIENT EDUCATION: Reinforce that levothyroxine effects take 4\u20136 weeks to manifest; fatigue and constipation may improve once TSH optimized, but concurrent deficiencies (anemia, B12) must be ruled out",
+          "ADHERENCE & TIMING: Confirm consistent daily dosing and proper spacing from meals/supplements; assess for cost or side-effect barriers",
+          "FOLLOW-UP: Schedule reassessment in 6\u20138 weeks after labs return to adjust levothyroxine dose if needed; do NOT adjust dose before TSH/free T4 results available",
+          "CONSTIPATION MANAGEMENT: Ensure adequate hydration and fiber intake; reassess after thyroid optimization; consider stool softener if persistent"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "Patient is 4 weeks into levothyroxine therapy with persistent fatigue and constipation; TSH/free T4 labs are essential to confirm therapeutic adequacy before dose adjustment, and concurrent screening for anemia and B12 deficiency is warranted.",
+        "trace": {
+          "clinician_contribution": "Established appropriate differential diagnosis (inadequate dosing vs. malabsorption vs. secondary causes) and ordered comprehensive workup (TSH/free T4, CBC, CMP, B12/folate, iron studies, celiac serology) to narrow etiology; recognized that 4 weeks is early phase and repeat labs are essential.",
+          "safety_checker_contribution": "Confirmed no blocking safety concerns or red flags; routine escalation appropriate for this stable primary-care presentation with no acute decompensation.",
+          "pharm_nurse_contribution": "Identified critical medication-timing and absorption issues (empty stomach, 4-hour separation from interfering agents); flagged need to confirm current dose and adherence pattern; emphasized DO NOT adjust levothyroxine until labs available; provided patient education on expected timeline (4\u20136 weeks) and constipation management; highlighted lab-draw timing (ideally before morning dose, at steady state 6\u20138 weeks post-initiation)."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I'm feeling some better than before, but I'm still not back to normal. I want to know when I'll feel like myself again."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm glad you're feeling somewhat better. To help me understand what's going on, could you tell me: What symptoms are you still experiencing, when did they start, and what were you like before this began? Also, is this visit a follow-up from a recent illness or condition we've been treating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm still pretty tired, even though it's better than before. I also still feel cold a lot and my skin is still dry. This all started about four months ago and came on gradually. Before that I felt normal\u2014I had energy and my weight was stable. Yes, this is a follow-up. I was started on medication about ten weeks ago for my thyroid."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Thyroid dysfunction (inadequate levothyroxine dosing, malabsorption, or non-compliance)",
+          "Hypothyroidism with incomplete treatment response",
+          "Anemia (iron deficiency, B12 deficiency, or anemia of chronic disease)",
+          "Post-viral syndrome (if infection preceded thyroid diagnosis)",
+          "Medication side effect or drug interaction",
+          "Depression or anxiety (secondary to chronic symptoms)",
+          "Malabsorption syndrome (celiac disease, pernicious anemia)"
+        ],
+        "workup_ordered": [
+          "STAT: Obtain prior visit notes (visits 1 & 2) to establish baseline presentation, prior workup results, and documented trajectory",
+          "Vital signs at this visit: BP, HR, temperature, O2 saturation, weight (compare to baseline)",
+          "TSH + free T4 (to assess levothyroxine adequacy; patient on thyroid medication ~10 weeks\u2014should be near steady state)",
+          "CBC with differential (assess for anemia, infection, lymphocytosis)",
+          "Comprehensive metabolic panel (CMP) including creatinine, eGFR (baseline renal function for future dosing)",
+          "Iron studies (ferritin, serum iron, TIBC) if anemia suspected",
+          "Vitamin B12 and folate levels (if macrocytic anemia or neurologic symptoms emerge)",
+          "Medication reconciliation: complete list of current medications (including levothyroxine dose, timing, formulation), OTC products, supplements, herbal agents",
+          "Allergy history: document all medication, food, and environmental allergies before any new prescribing",
+          "Red flag symptom screening: explicitly ask about chest pain, dyspnea, syncope, severe headache, focal neurologic changes, suicidal ideation"
+        ],
+        "management_plan": [
+          "Review levothyroxine adherence, timing (empty stomach, 30\u201360 min before food/supplements), and any recent dose changes; confirm patient is taking as prescribed",
+          "If TSH elevated or free T4 low: consider levothyroxine dose increase; counsel on 6\u20138 week re-check timeline",
+          "If TSH normal but symptoms persist: investigate anemia, B12/folate deficiency, depression, or malabsorption",
+          "If anemia confirmed: initiate iron supplementation (if iron deficiency) with GI tolerance assessment; counsel on timing (separate from levothyroxine by \u22654 hours), constipation risk, and dark stools; avoid NSAIDs if GI bleeding risk",
+          "If depression/anxiety screening positive (PHQ-9 or GAD-7): consider SSRI/SNRI with baseline BP and QTc review; screen for drug interactions with any OTC stimulants or herbal products",
+          "Patient education: explain expected timeline for thyroid medication stabilization (6\u20138 weeks) and lab-driven dose adjustments; set realistic expectations for symptom resolution",
+          "Schedule follow-up visit in 4\u20136 weeks after labs and any medication adjustments to reassess symptom trajectory",
+          "If red flag symptoms emerge during interview: escalate to urgent outpatient or ED referral as appropriate"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Visit 3 with persistent vague symptoms (fatigue, cold intolerance, dry skin) over 4 months\u2014pattern consistent with thyroid dysfunction but requires objective confirmation; do not rely on clinical impression alone",
+          "Patient on levothyroxine ~10 weeks: should be near steady state; if TSH/free T4 not yet checked, this is critical gap\u2014inadequate dosing or malabsorption could explain ongoing symptoms",
+          "No vital signs, prior visit notes, or baseline labs documented in current proposal\u2014cannot assess acuity, trajectory, or whether symptoms are improving as expected",
+          "Anemia differential (iron, B12, folate) not yet ruled out; fatigue + cold intolerance + dry skin can overlap with both thyroid and hematologic disease",
+          "Medication reconciliation incomplete: levothyroxine formulation, dose, timing, and adherence unknown; potential interactions with OTC/supplements not assessed",
+          "Allergy history not documented\u2014critical before any new medication initiation",
+          "No mood screening tool proposed despite fatigue and 4-month symptom duration\u2014depression/anxiety can coexist with thyroid disease and requires explicit assessment"
+        ],
+        "communication_note": "This is a thyroid-focused follow-up visit; clinician appropriately seeks symptom characterization and timeline, but must retrieve prior visit context, obtain objective vitals and labs (especially TSH/free T4 given levothyroxine use), and screen for depression/anemia to distinguish expected treatment response from inadequate dosing or comorbid disease.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified visit 3 pattern and requested symptom characterization, timeline, and prior context. Differential is broad and appropriate. However, clinician must actively retrieve visits 1 & 2 notes and order TSH/free T4 urgently given 10-week levothyroxine use\u2014this is the most likely driver of persistent symptoms and requires objective confirmation.",
+          "safety_checker_contribution": "Safety checker identified critical gaps: no prior visit notes, no vitals, no labs, and no mood screening despite 4-month symptom duration. Appropriately flagged that fatigue can mask serious conditions and that objective workup (labs, vitals) is essential to distinguish expected post-treatment recovery from inadequate dosing or systemic disease. Recommended routine escalation with conditional approval pending data retrieval and vital sign documentation.",
+          "pharm_nurse_contribution": "Pharm/nurse identified complete medication reconciliation gap (levothyroxine dose, timing, formulation, adherence unknown), missing allergy history, and lack of anemia/depression screening. Provided critical counseling points for levothyroxine (empty stomach, 6\u20138 week stabilization, 4-hour separation from iron/supplements) and flagged need for baseline renal function if any new medications considered. Emphasized importance of lab timing and patient education on realistic recovery timeline."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512680.4706733
+}

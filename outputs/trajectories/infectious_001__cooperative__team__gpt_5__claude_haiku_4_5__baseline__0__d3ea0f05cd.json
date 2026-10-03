@@ -1,0 +1,194 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a really bad cough for 4 days now. I'm bringing up yellow stuff, I have a fever, and my chest hurts when I breathe. I'm also feeling pretty confused at times."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or wheezing? Do you have any history of lung conditions like COPD or asthma?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I get short of breath pretty easily\u2014my oxygen level is low right now. I have COPD, been dealing with that for years. No asthma though. The shortness of breath has been worse these past 4 days with this cough."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis",
+          "chronic obstructive pulmonary disease (COPD) exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count (CBC)",
+          "sputum culture",
+          "blood cultures",
+          "pulse oximetry"
+        ],
+        "management_plan": [
+          "Administer oxygen therapy as needed to maintain adequate saturation.",
+          "Prescribe antibiotics if bacterial infection is confirmed.",
+          "Consider corticosteroids like Prednisone for COPD exacerbation.",
+          "Ensure patient has access to a rescue inhaler (Albuterol).",
+          "Educate patient on proper inhaler technique and monitor for respiratory distress."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for serious respiratory condition",
+          "Age-related risk factors",
+          "Possible pulmonary embolism"
+        ],
+        "communication_note": "Patient requires urgent outpatient follow-up to rule out pulmonary embolism and manage COPD exacerbation.",
+        "trace": {
+          "clinician_contribution": "Identified differential diagnoses and proposed initial workup based on respiratory symptoms.",
+          "safety_checker_contribution": "Highlighted the urgency of ruling out pulmonary embolism and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medication plan, ensuring access to rescue inhaler and monitoring for drug interactions."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not getting better. I took the medicine you gave me yesterday, but I'm still coughing up that yellow-green stuff, and now I'm feeling more confused. I don't know what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or shortness of breath since you started the medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I still have a fever\u2014I checked this morning and it was pretty high. Yes, I'm having chills too. And honestly, I'm more short of breath than yesterday, even though I started that antibiotic. I'm also feeling more confused, which is worrying me."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pneumonia",
+          "bronchitis",
+          "exacerbation of COPD",
+          "lung abscess",
+          "pulmonary embolism",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture",
+          "blood cultures",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure the patient is monitored for signs of sepsis and respiratory distress.",
+          "Review and adjust medications as necessary in the ED setting."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "New confusion in an elderly patient indicating potential sepsis or hypoxia.",
+          "Persistent cough with yellow-green sputum suggesting a serious pulmonary condition.",
+          "Increased risk of infection due to prednisone use."
+        ],
+        "communication_note": "Patient requires immediate ED evaluation due to new confusion and respiratory symptoms.",
+        "trace": {
+          "clinician_contribution": "Identified potential differential diagnoses and necessary workup based on symptoms.",
+          "safety_checker_contribution": "Highlighted red flags and recommended ED referral due to serious concerns.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and potential side effects, emphasizing the need for monitoring."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I can't breathe. They put a tube down my throat in the emergency room. I don't remember much after that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when your breathing problems started and if you had any other symptoms like fever, cough, or chest pain before you went to the emergency room?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It started about 4 days ago with a cough that brought up yellow-green mucus. I had a fever\u2014felt pretty hot. And I've had this sharp chest pain on my right side, especially when I breathe in. I also felt confused at times, which worried me. That's why I came to the ER."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pneumonia",
+          "chronic obstructive pulmonary disease (COPD) exacerbation",
+          "pulmonary embolism",
+          "congestive heart failure exacerbation",
+          "COVID-19"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count (CBC)",
+          "sputum culture",
+          "COVID-19 test",
+          "arterial blood gas (ABG)"
+        ],
+        "management_plan": [
+          "Initiate broad-spectrum antibiotics pending culture results for suspected pneumonia.",
+          "Administer bronchodilators and corticosteroids for potential COPD exacerbation.",
+          "Consider anticoagulation therapy if pulmonary embolism is confirmed.",
+          "Monitor fluid status and adjust diuretics if congestive heart failure is suspected.",
+          "Ensure proper use of inhalers and monitor for side effects of medications."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Acute respiratory distress requiring intubation",
+          "Potential for life-threatening conditions such as pulmonary embolism or congestive heart failure exacerbation",
+          "Monitor for side effects of medications, especially anticoagulants and corticosteroids"
+        ],
+        "communication_note": "Patient presents with acute respiratory distress and requires immediate evaluation and management in the emergency department.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and outlined necessary workup based on the patient's acute symptoms.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency department referral due to potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized monitoring for side effects, ensuring safe administration of treatments."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779507637.5006666
+}

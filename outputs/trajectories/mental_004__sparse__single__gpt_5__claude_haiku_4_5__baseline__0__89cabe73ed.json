@@ -1,0 +1,199 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Shaking. Sweating. Can't stop. Need a drink."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Since I stopped drinking yesterday. About eighteen hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much alcohol were you consuming daily before you stopped?"
+        },
+        {
+          "speaker": "patient",
+          "text": "A pint of vodka. Every day. For like ten years."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like confusion, hallucinations, or seizures?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No confusion. No seeing things. Had seizures before when I stopped drinking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medications or treatments to help with alcohol withdrawal?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Bought some vitamins at the store. That's it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or changes in appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea. Not hungry. Stomach's okay."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Alcohol Withdrawal Syndrome",
+          "Delirium Tremens"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CMP",
+          "Magnesium level",
+          "Phosphorus level",
+          "ECG"
+        ],
+        "management_plan": [
+          "Initiate benzodiazepine therapy for withdrawal symptoms",
+          "Thiamine supplementation",
+          "Hydration and electrolyte management",
+          "Referral to addiction specialist for long-term management"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of severe alcohol withdrawal symptoms including seizures and delirium tremens"
+        ],
+        "communication_note": "You are experiencing alcohol withdrawal symptoms, and it's important to manage these safely in a hospital setting to prevent complications."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Had a seizure. Don't remember it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the seizure occur and have you had any previous seizures?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Just happened. Yeah, had 'em before when I stopped drinking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Are you currently drinking alcohol or have you recently stopped again?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Stopped. Eighteen hours ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "alcohol withdrawal seizure",
+          "epileptic seizure"
+        ],
+        "workup_ordered": [
+          "blood alcohol level",
+          "electrolyte panel",
+          "CT head"
+        ],
+        "management_plan": [
+          "monitor for further seizures",
+          "consider benzodiazepine for withdrawal",
+          "refer to addiction specialist"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of further seizures",
+          "potential for severe alcohol withdrawal symptoms"
+        ],
+        "communication_note": "You had a seizure likely due to alcohol withdrawal. We need to monitor you closely and manage your withdrawal symptoms, so I'm referring you to the emergency department."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Everything's spinning. Bugs crawling on me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "delirium",
+          "alcohol withdrawal",
+          "substance-induced psychosis"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CMP",
+          "urine toxicology screen",
+          "blood alcohol level"
+        ],
+        "management_plan": [
+          "Initiate supportive care",
+          "Consider benzodiazepines if alcohol withdrawal is suspected",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of harm to self due to hallucinations",
+          "Potential for underlying medical condition causing delirium"
+        ],
+        "communication_note": "You are experiencing severe symptoms that require immediate medical attention, so we will arrange for you to go to the emergency room."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511698.6667814
+}

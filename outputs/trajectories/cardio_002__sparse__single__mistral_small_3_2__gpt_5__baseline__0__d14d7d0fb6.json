@@ -1,0 +1,204 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Shortness of breath getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, both legs swollen."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any chest pain or discomfort along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Gained 4kg. Meds are the same."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had a fever or any other symptoms like cough or fatigue recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever, just short of breath."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "chest x-ray",
+          "electrocardiogram (ECG)",
+          "brain natriuretic peptide (BNP) test",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "start diuretic therapy if heart failure suspected",
+          "administer oxygen if oxygen saturation is low",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential cardiac or pulmonary etiology of symptoms"
+        ],
+        "communication_note": "We need to run some tests to understand the cause of your shortness of breath and swelling."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Very short of breath, gained weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much weight have you gained recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "1.5 kilograms more since last visit."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, ankles are swollen."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretic therapy",
+          "monitor weight daily",
+          "follow up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential for respiratory distress"
+        ],
+        "communication_note": "Your symptoms suggest possible heart failure, and we need to run some tests to confirm this."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Cannot breathe lying down, panic."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Congestive heart failure",
+          "Chronic obstructive pulmonary disease (COPD) exacerbation",
+          "Pulmonary embolism",
+          "Anxiety or panic disorder",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Electrocardiogram (ECG)",
+          "Basic metabolic panel (BMP)",
+          "Complete blood count (CBC)",
+          "D-dimer test",
+          "Brain natriuretic peptide (BNP) test"
+        ],
+        "management_plan": [
+          "Administer oxygen therapy if SpO2 is below 90%",
+          "Start IV diuretics if congestive heart failure is suspected",
+          "Administer bronchodilators if COPD exacerbation is suspected",
+          "Consider anticoagulation if pulmonary embolism is suspected",
+          "Administer anxiolytics if anxiety or panic disorder is suspected",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential cardiac or pulmonary etiology requiring immediate intervention",
+          "Risk of respiratory failure",
+          "Potential for life-threatening conditions such as pulmonary embolism or acute coronary syndrome"
+        ],
+        "communication_note": "Due to your breathing difficulties and the potential for serious underlying conditions, I am referring you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779633474.1329758
+}

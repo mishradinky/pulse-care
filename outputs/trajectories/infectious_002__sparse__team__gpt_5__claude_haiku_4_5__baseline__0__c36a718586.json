@@ -1,0 +1,189 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever. Chills. Back hurts. Haven't peed since yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when your symptoms started and if you've had any recent infections or hospitalizations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever and chills two days ago. Had bladder infections before."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "pyelonephritis",
+          "sepsis",
+          "kidney stones"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "urine culture",
+          "blood cultures",
+          "complete blood count",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Initiate IV fluids to ensure adequate hydration and support renal function.",
+          "Monitor vital signs closely, especially for signs of sepsis.",
+          "Avoid NSAIDs due to potential renal complications.",
+          "Review current medications for potential interactions, especially with antibiotics."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "The patient's age increases the risk of complications from infections.",
+          "Symptoms suggestive of sepsis require prompt attention.",
+          "Urinary retention needs urgent evaluation to rule out serious underlying conditions."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to high risk of sepsis and complications.",
+        "trace": {
+          "clinician_contribution": "Identified potential diagnoses and necessary workup based on symptoms.",
+          "safety_checker_contribution": "Highlighted red flags and recommended ED referral due to high risk of sepsis.",
+          "pharm_nurse_contribution": "Reviewed medication safety and emphasized monitoring for worsening infection."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still have fever. More confused now. Feel worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when the fever started and if you have any other symptoms like cough, shortness of breath, or urinary issues?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever two days ago. No cough. Can't... hard to think. Haven't peed since yesterday."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "pneumonia",
+          "COVID-19",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "urinalysis",
+          "chest X-ray",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure hydration and monitor vital signs closely.",
+          "Avoid NSAIDs due to potential renal impairment and monitor for any signs of bleeding if anticoagulants are used."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Patient's confusion and age suggest a high risk for sepsis or other serious infections.",
+          "Potential for rapid deterioration due to age and possible underlying conditions.",
+          "Risk of dehydration and renal impairment due to fever and reduced fluid intake."
+        ],
+        "communication_note": "Patient requires immediate evaluation in the emergency department due to high risk of sepsis and confusion.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious infections and recommended diagnostic workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency department referral.",
+          "pharm_nurse_contribution": "Reviewed medications for safety concerns and recommended monitoring for dehydration and confusion."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe right. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your breathing difficulties? When did they start, and have you noticed anything that makes it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Hard to breathe. Started today maybe. Nothing helps."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "chronic obstructive pulmonary disease (COPD) exacerbation",
+          "congestive heart failure",
+          "pneumonia",
+          "pulmonary embolism",
+          "asthma exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "arterial blood gas",
+          "spirometry",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure oxygen therapy is available during transport.",
+          "Review and adjust medications as needed, particularly monitoring the use of Albuterol and potential interactions between Lisinopril and Furosemide."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Patient's age and acute respiratory symptoms could indicate a life-threatening condition.",
+          "Potential for rapid deterioration due to age and possible underlying conditions.",
+          "Need for immediate evaluation to rule out serious conditions like pulmonary embolism or severe pneumonia."
+        ],
+        "communication_note": "Patient requires immediate referral to the emergency department due to acute respiratory symptoms and potential for rapid deterioration.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and outlined necessary diagnostic tests.",
+          "safety_checker_contribution": "Identified red flags and recommended immediate escalation to the emergency department.",
+          "pharm_nurse_contribution": "Reviewed medication use and potential interactions, emphasizing the need for monitoring during acute respiratory distress."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779508006.818194
+}

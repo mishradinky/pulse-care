@@ -1,0 +1,201 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Palpitations and racing heart."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these palpitations and racing heart symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or dizziness along with these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Mild shortness of breath, lightheaded sometimes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, stress, or changes in your medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heavy drinking last weekend."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced these symptoms before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, first time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature of the palpitations? Are they regular or irregular, and do they come and go or are they constant?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Irregular, constant."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation",
+          "Alcohol-induced arrhythmia",
+          "Anxiety-induced palpitations"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Thyroid function tests (TSH)"
+        ],
+        "management_plan": [
+          "Monitor vital signs and oxygen saturation",
+          "Encourage hydration and avoid alcohol",
+          "Consider beta-blocker for symptom control if necessary"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of thromboembolism if atrial fibrillation is present",
+          "Potential for dehydration due to alcohol consumption"
+        ],
+        "communication_note": "We need to run some tests to understand your heart symptoms better, and I recommend avoiding alcohol for now."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Palpitations, chest tightness."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature of your palpitations? For example, are they regular or irregular, fast or slow?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Irregular, fast."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Six days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation",
+          "Coronary artery disease",
+          "Gastroesophageal reflux disease"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin levels"
+        ],
+        "management_plan": [
+          "Monitor heart rate and rhythm",
+          "Start beta-blocker therapy if atrial fibrillation is confirmed",
+          "Lifestyle modifications (diet, exercise, stress management)",
+          "Follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential cardiac event",
+          "Risk of thromboembolism if atrial fibrillation is present"
+        ],
+        "communication_note": "We need to run some tests to better understand your symptoms and will discuss the results and next steps with you soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Palpitations worse, passed out today."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Syncope due to cardiac arrhythmia",
+          "Vasovagal syncope",
+          "Orthostatic hypotension",
+          "Cardiac ischemia or infarction"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Echocardiogram",
+          "Holter monitor for 24-48 hours",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Cardiac enzymes (troponin)"
+        ],
+        "management_plan": [
+          "Referral to cardiology for further evaluation",
+          "Monitor vital signs at home and report any further episodes of syncope or severe palpitations",
+          "Avoid driving or operating heavy machinery until cleared by a cardiologist",
+          "Follow up with primary care physician in 1 week for interim results"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of recurrent syncope leading to injury",
+          "Potential underlying cardiac condition requiring immediate intervention"
+        ],
+        "communication_note": "Given your recent episode of passing out and worsening palpitations, we are referring you to the emergency department for further evaluation to rule out any serious cardiac conditions."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779633612.6734362
+}

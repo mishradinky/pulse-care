@@ -1,0 +1,198 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had this bad cough for a few days, coughing up some yellow stuff. Got a fever and my chest hurts when I breathe. It's been rough."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "What's that mean? I just know that sometimes my chest feels tight and I get winded easily."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your energy levels or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I'm real tired. Feels like I have no energy to do much. It's been like this since my cough started."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills or night sweats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I've been feeling pretty hot and cold, like shivery sometimes, but not really sweatin' in my sleep. It's more like I'm just real cold then real hot."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I ain't traveled nowhere lately. Just been at home mostly. As for sick folks, I can't really say. Haven't been around many people much."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I got the sugar problem and something with my breathing. I take a pill for the sugar and got these puffs for breathing. One's white and one's for when I'm feeling bad. Can't remember the names."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "acute bronchitis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start empirical antibiotics for pneumonia",
+          "advise rest and hydration",
+          "monitor symptoms closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for respiratory distress",
+          "worsening infection"
+        ],
+        "communication_note": "Based on your symptoms, we need to check for a lung infection. I'll order some tests and start treatment to help you feel better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I'm just not feelin' any better. They gave me some pills yesterday, but I'm still all fuzzy in the head and my chest hurts more."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications were you given yesterday?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Uh, they gave me some pills yesterday, but I can't remember the name. I think it was a white pill. Maybe for my cough? Sorry, I'm just not sure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you're experiencing, like fever, shortness of breath, or changes in your cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest feels real heavy, and it's hard to breathe. I've been coughing up stuff that's kinda yellow-green. I think I had a fever 'cause I felt really hot. I'm also feeling all mixed up in my head lately."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "community-acquired pneumonia",
+          "acute bronchitis",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "start antibiotics if bacterial infection is confirmed",
+          "prescribe bronchodilators if wheezing is present",
+          "advise rest and hydration"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for respiratory distress",
+          "risk of sepsis"
+        ],
+        "communication_note": "Given your worsening symptoms and difficulty breathing, I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe right, and my chest hurts a lot. Everything feels kinda foggy too. I'm scared."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "chest X-ray",
+          "troponin levels",
+          "D-dimer",
+          "CBC",
+          "CMP"
+        ],
+        "management_plan": [
+          "Administer oxygen",
+          "Start IV access",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for cardiac arrest",
+          "Respiratory failure"
+        ],
+        "communication_note": "You need immediate medical attention to address your breathing and chest pain; we're calling emergency services now."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636387.8412635
+}

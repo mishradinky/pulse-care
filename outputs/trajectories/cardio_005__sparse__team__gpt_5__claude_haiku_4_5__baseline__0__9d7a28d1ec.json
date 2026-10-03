@@ -1,0 +1,187 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Sharp pain in my right chest. Can't breathe right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when the pain started and if anything makes it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started suddenly this morning. Worse when I breathe deep."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "pneumothorax",
+          "myocardial infarction",
+          "musculoskeletal pain",
+          "pleuritis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "ECG",
+          "D-dimer",
+          "troponin levels",
+          "CT pulmonary angiography"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management.",
+          "Continuous monitoring of vital signs and respiratory status.",
+          "Avoid NSAIDs due to potential kidney issues."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for life-threatening conditions such as pulmonary embolism or myocardial infarction.",
+          "Patient's age and sex increase cardiovascular risk.",
+          "Contraindication of ibuprofen due to CKD."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation for potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified potential serious conditions and recommended diagnostic workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medication contraindications and emphasized monitoring for respiratory distress."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing worse. Even sitting still. Right leg hurts more."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature of your leg pain? Is it constant or does it come and go? Also, have you noticed any swelling, redness, or warmth in your leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Hurts all the time now. Swollen. Red and warm."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "deep vein thrombosis (DVT)",
+          "pulmonary embolism (PE)",
+          "congestive heart failure"
+        ],
+        "workup_ordered": [
+          "D-dimer test",
+          "Doppler ultrasound of the right leg",
+          "chest X-ray",
+          "ECG"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Initiate anticoagulation therapy if DVT/PE is confirmed.",
+          "Monitor INR levels if Warfarin is prescribed.",
+          "Educate the patient on signs of DVT/PE and when to seek immediate medical attention."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential deep vein thrombosis (DVT) with risk of pulmonary embolism (PE)",
+          "Worsening breathing symptoms",
+          "Leg pain with swelling, redness, and warmth"
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential DVT/PE.",
+        "trace": {
+          "clinician_contribution": "Identified potential DVT/PE and ordered relevant diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended ED referral due to serious condition risk.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized monitoring for bleeding if anticoagulation is initiated."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Almost passed out."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these symptoms started and if anything seems to trigger them?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started five days ago. Flying made it worse."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "heart failure",
+          "arrhythmia",
+          "anxiety attack"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "chest X-ray",
+          "troponin levels",
+          "D-dimer test",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure the patient is monitored for any signs of deterioration during transport.",
+          "Review and adjust medications as necessary, particularly focusing on anticoagulants and diuretics."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "The patient's symptoms of shortness of breath and near syncope are concerning for serious cardiac or pulmonary conditions.",
+          "Potential interactions and side effects of current medications, especially anticoagulants and diuretics."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential serious cardiac or pulmonary issues.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac and pulmonary issues, recommended diagnostic workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended ED referral due to serious condition concerns.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and potential side effects, advised on monitoring and adjustments."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507396.656584
+}

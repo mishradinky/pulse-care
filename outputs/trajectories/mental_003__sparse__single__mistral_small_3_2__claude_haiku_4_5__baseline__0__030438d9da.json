@@ -1,0 +1,202 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I thought I was dying. Heart racing, chest tight, can't breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe when these symptoms started and if anything triggered them?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started today at the grocery store. Just... happened. Nothing special."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced these symptoms before, and if so, when was the last time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Four times last two months. Worst was today."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you sought medical attention for these episodes before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, came to the ER twice. They said my heart was fine."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms besides the heart racing, chest tightness, and difficulty breathing, such as dizziness, nausea, or sweating during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, dizzy. Hands tingling. Felt like dying."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever been diagnosed with any anxiety disorders or panic attacks in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never been told that. Just started happening recently."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Panic disorder",
+          "Anxiety disorder",
+          "Cardiac arrhythmia",
+          "Hyperthyroidism",
+          "Asthma exacerbation"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "Thyroid-stimulating hormone (TSH) level",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)"
+        ],
+        "management_plan": [
+          "Referral to a psychiatrist or psychologist for evaluation and management of potential anxiety or panic disorder",
+          "Consider starting a selective serotonin reuptake inhibitor (SSRI) if anxiety or panic disorder is diagnosed",
+          "Follow-up appointment in 2 weeks to review test results and symptoms"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Patient reports feeling like she is dying during episodes, which may indicate severe anxiety or panic attacks",
+          "Patient has a history of ER visits for similar symptoms, which may indicate a need for urgent evaluation and management"
+        ],
+        "communication_note": "Based on your symptoms and medical history, I suspect you may be experiencing anxiety or panic attacks, but we need to rule out other potential causes. I have ordered some tests and will refer you to a mental health specialist for further evaluation and management."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Had another attack at work. Now I'm scared to go anywhere."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what happened during the attack at work?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart was racing. Couldn't breathe. Thought I was dying."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long did these symptoms last during the attack?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Maybe twenty minutes, I think."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Panic Disorder",
+          "Anxiety Disorder",
+          "Cardiac Condition"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "Thyroid Function Tests"
+        ],
+        "management_plan": [
+          "Referral to Psychiatrist",
+          "Cognitive Behavioral Therapy (CBT) Recommendation",
+          "Follow-up in 2 weeks"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of severe anxiety attacks in public settings"
+        ],
+        "communication_note": "We'll run some tests and refer you to a specialist to better understand and manage your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Haven't left home in two weeks. Husband had to stop working."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Major Depressive Disorder",
+          "Generalized Anxiety Disorder",
+          "Panic Disorder",
+          "Agoraphobia"
+        ],
+        "workup_ordered": [
+          "PHQ-9 questionnaire",
+          "GAD-7 questionnaire",
+          "Basic metabolic panel",
+          "Thyroid function tests"
+        ],
+        "management_plan": [
+          "Referral to a psychiatrist for evaluation and potential medication management",
+          "Referral to a psychologist for cognitive-behavioral therapy (CBT)",
+          "Encourage regular exercise and a balanced diet",
+          "Follow-up appointment in one week to monitor symptoms and adjust treatment plan as needed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of worsening depression and anxiety symptoms",
+          "Potential for self-neglect due to severe agoraphobia"
+        ],
+        "communication_note": "Based on your symptoms and the severity of your condition, I am referring you to a psychiatrist and a psychologist for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511407.4358497
+}

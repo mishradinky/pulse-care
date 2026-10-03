@@ -1,0 +1,176 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad headache. Blood pressure is really high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your headache? When did it start, and have you experienced any other symptoms like dizziness, vision changes, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started four hours ago. Really bad throbbing. No dizziness, no vision stuff, no chest pain."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine",
+          "tension headache",
+          "secondary headache due to another condition"
+        ],
+        "workup_ordered": [
+          "blood pressure measurement",
+          "complete blood count",
+          "basic metabolic panel",
+          "electrocardiogram",
+          "head CT if indicated"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency services for evaluation and management of potential hypertensive crisis.",
+          "Monitor blood pressure closely and assess for signs of end-organ damage.",
+          "Educate patient on recognizing signs of hypertensive emergencies."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "High blood pressure with severe headache could indicate a hypertensive crisis.",
+          "Potential for serious conditions such as stroke or heart attack."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to potential hypertensive crisis.",
+        "trace": {
+          "clinician_contribution": "Identified potential hypertensive crisis and outlined necessary workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed medications and emphasized monitoring for hypertensive crisis."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache's still here. Blood pressure meds aren't working."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache in more detail? For example, where is it located, how severe is it on a scale of 1 to 10, and does anything make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Front and sides. Maybe 7 out of 10. Nothing helps much."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "hypertension-related headache",
+          "medication side effect",
+          "migraine",
+          "tension headache"
+        ],
+        "workup_ordered": [
+          "blood pressure measurement",
+          "review current medications",
+          "neurological examination"
+        ],
+        "management_plan": [
+          "Monitor blood pressure regularly to assess for hypertension-related headaches.",
+          "Review and potentially adjust antihypertensive medication dosage.",
+          "Educate the patient on recognizing signs of medication side effects, such as persistent headaches, and when to seek medical advice."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "The patient's headache may be related to hypertension or medication side effects; routine follow-up is advised.",
+        "trace": {
+          "clinician_contribution": "The clinician focused on gathering detailed information about the headache and proposed a differential diagnosis and workup plan.",
+          "safety_checker_contribution": "The safety checker approved the plan with no red flags or blocking concerns, recommending routine escalation.",
+          "pharm_nurse_contribution": "The pharm/nurse reviewed medications for potential side effects and interactions, suggesting monitoring and education on medication side effects."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My headache's gone. But now I can't see right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe what you mean by 'can't see right'? Are you experiencing blurred vision, double vision, or any loss of vision in one or both eyes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right eye blurry. Like a curtain on the side."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "transient ischemic attack (TIA)",
+          "retinal detachment",
+          "migraine with aura",
+          "glaucoma"
+        ],
+        "workup_ordered": [
+          "complete ophthalmologic examination",
+          "neurological examination",
+          "MRI of the brain",
+          "carotid ultrasound"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for urgent evaluation.",
+          "Avoid aspirin until retinal detachment is ruled out.",
+          "Monitor blood pressure and adjust antihypertensive medications as needed."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential for TIA or retinal detachment requiring urgent intervention.",
+          "Risk of significant harm if symptoms are not promptly addressed."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to visual disturbances post-headache, indicating possible TIA or retinal detachment.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes for visual disturbances and recommended comprehensive workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent ED referral to prevent harm.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized monitoring for neurological symptoms."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779507088.4717531
+}

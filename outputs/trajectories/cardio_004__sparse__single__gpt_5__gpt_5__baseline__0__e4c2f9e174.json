@@ -1,0 +1,186 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Severe headache, blood pressure high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing the headache and high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Headache 4 hours, BP not sure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, vision changes, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No vision changes, no chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medication for the headache or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, ran out of meds."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications were you taking for your blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Amlodipine, HCTZ."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of kidney problems or other medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Hypertension, no kidney problems."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine headache"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "restart antihypertensive medications",
+          "pain management with NSAIDs"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of end-organ damage due to uncontrolled hypertension"
+        ],
+        "communication_note": "Your headache and high blood pressure need urgent attention; let's restart your medications and monitor your blood pressure closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache, blood pressure still high."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache in more detail, such as its location, severity, and any associated symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Throbbing, severe, no other symptoms."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your vision or any sensitivity to light or sound with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No vision changes, no sensitivity."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine headache"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "adjust antihypertensive medication",
+          "prescribe pain relief for headache"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive complications"
+        ],
+        "communication_note": "Your headache and high blood pressure need further evaluation and treatment adjustment, so we'll arrange for you to see a specialist soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Headache gone, vision blurry."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive retinopathy",
+          "diabetic retinopathy",
+          "cataracts"
+        ],
+        "workup_ordered": [
+          "fundoscopic examination",
+          "blood pressure measurement",
+          "fasting blood glucose"
+        ],
+        "management_plan": [
+          "refer to ophthalmology",
+          "optimize blood pressure control",
+          "monitor blood glucose levels"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for vision loss if untreated"
+        ],
+        "communication_note": "Your headache has resolved, but the blurry vision needs further evaluation. We'll refer you to an eye specialist and check your blood pressure and blood sugar levels."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635520.8818076
+}

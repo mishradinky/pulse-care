@@ -1,0 +1,235 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor, I have a really bad throbbing headache that started about 4 hours ago. It's severe and won't go away. They also told me my blood pressure is very high when I came in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm concerned about your severe headache with elevated blood pressure. Can you tell me: Is this the worst headache of your life, or have you had similar severe headaches before? Any vision changes, chest pain, shortness of breath, weakness, or numbness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've had bad headaches before with my blood pressure, but this one is definitely the worst I've experienced. No, I haven't had any vision changes, chest pain, or shortness of breath. No weakness or numbness either. I just feel this terrible throbbing in my head."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypertensive urgency/emergency with severe headache (PRIMARY)",
+          "Intracranial hemorrhage (subarachnoid or intracerebral) \u2014 MUST RULE OUT",
+          "Acute ischemic stroke",
+          "Hypertensive encephalopathy",
+          "Migraine with aura (lower acuity but still concerning given BP elevation)",
+          "Tension headache with anxiety-induced hypertension (lowest acuity)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: repeat BP (both arms), HR, RR, O2 sat, temperature \u2014 document exact readings and timing",
+          "STAT 12-lead ECG (rule out ACS)",
+          "STAT non-contrast head CT (rule out ICH/SAH given 'worst headache of life' descriptor and 4-hour onset)",
+          "STAT troponin, BNP",
+          "CBC, CMP (renal function critical for medication dosing), coagulation studies",
+          "Urinalysis with protein/blood",
+          "Continuous cardiac telemetry during workup"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Establish large-bore IV access; place on continuous cardiac monitoring",
+          "IMMEDIATE: Obtain complete medication reconciliation (home antihypertensives, antiplatelet agents, anticoagulants, NSAIDs, HRT/OCPs, supplements) \u2014 CRITICAL GAP in current record",
+          "Perform serial neuro checks q15min (LOC, pupils, focal deficits, speech, motor/sensory) pending imaging",
+          "Monitor BP both arms q5\u201310min; document exact readings; assess for orthostatic changes",
+          "NPO status pending imaging/intervention decisions",
+          "HOLD any NSAIDs pending troponin/ECG results; HOLD home antihypertensives pending acute etiology clarification",
+          "If acute antihypertensive therapy required (e.g., labetalol, nicardipine IV): titrate cautiously to avoid precipitous BP drop in setting of possible intracranial pathology",
+          "Reassure patient; provide anxiety/psychosocial support during acute workup",
+          "Verify contrast allergy status before CT administration"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL SEQUENCE ERROR CORRECTED: Clinician's initial approach (screening questions before STAT vitals/ECG) has been overridden. STAT vitals and ECG must be obtained *immediately* (within minutes), not after history-taking.",
+          "Patient reports 'worst headache of life' with 4-hour onset \u2014 classic thunderclap/ICH red flag. Non-contrast head CT must be STAT, not deferred.",
+          "No current BP value documented; unclear if patient is in monitored setting (ED) or outpatient/home environment. If at home, 911 activation is appropriate.",
+          "Medication history completely absent \u2014 cannot assess for drug-disease interactions (e.g., NSAIDs worsening BP, estrogen-containing agents increasing thrombotic risk) or medication non-adherence as precipitant.",
+          "ACS in differential but no mention of continuous cardiac monitoring in initial proposal \u2014 now corrected.",
+          "Renal function unknown \u2014 CMP results required before dosing any medications; eGFR adjustment essential.",
+          "Fall risk elevated: severe headache + hypertension + possible neuro deficits \u2014 assist with all movement.",
+          "If patient is currently at home or in outpatient setting with 'worst headache of life' presentation, this warrants immediate 911 activation and ED transport with continuous monitoring."
+        ],
+        "communication_note": "55-year-old female with severe throbbing headache (worst of life, 4-hour onset) and elevated BP requires STAT ED evaluation with immediate vitals, ECG, and head CT to rule out hypertensive emergency, intracranial hemorrhage, and ACS; 911 activation recommended if not already in monitored setting.",
+        "trace": {
+          "clinician_contribution": "Clinician identified appropriate differential diagnosis (hypertensive emergency, ACS, ICH, stroke, encephalopathy) and ordered comprehensive workup (vitals, ECG, troponin, labs, head CT). However, sequencing error: proposed screening questions *before* STAT diagnostics. Coordinator has resequenced to prioritize immediate vital signs and ECG. Patient's response ('worst headache of life') elevates ICH/SAH concern and justifies STAT (not 'consider') head CT.",
+          "safety_checker_contribution": "Safety checker identified critical gaps: (1) sequence error (questions before STAT vitals/ECG), (2) missing context on current BP, onset acuity, and patient location, (3) imaging urgency (head CT should be STAT, not deferred), (4) monitoring gap (no continuous telemetry mentioned for ACS rule-out), (5) unclear disposition (home vs. ED). Recommended emergency_911 escalation. Coordinator has incorporated all safety recommendations and elevated escalation level accordingly.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication history gap (no current Rx/OTC/supplement list provided), contraindications (NSAIDs if ACS/hypertensive emergency), drug-disease interactions (estrogen agents, renal function unknown), and nursing priorities (medication reconciliation, continuous monitoring, neuro checks q15min, BP monitoring both arms, IV access, NPO status, fall precautions, contrast allergy verification, anxiety support). Coordinator has integrated all medication safety alerts and nursing interventions into management plan."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My headache is still here and my blood pressure is still running high even with the medications they gave me last time. I'm hoping you can help me figure out what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your headache better. Can you describe: where exactly is the pain located, how severe is it on a scale of 1-10, is it constant or comes and goes, and have you noticed any other symptoms like vision changes, chest pain, shortness of breath, or nosebleeds?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The pain is all over my head, throbbing, and I'd say it's about an 8 out of 10. It's been pretty constant since it started four hours ago. I haven't had any vision changes, chest pain, or trouble breathing. No nosebleeds either. I just feel this terrible pressure and pounding."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "55F with persistent headache (8/10, diffuse, throbbing, constant \u00d7 4 hours) and uncontrolled hypertension despite current treatment. Red flag symptoms (vision changes, chest pain, SOB, nosebleeds) currently ABSENT, which is reassuring. However, severity, acuity, and treatment resistance warrant urgent evaluation to rule out hypertensive emergency, secondary hypertension, or intracranial pathology.",
+        "differential_diagnosis": [
+          "Hypertensive headache (benign, most likely given absence of red flags)",
+          "Uncontrolled hypertension / hypertensive urgency (SBP likely 160\u2013180 range)",
+          "Medication non-adherence or inadequate dosing",
+          "Secondary hypertension (renal artery stenosis, hyperaldosteronism, pheochromocytoma)",
+          "Migraine with concurrent hypertension",
+          "Intracranial pathology (lower probability given negative neuro screening, but cannot fully exclude without imaging if red flags emerge)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs including BP (both arms), HR, orthostatics, RR, temp",
+          "Repeat BP readings \u00d7 2\u20133 over 5\u201310 minutes to confirm elevation",
+          "Home BP log review (if available) to assess pattern vs. white-coat effect",
+          "Complete medication list and adherence assessment (current antihypertensives, doses, frequency, barriers)",
+          "Screen for NSAID, decongestant, OCP/HRT use (may worsen HTN)",
+          "Basic metabolic panel (electrolytes, creatinine, BUN) to assess renal function and guide medication adjustments",
+          "Urinalysis (screen for proteinuria, hematuria suggesting secondary HTN or end-organ damage)",
+          "ECG if not done in past 6 months (assess for LVH, ischemia)",
+          "Head imaging (CT or MRI) if: sudden severe onset confirmed, focal neurologic deficits develop, vision changes emerge, or atypical features noted during continued assessment"
+        ],
+        "management_plan": [
+          "Obtain current vital signs immediately\u2014escalation pathway is conditional on SBP level and red flag presence",
+          "If SBP \u2265180 mmHg AND any red flag symptoms (vision changes, neuro deficits, chest pain, severe headache) \u2192 ED REFERRAL for hypertensive emergency evaluation",
+          "If SBP 160\u2013180 mmHg WITHOUT end-organ symptoms \u2192 proceed with urgent outpatient workup; schedule follow-up within 3\u20135 days",
+          "Medication adherence counseling: assess barriers (cost, side effects, complexity, understanding); consider simplifying regimen or addressing side effects",
+          "Review current antihypertensive regimen once list obtained; optimize dosing, add agents, or switch classes based on efficacy and renal function",
+          "Discontinue or replace any NSAIDs, decongestants, or other agents worsening BP control",
+          "Reinforce lifestyle modifications: sodium restriction (<2.3 g/day), stress management, regular exercise, weight management",
+          "Patient education on hypertensive emergency warning signs: severe headache + vision changes + BP >180/120 \u2192 call 911",
+          "Arrange close follow-up (phone or in-person) within 3\u20135 days to review labs and reassess BP control"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "escalation_rationale": "Patient currently lacks end-organ damage red flags (no vision changes, chest pain, SOB, neuro deficits). However, severe headache (8/10) with uncontrolled HTN and 4-hour duration warrants urgent same-day or next-day evaluation. Escalation to ED would be triggered if vital signs reveal SBP \u2265180 with any red flag symptom, or if imaging becomes indicated.",
+        "safety_concerns": [
+          "Persistent headache + uncontrolled hypertension = potential hypertensive urgency or emergency; vital signs are critical decision point",
+          "Age 55 with treatment-resistant HTN = elevated risk for secondary causes (renal artery stenosis, pheochromocytoma, hyperaldosteronism); workup must include renal function and consider further imaging if BP remains uncontrolled after medication optimization",
+          "Intracranial pathology not yet ruled out; imaging threshold is low if red flags emerge during continued assessment or if headache persists despite BP control",
+          "Medication non-adherence or contraindicated agents (NSAIDs, decongestants, OCPs) may be driving uncontrolled BP; medication review is CRITICAL and currently blocked by missing medication list",
+          "Renal function unknown; ACE-I/ARB dosing and choice of agent depend on creatinine and potassium levels"
+        ],
+        "communication_note": "Patient's negative red flag screening is reassuring and supports urgent outpatient pathway, but vital signs and medication review are essential next steps before finalizing management.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately screened for red flag symptoms (vision changes, chest pain, SOB, nosebleeds) and obtained detailed headache characterization (location, severity 8/10, constant, throbbing, diffuse). Differential is broad and includes dangerous mimics (hypertensive emergency, secondary HTN, intracranial pathology). Workup plan is comprehensive and risk-stratified.",
+          "safety_checker_contribution": "Safety checker confirmed proposal quality as STRONG and identified critical escalation pathway: SBP \u2265180 + end-organ symptoms \u2192 ED; SBP 160\u2013180 without symptoms \u2192 urgent outpatient acceptable. Emphasized MUST-DO: obtain vital signs immediately and assess medication adherence. Imaging threshold appropriately set (sudden onset, focal deficits, vision changes, atypical features). No blocking concerns; patient is safe to proceed with urgent outpatient workup pending vital signs.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged CRITICAL gap: current medication list not provided, blocking full medication safety review. Identified high-risk scenarios: NSAIDs and decongestants contraindicated in uncontrolled HTN and may be self-administered for headache relief. Highlighted need for BMP (renal function, potassium) before dose adjustments. Emphasized medication adherence assessment as key driver of uncontrolled BP. Provided nursing red flag monitoring (hypertensive emergency signs) and patient education on when to seek emergency care."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. My headache from before has gone away, but now I'm having some blurring in my right eye. It started a little while ago and I'm worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the blurring in more detail\u2014is it complete loss of vision, haziness, or distortion? And is it affecting just the right eye, or do you notice it in both eyes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's more like haziness, not a complete blackout. I can still see, but things are blurry, especially on the right side. It started in my right eye, but now that you mention it, I think I notice a little bit in the left too, though not as bad."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Posterior circulation stroke/TIA (HIGHEST PRIORITY - bilateral vision involvement + prior headache)",
+          "Migraine with aura (bilateral haziness, prior headache, but less likely given acute monocular onset)",
+          "Amaurosis fugax (transient monocular vision loss - vascular emergency)",
+          "Retinal artery occlusion (central or branch - monocular onset, now spreading)",
+          "Acute angle-closure glaucoma (less likely without pain/photopsia, but not excluded)",
+          "Optic neuritis (subacute presentation possible)",
+          "Vitreous hemorrhage (less likely with bilateral involvement)"
+        ],
+        "workup_ordered": [
+          "STAT ED REFERRAL - do not complete workup in primary care",
+          "STAT vitals including BP, HR, temperature, oxygen saturation",
+          "STAT neurologic exam (visual fields, pupil reactivity, extraocular movements, focal deficits)",
+          "STAT cardiovascular exam (carotid bruits, cardiac auscultation for arrhythmia)",
+          "STAT labs: CBC, CMP, coagulation studies (PT/INR, PTT), troponin, glucose",
+          "STAT neuroimaging: MRI brain with DWI/PWI \u00b1 CTA head/neck (preferred) OR stat CT head if MRI unavailable",
+          "STAT ophthalmology evaluation (tonometry, gonioscopy, dilated fundus exam, visual field testing)",
+          "EKG (assess for atrial fibrillation or acute cardiac event as stroke source)",
+          "Confirm allergy status (especially contrast agents) before imaging"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL via EMS or urgent transport (do not drive patient)",
+          "Establish IV access upon ED arrival",
+          "Continuous cardiac monitoring in ED",
+          "NPO status pending imaging/intervention",
+          "DO NOT initiate aspirin or antiplatelet therapy in primary care\u2014defer to ED after imaging rules out hemorrhage",
+          "Obtain complete medication list and allergy verification before transfer",
+          "Document exact time of symptom onset and progression (critical for thrombolytic window)",
+          "Coordinate with ED and neurology/neuro-ophthalmology for urgent evaluation",
+          "If hemorrhagic stroke confirmed: avoid aggressive BP lowering unless SBP >220 mmHg",
+          "If ischemic stroke confirmed within thrombolytic window: consider IV tPA or thrombectomy per stroke protocol"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\ud83d\udea8 STROKE/TIA ALERT: Monocular vision loss progressing to bilateral haziness + prior headache = posterior circulation stroke/TIA until proven otherwise",
+          "\ud83d\udea8 TIME-CRITICAL: Exact symptom onset time unknown\u2014critical for thrombolytic eligibility (IV tPA window 0\u20134.5 hrs, thrombectomy window up to 24 hrs with imaging criteria)",
+          "\ud83d\udea8 ACUTE ANGLE-CLOSURE GLAUCOMA: Bilateral vision involvement raises concern; requires immediate tonometry/gonioscopy to rule out (can cause permanent blindness within hours)",
+          "\ud83d\udea8 AMAUROSIS FUGAX: Transient monocular vision loss is harbinger of stroke; patient at high risk for acute ischemic event",
+          "\u26a0\ufe0f INCOMPLETE ASSESSMENT: No vital signs, cardiovascular exam, or detailed neurologic exam documented; cannot assess stroke severity or hemodynamic stability",
+          "\u26a0\ufe0f MEDICATION SAFETY: No current medication list provided\u2014cannot assess antiplatelet/anticoagulant status or contraindications to acute stroke therapy",
+          "\u26a0\ufe0f ALLERGY STATUS: Contrast allergies not documented; critical if CTA/CT angiography planned",
+          "\u26a0\ufe0f CONTRAINDICATION: If patient is on NSAIDs for headache, HOLD immediately\u2014NSAIDs increase stroke risk and are contraindicated in acute neurologic events"
+        ],
+        "communication_note": "55-year-old woman with acute monocular vision loss (right eye) progressing to bilateral haziness following prior headache\u2014EMERGENCY STROKE/TIA PRESENTATION requiring immediate ED evaluation, neuroimaging, and specialist assessment; do not delay for primary care workup.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified red-flag differentials (amaurosis fugax, retinal artery occlusion, acute glaucoma, posterior circulation stroke/TIA, migraine with aura, optic neuritis, vitreous hemorrhage) and initiated clarifying history. However, clinician's approach of asking additional questions rather than immediately escalating is inappropriate for this acuity level. Patient's response revealing BILATERAL vision involvement (not just monocular) significantly elevates stroke/TIA risk and mandates emergency referral.",
+          "safety_checker_contribution": "Safety checker correctly identified this as a vascular emergency requiring ED referral and blocked further primary care workup. Flagged critical missing information (symptom onset timing, vital signs, neuro exam, cardiovascular exam) and emphasized time-sensitivity of stroke/TIA diagnosis. Appropriately escalated to ED_REFERRAL level.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no medication list provided (cannot assess antiplatelet/anticoagulant status or drug interactions), no renal/hepatic function documented (needed for acute medication dosing), and no allergy verification (essential before contrast imaging). Provided actionable nursing alerts: establish IV access, continuous cardiac monitoring, stat labs, hold NSAIDs if applicable, clarify aspirin dosing post-imaging, manage BP carefully, verify contrast allergies, and coordinate stat neuro-ophthalmology. Emphasized time-sensitive nature of monocular vision loss."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779507125.3614755
+}

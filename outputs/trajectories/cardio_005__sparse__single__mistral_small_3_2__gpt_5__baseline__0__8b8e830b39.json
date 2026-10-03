@@ -1,0 +1,203 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Sharp right chest pain, breathless."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe when the pain started and if it is constant or intermittent?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started suddenly, it's constant."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of the pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Seven."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Are you experiencing any other symptoms such as dizziness, nausea, or sweating along with the chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, just shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your chest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent injuries or trauma."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any similar episodes of chest pain in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, first time."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumothorax",
+          "Pulmonary embolism",
+          "Costochondritis",
+          "Rib fracture",
+          "Aortic dissection"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "D-dimer test"
+        ],
+        "management_plan": [
+          "Administer oxygen if SpO2 is below 92%",
+          "Monitor vital signs closely",
+          "Provide analgesia if needed",
+          "Prepare for possible imaging studies"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential life-threatening conditions such as pulmonary embolism or aortic dissection"
+        ],
+        "communication_note": "We need to run some tests to better understand your chest pain and shortness of breath."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Worse breathing, leg pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature of your leg pain? Is it sharp, dull, or cramping?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dull and getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate your leg pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About 7."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Peripheral Artery Disease",
+          "Deep Vein Thrombosis",
+          "Musculoskeletal Pain"
+        ],
+        "workup_ordered": [
+          "Ankle-Brachial Index (ABI)",
+          "D-dimer test",
+          "Leg ultrasound"
+        ],
+        "management_plan": [
+          "Pain management with NSAIDs",
+          "Leg elevation",
+          "Follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of deep vein thrombosis if pain is due to vascular cause"
+        ],
+        "communication_note": "We need to rule out serious causes of your leg pain and breathing difficulties, so we've ordered some tests and will follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Nearly fainted, can't breathe well."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "vasovagal syncope",
+          "orthostatic hypotension",
+          "cardiac arrhythmia",
+          "anxiety attack",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "troponin level",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "monitor vital signs closely",
+          "avoid sudden position changes",
+          "stay hydrated",
+          "follow up with primary care physician within a week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of falls or injury due to fainting",
+          "potential cardiac cause of symptoms"
+        ],
+        "communication_note": "Please monitor your symptoms closely and follow up with your doctor as advised."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779635857.4241576
+}

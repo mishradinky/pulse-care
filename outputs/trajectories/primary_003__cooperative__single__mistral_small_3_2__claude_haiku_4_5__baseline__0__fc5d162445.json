@@ -1,0 +1,190 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I've been extremely tired for about four months now, and I've gained weight even though I'm not eating much differently. I just feel exhausted all the time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe your fatigue further? For example, is it worse at certain times of the day, and does it interfere with your daily activities?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's pretty constant throughout the day, honestly. I wake up tired and it doesn't really improve. I used to go to the gym regularly, but now I can barely get through work. Even simple things like cooking dinner feel exhausting. It's been going on for about four months now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your appetite or any other symptoms like hair loss, dry skin, or feeling cold all the time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I haven't really noticed my appetite changing much, but my skin has gotten really dry and my hair seems to be falling out more than usual. And yes, I'm cold all the time\u2014I've been wearing sweaters even when it's warm. It's been frustrating."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your bowel movements or menstrual cycle?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been more constipated than usual over these past few months. And my periods have become irregular\u2014they're not coming on their regular schedule anymore."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any mood changes, such as feeling down or depressed, during this time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I wouldn't say I'm depressed exactly, but I just feel so tired all the time that I don't have energy to do things I normally enjoy. Everything feels like a struggle. I'm not sure if that's what you mean by mood changes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypothyroidism",
+          "depression",
+          "anemia"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "CBC",
+          "comprehensive metabolic panel"
+        ],
+        "management_plan": [
+          "lifestyle modifications",
+          "follow-up in 2 weeks"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "fatigue and weight gain could indicate a serious underlying condition"
+        ],
+        "communication_note": "Based on your symptoms, I suspect you may have an underactive thyroid, but we'll need some tests to confirm. I've ordered some blood work, and we'll follow up soon."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. I started the levothyroxine like you recommended a few weeks ago, but I'm still very tired all the time. And my constipation hasn't really gotten better either. I'm frustrated because I thought the medicine would help more by now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about your fatigue? For example, is it constant or does it come and go? Does it affect your daily activities?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's pretty much constant\u2014I wake up tired even after sleeping. I can do my work, but by afternoon I'm exhausted and just want to sit down. I've had to cut back on exercise because I don't have the energy. It's been like this for months now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms besides fatigue and constipation, such as weight changes, mood swings, or changes in your hair or skin?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've gained about 8 pounds over these past few months even though I'm not eating more. My skin has been really dry, and I feel cold all the time\u2014I'm wearing sweaters even in warm rooms. My periods have also become irregular. My mood's been okay though, just tired mostly."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Hypothyroidism (poor levothyroxine response)",
+          "Chronic fatigue syndrome",
+          "Depression",
+          "Iron deficiency anemia",
+          "Celiac disease"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "Free T4",
+          "CBC",
+          "Ferritin",
+          "Vitamin D level",
+          "Thyroid antibodies (TPOAb, TgAb)"
+        ],
+        "management_plan": [
+          "Review levothyroxine adherence and timing",
+          "Consider increasing levothyroxine dose if labs indicate",
+          "Iron supplementation if ferritin is low",
+          "Vitamin D supplementation if deficient",
+          "Referral to endocrinology if no improvement"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Persistent fatigue impacting daily activities",
+          "Potential underlying untreated hypothyroidism"
+        ],
+        "communication_note": "We'll run some tests to check your thyroid levels and other possible causes of your symptoms, and we'll adjust your medication if needed."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me again. I'm feeling some better than before, but I'm wondering when I'll feel completely normal again. I'm still not quite back to myself yet."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Post-viral fatigue",
+          "Chronic fatigue syndrome",
+          "Depression"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CMP",
+          "TSH",
+          "Vitamin D level"
+        ],
+        "management_plan": [
+          "Encourage rest and hydration",
+          "Referral to primary care for further evaluation",
+          "Consider referral to mental health specialist if symptoms persist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Persistent fatigue may impact daily functioning"
+        ],
+        "communication_note": "We'll run some tests to better understand your symptoms and arrange follow-up with your primary care provider."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512579.3144312
+}

@@ -1,0 +1,207 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My mom is confused and having accidents."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long has your mom been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three days. She's never like this."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has your mom had any recent illnesses, falls, or changes in medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "She was fine until three days ago. No falls. Same pills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has your mom had any recent headaches, fever, or vision changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "She's got a fever. No headaches or vision problems."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How high has her fever been, and has she had any chills or cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever's been high. No cough. Chills, maybe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has your mom had any recent changes in her bowel movements or urinary habits?"
+        },
+        {
+          "speaker": "patient",
+          "text": "She's been going to the bathroom a lot. And having accidents."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI)",
+          "Delirium",
+          "Urinary incontinence",
+          "Sepsis",
+          "Dementia exacerbation"
+        ],
+        "workup_ordered": [
+          "Urinalysis",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Blood cultures",
+          "Urinary culture"
+        ],
+        "management_plan": [
+          "Start empiric antibiotics for possible UTI",
+          "Monitor vital signs closely",
+          "Encourage hydration",
+          "Assess for delirium triggers and manage accordingly",
+          "Consider referral to geriatrics or urology for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to fever and confusion",
+          "Risk of falls due to confusion and urinary incontinence"
+        ],
+        "communication_note": "Your mom has a fever and confusion, which could be due to a urinary tract infection or other serious conditions; we need to run some tests and start treatment right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still confused. Worse this morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the confusion in more detail? For example, are you having trouble remembering things, or is it more like feeling disoriented?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Don't know what day it is. Can't think straight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent falls, head injuries, or changes in your medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No falls. No head bumps. Same pills as always."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Delirium",
+          "Dementia",
+          "Urinary Tract Infection",
+          "Medication Side Effect",
+          "Metabolic Disorder"
+        ],
+        "workup_ordered": [
+          "Complete Blood Count (CBC)",
+          "Comprehensive Metabolic Panel (CMP)",
+          "Urinalysis",
+          "Thyroid Stimulating Hormone (TSH) level"
+        ],
+        "management_plan": [
+          "Monitor vital signs and mental status closely",
+          "Review all current medications for potential causes of confusion",
+          "Ensure adequate hydration and nutrition",
+          "Consider consulting a neurologist or geriatric specialist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of falls due to confusion",
+          "Potential for worsening cognitive impairment"
+        ],
+        "communication_note": "We need to run some tests to better understand your confusion and determine the best course of treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Not sure what's happening. Daughter called ambulance."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "syncope",
+          "orthostatic hypotension",
+          "cardiac arrhythmia",
+          "stroke"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "CBC",
+          "CMP",
+          "Troponin",
+          "CT head"
+        ],
+        "management_plan": [
+          "Monitor vitals closely",
+          "Administer IV fluids if hypotension present",
+          "Consult neurology if stroke suspected"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of fall or injury due to syncope",
+          "Potential cardiac or neurological cause"
+        ],
+        "communication_note": "Given your symptoms and the circumstances, we need to rule out serious conditions and will send you to the emergency department for further evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779512952.6487792
+}

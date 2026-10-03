@@ -1,0 +1,195 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Worst headache of my life. Started suddenly at the gym."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the headache further? Is it throbbing, sharp, or constant?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Worst pain ever. Sharp. Started all at once."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any associated symptoms like nausea, vomiting, vision changes, or weakness on one side of your body?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Neck's stiff. Real sensitive to light. Nothing else."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate the severity of your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Ten. Worst I've ever had."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent head trauma or injury?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just started lifting at the gym."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your vision or any history of similar headaches in the past?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No changes in vision. Never had a headache like this before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage",
+          "Meningitis",
+          "Migraine",
+          "Tension headache"
+        ],
+        "workup_ordered": [
+          "Non-contrast CT head",
+          "Lumbar puncture if CT is negative"
+        ],
+        "management_plan": [
+          "Pain management with IV analgesics",
+          "Monitor for neurological changes",
+          "Prepare for possible neurosurgical consultation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential life-threatening condition requiring immediate intervention"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition, and we need to proceed with emergency evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still hurts real bad. Meds helped a little."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and type of your headache? For example, is it throbbing, sharp, or dull?"
+        },
+        {
+          "speaker": "patient",
+          "text": "All over. Sharp. Worst ever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any vision changes, nausea, or vomiting along with the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Threw up once. Head still really bad. Can't handle bright light."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "migraine",
+          "meningitis",
+          "subarachnoid hemorrhage"
+        ],
+        "workup_ordered": [
+          "CT scan of the head without contrast",
+          "complete blood count",
+          "comprehensive metabolic panel"
+        ],
+        "management_plan": [
+          "IV fluids",
+          "antiemetic medication",
+          "pain management with NSAIDs or acetaminophen"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "possible neurological emergency"
+        ],
+        "communication_note": "Your symptoms are concerning, and we need to rule out serious causes for your headache."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't think straight. Left arm won't move."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Stroke",
+          "Transient Ischemic Attack (TIA)",
+          "Multiple Sclerosis",
+          "Peripheral Neuropathy",
+          "Myasthenia Gravis"
+        ],
+        "workup_ordered": [
+          "MRI of the brain",
+          "CT scan of the head",
+          "Complete Blood Count (CBC)",
+          "Comprehensive Metabolic Panel (CMP)",
+          "Electromyography (EMG)"
+        ],
+        "management_plan": [
+          "Immediate referral to a neurologist",
+          "Physical therapy consultation",
+          "Monitor for any worsening symptoms",
+          "Follow-up appointment in one week"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential neurological emergency",
+          "Risk of permanent neurological damage"
+        ],
+        "communication_note": "Given your symptoms, we need to rule out serious conditions and will refer you to the emergency department for further evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512360.1730225
+}

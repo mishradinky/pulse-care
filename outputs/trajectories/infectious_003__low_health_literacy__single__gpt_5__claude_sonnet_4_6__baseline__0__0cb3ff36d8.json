@@ -1,0 +1,196 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hey doc. So, um... I can't really catch my breath, like, when I walk around or do stuff. Even just going to work is real hard now. Been like this for maybe three weeks? And I got this dry cough that won't quit. I'm kinda scared, honestly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or night sweats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah I been real hot at night, like I wake up and my shirt's soaked. And I feel kinda warm during the day too but not like burning up or nothing. The chills... I dunno, maybe a little shaky sometimes but not bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No I ain't been nowhere lately, just work and home mostly. My coworkers seem fine far as I know. I did share a place for a bit with a buddy but he moved out. Nothin special I can think of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any weight loss or changes in appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I ain't been eating much lately. My clothes feel real loose, like maybe I lost some weight but I dunno how much exactly. Food just don't sound good no more, you know? Been like that maybe a month or so."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of smoking or exposure to secondhand smoke?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Nah I don't smoke. Never really did. My buddy at work smokes outside sometimes but I'm not usually around it much. Why, is that what's making me feel this way?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really pain like a stabbing thing, but my chest does feel kinda heavy, like somethin' is sittin' on it. Mostly when I walk around or try to do stuff at work. It's been like that for maybe three weeks now I think."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "tuberculosis",
+          "pneumonia",
+          "lung cancer"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "CBC",
+          "HIV test"
+        ],
+        "management_plan": [
+          "prescribe symptomatic treatment for cough",
+          "advise rest and hydration",
+          "schedule follow-up after test results"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential infectious disease transmission"
+        ],
+        "communication_note": "Based on your symptoms, we need to do some tests to check for possible lung infections or other issues. Let's get these done soon and follow up with the results."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, it's way worse now. I can barely breathe even just sittin' here. Before it was only bad when I was walkin' around, but now... I dunno, my chest feels real heavy and I'm just gasping. I'm scared. It ain't gettin' better with them pills you gave me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What specific symptoms or changes have you noticed since your last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's way worse, doc. Before I could at least sit on the couch okay, but now even just sitting still I feel like I can't get enough air. Like something's sitting on my chest real heavy. And I keep coughing, that dry one. I feel hot too, like maybe a little fever still."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or swelling in your legs or feet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest don't really hurt like a sharp pain or nothin. But it feels real heavy, like somebody sittin on it. My feet look okay I think... my heart does feel like it's beatin fast sometimes, like after you run real hard. That scares me a little."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism",
+          "heart failure"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "D-dimer",
+          "ECG",
+          "oxygen saturation"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start empirical antibiotics",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "severe respiratory distress",
+          "potential for rapid deterioration"
+        ],
+        "communication_note": "Your breathing difficulties are serious, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't... I can't breathe good. It's real bad. Can't talk much... chest is so tight. Please help me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start bronchodilator therapy",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "severe respiratory distress",
+          "potential for respiratory failure"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulty, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779639711.0419853
+}

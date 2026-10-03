@@ -1,0 +1,201 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's been racing. Three days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you're experiencing, such as chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart's racing. A little short of breath walking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, stress, or changes in your medication?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No changes. Stressed maybe. Dunno."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced anything like this before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, first time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any palpitations or irregular heartbeats along with the racing heart?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, heart's been racing and fluttering."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation",
+          "Atrial flutter",
+          "Supraventricular tachycardia",
+          "Anxiety-induced palpitations",
+          "Hyperthyroidism"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Thyroid-stimulating hormone (TSH) level",
+          "Basic metabolic panel (BMP)"
+        ],
+        "management_plan": [
+          "Monitor heart rate and rhythm",
+          "Assess for underlying causes of stress or anxiety",
+          "Consider referral to a cardiologist if symptoms persist or worsen"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke or other complications if atrial fibrillation or flutter is present"
+        ],
+        "communication_note": "We need to run some tests to understand what's causing your heart to race and flutter. Please make an appointment with a cardiologist if your symptoms continue."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's still fluttering. Chest feels tight now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale of 1 to 10, how would you rate your chest tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About a 4."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or dizziness along with the chest tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Some shortness of breath. Not much dizziness."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation",
+          "Angina pectoris",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Troponin level"
+        ],
+        "management_plan": [
+          "Monitor vital signs closely",
+          "Start low-dose aspirin therapy if no contraindications",
+          "Refer to cardiology for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential cardiac ischemia",
+          "Risk of arrhythmia"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart-related issue, and we need to run some tests to understand it better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Passed out this morning. Heart's going crazy."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Syncope due to cardiac arrhythmia",
+          "Vasovagal syncope",
+          "Orthostatic hypotension",
+          "Cardiac ischemia or infarction"
+        ],
+        "workup_ordered": [
+          "Electrocardiogram (ECG)",
+          "Echocardiogram",
+          "Holter monitor for 24-48 hours",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Cardiac enzymes (troponin)"
+        ],
+        "management_plan": [
+          "Referral to a cardiologist for further evaluation",
+          "Monitor for any recurrent episodes of syncope or palpitations",
+          "Educate patient on syncope prevention strategies",
+          "Follow up in 1 week to review test results and discuss findings"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of recurrent syncope and potential injury",
+          "Underlying cardiac condition that may require immediate intervention"
+        ],
+        "communication_note": "Based on your symptoms, we need to rule out any serious cardiac conditions, so we will perform some tests and refer you to a specialist."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779636024.8713267
+}

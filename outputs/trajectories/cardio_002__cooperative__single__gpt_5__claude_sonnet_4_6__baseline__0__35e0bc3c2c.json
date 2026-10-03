@@ -1,0 +1,194 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been having a really hard time breathing for the past three days. It keeps getting worse, especially when I walk around or try to do anything. I'm pretty worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain, but yes, I've noticed my legs have been pretty swollen \u2014 both of them, up to my ankles and a bit above. And my heart sometimes feels like it's fluttering or beating unevenly, which isn't totally new for me, but it seems a bit more noticeable lately."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've gained about 4 kilograms over the past week or so. My appetite hasn't really changed, but my legs and ankles have been swelling up quite a bit, and my clothes feel tighter than usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, infections, or changes in your medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent illnesses or infections that I know of. As for my medications, I have to be honest \u2014 I haven't been taking my water pill as regularly as I should. I kept forgetting some doses this past week."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications are you currently taking, including the water pill?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I take a water pill \u2014 furosemide, 40mg \u2014 along with carvedilol 12.5mg, lisinopril 10mg, and apixaban 5mg. I'll be honest, I haven't been taking the furosemide as regularly as I should lately."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any cough, fever, or recent changes in your sleep patterns?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever that I know of, and I haven't had a cough. As for sleep, I've actually had to prop myself up with two or three pillows to breathe comfortably at night \u2014 lying flat just makes it worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure exacerbation",
+          "atrial fibrillation with rapid ventricular response",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "electrocardiogram (ECG)",
+          "B-type natriuretic peptide (BNP)",
+          "basic metabolic panel",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "resume regular dosing of furosemide",
+          "consider increasing furosemide dose temporarily",
+          "monitor weight daily",
+          "restrict fluid and sodium intake",
+          "follow-up in cardiology clinic"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for worsening heart failure",
+          "risk of pulmonary edema"
+        ],
+        "communication_note": "It seems like your symptoms may be related to heart failure, possibly worsened by missing your water pill. We need to do some tests and adjust your medications to help you breathe easier and reduce the swelling."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I'm still really short of breath, and I've actually gained even more weight since I was last here. I'm having a hard time catching my breath even just walking around the house, and I had to sleep sitting almost straight up last night."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my ankles and legs have been pretty swollen. It's been getting worse over the past few days, and my shoes feel really tight when I try to put them on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or discomfort. Just this really bad shortness of breath that's been getting worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure exacerbation",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "initiate diuretic therapy",
+          "monitor weight daily",
+          "restrict fluid intake"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress",
+          "potential for worsening heart failure"
+        ],
+        "communication_note": "Your symptoms suggest a worsening of your heart condition, and I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe when I lie down. I've been using five pillows just to sleep, and even then I wake up in a panic gasping for air. It's been getting worse over the past few days and I'm really scared."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "optimize heart failure medications",
+          "restrict fluid intake"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory failure due to worsening dyspnea"
+        ],
+        "communication_note": "You need immediate medical attention to address your breathing difficulties, so I'm calling for emergency services to take you to the hospital."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779635211.196334
+}

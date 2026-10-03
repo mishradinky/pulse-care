@@ -1,0 +1,202 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Terrible diarrhea. Ten times a day. Can't stop it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this diarrhea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Started right after I got home from the hospital."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What hospital were you admitted to and what was the reason for your admission?"
+        },
+        {
+          "speaker": "patient",
+          "text": "St. Mary's. Had bad pneumonia, they said."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Were you given any antibiotics during your hospital stay for pneumonia?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, they gave me something. Can't remember the name."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had a fever or any blood in your stools?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, fever. No blood that I saw."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your appetite or any abdominal pain accompanying the diarrhea?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Bad belly cramps. Can't eat much."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection",
+          "Antibiotic-associated diarrhea",
+          "Norovirus infection",
+          "Bacterial gastroenteritis"
+        ],
+        "workup_ordered": [
+          "Stool culture",
+          "Clostridioides difficile toxin assay",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)"
+        ],
+        "management_plan": [
+          "Start oral rehydration therapy",
+          "Consider empiric treatment for Clostridioides difficile if high suspicion",
+          "Monitor for signs of dehydration and electrolyte imbalances"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe dehydration",
+          "Electrolyte imbalances",
+          "Worsening of symptoms"
+        ],
+        "communication_note": "Given your recent hospital stay and antibiotic use, we need to rule out a serious infection causing your diarrhea. We will order some tests and start you on rehydration therapy."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Diarrhea's not better. Fever's higher."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days now. Real bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any blood in your stool or mucus?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood. Just water, lots of it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Infectious gastroenteritis",
+          "Clostridioides difficile infection",
+          "Urinary tract infection"
+        ],
+        "workup_ordered": [
+          "Complete blood count",
+          "Comprehensive metabolic panel",
+          "Stool culture",
+          "Urinalysis"
+        ],
+        "management_plan": [
+          "Hydration management",
+          "Antidiarrheal medication if appropriate",
+          "Antibiotics if bacterial infection confirmed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Dehydration",
+          "Electrolyte imbalances"
+        ],
+        "communication_note": "We need to run some tests to understand the cause of your symptoms and start appropriate treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Belly's hard. Can't breathe right."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Abdominal sepsis",
+          "Pneumonia",
+          "COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Arterial blood gas (ABG)",
+          "Chest X-ray",
+          "Abdominal X-ray"
+        ],
+        "management_plan": [
+          "Administer broad-spectrum antibiotics",
+          "Provide oxygen therapy as needed",
+          "Monitor vital signs closely",
+          "Prepare for possible ICU admission"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Sepsis",
+          "Respiratory failure"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious infection, and we need to run some tests and start treatment immediately."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508928.3365476
+}

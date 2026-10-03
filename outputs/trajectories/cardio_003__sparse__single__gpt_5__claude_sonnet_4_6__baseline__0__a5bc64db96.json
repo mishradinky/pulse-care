@@ -1,0 +1,191 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Heart's been racing. Three days now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as chest pain, shortness of breath, dizziness, or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart's been racing. Little short of breath walking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any episodes of dizziness or fainting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Little dizzy sometimes. No fainting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any triggers or activities that make your heart race more, or does it happen at rest as well?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Happens at rest too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in medication, caffeine intake, or stress levels?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No changes. Same meds, same coffee."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Advise patient to avoid caffeine and alcohol",
+          "Schedule follow-up appointment after tests"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening arrhythmia or heart failure"
+        ],
+        "communication_note": "Your heart racing and shortness of breath need further evaluation, so we'll arrange some tests and a follow-up visit soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still got the fluttering. Chest feels tight now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the chest tightness start, and does anything make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Maybe yesterday. Gets worse when I walk."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like shortness of breath, sweating, nausea, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "A little short of breath."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "angina",
+          "atrial fibrillation",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "start aspirin",
+          "consider beta-blocker",
+          "advise rest and avoid exertion"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for myocardial infarction"
+        ],
+        "communication_note": "Your symptoms suggest a heart-related issue, so we need to get you to the emergency department for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Passed out this morning. Heart's going crazy."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "ventricular tachycardia",
+          "syncope due to arrhythmia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "electrolyte panel",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start on rate control medication",
+          "consider anticoagulation if atrial fibrillation is confirmed",
+          "advise on lifestyle modifications"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of recurrent syncope",
+          "potential for stroke if atrial fibrillation is present"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation of your heart rhythm and to prevent any serious complications."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779635992.7223217
+}

@@ -1,0 +1,194 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I got back from a long trip to Japan five days ago, and now my right side of my chest just started hurting real bad. It's sharp, like a knife, and I can't breathe right. It got worse when I flew back. I'm really worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my right leg is kinda puffy and sore. It started a few days ago, maybe after that long plane ride from Japan. The left one looks normal though. It's tender when I touch it, like someone squeezed it too hard."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent trauma or injury to your chest or leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that. I just got back from a really long plane ride from Japan, like five days ago. My right leg's been a little puffy, but I didn't hit it or anything. Then yesterday my chest just started hurting real bad out of nowhere when I was sitting down."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, dizziness, or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I can't catch my breath real good right now. And my heart's been beating kinda fast and hard\u2014I can feel it in my chest. I haven't felt dizzy though. This all started right after I got off that long plane ride from Japan, like five days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of blood clots or clotting disorders?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, nothing like that. I've never had any problems with my blood before. My doctor never said anything about clots or... whatever that is. Why, do you think something's wrong with my blood?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Nah, I'm pretty healthy. Don't take nothin' regular. Maybe some aspirin once in a while for headaches, but that's it. Why, you think this chest thing is from somethin' else?"
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "chest CT angiography",
+          "D-dimer",
+          "ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Administer anticoagulation therapy if PE is confirmed",
+          "Provide supplemental oxygen if needed",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of life-threatening pulmonary embolism"
+        ],
+        "communication_note": "Your symptoms and recent travel suggest a possible blood clot in your lung, which is serious. We need to get you to the emergency room immediately for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I'm way worse now. Can barely catch my breath even when I'm just sitting down. And my right leg... it's killing me, real swollen and hot to the touch. I'm scared something's really wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the swelling and pain in your right leg start?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Um, I think it started like... maybe yesterday? Or the day before? My leg's been feeling tight and sore, you know? It's worse now than when I first got back from that trip. The swelling came on pretty quick."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my chest still hurts a lot, especially when I breathe in. It's like a sharp pain on the right side. And my heart's been beating real fast and hard\u2014I can feel it pounding. It's scaring me a little bit, to be honest."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Administer anticoagulation therapy if confirmed",
+          "Provide supplemental oxygen if needed",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of pulmonary embolism leading to respiratory failure or cardiac arrest"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition that needs immediate attention, so I'm calling for emergency services to get you to the hospital right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I... I almost passed out a minute ago. I can barely breathe right now. My chest really hurts and I'm so dizzy. I don't know what's happening to me. Please help."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "aortic dissection"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "CT angiography"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "oxygen therapy",
+          "IV access for potential medications"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of severe complications if untreated"
+        ],
+        "communication_note": "You are experiencing severe symptoms that could be life-threatening, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779507528.1371803
+}

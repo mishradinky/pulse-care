@@ -1,0 +1,231 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doc. My face on this side is all droopy and I can't smile right. And my joints have been killing me\u2014my knees, my wrists, everywhere hurts. It's been going on for a while now and I'm really worried something's wrong with me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your symptoms better. When did the facial drooping start, and did it come on suddenly or gradually? Also, for the joint pain\u2014which joints exactly, and have you noticed any swelling, redness, or warmth in them?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Um, my face started drooping like... maybe a week ago? It just kinda happened, I didn't notice it getting worse slowly or anything. And my joints... my knees and wrists mostly have been hurting and they're kinda puffy. They move around though\u2014like one day my knee hurts bad, next day it's my wrist. I don't see redness but they feel a little warm sometimes, yeah."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "40F presenting with 1-week acute unilateral facial drooping and migratory polyarticular joint pain (knees, wrists) with warmth and swelling. Patient reports sudden onset of facial symptoms and progressive joint involvement. Critical safety concern: acute facial nerve palsy requires urgent stroke exclusion before systemic disease workup.",
+        "differential_diagnosis": [
+          "Lyme disease (facial nerve involvement + migratory polyarthralgia/arthritis; tick exposure history CRITICAL)",
+          "Bell's palsy with coincidental polyarticular arthritis",
+          "Sarcoidosis (Heerfordt syndrome: facial palsy + arthritis + systemic inflammation)",
+          "Viral infection (EBV, CMV, HSV) with reactive polyarthralgia",
+          "Acute stroke/TIA (less likely given polyarticular involvement, but cannot exclude without neuro exam + imaging)",
+          "Rheumatoid arthritis with incidental Bell's palsy (less likely given acute onset and migratory pattern)"
+        ],
+        "workup_ordered": [
+          "URGENT: Complete facial nerve exam (forehead wrinkles, eye closure, mouth symmetry, full neuro screen for other deficits)",
+          "URGENT: Establish exact symptom onset time; if <48 hours, consider ED referral for CT head \u00b1 MRI to exclude acute stroke",
+          "Tick exposure history, geographic location, rash assessment (critical for Lyme risk stratification)",
+          "CBC with differential, CMP (renal/hepatic function)",
+          "ESR, CRP (systemic inflammation marker)",
+          "Lyme serology (ELISA + Western blot if endemic area or high-risk exposure)",
+          "ACE level, chest X-ray if sarcoidosis suspected",
+          "Consider EMG/NCS if facial palsy persists >3 weeks",
+          "ALLERGY HISTORY (penicillins, cephalosporins, tetracyclines, NSAIDs)",
+          "PREGNANCY/LACTATION STATUS (doxycycline contraindicated in pregnancy)"
+        ],
+        "management_plan": [
+          "HOLD all treatment pending safety clearance (stroke exclusion, allergy/pregnancy status, renal function)",
+          "If stroke ruled out AND Lyme disease high-risk (endemic area + tick exposure \u00b1 rash): initiate doxycycline 100 mg PO BID \u00d7 21 days (pending renal function, allergy, pregnancy status)",
+          "If Bell's palsy confirmed (idiopathic facial nerve palsy without systemic features): consider prednisone 1 mg/kg/day \u00d7 7 days (max 80 mg) + eye care (lubricating drops, protective eyewear); screen for contraindications (diabetes, infection, immunosuppression)",
+          "For joint pain: DEFER NSAIDs until baseline renal function obtained; consider acetaminophen 650\u20131000 mg TID PRN in interim",
+          "Patient education: tick prevention, sun protection if on doxycycline, eye care if facial palsy confirmed",
+          "Follow-up: 1\u20132 weeks to reassess facial nerve function and joint symptoms; escalate if worsening or new neuro deficits"
+        ],
+        "escalation_level": "ed_referral",
+        "escalation_rationale": "Acute facial drooping (1-week onset) is a stroke red flag until proven otherwise. Patient requires urgent neurological examination and consideration of neuroimaging (CT/MRI) if onset was within 48 hours. Concurrent polyarticular involvement with warmth/swelling suggests systemic disease (Lyme, sarcoidosis) but does not exclude acute CNS pathology. Recommend ED evaluation if any concern for acute stroke; otherwise, urgent same-day or next-day outpatient neuro exam + labs.",
+        "safety_concerns": [
+          "CRITICAL: Acute facial drooping is a stroke red flag. Exact onset timing (1 week ago) suggests lower acute stroke risk, but complete facial nerve exam and consideration of neuroimaging are mandatory before discharge.",
+          "Incomplete neurological assessment: no documentation of forehead involvement, eye closure ability, mouth symmetry, or other focal deficits. Must complete before deprioritizing stroke.",
+          "Lyme disease is plausible (migratory polyarthritis + facial nerve palsy in endemic area) but tick exposure history, geographic location, and rash assessment not yet obtained.",
+          "No medication list, allergy history, pregnancy/lactation status, or renal/hepatic function documented. CRITICAL before prescribing doxycycline (contraindicated in pregnancy, requires renal dosing) or NSAIDs.",
+          "Workup array was empty in clinician output; labs and imaging must be ordered concurrently with history refinement, not sequentially.",
+          "Migratory joint pain with warmth suggests inflammatory arthritis (Lyme, RA, sarcoidosis); ESR/CRP and Lyme serology are essential to differentiate."
+        ],
+        "communication_note": "Patient requires urgent neurological examination to exclude stroke, concurrent assessment for Lyme disease risk factors (tick exposure, rash, geography), and baseline labs (CBC, CMP, ESR/CRP, Lyme serology) before treatment initiation; allergy, pregnancy, and renal function must be confirmed before prescribing antibiotics or NSAIDs.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified unusual symptom combination (facial palsy + polyarthralgia) and generated broad, relevant differential (Lyme, sarcoidosis, viral, Bell's palsy, stroke). Clinician asked targeted questions about symptom onset, joint distribution, and inflammatory signs (swelling, redness, warmth). However, clinician did NOT propose any workup (labs, imaging, neuro exam) and did not address stroke risk despite acute facial drooping.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL stroke red flag and blocking concern: acute facial drooping requires rapid neuro exam and neuroimaging if onset <48 hours. Safety checker flagged missing neuro exam details (laterality, forehead, eye closure), missing risk factor assessment (stroke risk factors, Lyme exposure), and empty workup array. Safety checker recommended urgent_outpatient|ed_referral escalation and mandated stroke exclusion before discharge. Safety checker also flagged missing medication list, allergy history, pregnancy status, and renal function\u2014all critical for treatment planning.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL gaps: no medication list provided, no allergy history, no pregnancy/lactation status, no renal/hepatic function. Pharm/nurse flagged contraindications for likely treatments (doxycycline in pregnancy, NSAIDs without renal function, corticosteroids without screening for diabetes/infection). Pharm/nurse recommended baseline labs (CBC, CMP, Lyme serology) before treatment and emphasized tick exposure history as essential for Lyme risk stratification and empiric doxycycline timing."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I'm really scared. I almost passed out twice since I was here last time. My heart's been going real slow and weird\u2014like it's skipping beats or something. And I got all dizzy and clammy. What's wrong with me?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When your heart felt slow and skipped beats, did this happen during the episodes where you almost passed out? And since your last visit, have you had any fever, chills, night sweats, new joint pain, or any skin rashes or sores?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my heart was doing that weird thing when I almost fell down both times. Like, it got really slow and felt funny right before I got all dizzy. Um... I don't think I had a fever? Maybe a little warm but nothing crazy. No sweats at night that I noticed. My joints still hurt though, different spots like before. And no new rashes or anything like that since the one I had on my leg a while back."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Myocarditis (post-infectious or active viral)",
+          "Endocarditis (subacute presentation with joint pain, prior rash, new arrhythmia)",
+          "Cardiac arrhythmia secondary to myocarditis/infection (bradycardia with ectopy)",
+          "Pericarditis with tamponade risk",
+          "Sepsis with cardiac involvement",
+          "Electrolyte derangement (hypokalemia, hypomagnesemia) precipitating arrhythmia"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (assess for bradycardia, ectopy, ST changes, prolonged QT)",
+          "STAT troponin I/T and BNP (myocardial injury/heart failure markers)",
+          "STAT CBC with differential, CMP (electrolytes, renal function, infection markers)",
+          "STAT blood cultures \u00d7 2 (endocarditis rule-out given joint pain + prior rash + new arrhythmia)",
+          "CRP and ESR (systemic inflammation)",
+          "Transthoracic echocardiogram (urgent, same-day if possible; assess for vegetations, wall motion abnormality, pericardial effusion, ejection fraction)",
+          "Continuous cardiac monitoring (ED setting)",
+          "Medication list review (clarify recent antibiotics, QT-prolonging agents, supplements)",
+          "Allergy verification (prior to empiric antibiotic selection if endocarditis suspected)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL\u2014do not complete outpatient workup; patient requires continuous monitoring and rapid diagnostic imaging",
+          "Obtain clinician's history questions (arrhythmia-syncope temporal relationship, fever/constitutional symptoms) during ED triage simultaneously with diagnostic workup",
+          "Hold NSAIDs pending renal function and sepsis status; use acetaminophen for symptom management if needed",
+          "NPO status pending cardiology evaluation (may require urgent echo or intervention)",
+          "Advise patient to avoid driving/operating machinery until arrhythmia etiology and hemodynamic stability confirmed",
+          "If endocarditis suspected on initial workup (positive blood cultures, echo findings, fever + new murmur): initiate empiric broad-spectrum antibiotics per ID protocol after blood cultures drawn; adjust based on culture results and sensitivities",
+          "If myocarditis confirmed: supportive care, consider ACE inhibitor/beta-blocker per cardiology; avoid QT-prolonging agents",
+          "Cardiology consultation at ED for arrhythmia management and risk stratification"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Syncope + bradycardia + palpitations = high risk for sudden cardiac death, recurrent syncope, or hemodynamic collapse; outpatient management is unsafe",
+          "CRITICAL: Differential includes time-sensitive diagnoses (endocarditis, myocarditis, pericarditis with effusion) requiring urgent imaging and labs; delay increases morbidity/mortality",
+          "CRITICAL: No baseline ECG, troponin, or vital signs documented despite cardiac emergency presentation; objective assessment cannot be deferred",
+          "RED FLAG: Joint pain + prior rash + new cardiac arrhythmia + possible low-grade fever = endocarditis pattern; blood cultures must be obtained before any antibiotics",
+          "RED FLAG: Unknown medication list prevents assessment of QT-prolonging drug contribution to arrhythmia; must clarify before ED arrival",
+          "MONITORING GAP: Patient is at risk for deterioration during outpatient questioning; continuous cardiac monitoring required",
+          "ALLERGY RISK: Confirm drug allergies before empiric antibiotic selection (critical if endocarditis confirmed)"
+        ],
+        "communication_note": "Patient requires immediate ED referral for continuous cardiac monitoring, ECG, troponin, blood cultures, and urgent echocardiography to rule out life-threatening myocarditis or endocarditis; history-gathering will proceed in parallel with diagnostic workup in ED setting.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified infectious disease context and proposed targeted history (arrhythmia-syncope temporal relationship, systemic infection screening: fever, chills, night sweats, joint pain, rash). Patient's responses\u2014syncope temporally linked to bradycardia/palpitations, possible low-grade fever, persistent joint pain, prior rash\u2014strengthen concern for myocarditis or endocarditis. However, clinician remained in history-gathering mode without proposing urgent objective workup.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL red flags: syncope + bradycardia + palpitations in infectious disease context = life-threatening arrhythmia risk. Blocked outpatient-only approach and mandated ED referral with simultaneous ECG, cardiac monitoring, troponin, blood cultures, and urgent echo. Approved clinician's history questions but redirected action to ED setting to prevent delay in diagnostic assessment and monitoring.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged CRITICAL gaps: no medication list provided (cannot assess QT-prolonging drug contribution); no baseline labs (cannot assess electrolyte abnormalities driving arrhythmia). Identified infection screening priorities (temp, fever/chills/night sweats/rash/joint pain), electrolyte panel urgency, and NSAID caution if renal impairment/sepsis present. Emphasized continuous monitoring capability requirement and patient safety (no driving until arrhythmia cleared)."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Oh thank God you're here... I just passed out in the waiting room. One second I was sitting there and the next thing I knew I was on the floor. My heart's been doing weird stuff all week\u2014like it's skipping or beating real slow. I'm scared something's really wrong with me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm glad you're okay. Let me ask a few quick questions: Did you hit your head when you fell? Are you having chest pain, shortness of breath, or sweating right now? And have you had any recent fever, cough, or illness before the heart palpitations started?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I didn't hit my head\u2014just fell down. My chest feels kinda heavy still, yeah, and I'm sweating a lot. I'm not short of breath though. And no fever or cough. But like I said, I had that weird rash thing weeks ago, and my joints have been killing me."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Syncope + active palpitations + chest heaviness + diaphoresis = acute cardiac emergency until proven otherwise",
+          "Patient is currently symptomatic (chest heaviness, sweating) and has documented loss of consciousness\u2014meets criteria for immediate emergency evaluation",
+          "Differential includes ACS, myocarditis, arrhythmia, and sepsis\u2014all life-threatening and requiring in-person stabilization, ECG, and cardiac monitoring NOW",
+          "No current vital signs, hemodynamic stability assessment, or cardiac rhythm documented\u2014unsafe to proceed with outpatient triage",
+          "Rash + joint pain + palpitations + syncope suggests possible systemic infection (e.g., Lyme disease with cardiac involvement, viral myocarditis, endocarditis)\u2014requires urgent blood cultures and imaging",
+          "No medication list obtained\u2014cannot rule out QT-prolonging drug contribution to arrhythmia"
+        ],
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / myocardial infarction",
+          "Myocarditis or pericarditis (viral or post-infectious)",
+          "Cardiac arrhythmia (bradycardia, heart block, SVT, or atrial fibrillation)",
+          "Sepsis or systemic infection with cardiac involvement (consider Lyme disease, endocarditis given rash + joint pain)",
+          "Syncope from dehydration, electrolyte abnormality, or hypovolemia",
+          "Thyroid dysfunction or metabolic disorder"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (assess for ischemia, arrhythmia, QT prolongation, myocarditis pattern)",
+          "STAT troponin I/T (rule out myocardial injury)",
+          "STAT BNP (assess for heart failure or myocarditis)",
+          "STAT CBC, CMP (electrolytes, Mg, Ca, renal/hepatic function)",
+          "STAT TSH (rule out thyroid dysfunction)",
+          "Blood cultures \u00d7 2 (if fever develops or sepsis suspected)",
+          "Continuous cardiac monitoring (ED)",
+          "Chest X-ray (assess for cardiomegaly, pulmonary edema, infection)",
+          "Echocardiogram (if myocarditis or pericarditis suspected after initial workup)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Call 911 or direct patient to nearest ED for emergency evaluation and stabilization",
+          "ED to establish IV access, continuous cardiac monitoring, and obtain STAT ECG and labs",
+          "Obtain complete medication history (including OTC, supplements, recent antibiotics/antivirals) and allergy profile in ED",
+          "Assess hydration status and correct electrolyte abnormalities if identified",
+          "If myocarditis/pericarditis confirmed: avoid NSAIDs; use acetaminophen for symptom relief; consider cardiology consultation",
+          "If arrhythmia identified: cardiology evaluation and possible antiarrhythmic therapy or device placement",
+          "If ACS confirmed: activate ACS protocol (antiplatelet, anticoagulation, revascularization per cardiology)",
+          "If infection/sepsis suspected: blood cultures, broad-spectrum antibiotics after cultures (consider Lyme serology given rash + joint pain history)",
+          "Infectious disease consultation if systemic infection or myocarditis suspected"
+        ],
+        "communication_note": "Patient requires EMERGENCY evaluation (911/ED) immediately\u2014syncope with active chest heaviness, diaphoresis, and palpitations is a life-threatening cardiac emergency that cannot be safely managed in outpatient setting.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified syncope + palpitations as red flag and began systematic assessment of hemodynamic stability and cardiac etiology; however, clinician proceeded with question-asking rather than escalating. Patient's new disclosure of active chest heaviness + diaphoresis elevates this to emergency status requiring immediate ED referral.",
+          "safety_checker_contribution": "Safety checker correctly identified blocking concerns: syncope + palpitations cannot be triaged by phone; patient requires in-person ECG, vitals, and cardiac monitoring. Safety checker's recommendation for ED referral is now UPGRADED to 911/emergency given patient's active symptoms (chest heaviness, diaphoresis) and loss of consciousness.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged critical gaps: no medication list (cannot rule out QT-prolonging drugs), no vital signs or labs, and need for STAT ECG and troponin. Nurse also identified infectious disease angle (rash + joint pain + palpitations) requiring blood cultures and myocarditis workup. These concerns reinforce emergency escalation."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508886.868116
+}

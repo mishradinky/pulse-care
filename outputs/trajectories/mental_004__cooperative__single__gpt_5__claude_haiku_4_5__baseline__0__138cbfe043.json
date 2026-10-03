@@ -1,0 +1,187 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My hands won't stop shaking, I'm sweating a lot, and I feel really anxious. It started yesterday after I stopped drinking. I'm not feeling right at all."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much alcohol were you consuming before you stopped, and for how long?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I was drinking about a pint of vodka every day for the past 10 years. I stopped yesterday\u2014that's when my hands started shaking and I got all sweaty and anxious."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea, vomiting, or hallucinations since you stopped drinking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea or vomiting. I haven't seen anything that isn't there, if that's what you mean. I'm just really shaky, sweating a lot, and my heart feels like it's racing. The anxiety is the worst part."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any seizures or confusion since you stopped drinking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had a seizure since I stopped drinking yesterday, but I'm really worried because I've had them before when I quit. I'm not confused, but I'm anxious and my hands won't stop shaking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any changes in your sleep patterns or appetite since you stopped drinking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't really thought about sleep or food much since yesterday. Honestly, I'm too jittery and anxious to think about eating right now. My main problem is these shakes and sweating\u2014I just need something to calm down."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "alcohol withdrawal syndrome",
+          "generalized anxiety disorder"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "comprehensive metabolic panel",
+          "urine toxicology screen"
+        ],
+        "management_plan": [
+          "initiate benzodiazepine taper",
+          "monitor vital signs closely",
+          "provide supportive care including hydration"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of seizures due to alcohol withdrawal",
+          "potential for severe withdrawal symptoms"
+        ],
+        "communication_note": "You are experiencing symptoms of alcohol withdrawal, which can be serious. We need to refer you to the emergency department for immediate care and monitoring."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I... I had a seizure. Just happened. I don't remember it, but they said I was shaking real bad. My head hurts and I'm confused about what happened."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had a seizure before, or is this your first one?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've had seizures before when I stopped drinking. That's why my family brought me in this time\u2014they were worried it might happen again. I guess it did."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you recently stopped drinking alcohol or reduced your intake significantly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I had my last drink about 18 hours ago. I've been drinking a lot\u2014a pint of vodka every day for the past 10 years. My family brought me in because I'm shaking and sweating, and I'm real anxious. I just want something to calm my nerves."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "alcohol withdrawal seizure",
+          "epileptic seizure",
+          "metabolic disturbance"
+        ],
+        "workup_ordered": [
+          "blood alcohol level",
+          "electrolyte panel",
+          "liver function tests"
+        ],
+        "management_plan": [
+          "administer benzodiazepines for withdrawal symptoms",
+          "monitor vital signs closely",
+          "provide supportive care and hydration"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of further seizures",
+          "risk of severe alcohol withdrawal symptoms"
+        ],
+        "communication_note": "You are experiencing seizures likely due to alcohol withdrawal. We need to manage this in the emergency department to ensure your safety and provide appropriate treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm really confused right now. I keep seeing things that aren't there, and I can't seem to think straight. My hands won't stop shaking either."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "delirium",
+          "substance-induced psychosis"
+        ],
+        "workup_ordered": [
+          "complete blood count",
+          "comprehensive metabolic panel",
+          "urine toxicology screen",
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "admit to hospital for observation and treatment",
+          "consult psychiatry for evaluation",
+          "start IV fluids to ensure hydration"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of harm to self due to confusion and hallucinations"
+        ],
+        "communication_note": "You are experiencing confusion and seeing things that aren't there, which needs immediate attention. We will refer you to the emergency department for further evaluation and care."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511644.896201
+}

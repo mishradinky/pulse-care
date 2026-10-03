@@ -1,0 +1,191 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a sore on my foot. Two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore in more detail? For example, is it painful, draining, or have any unusual color?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's not painful. No drainage. Just red around it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or changes in footwear that could have caused this sore?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just noticed it there two weeks ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in the size or appearance of the sore since you first noticed it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's not getting better. Still about the same size."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses or changes in your health that might be related to this sore?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No. Just the sore. Been there two weeks."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cellulitis",
+          "Diabetic foot ulcer",
+          "Stasis dermatitis",
+          "Contact dermatitis",
+          "Psoriasis"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "HbA1c",
+          "Foot X-ray"
+        ],
+        "management_plan": [
+          "Wound care instructions",
+          "Elevate the foot",
+          "Topical antibiotic ointment",
+          "Follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of infection",
+          "Underlying systemic disease"
+        ],
+        "communication_note": "We need to run some tests to understand the cause of your foot sore and start appropriate treatment."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "The wound got bigger. Smells bad now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and size of the wound?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right foot bottom. Maybe three inches now. Smells bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any fever, redness, or increased pain around the wound?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it's red now. And it smells bad."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cellulitis",
+          "Diabetic foot ulcer",
+          "Necrotizing fasciitis"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Blood glucose test",
+          "Wound culture"
+        ],
+        "management_plan": [
+          "Prescribe oral antibiotics",
+          "Recommend wound care and offloading",
+          "Schedule follow-up in 48 hours"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of infection spreading",
+          "Potential for diabetic complications"
+        ],
+        "communication_note": "Your wound is infected and needs immediate attention; we'll start antibiotics and monitor it closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Foot is very red, swollen. I have a fever now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cellulitis",
+          "Gout",
+          "Deep Vein Thrombosis"
+        ],
+        "workup_ordered": [
+          "Complete Blood Count",
+          "Erythrocyte Sedimentation Rate",
+          "Blood Culture",
+          "Ultrasound of the foot"
+        ],
+        "management_plan": [
+          "Elevate the foot",
+          "Apply ice packs",
+          "Take NSAIDs for pain and inflammation",
+          "Monitor for signs of infection"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Possible infection",
+          "Risk of complications if left untreated"
+        ],
+        "communication_note": "Your foot condition may be serious, and we need to run some tests to determine the best course of treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779512050.7156594
+}

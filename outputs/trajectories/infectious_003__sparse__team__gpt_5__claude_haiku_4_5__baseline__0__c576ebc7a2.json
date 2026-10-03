@@ -1,0 +1,188 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath. Especially when I walk."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing shortness of breath, and have you noticed any other symptoms like fever, cough, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three weeks. Cough too. No chest pain. Little fever."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism",
+          "asthma exacerbation",
+          "chronic obstructive pulmonary disease (COPD)",
+          "heart failure"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "D-dimer",
+          "spirometry",
+          "electrocardiogram"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure the patient has access to an Albuterol inhaler and understands its correct use.",
+          "Monitor for any signs of respiratory distress or hypoxia during transport.",
+          "Educate the patient on the importance of completing any prescribed antibiotic course if pneumonia is diagnosed."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Shortness of breath is a potentially serious symptom that can indicate life-threatening conditions such as pulmonary embolism or heart failure.",
+          "The differential includes conditions that may require immediate intervention, such as pulmonary embolism and heart failure."
+        ],
+        "communication_note": "Patient requires immediate referral to the emergency department due to potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified a broad differential diagnosis and recommended initial workup.",
+          "safety_checker_contribution": "Highlighted the need for immediate escalation due to potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medication use and provided guidance on monitoring and patient education."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Even sitting down now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did your breathing difficulties start, and have you noticed any other symptoms like fever, cough, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Three weeks ago. Cough, fever. No chest pain."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "chronic obstructive pulmonary disease (COPD)",
+          "pneumonia",
+          "pulmonary embolism",
+          "heart failure"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "spirometry",
+          "complete blood count",
+          "D-dimer test",
+          "arterial blood gas analysis"
+        ],
+        "management_plan": [
+          "Ensure patient has an up-to-date prescription for Albuterol inhaler and is using it correctly.",
+          "Consider a short course of Prednisone for asthma exacerbation if indicated.",
+          "Monitor oxygen saturation and provide supplemental oxygen if needed.",
+          "Assess for signs of infection and initiate appropriate antibiotic therapy if pneumonia is confirmed."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Acute breathing difficulty",
+          "Potential for serious conditions like pulmonary embolism or heart failure"
+        ],
+        "communication_note": "Patient requires immediate referral to the emergency department due to acute breathing difficulties and potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and recommended a detailed workup to identify the underlying cause of the breathing difficulties.",
+          "safety_checker_contribution": "Identified red flags and recommended escalation to the emergency department due to potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medication use, ensuring correct dosing and monitoring for contraindications, and provided guidance on managing potential pneumonia."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't... breathe. Need... air."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when these breathing difficulties started and if you have any other symptoms like fever, cough, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started three weeks ago. Can't breathe. Cough. Little fever. No chest pain."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "pneumonia",
+          "pulmonary embolism",
+          "COVID-19",
+          "anxiety attack"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "D-dimer",
+          "COVID-19 test",
+          "spirometry"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure patient has access to an Albuterol inhaler and understands proper usage.",
+          "Educate patient on recognizing symptoms that require urgent medical attention."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Acute breathing difficulties could indicate a life-threatening condition such as a pulmonary embolism.",
+          "Potential for rapid deterioration with conditions like pneumonia or severe asthma exacerbation."
+        ],
+        "communication_note": "Patient requires immediate evaluation at the emergency department due to acute breathing difficulties and potential serious conditions.",
+        "trace": {
+          "clinician_contribution": "Provided a comprehensive differential diagnosis and recommended initial workup to identify the cause of breathing difficulties.",
+          "safety_checker_contribution": "Identified red flags and recommended escalation to the emergency department due to potential life-threatening conditions.",
+          "pharm_nurse_contribution": "Reviewed medication use and ensured patient education on inhaler technique, highlighting the importance of monitoring for contraindications with NSAIDs."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508324.420923
+}

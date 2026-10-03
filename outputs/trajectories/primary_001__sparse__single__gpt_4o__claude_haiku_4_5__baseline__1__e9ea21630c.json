@@ -1,0 +1,207 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 1,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "primary_care",
+    "demographics": {
+      "age": 45,
+      "sex": "F",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Got a sore on my foot. Two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore on your foot? Is it painful, itchy, or has it changed in size or appearance?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's just a sore spot. Not really painful. Been there two weeks. Getting bigger maybe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any drainage, redness, or warmth around the sore?"
+        },
+        {
+          "speaker": "patient",
+          "text": "There's some redness around it. No drainage that I see."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your foot, or do you have any history of diabetes or circulation problems?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No injuries. I have diabetes. Don't know about circulation."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any numbness or tingling in your feet, or any changes in sensation?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My feet feel numb. Can't feel much down there."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been checking your blood sugar levels regularly, and are they well-controlled?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not really. Don't check much. Numbers are high."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "diabetic foot ulcer",
+          "peripheral neuropathy",
+          "peripheral vascular disease"
+        ],
+        "workup_ordered": [
+          "foot examination",
+          "HbA1c",
+          "wound culture if signs of infection"
+        ],
+        "management_plan": [
+          "optimize blood sugar control",
+          "wound care with regular dressing changes",
+          "consider referral to a podiatrist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of infection and progression to more severe ulceration"
+        ],
+        "communication_note": "You have a sore on your foot likely related to diabetes. We need to manage your blood sugar better and take care of the sore to prevent infection."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Wound got bigger. Smells bad now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long ago did you first notice the wound getting bigger and starting to smell?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Maybe a few days ago. Smell started yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the location and appearance of the wound?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Bottom of foot. Bigger now. Red around it, smells bad."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "infected diabetic foot ulcer",
+          "necrotizing fasciitis",
+          "cellulitis"
+        ],
+        "workup_ordered": [
+          "wound culture",
+          "CBC",
+          "CRP",
+          "blood glucose level"
+        ],
+        "management_plan": [
+          "start broad-spectrum antibiotics",
+          "wound care with debridement",
+          "consult podiatry"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis",
+          "potential for rapid deterioration"
+        ],
+        "communication_note": "The wound on your foot is concerning for a serious infection, and I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Foot is very red, swollen. I have a fever now."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "cellulitis",
+          "deep vein thrombosis",
+          "gout"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "blood cultures",
+          "ultrasound of the leg"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "elevate the affected limb",
+          "pain management"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis if untreated",
+          "potential for spreading infection"
+        ],
+        "communication_note": "Your symptoms suggest a serious infection or other condition that needs immediate attention, so I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790536010.540681
+}

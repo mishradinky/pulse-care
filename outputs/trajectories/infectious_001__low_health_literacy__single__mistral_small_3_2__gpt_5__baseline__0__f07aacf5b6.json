@@ -1,0 +1,197 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been coughing real bad for a few days, bringing up some yellow stuff, got a fever, and my chest hurts when I breathe. I'm also feeling kinda fuzzy in my head."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's been about four days now. Feels like forever with all the coughing and feeling feverish."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with anyone who has been sick or have you traveled anywhere recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't think I've been around anyone sick, and I haven't traveled nowhere. Just been mostly at home."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent vaccinations, such as the flu shot or pneumonia vaccine?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno if I got any of those. My doctor gives me shots sometimes, but I don't always remember what they're for."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your medications or any other symptoms besides the cough, fever, and chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Uh, I just take my usual stuff. The one for breathing and the little sugar pill. Nothing new. And, umm, my chest feels heavier and I'm kinda dizzy. But that's it, I think."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis",
+          "COPD exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count (CBC)",
+          "basic metabolic panel (BMP)",
+          "oxygen saturation"
+        ],
+        "management_plan": [
+          "start on antibiotics for possible bacterial infection",
+          "provide symptomatic relief for cough and fever",
+          "monitor oxygen saturation at home"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "possible respiratory infection with systemic symptoms",
+          "dizziness and heavy chest could indicate more serious underlying condition"
+        ],
+        "communication_note": "We need to run some tests to figure out what's causing your symptoms, and I'll prescribe some medication to help you feel better while we wait for the results."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I ain't feelin' no better since yesterday. I'm more mixed up in the head, and this cough just won't quit. The pills ain't cuttin' it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the confusion you're experiencing? For example, are you having trouble remembering things, or is it more like feeling disoriented?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's kinda like my head's all foggy, can't think straight. Sometimes I forget what I was doin' or where I put something. Feels like I'm lost in my own house."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been experiencing any fever, chills, or night sweats along with the cough and confusion?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've been feeling really hot and sweaty, like I'm burning up sometimes. Haven't noticed any chills though. My head's been all foggy too."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "Urinary Tract Infection (UTI)",
+          "COVID-19",
+          "Sepsis"
+        ],
+        "workup_ordered": [
+          "Complete Blood Count (CBC)",
+          "Comprehensive Metabolic Panel (CMP)",
+          "Chest X-ray",
+          "Urinalysis",
+          "Blood Cultures"
+        ],
+        "management_plan": [
+          "Continue current antibiotics",
+          "Increase hydration",
+          "Monitor vital signs closely",
+          "Follow up in 24 hours if no improvement"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to fever, confusion, and cough",
+          "Potential respiratory compromise"
+        ],
+        "communication_note": "Your symptoms are concerning for a possible infection, and we need to run some tests to determine the best course of treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't really say much with this thing in my mouth, but my chest feels really heavy and I'm kinda confused about what's happening."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Pneumonia",
+          "COPD exacerbation",
+          "Heart failure",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete blood count",
+          "Basic metabolic panel",
+          "Arterial blood gas",
+          "Electrocardiogram"
+        ],
+        "management_plan": [
+          "Administer oxygen",
+          "Start empiric antibiotics",
+          "Consider diuretics if heart failure suspected",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Respiratory failure",
+          "Sepsis",
+          "Cardiac ischemia"
+        ],
+        "communication_note": "Your symptoms are concerning for a serious condition, and I am sending you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636414.916525
+}

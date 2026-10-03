@@ -1,0 +1,194 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe right when I walk."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About three weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms, such as cough, fever, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Dry cough. Little bit of fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, tired a lot."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you traveled recently or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel. Don't know anyone sick."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent exposure to dust, mold, or any other environmental irritants?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, not really."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "tuberculosis",
+          "community-acquired pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "CBC",
+          "TB skin test"
+        ],
+        "management_plan": [
+          "prescribe empirical antibiotics",
+          "advise rest and hydration",
+          "follow-up in one week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for infectious spread if TB"
+        ],
+        "communication_note": "Based on your symptoms, we need to do some tests to check for infections like pneumonia or tuberculosis. We'll start treatment and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Even sitting still now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About a month now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms, such as fever, cough, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever yeah. Dry cough too. No chest pain."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "COVID-19",
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "COVID-19 PCR test",
+          "complete blood count",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "start supplemental oxygen",
+          "administer antipyretics for fever",
+          "consider antiviral treatment if COVID-19 positive"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your breathing difficulties."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "pulmonary embolism",
+          "pneumonia"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "administer bronchodilator",
+          "provide supplemental oxygen",
+          "monitor vital signs"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for respiratory failure",
+          "risk of hypoxia"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulty, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779639285.8364801
+}

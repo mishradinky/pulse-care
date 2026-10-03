@@ -1,0 +1,124 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "urosepsis",
+          "delirium secondary to infection"
+        ],
+        "workup_ordered": [
+          "urine culture",
+          "blood cultures",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "initiate empiric antibiotics for UTI",
+          "ensure adequate hydration",
+          "monitor vital signs and mental status"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of progression to sepsis",
+          "risk of dehydration"
+        ],
+        "communication_note": "Your mother likely has a urinary tract infection causing her confusion and needs to be treated in the emergency department."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urosepsis",
+          "ciprofloxacin-resistant UTI",
+          "acute kidney injury"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "repeat urine culture",
+          "electrolyte panel",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "discontinue ciprofloxacin",
+          "start broad-spectrum IV antibiotics",
+          "initiate IV fluids for rehydration",
+          "monitor vital signs closely",
+          "consult infectious disease for antibiotic management"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "worsening confusion",
+          "dehydration",
+          "antibiotic resistance"
+        ],
+        "communication_note": "Your mother is experiencing worsening confusion likely due to an infection that is resistant to her current antibiotics, and she needs to be treated in the hospital."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "urosepsis",
+          "septic shock"
+        ],
+        "workup_ordered": [
+          "blood cultures",
+          "urinalysis",
+          "urine culture",
+          "lactate",
+          "BMP",
+          "CBC"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum IV antibiotics",
+          "administer IV fluids",
+          "monitor vital signs closely",
+          "consult ICU for possible transfer"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of septic shock",
+          "risk of multi-organ failure"
+        ],
+        "communication_note": "The patient is critically ill with suspected urosepsis and requires immediate emergency care."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505856.1522262
+}

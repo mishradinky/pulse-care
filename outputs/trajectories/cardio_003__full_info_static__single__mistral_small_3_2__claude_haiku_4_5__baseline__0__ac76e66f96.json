@@ -1,0 +1,120 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response",
+          "Alcohol-induced arrhythmia",
+          "Hyperthyroidism"
+        ],
+        "workup_ordered": [
+          "TSH",
+          "BMP",
+          "CBC",
+          "Echo"
+        ],
+        "management_plan": [
+          "Rate control with beta-blocker or calcium channel blocker",
+          "Anticoagulation consideration",
+          "Lifestyle modification counseling (alcohol reduction)"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke due to atrial fibrillation",
+          "Potential for decompensation if rate not controlled"
+        ],
+        "communication_note": "We need to manage your irregular heartbeat and assess your thyroid function and overall heart health."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response",
+          "Paroxysmal supraventricular tachycardia",
+          "Atrial flutter"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Troponin",
+          "Chest X-ray",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Rate control with beta-blocker or calcium channel blocker",
+          "Anticoagulation consideration for stroke prevention",
+          "Follow-up with cardiology for rhythm control options"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of stroke due to atrial fibrillation",
+          "Potential underlying coronary artery disease given new chest tightness"
+        ],
+        "communication_note": "Your heart rhythm is still irregular, and we need to manage it to prevent complications."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation with Wolff-Parkinson-White syndrome",
+          "Paroxysmal supraventricular tachycardia",
+          "Ventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Echocardiogram",
+          "Electrophysiology consultation"
+        ],
+        "management_plan": [
+          "Avoid vagal maneuvers due to pre-excitation",
+          "Avoid AV nodal blockers like beta-blockers, calcium channel blockers, or digoxin",
+          "Consider procainamide or flecainide for chemical cardioversion",
+          "Prepare for possible electrical cardioversion if hemodynamically unstable",
+          "Anticoagulation with heparin and consider oral anticoagulation for long-term stroke prevention"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "High risk of rapid conduction to the ventricles leading to ventricular fibrillation",
+          "Increased risk of thromboembolic events due to prolonged atrial fibrillation"
+        ],
+        "communication_note": "Your heart rhythm is very irregular and fast, which can be dangerous, so we need to admit you to the hospital for further evaluation and treatment."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505219.231289
+}

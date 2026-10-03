@@ -1,0 +1,209 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been feeling real bad. Got this terrible fever, chills, my back hurts like crazy, and I can't seem to pee. I'm all mixed up in my head too, and I've been throwing up."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been feeling this way for about two days now. It started with me feeling really hot and then my back started hurting a lot. I've been confused and threw up a few times too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine color or smell?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't peed in a while, so I dunno about the color or smell right now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I ain't been sick lately, just this fever and chills started a couple days ago. I don't think I've been around anyone sick, but I can't be sure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent procedures or been hospitalized in the past few months?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I ain't been in the hospital since I got my last bladder thing treated a few months back. No other procedures I can recall."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent urinary tract infections or kidney issues?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I\u2019ve had some trouble peeing before, like it burns and I gotta go all the time. I think the doc gave me some of those C pills for it a while back."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI)",
+          "Pyelonephritis",
+          "Sepsis",
+          "Delirium due to infection",
+          "Dehydration"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis",
+          "Blood cultures",
+          "Urinary culture"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics for suspected UTI/pyelonephritis",
+          "Administer intravenous fluids for hydration",
+          "Monitor vital signs closely",
+          "Assess mental status regularly",
+          "Consider antiemetics for nausea and vomiting"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to fever, confusion, and possible UTI",
+          "Dehydration due to vomiting and poor oral intake",
+          "Risk of acute kidney injury due to infection and possible obstruction"
+        ],
+        "communication_note": "We need to run some tests to figure out what's causing your symptoms, and we'll start you on some medications to help you feel better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been feeling really awful for a couple days. I'm burning up, everything hurts, and I can't keep anything down. My back is killing me and I'm all confused. I haven't peed in a long time either."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine color or smell?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't really been peeing much at all lately, so I dunno about the color or smell."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't think I've seen anyone sick lately. Just been feelin' really off myself, like my belly's churnin' and I'm all shivery."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI)",
+          "Sepsis",
+          "Gastroenteritis",
+          "Dehydration"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis",
+          "Blood cultures"
+        ],
+        "management_plan": [
+          "Administer intravenous fluids for hydration",
+          "Start broad-spectrum antibiotics",
+          "Monitor vital signs closely",
+          "Provide antiemetics for nausea"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Sepsis",
+          "Severe dehydration",
+          "Electrolyte imbalances"
+        ],
+        "communication_note": "Given your symptoms and the severity of your condition, I am referring you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I feel real bad. I'm dizzy, and my side hurts a lot. They said I got a fever too."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection",
+          "Pneumonia",
+          "Sepsis"
+        ],
+        "workup_ordered": [
+          "Complete blood count",
+          "Comprehensive metabolic panel",
+          "Urinalysis",
+          "Chest X-ray",
+          "Blood cultures"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics",
+          "Administer IV fluids",
+          "Monitor vital signs closely",
+          "Consider admission to the hospital for further evaluation and treatment"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of sepsis due to fever and altered mental status",
+          "Potential for rapid deterioration"
+        ],
+        "communication_note": "Given your symptoms and the potential seriousness of your condition, I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779636742.993659
+}

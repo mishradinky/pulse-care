@@ -1,0 +1,193 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't catch my breath walking."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "3 weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms, such as cough, fever, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Cough, fever, no chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fatigue, yes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you traveled recently or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No travel, no sick contacts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of lung or heart conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "tuberculosis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "prescribe antibiotics if bacterial infection is confirmed",
+          "advise rest and hydration",
+          "follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for worsening respiratory distress"
+        ],
+        "communication_note": "Based on your symptoms, we need to do some tests to check for lung infections like pneumonia. We'll get a chest X-ray and some lab tests today."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing worse, even at rest now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did your breathing start to worsen, and have you noticed any other symptoms like fever, cough, or chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Breathing worse 3 weeks ago. Fever, cough."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, fatigue a lot."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "tuberculosis",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "prescribe antibiotics if bacterial infection is confirmed",
+          "advise rest and hydration",
+          "follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "potential for severe infection"
+        ],
+        "communication_note": "Your symptoms suggest a possible lung infection. We need to do some tests to confirm and decide on the best treatment. Please follow up urgently."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe, very weak."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute asthma exacerbation",
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "D-dimer",
+          "ABG"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start bronchodilator therapy",
+          "consider antibiotics if infection is suspected"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "respiratory distress",
+          "potential for rapid deterioration"
+        ],
+        "communication_note": "You are experiencing severe breathing difficulties, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636917.120315
+}

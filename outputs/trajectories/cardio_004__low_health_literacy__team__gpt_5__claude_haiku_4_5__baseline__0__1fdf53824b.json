@@ -1,0 +1,179 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I got this really bad pounding headache that won't go away. Been going on for like four hours now. My head just keeps throbbing and throbbing. I'm real worried something's wrong with me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like chest pain, shortness of breath, or vision changes along with your headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, no chest pain or nothing like that. I can see fine, everything's clear. Just this awful pounding in my head, you know? Like my heart's beating up there. Been like that for a few hours now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "migraine",
+          "tension headache",
+          "hypertension-related headache"
+        ],
+        "workup_ordered": [
+          "blood pressure measurement",
+          "neurological examination",
+          "fundoscopic examination"
+        ],
+        "management_plan": [
+          "Monitor blood pressure regularly",
+          "Consider starting a migraine prophylactic if headaches are recurrent",
+          "Educate patient on lifestyle modifications to manage hypertension"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential cardiovascular symptoms: chest pain, shortness of breath",
+          "Possible neurological symptoms: vision changes"
+        ],
+        "communication_note": "Patient's headache is likely non-emergent but requires close monitoring due to potential underlying cardiovascular issues.",
+        "trace": {
+          "clinician_contribution": "The clinician identified potential cardiovascular and neurological causes for the headache and recommended a thorough workup.",
+          "safety_checker_contribution": "The safety checker highlighted red flags such as chest pain and vision changes, recommending urgent outpatient follow-up.",
+          "pharm_nurse_contribution": "The pharm/nurse reviewed current medications, noting potential interactions and side effects, and advised caution with NSAIDs."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. My head still really hurts, like a bad throbbing in the back. And my blood pressure... you said it's still too high even after I took those pills you gave me this morning. I'm worried something's really wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about the headache? When did it start, and have you experienced any other symptoms like vision changes, nausea, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The headache started this morning, real bad throbbing right here (points to temples). It's been going on for hours. I feel kinda sick to my stomach, yeah. No dizziness though. My eyes feel okay, I think... just the pounding in my head is awful. The pills you gave me helped a little bit, but it's still there."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Hypertensive crisis",
+          "Migraine",
+          "Tension headache",
+          "Secondary headache due to medication"
+        ],
+        "workup_ordered": [
+          "Blood pressure monitoring",
+          "Complete blood count",
+          "Electrolyte panel",
+          "CT scan of the head if indicated"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management",
+          "Review and adjust antihypertensive medication regimen",
+          "Monitor for potential side effects of current medications",
+          "Evaluate for medication overuse headache"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Persistent headache with elevated blood pressure",
+          "Potential hypertensive crisis",
+          "Possible secondary headache due to medication"
+        ],
+        "communication_note": "Patient requires immediate referral to the ED due to potential hypertensive crisis.",
+        "trace": {
+          "clinician_contribution": "Identified the need for further history and workup to differentiate between potential causes of headache.",
+          "safety_checker_contribution": "Highlighted red flags and recommended immediate ED referral due to potential hypertensive crisis.",
+          "pharm_nurse_contribution": "Reviewed medication regimen and identified potential side effects and interactions that could exacerbate the condition."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doc. So the bad headache I had is gone now, which is good. But now my right eye is all blurry. Like, I can't see right out of it. It's been like that for maybe an hour or so. I'm kinda worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've experienced any other symptoms, such as weakness, numbness, or difficulty speaking? Also, have you had any recent changes in your health or medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No weakness or nothing like that. But my right eye... I can't see right out of it now. Like there's a blur or something. And yeah, I stopped taking my blood pressure pill like two weeks ago 'cause I ran out. Haven't refilled it yet."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "transient ischemic attack (TIA)",
+          "retinal artery occlusion",
+          "migraine with aura",
+          "optic neuritis"
+        ],
+        "workup_ordered": [
+          "neurological examination",
+          "ophthalmologic examination",
+          "MRI of the brain",
+          "carotid ultrasound"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure the patient is educated on the importance of medication adherence, especially antihypertensives.",
+          "Prepare for potential MRI, checking for contraindications."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Sudden onset of blurry vision in one eye indicating a potential vascular event.",
+          "Patient's recent discontinuation of antihypertensive medication, increasing risk for vascular complications."
+        ],
+        "communication_note": "Patient requires immediate ED referral due to potential serious vascular event.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes for the symptoms and recommended a comprehensive workup.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation and recommended ED referral due to red flags.",
+          "pharm_nurse_contribution": "Reviewed medication issues and emphasized the importance of monitoring for neurological changes."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779507257.5003512
+}

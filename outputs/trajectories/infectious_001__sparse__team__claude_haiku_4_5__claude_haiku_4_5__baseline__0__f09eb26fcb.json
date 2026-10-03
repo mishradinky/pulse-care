@@ -1,0 +1,233 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough. Yellow stuff coming up. Fever. Chest hurts."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had this cough, and do you have any shortness of breath or difficulty breathing? Also, have you had any recent sick contacts, or do you have any chronic lung or heart conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days. Yeah, hard to breathe. Got bad lungs from smoking."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (bacterial or viral) \u2014 MOST LIKELY given fever, productive cough, pleuritic chest pain, dyspnea, and smoking history",
+          "Acute exacerbation of COPD with secondary infection",
+          "Acute bronchitis with systemic toxicity",
+          "Influenza with secondary bacterial infection"
+        ],
+        "workup_ordered": [
+          "STAT vital signs: oxygen saturation, respiratory rate, blood pressure, heart rate (MANDATORY before proceeding)",
+          "Chest X-ray (assess for infiltrate, pleural effusion, consolidation)",
+          "CBC with differential (WBC, left shift)",
+          "Comprehensive metabolic panel (renal function for antibiotic dosing, electrolytes)",
+          "Lactate (sepsis screening given fever + systemic symptoms)",
+          "Blood cultures if febrile and toxic-appearing",
+          "Pulse oximetry monitoring during assessment"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain complete vital signs and assess respiratory distress, hypoxia, hemodynamic stability, and mental status",
+          "Obtain complete medication list (current Rx, OTC, inhalers, supplements) and allergy history (penicillin, macrolides, fluoroquinolones)",
+          "Assess baseline renal and hepatic function before empiric antibiotic selection",
+          "Empiric antibiotic therapy pending culture (likely fluoroquinolone, amoxicillin-clavulanate, or azithromycin based on severity and comorbidities)",
+          "Fever management: acetaminophen preferred over NSAIDs (avoid if CKD present); assess for sepsis criteria",
+          "Hydration support and monitoring of fluid intake/output",
+          "Assess home safety: oxygen needs, functional status, social support, ability to complete outpatient course",
+          "Patient education: complete full antibiotic course, monitor for worsening dyspnea, chest pain, or altered mental status"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Vital signs not yet obtained \u2014 SpO2 and respiratory rate are mandatory in 65-year-old with fever, productive cough, dyspnea, and pleuritic chest pain to rule out hypoxia and respiratory failure risk",
+          "CRITICAL: No assessment documented for respiratory distress, hemodynamic stability, or altered mental status \u2014 rapid decompensation possible in pneumonia",
+          "Age 65 + smoking history + dyspnea + fever = high risk for severe CAP, sepsis, and complications (parapneumonic effusion, empyema)",
+          "Pleuritic chest pain warrants imaging to assess for pleural involvement before discharge from any setting",
+          "Medication interactions and renal dosing not yet screened \u2014 baseline CMP essential before antibiotic selection",
+          "No documented assessment of home safety, oxygen requirements, or ability to manage outpatient therapy",
+          "Patient reports 'hard to breathe' \u2014 acuity level not yet established; may require higher level of care than outpatient"
+        ],
+        "communication_note": "65-year-old male with 4-day productive cough, fever, dyspnea, and pleuritic chest pain in setting of smoking history presents with clinical picture highly suspicious for community-acquired pneumonia; ED referral recommended for urgent vital signs, imaging, labs, and initiation of empiric therapy with close monitoring for sepsis and respiratory compromise.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately narrowed differential to lower respiratory infection and identified key history elements (duration, dyspnea, comorbidities, sick contacts); however, workup array remains empty and no vital signs or imaging ordered despite clinical acuity.",
+          "safety_checker_contribution": "Safety checker identified CRITICAL gaps: missing vital signs (SpO2, RR, BP), no assessment for hypoxia/respiratory distress/hemodynamic compromise, empty workup array, and no home safety assessment. Recommended urgent ED referral due to age, symptom triad, and decompensation risk.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged essential medication review (pending list), renal/hepatic function assessment for antibiotic dosing, allergy verification, sepsis screening, hydration monitoring, and drug-disease interactions (COPD, CKD, diabetes). Emphasized respiratory assessment and baseline labs before therapy initiation."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still coughing. Worse today. More confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did the cough start, and has it changed in character (dry vs. productive, color of sputum)? Also, can you describe the confusion\u2014is it new today, and have you had fever, chills, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Cough started four days ago. Yellow-green stuff now. Yeah, confused today. Fever, chills, can't breathe good."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "65-year-old male with 4-day progressive cough (now productive with yellow-green sputum), NEW confusion TODAY, fever, chills, and dyspnea. Clinical presentation is highly concerning for community-acquired pneumonia with systemic toxicity/possible sepsis.",
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with sepsis/delirium (MOST LIKELY)",
+          "Acute exacerbation of COPD with bacterial superinfection",
+          "Influenza with secondary bacterial pneumonia",
+          "Aspiration pneumonia",
+          "Tuberculosis (subacute)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (SpO\u2082, temperature, HR, RR, BP)",
+          "Chest X-ray (assess for infiltrates/consolidation)",
+          "CBC with differential, BMP, lactate",
+          "Blood cultures (before antibiotics if feasible)",
+          "Sputum culture and Gram stain (if productive)",
+          "Respiratory pathogen panel (influenza, RSV, COVID-19)",
+          "ECG (assess for sepsis-related changes)",
+          "Consider CT chest if CXR unclear or high suspicion for PE/aspiration"
+        ],
+        "management_plan": [
+          "ACTIVATE SEPSIS PROTOCOL upon ED arrival",
+          "Empiric antibiotics within 1 hour: Ceftriaxone 1g IV q12h + azithromycin 500mg IV q24h (adjust for renal function and allergies)",
+          "Supplemental O\u2082 to maintain SpO\u2082 >90%, ideally >94%",
+          "IV fluids for sepsis resuscitation (lactate-guided)",
+          "Continuous pulse oximetry and vital signs q1h",
+          "Frequent reassessment of mental status and respiratory status",
+          "Aspiration precautions given confusion",
+          "Fall precautions (confusion + age 65)",
+          "Obtain complete medication list and allergy history before prescribing",
+          "Obtain renal function for antibiotic dose adjustment"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "NEW CONFUSION TODAY + fever + respiratory symptoms = SEPSIS/HYPOXEMIA until proven otherwise",
+          "HYPOXEMIA likely contributing to confusion\u2014life-threatening if SpO\u2082 <88%",
+          "SEPSIS RISK: Fever + altered mental status + respiratory infection = time-sensitive emergency",
+          "VITAL SIGNS NOT YET DOCUMENTED\u2014O\u2082 saturation, temperature unknown but URGENTLY needed",
+          "ASPIRATION RISK: Confusion may impair swallow; monitor for aspiration pneumonia progression",
+          "MEDICATION ALLERGY UNKNOWN: Cannot safely prescribe antibiotics without allergy history",
+          "RENAL FUNCTION UNKNOWN: Dose adjustments critical in 65-year-old; risk of drug toxicity if CKD present",
+          "OUTPATIENT WORKUP UNSAFE: Patient requires ED-level monitoring, rapid imaging, and sepsis protocol"
+        ],
+        "communication_note": "Patient requires EMERGENCY ED evaluation NOW for sepsis workup, imaging, and empiric antibiotics; outpatient management is unsafe given new confusion, fever, and respiratory symptoms.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified CAP with possible sepsis/delirium and proposed comprehensive differential and workup. However, did not explicitly escalate to ED; coordinator overrides to emergency level.",
+          "safety_checker_contribution": "Safety checker correctly identified NEW CONFUSION as critical red flag for hypoxemia/sepsis, flagged missing vital signs as blocking concern, and recommended ED referral. Coordinator ELEVATES to 911-level based on patient's confirmation of fever, chills, dyspnea, and confusion TODAY.",
+          "pharm_nurse_contribution": "Pharm/nurse correctly identified need for complete medication list, allergy history, and renal function before antibiotic dosing. Coordinator ensures these are obtained in ED setting and emphasizes sepsis protocol timing (antibiotics within 1 hour). Nursing monitoring plan incorporates hypoxemia risk, sepsis alert, aspiration precautions, and delirium workup."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. They put a tube in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I see you've needed a breathing tube placed. Can you tell me: when did your breathing problems start, and what symptoms came first\u2014like fever, cough, chest pain, or anything else? Also, are you currently on the ventilator now, or has it been removed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started four days ago. Cough first. Then fever. Still on the tube."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Patient is currently intubated on mechanical ventilation\u2014this is ICU-level acuity. Standard outpatient/clinic assessment is inappropriate.",
+          "CRITICAL: Patient cannot reliably answer complex questions while intubated; history obtained is limited and must be corroborated with chart/surrogate historian.",
+          "CRITICAL: No documentation of current vital signs, oxygenation parameters (SpO2, FiO2, PEEP), hemodynamic stability, or clinical trajectory (improving vs. deteriorating).",
+          "CRITICAL: No confirmation of antimicrobial coverage status. Empiric broad-spectrum antibiotics should have been initiated immediately upon intubation for suspected pneumonia/sepsis; delay increases mortality.",
+          "HIGH: Differential includes sepsis and ARDS\u2014both require immediate labs (lactate, CBC, CMP, blood cultures \u00d72, procalcitonin) and imaging (CXR, consider CT) that should already be in progress.",
+          "HIGH: No allergy history, renal/hepatic function, or recent antibiotic exposure documented\u2014essential before prescribing empirics.",
+          "HIGH: Sedation/paralytic regimen unknown\u2014critical for drug interaction assessment with planned antimicrobials.",
+          "MODERATE: If aspiration pneumonia suspected (cough \u2192 fever pattern), anaerobic coverage must be included; macrolides alone are insufficient."
+        ],
+        "differential_diagnosis": [
+          "Community-acquired pneumonia (CAP) with respiratory failure requiring intubation",
+          "Healthcare-associated pneumonia (HCAP)",
+          "Aspiration pneumonia (prodrome of cough \u2192 fever suggests possible aspiration)",
+          "Acute respiratory distress syndrome (ARDS) secondary to infection",
+          "Sepsis with pulmonary involvement",
+          "Acute exacerbation of COPD with superimposed infection"
+        ],
+        "workup_ordered": [
+          "STAT: Confirm current location (ICU bed assignment, ventilator settings, FiO2/PEEP/SpO2)",
+          "STAT: Blood cultures \u00d72 (if not already drawn pre-intubation)",
+          "STAT: Lactate, CBC, CMP, LFTs, procalcitonin/CRP",
+          "STAT: Chest X-ray (if not already obtained); consider CT chest if clinical deterioration or atypical presentation",
+          "STAT: Baseline creatinine/eGFR for renal dosing of antimicrobials",
+          "STAT: Complete allergy history (\u03b2-lactams, fluoroquinolones, macrolides, other)",
+          "STAT: Current medication list and recent antibiotic exposure (last 90 days)",
+          "STAT: Confirm sedation/paralytic regimen and current hemodynamic support",
+          "Sputum culture/gram stain (if accessible via endotracheal tube)",
+          "Repeat cultures at 48\u201372 hours if no clinical improvement"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Escalate to ICU team, respiratory therapy, and infectious disease consultation if not already engaged.",
+          "IMMEDIATE: Initiate empiric broad-spectrum antibiotics per sepsis protocol (within 1 hour of recognition) if not already started. Recommended regimen pending allergy/renal function: \u03b2-lactam/\u03b2-lactamase inhibitor (e.g., piperacillin-tazobactam 4.5 g IV q6h) OR carbapenem (e.g., meropenem 1 g IV q8h) for anaerobic coverage (aspiration risk); consider adding fluoroquinolone (e.g., levofloxacin 750 mg IV daily) or macrolide (e.g., azithromycin 500 mg IV daily) for atypical coverage if CAP suspected. Adjust for renal function.",
+          "IMMEDIATE: Obtain baseline labs (lactate, CBC, CMP, LFTs) and blood cultures \u00d72 BEFORE antibiotics if not already done.",
+          "IMMEDIATE: Confirm ventilator settings, oxygenation status, and hemodynamic stability; initiate sepsis protocol (fluid resuscitation, vasopressors if MAP <65 mmHg).",
+          "ONGOING: Daily monitoring of CBC, CMP, LFTs, procalcitonin/CRP, lactate, urine output, and creatinine trend.",
+          "ONGOING: Monitor for drug fever, drug interactions (especially with sedatives: propofol, midazolam, fentanyl), and nephrotoxicity.",
+          "ONGOING: Reassess antibiotic regimen at 48\u201372 hours based on culture results and clinical response; de-escalate if appropriate.",
+          "ONGOING: Coordinate with respiratory therapy for weaning plan once acute infection controlled and oxygenation improves.",
+          "COMMUNICATION: Engage surrogate historian (family/healthcare proxy) for detailed symptom timeline, comorbidities, and advance directives given ICU-level acuity."
+        ],
+        "communication_note": "This patient requires immediate ICU-level care and cannot be managed in a standard outpatient or routine clinic setting; escalate to emergency department/ICU with respiratory support, infectious disease, and critical care teams now.",
+        "trace": {
+          "clinician_contribution": "Obtained focused history (4-day onset, cough \u2192 fever, currently intubated) and generated appropriate differential diagnosis (CAP, HCAP, ARDS, sepsis, aspiration pneumonia, COPD exacerbation). However, clinician did not recognize that intubated patient cannot reliably answer complex questions and did not confirm ICU-level setting or current clinical status before proceeding.",
+          "safety_checker_contribution": "Identified CRITICAL red flags: patient is intubated (ICU-level acuity), location/ventilator status undocumented, vital signs/oxygenation parameters missing, no documentation of antimicrobial coverage or clinical trajectory, and sepsis/ARDS require immediate labs/imaging/empirics\u2014not history alone. Correctly blocked standard assessment and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Flagged CRITICAL gaps: no medication list, allergy history, renal/hepatic function, or recent antibiotic exposure documented. Identified drug interaction risks (anticoagulants + fluoroquinolones, CYP3A4 inhibition by macrolides, aminoglycoside potentiation of neuromuscular blockade with paralytics). Emphasized need for anaerobic coverage if aspiration suspected and daily monitoring of renal/hepatic function and drug interactions with sedatives."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779507780.669425
+}

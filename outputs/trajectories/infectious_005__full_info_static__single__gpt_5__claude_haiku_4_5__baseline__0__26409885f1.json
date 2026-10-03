@@ -1,0 +1,117 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection",
+          "Antibiotic-associated diarrhea"
+        ],
+        "workup_ordered": [
+          "Stool C. difficile toxin assay",
+          "Electrolyte panel",
+          "Abdominal X-ray"
+        ],
+        "management_plan": [
+          "Discontinue clindamycin",
+          "Initiate oral vancomycin or fidaxomicin",
+          "Supportive care with fluids and electrolytes"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of dehydration due to profuse diarrhea",
+          "Potential for toxic megacolon given colonic dilatation"
+        ],
+        "communication_note": "You have a serious intestinal infection likely caused by recent antibiotic use, and you need to go to the emergency department for treatment."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "toxic megacolon secondary to C. difficile infection",
+          "severe colitis"
+        ],
+        "workup_ordered": [
+          "surgical consultation",
+          "repeat abdominal imaging",
+          "electrolyte monitoring"
+        ],
+        "management_plan": [
+          "initiate intravenous fluids",
+          "start broad-spectrum antibiotics",
+          "consult surgery for potential colectomy",
+          "correct electrolyte imbalances"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of bowel perforation",
+          "sepsis",
+          "electrolyte imbalance"
+        ],
+        "communication_note": "You have a severe infection in your colon that requires immediate hospital treatment and possibly surgery."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "colonic perforation",
+          "toxic megacolon secondary to C. difficile infection"
+        ],
+        "workup_ordered": [
+          "emergency surgical consultation",
+          "CT abdomen/pelvis if stable"
+        ],
+        "management_plan": [
+          "initiate broad-spectrum IV antibiotics",
+          "fluid resuscitation",
+          "prepare for possible surgical intervention"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "septic shock",
+          "respiratory failure",
+          "peritonitis"
+        ],
+        "communication_note": "You have a serious abdominal condition that requires immediate emergency care, and we are arranging for you to be transferred to the hospital right away."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505439.795706
+}

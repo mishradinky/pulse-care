@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure. Happens when I move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days. Started on exertion."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the nature of the chest pressure? Is it sharp, dull, squeezing, or something else?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Feels like pressure. Heavy. Worse when I walk."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other symptoms like shortness of breath, nausea, or sweating when you experience the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Sweating happened once. No real shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any pain radiating to your arm, neck, jaw, or back?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, left arm. Started two days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart disease, high blood pressure, high cholesterol, or diabetes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "High blood pressure, yeah. Take a pill for it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "administer nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure came back last night. Little short of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure? Is it similar to what you've experienced before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, same as yesterday. Pressure, left side. Worse when I move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, sweating, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Had sweating last night. No nausea. Little dizzy maybe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction",
+          "gastroesophageal reflux disease"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "start nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so we're going to get you immediate help to ensure your safety."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain. Bad. Started thirty minutes ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "aortic dissection"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "oxygen therapy if needed",
+          "prepare for possible transfer to higher level of care"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "You are experiencing severe chest pain, which could be a sign of a serious heart condition. We need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779506156.740023
+}

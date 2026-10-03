@@ -1,0 +1,194 @@
+{
+  "case_id": "infectious_005",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Thank you for seeing me. I was discharged from the hospital five days ago after treatment for pneumonia, and now I've had terrible diarrhea\u2014about 10 times a day for the last four days. The cramping is severe and I've also been running a fever."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications were you prescribed during your hospital stay and after discharge?"
+        },
+        {
+          "speaker": "patient",
+          "text": "During the hospital stay they gave me clindamycin for pneumonia. After I got home, I'm taking omeprazole for my stomach, lisinopril for blood pressure, and metoprolol for my heart. Those are the ones I've been on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any blood or mucus in your stools?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No blood that I can see, but there's a lot of mucus mixed in with the watery diarrhea. It's been like this for the past 4 days, ever since I got home from the hospital."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea or vomiting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any nausea or vomiting. Just this terrible diarrhea that won't stop, and my stomach is really cramping up badly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been able to stay hydrated and are you experiencing any dizziness or lightheadedness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been trying to drink water, but it's hard with the diarrhea happening so often. Yes, I do feel a bit dizzy when I stand up, especially this morning. I'm worried about how much fluid I'm losing."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any antibiotics or medications for diarrhea since being discharged?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't taken anything for the diarrhea since I got home. I'm still taking my regular medications though\u2014omeprazole for my stomach, lisinopril, and metoprolol for my heart. The diarrhea just started a few days after I finished the clindamycin they gave me in the hospital."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection",
+          "Antibiotic-associated diarrhea"
+        ],
+        "workup_ordered": [
+          "Stool test for Clostridioides difficile toxin",
+          "Complete blood count",
+          "Electrolyte panel"
+        ],
+        "management_plan": [
+          "Initiate oral rehydration therapy",
+          "Consider starting oral vancomycin or fidaxomicin if C. difficile is confirmed",
+          "Advise patient to avoid anti-diarrheal medications until infection is ruled out"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of dehydration due to severe diarrhea",
+          "Potential for electrolyte imbalance"
+        ],
+        "communication_note": "You may have an infection in your intestines related to your recent antibiotic use, so we'll test your stool and start treatment to help manage your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still having terrible diarrhea\u2014it's not getting better even though I started the vancomycin a couple days ago. And my fever is higher now. I'm really worried."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How high has your fever been, and have you noticed any other symptoms like abdominal pain or blood in your stool?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My temperature was 38.7 degrees when I came in last time. Yes, I have severe cramping in my belly\u2014it's gotten worse since I started the vancomycin. The diarrhea is still happening 8 to 10 times a day, very watery. I haven't noticed blood in the stool, just the watery diarrhea."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any nausea or vomiting, and are you able to keep fluids down?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had much nausea or vomiting, but I'm having trouble keeping fluids down because of all the diarrhea. I've been going to the bathroom so much\u2014it's mostly watery. I'm getting pretty weak from all this."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "Clostridioides difficile infection",
+          "Antibiotic-associated diarrhea"
+        ],
+        "workup_ordered": [
+          "Stool test for C. difficile toxin",
+          "Complete blood count",
+          "Electrolyte panel"
+        ],
+        "management_plan": [
+          "Continue vancomycin as prescribed",
+          "Ensure adequate hydration with oral rehydration solutions",
+          "Consider hospital admission for IV fluids if dehydration worsens"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Dehydration due to persistent diarrhea",
+          "Electrolyte imbalance"
+        ],
+        "communication_note": "Your symptoms are concerning for a worsening infection, and I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a really rigid, hard belly and I'm having trouble breathing. I'm also feeling very confused right now. I was doing better after I left the hospital, but now everything's gotten much worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "bowel obstruction",
+          "peritonitis",
+          "sepsis"
+        ],
+        "workup_ordered": [
+          "abdominal CT scan",
+          "complete blood count",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "initiate IV fluids",
+          "administer broad-spectrum antibiotics",
+          "consult surgery"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of septic shock",
+          "risk of bowel perforation"
+        ],
+        "communication_note": "Your symptoms are very concerning, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Clostridioides difficile colitis",
+      "fulminant C.diff",
+      "toxic megacolon",
+      "ischemic colitis"
+    ],
+    "required_workup": [
+      "stool C.diff toxin GDH antigen",
+      "CBC BMP albumin",
+      "AXR CT abdomen",
+      "blood cultures",
+      "surgical consult"
+    ],
+    "correct_management": [
+      "oral vancomycin 125mg QID for severe",
+      "add IV metronidazole for ileus or fulminant",
+      "fidaxomicin if available",
+      "surgery consult for toxic megacolon",
+      "colectomy for perforation",
+      "correct electrolytes and albumin"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779641233.1278582
+}

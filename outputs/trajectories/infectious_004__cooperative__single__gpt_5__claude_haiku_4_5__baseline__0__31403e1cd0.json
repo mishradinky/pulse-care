@@ -1,0 +1,193 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thanks for seeing me. My face is drooping on the left side, and I've had joint pain all over my body for the past few weeks. It's been moving around\u2014my knees, wrists, different places. I'm also feeling some heart palpitations."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you first notice the facial drooping, and has it changed since then?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I first noticed it about a week ago. It's been pretty much the same since then\u2014the left side of my face just doesn't move right. It's been constant, not getting worse but not better either."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent infections, tick bites, or travel history?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I went camping in Connecticut about 5 weeks ago. I'm not sure if I got bitten by a tick\u2014I didn't notice one at the time. A few weeks after I got back, I noticed a rash on my thigh that looked kind of like a bull's-eye, but I didn't think much of it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or fatigue recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever or chills that I've noticed. I wouldn't say I'm unusually tired\u2014I've been dealing with the joint pain and this facial drooping, which is pretty concerning, but no major fatigue."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any headaches, neck stiffness, or sensitivity to light?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No headaches, neck stiffness, or sensitivity to light. My main problems right now are the facial drooping on the left side and the joint pain that keeps moving around to different places."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your vision or hearing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, my vision and hearing seem fine. It's mainly my face drooping on the left side and these joint pains that have been moving around my body that are bothering me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease",
+          "Bell's palsy",
+          "Rheumatoid arthritis"
+        ],
+        "workup_ordered": [
+          "Lyme disease serology",
+          "Electrocardiogram",
+          "Complete blood count",
+          "Erythrocyte sedimentation rate"
+        ],
+        "management_plan": [
+          "Start doxycycline for suspected Lyme disease",
+          "Refer to neurology for facial droop evaluation",
+          "Monitor cardiac symptoms closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential progression of neurological symptoms",
+          "Cardiac involvement"
+        ],
+        "communication_note": "Based on your symptoms and recent camping trip, we suspect Lyme disease. We'll start treatment and do some tests to confirm. Please follow up urgently if symptoms worsen."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've almost fainted twice in the past few days, and my heart is going really slowly. I'm scared something serious is happening."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as chest pain, shortness of breath, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had chest pain, but I've been feeling dizzy\u2014actually, I almost fainted twice in the past few days. My heart has been going really slowly too, which is scary. And my joints still hurt, especially in my knees and shoulders."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent infections, fevers, or new medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fevers that I remember. I haven't started any new medications. I did go camping in Connecticut about five weeks ago, and I noticed a rash on my thigh a week after that, but I didn't think much of it at the time."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease",
+          "bradycardia secondary to Lyme carditis"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Lyme serology",
+          "complete blood count",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "Start doxycycline if Lyme disease is confirmed",
+          "Monitor heart rate and rhythm",
+          "Consider cardiology referral if bradycardia persists"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening bradycardia leading to syncope"
+        ],
+        "communication_note": "Based on your symptoms and recent camping trip, we suspect Lyme disease affecting your heart rhythm. We'll do some tests and start treatment if confirmed."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I passed out in the waiting room just a few minutes ago. I'm feeling dizzy and my heart feels like it's racing\u2014or maybe skipping? I'm really worried something serious is going on."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "arrhythmia",
+          "vasovagal syncope",
+          "anemia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "complete blood count",
+          "electrolyte panel"
+        ],
+        "management_plan": [
+          "advise patient to avoid triggers for dizziness and syncope",
+          "ensure hydration",
+          "follow up with cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of recurrent syncope leading to injury"
+        ],
+        "communication_note": "Given your recent fainting and heart symptoms, we need to get you to the emergency department for immediate evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779508530.4172413
+}

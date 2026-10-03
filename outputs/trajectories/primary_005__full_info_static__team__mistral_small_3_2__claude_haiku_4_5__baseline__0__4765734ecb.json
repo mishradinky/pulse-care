@@ -1,0 +1,149 @@
+{
+  "case_id": "primary_005",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cauda equina syndrome",
+          "Severe lumbar disc herniation",
+          "Spinal stenosis",
+          "Epidural abscess"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine (already performed)",
+          "Urinalysis (UA)",
+          "Basic metabolic panel (BMP)",
+          "Bladder scan"
+        ],
+        "management_plan": [
+          "Immediate neurosurgical consultation for cauda equina syndrome",
+          "Urgent bladder catheterization",
+          "Pain management with acetaminophen and ibuprofen as needed",
+          "Monitor for signs of infection or sepsis"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential permanent neurological damage if not treated urgently",
+          "Risk of urinary tract infection due to urinary retention",
+          "Risk of sepsis if infection is present"
+        ],
+        "communication_note": "Patient requires immediate neurosurgical evaluation and intervention due to cauda equina syndrome. Urinary retention must be managed promptly to prevent complications.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms and ordered initial diagnostic tests.",
+          "safety_checker_contribution": "Identified the urgency of the situation and the need for immediate intervention.",
+          "pharm_nurse_contribution": "Provided pain management recommendations and monitored for adverse reactions to medications."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cauda equina syndrome",
+          "Spinal stenosis",
+          "Herniated disc",
+          "Spinal cord compression"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine (already done, unchanged)",
+          "Post-void residual volume measurement (already done, 750 mL)",
+          "Neurological examination",
+          "Rectal examination"
+        ],
+        "management_plan": [
+          "Immediate neurosurgical consultation for decompression surgery",
+          "Urinary catheterization for urinary retention",
+          "Bowel management plan for fecal incontinence",
+          "Physical therapy for weakness and mobility",
+          "Pain management with appropriate analgesics"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Progressive neurological deficit",
+          "Complete urinary retention",
+          "Bowel incontinence",
+          "Risk of permanent neurological damage if not treated urgently"
+        ],
+        "communication_note": "Patient requires immediate neurosurgical evaluation and intervention due to confirmed cauda equina syndrome. Urinary and bowel management are critical. Coordinate with neurosurgery, urology, and physical therapy teams.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, confirmed progressive weakness and incontinence, ordered relevant tests.",
+          "safety_checker_contribution": "Identified urgent need for neurosurgical intervention due to cauda equina syndrome.",
+          "pharm_nurse_contribution": "Prepared for urinary catheterization and pain management."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Cauda equina syndrome",
+          "Spinal cord compression",
+          "Acute transverse myelitis",
+          "Spinal epidural abscess"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine (already done, results available)",
+          "Complete blood count (CBC)",
+          "Erythrocyte sedimentation rate (ESR)",
+          "C-reactive protein (CRP)",
+          "Blood cultures",
+          "Urine analysis and culture"
+        ],
+        "management_plan": [
+          "Immediate neurosurgical consultation for emergency decompression",
+          "High-dose intravenous corticosteroids (e.g., methylprednisolone) to reduce spinal cord edema",
+          "Urinary catheterization for bladder management",
+          "Pain management with opioids as needed",
+          "Monitor vital signs and neurological status closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of permanent neurological damage if not treated urgently",
+          "Risk of autonomic dysreflexia due to spinal cord injury",
+          "Risk of urinary tract infection due to urinary retention"
+        ],
+        "communication_note": "This is a neurosurgical emergency. Immediate intervention is required to prevent permanent paralysis and other complications.",
+        "trace": {
+          "clinician_contribution": "Assessed patient, ordered initial workup, and initiated management plan.",
+          "safety_checker_contribution": "Reviewed safety concerns and escalation level.",
+          "pharm_nurse_contribution": "Prepared medications and monitored vital signs."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "cauda equina syndrome",
+      "conus medullaris syndrome",
+      "central disc herniation",
+      "epidural abscess"
+    ],
+    "required_workup": [
+      "urgent MRI lumbar spine with and without contrast",
+      "bladder scan post-void residual",
+      "BMP CBC"
+    ],
+    "correct_management": [
+      "emergency neurosurgery consult",
+      "Foley catheter immediately",
+      "urgent decompressive surgery within 48h",
+      "steroids controversial but consider"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597938.3897345
+}

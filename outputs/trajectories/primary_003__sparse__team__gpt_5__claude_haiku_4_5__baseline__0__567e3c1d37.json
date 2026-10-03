@@ -1,0 +1,182 @@
+{
+  "case_id": "primary_003",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm so tired all the time. And I gained weight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about when the fatigue and weight gain started and if there are any other symptoms you're experiencing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started four months ago. Tired all the time. Gained weight. Also cold a lot."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "hypothyroidism",
+          "depression",
+          "chronic fatigue syndrome",
+          "obstructive sleep apnea",
+          "anemia"
+        ],
+        "workup_ordered": [
+          "TSH and free T4 levels",
+          "CBC",
+          "sleep study",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "Order TSH and free T4 levels to evaluate thyroid function.",
+          "Conduct a CBC to check for anemia.",
+          "Consider a sleep study if sleep apnea is suspected.",
+          "Review current medications for potential side effects contributing to symptoms.",
+          "Educate patient on potential CPAP use if sleep apnea is diagnosed."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for signs of hypothyroidism such as bradycardia or cold intolerance.",
+          "Ensure patient understands potential interactions with Levothyroxine and supplements."
+        ],
+        "communication_note": "Patient's symptoms suggest hypothyroidism; initial workup to confirm diagnosis.",
+        "trace": {
+          "clinician_contribution": "Identified potential conditions causing symptoms and proposed initial workup.",
+          "safety_checker_contribution": "Approved the plan with no red flags or blocking concerns.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and provided guidance on monitoring and education."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Started the medicine but still really tired. And constipated."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what medication you started and how long you've been taking it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started that thyroid pill four weeks ago. Still tired though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "medication side effects",
+          "hypothyroidism",
+          "anemia",
+          "depression"
+        ],
+        "workup_ordered": [
+          "review current medications",
+          "complete blood count (CBC)",
+          "thyroid function tests",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "Review and adjust levothyroxine dosage based on thyroid function tests.",
+          "Monitor and manage constipation with dietary changes or pharmacological interventions.",
+          "Educate patient on proper medication intake, especially taking thyroid medication on an empty stomach.",
+          "Evaluate for potential interactions between thyroid medication and other supplements or medications."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Monitor for worsening fatigue or constipation.",
+          "Ensure proper medication adherence and education."
+        ],
+        "communication_note": "Patient's symptoms likely related to thyroid medication; adjust dosage and monitor.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes of symptoms and ordered relevant tests.",
+          "safety_checker_contribution": "Approved plan with no red flags or escalation needed.",
+          "pharm_nurse_contribution": "Provided detailed medication review and recommendations for dose adjustments and patient education."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Feeling some better but want to know when I will feel normal."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me more about what symptoms you're experiencing and how long you've been feeling this way?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Tired mostly. Been like this four months. Feeling some better now though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "viral infection",
+          "chronic fatigue syndrome",
+          "depression",
+          "thyroid disorder"
+        ],
+        "workup_ordered": [
+          "complete blood count (CBC)",
+          "thyroid function tests",
+          "basic metabolic panel",
+          "screening for depression"
+        ],
+        "management_plan": [
+          "Ensure levothyroxine is taken on an empty stomach.",
+          "Space calcium or iron supplements 4 hours apart from levothyroxine.",
+          "Monitor for signs of depression or anxiety.",
+          "Schedule follow-up appointments to review lab results and adjust treatment."
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [],
+        "communication_note": "The patient is experiencing prolonged fatigue, and a comprehensive workup is ordered to identify underlying causes.",
+        "trace": {
+          "clinician_contribution": "The clinician identified potential causes for the patient's symptoms and ordered relevant tests.",
+          "safety_checker_contribution": "The safety checker approved the plan with no red flags or blocking concerns.",
+          "pharm_nurse_contribution": "The pharm/nurse provided guidance on medication administration and highlighted the importance of monitoring mental health symptoms."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypothyroidism (Hashimoto's thyroiditis)",
+      "subclinical hypothyroidism",
+      "depression",
+      "anemia"
+    ],
+    "required_workup": [
+      "TSH",
+      "free T4",
+      "anti-TPO antibodies",
+      "CBC",
+      "lipid panel",
+      "renal function"
+    ],
+    "correct_management": [
+      "levothyroxine starting 1.6 mcg/kg/day",
+      "counsel on empty stomach administration",
+      "recheck TSH in 6-8 weeks",
+      "lipid management"
+    ],
+    "correct_escalation": "routine"
+  },
+  "ts": 1779512677.4042282
+}

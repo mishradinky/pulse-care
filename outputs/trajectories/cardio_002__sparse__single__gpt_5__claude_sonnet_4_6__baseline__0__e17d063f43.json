@@ -1,0 +1,195 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe good. Been three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or tightness along with the breathing difficulty?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. Both legs."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your weight?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. About 4 kilos in three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have a history of heart problems or heart failure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes. Heart failure. Been told my heart is weak."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you been taking your heart failure medications as prescribed?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not always. Missed some days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute decompensated heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "electrolyte panel",
+          "ECG"
+        ],
+        "management_plan": [
+          "optimize heart failure medications",
+          "consider diuretics for fluid overload",
+          "monitor weight and symptoms closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential for respiratory distress"
+        ],
+        "communication_note": "You are experiencing symptoms of worsening heart failure. We need to adjust your medications and monitor you closely. Please follow up urgently with your cardiologist."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Still can't breathe right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe when your breathing problems started and if anything makes it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still can't breathe. Worse walking around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Legs are puffy. No chest pain."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "chronic obstructive pulmonary disease exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "echocardiogram",
+          "BNP level",
+          "CBC",
+          "electrolytes",
+          "ECG"
+        ],
+        "management_plan": [
+          "initiate diuretics if CHF is confirmed",
+          "optimize oxygen therapy",
+          "consider bronchodilators if COPD exacerbation is suspected"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for worsening respiratory distress",
+          "risk of heart failure exacerbation"
+        ],
+        "communication_note": "We need to do some tests to understand why you're having trouble breathing and swelling in your legs. We'll work on this urgently to help you feel better."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe lying down."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "elevate head of bed",
+          "monitor oxygen saturation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of respiratory distress"
+        ],
+        "communication_note": "You may have a heart condition affecting your breathing, and we need to do some tests and start treatment promptly."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779635324.5833325
+}

@@ -1,0 +1,191 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. I've been having trouble catching my breath for the last three days, and it's getting worse. Even walking around the house makes me short of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain. Just trouble catching my breath, especially when I'm moving around. It's been getting worse over the last few days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, both my legs and ankles have been swelling. It's gotten worse over the past few days, especially by the end of the day. When I press on my skin, it leaves a mark that takes a while to go away."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've gained about 4 kilograms over the past week. My appetite is normal, but I did eat a lot of salty food at a family gathering last week. I've also noticed my clothes fitting tighter and my feet and legs are swollen."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart problems or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I was told several years ago that my heart isn't pumping as well as it should. I also have high blood pressure and an irregular heartbeat that my doctor calls atrial fibrillation. I've been on medications for all of these."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications are you currently taking for your heart condition and high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I take furosemide for fluid, carvedilol for my heart, lisinopril for blood pressure, and apixaban to prevent blood clots. I'm supposed to take the furosemide every day, but I'll admit I haven't been very good about that lately."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "fluid overload due to non-compliance with diuretics"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "electrolyte panel",
+          "ECG"
+        ],
+        "management_plan": [
+          "Increase adherence to furosemide as prescribed",
+          "Monitor daily weights and fluid intake",
+          "Follow up with cardiologist for medication adjustment"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for worsening heart failure symptoms if not addressed"
+        ],
+        "communication_note": "It seems like your symptoms are related to your heart condition and fluid retention. We need to adjust your medications and follow up with your cardiologist soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm still very short of breath, and I've gained more weight. I feel worse than when I was here before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or abdomen?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My legs feel a bit puffy, especially by the end of the day. And my pants feel tighter around the waist. I've also gained more weight since I was here last\u2014about a pound and a half."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain. My main problem is just being so short of breath, even when I'm not doing much. And I've gained more weight since I was here last."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "fluid overload",
+          "chronic kidney disease"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "electrolyte panel",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "optimize diuretic therapy",
+          "monitor daily weights",
+          "restrict sodium intake"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential electrolyte imbalance"
+        ],
+        "communication_note": "We need to adjust your treatment to help with the shortness of breath and weight gain. I'll order some tests and adjust your medications."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe when I lie down. I've been using five pillows to prop myself up, and I'm really panicking. It started three days ago and it's gotten much worse."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "restrict fluid intake",
+          "monitor weight daily"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory distress"
+        ],
+        "communication_note": "You need to go to the emergency department to get immediate help for your breathing difficulty."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779640903.6146154
+}

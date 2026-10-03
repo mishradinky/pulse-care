@@ -1,0 +1,151 @@
+{
+  "case_id": "mental_003",
+  "category": "mental_health",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Panic disorder",
+          "Anxiety disorder",
+          "Hyperthyroidism",
+          "Cardiac arrhythmia",
+          "Caffeine-induced anxiety"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Troponin",
+          "TSH",
+          "CBC and BMP",
+          "Holter monitor"
+        ],
+        "management_plan": [
+          "Reassurance and education about panic attacks",
+          "Cognitive behavioral therapy (CBT) referral",
+          "Consideration of SSRI re-initiation",
+          "Caffeine reduction counseling",
+          "Follow-up appointment in 2 weeks"
+        ],
+        "escalation_level": "routine",
+        "safety_concerns": [
+          "Patient's conviction of impending doom and heart attack",
+          "High caffeine intake",
+          "Recent discontinuation of SSRI"
+        ],
+        "communication_note": "Patient should be informed that her symptoms are likely related to anxiety and not a heart attack. She should be encouraged to follow up with a mental health professional and reduce caffeine intake.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms and ordered appropriate diagnostic tests.",
+          "safety_checker_contribution": "Identified safety concerns related to patient's conviction of impending doom and high caffeine intake.",
+          "pharm_nurse_contribution": "Provided counseling on caffeine reduction and potential re-initiation of SSRI."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Panic disorder with agoraphobia",
+          "Anxiety disorder with somatic symptoms",
+          "Cardiac anxiety (cardiac syndrome X)"
+        ],
+        "workup_ordered": [
+          "Holter monitor results (already available)",
+          "GAD-7 and PHQ-9 questionnaires (already completed)",
+          "Referral to psychiatry for further evaluation"
+        ],
+        "management_plan": [
+          "Reassurance based on normal cardiac workup",
+          "Referral to cognitive behavioral therapy (CBT) for panic disorder and agoraphobia",
+          "Consideration of selective serotonin reuptake inhibitors (SSRIs) if CBT insufficient",
+          "Encourage gradual exposure and anxiety management techniques",
+          "Follow-up in primary care to monitor symptoms and treatment response"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of severe anxiety impacting daily functioning and work attendance",
+          "Potential for worsening agoraphobia and social isolation"
+        ],
+        "communication_note": "Patient requires urgent outpatient referral to psychiatry for management of panic disorder with agoraphobia. Primary care follow-up should be scheduled to monitor progress and adjust treatment as needed.",
+        "trace": {
+          "clinician_contribution": "Assessment of psychiatric symptoms and cardiac workup results",
+          "safety_checker_contribution": "Identification of safety concerns related to anxiety and agoraphobia",
+          "pharm_nurse_contribution": "Recommendation for psychiatric referral and potential pharmacotherapy"
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Panic disorder with agoraphobia",
+          "Anxiety disorder",
+          "Cardiac causes ruled out"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Troponin",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Referral to psychiatrist for evaluation and management of panic disorder with agoraphobia",
+          "Cognitive Behavioral Therapy (CBT) for anxiety management",
+          "Consider SSRIs or SNRIs for pharmacological treatment",
+          "Patient education on panic disorder and agoraphobia",
+          "Support for caregiver burden"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Severe functional impairment due to agoraphobia",
+          "Caregiver burden on husband",
+          "Risk of worsening symptoms without intervention"
+        ],
+        "communication_note": "Patient requires urgent outpatient referral to psychiatry due to severe functional impairment and caregiver burden. Immediate intervention is necessary to prevent further deterioration.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms and ruled out cardiac causes. Noted severe agoraphobia and functional impairment.",
+          "safety_checker_contribution": "Identified safety concerns related to severe functional impairment and caregiver burden.",
+          "pharm_nurse_contribution": "Recommended patient education and support for caregiver burden."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "panic disorder with agoraphobia",
+      "generalized anxiety disorder",
+      "cardiac arrhythmia",
+      "hyperthyroidism",
+      "pheochromocytoma"
+    ],
+    "required_workup": [
+      "ECG",
+      "troponin",
+      "TSH",
+      "holter monitor",
+      "echo if indicated",
+      "GAD-7 PHQ-9",
+      "urine catecholamines if refractory"
+    ],
+    "correct_management": [
+      "SSRI first-line (sertraline paroxetine)",
+      "cognitive behavioral therapy",
+      "avoid chronic benzodiazepines",
+      "psychoeducation",
+      "gradual exposure therapy",
+      "short-term lorazepam only for acute attacks"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597896.4884777
+}

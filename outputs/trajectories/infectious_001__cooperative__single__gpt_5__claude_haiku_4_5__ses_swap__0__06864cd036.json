@@ -1,0 +1,195 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've had a bad cough for 4 days now with yellow stuff coming up, and I've got a fever and chest pain. It really hurts when I breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've been short of breath, especially when I try to move around. My oxygen level was 88% when they checked it earlier. I've had trouble breathing like this before with my COPD, but this feels worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your sputum color or amount, and do you have any other symptoms like chills, night sweats, or weight loss?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my cough has gotten worse over the last 4 days. The stuff I'm coughing up is yellow-green now, not clear like it used to be. I've had a fever too, and I'm feeling pretty confused sometimes\u2014my thinking isn't as sharp as normal. I also have this sharp chest pain on my right side when I breathe in. As for chills and night sweats, I'm not sure I've noticed those specifically."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel, exposure to sick individuals, or changes in your medications?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent travel that I can think of. I live alone, so I'm not around many people. My medications haven't changed\u2014I'm still on my inhaler and metformin like usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent chest X-rays or other imaging studies?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not that I know of. The doctor here today mentioned getting some pictures of my chest, but I haven't had any done before coming in. Last year when I had the cough, I don't think they did any imaging\u2014just gave me antibiotics."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling in your legs or ankles, or any recent changes in your weight?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No swelling in my legs or ankles that I've noticed. I haven't weighed myself recently, so I'm not sure about weight changes. The main thing bothering me is this cough and the chest pain when I breathe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "start antibiotics",
+          "administer bronchodilators",
+          "provide supplemental oxygen"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "hypoxemia",
+          "potential for respiratory failure"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your symptoms, which may be due to pneumonia or a COPD exacerbation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not getting better. I took that medicine you prescribed yesterday, but I'm still coughing up this yellow-green stuff, and now I'm feeling more confused. I don't know what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had a fever\u2014they took my temperature yesterday and it was pretty high. I'm definitely short of breath, especially when I try to move around. I don't recall having bad chills, but I've been feeling awful overall."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any chest pain or tightness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have chest pain on my right side that gets worse when I breathe in. It's been there since this started a few days ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "sputum culture",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "start broad-spectrum antibiotics",
+          "provide supplemental oxygen as needed",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for sepsis"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your worsening symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having trouble breathing. They put me on a breathing machine in the emergency room because my oxygen levels dropped too low. I've been very sick these past few days."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "chronic obstructive pulmonary disease exacerbation",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count",
+          "arterial blood gas"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start antibiotics if infection is suspected",
+          "consider bronchodilators if COPD exacerbation is suspected"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for worsening hypoxemia"
+        ],
+        "communication_note": "You need to return to the emergency department for further evaluation and treatment of your breathing difficulties."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779641198.7906384
+}

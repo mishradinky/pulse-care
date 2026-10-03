@@ -1,0 +1,165 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "HIV-related pulmonary complications",
+          "Pulmonary edema"
+        ],
+        "workup_ordered": [
+          "Chest X-ray (CXR)",
+          "Arterial Blood Gas (ABG)",
+          "CD4 count and viral load",
+          "Lactate dehydrogenase (LDH)",
+          "Beta-D-glucan",
+          "Sputum culture and sensitivity",
+          "Acid-fast bacilli (AFB) smear and culture"
+        ],
+        "management_plan": [
+          "Start empiric treatment for PCP with trimethoprim-sulfamethoxazole (TMP-SMX)",
+          "Consider adjunctive corticosteroids if severe hypoxia",
+          "Monitor oxygen saturation and provide supplemental oxygen as needed",
+          "Initiate or re-initiate antiretroviral therapy (ART) for HIV",
+          "Consult infectious disease specialist for further management",
+          "Provide supportive care including hydration and fever control"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of respiratory failure",
+          "Potential for rapid clinical deterioration",
+          "Need for close monitoring of oxygen saturation"
+        ],
+        "communication_note": "Patient with untreated HIV and severe immunosuppression presenting with progressive dyspnea and hypoxia. High suspicion for PCP. Urgent outpatient management with close follow-up and potential for hospitalization if symptoms worsen.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's symptoms and vital signs, ordered initial diagnostic tests, and initiated empiric treatment for PCP.",
+          "safety_checker_contribution": "Identified risk of respiratory failure and need for close monitoring of oxygen saturation.",
+          "pharm_nurse_contribution": "Prepared medications for empiric treatment and provided education on medication administration and side effects."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pneumocystis pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "Atypical pneumonia",
+          "Pulmonary edema"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "CT chest",
+          "Bronchoscopy with bronchoalveolar lavage (BAL)",
+          "Arterial blood gas (ABG)",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "HIV viral load and CD4 count"
+        ],
+        "management_plan": [
+          "Start empiric treatment for PCP with trimethoprim-sulfamethoxazole (TMP-SMX)",
+          "Consider adjunctive corticosteroids if severe hypoxia",
+          "Oxygen therapy as needed",
+          "Monitor respiratory status closely",
+          "Consult infectious disease specialist",
+          "Consider admission to the hospital for severe hypoxia and respiratory distress"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Severe hypoxia",
+          "Respiratory distress",
+          "Risk of respiratory failure"
+        ],
+        "communication_note": "Patient has severe hypoxia and respiratory distress. Immediate hospitalization and aggressive management of PCP are required. Coordination with infectious disease specialist is essential.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's respiratory status and ordered necessary diagnostic tests.",
+          "safety_checker_contribution": "Identified severe hypoxia and respiratory distress as critical safety concerns.",
+          "pharm_nurse_contribution": "Prepared and administered empiric treatment for PCP and monitored oxygen therapy."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "title": "Team coordinator output",
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Severe Pneumocystis pneumonia (PCP)",
+          "Bacterial pneumonia",
+          "Tuberculosis",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "High-resolution CT chest",
+          "Sputum culture and PCR for bacteria, mycobacteria, and fungi",
+          "D-dimer",
+          "HIV viral load and CD4 count",
+          "Arterial blood gas (ABG)",
+          "Lactate dehydrogenase (LDH)"
+        ],
+        "management_plan": [
+          "Administer high-flow oxygen via non-rebreather mask",
+          "Start empiric therapy for PCP with trimethoprim-sulfamethoxazole (TMP-SMX) IV",
+          "Consider adjunctive corticosteroids if PCP is confirmed",
+          "Monitor vital signs closely, including continuous pulse oximetry",
+          "Prepare for potential intubation and mechanical ventilation if respiratory status deteriorates",
+          "Consult infectious disease specialist",
+          "Consult pulmonology for possible bronchoscopy if diagnosis is unclear"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Respiratory failure and need for intubation",
+          "Septic shock",
+          "Acute respiratory distress syndrome (ARDS)",
+          "Adverse reactions to medications, particularly TMP-SMX"
+        ],
+        "communication_note": "Patient is critically ill with severe respiratory distress and hypoxemia. Immediate intervention is required. Coordinate with ICU team for potential admission and mechanical ventilation.",
+        "trace": {
+          "clinician_contribution": "Assessed patient's respiratory status and ordered initial workup and empiric therapy.",
+          "safety_checker_contribution": "Identified high risk for respiratory failure and need for immediate escalation of care.",
+          "pharm_nurse_contribution": "Prepared medications for administration and monitored for adverse reactions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779597817.6696203
+}

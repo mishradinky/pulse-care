@@ -1,0 +1,197 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor, I've been having trouble catching my breath the past few days, and it's getting worse. Even walking around the house leaves me short of breath, and I've been waking up at night feeling like I can't breathe properly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. I have noticed my heart racing and feeling irregular at times. Yes, my legs and ankles are definitely swollen\u2014I've noticed it getting worse over the past few days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've gained about 4 kilograms over the past week. My appetite has been normal, but I did eat a lot of salty food at a family gathering last week. I've also noticed my clothes fitting tighter and my legs are swollen."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart problems or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I was told I have a weak heart a few years ago. And my blood pressure has been high for a long time\u2014I take pills for both."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications are you currently taking for your heart and blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I take a water pill called furosemide, carvedilol for my heart, lisinopril for blood pressure, and apixaban to thin my blood. Though I'll be honest, I haven't been taking the water pill as regularly as I should."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent changes in your urination, such as frequency or volume?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't noticed any changes in how often I go to the bathroom or how much comes out. My main problem right now is this shortness of breath that started a few days ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "atrial fibrillation with rapid ventricular response",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "electrocardiogram (ECG)",
+          "B-type natriuretic peptide (BNP) level",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "restart and optimize diuretic therapy",
+          "monitor fluid intake and output",
+          "adjust heart failure medications as needed"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential for pulmonary edema"
+        ],
+        "communication_note": "Your symptoms suggest a worsening of your heart condition, so we'll adjust your medications and monitor you closely to help you breathe easier."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still very short of breath, and I've gained even more weight. I don't know what's going on. I thought I was doing better after my last visit, but now it's worse again."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or abdomen?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my legs feel a bit puffy, especially by evening. And my abdomen feels bloated too. I've gained about four kilos over the past few days, which is unusual for me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain. My main problem is just being so short of breath, even when I'm not doing much. And I've gained more weight since I was here last."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure exacerbation",
+          "fluid overload",
+          "renal insufficiency"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "renal function tests",
+          "electrolytes"
+        ],
+        "management_plan": [
+          "adjust diuretics dosage",
+          "monitor daily weights",
+          "restrict fluid intake"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "potential electrolyte imbalance"
+        ],
+        "communication_note": "You may be experiencing a worsening of heart failure symptoms, so we need to adjust your medications and monitor your condition closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I can't breathe when I lie down. I'm using five pillows just to sit up in bed, and I'm really scared. This started a few days ago and it's gotten so much worse."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema",
+          "chronic obstructive pulmonary disease exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "optimize oxygen therapy",
+          "restrict fluid intake"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for acute decompensation"
+        ],
+        "communication_note": "You need immediate medical attention to address your breathing difficulties, so I'm arranging for you to go to the emergency room right away."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779633706.3732674
+}

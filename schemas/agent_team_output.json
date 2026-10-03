@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Team coordinator output",
+  "type": "object",
+  "required": ["role","escalation_level"],
+  "properties": {
+    "role": {"const": "coordinator"},
+    "differential_diagnosis": {"type": "array", "items": {"type": "string"}},
+    "workup_ordered": {"type": "array", "items": {"type": "string"}},
+    "management_plan": {"type": "array", "items": {"type": "string"}},
+    "escalation_level": {"enum": ["routine","urgent_outpatient","ed_referral","emergency_911"]},
+    "safety_concerns": {"type": "array", "items": {"type": "string"}},
+    "communication_note": {"type": "string"},
+    "trace": {
+      "type": "object",
+      "properties": {
+        "clinician_contribution": {"type": "string"},
+        "safety_checker_contribution": {"type": "string"},
+        "pharm_nurse_contribution": {"type": "string"}
+      }
+    }
+  }
+}

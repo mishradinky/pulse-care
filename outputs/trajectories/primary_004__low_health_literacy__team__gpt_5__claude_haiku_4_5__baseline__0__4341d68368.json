@@ -1,0 +1,182 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My mom's been real confused the last few days\u2014doesn't know where she is sometimes. And she's been having accidents with her pee, which she never does. She's always so sharp and takes care of herself. I'm really worried about her."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Has your mom had any recent illnesses, changes in medication, or falls? Also, has she experienced any fever, pain, or changes in her diet or fluid intake?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, she's been real confused these past three days, like not herself at all. She's been going to the bathroom a lot and having accidents, which is not normal for her. She's got a fever too\u2014I checked and it was pretty high. As for falls, I dunno, she didn't mention anything. Her medicines, she takes some pills but I'm not sure exactly what changed."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "delirium",
+          "dehydration",
+          "medication side effects",
+          "stroke"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "complete blood count",
+          "basic metabolic panel",
+          "review of current medications",
+          "neurological examination"
+        ],
+        "management_plan": [
+          "Initiate urgent outpatient evaluation to expedite diagnosis and management.",
+          "Ensure adequate hydration and monitor fluid intake.",
+          "Review and possibly adjust medications based on renal function and current symptoms.",
+          "Educate family on signs of worsening condition and when to seek emergency care."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Sudden onset of confusion and urinary incontinence in an elderly patient.",
+          "Potential for serious underlying conditions such as infection or stroke.",
+          "Risk of medication side effects exacerbating current symptoms."
+        ],
+        "communication_note": "Urgent outpatient evaluation is recommended due to the sudden onset of symptoms and potential for serious underlying conditions.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes for symptoms and proposed initial workup.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation and recommended urgent outpatient evaluation.",
+          "pharm_nurse_contribution": "Reviewed medications for potential interactions and side effects, emphasizing the need for monitoring renal function and hydration."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still real confused, honey. My daughter says I'm worse this morning. I don't know what's going on. My head feels all foggy. And I still gotta pee a lot, but... I'm not even hungry. Something's just wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me when these symptoms started and if you've experienced anything similar before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My daughter says it started three days ago. I was fine before that, real sharp. Now my head's all foggy and I can't remember things good. And I gotta pee all the time, even at night. Had something like this before, maybe six months back, but not this bad. I'm scared."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "dehydration",
+          "electrolyte imbalance",
+          "cognitive impairment due to metabolic causes",
+          "diabetes mellitus"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "basic metabolic panel",
+          "blood glucose level",
+          "complete blood count"
+        ],
+        "management_plan": [
+          "Initiate urinalysis and blood tests to assess for infection and metabolic imbalances.",
+          "Monitor renal function closely due to potential medication interactions and nephrotoxic risks.",
+          "Ensure adequate hydration to prevent further dehydration and potential renal complications."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Patient's age and confusion could indicate a serious underlying condition.",
+          "Potential for renal impairment due to medication interactions and dehydration."
+        ],
+        "communication_note": "Patient requires urgent outpatient evaluation due to age and symptoms of confusion.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes for symptoms and recommended initial workup.",
+          "safety_checker_contribution": "Highlighted the need for urgent evaluation due to red flags in patient's presentation.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized monitoring renal function."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "She won't wake up... she's just laying there. I called 911 'cause she wouldn't talk to me this morning. She's been real confused for days, and now she won't even open her eyes. Please help her."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "stroke",
+          "severe infection",
+          "metabolic disturbance",
+          "drug overdose",
+          "intracranial hemorrhage"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "blood glucose level",
+          "complete blood count",
+          "electrolyte panel",
+          "toxicology screen"
+        ],
+        "management_plan": [
+          "Immediate activation of emergency medical services (EMS) for transport to the emergency department.",
+          "Ensure airway, breathing, and circulation are maintained until EMS arrives.",
+          "Prepare for potential administration of anticoagulation reversal agents if intracranial hemorrhage is confirmed.",
+          "Monitor and manage blood glucose levels to prevent hypoglycemia or hyperglycemia.",
+          "Hold Metformin if contrast media is used for imaging."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Unresponsive patient indicating potential life-threatening conditions.",
+          "Risk of bleeding due to Warfarin if intracranial hemorrhage is present.",
+          "Risk of lactic acidosis with Metformin if renal function is impaired."
+        ],
+        "communication_note": "Patient requires immediate emergency medical intervention due to unresponsiveness and potential life-threatening conditions.",
+        "trace": {
+          "clinician_contribution": "Identified critical differential diagnoses and recommended immediate workup and escalation.",
+          "safety_checker_contribution": "Approved the need for emergency escalation due to identified red flags.",
+          "pharm_nurse_contribution": "Reviewed medications for potential risks and interactions, advising on necessary precautions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779513152.953575
+}

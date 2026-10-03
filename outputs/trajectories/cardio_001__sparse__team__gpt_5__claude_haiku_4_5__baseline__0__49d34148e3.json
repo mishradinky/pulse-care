@@ -1,0 +1,182 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pressure. Happens when I move around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure in more detail? Does it feel like squeezing, burning, or something else? How long does it last, and does anything make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Pressure. Like... heavy weight. Couple minutes when I walk. Goes away when I stop."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "angina pectoris",
+          "myocardial infarction",
+          "gastroesophageal reflux disease",
+          "costochondritis"
+        ],
+        "workup_ordered": [
+          "electrocardiogram (ECG)",
+          "cardiac enzymes",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "Immediate referral to emergency services for further evaluation and management.",
+          "Administer aspirin if no contraindications are present.",
+          "Educate the patient on recognizing signs of a heart attack and the importance of seeking immediate help."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential myocardial infarction requiring immediate intervention.",
+          "Risk of life-threatening cardiac event."
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation due to potential cardiac event.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac issues and suggested detailed questioning and diagnostic tests.",
+          "safety_checker_contribution": "Highlighted red flags and recommended emergency escalation due to potential myocardial infarction.",
+          "pharm_nurse_contribution": "Reviewed current medications and potential interactions, emphasizing monitoring and patient education."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "It happened again last night. Chest pressure. Hard to breathe a little."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure in more detail? For example, how long did it last, what were you doing when it started, and did anything make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Last night, maybe fifteen minutes. Was sitting down. Went away on its own."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "myocardial infarction",
+          "angina",
+          "gastroesophageal reflux disease",
+          "anxiety"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin levels",
+          "chest X-ray",
+          "stress test"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for cardiac evaluation",
+          "Administer aspirin if no contraindications",
+          "Monitor vital signs closely",
+          "Ensure patient is not on contraindicated medications"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential myocardial infarction requires immediate attention",
+          "Delay in emergency assessment could be life-threatening"
+        ],
+        "communication_note": "Patient requires immediate emergency evaluation for potential cardiac event.",
+        "trace": {
+          "clinician_contribution": "Identified potential cardiac issues and suggested initial diagnostic tests.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation and recommended emergency escalation.",
+          "pharm_nurse_contribution": "Reviewed current medications and potential interactions, emphasizing the need for monitoring and emergency care."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Chest pain. Bad. Won't stop."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pain? Is it sharp, dull, or pressure-like? Does it radiate to your arm, neck, or jaw?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Crushing. Left arm. Been going thirty minutes."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "angina",
+          "gastroesophageal reflux disease",
+          "musculoskeletal pain",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "complete blood count",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "Immediate activation of emergency medical services (EMS) for transport to the emergency department.",
+          "Administer aspirin if not contraindicated and ensure the patient is not on high-dose aspirin.",
+          "Educate the patient on the use of nitroglycerin if prescribed and ensure no contraindications exist.",
+          "Monitor vital signs and prepare for potential advanced cardiac life support (ACLS) interventions."
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Persistent crushing chest pain radiating to the left arm, indicative of a potential myocardial infarction.",
+          "High risk for acute coronary syndrome requiring immediate emergency intervention."
+        ],
+        "communication_note": "Patient exhibits signs of a potential cardiac event; emergency services activated for immediate evaluation.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate cardiac evaluation and proposed initial diagnostic tests.",
+          "safety_checker_contribution": "Highlighted the urgency of the situation and recommended emergency escalation due to high-risk symptoms.",
+          "pharm_nurse_contribution": "Reviewed medication interactions and emphasized the importance of patient education on emergency symptoms and medication use."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779506192.4836571
+}

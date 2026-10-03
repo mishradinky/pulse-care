@@ -1,0 +1,189 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 1,
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage (SAH) - thunderclap onset, worst headache of life, neck stiffness, photophobia, uncontrolled HTN, Valsalva trigger (lifting), positive family history of aneurysm, equivocal CT with possible sulcal blood, LP with xanthochromia and persistently elevated RBC (12,000 unchanged across tubes)",
+          "Hypertensive emergency with posterior reversible encephalopathy syndrome (PRES)",
+          "Acute ischemic stroke",
+          "Meningitis (lower probability given exam and imaging findings)"
+        ],
+        "workup_ordered": [
+          "STAT neurosurgery consultation (parallel with imaging)",
+          "STAT CT angiography (CTA) head and neck to evaluate for ruptured aneurysm",
+          "Repeat lumbar puncture if neurosurgery requests confirmation of equivocal findings",
+          "Continuous cardiac monitoring and neuro checks q15min",
+          "STAT coagulation studies (PT/INR, aPTT, CBC, fibrinogen) - CRITICAL given anticoagulation status unknown",
+          "STAT medication reconciliation (complete list including OTC, supplements, anticoagulants, antiplatelets)"
+        ],
+        "management_plan": [
+          "EMERGENCY 911 TRANSPORT - do NOT allow self-drive; patient requires continuous monitoring en route",
+          "Establish large-bore IV access (peripheral or central per protocol) for rapid medication/blood product administration",
+          "Blood pressure management: target MAP reduction ~25% in first hour if SAH confirmed; coordinate with neurosurgery to avoid overshoot hypotension (rebleeding/stroke risk); typical target SBP <160 mmHg",
+          "Antihypertensive agents: hold pending medication reconciliation; if on chronic antihypertensives, coordinate dosing with neurosurgery; consider IV labetalol or nicardipine if acute reduction needed",
+          "HOLD all NSAIDs immediately (contraindicated in hemorrhage and LP)",
+          "HOLD all anticoagulants/antiplatelets pending neurosurgery evaluation and coagulation studies; if on warfarin/DOACs/aspirin/clopidogrel, prepare reversal agents (FFP, PCC, idarucizumab) per neurosurgery",
+          "NPO status: maintain until swallow/airway safety assessed",
+          "Seizure precautions: have benzodiazepines and airway equipment at bedside (~10% acute seizure risk in SAH)",
+          "Pain management: acetaminophen and cautious opioids (avoid NSAIDs); monitor neuro exam sensitivity",
+          "Fluid management: pending neurosurgery guidance; avoid hypotonic fluids (cerebral edema risk)",
+          "Strict neuro monitoring: document baseline GCS, pupil reactivity, focal deficits; alert for deterioration suggesting rebleeding or herniation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Medication reconciliation gap\u2014anticoagulation/antiplatelet status unknown; must be obtained immediately before LP or neurosurgical intervention",
+          "Thunderclap headache during Valsalva (lifting) with worst headache of life\u2014classic SAH presentation",
+          "Meningeal signs (neck stiffness + photophobia) with uncontrolled HTN and positive family history of aneurysm",
+          "LP findings (xanthochromia + persistently elevated RBC) highly suspicious for subarachnoid blood despite equivocal CT",
+          "Risk of rebleeding if BP not controlled appropriately; risk of stroke if BP reduced too aggressively",
+          "Acute seizure risk (~10%) and herniation risk with deterioration",
+          "Patient on lisinopril 10mg (missed today dose)\u2014verify adherence history and interaction with acute antihypertensive agents",
+          "Repeat LP safety contingent on CTA ruling out mass effect/herniation"
+        ],
+        "communication_note": "This is a medical emergency meeting classic SAH criteria requiring immediate 911 transport, STAT neurosurgery consultation, and advanced vascular imaging; medication reconciliation (especially anticoagulation status) is a critical gap that must be closed immediately.",
+        "trace": {
+          "clinician_contribution": "Correctly identified SAH as leading diagnosis with comprehensive differential; appropriately escalated to neurosurgery and STAT CTA; workup is complete and time-sensitive.",
+          "safety_checker_contribution": "Validated emergency-level escalation; confirmed all red flags for SAH are present; approved clinician proposal as excellent and appropriate; emphasized 911 transport and parallel neurosurgery involvement.",
+          "pharm_nurse_contribution": "Identified critical medication reconciliation gap (anticoagulation/antiplatelet status unknown); flagged NSAID contraindication; outlined BP management coordination with neurosurgery; established nursing priorities including q15min neuro checks, seizure precautions, NPO status, and fluid management guidance; emphasized coagulation labs STAT."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "visit_index": 2,
+        "differential_diagnosis": [
+          "Ruptured intracranial aneurysm with subarachnoid hemorrhage (SAH) \u2013 CONFIRMED on CTA: 5mm anterior communicating artery aneurysm with surrounding SAH",
+          "Takotsubo cardiomyopathy \u2013 secondary to acute SAH stress response (elevated troponin 0.06)",
+          "Hypertensive emergency with intracranial complication \u2013 BP 178/104 reactive to acute neurological event",
+          "Vasospasm risk (days 4\u201314 post-SAH) \u2013 requires serial neuro monitoring",
+          "Seizure risk \u2013 ~10% acute SAH patients; precautions warranted"
+        ],
+        "workup_ordered": [
+          "CTA head/neck with angiography \u2013 COMPLETED; 5mm AComm aneurysm with SAH confirmed",
+          "Lumbar puncture \u2013 DEFERRED (imaging diagnostic; LP not needed if CT positive for SAH)",
+          "Coagulation studies (PT/INR, PTT, CBC, fibrinogen) \u2013 STAT; prerequisite for neurosurgical intervention",
+          "Serial troponin (q3h \u00d7 2) and ECG \u2013 assess Takotsubo trajectory and demand ischemia",
+          "Electrolytes with sodium \u2013 baseline and q6h (SIADH risk post-SAH)",
+          "Neurosurgery consultation \u2013 URGENT for aneurysm management (coiling vs. clipping decision)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Emergency transfer to ICU-capable facility with neurosurgery on-site",
+          "Neurosurgical intervention: Endovascular coiling or open clipping of 5mm AComm aneurysm (timing per neurosurgery; typically within 24\u201348 hours to prevent rebleeding)",
+          "Rebleeding prevention: Strict bed rest, head-of-bed 30\u00b0, dim lighting, quiet environment, stool softeners, avoid Valsalva",
+          "Analgesia: Acetaminophen \u00b1 morphine (avoid NSAIDs and codeine); target pain control without excessive sedation",
+          "Antiemetics: Ondansetron or metoclopramide (avoid phenothiazines)",
+          "Blood pressure management: Permissive hypertension (target SBP <180 mmHg) to maintain cerebral perfusion; defer aggressive antihypertensive titration until neurosurgery evaluation",
+          "Medication reconciliation: OBTAIN FULL LIST \u2013 hold all anticoagulants, antiplatelets, NSAIDs pending neurosurgery clearance; assess need for reversal agents if on warfarin/DOAC",
+          "Seizure precautions: Benzodiazepines and airway equipment at bedside; consider prophylactic antiepileptic per neurosurgery protocol",
+          "Cardiac monitoring: Continuous telemetry; serial ECGs and troponin to track Takotsubo evolution",
+          "Vasospasm surveillance: Neuro checks q1h (GCS, focal deficits); peak risk days 4\u201314; consider nimodipine per protocol",
+          "Hyponatremia monitoring: Na+ q6h initially; fluid restriction if SIADH develops",
+          "NPO status: Until swallow/airway safety confirmed",
+          "Allergy verification: Confirm contrast allergy status and all medication allergies before intervention"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CONFIRMED neurosurgical emergency: Ruptured 5mm AComm aneurysm with active SAH \u2013 high risk of rebleeding, vasospasm, and death without urgent intervention",
+          "Medication history CRITICAL GAP: No current medication list provided; must obtain before any intervention (anticoagulants/antiplatelets contraindicate LP and neurosurgery without reversal)",
+          "Elevated troponin (0.06) indicates secondary Takotsubo cardiomyopathy; requires cardiac monitoring and may complicate hemodynamic management during/after neurosurgery",
+          "Persistent neck stiffness and photophobia (though improved) confirm meningeal irritation; risk of seizure and vasospasm remains high",
+          "Rebleeding risk: Patient is only 2 hours post-onset; aneurysm is unstable and prone to re-rupture, especially with Valsalva or hypertension spikes",
+          "Coagulation status unknown: Must obtain PT/INR, PTT, CBC, fibrinogen STAT before LP or neurosurgical planning",
+          "Hyponatremia risk: SIADH common post-SAH; monitor Na+ closely to prevent seizures and cerebral edema",
+          "Seizure risk: ~10% of acute SAH patients seize; precautions essential"
+        ],
+        "communication_note": "This is a confirmed ruptured intracranial aneurysm with active subarachnoid hemorrhage requiring immediate neurosurgical intervention; patient must be transferred emergently to an ICU with neurosurgery capability, and full medication reconciliation (especially anticoagulants/antiplatelets) must be obtained before any procedure.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified thunderclap headache + meningeal signs + family history + Valsalva trigger as classic SAH presentation and appropriately escalated to emergency with comprehensive differential and workup (STAT CT, CTA, LP if needed, coagulation labs, ECG/troponin, neurosurgery consult). Clinician's yield-to-safety decision was appropriate and timely.",
+          "safety_checker_contribution": "Safety checker validated all red flags (thunderclap, meningeal triad, family Hx, Valsalva onset, elevated BP, elevated troponin, age/risk profile, rebleeding/vasospasm/herniation risk) and confirmed emergency_911 escalation with no blocking concerns. Appropriately contextualized troponin elevation as secondary stress response. Endorsed clinician's comprehensive workup and disposition.",
+          "pharm_nurse_contribution": "Pharm/nurse identified CRITICAL medication reconciliation gap (no current med list provided) and flagged high-risk interactions: anticoagulants/antiplatelets contraindicate neurosurgery without reversal; NSAIDs increase bleeding risk; antihypertensives require permissive approach in acute SAH. Provided detailed nursing precautions (bed rest, seizure precautions, vasospasm monitoring q1h, cardiac telemetry, Na+ monitoring q6h, NPO, allergy verification, ICU-level care requirement). Emphasized coagulation labs STAT and full medication reconciliation as prerequisites for intervention."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage with acute rebleed (CONFIRMED on imaging)",
+          "Transtentorial herniation (ACTIVE\u2014clinical and radiographic evidence)",
+          "Acute ischemic stroke secondary to vasospasm post-SAH",
+          "Hypertensive emergency with posterior reversible encephalopathy syndrome (PRES)"
+        ],
+        "workup_ordered": [
+          "STAT neurosurgery consultation (MANDATORY\u2014already escalated)",
+          "CT head/CTA head and neck (COMPLETED\u2014rebleed and herniation confirmed)",
+          "Continuous neuro monitoring (q15min pupil checks, motor/sensory exams, ICP monitoring if ventriculostomy placed)",
+          "STAT labs: PT/INR, aPTT, CBC, fibrinogen, BMP, creatinine, LFTs (for medication dosing and coagulation status)",
+          "Intubation and airway protection (URGENT\u2014GCS \u226412 + herniation = aspiration/apnea risk)",
+          "ICP management protocol (head of bed 30\u00b0, normothermia, osmotic therapy pending neurosurgery orders)",
+          "Emergency decompression/craniotomy (neurosurgeon decision; patient must reach OR immediately)"
+        ],
+        "management_plan": [
+          "ACTIVATE CODE STROKE/NEUROSURGICAL EMERGENCY\u2014do not delay for further workup",
+          "Rapid sequence intubation (RSI) with airway protection; avoid hypoxia, hypercarbia, hypotension during induction",
+          "Permissive hypertension during acute phase (maintain CPP 60\u201370 mmHg); HOLD all routine antihypertensives",
+          "HOLD all anticoagulants/antiplatelets immediately; obtain full medication history STAT and prepare reversal agents (FFP, PCC, idarucizumab) if indicated",
+          "HOLD all NSAIDs (contraindicated in SAH rebleed)",
+          "Osmotic therapy (mannitol or hypertonic saline) for ICP reduction; monitor serum osmolality and electrolytes",
+          "Coordinate sedation/paralysis protocol with ICU (avoid hypotension/hypoxia); use phenylephrine or norepinephrine for vasopressor support if needed",
+          "Antiepileptic prophylaxis if ordered (e.g., levetiracetam 500 mg IV BID); adjust for renal function once labs available",
+          "NPO status during acute phase; defer DVT/PE chemical prophylaxis until hemorrhage stabilized",
+          "Direct transfer to neurosurgical ICU/OR at facility capable of emergency craniotomy; if not available, arrange immediate advanced life support transfer"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\ud83d\udea8 CRITICAL: Active transtentorial herniation with GCS 12, new left hemiplegia, aphasia, and anisocoria (right pupil 5 mm dilated)\u2014imminent cardiopulmonary collapse risk",
+          "\ud83d\udea8 CRITICAL: Confirmed SAH rebleed with imaging evidence of herniation and midline shift\u2014neurosurgical catastrophe requiring OR intervention within minutes",
+          "\ud83d\udea8 CRITICAL: Medication allergy history NOT documented; obtain immediately before sedative/antibiotic administration",
+          "\ud83d\udea8 CRITICAL: Anticoagulant/antiplatelet status UNKNOWN; if patient on warfarin, apixaban, aspirin, clopidogrel, or other agents, reversal is mandatory",
+          "\ud83d\udea8 CRITICAL: Airway protection imminent\u2014GCS \u226412 with herniation = high aspiration/apnea risk; RSI protocol must be ready",
+          "\u26a0\ufe0f Renal/hepatic function unknown\u2014all medication dosing contingent on STAT labs; adjust osmotic therapy, antiepileptics, and sedatives once available",
+          "\u26a0\ufe0f Hemodynamic instability risk during intubation and ICP management\u2014coordinate vasopressor use with ICU/neurosurgery to maintain CPP without compromising airway",
+          "\u26a0\ufe0f Seizure risk post-SAH\u2014prophylaxis likely needed; monitor antiepileptic levels and drug interactions with sedatives/paralytics"
+        ],
+        "communication_note": "This is a genuine neurosurgical catastrophe (SAH rebleed with active herniation) requiring immediate CODE STROKE/NEUROSURGICAL EMERGENCY activation, airway protection, and direct OR transfer\u2014all three roles unanimously approve emergency escalation with zero delays for additional workup.",
+        "trace": {
+          "clinician_contribution": "Identified catastrophic neurological deterioration (GCS 12, new left hemiplegia, aphasia, anisocoria with right pupil dilation) consistent with transtentorial herniation from SAH rebleed. Yielded to safety/emergency response. Proposed STAT neurosurgery consultation, intubation, continuous neuro monitoring, ICP management, and emergency decompression/craniotomy. Rationale: time-critical neurosurgical emergency requiring immediate intervention.",
+          "safety_checker_contribution": "Verified all seven critical red flags (GCS 12 with acute deterioration, new focal deficits, anisocoria with pupil dilation, known SAH with rebleed/herniation imaging, transtentorial herniation signs, imminent cardiopulmonary collapse risk, minutes-not-hours intervention window). Approved clinician proposal as appropriate and urgent. Confirmed no blocking concerns. Verified all critical actions (STAT neurosurgery, imaging done, intubation urgent, neuro monitoring essential, ICP management concurrent, emergency decompression neurosurgeon decision). Mandated direct neurosurgical ICU/OR disposition with advanced life support transfer if needed.",
+          "pharm_nurse_contribution": "Flagged missing medication allergy history and active medication list as CRITICAL. Identified mandatory holds: all routine antihypertensives (permissive hypertension needed for CPP), all anticoagulants/antiplatelets (contraindicated in active SAH rebleed\u2014prepare reversal agents), all NSAIDs (increase rebleed risk). Coordinated sedation/paralysis protocol with ICU (avoid hypotension/hypoxia). Outlined nursing priorities: RSI airway protection, ICP management (head elevation, osmotic therapy, neuro monitoring q15min), hemodynamic support (CPP 60\u201370 mmHg, vasopressors if needed), STAT coagulation labs, antiepileptic prophylaxis, and seizure monitoring. Emphasized neurosurgical emergency takes priority over medication reconciliation."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779602340.766376
+}

@@ -1,0 +1,193 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, I noticed a sore on the bottom of my foot about 2 weeks ago. It's not really painful, but it's not going away and I'm a bit worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in size, color, or discharge from the sore?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It hasn't really changed much in the two weeks I've had it. The area around it is a bit red, but I don't see any pus or drainage coming from it. It's still about the same size as when I first noticed it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your foot?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not that I remember. I just noticed this sore on the bottom of my foot about 2 weeks ago. I don't recall stepping on anything or hurting it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions such as diabetes or circulation problems?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have type 2 diabetes. I've had it for several years now. I take metformin and glipizide for it. As for circulation problems, I'm not sure\u2014no one's mentioned that to me specifically."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any numbness or tingling in your feet?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, actually. My feet feel numb a lot, especially in my toes. That's probably why I didn't notice the sore on my foot until it was already there for a while."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any previous foot ulcers or infections?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, this is the first time I've had anything like this. I've never had a foot ulcer or infection before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "diabetic foot ulcer",
+          "pressure ulcer",
+          "infected callus"
+        ],
+        "workup_ordered": [
+          "foot examination",
+          "wound culture",
+          "HbA1c"
+        ],
+        "management_plan": [
+          "keep the wound clean and dry",
+          "apply a topical antibiotic",
+          "refer to a podiatrist for further evaluation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of infection spreading due to diabetes"
+        ],
+        "communication_note": "It looks like you might have a diabetic foot ulcer. We'll clean and protect it, and I'll refer you to a specialist for further care."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. The wound on my foot has gotten bigger, and now it smells really bad. I'm worried it's getting worse instead of better."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you had this wound on your foot?"
+        },
+        {
+          "speaker": "patient",
+          "text": "About two weeks now. I first noticed it when I was checking my foot one morning. It hasn't really gotten better since then."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any redness, swelling, or warmth around the wound?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, there's definitely redness around it. The area around the wound is red and it seems to be spreading. I haven't really paid attention to warmth, but now that you mention it, that area does feel a bit warm to the touch."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "infected diabetic foot ulcer",
+          "cellulitis"
+        ],
+        "workup_ordered": [
+          "wound culture",
+          "CBC",
+          "blood glucose level"
+        ],
+        "management_plan": [
+          "start oral antibiotics",
+          "wound care instructions",
+          "follow-up in 3 days"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of systemic infection",
+          "potential for osteomyelitis"
+        ],
+        "communication_note": "The wound on your foot appears to be infected, and we need to start treatment with antibiotics and monitor it closely."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My foot is very red and swollen, and I have a fever now. It started just since yesterday, and I'm really worried about it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "cellulitis",
+          "deep vein thrombosis",
+          "gout"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "CRP",
+          "blood cultures",
+          "ultrasound of the leg"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "elevate the affected foot",
+          "pain management with NSAIDs"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of sepsis if untreated",
+          "potential for rapid progression of infection"
+        ],
+        "communication_note": "Your symptoms suggest a serious infection or other urgent condition, so I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779511987.7859924
+}

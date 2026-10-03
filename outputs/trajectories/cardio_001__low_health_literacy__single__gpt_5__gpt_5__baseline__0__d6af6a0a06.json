@@ -1,0 +1,190 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been feeling this heavy pressure in my chest, mostly when I'm moving around. It's been going on for a couple of days now. It even goes down my left arm sometimes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, nausea, or sweating with the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, my chest felt like an elephant sat on it, and there was a time I got really sweaty. I dunno about that shortness thing. What's that mean?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your ability to do physical activities, like walking or climbing stairs, due to feeling out of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, when I try to do stuff like walk fast or climb stairs, my chest feels kinda heavy. I get worried about it, but I'm not sure about feeling out of breath. Is that what you mean?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had similar chest pain or pressure before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've felt this kind of heaviness before, like when I walk a lot or do something tiring. But it's been worse these last two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any medical conditions like high blood pressure, diabetes, or high cholesterol?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I got high blood pressure. I'm on some white pill for it. Not sure about the other stuff."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you have any family history of heart disease or if you've ever been told you have high cholesterol?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My dad had a heart thing when he was about my age. Not sure about that other thing you mentioned."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "start nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Well, doc, my chest started feeling heavy again last night, and I got a bit short of breath. It's kinda like when I had that sweating episode the other day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Did you experience any other symptoms like nausea, dizziness, or pain radiating to your arm or jaw?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Last night, my chest felt heavy again and it moved down my left arm. Didn't feel sick to my stomach or dizzy, though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long did the chest heaviness and arm pain last?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It happened last night and lasted about 15 minutes. It's like someone was sitting on my chest and my arm felt funny."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "initiate aspirin therapy",
+          "consider nitroglycerin for chest pain",
+          "schedule cardiology follow-up"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so I'm recommending you go to the emergency department for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My chest feels like it's being squeezed really tight, and it's been going on for about half an hour now. It's also making me feel kinda sweaty and sick to my stomach."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "administer nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for myocardial infarction",
+          "risk of cardiac arrest"
+        ],
+        "communication_note": "You are experiencing symptoms that could indicate a heart attack, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779640422.6606607
+}

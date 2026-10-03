@@ -1,0 +1,187 @@
+{
+  "case_id": "cardio_004",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, thank you for seeing me. I have this really severe throbbing headache that started about 4 hours ago. It's the worst one I've had in a long time, and I'm worried because my blood pressure is very high right now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, vomiting, vision changes, or neurological symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No nausea or vomiting. My vision is fine, and I haven't noticed any numbness or weakness. Just this really bad headache that started a few hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is your current blood pressure reading?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The nurse just told me it's 200 over 118. That's really high, isn't it? I'm worried about that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had high blood pressure or been diagnosed with hypertension before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had high blood pressure for about 10 years now. I was taking two medications for it\u2014amlodipine and a water pill\u2014but I ran out of the amlodipine two weeks ago and haven't refilled it yet."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or shortness of breath. My heart feels normal\u2014no palpitations. The main problem is this terrible headache that started a few hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced headaches like this before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, this is the worst headache I've ever had. I get occasional headaches, but nothing like this. It started about 4 hours ago and it's been throbbing the whole time. I've never felt anything this severe before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "hypertensive crisis",
+          "migraine",
+          "intracranial hemorrhage"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "blood tests including CBC, electrolytes, and renal function",
+          "ECG"
+        ],
+        "management_plan": [
+          "Administer antihypertensive medication to lower blood pressure",
+          "Provide pain relief for headache",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for stroke or other cardiovascular complications due to extremely high blood pressure"
+        ],
+        "communication_note": "Your headache and very high blood pressure are concerning, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. My headache is still here, and my blood pressure is still high even though I've been taking the medicine you gave me. It's been pretty much the same since I came in."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what medication you are currently taking for your blood pressure and the dosage?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, the doctor gave me amlodipine 10 milligrams and clonidine 0.2 milligrams today. Before that, I wasn't taking anything for two weeks because I ran out of my amlodipine and just didn't refill it in time."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms besides headaches, such as dizziness, chest pain, or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain or shortness of breath. I haven't had dizziness either, just this really bad throbbing headache. My blood pressure is still high even with the medicines they gave me today."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "uncontrolled hypertension",
+          "medication non-adherence"
+        ],
+        "workup_ordered": [
+          "blood pressure monitoring",
+          "basic metabolic panel"
+        ],
+        "management_plan": [
+          "reinforce medication adherence",
+          "schedule follow-up in 1 week",
+          "consider adding another antihypertensive if BP remains high"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of hypertensive crisis"
+        ],
+        "communication_note": "Your blood pressure is still high, likely due to not taking your medication regularly. Let's monitor it closely and adjust your treatment if needed."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hello, doctor. My headache got better, but now I'm having some blurring in my right eye. It started a little while ago and I'm worried about it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "retinal detachment",
+          "central retinal artery occlusion",
+          "optic neuritis"
+        ],
+        "workup_ordered": [
+          "ophthalmology consultation",
+          "fundoscopic examination",
+          "optical coherence tomography"
+        ],
+        "management_plan": [
+          "urgent ophthalmology referral",
+          "advise patient to avoid straining activities"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for permanent vision loss if not addressed promptly"
+        ],
+        "communication_note": "Your symptoms require urgent evaluation by an eye specialist to prevent potential vision loss."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "hypertensive urgency",
+      "hypertensive emergency with end-organ damage",
+      "malignant hypertension"
+    ],
+    "required_workup": [
+      "BMP",
+      "UA with microscopy",
+      "ECG",
+      "CXR",
+      "fundoscopy",
+      "head CT if neurological symptoms"
+    ],
+    "correct_management": [
+      "restart home antihypertensives",
+      "oral labetalol or amlodipine for urgency",
+      "IV nicardipine for emergency",
+      "ophthalmology consult for papilledema"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779641099.7092683
+}

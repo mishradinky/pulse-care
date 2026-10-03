@@ -1,0 +1,139 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response (primary)",
+          "Atrial fibrillation secondary to acute precipitant (alcohol use, thyroid dysfunction ruled out)",
+          "Paroxysmal atrial fibrillation"
+        ],
+        "workup_ordered": [
+          "ECG (already done - confirms AF with RVR)",
+          "Troponin (rule out ACS)",
+          "TSH (already done - normal)",
+          "BMP (already done - normal)",
+          "CBC (already done - normal)",
+          "Transthoracic echocardiogram (already done - shows mild LA enlargement, EF 55%)",
+          "Chest X-ray (assess for pulmonary pathology)",
+          "Consider Holter monitor or event monitor for paroxysmal AF assessment"
+        ],
+        "management_plan": [
+          "Rate control: initiate beta-blocker (e.g., metoprolol 25-50 mg BID) or calcium channel blocker given lisinopril already on board",
+          "Anticoagulation: initiate anticoagulation (warfarin or DOAC) given CHA2DS2-VASc score \u22651 (age 62, hypertension)",
+          "Electrolyte monitoring and correction if needed",
+          "Counsel on alcohol cessation (heavy use last weekend likely precipitant)",
+          "Consider rhythm control strategy vs. rate control strategy based on symptom burden and response",
+          "Cardiology referral for further management and possible ablation consideration"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Rapid ventricular response (HR 112) with symptoms of dyspnea and lightheadedness\u2014risk of hemodynamic compromise",
+          "Thromboembolic risk without anticoagulation in new-onset AF",
+          "Alcohol as likely precipitant\u2014need counseling and monitoring for withdrawal"
+        ],
+        "communication_note": "You have a heart rhythm problem called atrial fibrillation that is beating too fast; we need to slow it down with medication and start a blood thinner to prevent stroke, and we'll refer you to a heart specialist."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response (confirmed)",
+          "Acute coronary syndrome (lower probability given negative troponin, but chest tightness is new)",
+          "Thyrotoxicosis or other high-output state",
+          "Pulmonary embolism (lower probability given normal CXR, clear lungs, normal SpO2)"
+        ],
+        "workup_ordered": [
+          "Repeat troponin (serial, given new chest tightness)",
+          "TSH and free T4",
+          "Electrolytes, BUN, creatinine, magnesium",
+          "Echocardiogram (assess LV function, structural disease, thrombus risk)",
+          "D-dimer if clinical suspicion for PE remains"
+        ],
+        "management_plan": [
+          "Rate control: initiate beta-blocker (e.g., metoprolol) or calcium channel blocker if contraindicated; target HR <110 at rest",
+          "Anticoagulation: initiate anticoagulation (DOAC or warfarin) given CHA2DS2-VASc score likely \u22652 (age 62, hypertension evident from BP)",
+          "Continuous cardiac monitoring given persistent RVR and new chest tightness",
+          "Assess for reversible triggers (infection, thyroid, electrolyte abnormality)",
+          "Consider rhythm control strategy (flecainide, amiodarone) if rate control inadequate or hemodynamic compromise"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Persistent rapid ventricular response (HR 118) with new chest tightness raises concern for hemodynamic compromise or ACS",
+          "Risk of thromboembolic stroke if anticoagulation delayed",
+          "Negative troponin does not exclude ACS; serial troponin and clinical monitoring essential"
+        ],
+        "communication_note": "Your heart is in an irregular rhythm with a fast rate, and the new chest tightness needs close monitoring; we're starting medications to slow your heart rate and prevent clots, and we need additional blood tests and heart imaging to ensure there's no other underlying problem."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Atrial fibrillation with rapid ventricular response in setting of Wolff-Parkinson-White syndrome",
+          "Atrial fibrillation with accessory pathway conduction",
+          "Atrial flutter with variable conduction"
+        ],
+        "workup_ordered": [
+          "Stat 12-lead ECG (already done\u2014confirms WPW pattern with delta waves)",
+          "Troponin and BNP",
+          "Electrolytes, renal function, TSH",
+          "Chest X-ray",
+          "Transthoracic echocardiogram (already done)",
+          "Cardiology consultation for urgent electrophysiology evaluation"
+        ],
+        "management_plan": [
+          "Immediate cardiology/ED referral for hemodynamically significant arrhythmia with syncope",
+          "Do NOT use AV nodal blocking agents (beta-blockers, calcium channel blockers, digoxin) as these may preferentially block the AV node and increase accessory pathway conduction, accelerating ventricular rate and risking ventricular fibrillation",
+          "Consider IV procainamide or ibutilide under cardiology supervision to slow accessory pathway conduction",
+          "Prepare for possible DC cardioversion if hemodynamic instability worsens",
+          "Continuous cardiac monitoring",
+          "NPO status pending possible intervention"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Syncope with rapid AF in WPW syndrome indicates high risk for hemodynamic collapse and sudden cardiac death",
+          "Wide complex tachycardia at 140 bpm with recent syncope is a medical emergency",
+          "Risk of degeneration to ventricular fibrillation if accessory pathway continues to conduct rapidly",
+          "Standard AV nodal blocking agents are contraindicated and dangerous in this setting"
+        ],
+        "communication_note": "You have a serious heart rhythm problem called atrial fibrillation with an extra electrical pathway that is causing dangerously fast heart rates and fainting\u2014you need emergency hospital care and cardiology evaluation right now."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779505201.3105254
+}

@@ -1,0 +1,156 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism (PE)",
+          "Deep vein thrombosis (DVT)",
+          "Pneumonia",
+          "Pneumothorax",
+          "Acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "CT pulmonary angiography (CTPA)",
+          "Venous Doppler ultrasound of the right leg",
+          "Arterial blood gas (ABG)",
+          "Repeat troponin in 3 hours",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Initiate anticoagulation therapy with low molecular weight heparin (LMWH) or direct oral anticoagulant (DOAC)",
+          "Administer supplemental oxygen to maintain SpO2 > 94%",
+          "Monitor vital signs and oxygen saturation closely",
+          "Consider admission to hospital for further management and observation",
+          "Consult with pulmonology or cardiology if needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of further embolic events",
+          "Potential for hemodynamic instability",
+          "Hypoxemia requiring supplemental oxygen",
+          "Risk of bleeding with anticoagulation"
+        ],
+        "communication_note": "Patient presents with signs and symptoms highly suggestive of a pulmonary embolism, likely secondary to a deep vein thrombosis following prolonged immobility during a long-haul flight. Immediate workup and initiation of anticoagulation are critical. Patient should be referred to the emergency department for urgent evaluation and management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for urgent imaging and anticoagulation based on clinical presentation and risk factors.",
+          "safety_checker_contribution": "Highlighted the importance of monitoring for hemodynamic instability and ensuring safe anticoagulation practices.",
+          "pharm_nurse_contribution": "Prepared to administer anticoagulation and monitor patient response, ensuring patient safety and comfort."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary Embolism (PE)",
+          "Deep Vein Thrombosis (DVT)",
+          "Pneumonia",
+          "Pneumothorax",
+          "Acute Coronary Syndrome"
+        ],
+        "workup_ordered": [
+          "CT Pulmonary Angiography (CTPA)",
+          "Echocardiogram",
+          "Troponin levels",
+          "D-dimer",
+          "Venous Doppler Ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Initiate anticoagulation therapy immediately (e.g., low molecular weight heparin or direct oral anticoagulant)",
+          "Consider thrombolytic therapy given the presence of a saddle embolus and right heart strain",
+          "Supplemental oxygen to maintain SpO2 above 92%",
+          "Monitor vital signs closely, especially heart rate and oxygen saturation",
+          "Consult with a cardiologist and pulmonologist for further management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of hemodynamic instability due to massive PE",
+          "Potential for further embolic events",
+          "Risk of bleeding with anticoagulation therapy"
+        ],
+        "communication_note": "Patient presents with signs and symptoms highly suggestive of a massive pulmonary embolism, confirmed by CTPA showing bilateral PE with right heart strain and a saddle embolus. Immediate anticoagulation and potential thrombolysis are critical. The patient requires urgent transfer to a higher level of care for intensive monitoring and management.",
+        "trace": {
+          "clinician_contribution": "Identified the need for immediate anticoagulation and potential thrombolysis.",
+          "safety_checker_contribution": "Highlighted the risk of hemodynamic instability and need for close monitoring.",
+          "pharm_nurse_contribution": "Prepared anticoagulation therapy and ensured supplemental oxygen was administered."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Massive pulmonary embolism (PE)",
+          "Acute right heart failure",
+          "Cardiac tamponade",
+          "Pneumothorax",
+          "Acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "CT pulmonary angiography (if stable enough for transport)",
+          "Repeat arterial blood gas (ABG)",
+          "D-dimer (if not already done)",
+          "ECG",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Immediate initiation of anticoagulation therapy (e.g., heparin)",
+          "Consider thrombolytic therapy due to hemodynamic instability",
+          "Oxygen supplementation to maintain SpO2 > 90%",
+          "IV fluids cautiously to maintain blood pressure",
+          "Consultation with cardiology and pulmonology",
+          "Consideration for transfer to ICU for close monitoring"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of cardiac arrest due to massive PE",
+          "Severe hypoxemia and respiratory failure",
+          "Hemodynamic instability with hypotension"
+        ],
+        "communication_note": "Patient presents with signs of massive pulmonary embolism, including severe hypoxemia, hypotension, and right heart strain. Immediate intervention is required to stabilize the patient and prevent further deterioration. Coordination with emergency services and specialists is crucial.",
+        "trace": {
+          "clinician_contribution": "Identified massive PE as primary concern due to clinical presentation and echo findings.",
+          "safety_checker_contribution": "Highlighted the need for immediate intervention due to severe hypoxemia and hypotension.",
+          "pharm_nurse_contribution": "Recommended anticoagulation and potential thrombolytic therapy."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779597790.9371438
+}

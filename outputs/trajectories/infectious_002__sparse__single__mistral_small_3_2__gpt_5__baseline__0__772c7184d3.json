@@ -1,0 +1,196 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Fever, chills, back pain, confusion."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Two days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine, such as blood in the urine or difficulty urinating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Haven't urinated in 12 hours."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses or been in contact with anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent illnesses, no contact."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent falls or injuries that might have contributed to your back pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No falls or injuries."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent changes in your bowel movements or appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I dunno."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI)",
+          "Sepsis",
+          "Acute kidney injury",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis",
+          "Blood cultures",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Administer IV fluids",
+          "Start broad-spectrum antibiotics",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to fever, chills, and confusion",
+          "Potential acute kidney injury due to lack of urination"
+        ],
+        "communication_note": "Your symptoms suggest a serious infection, and we need to run some tests and start treatment right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "On antibiotics, still feverish, more confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the fever? Is it constant or intermittent, and what is the highest temperature you've recorded?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Constant, 39.4 degrees."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection",
+          "Pneumonia",
+          "Sepsis",
+          "Meningitis"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Blood cultures",
+          "Chest X-ray",
+          "Urinalysis"
+        ],
+        "management_plan": [
+          "Continue current antibiotics",
+          "Administer antipyretics for fever control",
+          "Monitor vital signs closely",
+          "Assess for signs of sepsis or other complications"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of sepsis due to persistent high fever and confusion"
+        ],
+        "communication_note": "Your fever and confusion are concerning, and we need to run some tests to determine the cause and adjust your treatment."
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Septic shock, ICU, vasopressors."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Sepsis",
+          "Pneumonia",
+          "Urinary Tract Infection",
+          "Intra-abdominal Infection"
+        ],
+        "workup_ordered": [
+          "Complete Blood Count (CBC)",
+          "Comprehensive Metabolic Panel (CMP)",
+          "Blood Cultures",
+          "Urinalysis",
+          "Chest X-ray",
+          "Abdominal Imaging"
+        ],
+        "management_plan": [
+          "Continue vasopressors as needed",
+          "Administer broad-spectrum antibiotics",
+          "Monitor vital signs closely",
+          "Provide supportive care including fluids and oxygen"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Patient is critically ill and requires immediate medical attention in an ICU setting"
+        ],
+        "communication_note": "The patient is critically ill and requires immediate medical attention in an ICU setting."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634188.7509122
+}

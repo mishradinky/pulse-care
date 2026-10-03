@@ -1,0 +1,216 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "ses_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I came in because I got back from a long flight to Tokyo five days ago, and since then I've had this sudden sharp pain in my right chest. It hurts worse when I breathe, and I'm also pretty short of breath. I'm worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand your symptoms better. On a scale of 1-10, how severe is the chest pain right now? And have you noticed any leg swelling, calf pain, or discoloration in either leg since your flight?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The chest pain is about 7 out of 10\u2014it's sharp and hurts more when I breathe in. Yes, actually, my right leg has been a bit swollen since the flight, and now that you mention it, my right calf is tender too. I haven't noticed any discoloration though."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Pulmonary embolism (PE) \u2013 HIGH PRIORITY",
+          "Deep vein thrombosis (DVT) with PE risk",
+          "Acute coronary syndrome (ACS)",
+          "Pneumonia/pleurisy",
+          "Musculoskeletal chest wall pain"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG",
+          "STAT troponin, D-dimer, CBC, CMP (renal function/eGFR), PT/INR, aPTT",
+          "STAT chest X-ray",
+          "STAT CT pulmonary angiography (CTPA) \u2013 pending contrast allergy/renal clearance",
+          "Bilateral leg ultrasound (DVT protocol) \u2013 right leg priority given swelling + calf tenderness",
+          "Vital signs: continuous pulse oximetry, BP, HR, RR; assess hemodynamic stability"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED TRANSFER \u2013 do not delay for outpatient workup",
+          "Establish IV access en route/on arrival",
+          "Obtain complete medication reconciliation (Rx, OTC, supplements, aspirin/NSAIDs)",
+          "Screen for heparin-induced thrombocytopenia (HIT) history, iodine/shellfish allergy, recent surgery, GI bleed, antiplatelet use",
+          "If PE confirmed: initiate anticoagulation (LMWH or unfractionated heparin) with weight-based dosing after baseline labs cleared",
+          "Have reversal agents available (protamine sulfate for heparin)",
+          "Assess for hemodynamic instability (hypotension, tachycardia >110, O2 sat <90%) suggesting massive PE \u2013 escalate to ICU/cardiology if present",
+          "Document baseline bilateral leg circumference and DVT exam findings"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: This is a medical emergency, not an outpatient visit. Post-flight pleuritic chest pain + dyspnea + unilateral leg swelling/calf tenderness is a classic PE/DVT presentation requiring immediate ED evaluation.",
+          "Patient is hemodynamically compensated NOW but at high risk for acute decompensation (massive PE, cardiogenic shock). Time-to-diagnosis is critical.",
+          "Workup must proceed in parallel (labs + imaging simultaneously), not sequentially. D-dimer and CTPA cannot wait for history completion.",
+          "Anticoagulation readiness: baseline CBC, renal function, and allergy screening must be completed before any heparin/LMWH initiation to avoid HIT, contrast nephropathy, or drug interactions.",
+          "Immobility risk amplified: 5-day post-flight + acute DVT/PE signs = very high VTE burden. Assess for IVC filter candidacy if anticoagulation contraindicated.",
+          "Vital signs stability must be monitored continuously; any drop in O2 sat, rise in HR, or BP instability = ICU-level care."
+        ],
+        "communication_note": "Patient requires IMMEDIATE emergency department evaluation via 911 for suspected PE/DVT; outpatient assessment is unsafe and delays time-critical imaging and anticoagulation.",
+        "trace": {
+          "clinician_contribution": "Appropriately identified PE as top differential and asked targeted questions about leg symptoms (DVT screening). However, clinician proceeded with history-taking rather than escalation; the workup array was empty, indicating no orders were placed despite high-risk presentation.",
+          "safety_checker_contribution": "Correctly flagged this as a medical emergency requiring 911 escalation, not outpatient care. Identified critical gaps: missing vital signs, O2 sat, ECG, and empty workup array. Emphasized that symptom-severity questioning delays time-critical diagnostic workup.",
+          "pharm_nurse_contribution": "Provided essential pre-anticoagulation screening checklist: medication reconciliation, HIT/allergy history, renal function, CBC baseline, and bleeding risk assessment. Flagged immobility/VTE risk, IV access readiness, contrast safety, and continuous monitoring needs. Identified that anticoagulation dosing cannot proceed without weight and renal clearance."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having worse trouble breathing now, even when I'm sitting still. And my right leg is really hurting and more swollen than before. I'm pretty worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When did the breathing trouble start getting worse, and is it worse when you lie flat or when you exert yourself? Also, for your right leg\u2014did the swelling and pain come on suddenly, or gradually? Any calf tenderness, warmth, or redness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The breathing got worse over the last day or so\u2014it's bad even when I'm just sitting still now. The leg swelling and pain came on gradually after the flight, but it's definitely worse today. Yes, my right calf feels warm and looks a bit red, and it's tender to touch."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Deep vein thrombosis (DVT) with pulmonary embolism (PE) \u2014 HIGHEST PRIORITY",
+          "Acute decompensated heart failure",
+          "Cellulitis with possible systemic response",
+          "Pneumonia with sepsis",
+          "Acute coronary syndrome with cardiogenic shock"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (O\u2082 sat, HR, BP, RR, temp) + continuous pulse oximetry",
+          "STAT 12-lead ECG",
+          "STAT labs: troponin, D-dimer, CBC, BMP (renal function, K\u207a), lactate, PT/INR, aPTT",
+          "STAT CT pulmonary angiography (CTPA) \u00b1 IV contrast OR bedside echo if CTPA contraindicated",
+          "Bilateral leg exam with documentation: calf circumference, skin color/temp, edema grade, Homan's sign",
+          "Complete medication history (current meds, OTC, supplements, anticoagulants)",
+          "Full allergy history (drug, food, contrast media)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Establish IV access; place on continuous cardiac/O\u2082 monitoring; have resuscitation equipment at bedside",
+          "PENDING IMAGING: Do NOT delay diagnostics for further history refinement",
+          "If PE confirmed: initiate anticoagulation per protocol (assess bleeding risk first); consider thrombolysis if hemodynamically unstable",
+          "If DVT confirmed without PE: initiate anticoagulation; leg elevation, compression stocking consideration",
+          "If cellulitis: assess for systemic toxicity; consider antibiotics after blood cultures if sepsis suspected",
+          "Avoid NSAIDs pending renal function assessment; hold diuretics until heart failure vs. PE clarified",
+          "Obtain baseline renal/hepatic function before dosing any acute medications"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Acute dyspnea at rest + unilateral leg swelling/warmth/redness + recent flight = classic PE/DVT presentation (medical emergency)",
+          "MISSING VITALS: No documented O\u2082 saturation, HR, BP, or RR. If patient is hypoxic (<94%), tachycardic (>110), hypotensive, or in respiratory distress, this is a 911 call NOW.",
+          "TIME-SENSITIVE DIAGNOSIS: PE and cardiogenic shock are both immediately life-threatening. Every minute without definitive imaging and anticoagulation increases mortality risk.",
+          "SEQUENCING ERROR IN PRIOR ASSESSMENT: Clinician appropriately refined history, but workup list was empty. Imaging/labs must be ordered in PARALLEL with history-taking, not sequentially.",
+          "MISSING BASELINE DATA: No medication list, allergy history, renal function, or bleeding risk assessment documented. These are essential before anticoagulation initiation.",
+          "DISPOSITION RISK: This patient requires ED-level evaluation and imaging NOW, not outpatient workup. Outpatient clinic cannot provide STAT CTPA or continuous hemodynamic monitoring."
+        ],
+        "communication_note": "This 48M with acute dyspnea at rest, unilateral leg swelling/warmth/redness, and recent flight history meets criteria for emergency evaluation; call 911 or proceed directly to ED for STAT imaging (CTPA) and labs to rule out PE/DVT.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately refined the history by asking about timing, character of dyspnea (orthopnea vs. exertional), and leg findings (sudden vs. gradual onset, calf tenderness/warmth/redness). Patient's responses (dyspnea worsened over 24 hours at rest, leg swelling/pain gradual post-flight but worse today, calf warmth/redness/tenderness) strongly support VTE. However, clinician did not propose any workup orders, creating a critical gap between differential diagnosis and action.",
+          "safety_checker_contribution": "Safety checker correctly identified this as a medical emergency (PE/DVT until proven otherwise) and flagged the dangerous sequencing error: history refinement should occur IN PARALLEL with urgent diagnostics, not instead of them. Checker mandated escalation to 911 and listed essential STAT orders (ECG, troponin, D-dimer/CTPA, CBC, BMP, lactate, coagulation studies). Checker also highlighted missing vitals, medication list, allergy history, and bleeding risk assessment\u2014all critical before anticoagulation.",
+          "pharm_nurse_contribution": "Pharm/nurse role identified missing medication history, allergy profile, and renal/hepatic function\u2014all essential before dosing anticoagulants or other acute medications. Nurse outlined DVT/PE protocol (bleeding risk, anticoagulation contraindications), emphasized continuous monitoring (O\u2082, HR, BP, RR), IV access, and resuscitation readiness. Nurse also flagged NSAID and diuretic risks in the context of possible heart failure or renal impairment, and mandated baseline labs (CBC, BMP, troponin, BNP, D-dimer, PT/INR, aPTT) before intervention."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having severe trouble breathing right now, and I almost passed out a few minutes ago. My chest hurts and I'm really dizzy."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / myocardial infarction",
+          "Pulmonary embolism",
+          "Aortic dissection",
+          "Tension pneumothorax",
+          "Severe arrhythmia with hemodynamic compromise",
+          "Sepsis / cardiogenic shock"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG",
+          "STAT troponin, BNP, CBC, CMP, lactate, D-dimer",
+          "Chest X-ray",
+          "Continuous cardiac monitoring",
+          "IV access (large-bore 18G+), supplemental O\u2082, vital signs q5min",
+          "Complete medication reconciliation (current meds, OTC, supplements, allergies)",
+          "Allergy history (especially aspirin, clopidogrel, heparin, contrast media)",
+          "Renal and hepatic function assessment (for drug dosing)",
+          "Contrast/iodine allergy screening (if angiography anticipated)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Call 911 / activate emergency transport to ED",
+          "Establish large-bore IV access and draw labs stat",
+          "Administer supplemental O\u2082 to target SpO\u2082 >94%",
+          "Place on continuous cardiac monitoring",
+          "Obtain 12-lead ECG within 10 minutes of arrival",
+          "Do NOT administer medications until allergy history and renal/hepatic function confirmed",
+          "Hold beta-blockers and ACE-I/ARB if SBP <90 or signs of cardiogenic shock",
+          "Avoid NSAIDs in acute setting",
+          "Prepare for dual antiplatelet therapy and anticoagulation pending troponin/imaging results",
+          "Screen for medication-induced arrhythmias once med list obtained",
+          "Assess for bleeding risk and GI ulcer history before anticoagulation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "HIGH-RISK PRESENTATION: Classic triad of acute dyspnea + syncope/presyncope + chest pain indicates potential life-threatening cardiopulmonary emergency",
+          "Syncope/presyncope suggests hemodynamic compromise or malignant arrhythmia",
+          "Age 48 with acute cardiopulmonary symptoms cannot be safely managed in outpatient setting",
+          "CRITICAL INFORMATION GAPS: No medication list, allergy history, or renal/hepatic function available\u2014must obtain immediately upon stabilization before medication administration",
+          "Potential for rapid decompensation; continuous monitoring essential",
+          "Contrast-induced nephropathy risk unknown pending renal function"
+        ],
+        "communication_note": "This is a medical emergency requiring immediate 911 activation and ED evaluation; do not delay transport for additional history-gathering.",
+        "trace": {
+          "clinician_contribution": "Correctly identified high-risk presentation and appropriately yielded to safety protocols; proposed comprehensive STAT workup (ECG, troponin, imaging, monitoring, supportive care) and evidence-based differential diagnosis covering all immediately life-threatening cardiopulmonary conditions.",
+          "safety_checker_contribution": "Approved escalation to emergency_911 with no blocking concerns; validated clinician's decision quality as EXCELLENT and confirmed workup completeness and appropriateness; emphasized that outpatient management is unsafe.",
+          "pharm_nurse_contribution": "Identified critical information gaps (no medication list, allergy history, renal/hepatic function) that prevent medication safety review and dosing; flagged need for complete medication reconciliation, allergy screening, large-bore IV access, and contraindications for NSAIDs and certain cardiac drugs pending lab results; provided anticipatory guidance for dual antiplatelet therapy, anticoagulation readiness, and screening for medication-induced arrhythmias."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634759.2011383
+}

@@ -1,0 +1,142 @@
+{
+  "case_id": "infectious_004",
+  "category": "infectious_disease",
+  "simulator": "full_info_static",
+  "agent_arch": "single",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease with disseminated manifestations (Lyme carditis, Lyme neuroborreliosis with facial palsy)",
+          "Lyme arthritis with cardiac involvement",
+          "Other spirochetal infection (less likely given serology)"
+        ],
+        "workup_ordered": [
+          "Lyme disease serology (ELISA and Western blot) - already positive",
+          "Cardiac monitoring and repeat ECG",
+          "Echocardiography to assess for myocarditis/pericarditis",
+          "Lumbar puncture with CSF analysis (cell count, protein, glucose, Lyme PCR) to evaluate for neuroborreliosis",
+          "Chest X-ray",
+          "Troponin and BNP if not already done"
+        ],
+        "management_plan": [
+          "Initiate IV ceftriaxone 2g daily for 14-28 days (standard for Lyme carditis and neuroborreliosis)",
+          "Continuous cardiac monitoring given Mobitz II AV block; prepare for possible temporary pacemaker if progression to complete heart block",
+          "Neurology consultation for facial palsy and possible meningitis workup",
+          "Cardiology consultation for management of Lyme carditis",
+          "Monitor for worsening conduction abnormalities"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "2nd degree Mobitz II AV block carries risk of progression to complete heart block and hemodynamic compromise",
+          "Disseminated Lyme disease with cardiac and neurologic involvement requires inpatient IV antibiotic therapy and monitoring",
+          "Facial palsy may indicate CNS involvement requiring lumbar puncture"
+        ],
+        "communication_note": "You have Lyme disease that has spread to your heart and nerves, causing your facial drooping and heart rhythm problems; you need hospital admission for IV antibiotics and close heart monitoring."
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme disease with cardiac manifestations (Lyme carditis with complete heart block)",
+          "Lyme neuroborreliosis with cardiac involvement",
+          "Idiopathic complete heart block",
+          "Myocarditis from other infectious etiology"
+        ],
+        "workup_ordered": [
+          "Lyme serology (ELISA + Western blot)",
+          "CSF analysis with Lyme PCR and serology",
+          "Troponin and BNP",
+          "Complete blood count and comprehensive metabolic panel",
+          "Continuous cardiac monitoring",
+          "Transesophageal echocardiography if indicated"
+        ],
+        "management_plan": [
+          "Admit to telemetry/cardiac monitoring unit immediately",
+          "Initiate IV ceftriaxone 2g Q12H for presumed Lyme carditis pending serology confirmation",
+          "Cardiology consultation for complete heart block management and pacemaker evaluation",
+          "Prepare for temporary pacing capability given symptomatic bradycardia and syncope risk",
+          "Neurology consultation for facial palsy and possible neuroborreliosis",
+          "Avoid AV nodal blocking agents"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Complete 3rd degree AV block with junctional escape rhythm at HR 38 and symptomatic pre-syncope/near-syncope episodes",
+          "High risk for progression to asystole or hemodynamic collapse",
+          "Requires continuous monitoring and pacemaker readiness"
+        ],
+        "communication_note": "Your heart rhythm has worsened to a complete block requiring hospital admission and possible pacemaker placement; we strongly suspect Lyme disease from your camping trip and will start antibiotics immediately while confirming the diagnosis."
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lyme carditis with complete AV block",
+          "Lyme borreliosis with cardiac manifestations",
+          "Infectious myocarditis (Borrelia burgdorferi)"
+        ],
+        "workup_ordered": [
+          "Stat cardiology consultation",
+          "Continuous cardiac monitoring",
+          "Temporary pacemaker placement",
+          "Troponin (already elevated at 0.08)",
+          "Echocardiography",
+          "Lyme serology (ELISA + Western blot confirmation)",
+          "Blood cultures"
+        ],
+        "management_plan": [
+          "Immediate admission to ICU/cardiac care unit",
+          "Temporary transvenous pacemaker placement for complete AV block with hemodynamic compromise",
+          "IV ceftriaxone 2g Q12H for Lyme carditis (or IV penicillin G if cephalosporin allergy)",
+          "Continuous telemetry monitoring",
+          "Fluid resuscitation for hypotension (cautiously given myocarditis)",
+          "Avoid negative inotropes; consider vasopressor support if needed",
+          "Serial ECGs and troponins",
+          "Assess for need for permanent pacemaker after acute phase resolves"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Complete heart block with symptomatic bradycardia (HR 32) and hemodynamic instability (BP 92/58)",
+          "Syncope in setting of complete AV block\u2014high risk for sudden cardiac death",
+          "Myocarditis with elevated troponin\u2014risk of cardiogenic shock and arrhythmia",
+          "Requires immediate pacemaker intervention"
+        ],
+        "communication_note": "You have Lyme disease affecting your heart, causing a dangerous rhythm problem that requires emergency hospitalization and a temporary pacemaker to keep your heart beating safely while we treat the infection with antibiotics."
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "Lyme carditis",
+      "Lyme neuroborreliosis with Bell palsy",
+      "idiopathic AV block",
+      "viral myocarditis"
+    ],
+    "required_workup": [
+      "Lyme serology ELISA + Western blot",
+      "ECG continuous monitoring",
+      "echo",
+      "CBC BMP",
+      "LP if neurological symptoms"
+    ],
+    "correct_management": [
+      "IV ceftriaxone 2g daily for carditis with high-degree AV block",
+      "cardiac monitoring telemetry",
+      "temporary pacing if HR <40 or symptomatic",
+      "transition to oral doxycycline when AV block resolves",
+      "30-day doxycycline for neuroborreliosis"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779505395.5538917
+}

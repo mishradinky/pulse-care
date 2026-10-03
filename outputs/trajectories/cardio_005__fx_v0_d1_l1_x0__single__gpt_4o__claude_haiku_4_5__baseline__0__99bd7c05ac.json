@@ -1,0 +1,202 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "fx_v0_d1_l1_x0",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 48,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Sharp pain in my right chest. Can't breathe right."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing this chest pain and difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Started five days ago. Right after the plane landed."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Right leg is swollen. Hurts a bit when I touch it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent trauma or injury to your leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No trauma. My leg's just swollen. Started a few days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent surgeries or been immobilized for a long period?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No surgeries. Just the long flight from Tokyo five days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any coughing, especially coughing up blood?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No cough. No blood. Just the pain and hard to breathe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Administer anticoagulation therapy if PE/DVT confirmed",
+          "Monitor vital signs closely",
+          "Provide supplemental oxygen if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of life-threatening pulmonary embolism"
+        ],
+        "communication_note": "You may have a serious condition related to blood clots, and we need to get you to the emergency room immediately for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Breathing's worse. Even sitting still. Right leg hurts more too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling, redness, or warmth in your right leg?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Leg's swollen. It's red and warm too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my chest hurts. Right side. Bad when I breathe."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Anticoagulation therapy initiation",
+          "Pain management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of pulmonary embolism leading to respiratory distress or cardiac arrest"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition that needs immediate attention, so I'm arranging for emergency care right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't breathe. Dizzy. Really bad."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start IV access",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "You are experiencing severe symptoms that require immediate medical attention. We are calling emergency services to get you to the hospital right away."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1790547439.6330316
+}

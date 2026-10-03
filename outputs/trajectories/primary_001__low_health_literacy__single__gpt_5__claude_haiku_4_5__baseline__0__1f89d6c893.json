@@ -1,0 +1,198 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi doctor. Um, I found this sore on the bottom of my foot like two weeks ago. It's not really hurting much, which is weird, but it's not going away. I'm kinda worried about it. Can you take a look?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the sore? Is it red, swollen, or does it have any discharge?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it's on the bottom of my foot, right here. It's kinda red around it, like the skin is angry-looking. It's not really swollen though. No, uh... no stuff coming out of it. Just looks like a raw spot that won't heal up. Been there two weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to your foot, or do you remember how this sore might have started?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Um, I don't think so? I mean, I didn't bang it or nothing. I just... one day I looked down and it was there. Maybe from my shoes? I wear them pretty tight sometimes. I don't really remember it hurting or anything, so I'm not sure when it started exactly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in sensation or numbness in your foot?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, my feet feel kinda weird sometimes, like they're asleep? But mostly I don't feel much down there anymore. Like when I touch my foot, it's hard to tell what I'm touching. Is that what you mean?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of diabetes or other medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I got the sugar disease... diabetes, they call it. Been dealing with that for a while now. I take pills for it\u2014the white one and the other one. My doctor says my sugar's been running high. That's about it, I think."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me the names of the medications you are taking for your diabetes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Um, yeah. I take the white pill in the morning and at night\u2014I think it's the sugar one? And then there's another one, smaller, maybe blue or something? I take that once a day. Honestly, I'm not great with the names. They're in my bathroom cabinet if you need to see the bottles."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "diabetic foot ulcer",
+          "neuropathic ulcer",
+          "pressure ulcer"
+        ],
+        "workup_ordered": [
+          "foot examination",
+          "monofilament test",
+          "HbA1c",
+          "wound culture if signs of infection"
+        ],
+        "management_plan": [
+          "optimize diabetes management",
+          "educate on foot care",
+          "consider referral to podiatry",
+          "monitor wound healing closely"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of infection due to impaired sensation and high blood sugar"
+        ],
+        "communication_note": "You have a sore on your foot likely related to your diabetes. We need to manage your blood sugar better and take care of your foot to prevent complications. I'll refer you to a specialist for further care."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I'm really worried. That sore on my foot got way bigger\u2014it's like three times the size now. And it smells really bad, like something's rotting. I've been putting bandages on it but nothing's helping. It's been two weeks and it just keeps getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any fever, chills, or other symptoms like increased pain or redness spreading from the sore?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, the sore is definitely bigger now\u2014like, way bigger than two weeks ago. And it smells really bad, like something's rotting. I don't have chills exactly, but I feel kinda warm. The red area around it keeps getting bigger too. I'm pretty scared honestly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent injuries or trauma to the foot, or do you have any underlying conditions like diabetes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I got that diabetes thing, yeah. Been on pills for it for a while now. As for the foot... I didn't bang it or nothing that I remember. Just noticed this sore spot a couple weeks back and it won't go away. It don't even hurt much, which is weird."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "diabetic foot ulcer",
+          "necrotizing fasciitis"
+        ],
+        "workup_ordered": [
+          "wound culture",
+          "CBC",
+          "blood glucose level",
+          "X-ray of the foot"
+        ],
+        "management_plan": [
+          "start broad-spectrum antibiotics",
+          "refer to wound care specialist",
+          "optimize blood glucose control"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of severe infection spreading",
+          "potential for sepsis"
+        ],
+        "communication_note": "Your foot sore is concerning for a serious infection, possibly related to your diabetes, and needs immediate attention at the emergency department."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, my foot is really bad now. It's all red and swollen up, and I got a fever too. Started feeling hot and shaky like 12 hours ago. The sore on my foot got bigger and it's... it's really scaring me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "cellulitis",
+          "abscess",
+          "necrotizing fasciitis"
+        ],
+        "workup_ordered": [
+          "CBC",
+          "blood cultures",
+          "wound culture",
+          "CRP",
+          "ESR"
+        ],
+        "management_plan": [
+          "initiate IV antibiotics",
+          "elevate the affected limb",
+          "pain management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of sepsis",
+          "rapid progression of infection"
+        ],
+        "communication_note": "Your symptoms suggest a serious infection that needs immediate attention, so I'm recommending you go to the emergency room right away for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779512216.0886722
+}

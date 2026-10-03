@@ -1,0 +1,201 @@
+{
+  "case_id": "cardio_003",
+  "category": "cardiology",
+  "simulator": "fx_v0_d0_l1_x1",
+  "agent_arch": "single",
+  "agent_model": "gpt_4o",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "agent_model_id": "gpt-4o-2024-08-06",
+  "sim_backbone_id": "claude-haiku-4-5-20251001",
+  "case_meta": {
+    "category": "cardiology",
+    "demographics": {
+      "age": 62,
+      "sex": "M",
+      "race_ethnicity": "White non-Hispanic",
+      "language": "English",
+      "insurance": "PPO"
+    }
+  },
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's been racing for three days. Feels like it's pounding."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, shortness of breath, or dizziness along with the racing heart?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No chest pain. Little short of breath when I move around. Yeah, dizzy a few times. Had heavy drinking last weekend."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced this racing heart sensation before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "First time. Started three days ago. My boss was really on me last week though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms like sweating, nausea, or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Heart's been racing. No sweating. Had pizza last night though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medications or substances, like caffeine or drugs, that might affect your heart rate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Just the blood pill for pressure. Had some beers last weekend though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What is the name and dosage of the blood pressure medication you are taking?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The white pill. Five... something. My wife keeps the bottle."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Advise patient to avoid alcohol and caffeine",
+          "Schedule follow-up appointment with cardiologist"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for arrhythmia-related complications"
+        ],
+        "communication_note": "Your heart racing could be due to an irregular heartbeat; we'll do some tests and have you see a heart specialist soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's been racing and fluttering. Started three days ago. Now my chest feels tight too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any dizziness, shortness of breath, or fainting episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, some dizziness. Breathing's harder when I walk. My boss has been on my case all week though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any previous heart problems or been diagnosed with any heart conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never. My heart was fine till now. Had bad coffee this morning though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "anxiety-induced palpitations"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "Holter monitor",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "Advise patient to avoid caffeine and stress",
+          "Prescribe beta-blocker if ECG confirms arrhythmia",
+          "Schedule follow-up in cardiology"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential for arrhythmia to worsen or lead to complications"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart rhythm issue; we'll do some tests and refer you to a cardiologist for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My heart's racing bad. Had a dizzy spell this morning. Really scared."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "atrial fibrillation",
+          "supraventricular tachycardia",
+          "ventricular tachycardia"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "electrolyte panel",
+          "thyroid function tests"
+        ],
+        "management_plan": [
+          "start beta-blocker or calcium channel blocker",
+          "advise on lifestyle modifications",
+          "schedule follow-up with cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for hemodynamic instability",
+          "risk of stroke if atrial fibrillation"
+        ],
+        "communication_note": "Your symptoms suggest a heart rhythm issue that needs immediate evaluation in the emergency department."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "new onset atrial fibrillation",
+      "WPW syndrome",
+      "AF with pre-excitation"
+    ],
+    "required_workup": [
+      "ECG",
+      "echo",
+      "TSH",
+      "BMP",
+      "CBC",
+      "troponin"
+    ],
+    "correct_management": [
+      "rate control with beta-blocker if no WPW",
+      "anticoagulation if >48h or unknown duration",
+      "electrophysiology referral",
+      "avoid AV nodal agents if WPW"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1790546639.3228643
+}

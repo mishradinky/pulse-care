@@ -1,0 +1,189 @@
+{
+  "case_id": "infectious_002",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm real sick. I got this awful fever and chills, my back hurts so bad, and I can't hardly pee. Been like this for two days now. I'm confused too\u2014my daughter brought me in 'cause I don't feel right at all."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine color or smell?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it's been real dark and kinda smelly the last couple days. Like, darker than normal. And it hurts when I go, but... I haven't really been going much at all. Haven't peed in like... I dunno, 12 hours maybe? That's not right, is it?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent illnesses, surgeries, or been around anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I get these water infections a lot. Had one a few months back and the doctor gave me some pills for it. I live in a place with a bunch of other people, so... maybe? I'm not sure who's sick over there. My back really hurts though, and I haven't been able to pee since yesterday morning."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the fever you're experiencing? How high has it been and how often do you get the chills?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I been real hot and cold all over. Started yesterday morning. I'm shakin' real bad with the chills, then I get all sweaty. My daughter took my temperature with that thing under my arm\u2014said it was like 103 or so. It keeps comin' back every little while. I feel awful."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Urinary tract infection (UTI)",
+          "Acute pyelonephritis",
+          "Sepsis",
+          "Acute bacterial prostatitis"
+        ],
+        "workup_ordered": [
+          "Urinalysis",
+          "Complete blood count (CBC)",
+          "Blood cultures",
+          "Basic metabolic panel (BMP)",
+          "Urinary tract ultrasound"
+        ],
+        "management_plan": [
+          "Administer IV fluids",
+          "Start empiric antibiotics (e.g., ceftriaxone or ciprofloxacin)",
+          "Monitor vital signs closely",
+          "Pain management for back pain"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Sepsis risk due to high fever, chills, and confusion",
+          "Dehydration due to reduced urine output",
+          "Severe back pain possibly indicating renal involvement"
+        ],
+        "communication_note": "You have a serious infection that may involve your kidneys, and we need to treat it immediately with antibiotics and fluids."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I... I'm still real hot and confused. Been on them antibiotics for a whole day now but I feel worse. My head's all foggy and I threw up again. I'm scared something's really wrong."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your bowel movements or urinary habits?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I haven't been able to pee hardly at all since yesterday morning. That's real worrying me. And I've been throwing up a lot, so I don't know about... the other thing. My stomach's just all messed up right now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any pain or burning when you try to urinate?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I haven't been able to go to the bathroom hardly at all. My back and sides hurt real bad though. I don't remember the last time I peed... maybe this morning? Everything just hurts so much, and I feel so confused and hot."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute pyelonephritis",
+          "Sepsis",
+          "Urinary tract infection",
+          "Acute kidney injury"
+        ],
+        "workup_ordered": [
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Urinalysis",
+          "Blood cultures",
+          "Imaging of the urinary tract"
+        ],
+        "management_plan": [
+          "Administer IV fluids for hydration",
+          "Start broad-spectrum IV antibiotics",
+          "Monitor vital signs closely",
+          "Prepare for possible ICU admission"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis",
+          "Acute kidney injury",
+          "Electrolyte imbalances"
+        ],
+        "communication_note": "Your symptoms suggest a serious infection that may have spread to your kidneys, and you need immediate medical attention."
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I... I don't know what's happening to me. Everything hurts and I can't think straight. They got me on all these tubes and machines. I'm so scared. Why am I here? What's wrong with me?"
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Sepsis",
+          "Urinary Tract Infection",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "Complete Blood Count (CBC)",
+          "Comprehensive Metabolic Panel (CMP)",
+          "Blood Cultures",
+          "Urinalysis",
+          "Chest X-ray"
+        ],
+        "management_plan": [
+          "Start broad-spectrum antibiotics",
+          "Administer IV fluids",
+          "Monitor vital signs closely",
+          "Provide supportive care"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Sepsis is a life-threatening condition that requires immediate medical attention."
+        ],
+        "communication_note": "The patient is very ill and needs immediate medical attention to treat a potential serious infection."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urosepsis",
+      "septic shock",
+      "ESBL E.coli bacteremia",
+      "pyelonephritis"
+    ],
+    "required_workup": [
+      "UA urine culture",
+      "blood cultures x2",
+      "CBC BMP lactate",
+      "CXR",
+      "renal ultrasound if not improving"
+    ],
+    "correct_management": [
+      "IV fluids 30mL/kg bolus",
+      "broad-spectrum antibiotics (piperacillin-tazobactam or carbapenem for ESBL risk)",
+      "vasopressors if MAP <65",
+      "source control",
+      "ICU transfer",
+      "hold metformin"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779508145.8993235
+}

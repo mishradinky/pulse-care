@@ -1,0 +1,196 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Bad cough, yellow stuff, chest pain."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Four days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any fever or chills?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever, no chills."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath or difficulty breathing?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to anyone who is sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent travel or exposure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any underlying medical conditions, such as asthma, COPD, or heart disease?"
+        },
+        {
+          "speaker": "patient",
+          "text": "COPD, diabetes."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute exacerbation of COPD"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "CBC",
+          "blood cultures"
+        ],
+        "management_plan": [
+          "start antibiotics",
+          "increase bronchodilator use",
+          "consider corticosteroids"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of respiratory failure due to COPD exacerbation"
+        ],
+        "communication_note": "You have symptoms that suggest a lung infection, possibly pneumonia, and we need to do some tests and start treatment promptly."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "No better, more confused."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any fever, chills, or other symptoms like cough or shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Fever, cough, shortness of breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your mental status or experienced any confusion or disorientation?"
+        },
+        {
+          "speaker": "patient",
+          "text": "More confused."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "COVID-19",
+          "bacterial sepsis"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "blood cultures",
+          "COVID-19 test"
+        ],
+        "management_plan": [
+          "start empirical antibiotics",
+          "oxygen therapy if needed",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "risk of worsening confusion"
+        ],
+        "communication_note": "You need to go to the emergency department for further evaluation and treatment of your symptoms."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Respiratory failure, intubated."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "bacterial pneumonia",
+          "COVID-19",
+          "acute respiratory distress syndrome (ARDS)"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "sputum culture",
+          "blood cultures",
+          "COVID-19 PCR test"
+        ],
+        "management_plan": [
+          "continue mechanical ventilation",
+          "administer broad-spectrum antibiotics",
+          "consult infectious disease specialist"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of ventilator-associated pneumonia",
+          "hemodynamic instability"
+        ],
+        "communication_note": "You are currently intubated due to respiratory failure, and we are conducting tests to determine the cause and provide appropriate treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636147.2608435
+}

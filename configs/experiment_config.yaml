@@ -1,0 +1,160 @@
+seed: 20260515
+output_dir: outputs
+cases_dir: cases
+simulator_cards_dir: simulator_cards
+prompts_dir: prompts
+
+protocol:
+  visits_per_case: 3
+  max_followups_per_visit: 5
+  max_total_turns: 15
+  json_retries: 2
+
+# ---------------------------------------------------------------------------
+# Frozen case lists. `cases_subset: N` (first N alphabetically) was replaced by explicit
+# lists so that adding cases to cases/ never silently changes an existing subset.
+# ---------------------------------------------------------------------------
+case_lists:
+  original_24: &original_24
+    [cardio_001, cardio_002, cardio_003, cardio_004, cardio_005,
+     infectious_001, infectious_002, infectious_003, infectious_004, infectious_005,
+     medsafety_001, medsafety_002, medsafety_003, medsafety_004, medsafety_005,
+     mental_001, mental_002, mental_003, mental_004,
+     primary_001, primary_002, primary_003, primary_004, primary_005]
+  subset_8: &subset_8      # used by backbone / sonnet_backbone / factorial / extended_models_lite
+    [cardio_001, cardio_002, cardio_003, cardio_004, cardio_005,
+     infectious_001, infectious_002, infectious_003]
+  subset_12: &subset_12    # used by fairness / fairness_null
+    [cardio_001, cardio_002, cardio_003, cardio_004, cardio_005,
+     infectious_001, infectious_002, infectious_003, infectious_004, infectious_005,
+     medsafety_001, medsafety_002]
+  repeat_5: &repeat_5
+    [primary_001, cardio_001, medsafety_001, infectious_001, mental_001]
+  emergency_ext_6: &emergency_ext_6   # added 2026-09: raises emergency_911 cases from 4 to 10
+    [cardio_006, infectious_006, medsafety_006, mental_005, primary_006, primary_007]
+
+primary_models: &primary_models [claude_haiku_4_5, gpt_4o, mistral_small_3_2]
+extended_models: &extended_models [claude_sonnet_4_6, gpt_4_1, ministral_8b]   # mistral_large: not on current tier
+dynamic_sims: &dynamic_sims [cooperative, sparse, verbose, low_health_literacy]
+factorial_fraction: &factorial_fraction   # 2^(4-1) resolution IV: x = v XOR d XOR l
+  [fx_v0_d0_l0_x0, fx_v0_d0_l1_x1, fx_v0_d1_l0_x1, fx_v0_d1_l1_x0,
+   fx_v1_d0_l0_x1, fx_v1_d0_l1_x0, fx_v1_d1_l0_x0, fx_v1_d1_l1_x1]
+factorial_full: &factorial_full
+  [fx_v0_d0_l0_x0, fx_v0_d0_l0_x1, fx_v0_d0_l1_x0, fx_v0_d0_l1_x1,
+   fx_v0_d1_l0_x0, fx_v0_d1_l0_x1, fx_v0_d1_l1_x0, fx_v0_d1_l1_x1,
+   fx_v1_d0_l0_x0, fx_v1_d0_l0_x1, fx_v1_d0_l1_x0, fx_v1_d0_l1_x1,
+   fx_v1_d1_l0_x0, fx_v1_d1_l0_x1, fx_v1_d1_l1_x0, fx_v1_d1_l1_x1]
+
+subsets:
+  # ── original design (complete) ─────────────────────────────────────────────
+  static:        # 24 cases x 2 archs x 3 models x 1 baseline = 144
+    cases: *original_24
+    simulators: [full_info_static]
+    agents: [single, team]
+    agent_models: *primary_models
+    sim_backbone: claude_haiku_4_5
+  main:          # 24 x 4 sims x 2 archs x 3 models = 576
+    cases: *original_24
+    simulators: *dynamic_sims
+    agents: [single, team]
+    agent_models: *primary_models
+    sim_backbone: claude_haiku_4_5
+  repeatability: # 5 cases x 4 sims x 3 seeds (haiku, single) = 60  (complete)
+    cases: *repeat_5
+    simulators: *dynamic_sims
+    agents: [single]
+    agent_models: [claude_haiku_4_5]
+    reseeds: 3
+    sim_backbone: claude_haiku_4_5
+  fairness:      # 12 cases x 3 demo variants x 2 archs x 3 models = 216 (complete)
+    cases: *subset_12
+    demographic_variants: [baseline, minority_swap, ses_swap]
+    agents: [single, team]
+    agent_models: *primary_models
+    simulators: [cooperative]
+    sim_backbone: claude_haiku_4_5
+  backbone:      # 8 cases x 4 sims x 1 arch x 3 models = 96 (complete)
+    cases: *subset_8
+    simulators: *dynamic_sims
+    agents: [single]
+    agent_models: *primary_models
+    sim_backbone: gpt_4o
+  sonnet_backbone:  # 8 x 4 x 1 x 3 = 96 (complete)
+    cases: *subset_8
+    simulators: *dynamic_sims
+    agents: [single]
+    agent_models: *primary_models
+    sim_backbone: claude_sonnet_4_6
+
+  # ── extended designs (run as needed) ───────────────────────────────────────
+  repeatability_full:   # 5 cases x 4 sims x 2 archs x 3 models x 3 seeds = 360 (200 new)
+    cases: *repeat_5    # separates between-simulator from within-policy variance for EVERY model/arch
+    simulators: *dynamic_sims
+    agents: [single, team]
+    agent_models: *primary_models
+    reseeds: 3
+    sim_backbone: claude_haiku_4_5
+  fairness_null:        # 12 cases x cooperative x 2 archs x 3 models x seed 1 = 72 new
+    cases: *subset_12   # baseline-vs-baseline reseed pairs = noise floor for CAD
+    simulators: [cooperative]
+    agents: [single, team]
+    agent_models: *primary_models
+    reseeds: 2
+    sim_backbone: claude_haiku_4_5
+  factorial:            # 8 cells x 8 cases x single x 3 models = 192
+    cases: *subset_8    # main effects of verbosity / withholding / literacy / distractors
+    simulators: *factorial_fraction
+    agents: [single]
+    agent_models: *primary_models
+    sim_backbone: claude_haiku_4_5
+  factorial_full:       # 16 cells x 8 cases x single x 3 models = 384 (192 beyond `factorial`)
+    cases: *subset_8
+    simulators: *factorial_full
+    agents: [single]
+    agent_models: *primary_models
+    sim_backbone: claude_haiku_4_5
+  extended_models_lite: # 8 cases x 4 sims x single x 3 new models = 96
+    cases: *subset_8
+    simulators: *dynamic_sims
+    agents: [single]
+    agent_models: *extended_models
+    sim_backbone: claude_haiku_4_5
+  extended_models:      # 24 cases x 4 sims x single x 3 new models = 288
+    cases: *original_24
+    simulators: *dynamic_sims
+    agents: [single]
+    agent_models: *extended_models
+    sim_backbone: claude_haiku_4_5
+  extended_models_static:  # 24 x static x single x 3 = 72
+    cases: *original_24
+    simulators: [full_info_static]
+    agents: [single]
+    agent_models: *extended_models
+    sim_backbone: claude_haiku_4_5
+  emergency_ext:        # 6 new emergency cases x 4 sims x 2 archs x 3 models = 144
+    cases: *emergency_ext_6
+    simulators: *dynamic_sims
+    agents: [single, team]
+    agent_models: *primary_models
+    sim_backbone: claude_haiku_4_5
+  emergency_ext_static: # 6 x static x 2 archs x 3 = 36
+    cases: *emergency_ext_6
+    simulators: [full_info_static]
+    agents: [single, team]
+    agent_models: *primary_models
+    sim_backbone: claude_haiku_4_5
+
+analysis:
+  primary_models: *primary_models
+  primary_backbone: claude_haiku_4_5
+  extended_models: *extended_models
+  rank_margins: [0.0, 0.02, 0.05, 0.10]
+
+manual_review:
+  target_n: 110
+  stratify_by: [category, simulator, agent_model]
+
+bootstrap:
+  n_resamples: 1000
+  ci_level: 0.95
+  unit: case

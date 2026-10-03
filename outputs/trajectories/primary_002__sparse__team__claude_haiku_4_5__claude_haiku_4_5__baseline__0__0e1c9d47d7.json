@@ -1,0 +1,204 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Worst headache of my life. Started suddenly at the gym."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Subarachnoid hemorrhage (SAH) \u2014 HIGHEST PRIORITY",
+          "Intracerebral hemorrhage (ICH)",
+          "Acute severe hypertension",
+          "Meningitis",
+          "Reversible cerebral vasoconstriction syndrome (RCVS)"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT (emergency department)",
+          "If CT negative: lumbar puncture for xanthochromia",
+          "Vital signs including BP (continuous monitoring)",
+          "Comprehensive neurologic exam (meningeal signs, focal deficits, level of consciousness, pupil reactivity)",
+          "Baseline labs: CBC, CMP, coagulation studies (PT/INR, PTT), troponin",
+          "Renal function (creatinine/eGFR) \u2014 for contrast CT risk stratification",
+          "Complete medication history (including OTC, supplements, stimulants, anticoagulants/antiplatelets)",
+          "Allergy history (contrast allergy assessment)"
+        ],
+        "management_plan": [
+          "ACTIVATE 911 \u2014 DO NOT self-transport; risk of sudden deterioration (rebleeding, herniation, seizure)",
+          "Establish large-bore IV access en route or upon ED arrival",
+          "NPO status pending airway/swallowing assessment",
+          "Continuous cardiac and neuro monitoring in ED",
+          "Neurosurgery consultation standby (SAH protocol)",
+          "If SAH confirmed: ICU admission, vasospasm prophylaxis, aneurysm imaging (CTA/DSA), neurosurgical intervention planning",
+          "Medication reconciliation AFTER stabilization/imaging; hold all oral meds pending assessment",
+          "Document anticoagulation/antiplatelet status immediately for hemorrhage management decisions"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\u26a0\ufe0f MEDICAL EMERGENCY: 'Worst headache of life' + exertional onset = classic SAH sentinel symptom",
+          "\u26a0\ufe0f Age 52 with exertional trigger consistent with aneurysmal rupture demographics",
+          "\u26a0\ufe0f Risk of rapid deterioration: rebleeding, herniation, seizure \u2014 time-critical intervention window",
+          "\u26a0\ufe0f Unknown medication status: If on anticoagulants/antiplatelets, hemorrhage risk significantly elevated",
+          "\u26a0\ufe0f Unknown stimulant use (illicit or OTC): May contribute to acute hypertension/RCVS",
+          "\u26a0\ufe0f Contrast allergy and renal function unknown \u2014 must assess before contrast imaging",
+          "\u26a0\ufe0f Do NOT delay emergency imaging for routine medication reconciliation"
+        ],
+        "communication_note": "Patient requires immediate 911 activation for STAT head CT and neurosurgery-capable ED evaluation; this is a life-threatening emergency with a narrow intervention window.",
+        "trace": {
+          "clinician_contribution": "Appropriately recognized 'worst headache of life' + exertional onset as red flag for SAH and other life-threatening intracranial pathology; correctly invoked 'yield_to_safety' protocol and ordered STAT non-contrast head CT, conditional LP, vital signs, and comprehensive neuro exam.",
+          "safety_checker_contribution": "Validated clinician's emergency recognition; confirmed textbook SAH presentation; endorsed STAT imaging strategy and LP protocol for non-traumatic SAH detection; mandated 911 activation over self-transport due to deterioration risk; identified blocking concerns as absent.",
+          "pharm_nurse_contribution": "Flagged critical gaps in medication history (anticoagulants, antiplatelets, stimulants) that impact hemorrhage management and differential diagnosis; endorsed deferral of med reconciliation until post-stabilization; provided nursing priorities: large-bore IV, NPO status, allergy/renal assessment, and post-LP monitoring; reinforced emergency protocol appropriateness."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Head still hurts. Bad. Meds helped a little."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this headache better. On a scale of 0\u201310, what's the pain level now? And has anything changed since your last visit\u2014location, pattern, associated symptoms like vision changes, weakness, fever, or neck stiffness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Still about 8 or 9. Neck's stiff. Threw up once. Light hurts my eyes less now."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Meningitis or other CNS infection (HIGHEST PRIORITY)",
+          "Migraine with aura (photophobia improving, vomiting, high pain severity)",
+          "Intracranial process (hemorrhage, mass, increased ICP)",
+          "Temporal arteritis (age 52, persistent headache\u2014though neck stiffness less typical)",
+          "Hypertensive emergency (uncontrolled BP not yet ruled out)",
+          "Medication overuse headache (secondary to inadequate primary diagnosis)"
+        ],
+        "workup_ordered": [
+          "STAT: Blood pressure, temperature, full vital signs",
+          "STAT: Meningeal signs assessment (Kernig, Brudzinski, nuchal rigidity confirmation)",
+          "STAT: Neurologic exam (focal deficits, cranial nerves, mental status)",
+          "URGENT imaging: Non-contrast head CT (rule out hemorrhage, mass, hydrocephalus) before LP if meningitis suspected",
+          "If CT normal and meningitis remains in differential: Lumbar puncture with CSF analysis (cell count, glucose, protein, culture, viral PCR)",
+          "Labs: CBC, CMP (renal/hepatic function), ESR/CRP (temporal arteritis screen given age)",
+          "Medication reconciliation: Complete list of all analgesics (OTC + Rx), frequency, duration"
+        ],
+        "management_plan": [
+          "DO NOT initiate new headache medications until serious secondary causes ruled out",
+          "Obtain complete medication history and allergy/intolerance documentation during this visit",
+          "If meningitis workup initiated: Consider empiric antibiotics (ceftriaxone + vancomycin) per ED protocol pending imaging/LP results",
+          "Hold further outpatient management pending urgent imaging and vital signs",
+          "Once secondary causes excluded: Address medication overuse (if present) with structured weaning protocol before escalating abortive/preventive therapy"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "RED FLAG TRIAD: Severe headache (8\u20139/10) + neck stiffness + vomiting = meningitis until proven otherwise",
+          "Photophobia improving (not worsening) is atypical for acute meningitis but does NOT exclude it\u2014neck stiffness + vomiting + high pain severity remain concerning",
+          "Age 52 + persistent headache with partial medication response + new/worsening neurologic symptoms (neck stiffness, vomiting) = secondary cause highly likely",
+          "No vital signs documented yet\u2014hypertensive emergency or fever could be driving presentation",
+          "Medication overuse cannot be assessed without complete med list; if present, outpatient adjustment will fail",
+          "Visit 2 with inadequate response to prior therapy suggests misdiagnosis or serious underlying pathology"
+        ],
+        "communication_note": "Patient requires ED evaluation today for urgent imaging and meningitis rule-out given neck stiffness, vomiting, and severe persistent headache; do not delay for outpatient workup.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately escalated assessment by asking targeted red-flag questions (vision changes, weakness, fever, neck stiffness) and recognized visit-2 inadequate response as a red flag for secondary etiology. Patient's affirmative response to neck stiffness + vomiting transforms this from routine headache reassessment into acute emergency evaluation.",
+          "safety_checker_contribution": "Safety checker identified temporal arteritis and hypertensive emergency as age-appropriate differentials and flagged the need for vital signs. Conditional escalation pathway for fever + neck stiffness \u2192 ED referral was explicitly recommended and is now activated by patient's reported neck stiffness and vomiting.",
+          "pharm_nurse_contribution": "Pharm/nurse flagged critical missing data (current medications, renal/hepatic function, allergy history) and emphasized that medication overuse headache cannot be ruled in/out without analgesic frequency documentation. Nursing assessment of red-flag neurologic symptoms (neck stiffness, vomiting, photophobia) was performed and positive findings documented, triggering escalation."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't think straight. Left arm won't move."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute ischemic stroke",
+          "Acute hemorrhagic stroke",
+          "Todd's paralysis (post-ictal)",
+          "Hemiplegic migraine",
+          "Transient ischemic attack (TIA)",
+          "Intracranial mass or hemorrhage"
+        ],
+        "workup_ordered": [
+          "STAT non-contrast head CT (rule out hemorrhage)",
+          "STAT ECG (assess for cardioembolic source)",
+          "STAT labs: CBC, CMP, coagulation studies, troponin",
+          "STAT glucose",
+          "NIH Stroke Scale assessment",
+          "Time of symptom onset documentation (CRITICAL for thrombolytic eligibility)"
+        ],
+        "management_plan": [
+          "ACTIVATE 911 IMMEDIATELY - do not delay for primary care workup",
+          "Establish NPO status (aspiration risk + potential for urgent intervention)",
+          "Obtain complete medication list from patient/family/pharmacy BEFORE EMS arrival if possible",
+          "Obtain complete allergy history (especially contrast, antibiotics)",
+          "Document exact time of symptom onset and last known well time for EMS/ED handoff",
+          "Establish large-bore IV access en route if EMS involved",
+          "Maintain fall precautions during transport (acute neurological deficit = high fall risk)",
+          "Provide EMS with NIH Stroke Scale findings and time-of-onset documentation",
+          "Request ALS/paramedic response and direct ED notification for stroke team activation",
+          "ED team to verify contraindications to thrombolytics (recent surgery, active bleeding, anticoagulation status) before treatment initiation"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\ud83d\udea8 STROKE ALERT: Acute focal neurological deficit (left arm paralysis) + cognitive dysfunction = time-critical emergency",
+          "\ud83d\udea8 THROMBOLYTIC WINDOW: IV tPA eligibility 3\u20134.5 hrs from symptom onset; thrombectomy candidates up to 24 hrs\u2014every minute impacts treatment options",
+          "\ud83d\udea8 MEDICATION LIST UNKNOWN: Cannot assess thrombolytic contraindications (warfarin, DOACs, NSAIDs, recent antiplatelet use) until obtained",
+          "\ud83d\udea8 ALLERGY STATUS UNKNOWN: Must obtain before ED arrival (contrast, antibiotics critical for stroke protocol)",
+          "\u26a0\ufe0f TRANSPORT METHOD: Patient must NOT use personal vehicle or routine ambulance\u2014requires ALS/paramedic assessment and direct ED stroke team notification",
+          "\u26a0\ufe0f HYPOGLYCEMIA MIMICRY: Stat glucose already ordered (appropriate); hypoglycemia can present as acute neuro deficit",
+          "\u26a0\ufe0f ASPIRATION RISK: Establish NPO immediately due to cognitive/motor dysfunction"
+        ],
+        "communication_note": "This is a legitimate STROKE ALERT requiring immediate 911 activation; clinician correctly identified this cannot be managed in primary care, and safety checker confirms escalation is appropriate and necessary.",
+        "trace": {
+          "clinician_contribution": "Identified acute focal neurological deficit with cognitive dysfunction as stroke alert presentation; provided comprehensive differential (6 diagnoses), appropriate STAT workup (head CT, ECG, labs, glucose, NIH Stroke Scale, time documentation), and correct rationale for emergency escalation. Clinician appropriately yielded to safety protocol.",
+          "safety_checker_contribution": "Approved escalation and identified 5 critical red flags (focal deficit, concurrent CNS pathology, age/timing, time-sensitive differentials, thrombolytic window). Provided 4 blocking concerns emphasizing stroke alert status, time-of-onset criticality, ALS/paramedic requirement, and EMS/ED handoff protocol. Confirmed no safety concerns with escalation\u2014concern would be failure to escalate.",
+          "pharm_nurse_contribution": "Flagged CRITICAL medication list gap (unknown current medications); identified 3 critical interaction risks (warfarin/DOACs/antiplatelet agents affecting thrombolytic eligibility; NSAIDs increasing bleeding risk); deferred dosing to ED/stroke team pending renal/hepatic function and exact symptom onset. Provided 7 nursing concerns: stroke alert protocol adherence, allergy status acquisition, NPO establishment, IV access, medication reconciliation, contraindication screening, glucose monitoring, fall risk management, and family communication."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512440.1450589
+}

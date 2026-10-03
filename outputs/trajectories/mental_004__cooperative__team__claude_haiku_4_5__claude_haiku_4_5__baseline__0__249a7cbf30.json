@@ -1,0 +1,245 @@
+{
+  "case_id": "mental_004",
+  "category": "mental_health",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My hands won't stop shaking, I'm sweating a lot, and I feel really anxious. It started yesterday after I stopped drinking. My family brought me in because they're worried."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much alcohol were you drinking per day, and for how long? Also, when exactly did you have your last drink?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I was drinking about a pint of vodka every day for the last 10 years. My last drink was yesterday\u2014about 18 hours ago now. That's when the shaking and sweating started."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "escalation_level": "ed_referral",
+        "differential_diagnosis": [
+          "Alcohol withdrawal syndrome (AWS) \u2014 MOST LIKELY",
+          "Alcohol hallucinosis",
+          "Wernicke encephalopathy (concurrent risk)",
+          "Benzodiazepine withdrawal (if concurrent use \u2014 unknown)",
+          "Generalized anxiety disorder (less likely given temporal relationship to alcohol cessation)",
+          "Hyperthyroidism",
+          "Thyroid storm (low probability but consider if fever/tachycardia present)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (HR, BP, temperature, RR) \u2014 assess for autonomic hyperactivity",
+          "CIWA-Ar score (in-person, trained assessor only)",
+          "Basic metabolic panel (electrolytes, glucose, renal function)",
+          "Liver function tests (AST, ALT, INR, albumin, bilirubin)",
+          "Thiamine level (serum) + IMMEDIATE thiamine supplementation (do not wait for results)",
+          "Magnesium and phosphate levels (critical for cardiac safety before benzodiazepines)",
+          "Blood alcohol level (confirm cessation timeline)",
+          "TSH and free T4 (rule out hyperthyroidism)",
+          "Complete medication history (OTC, herbal, psychiatric \u2014 CRITICAL GAP)",
+          "Ammonia level if hepatic encephalopathy suspected (asterixis, confusion)",
+          "12-lead ECG (baseline for QT monitoring given electrolyte risk)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: ED referral for in-person evaluation, monitoring, and stabilization (NOT outpatient/remote assessment)",
+          "IMMEDIATE: Thiamine 100 mg IV/IM daily \u00d7 3\u20135 days, then transition to PO (BEFORE or WITH any glucose administration)",
+          "Benzodiazepine protocol (pending LFTs): Lorazepam preferred over diazepam/chlordiazepoxide due to liver disease risk; dose reduce by 25\u201350% if LFTs abnormal",
+          "Electrolyte repletion: Magnesium and phosphate supplementation if levels <1.5 mg/dL (Mg) or <2.0 mg/dL (PO4)",
+          "Glucose management: Do NOT administer without thiamine; risk of precipitating Wernicke encephalopathy",
+          "Folic acid 1 mg daily \u00d7 30 days (common deficiency in chronic alcohol use)",
+          "IV hydration (assess for dehydration; monitor urine output and creatinine)",
+          "Seizure precautions: Bed rails, suction at bedside, IV access, continuous monitoring",
+          "Cardiac monitoring: Continuous if severe withdrawal (HR >120, BP elevation, fever); ECG monitoring for QT prolongation",
+          "NPO status pending swallow assessment (tremor + diaphoresis = aspiration risk)",
+          "Post-stabilization: Suicide risk assessment, addiction medicine/psychiatry consultation, discharge planning with benzodiazepine safety (no refills without follow-up)"
+        ],
+        "safety_concerns": [
+          "CRITICAL: Patient is 18 hours post-cessation from 10 years of daily heavy alcohol use (1 pint vodka/day) \u2014 HIGH RISK for rapid progression to seizures, delirium tremens, or cardiac arrhythmias within next 6\u201348 hours",
+          "CRITICAL: Age 50 + chronic heavy alcohol use = very high risk for concurrent thiamine deficiency and Wernicke encephalopathy; glucose administration without thiamine is contraindicated",
+          "CRITICAL: Unknown current medications \u2014 benzodiazepine or other CNS depressant use must be ruled out immediately (interaction risk with withdrawal treatment)",
+          "CRITICAL: No current vital signs documented \u2014 cannot assess autonomic hyperactivity severity or acute medical stability; patient may not be safe at home",
+          "CRITICAL: CIWA-Ar scoring requires trained in-person assessment and cannot be reliably obtained remotely; severity stratification is essential for treatment intensity",
+          "Electrolyte derangements (hypokalemia, hypomagnesemia, hypophosphatemia) common in chronic alcohol use \u2014 increase arrhythmia risk, especially with benzodiazepines",
+          "Likely hepatic impairment (10 years heavy use) \u2014 reduced drug metabolism, increased toxicity risk; benzodiazepine dosing must be adjusted",
+          "Seizure risk peaks 6\u201348 hours post-cessation; patient requires monitored setting with emergency equipment available",
+          "Aspiration risk due to tremor, diaphoresis, and potential altered mental status",
+          "Post-withdrawal depression and suicide risk \u2014 requires psychiatric assessment before discharge"
+        ],
+        "communication_note": "Patient requires IMMEDIATE ED referral for in-person monitoring, thiamine supplementation, and benzodiazepine-based withdrawal management; remote/outpatient assessment is unsafe given high seizure and delirium tremens risk.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified AWS as leading diagnosis and requested detailed alcohol history (quantity, duration, timing of last drink). Differential diagnosis is comprehensive and includes Wernicke encephalopathy. Workup is clinically sound (CIWA-Ar, metabolic panel, LFTs, thiamine, TSH). HOWEVER: Clinician proposed assessment-only approach without addressing immediate stabilization, safety monitoring, or escalation \u2014 this is the critical gap.",
+          "safety_checker_contribution": "Safety Checker correctly identified BLOCKING CONCERNS: (1) In-person evaluation in monitored setting is MANDATORY before detailed questioning; (2) Thiamine must be given immediately, not after assessment; (3) CIWA-Ar cannot be done remotely; (4) Current vital signs and mental status unknown \u2014 seizure risk present; (5) No documentation of home safety or supervision. Safety Checker appropriately escalated to ED referral and flagged that questioning is the SECOND step, not the first. This role prevented a potentially dangerous outpatient-only approach.",
+          "pharm_nurse_contribution": "Pharm/Nurse identified CRITICAL MEDICATION GAP (no current medication list \u2014 benzodiazepine/CNS depressant use unknown). Provided essential medication protocols: (1) Thiamine 100 mg IV/IM BEFORE glucose (Wernicke prevention); (2) Benzodiazepine dosing adjusted for liver disease (lorazepam preferred); (3) Electrolyte repletion (Mg, PO4) before benzodiazepines to prevent arrhythmias; (4) Seizure precautions, cardiac monitoring, aspiration precautions, hepatic encephalopathy screening. Nursing concerns are comprehensive and directly inform ED-level care requirements. This role ensured medication safety and prevented iatrogenic harm."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I had a seizure... just now, right here in the department. I don't remember much, but they tell me I was shaking real bad. My head hurts and I'm confused about what happened."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm glad you're safe now. A few quick questions: Have you ever had a seizure before, or is this your first one? And in the hours or days before this happened, did you notice anything unusual\u2014like changes in sleep, stress, fever, head injury, or any new medications or substances?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've had seizures before when I've tried to quit drinking. This is the second or third time it's happened. Before this one came on, I was shaking real bad, sweating a lot, and my nerves were shot. I didn't sleep much last night. No fever that I know of, no head injury, no new meds. Just... the shaking and the anxiety."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Alcohol withdrawal seizure (MOST LIKELY - recurrent pattern, prodromal autonomic symptoms, sleep deprivation)",
+          "Alcohol-related epilepsy (chronic seizure disorder secondary to alcohol use disorder)",
+          "Provoked seizure: metabolic (hypoglycemia, hyponatremia, hypomagnesemia from alcohol/poor nutrition)",
+          "Provoked seizure: infection (meningitis, encephalitis, UTI\u2014less likely given no fever, but cannot exclude)",
+          "Structural lesion (stroke, tumor\u2014lower probability but must rule out with imaging)"
+        ],
+        "workup_ordered": [
+          "STAT labs: CBC, CMP (glucose, sodium, calcium, magnesium, renal function), LFTs (AST/ALT/bilirubin\u2014assess for alcohol-related liver disease)",
+          "Urinalysis and urine culture (infection screen)",
+          "Toxicology screen (alcohol level, benzodiazepines, other substances)",
+          "Head CT non-contrast (urgent\u2014rule out structural cause, trauma, bleed)",
+          "ECG (rule out arrhythmia/cardiac cause)",
+          "EEG if available (confirm seizure vs. syncope; assess for ongoing epileptiform activity)",
+          "Comprehensive medication/substance use history (current meds, OTC, supplements, alcohol quantity/frequency, last drink, prior withdrawal episodes)"
+        ],
+        "management_plan": [
+          "EMERGENCY DEPARTMENT EVALUATION REQUIRED\u2014do not delay for outpatient workup",
+          "Seizure precautions: fall prevention, bed rails, O\u2082/suction at bedside, IV access, continuous monitoring until etiology confirmed",
+          "Post-ictal assessment: monitor mental status, airway/breathing, tongue/cheek lacerations, aspiration risk; NPO until swallow cleared if altered",
+          "Benzodiazepine protocol for alcohol withdrawal: lorazepam or diazepam per CIWA-Ar scale; monitor for recurrent seizures (risk highest 6\u201348 hours post-withdrawal onset)",
+          "Thiamine 100 mg IV/IM (alcohol-related nutritional deficiency; prevent Wernicke encephalopathy)",
+          "Magnesium repletion if hypomagnesemia confirmed (common in alcohol use disorder; lowers seizure threshold)",
+          "Glucose monitoring and correction if hypoglycemic",
+          "Substance use disorder consultation: assess for inpatient detoxification vs. outpatient management; coordinate with addiction medicine/psychiatry",
+          "Driving restriction: counsel on state seizure-driving laws (typically 3\u201312 months seizure-free); document in chart",
+          "Medication allergy screening BEFORE any AED prescribed (SJS/DRESS risk with aromatic AEDs)",
+          "If AED initiated (e.g., levetiracetam, valproate): assess renal/hepatic function for dose adjustment; monitor for drug-drug interactions with comorbid medications",
+          "Discharge planning: alcohol cessation resources, outpatient neurology follow-up (EEG, long-term seizure management if recurrent), addiction treatment referral"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Witnessed seizure in 50-year-old is a medical emergency requiring immediate ED evaluation with continuous monitoring\u2014NOT appropriate for outpatient questioning alone",
+          "Alcohol withdrawal seizure carries HIGH RISK of recurrence within 6\u201348 hours; patient requires ICU-capable facility with seizure precautions and resuscitation capability",
+          "Post-ictal state: patient reports confusion and head pain; airway/breathing status and vital signs must be assessed in real-time before extended history-taking",
+          "Differential includes life-threatening conditions (meningitis, encephalitis, acute stroke, severe metabolic derangement, cardiac arrhythmia) that CANNOT be safely ruled out without stat labs and imaging",
+          "Alcohol withdrawal also carries risk of autonomic instability (hypertension, tachycardia, hyperthermia) and delirium tremens\u2014requires monitored setting",
+          "No current medication list obtained; cannot assess for medication-induced seizure or dangerous drug-drug interactions until complete history available",
+          "Substance use disorder context: patient may have poor adherence to any prescribed AED; requires structured inpatient or intensive outpatient management",
+          "Driving safety: patient must be counseled on seizure-related driving restrictions and documented as unsafe to drive until cleared by neurology"
+        ],
+        "communication_note": "Patient's recurrent seizures with clear alcohol withdrawal prodrome (autonomic symptoms, insomnia, anxiety) strongly suggest alcohol-related seizure disorder requiring emergency ED evaluation, benzodiazepine management, thiamine repletion, and addiction medicine consultation\u2014outpatient workup is unsafe and inappropriate.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified differential diagnoses (provoked vs. unprovoked seizure) and ordered appropriate workup (labs, imaging, EEG). However, clinician's initial approach prioritized history-taking over immediate safety assessment and did not adequately weight the patient's disclosure of prior alcohol-withdrawal seizures or recognize the emergency-level acuity of recurrent seizure with autonomic prodrome.",
+          "safety_checker_contribution": "Safety checker appropriately flagged that witnessed seizure is a medical emergency requiring immediate ED evaluation and continuous monitoring, not outpatient questioning. Correctly identified critical gaps in post-ictal assessment, airway/breathing status, and vital signs. Blocking recommendation for emergency_911 escalation is appropriate and overrides clinician's outpatient approach.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication history gap and correctly emphasized alcohol/benzodiazepine withdrawal as high-risk seizure trigger in 50-year-old male. Provided essential nursing interventions (seizure precautions, post-ictal monitoring, NPO assessment, driving restrictions) and highlighted need for stat labs (glucose, electrolytes, renal/hepatic function) to guide AED dosing and identify reversible triggers. Flagged polypharmacy risk and drug-drug interaction screening as essential before AED initiation."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm really confused right now. I'm seeing things that aren't there, and I can't seem to think straight. My hands won't stop shaking either."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did these symptoms start, and have you had any recent changes in medications, alcohol use, or illicit substances? Also, do you have a fever, recent head injury, or any medical conditions like diabetes or heart problems?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The shaking and sweating started yesterday afternoon, about 18 hours ago when I stopped drinking. I've been drinking a pint of vodka every day for about 10 years, but I haven't had anything since yesterday. No new medications. I don't use other drugs. No fever that I know of, no head injury. I have high blood pressure, that's all I know about."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Alcohol withdrawal syndrome (MOST LIKELY - classic presentation: tremor, confusion, visual hallucinations, diaphoresis 18 hours post-cessation after 10-year daily use)",
+          "Delirium from concurrent medical condition (infection, metabolic derangement)",
+          "Wernicke encephalopathy (thiamine deficiency in chronic alcohol use)",
+          "Hepatic encephalopathy (if underlying cirrhosis)",
+          "Alcohol hallucinosis (early withdrawal variant)"
+        ],
+        "workup_ordered": [
+          "STAT vital signs (temperature, HR, BP, RR, O2 sat) - assess for autonomic hyperactivity",
+          "STAT focused neurological exam (orientation, cranial nerves, motor/sensory, gait, asterixis)",
+          "STAT labs: CBC, CMP (electrolytes, glucose, renal function, LFTs), thiamine level, magnesium, phosphate",
+          "Toxicology screen (confirm no other substances)",
+          "ECG (tremor + tachycardia risk + age 50 + hypertension history)",
+          "Consider head CT if focal neuro findings emerge",
+          "CIWA-Ar score assessment (withdrawal severity quantification)"
+        ],
+        "management_plan": [
+          "IMMEDIATE ED REFERRAL - do not delay with outpatient workup",
+          "Brief focused history \u2192 vital signs NOW \u2192 activate EMS/ED transport",
+          "Handoff note to ED: 50M, 10-year daily vodka use, abrupt cessation 18 hours ago, now with tremor/confusion/visual hallucinations/diaphoresis = alcohol withdrawal syndrome with delirium risk",
+          "ED to initiate benzodiazepine replacement protocol (lorazepam or diazepam per CIWA-Ar score and institutional protocol)",
+          "Thiamine 100 mg IV/IM STAT (prevent/treat Wernicke encephalopathy)",
+          "Correct electrolyte abnormalities (magnesium, phosphate, potassium) - essential for seizure prevention",
+          "Continuous cardiac monitoring, pulse oximetry, frequent neuro checks",
+          "NPO pending evaluation; IV access and fluid resuscitation for dehydration",
+          "Avoid antipsychotics as monotherapy; benzodiazepines are first-line for withdrawal agitation",
+          "Once medically stabilized: addiction medicine consult, social work, discharge planning with outpatient addiction treatment referral"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "CRITICAL: Alcohol withdrawal is a medical emergency. Tremor + confusion + visual hallucinations + diaphoresis 18 hours post-cessation = high risk for progression to withdrawal seizures and delirium tremens (mortality 5-15% if untreated).",
+          "Seizure risk: Untreated alcohol withdrawal can cause generalized tonic-clonic seizures within 6-48 hours; patient requires monitored setting with seizure precautions.",
+          "Autonomic instability: Tachycardia, hypertension, diaphoresis indicate severe withdrawal; risk of arrhythmia, MI, or stroke in 50M with hypertension history.",
+          "Wernicke encephalopathy: Chronic heavy alcohol use depletes thiamine; acute confusion + tremor + ophthalmoplegia/ataxia (if present) = medical emergency requiring immediate IV thiamine.",
+          "Aspiration/fall risk: Confusion + tremor + potential seizure activity = high injury risk; requires 1:1 observation in ED.",
+          "Dehydration: Diaphoresis + poor intake worsens electrolyte abnormalities and delirium; IV fluids critical.",
+          "Medication reconciliation: Verify current antihypertensive regimen (may need adjustment during acute withdrawal; some agents contraindicated in withdrawal)."
+        ],
+        "communication_note": "50M with 10-year daily alcohol use presenting with tremor, confusion, visual hallucinations, and diaphoresis 18 hours after abrupt cessation\u2014classic alcohol withdrawal syndrome requiring immediate ED evaluation, benzodiazepine replacement, thiamine, and electrolyte correction to prevent seizures and delirium tremens.",
+        "trace": {
+          "clinician_contribution": "Clinician's differential diagnosis and workup list are comprehensive and appropriate (delirium, withdrawal, toxicity, neurological events all considered). Question content correctly probes medication/substance history, vital signs, and comorbidities. HOWEVER, clinician's setting recommendation is inappropriate for this acuity\u2014patient requires ED-level monitoring and rapid labs/imaging, not office-based assessment. Coordinator overrides setting to ED referral while preserving clinician's diagnostic reasoning.",
+          "safety_checker_contribution": "Safety checker correctly identified this as a medical emergency requiring ED referral, not outpatient workup. Flagged delirium triad, withdrawal risk, seizure risk, and cardiac evaluation need. Appropriately blocked outpatient management and recommended brief history \u2192 vitals \u2192 ED referral. Coordinator adopts safety checker's escalation level and blocking concerns as primary driver of management plan.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical medication reconciliation gap (no current med list provided) and high-risk agents (anticholinergics, sedatives, stimulants, lithium). Correctly flagged benzodiazepine withdrawal as HIGH on differential and emphasized CIWA-Ar assessment, withdrawal protocol, and contraindication of antipsychotics as monotherapy. Provided nursing safety concerns (fall/aspiration risk, vital signs urgency, withdrawal protocol initiation, continuous monitoring). Coordinator incorporates pharm/nurse medication review into ED handoff and emphasizes thiamine + benzodiazepine + electrolyte correction as core ED interventions."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "alcohol withdrawal syndrome",
+      "delirium tremens",
+      "seizure disorder",
+      "Wernicke encephalopathy"
+    ],
+    "required_workup": [
+      "CIWA-Ar score",
+      "blood alcohol level",
+      "BMP electrolytes",
+      "LFTs",
+      "CBC",
+      "MRI brain if Wernicke suspected",
+      "thiamine before glucose"
+    ],
+    "correct_management": [
+      "thiamine 500mg IV before any glucose",
+      "benzodiazepines CIWA-protocol (lorazepam or diazepam)",
+      "correct magnesium and potassium",
+      "IV fluids",
+      "ICU if DT",
+      "phenobarbital adjunct if refractory",
+      "addiction psychiatry consult"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779511771.1690722
+}

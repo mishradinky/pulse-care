@@ -1,0 +1,185 @@
+{
+  "case_id": "primary_004",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "team",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "My daughter brought me in because I've been confused the past few days and having accidents. I'm not usually like this\u2014I live on my own and take care of myself. She's worried about me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've had any recent changes in your medications or if you've been feeling unwell in any other way, such as fever, pain, or changes in appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't changed my medications\u2014I take the same pills I always do. I don't remember having a fever, but my daughter says I've been confused these past few days. I'm not sure about appetite, but I haven't felt quite right."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "urinary tract infection",
+          "electrolyte imbalance",
+          "medication side effect",
+          "stroke",
+          "dementia exacerbation"
+        ],
+        "workup_ordered": [
+          "urinalysis",
+          "basic metabolic panel",
+          "review of medications",
+          "neurological examination"
+        ],
+        "management_plan": [
+          "Conduct urinalysis and basic metabolic panel to rule out infection and electrolyte imbalance.",
+          "Review current medications for potential side effects and interactions.",
+          "Perform a neurological examination to assess for stroke or dementia exacerbation.",
+          "Monitor vital signs and hydration status closely."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Potential stroke symptoms require prompt evaluation.",
+          "Confusion and incontinence could indicate serious underlying conditions.",
+          "Medication interactions and side effects need careful monitoring."
+        ],
+        "communication_note": "Patient requires urgent outpatient evaluation due to potential serious conditions.",
+        "trace": {
+          "clinician_contribution": "Identified differential diagnoses and recommended initial workup based on symptoms.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation due to potential stroke.",
+          "pharm_nurse_contribution": "Provided detailed medication review and highlighted potential interactions and side effects."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still very confused this morning, and it seems worse than yesterday. My daughter is worried about me. I started those antibiotics you gave me, but I don't feel better yet."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me what specific symptoms you're experiencing with the confusion, and have you noticed any other new symptoms since starting the antibiotics?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I'm having trouble remembering things and I feel foggy\u2014my daughter says I'm not making sense when I talk. Since I started the antibiotics yesterday, I seem more confused this morning, not better. And I haven't been eating much either."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "delirium due to infection",
+          "adverse reaction to antibiotics",
+          "electrolyte imbalance",
+          "dehydration"
+        ],
+        "workup_ordered": [
+          "review current medications",
+          "complete blood count (CBC)",
+          "basic metabolic panel",
+          "urinalysis"
+        ],
+        "management_plan": [
+          "Discontinue current antibiotic and consider an alternative with fewer CNS side effects.",
+          "Ensure adequate hydration and monitor fluid intake.",
+          "Schedule follow-up appointment within 48 hours to reassess symptoms and lab results.",
+          "Educate patient and family on signs of worsening confusion and when to seek emergency care."
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Confusion in an elderly patient indicating potential serious underlying condition.",
+          "Risk of adverse reaction to current antibiotic therapy.",
+          "Possibility of dehydration exacerbating confusion."
+        ],
+        "communication_note": "Patient's confusion may be linked to antibiotic use; urgent follow-up is needed.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes of confusion and recommended initial workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended urgent outpatient escalation.",
+          "pharm_nurse_contribution": "Reviewed medication side effects and interactions, suggesting dose adjustments and monitoring for dehydration."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm not really sure what happened. My daughter called 911 because I wasn't waking up properly. I don't remember much from the last couple days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me if you've had any recent changes in your medications or any new symptoms like headaches, dizziness, or changes in vision?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm not sure about medication changes\u2014my daughter handles that. I haven't had headaches or vision problems. But I've been confused these past few days, which isn't like me at all. And I've been going to the bathroom a lot more than usual."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "transient ischemic attack (TIA)",
+          "medication side effect",
+          "hypoglycemia",
+          "seizure"
+        ],
+        "workup_ordered": [
+          "neurological examination",
+          "review of medication list",
+          "blood glucose level",
+          "CT scan of the head"
+        ],
+        "management_plan": [
+          "Immediate referral to the emergency department for further evaluation and management.",
+          "Ensure the patient's daughter is informed and involved in the decision-making process.",
+          "Monitor vital signs and blood glucose levels closely during transport."
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Altered mental status and memory loss in an elderly patient could indicate a serious condition such as TIA or seizure.",
+          "Potential medication side effects contributing to symptoms, such as dizziness from Amlodipine."
+        ],
+        "communication_note": "Patient requires urgent evaluation in the emergency department due to concerning neurological symptoms.",
+        "trace": {
+          "clinician_contribution": "Identified potential causes for altered mental status and recommended a comprehensive workup.",
+          "safety_checker_contribution": "Highlighted red flags and recommended immediate ED referral due to potential serious conditions.",
+          "pharm_nurse_contribution": "Reviewed medications for potential side effects and interactions, emphasizing monitoring of blood pressure and glucose levels."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "urinary tract infection with delirium",
+      "urosepsis",
+      "ESBL UTI",
+      "metabolic encephalopathy"
+    ],
+    "required_workup": [
+      "UA with culture",
+      "BMP",
+      "CBC",
+      "blood cultures if febrile",
+      "head CT to rule out CNS cause"
+    ],
+    "correct_management": [
+      "empiric antibiotics (nitrofurantoin or trimethoprim-sulfa first-line)",
+      "de-escalate based on culture",
+      "IV fluids if sepsis",
+      "carbapenem for ESBL",
+      "foley for I&O monitoring"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779512923.166016
+}

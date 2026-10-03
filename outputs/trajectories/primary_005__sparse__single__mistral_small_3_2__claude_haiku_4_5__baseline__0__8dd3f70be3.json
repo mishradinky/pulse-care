@@ -1,0 +1,204 @@
+{
+  "case_id": "primary_005",
+  "category": "primary_care",
+  "simulator": "sparse",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Back pain. Both legs weak. Can't pee."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Back pain for six weeks. Legs weak for three days. Can't pee since yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any bowel movements in the last 24 hours?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, this morning. Why?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "On a scale from 1 to 10, how would you rate your back pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Eight. Bad for six weeks."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent falls, injuries, or trauma to your back?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No falls. Just bad back pain. Been getting worse."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any numbness or tingling in your legs or other parts of your body?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my inner thighs and down there are numb."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Cauda equina syndrome",
+          "Spinal stenosis",
+          "Herniated disc",
+          "Degenerative disc disease",
+          "Infection or abscess"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine",
+          "Complete blood count (CBC)",
+          "Erythrocyte sedimentation rate (ESR)",
+          "C-reactive protein (CRP)",
+          "Urinalysis"
+        ],
+        "management_plan": [
+          "Pain management with NSAIDs",
+          "Stool softeners to prevent constipation",
+          "Referral to neurology for urgent evaluation",
+          "Physical therapy consultation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Urinary retention",
+          "Progressive neurological deficit",
+          "Risk of permanent nerve damage"
+        ],
+        "communication_note": "Given your symptoms and the potential seriousness of your condition, I am referring you to the emergency department for further evaluation and urgent MRI of your lumbar spine."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Legs weaker now. Can't walk without walls. Still can't pee."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any numbness or tingling in your legs or other parts of your body?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Inner thighs and down there numb."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent falls or loss of balance?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah. Can't stand without walls now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Lumbar spinal stenosis",
+          "Caudal equina syndrome",
+          "Peripheral neuropathy"
+        ],
+        "workup_ordered": [
+          "MRI of the lumbar spine",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Vitamin B12 level",
+          "Hemoglobin A1c"
+        ],
+        "management_plan": [
+          "Physical therapy referral",
+          "Pain management as needed",
+          "Follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of falls due to weakness and balance issues",
+          "Urinary retention"
+        ],
+        "communication_note": "Your leg weakness and numbness may be due to a spinal or nerve issue, and we need to run some tests to determine the cause."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Can't move my legs at all this morning."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Spinal cord compression",
+          "Transverse myelitis",
+          "Peripheral neuropathy",
+          "Stroke",
+          "Multiple sclerosis"
+        ],
+        "workup_ordered": [
+          "MRI of the spine",
+          "Complete blood count (CBC)",
+          "Comprehensive metabolic panel (CMP)",
+          "Erythrocyte sedimentation rate (ESR)",
+          "C-reactive protein (CRP)"
+        ],
+        "management_plan": [
+          "Administer high-dose intravenous steroids",
+          "Consult neurology for further evaluation",
+          "Physical therapy for mobility",
+          "Pain management as needed"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Potential spinal cord injury",
+          "Risk of permanent neurological damage"
+        ],
+        "communication_note": "Given the sudden onset of paralysis, we need to rule out serious conditions like spinal cord compression or stroke, and I am referring you to the emergency department for immediate evaluation."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "cauda equina syndrome",
+      "conus medullaris syndrome",
+      "central disc herniation",
+      "epidural abscess"
+    ],
+    "required_workup": [
+      "urgent MRI lumbar spine with and without contrast",
+      "bladder scan post-void residual",
+      "BMP CBC"
+    ],
+    "correct_management": [
+      "emergency neurosurgery consult",
+      "Foley catheter immediately",
+      "urgent decompressive surgery within 48h",
+      "steroids controversial but consider"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779513273.3710527
+}

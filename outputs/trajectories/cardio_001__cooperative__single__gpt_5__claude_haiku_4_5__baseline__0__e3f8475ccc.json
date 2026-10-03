@@ -1,0 +1,192 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I've been having chest pressure for the last couple of days. It happens when I exert myself, like when I walk up stairs or hurry around. It's in the center of my chest and sometimes goes into my left arm. Right now I'm okay, but I'm pretty worried about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, nausea, sweating, or dizziness with the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't had shortness of breath or nausea. I did sweat quite a bit during one of the episodes\u2014that was the worst one, about 6 hours ago. No dizziness though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart disease, high blood pressure, diabetes, or high cholesterol?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have high blood pressure\u2014been on medication for it. My father had a heart attack when he was 55, so that runs in the family. As for diabetes and cholesterol, I'm not sure if I've been checked for those."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medication are you taking for your high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm taking lisinopril, 20 milligrams. I take it once a day."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced anything like this before, or is this the first time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, this is the first time I've had chest pressure like this. I've had some chest discomfort before with stress, but nothing that felt quite like this\u2014especially not radiating down my arm."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your exercise tolerance or any recent weight changes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I've noticed the chest pressure gets worse when I exert myself\u2014like walking upstairs or hurrying. It started two days ago. As for weight, I haven't noticed any changes recently."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "stable angina",
+          "acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "EKG",
+          "troponin levels",
+          "stress test",
+          "cholesterol panel",
+          "fasting glucose"
+        ],
+        "management_plan": [
+          "initiate aspirin therapy",
+          "consider beta-blocker or calcium channel blocker",
+          "lifestyle modifications including diet and exercise",
+          "referral to cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for myocardial infarction"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so I recommend going to the emergency department for further evaluation and testing."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. I'm back because the chest pressure came back last night, and this time I was also a bit short of breath. It lasted about 15 minutes. I'm feeling okay right now, but I'm pretty worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure in more detail? For example, where exactly is it located, and does it radiate anywhere?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's right in the middle of my chest, kind of under the breastbone. It radiates down my left arm, which really worries me. It's a pressure feeling, not sharp. Happens mostly when I'm doing things, but I had an episode last night that lasted about 15 minutes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms like nausea, sweating, or dizziness during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I had some sweating during the episode last night\u2014that was the worst one. No nausea or dizziness though. Just the chest pressure and some shortness of breath this time, which worried me a bit."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "stress test"
+        ],
+        "management_plan": [
+          "start aspirin",
+          "consider beta-blocker",
+          "refer to cardiology"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Given your symptoms, I recommend going to the emergency department for further evaluation to rule out any serious heart issues."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I've been having crushing chest pain for about 30 minutes now. It's really bad. I'm sweating and feel a bit sick to my stomach."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute myocardial infarction",
+          "unstable angina",
+          "aortic dissection"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "administer nitroglycerin",
+          "oxygen therapy"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of myocardial infarction"
+        ],
+        "communication_note": "You are experiencing severe chest pain that could be a heart attack, so we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779506096.0667095
+}

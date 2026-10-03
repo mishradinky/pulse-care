@@ -1,0 +1,186 @@
+{
+  "case_id": "primary_002",
+  "category": "primary_care",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've got the worst headache of my life. It started suddenly about two hours ago while I was lifting weights at the gym. It came on all at once and it's incredibly painful\u2014I'd say it's a 10 out of 10."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, vomiting, vision changes, or weakness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have some sensitivity to light\u2014it hurts to look at bright things. But no nausea, vomiting, or weakness that I've noticed. My neck feels really stiff though, which is unusual for me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had a headache like this before, or is this your first time experiencing something like this?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never. This is completely different from anything I've had before. It came on all of a sudden while I was lifting weights at the gym about 2 hours ago. It's the worst pain I've ever felt."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of high blood pressure or any other medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have high blood pressure. I'm on a medication for it\u2014lisinopril, I think it's 10 milligrams. Actually, I forgot to take it this morning. I don't have any other medical conditions that I know of."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your vision, such as double vision or loss of vision?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, my vision is fine. I can see clearly. The main thing is this terrible headache\u2014it's the worst pain I've ever felt, and it started suddenly when I was lifting weights about two hours ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken any medication or done anything to try to relieve the headache?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't taken anything yet. It just came on so suddenly while I was lifting that I didn't think to take anything\u2014I just came straight here because it's the worst pain I've ever felt."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "intracerebral hemorrhage",
+          "cervical artery dissection"
+        ],
+        "workup_ordered": [
+          "CT scan of the head without contrast",
+          "lumbar puncture if CT is negative",
+          "MRI of the brain if needed"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department",
+          "Pain management with appropriate analgesics",
+          "Blood pressure control"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for life-threatening intracranial hemorrhage"
+        ],
+        "communication_note": "You need immediate evaluation at the emergency department to rule out a serious cause of your sudden, severe headache."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, doctor. My headache is still really severe, maybe a bit better with the pain medication, but it's still one of the worst things I've ever felt. It started suddenly at the gym about two hours ago when I was lifting."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any other symptoms like nausea, vomiting, vision changes, or weakness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I threw up once earlier. The light is still bothering my eyes a bit, but it's not as bad as before. I haven't noticed any weakness though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever experienced a headache like this before?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, never. This is by far the worst headache I've ever had in my life. It came on suddenly while I was lifting at the gym about two hours ago. Nothing like this before."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "subarachnoid hemorrhage",
+          "migraine",
+          "cervical artery dissection"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "lumbar puncture if CT is negative"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department for further evaluation and management"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for life-threatening intracranial hemorrhage"
+        ],
+        "communication_note": "Given the sudden onset and severity of your headache, we need to get you to the emergency department immediately for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm really confused right now and I can't move my left arm. Something's very wrong. My head still hurts terribly, and I don't understand what's happening to me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "stroke",
+          "intracranial hemorrhage"
+        ],
+        "workup_ordered": [
+          "CT scan of the head",
+          "MRI of the brain",
+          "blood tests including CBC and coagulation profile"
+        ],
+        "management_plan": [
+          "Immediate transfer to emergency department",
+          "Administer oxygen if needed",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Potential for worsening neurological deficits",
+          "Risk of permanent disability if not treated promptly"
+        ],
+        "communication_note": "You need immediate medical attention to determine the cause of your symptoms and start appropriate treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "subarachnoid hemorrhage",
+      "intracranial aneurysm",
+      "hypertensive emergency",
+      "meningitis"
+    ],
+    "required_workup": [
+      "non-contrast CT head STAT",
+      "LP if CT negative",
+      "CTA/MRA of head",
+      "CBC BMP coagulation"
+    ],
+    "correct_management": [
+      "neurosurgery emergent consult",
+      "nimodipine for vasospasm prevention",
+      "BP control targeting SBP 140-160",
+      "seizure prophylaxis"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779512285.0729418
+}

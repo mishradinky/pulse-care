@@ -1,0 +1,188 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been experiencing shortness of breath that's been getting worse over the past three days."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or swelling in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't noticed any chest pain, but I have felt some palpitations and there is swelling in my legs."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent weight gain or changes in your appetite?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've gained about 4 kilograms in the last few days. My appetite hasn't really changed, but I did eat some salty food at a family gathering recently."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of heart problems or high blood pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I have heart failure with a low ejection fraction, and I also have atrial fibrillation. I've been managing it with medication."
+        },
+        {
+          "speaker": "clinician",
+          "text": "What medications are you currently taking for your heart failure and atrial fibrillation?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'm taking furosemide 40mg, carvedilol 12.5mg, lisinopril 10mg, and apixaban 5mg. I know I haven't been taking the furosemide regularly, though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your urine output or any difficulty urinating?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I haven't noticed any changes in my urine output or had any difficulty urinating."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute decompensated heart failure",
+          "fluid overload due to non-compliance with diuretics"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "electrolyte panel",
+          "ECG"
+        ],
+        "management_plan": [
+          "increase furosemide dose temporarily",
+          "educate on medication adherence",
+          "low-sodium diet counseling"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure symptoms"
+        ],
+        "communication_note": "Your symptoms suggest your heart failure may be worsening, likely due to not taking your diuretic regularly. We'll adjust your medication and follow up soon."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still very short of breath and I've gained more weight since last time. It's getting hard to manage."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe any other symptoms you are experiencing, such as swelling in your legs or abdomen, or any changes in your appetite or urination?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've noticed my legs feeling a bit more swollen than usual. I haven't really paid much attention to my appetite or urination changes, though."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't had any chest pain or discomfort recently."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "chronic kidney disease exacerbation"
+        ],
+        "workup_ordered": [
+          "echocardiogram",
+          "BNP",
+          "renal function tests"
+        ],
+        "management_plan": [
+          "optimize diuretic therapy",
+          "monitor daily weights",
+          "low-sodium diet"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening heart failure symptoms"
+        ],
+        "communication_note": "We need to adjust your treatment plan to address your symptoms and will schedule some tests to better understand your condition."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe when I lie down, and I'm using five pillows. I feel panicked about it."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "congestive heart failure",
+          "pulmonary edema"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "BNP level",
+          "echocardiogram"
+        ],
+        "management_plan": [
+          "start diuretics",
+          "optimize heart failure medications",
+          "advise on fluid and salt restriction"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of respiratory distress due to orthopnea"
+        ],
+        "communication_note": "You may have a heart condition causing fluid buildup, so we'll do some tests and adjust your medications to help you breathe easier."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779634729.0210738
+}

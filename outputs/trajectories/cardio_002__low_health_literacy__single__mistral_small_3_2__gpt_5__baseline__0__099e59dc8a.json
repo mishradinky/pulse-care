@@ -1,0 +1,208 @@
+{
+  "case_id": "cardio_002",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having a really hard time catching my breath for the past few days, and it feels like I can't lie down without feeling worse. Also, I've put on a lot of weight quickly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much weight have you gained in the past few days or weeks?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I think I put on about 4 kilos. My clothes feel tighter, and my feet look puffier."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles, and if so, how severe is it?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, my legs feel puffy and my socks leave marks on my skin. It's like my ankles are bigger than usual."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any chest pain or discomfort along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest feels kinda heavy sometimes, but mostly I just get out of breath real easy."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent changes in your medications or any known history of heart or kidney problems?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Uh, I think I've been forgetting to take some of my pills. I know I got a heart issue, but not sure about the kidneys. What's that mean?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you tell me which medications you've been taking and which ones you've been forgetting?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've been trying to take the water pill, but I forget sometimes. And there's another one, a white one, I think. Sorry, I can't remember all of them."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "heart failure exacerbation",
+          "pulmonary edema",
+          "chronic kidney disease",
+          "medication non-adherence"
+        ],
+        "workup_ordered": [
+          "BNP",
+          "CBC",
+          "CMP",
+          "ECG",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "optimize diuretic regimen",
+          "reassess medication adherence",
+          "dietary sodium restriction",
+          "follow-up in 3 days"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "risk of worsening heart failure",
+          "electrolyte imbalances due to diuretic use"
+        ],
+        "communication_note": "Your symptoms suggest possible heart failure, and we need to run some tests to confirm and adjust your treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm still really short of breath and I've gained more weight. It's hard to breathe lying down, so I need more pillows now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How much weight have you gained since your last visit?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I think it was about three and a half kilos, or close to that."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I've noticed my feet and ankles are puffier than usual. My shoes feel tighter. It's been going on for a few days now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Heart failure exacerbation",
+          "Pulmonary edema",
+          "Hypertension",
+          "Kidney disease"
+        ],
+        "workup_ordered": [
+          "BNP test",
+          "Chest X-ray",
+          "Electrolyte panel",
+          "Echocardiogram"
+        ],
+        "management_plan": [
+          "Adjust diuretic medication",
+          "Monitor weight daily",
+          "Low-sodium diet",
+          "Follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "Risk of further weight gain and fluid overload",
+          "Potential worsening of heart failure symptoms"
+        ],
+        "communication_note": "Your symptoms suggest possible heart failure exacerbation, and we need to run some tests to confirm and adjust your treatment plan."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe when I'm lying down, and I'm using five pillows just to sleep. It's making me panic a lot."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Congestive heart failure",
+          "Pulmonary edema",
+          "Anxiety disorder",
+          "Chronic obstructive pulmonary disease (COPD) exacerbation",
+          "Pneumonia"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Electrocardiogram (ECG)",
+          "Brain natriuretic peptide (BNP) test",
+          "Complete blood count (CBC)",
+          "Basic metabolic panel (BMP)",
+          "Arterial blood gas (ABG) analysis"
+        ],
+        "management_plan": [
+          "Administer oxygen therapy as needed",
+          "Start diuretic therapy (e.g., furosemide) to reduce fluid overload",
+          "Consider bronchodilators if COPD is suspected",
+          "Provide anxiolytic medication if anxiety is a significant factor",
+          "Monitor vital signs closely, including oxygen saturation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Risk of respiratory failure",
+          "Potential for cardiac decompensation",
+          "High risk of falls due to orthopnea and panic"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition that requires immediate medical attention, and we are referring you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "acute decompensated heart failure",
+      "flash pulmonary edema",
+      "AF with rapid ventricular response"
+    ],
+    "required_workup": [
+      "BNP",
+      "BMP",
+      "CXR",
+      "ECG",
+      "echo if not recent"
+    ],
+    "correct_management": [
+      "IV furosemide",
+      "supplemental O2",
+      "BIPAP if SpO2 <90%",
+      "rate control for AF",
+      "daily weights"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779634984.2707486
+}

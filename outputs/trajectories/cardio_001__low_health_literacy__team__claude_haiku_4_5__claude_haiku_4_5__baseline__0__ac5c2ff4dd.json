@@ -1,0 +1,222 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "low_health_literacy",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I've been having this pressure in my chest for a couple days now. It gets worse when I'm doing stuff, like walking or working. This morning it happened again and I was sweating real bad. Right now I'm okay, but I'm pretty worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "I'm concerned about your chest pressure. Let me ask a few quick questions: Does the pressure feel like squeezing or heaviness? Does it radiate to your arm, neck, or jaw? How long does each episode last, and does rest or anything else make it better or worse?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it feels... heavy, like something's pressing down. Goes into my left arm sometimes. The last time was maybe six hours ago. When I'm just sitting here it goes away, but when I walk or do stuff it comes back. Scares me a little, to be honest."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / Stable angina \u2014 PRIMARY CONCERN",
+          "Musculoskeletal chest pain",
+          "Gastroesophageal reflux disease (GERD)",
+          "Anxiety / panic disorder",
+          "Pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (within 10 minutes)",
+          "STAT high-sensitivity troponin (serial if initial negative)",
+          "Baseline labs: CBC, BMP, lipid panel, creatinine/eGFR, LFTs",
+          "Vital signs: BP, HR, O\u2082 saturation (continuous monitoring preferred)",
+          "Complete medication history (current, OTC, supplements, herbal)",
+          "Allergy history (aspirin, P2Y12 inhibitors, beta-blockers)",
+          "Risk factor assessment: smoking, diabetes, hypertension, family history"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Activate emergency department referral (do NOT delay for outpatient workup)",
+          "Place on continuous cardiac monitoring during transport/ED evaluation",
+          "Obtain IV access and supplemental O\u2082 if SpO\u2082 <94%",
+          "Hold food/drink pending ED evaluation",
+          "Do NOT administer aspirin or other antiplatelet agents until allergy history confirmed and ACS risk stratified in ED",
+          "Prepare for possible dual antiplatelet therapy, anticoagulation, and beta-blocker initiation based on ED findings",
+          "Ensure medication reconciliation completed before any acute intervention (screen for NSAID use, QT-prolonging drugs, contraindications)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "\ud83d\udea8 CRITICAL: Exertional chest pressure + diaphoresis + radiation to left arm in 58-year-old male = ACS until proven otherwise. This is a time-sensitive emergency.",
+          "WORKFLOW ERROR CORRECTED: Clinician's pain characterization questions are appropriate for history-taking BUT must NOT delay ECG acquisition. ECG should be obtained STAT (within 10 minutes), in parallel with history, not sequentially.",
+          "SYMPTOM TIMELINE: Patient reports episodes over 2 days with exertional trigger and relief at rest\u2014classic anginal pattern. Last episode 6 hours ago. Current symptom status is stable, but this does NOT exclude ACS.",
+          "MISSING BASELINE DATA: No vital signs, SpO\u2082, or current HR documented. Obtain immediately.",
+          "MEDICATION/ALLERGY GAPS: No medication list, allergy history, or renal/hepatic function available. Critical for safe acute intervention.",
+          "CONTRAINDICATION SCREENING REQUIRED: Before antiplatelet or anticoagulant therapy, confirm no aspirin/clopidogrel allergy, no active bleeding, no severe renal impairment, and no beta-blocker intolerance.",
+          "ESCALATION MISMATCH RESOLVED: This patient does NOT belong in outpatient risk stratification. ED evaluation with continuous monitoring is mandatory."
+        ],
+        "communication_note": "58M with exertional chest pressure, diaphoresis, and left arm radiation meets ACS red flags; emergency department referral activated with STAT ECG and troponin ordered; medication/allergy reconciliation and baseline labs to be completed in ED.",
+        "trace": {
+          "clinician_contribution": "Clinician appropriately identified ACS as primary concern and initiated targeted history (pain quality, radiation, duration, triggers, relief). Pain characterization is clinically sound and refines differential; however, this must occur in parallel with\u2014not instead of\u2014STAT ECG. Patient's responses (heavy pressure, left arm radiation, exertional trigger, relief at rest) significantly elevate ACS probability and support emergency escalation.",
+          "safety_checker_contribution": "Safety checker correctly flagged critical workflow error: ECG and troponin must be obtained within 10 minutes of presentation, not after pain characterization. Identified missing vital signs, SpO\u2082, and empty workup array as blocking concerns. Appropriately escalated to emergency_911 based on ACS red flags (age, exertional pressure, diaphoresis, symptom persistence). Coordinator endorses this escalation and has reordered workflow to obtain ECG STAT in parallel with history completion.",
+          "pharm_nurse_contribution": "Pharm/nurse identified critical gaps: no medication list, no allergy history, no renal/hepatic function data. Flagged need for contraindication screening before antiplatelet/anticoagulant therapy (aspirin, P2Y12 inhibitors, anticoagulation). Emphasized baseline labs (troponin, CBC, BMP, lipid panel, creatinine/eGFR, LFTs) and vital signs as STAT priorities. Noted drug-disease interactions (NSAIDs contraindicated in ACS, CKD considerations). Coordinator has incorporated all medication reconciliation and allergy screening into ED referral workup."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I'm really worried. Last night it happened again\u2014that heavy feeling in my chest, right here. *gestures to center of chest* And this time I was a little short of breath too. It only lasted about 15 minutes, but... I'm scared. What's going on with me?"
+        },
+        {
+          "speaker": "clinician",
+          "text": "I want to understand this better. When you say 'heavy feeling'\u2014was it pressure, squeezing, or more of an ache? And did the shortness of breath happen at the same time as the chest discomfort, or separately? Also, what were you doing when it started last night?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, it felt like... like someone's sitting on my chest, you know? Real tight. And the breathing thing\u2014that started after, I think. Maybe a few minutes after the heavy feeling got worse. Last night I was just watching TV, wasn't doing nothing crazy. Then it hit me again."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / unstable angina \u2014 PRIMARY CONCERN",
+          "Atypical angina or vasospastic angina",
+          "Pulmonary embolism",
+          "Aortic dissection",
+          "Musculoskeletal chest pain",
+          "Anxiety / panic disorder",
+          "Gastroesophageal reflux disease (GERD)"
+        ],
+        "workup_ordered": [
+          "12-lead ECG \u2014 STAT (within 10 minutes)",
+          "High-sensitivity troponin \u2014 STAT draw; repeat at 3 hours if initial negative",
+          "Chest X-ray",
+          "Vital signs including oxygen saturation (target SpO\u2082 \u226594%; avoid hyperoxia)",
+          "Basic metabolic panel (renal function for medication dosing)",
+          "Complete blood count",
+          "Risk stratification (HEART score or similar)"
+        ],
+        "management_plan": [
+          "IMMEDIATE: Obtain 12-lead ECG and troponin NOW (do not delay for further history)",
+          "Establish large-bore IV access; keep patient NPO pending risk stratification",
+          "Place on continuous cardiac telemetry; monitor for ST elevation (STEMI protocol) or dynamic ECG changes",
+          "Obtain COMPLETE medication list (cardiac meds, OTC, herbal, recreational drugs\u2014specifically cocaine as vasospastic trigger) and verify ALL drug allergies before any intervention",
+          "Verify aspirin allergy, beta-blocker allergy, and phosphodiesterase-5 inhibitor use (absolute contraindication with nitrates)",
+          "Reassess chest pain and dyspnea every 15 minutes; document character, radiation, diaphoresis, nausea",
+          "Hold nitrates and beta-blockers until BP confirmed adequate and medication interactions ruled out",
+          "Avoid NSAIDs pending troponin results (increased mortality risk in ACS)",
+          "Do NOT dismiss as anxiety or panic disorder given age (58M), symptom character (pressure/squeezing), dyspnea, and recurrence",
+          "If outpatient/office setting: Arrange ED transfer or call 911 immediately. If already in ED: Expedite ECG and labs; prepare for possible urgent cardiac catheterization"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Central chest pressure (described as 'someone sitting on chest') + dyspnea in 58-year-old male = ACS until proven otherwise; recurrence raises acuity",
+          "Clinician's proposed action (continued history-taking) does NOT match urgency; ECG and troponin must be obtained NOW in parallel with, not instead of, symptom characterization",
+          "Differential includes life-threatening conditions (ACS, PE, aortic dissection) requiring immediate rule-out via diagnostics, not interview refinement",
+          "No medications or allergies documented\u2014critical gap before any drug administration (aspirin, nitrates, beta-blockers all carry interaction/contraindication risks)",
+          "Symptom timing (pressure \u2192 dyspnea minutes later, at rest, recurrent) is classic for ACS; atypical presentation does not lower risk in this demographic",
+          "If phosphodiesterase-5 inhibitor use present, nitrates are absolutely contraindicated (severe hypotension risk)",
+          "Cocaine or other sympathomimetics in history would explain vasospastic angina; must obtain complete substance use history"
+        ],
+        "communication_note": "58-year-old male with recurrent central chest pressure and dyspnea requires IMMEDIATE ECG and troponin; this is a medical emergency\u2014do not delay diagnostics for additional questioning.",
+        "trace": {
+          "clinician_contribution": "Clinician correctly identified ACS as primary concern and assembled appropriate differential (7 diagnoses) and comprehensive workup (ECG, troponin, CXR, vitals, labs, risk score). Symptom characterization questions are clinically sound (pressure vs. squeezing, timing of dyspnea, activity context) and would refine risk stratification. HOWEVER: Proposed action (ask more questions) does not match acuity; ECG and biomarkers must be stat, not pending further history.",
+          "safety_checker_contribution": "Safety checker correctly identified CRITICAL mismatch between clinical urgency and proposed action. Blocked the 'ask' action and escalated to emergency_911 with explicit directive: obtain ECG and troponin NOW, then proceed with history in parallel. Flagged that aortic dissection and PE in differential require imaging unavailable in primary care. Emphasized 10-minute ECG window and STEMI protocol readiness. This override is appropriate and life-saving.",
+          "pharm_nurse_contribution": "Pharm/nurse identified three critical gaps: (1) No medications documented\u2014must obtain full list urgently (cardiac meds, OTC, herbal, recreational drugs, recent changes); (2) No allergies documented\u2014must verify aspirin, beta-blocker, contrast, and phosphodiesterase-5 inhibitor use before any intervention; (3) Provided detailed nursing priorities (STAT ECG, troponin timing, telemetry, IV access, vital sign monitoring, NPO status, serial reassessment, drug interaction screening). Flagged absolute contraindication: nitrates + phosphodiesterase-5 inhibitors \u2192 severe hypotension. Emphasized: do NOT dismiss as anxiety given demographics and presentation."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doc, I... I can't breathe right. My chest feels like somebody's sitting on it. Been like this for like half an hour now. I'm sweating a lot and feel kinda sick. This is really bad. I'm scared."
+        }
+      ],
+      "assessment": {
+        "role": "coordinator",
+        "differential_diagnosis": [
+          "Acute coronary syndrome (ACS) / STEMI / NSTEMI",
+          "Unstable angina",
+          "Pulmonary embolism",
+          "Aortic dissection",
+          "Acute heart failure",
+          "Pneumonia/pleurisy"
+        ],
+        "workup_ordered": [
+          "STAT 12-lead ECG (initiate immediately)",
+          "STAT high-sensitivity troponin",
+          "Chest X-ray",
+          "CBC, BMP, coagulation studies",
+          "D-dimer (if PE suspected)",
+          "Continuous cardiac monitoring",
+          "Large-bore IV access (18G+)",
+          "Supplemental O\u2082 (target SpO\u2082 94\u201398%)",
+          "STAT medication history and allergy confirmation"
+        ],
+        "management_plan": [
+          "EMERGENCY ACTIVATION: Call 911 immediately\u2014do NOT delay for office-based workup; patient requires ED/cath lab capability",
+          "Patient should NOT drive self; arrange ambulance transport with continuous monitoring",
+          "Establish large-bore IV access and continuous cardiac/pulse ox monitoring",
+          "Aspirin 325 mg PO (if no allergy/contraindication and not already given) per ACS protocol\u2014administer pre-transport if safe",
+          "Obtain STAT complete medication history (home cardiac meds, antiplatelet agents, anticoagulants, NSAIDs, recent changes) and drug allergies (especially aspirin, P2Y12i, beta-blockers, heparin/HIT history)",
+          "Screen for contraindications: recent GI bleed, active bleeding, thrombocytopenia, severe liver disease",
+          "Supplemental O\u2082 as needed; monitor respiratory status given dyspnea",
+          "Prepare IV opioid (morphine) for pain management if chest pressure persists",
+          "Document all findings and communicate directly to receiving ED/cardiology team",
+          "Once stabilized post-acute phase: reinforce medication adherence, lifestyle modification, and cardiac rehab referral"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "LIFE-THREATENING PRESENTATION: Classic ACS red flags (chest pressure/heaviness, diaphoresis, dyspnea, nausea \u00d7 30 min) in 58-year-old male",
+          "Differential includes immediately fatal conditions (STEMI, PE, aortic dissection)",
+          "CRITICAL GAPS: Medication history and allergy status unknown\u2014must obtain STAT before ACS pharmacotherapy",
+          "Renal function unknown\u2014essential for anticoagulant/ACE-I dosing decisions",
+          "Risk of dual antiplatelet + NSAID interaction if patient on chronic NSAIDs\u2014must screen and discontinue",
+          "Aspirin allergy/intolerance would alter dual antiplatelet strategy\u2014confirm immediately",
+          "Hyperoxia risk if O\u2082 over-titrated\u2014target SpO\u2082 94\u201398%",
+          "Cardiogenic shock, arrhythmia, or hemodynamic collapse possible\u2014continuous monitoring mandatory"
+        ],
+        "communication_note": "This is a medical emergency requiring immediate 911 activation and hospital-level care; office-based stabilization is inappropriate and delays definitive diagnosis/intervention.",
+        "trace": {
+          "clinician_contribution": "Correctly identified acute coronary syndrome as primary threat with comprehensive differential (ACS, PE, aortic dissection, acute heart failure, pneumonia). Appropriately yielded to safety with STAT ECG, troponin, imaging, labs, and continuous monitoring. Rationale sound: classic presentation (chest pressure, diaphoresis, dyspnea, nausea \u00d7 30 min) in 58-year-old male is a medical emergency.",
+          "safety_checker_contribution": "Approved clinician proposal and reinforced emergency escalation (911). Identified critical gaps: (1) explicit documentation that emergency activation is imminent (do not delay for office workup); (2) patient should not self-drive; (3) aspirin dosing per ACS protocol should be considered pre-transport if not contraindicated. Confirmed differential prioritization and STAT workup appropriateness.",
+          "pharm_nurse_contribution": "Flagged CRITICAL medication and allergy history gaps\u2014must obtain STAT before ACS treatment decisions. Identified need for renal function (BMP/eGFR) before anticoagulant/ACE-I dosing. Outlined contraindication screening (GI bleed, bleeding, thrombocytopenia, liver disease), aspirin allergy/intolerance documentation, NSAID discontinuation, and medication timing clarification. Provided nursing actions: large-bore IV, continuous monitoring (cardiac, pulse ox, BP q5min), O\u2082 titration (94\u201398%), pain management readiness, and post-acute counseling."
+        }
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779506407.7353723
+}

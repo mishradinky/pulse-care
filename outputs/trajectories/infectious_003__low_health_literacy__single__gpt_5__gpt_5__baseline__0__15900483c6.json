@@ -1,0 +1,202 @@
+{
+  "case_id": "infectious_003",
+  "category": "infectious_disease",
+  "simulator": "low_health_literacy",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having a really hard time catching my breath, especially when I'm walking. It's been going on for like 3 weeks now."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain or discomfort along with the shortness of breath?"
+        },
+        {
+          "speaker": "patient",
+          "text": "My chest just feels kinda heavy, like there's a weight on it when I'm trying to breathe. No sharp pain or anything."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever, cough, or recent illnesses?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've been feeling kinda warm, like I got a low fever. And I've been having this dry cough for a bit. It's been hard to catch my breath, especially when I'm moving around."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any swelling in your legs or ankles?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I don't think so. My legs feel kinda normal. It's just my breathing that's been a problem."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent weight loss, night sweats, or fatigue?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have been feeling really tired like all the time, and I sweat a lot at night, but I'm not sure about losing weight. My clothes feel the same, I think."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you traveled anywhere recently or been in contact with anyone who was sick?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I ain't been nowhere special lately. Just workin' at the restaurant. Ain't heard of nobody sick there neither."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "tuberculosis",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "CBC",
+          "sputum culture",
+          "PPD test"
+        ],
+        "management_plan": [
+          "prescribe antibiotics if bacterial infection is confirmed",
+          "advise rest and hydration",
+          "follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential for respiratory distress"
+        ],
+        "communication_note": "Based on your symptoms, we need to do some tests to check for infections like pneumonia or TB. We'll get a chest X-ray and some lab tests to help us figure out the cause of your breathing issues."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having a tough time breathing, even when I'm just sitting around. It feels like my chest is tight, and I'm coughing a lot too."
+        },
+        {
+          "speaker": "clinician",
+          "text": "How long have you been experiencing these symptoms?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's been like three weeks, maybe more. My breathing's been getting worse, and I'm coughing a lot. I'm kind of scared."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever, chills, or night sweats?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I do feel kinda hot sometimes, but I dunno about chills or sweating much at night."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "chronic obstructive pulmonary disease (COPD)",
+          "pneumonia",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "spirometry",
+          "complete blood count",
+          "D-dimer"
+        ],
+        "management_plan": [
+          "prescribe bronchodilator inhaler",
+          "advise rest and hydration",
+          "follow-up in 1 week"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "worsening respiratory distress",
+          "potential for hypoxia"
+        ],
+        "communication_note": "Your symptoms suggest a respiratory issue, possibly asthma or an infection. We'll do some tests and start treatment to help you breathe easier."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't catch my breath and it's real hard to talk. Feels like I can't get enough air no matter how hard I try."
+        }
+      ],
+      "assessment": {
+        "title": "Single-agent output",
+        "action": "assess",
+        "differential_diagnosis": [
+          "asthma exacerbation",
+          "pulmonary embolism",
+          "pneumonia",
+          "anxiety attack"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "arterial blood gas",
+          "D-dimer",
+          "CBC",
+          "ECG"
+        ],
+        "management_plan": [
+          "administer supplemental oxygen",
+          "start bronchodilator therapy",
+          "consider anticoagulation if PE suspected",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of respiratory failure",
+          "potential for cardiac complications"
+        ],
+        "communication_note": "You are experiencing severe difficulty breathing, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "PCP pneumocystis pneumonia",
+      "CMV pneumonitis",
+      "bacterial pneumonia",
+      "Kaposi sarcoma"
+    ],
+    "required_workup": [
+      "CD4 VL",
+      "CXR CT chest",
+      "LDH beta-glucan",
+      "BAL bronchoscopy",
+      "sputum induction",
+      "ABG"
+    ],
+    "correct_management": [
+      "TMP-SMX 15-20mg/kg/day divided q8h x21 days",
+      "prednisone 40mg BID if pO2 <70",
+      "hold ART during acute illness then restart",
+      "PCP prophylaxis after treatment"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779636995.6784074
+}

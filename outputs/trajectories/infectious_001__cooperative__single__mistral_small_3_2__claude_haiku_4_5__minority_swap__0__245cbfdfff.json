@@ -1,0 +1,198 @@
+{
+  "case_id": "infectious_001",
+  "category": "infectious_disease",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "mistral_small_3_2",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've had a bad cough for 4 days now with yellow stuff coming up, and I've got a fever and chest pain on the right side. It really hurts when I breathe."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent contact with anyone who has had a similar illness or been diagnosed with an infection?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Not that I know of. I live alone, so I don't have much contact with others. I did have something like this about a year ago\u2014similar cough and fever\u2014but that was treated with antibiotics by my doctor."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or wheezing along with the cough and chest pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've been short of breath, especially when I move around. I don't think it's wheezing exactly, but my chest feels tight and it hurts when I breathe in, especially on the right side."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chills, sweating, or weight loss recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yeah, I've had chills and sweats, especially at night. As for weight loss, I'm not sure\u2014I haven't weighed myself recently. The fever and chills started about the same time as the cough, four days ago."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent travel or exposure to environments where you might have inhaled something irritating, like smoke or chemicals?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent travel. I smoke cigarettes though, been doing that for years. Other than that, nothing unusual with chemicals or anything like that."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "acute bronchitis",
+          "pleurisy",
+          "COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count (CBC)",
+          "blood cultures",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "prescribe antibiotics",
+          "recommend over-the-counter pain relievers for fever and discomfort",
+          "advise increased fluid intake",
+          "counsel on smoking cessation"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "potential bacterial infection",
+          "risk of complications due to smoking history"
+        ],
+        "communication_note": "Based on your symptoms and history, I suspect you may have a bacterial infection in your lungs, and I'm ordering some tests and prescribing antibiotics."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm not getting any better. In fact, I'm more confused than yesterday, even though I started those antibiotics you prescribed. I'm having trouble thinking clearly, and my cough is still really bad."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any fever, chills, or night sweats since we last spoke?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I still have the fever. I've been feeling pretty hot. I'm not sure about chills exactly, but I've been sweating a lot, especially at night. The fever was 38.9 degrees when they checked it before."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any shortness of breath or chest pain along with the cough?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I've had chest pain on my right side that hurts more when I breathe in. And my breathing has been pretty short\u2014I'm not getting enough air. It's been worse since yesterday."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pneumonia",
+          "tuberculosis",
+          "lung abscess",
+          "COPD exacerbation"
+        ],
+        "workup_ordered": [
+          "chest X-ray",
+          "complete blood count (CBC)",
+          "blood cultures",
+          "sputum culture"
+        ],
+        "management_plan": [
+          "discontinue current antibiotics and start broader-spectrum antibiotics",
+          "supplemental oxygen if hypoxemic",
+          "pulmonary consultation for further evaluation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "respiratory failure",
+          "sepsis"
+        ],
+        "communication_note": "Your symptoms have worsened, and we need to run more tests and start different antibiotics; I am sending you to the emergency department for further evaluation."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I can't breathe properly. They put a tube down my throat in the emergency room because my oxygen levels dropped too low. I'm on a breathing machine now."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "Acute Respiratory Distress Syndrome (ARDS)",
+          "Pneumonia",
+          "Pulmonary Embolism",
+          "Chronic Obstructive Pulmonary Disease (COPD) Exacerbation"
+        ],
+        "workup_ordered": [
+          "Chest X-ray",
+          "Complete Blood Count (CBC)",
+          "Basic Metabolic Panel (BMP)",
+          "Arterial Blood Gas (ABG)",
+          "D-dimer",
+          "Electrocardiogram (ECG)"
+        ],
+        "management_plan": [
+          "Continue mechanical ventilation support",
+          "Administer broad-spectrum antibiotics",
+          "Administer corticosteroids if indicated",
+          "Monitor oxygen saturation and vital signs closely",
+          "Consult with a pulmonologist for further evaluation"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "Respiratory failure",
+          "Sepsis",
+          "Cardiac complications"
+        ],
+        "communication_note": "We need to keep you in the hospital to monitor your breathing and run some tests to figure out what's causing your breathing difficulties."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "community-acquired pneumonia",
+      "bacteremic pneumococcal pneumonia",
+      "COPD exacerbation with pneumonia"
+    ],
+    "required_workup": [
+      "CXR",
+      "CBC CRP procalcitonin",
+      "blood cultures",
+      "sputum culture",
+      "ABG",
+      "urine Legionella antigen",
+      "HIV if risk factors"
+    ],
+    "correct_management": [
+      "IV beta-lactam (ceftriaxone) plus macrolide or respiratory fluoroquinolone",
+      "supplemental O2 target SpO2 88-92% in COPD",
+      "IV fluids",
+      "ICU if severe",
+      "HFNC or BiPAP before intubation"
+    ],
+    "correct_escalation": "ed_referral"
+  },
+  "ts": 1779634937.8507361
+}

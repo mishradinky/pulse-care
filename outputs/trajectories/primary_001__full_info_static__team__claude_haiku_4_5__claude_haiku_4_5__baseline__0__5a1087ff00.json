@@ -1,0 +1,189 @@
+{
+  "case_id": "primary_001",
+  "category": "primary_care",
+  "simulator": "full_info_static",
+  "agent_arch": "team",
+  "agent_model": "claude_haiku_4_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "45-year-old female with Type 2 diabetes (HbA1c 10.2%), peripheral neuropathy, and a 2-week-old painless plantar ulcer (2cm, shallow, with 1cm surrounding erythema). Elevated inflammatory markers (CRP 18, ESR 42) and normal X-ray raise concern for early/evolving infection \u00b1 occult osteomyelitis. Neuropathy masks pain, increasing risk of underreporting severity.",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer (neuropathic) with early soft tissue infection/cellulitis",
+          "Osteomyelitis (clinical suspicion remains despite negative X-ray given elevated ESR/CRP; MRI indicated)",
+          "Soft tissue infection without bone involvement"
+        ],
+        "workup_ordered": [
+          "SAME-DAY PRIORITY: Full wound inspection & documentation (size, depth, purulence, erythema extent, fluctuance, warmth)",
+          "SAME-DAY PRIORITY: Vascular assessment (ankle-brachial index) to evaluate perfusion status",
+          "SAME-DAY PRIORITY: Fever/systemic symptom screening (fever, chills, malaise, tachycardia); if ANY positive \u2192 ED referral",
+          "SAME-DAY if possible: Blood cultures (if fever/systemic signs), wound culture/swab (aerobic & anaerobic), CBC with differential, comprehensive metabolic panel",
+          "URGENT (24\u201348 hours): MRI foot if osteomyelitis remains clinically suspected",
+          "SAME-DAY: Obtain complete medication list (diabetes agents, antihypertensives, lipid-lowering, antiplatelet/anticoagulants, recent antibiotics, allergies)"
+        ],
+        "management_plan": [
+          "Wound care: Strict offloading (no weight-bearing if possible), sterile dressing changes, daily inspection protocol",
+          "Glycemic control: Intensify insulin regimen (coordinate with endocrinology); HbA1c 10.2% is suboptimal and worsens infection risk",
+          "Antibiotic selection: PENDING culture results; empiric coverage should include gram-positive (Staph aureus, MRSA if risk factors) and anaerobes if systemic toxicity present",
+          "Renal dosing: Adjust all antibiotics based on CMP/eGFR (hold metformin if eGFR <30 or if contrast MRI planned)",
+          "Specialist referral: SAME-DAY coordination with podiatry \u00b1 infectious disease \u00b1 vascular surgery (depending on vascular assessment & infection severity)",
+          "Patient education: Red-flag signs (fever, spreading erythema, purulent drainage, increased warmth) given neuropathy masking pain",
+          "Follow-up labs: Repeat CBC, CMP, inflammatory markers in 48\u201372 hours to assess treatment response"
+        ],
+        "escalation_level": "urgent_outpatient",
+        "safety_concerns": [
+          "HIGH INFECTION RISK: Diabetic foot ulcer + elevated inflammatory markers (CRP 18, ESR 42) + poor glycemic control (HbA1c 10.2%) + neuropathy masking pain = rapid progression risk",
+          "OSTEOMYELITIS NOT RULED OUT: Negative X-ray does not exclude bone infection; elevated ESR/CRP warrant urgent MRI",
+          "VASCULAR STATUS UNKNOWN: No perfusion assessment documented; poor circulation impairs antibiotic delivery and healing\u2014ABI MUST be obtained TODAY",
+          "NEUROPATHY MASKING SEVERITY: Patient may underreport worsening; clinical exam findings are critical; close monitoring essential",
+          "SYSTEMIC TOXICITY SCREENING INCOMPLETE: If fever, chills, malaise, tachycardia, or hypotension present \u2192 ED referral or same-day hospitalization for IV antibiotics",
+          "MEDICATION INTERACTIONS PENDING: No active medication list provided; fluoroquinolones carry QT/tendon rupture risk in diabetics; metformin + contrast dye requires renal function assessment",
+          "TIMING CLARITY NEEDED: Labs, cultures, and imaging must be coordinated for same-day or next-day completion; delays increase infection progression risk"
+        ],
+        "conditional_approval_with_modifications": "APPROVE clinician's differential and question content. REQUIRE before discharge: (1) complete wound exam documentation, (2) vascular assessment (ABI) today, (3) clarify same-day vs. ED referral for labs/cultures, (4) if ANY systemic symptoms \u2192 ED immediately, (5) same-day specialist referral with clear escalation pathway, (6) obtain complete medication list for pharm review.",
+        "communication_note": "This diabetic foot ulcer with elevated inflammatory markers and neuropathy-masked symptoms requires urgent same-day wound assessment, vascular evaluation, and specialist coordination; any systemic signs warrant ED referral.",
+        "trace": {
+          "clinician_contribution": "Provided focused history question (drainage, odor, fever, chills), comprehensive differential (neuropathic ulcer \u00b1 infection \u00b1 osteomyelitis), and appropriate workup (cultures, labs, imaging, vascular assessment). Rationale clearly linked poor glycemic control, neuropathy, and elevated inflammatory markers to infection risk.",
+          "safety_checker_contribution": "Identified critical gaps: missing wound inspection findings, missing vascular assessment, unclear timing/setting for labs, missing specialist coordination plan, and osteomyelitis not ruled out. Flagged neuropathy-masked symptoms as underreporting risk. Conditional approval requiring same-day wound exam, ABI, systemic symptom screening, and ED escalation if positive.",
+          "pharm_nurse_contribution": "Flagged CRITICAL missing medication list; outlined antibiotic interaction risks (fluoroquinolone QT/tendon rupture, beta-lactam cross-reactivity), renal dosing requirements (metformin hold if eGFR <30, antibiotic adjustments), and nursing priorities (infection monitoring, neuropathy education, wound care protocols, glycemic intensification, allergy verification, follow-up labs in 48\u201372 hours)."
+        }
+      }
+    },
+    {
+      "visit": 2,
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "45-year-old female with poorly controlled Type 2 diabetes (HbA1c 10.2%) presenting with rapid progression of right plantar diabetic foot ulcer from 2cm painless wound to 3.5cm purulent, malodorous ulcer with spreading cellulitis, fever (37.8\u00b0C), and systemic inflammatory response (WBC 13.2, CRP 54) over 2 weeks.",
+        "differential_diagnosis": [
+          "Diabetic foot ulcer with moderate-to-severe cellulitis (Stage 3-4) \u2014 PRIMARY",
+          "Polymicrobial soft tissue infection (gram-positive, gram-negative, anaerobic pending culture)",
+          "Early osteomyelitis (MRI negative but clinical suspicion remains; ~10% false-negative rate)",
+          "Necrotizing soft tissue infection (lower probability given MRI, but malodor and rapid progression warrant surgical bedside evaluation)"
+        ],
+        "workup_ordered": [
+          "STAT: CBC with differential, CMP (eGFR, creatinine, electrolytes, lactate), venous pH/bicarbonate",
+          "Expedite wound culture & sensitivity results (already pending)",
+          "Ankle-brachial index (ABI) and/or doppler ultrasound (vascular assessment \u2014 urgent)",
+          "Repeat imaging if clinical deterioration (CT or repeat MRI with contrast)",
+          "HbA1c optimization plan with endocrinology co-management"
+        ],
+        "management_plan": [
+          "ADMISSION: Same-day inpatient hospitalization for IV broad-spectrum antibiotics, wound care, glucose management, and vascular assessment",
+          "IV Antibiotic Regimen (empiric, pending culture & renal function): Piperacillin-tazobactam 4.5g IV q6h OR ceftriaxone + metronidazole \u00b1 vancomycin (adjust doses based on CMP results; target anaerobic, gram-positive, gram-negative coverage)",
+          "Glucose Management: HOLD metformin (lactic acidosis risk in acute infection); initiate IV insulin infusion or basal-bolus regimen; target glucose 140\u2013180 mg/dL; monitor q4\u20136h; assess for DKA",
+          "Wound Care: Daily sterile dressing changes; consider negative-pressure wound therapy (NPWT) if available; bedside surgical evaluation to rule out fascial involvement",
+          "Vascular Surgery Consultation: If ABI <0.9 or doppler shows critical limb ischemia, revascularization may be needed before infection control alone",
+          "Medication Review: Discontinue NSAIDs (contraindicated \u2014 triple whammy risk with ACE-I/ARB + acute infection); verify no beta-lactam/fluoroquinolone/vancomycin allergies; monitor ACE-I/ARB during acute phase",
+          "Fluid Management: Ensure adequate IV hydration; monitor urine output and renal function closely",
+          "Pain Management: Provide analgesia during wound care (avoid NSAIDs); consider gabapentin/pregabalin post-acute phase for neuropathic pain",
+          "Discharge Planning: Home health nursing for wound care, IV antibiotic completion (if applicable), glucose monitoring, and endocrinology follow-up within 1 week"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "BLOCKING: Systemic infection (fever + WBC 13.2 + CRP 54) with rapid clinical progression meets criteria for moderate-to-severe diabetic foot infection requiring inpatient IV antibiotic therapy; outpatient oral management is inadequate and high-risk for sepsis, amputation, or death",
+          "BLOCKING: Malodor + rapid progression create non-negligible risk for necrotizing soft tissue infection; bedside surgical evaluation required to rule out fascial involvement",
+          "BLOCKING: Vascular compromise risk in diabetic patient unknown; limb perfusion status must be assessed urgently (ABI, doppler) before antibiotic therapy alone is attempted; revascularization may be limb-saving",
+          "BLOCKING: Osteomyelitis risk remains despite negative MRI (sensitivity ~90%); clinical suspicion warrants continued vigilance and repeat imaging if deterioration occurs",
+          "Peripheral neuropathy masking pain \u2014 patient may not perceive worsening; clinical exam is sole reliable indicator of progression",
+          "Poor glycemic control (HbA1c 10.2%, glucose 310) impairing immune response and wound healing; acute infection will worsen hyperglycemia and insulin resistance",
+          "Metformin contraindicated during acute infection (lactic acidosis risk); lactate level MUST be checked before dosing decisions",
+          "Renal function unknown \u2014 critical for antibiotic dosing (aminoglycosides, vancomycin, fluoroquinolones all require adjustment); CMP STAT",
+          "Hypoglycemia risk if on sulfonylureas (glipizide) during acute illness with poor oral intake; requires insulin bridge and frequent monitoring",
+          "DKA risk given HbA1c 10.2% and acute stress; monitor for Kussmaul breathing, fruity breath, altered mental status"
+        ],
+        "communication_note": "Patient requires SAME-DAY ED referral and inpatient admission for IV antibiotics, vascular assessment, wound care, and glucose optimization; outpatient management is unsafe given systemic infection, malodor, rapid progression, and limb-threatening risk.",
+        "trace": {
+          "clinician_contribution": "Identified rapid progression from painless neuropathic ulcer to purulent, malodorous wound with spreading cellulitis and systemic signs (fever, elevated WBC/CRP); differential includes polymicrobial infection, early osteomyelitis, and necrotizing soft tissue infection; recommended urgent safety review and likely hospitalization for IV antibiotics, vascular assessment, and HbA1c optimization.",
+          "safety_checker_contribution": "Approved escalation to ED referral with BLOCKING concerns: (1) Rapid clinical progression + fever + elevated inflammatory markers indicate systemic response requiring inpatient IV antibiotics; (2) Malodor suggests anaerobic involvement; necrotizing infection cannot be excluded despite MRI; (3) Peripheral neuropathy masks pain \u2014 clinical exam is sole reliable indicator; (4) Poor glycemic control impairing immune response; (5) Osteomyelitis risk remains despite negative MRI; (6) Vascular compromise risk unknown; (7) Outpatient management insufficient for this severity \u2014 risk of sepsis, amputation, or death.",
+          "pharm_nurse_contribution": "Identified CRITICAL medication issues: (1) HbA1c 10.2% with acute infection requires urgent insulin initiation and endocrinology co-management; (2) NSAIDs contraindicated (triple whammy risk with ACE-I/ARB + infection + likely CKD); (3) Renal function MUST be assessed STAT before antibiotic dosing (eGFR, lactate); (4) Metformin HOLD during acute phase (lactic acidosis risk); (5) Empiric IV antibiotic regimen should cover polymicrobial gram-positive, gram-negative, anaerobes pending culture; (6) Vancomycin/aminoglycosides require TDM and renal dosing; (7) Sulfonylureas pose hypoglycemia risk during acute illness \u2014 insulin bridge needed; (8) Nursing concerns include admission urgency, daily wound care with sterile technique, vascular assessment, glucose monitoring q4\u20136h, fluid status monitoring, allergy verification, pain management, DKA risk assessment, medication reconciliation, and discharge planning with home health."
+        }
+      }
+    },
+    {
+      "visit": 3,
+      "assessment": {
+        "role": "coordinator",
+        "visit_summary": "45-year-old female with poorly controlled Type 2 diabetes (HbA1c 10.2%) presenting with acute progression of right plantar foot ulcer to osteomyelitis with systemic toxicity over 12 hours.",
+        "differential_diagnosis": [
+          "Diabetic foot osteomyelitis with cellulitis (PRIMARY\u2014MRI-confirmed, bone probe-positive)",
+          "Polymicrobial soft tissue infection with bone involvement (S. aureus, Streptococcus, Gram-negatives, anaerobes)",
+          "Sepsis secondary to foot infection (fever 38.9\u00b0C, tachycardia, tachypnea, elevated inflammatory markers)"
+        ],
+        "workup_ordered": [
+          "Blood cultures (CRITICAL\u2014already pending; draw BEFORE first antibiotic dose)",
+          "MRI foot (COMPLETED\u2014confirms osteomyelitis at 1st metatarsal with cortical disruption)",
+          "CBC with differential, CMP, lactate (COMPLETED\u2014WBC 18.4, CRP 122, ESR 88, lactate 1.8)",
+          "Wound culture and bone biopsy (if surgical debridement pursued)",
+          "Vascular exam/ABI (before surgical planning if revascularization concern exists)",
+          "Complete medication reconciliation and allergy history (URGENT\u2014not yet obtained)"
+        ],
+        "management_plan": [
+          "EMERGENCY ADMISSION: Activate 911/ED pathway for immediate hospitalization",
+          "IV ACCESS: Establish central line for prolonged IV therapy; draw blood cultures BEFORE antibiotics",
+          "EMPIRIC IV ANTIBIOTICS (pending culture/sensitivity): Broad-spectrum coverage for polymicrobial foot flora\u2014recommend piperacillin-tazobactam, carbapenem, or fluoroquinolone + clindamycin; tailor post-culture; typical duration 4\u20136 weeks",
+          "ALLERGY/INTERACTION SCREENING: Obtain complete home medication list and allergy history immediately (metformin, glipizide, unknown others); assess for PCN/cephalosporin/fluoroquinolone/clindamycin allergies; verify renal function before dose adjustment",
+          "SURGICAL CONSULTATION: Notify orthopedics/podiatry \u00b1 infectious disease for same-day or next-morning debridement evaluation",
+          "GLYCEMIC CONTROL: Monitor fingerstick glucose q6h (target 140\u2013180 mg/dL in acute phase); adjust diabetes medications during acute illness and NPO status if surgery planned; hold metformin if eGFR <30 or lactate elevated",
+          "VITAL SIGNS MONITORING: Continuous pulse ox, BP, temperature q4h; escalate if HR >110, RR >24, SBP <90, or altered mental status",
+          "INFECTION CONTROL: Strict wound care, sterile dressing changes, contact precautions if MRSA suspected; isolate pending culture results",
+          "FLUID/NUTRITION: Assess hydration; IV fluids if septic; NPO if surgery imminent; resume oral intake post-op with nutritional support (protein, micronutrients) for wound healing",
+          "PAIN MANAGEMENT: Avoid NSAIDs; use acetaminophen or opioids with caution; reassess after culture results",
+          "DISCHARGE PLANNING: Coordinate with ID and surgery for transition to oral step-down (if appropriate) and outpatient diabetic foot care follow-up (high recurrence risk)"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "CRITICAL: Acute osteomyelitis with systemic inflammatory response (fever 38.9\u00b0C, HR 102, RR 20, WBC 18.4, CRP 122, ESR 88)",
+          "Bone probe-positive ulcer with MRI-confirmed osteomyelitis at weight-bearing 1st metatarsal\u2014high amputation risk if not urgently treated",
+          "Polymicrobial infection with rapid progression to sepsis/septic shock within 12 hours",
+          "Diabetic patient with impaired healing and immune response\u2014outpatient management contraindicated",
+          "MEDICATION SAFETY: No home medication list or allergy history obtained\u2014risk of drug interactions, duplicate therapy, and adverse reactions before IV antibiotic initiation",
+          "RENAL FUNCTION: CMP pending; metformin contraindicated if eGFR <30 or lactate elevated (sepsis risk)",
+          "SURGICAL PLANNING: Vascular status must be confirmed before debridement to assess revascularization need"
+        ],
+        "communication_note": "All three roles unanimously endorse emergency 911 escalation for immediate hospitalization, IV antibiotics, and surgical consultation; clinician demonstrates appropriate safety judgment; pharm/nurse flags critical gaps in medication reconciliation and allergy screening that must be completed before antibiotic initiation.",
+        "trace": {
+          "clinician_contribution": "Correctly identified surgical emergency (osteomyelitis + systemic toxicity + bone probe positivity) and yielded to safety team; provided comprehensive differential diagnosis and appropriate workup (blood cultures, MRI, labs); recommended immediate hospitalization, IV antibiotics, and surgical/ID consultation.",
+          "safety_checker_contribution": "Validated clinical urgency as CRITICAL; confirmed all red flags (fever, tachycardia, tachypnea, elevated inflammatory markers, bone probe positivity, MRI confirmation, high amputation/sepsis risk); approved emergency 911 escalation and specified coordination requirements (ED/ICU activation, pre-alert to ID/surgery, vascular assessment, post-discharge follow-up).",
+          "pharm_nurse_contribution": "Identified CRITICAL medication safety gaps (no home med list, allergy history unknown); specified empiric antibiotic options (piperacillin-tazobactam, carbapenems, fluoroquinolone + clindamycin) pending culture; flagged renal function and metformin contraindications; outlined nursing priorities (IV access, blood cultures before antibiotics, vital signs monitoring q4h, glucose monitoring q6h, infection control, fluid/nutrition, pain management, medication reconciliation before discharge, 4\u20136 week IV antibiotic duration)."
+        },
+        "coordinator_action_items": [
+          "1. ACTIVATE EMERGENCY ADMISSION: Call 911 or direct ED admission; notify receiving hospital of osteomyelitis diagnosis and pending blood cultures.",
+          "2. PRE-ALERT SURGICAL/ID TEAMS: Ensure orthopedics/podiatry and infectious disease are notified for same-day or next-morning intervention.",
+          "3. OBTAIN MEDICATION RECONCILIATION: Secure complete home medication list and allergy history from patient/family BEFORE hospital arrival or immediately upon admission.",
+          "4. CONFIRM VASCULAR STATUS: Ensure ABI/duplex is ordered before surgical planning.",
+          "5. COORDINATE POST-DISCHARGE CARE: Arrange diabetic foot care follow-up and ID/surgery outpatient appointments; plan for 4\u20136 week IV antibiotic course and oral step-down transition.",
+          "6. DOCUMENT ESCALATION: Record emergency 911 referral, clinical rationale, and all role contributions in EHR for continuity of care."
+        ]
+      }
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "diabetic foot ulcer with cellulitis",
+      "osteomyelitis",
+      "necrotizing fasciitis"
+    ],
+    "required_workup": [
+      "wound culture",
+      "CBC CRP ESR",
+      "X-ray foot",
+      "MRI if osteomyelitis suspected",
+      "HbA1c",
+      "blood cultures if febrile"
+    ],
+    "correct_management": [
+      "wound debridement",
+      "systemic antibiotics (piperacillin-tazobactam or ertapenem)",
+      "glycemic optimization",
+      "vascular surgery and ortho referral",
+      "offloading"
+    ],
+    "correct_escalation": "urgent_outpatient"
+  },
+  "ts": 1779602217.2712488
+}

@@ -1,0 +1,189 @@
+{
+  "case_id": "cardio_001",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "gpt_5",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having this chest pressure for the past two days. It comes and goes, but it's worse when I exert myself. It's also been radiating to my left arm sometimes."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any shortness of breath, nausea, or sweating with the chest pressure?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I did have one episode of sweating when I felt the chest pressure."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any previous history of heart disease or any other medical conditions?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I have hypertension and I've been taking lisinopril for it. I don't have any other known heart disease myself, but my father had a heart attack at 55."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in your physical activity tolerance or any new symptoms like dizziness or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Well, I've noticed the chest pressure gets worse when I'm exerting myself, like when I'm walking up stairs. I haven't really noticed dizziness or palpitations, though. It's mostly the chest pressure that's concerning me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you taken anything to relieve the chest pressure, like nitroglycerin or any other medication, and did it help?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I haven't taken anything like nitroglycerin. I'm only on lisinopril for my blood pressure. I wasn't sure if I should take anything else."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the intensity of the chest pressure on a scale from 1 to 10, with 10 being the worst pain imaginable?"
+        },
+        {
+          "speaker": "patient",
+          "text": "I'd say it's about a 6 or 7 when I'm exerting myself. It's a bit uncomfortable."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "acute coronary syndrome"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "start on beta-blocker",
+          "consider nitroglycerin if not contraindicated"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for myocardial infarction"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so we need to get you to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I've been having some chest pressure that's come back, along with a bit of shortness of breath. It happened again last night and lasted about 15 minutes. I'm feeling anxious about it."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the chest pressure in more detail? Is it sharp, dull, squeezing, or burning?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The chest pressure feels more like a squeezing sensation. It comes and goes, and it seems to get worse when I'm exerting myself."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any other symptoms like nausea, sweating, or pain radiating to your arm or jaw during these episodes?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, during one of the episodes, I did have some sweating, and the chest pressure seemed to radiate to my left arm."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "stress test"
+        ],
+        "management_plan": [
+          "start aspirin therapy",
+          "consider beta-blocker",
+          "advise lifestyle modifications"
+        ],
+        "escalation_level": "ed_referral",
+        "safety_concerns": [
+          "potential for acute coronary syndrome"
+        ],
+        "communication_note": "Your symptoms suggest a possible heart issue, so I recommend going to the emergency department for further evaluation and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm having this crushing chest pain that's been going on for about 30 minutes now. It's really worrying me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "unstable angina",
+          "myocardial infarction"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray"
+        ],
+        "management_plan": [
+          "administer aspirin",
+          "administer nitroglycerin",
+          "oxygen therapy if needed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for myocardial infarction",
+          "risk of cardiac arrest"
+        ],
+        "communication_note": "You are experiencing severe chest pain, which could be a heart attack. We need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "unstable angina",
+      "NSTEMI",
+      "STEMI",
+      "aortic dissection"
+    ],
+    "required_workup": [
+      "ECG",
+      "high-sensitivity troponin",
+      "CXR",
+      "BMP",
+      "CBC"
+    ],
+    "correct_management": [
+      "aspirin 325mg chewed",
+      "sublingual NTG if SBP>90",
+      "cardiology activation",
+      "cath lab at visit 3"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779633265.587327
+}

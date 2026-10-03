@@ -1,0 +1,184 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_sonnet_4_6",
+  "demographic_variant": "baseline",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, I've been having this sharp pain on the right side of my chest and I'm really struggling to breathe. It came on suddenly after I got off a long flight from Tokyo about five days ago. I'm pretty worried \u2014 it hurts more when I take a deep breath."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs recently?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, actually. My right leg has been a bit swollen and tender, especially in the lower part \u2014 the calf area. I noticed it after the flight. It's not terrible, but it's definitely more swollen than my left leg."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent fever, cough, or palpitations?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No fever that I know of, and no cough. But now that you mention it, my heart has been feeling like it's racing a bit since this all started. That's been a little unsettling."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you ever had any previous episodes of similar symptoms or any history of blood clots?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I've never had anything like this before. No history of blood clots that I know of, and I've never had chest pain or shortness of breath like this in the past."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of recent surgery, trauma, or prolonged immobilization?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No recent surgery or injuries. But I just got back from a long flight \u2014 Tokyo to here, about 12 hours. I was pretty much sitting the whole time, barely got up at all. That was about 5 days ago."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the lower extremities"
+        ],
+        "management_plan": [
+          "Administer oxygen if needed",
+          "Start anticoagulation therapy if PE is confirmed"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of pulmonary embolism due to recent long flight and leg swelling"
+        ],
+        "communication_note": "Your symptoms and recent travel history suggest a possible blood clot in the lungs, which is serious. We need to get you to the emergency department immediately for further testing and treatment."
+      }
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Hi, I'm glad you're here. My breathing has gotten a lot worse \u2014 even just sitting still I feel short of breath. And my right leg is more painful than when I came in last time. I'm pretty worried about both of those things."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Can you describe the pain in your right leg? Is it constant, or does it come and go?"
+        },
+        {
+          "speaker": "patient",
+          "text": "It's pretty much constant now. It started as a dull ache a few days ago, but today it's more of a throbbing, burning pain, especially in my calf. It doesn't really let up \u2014 it's just there all the time. It's also gotten noticeably more swollen and feels warm to the touch compared to yesterday."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you noticed any changes in the color of your leg or any visible veins?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right calf looks redder than before, and it feels warm to the touch. It's more swollen and painful than when I first came in. I haven't really noticed any unusual veins sticking out, though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "deep vein thrombosis",
+          "pulmonary embolism"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "ultrasound of the right leg",
+          "CT pulmonary angiography"
+        ],
+        "management_plan": [
+          "start anticoagulation therapy",
+          "elevate the affected leg",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "risk of pulmonary embolism",
+          "risk of further clot propagation"
+        ],
+        "communication_note": "Your symptoms suggest a possible blood clot in your leg and lungs, which is serious. We need to get you to the emergency room immediately for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I feel like I'm about to pass out, and I can barely breathe. It's gotten so much worse in the last hour \u2014 I'm really scared. Please help me."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "aortic dissection"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "CT angiography"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start IV access",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of respiratory failure"
+        ],
+        "communication_note": "You are experiencing severe symptoms that could be life-threatening, and we need to get you to the emergency room immediately for further evaluation and treatment."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779637231.7742684
+}

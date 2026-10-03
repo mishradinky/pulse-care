@@ -1,0 +1,193 @@
+{
+  "case_id": "cardio_005",
+  "category": "cardiology",
+  "simulator": "cooperative",
+  "agent_arch": "single",
+  "agent_model": "gpt_5",
+  "sim_backbone": "claude_haiku_4_5",
+  "demographic_variant": "minority_swap",
+  "seed_offset": 0,
+  "transcript": [
+    {
+      "visit": 1,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I came in because I got back from a long flight to Tokyo five days ago, and since then I've had this sudden sharp pain on the right side of my chest. It really hurts when I breathe, and I'm also short of breath. It started pretty suddenly."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any swelling or pain in your legs?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, my right leg is swollen and a bit tender, especially in the calf area. My left leg looks normal. It started around the same time as the chest pain, or maybe I just noticed it then."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any recent trauma or injury to your leg or chest?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No trauma or injury that I can think of. My right leg is a bit swollen and tender, but I didn't injure it. The chest pain just came on suddenly yesterday after I got back from my flight."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you had any recent surgeries or been immobilized for a long period of time?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No surgeries recently. But I just got back from a 12-hour flight from Tokyo five days ago. I was sitting the whole time without much movement."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any history of blood clots or clotting disorders?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I don't have any history of blood clots or clotting problems that I know of. No one's ever mentioned anything like that to me."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Do you have any other medical conditions or take any medications regularly?"
+        },
+        {
+          "speaker": "patient",
+          "text": "No, I don't have any other medical conditions that I know of, and I'm not taking any regular medications. I've been pretty healthy overall until this happened."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis",
+          "pneumothorax"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Administer anticoagulation therapy if PE is confirmed",
+          "Provide supplemental oxygen if needed",
+          "Monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of worsening pulmonary embolism",
+          "Potential for respiratory distress"
+        ],
+        "communication_note": "Your symptoms and recent travel history suggest a possible blood clot in your lung, which is serious. We need to get you to the emergency room immediately for further testing and treatment."
+      },
+      "forced": true
+    },
+    {
+      "visit": 2,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "Doctor, I'm having a lot more trouble breathing now, even when I'm just sitting down. And my right leg is really hurting me more than it was before. I'm pretty worried about what's going on."
+        },
+        {
+          "speaker": "clinician",
+          "text": "When did you first notice the increased difficulty in breathing and the worsening leg pain?"
+        },
+        {
+          "speaker": "patient",
+          "text": "The breathing got worse starting yesterday\u2014I can barely catch my breath even when I'm just sitting down. And my right leg has been hurting more too, especially the calf. It started swelling a few days ago after that long flight, but now it's really painful."
+        },
+        {
+          "speaker": "clinician",
+          "text": "Have you experienced any chest pain, palpitations, or dizziness?"
+        },
+        {
+          "speaker": "patient",
+          "text": "Yes, I had that sharp chest pain on the right side when I breathe in\u2014it started suddenly about 5 days ago after my flight. I haven't noticed my heart racing or anything like that, but I'm definitely short of breath, especially now even when I'm sitting still. No dizziness though."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "pulmonary embolism",
+          "deep vein thrombosis"
+        ],
+        "workup_ordered": [
+          "D-dimer",
+          "CT pulmonary angiography",
+          "Doppler ultrasound of the right leg"
+        ],
+        "management_plan": [
+          "Anticoagulation therapy initiation",
+          "Pain management for leg pain"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "Risk of life-threatening pulmonary embolism"
+        ],
+        "communication_note": "Your symptoms suggest a serious condition that requires immediate attention, so I'm calling for emergency services to get you to the hospital right away."
+      },
+      "forced": true
+    },
+    {
+      "visit": 3,
+      "dialogue": [
+        {
+          "speaker": "patient",
+          "text": "I'm having a really hard time breathing right now, and I almost passed out a few minutes ago. I'm getting very dizzy and my chest feels tight."
+        }
+      ],
+      "assessment": {
+        "action": "assess",
+        "differential_diagnosis": [
+          "acute coronary syndrome",
+          "pulmonary embolism",
+          "aortic dissection"
+        ],
+        "workup_ordered": [
+          "ECG",
+          "troponin levels",
+          "chest X-ray",
+          "CT angiography"
+        ],
+        "management_plan": [
+          "administer oxygen",
+          "start IV access",
+          "monitor vital signs closely"
+        ],
+        "escalation_level": "emergency_911",
+        "safety_concerns": [
+          "potential for cardiac arrest",
+          "risk of severe hypoxia"
+        ],
+        "communication_note": "You are experiencing severe symptoms that require immediate medical attention, and we need to get you to the emergency room right away."
+      },
+      "forced": true
+    }
+  ],
+  "ground_truth": {
+    "correct_differential": [
+      "pulmonary embolism",
+      "massive PE",
+      "DVT with PE",
+      "pneumothorax"
+    ],
+    "required_workup": [
+      "CTPA",
+      "lower extremity Doppler",
+      "ECG",
+      "troponin",
+      "BNP",
+      "echo",
+      "ABG"
+    ],
+    "correct_management": [
+      "anticoagulation with heparin immediately",
+      "systemic thrombolysis or catheter-directed if massive",
+      "supportive O2",
+      "ICU monitoring"
+    ],
+    "correct_escalation": "emergency_911"
+  },
+  "ts": 1779634591.4229965
+}
